@@ -1,8 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -19,7 +16,33 @@
   </head>
   <body ng-app="wcagReporterApp">
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    
+    <div class="container">
+      <header class=""><ul class="nav nav-tabs">
+          <li class=""><a href="#/audit/start">
+            <span class="glyphicon glyphicon-ok"></span>
+            Start</a></li>
+          <li class="active"><a href="#/audit/explore">
+            <span class="glyphicon"></span>
+            Explore</a></li>
+          <li class="disabled"><a href="#/audit/sample">
+            <span class="glyphicon"></span>
+            Sample</a></li>
+          <li class="disabled"><a href="#/audit/test">
+            <span class="glyphicon"></span>
+            Test</a></li>
+      </ul></header>
+    
+      <div ng-view></div>
+      
+      <footer><ul class="nav nav-pills">
+        <li class="disabled"><a href="#">
+          <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
+        <li class="pull-right"><a href="#">
+          Next step <span class="glyphicon glyphicon-chevron-right"></span>
+          </a></li>
+      </ul></footer>
+    </div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -39,6 +62,11 @@
 	<!-- build:js({.tmp,app}) scripts/scripts.js -->
 	<script src="scripts/app.js"></script>
 	<script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/report.js"></script>
+  <script src="scripts/controllers/audit/start.js"></script>
+  <script src="scripts/controllers/audit/explore.js"></script>
+  <script src="scripts/controllers/audit/sample.js"></script>
+  <script src="scripts/controllers/audit/test.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

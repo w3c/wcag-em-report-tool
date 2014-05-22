@@ -8,11 +8,27 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/report', {
+        templateUrl: 'views/report.html',
+        controller: 'ReportCtrl'
+      })
+      .when('/audit/start', {
+        templateUrl: 'views/audit/start.html',
+        controller: 'AuditStartCtrl'
+      })
+      .when('/audit/explore', {
+        templateUrl: 'views/audit/explore.html',
+        controller: 'AuditExploreCtrl'
+      })
+      .when('/audit/sample', {
+        templateUrl: 'views/audit/sample.html',
+        controller: 'AuditSampleCtrl'
+      })
+      .when('/audit/test', {
+        templateUrl: 'views/audit/test.html',
+        controller: 'AuditTestCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/audit/start'
       });
   });
