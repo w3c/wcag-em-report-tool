@@ -1,18 +1,10 @@
-/* bower:scss */
-@import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
-/* endbower */
+h1 { font-size:1.4em }
+h2 { font-size:1.3em }
+h3 { font-size:1.2em }
+h4 { font-size:1.1em }
 
-/* bower:scss */
-@import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
-/* endbower */
-
-h1 { font-size:1.8em }
-h2 { font-size:1.6em }
-h3 { font-size:1.4em }
-h4 { font-size:1.2em }
-
-.offscreen {
-    position:absolute;
+.offscreen 
+{    position:absolute;
     top:-9999em;
 }
 
@@ -28,3 +20,12 @@ table {
         width:100%;
     }
 }
+
+
+/* bower:scss */
+@import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
+/* endbower */
+
+/* bower:scss */
+@import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
+/* endbower */
