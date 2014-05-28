@@ -1,7 +1,117 @@
 <ng-include src="'views/step-bar.html'"></ng-include>
 
 <h1>Define a sample</h1>
-<p>This is the audit/sample view.</p>
+<p>During this step the evaluator selects a sample of web pages and web page states that is representative of the target website to be evaluated. The purpose of this selection is to ensure that the evaluation results reflect the accessibility performance of the website with reasonable confidence. In cases where it is feasible to evaluate all web pages, this sampling procedure can be skipped and the selected sample is considered to be the entire website in the remaining steps of the conformance evaluation procedure.</p>
+
+
+<form class="">
+	<h2 class="row">
+		<span class="col-sm-6">Representative page URL</span>
+		<span class="sr-only">and</span>
+		<span class="col-sm-6">Tags for the page</span>
+	</h2>
+
+	<ul class="sample row">
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text" 
+					value="http://www.w3.org/"
+					placeholder="URL (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					value="Homepage, main-template"
+					placeholder="No tags">
+			</span>
+		</li>
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text" 
+					value="http://www.w3.org/WAI"
+					placeholder="URL (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					value=""
+					placeholder="No tags">
+			</span>
+		</li>
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					placeholder="URL  (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					placeholder="No tags">
+			</span>
+		</li>
+	</ul>
+	<div class="alert alert-warning"><p>
+		Please add pages from the subdomain http://mysub.w3.org/
+	</p></div>
+
+
+	<h2 class="row">
+		<span class="col-sm-6">Random page URL</span>
+		<span class="sr-only">and</span>
+		<span class="col-sm-6">Tags for the page</span>
+	</h2>
+
+	<ul class="sample row">
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text" 
+					value="http://www.w3.org/"
+					placeholder="URL (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					value="Homepage, main-template"
+					placeholder="No tags">
+			</span>
+		</li>
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text" 
+					value="http://www.w3.org/WAI"
+					placeholder="URL (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					value=""
+					placeholder="No tags">
+			</span>
+		</li>
+		<li>
+			<label class="sr-only">URLs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					placeholder="URL  (required)">
+			</span>
+			<label class="sr-only">Tabs</label>
+			<span class="col-sm-6">
+				<input class="form-control" type="text"
+					placeholder="No tags">
+			</span>
+		</li>
+	</ul>
+	<div class="alert alert-warning"><p>
+		10 more pages remaining
+	</p></div>
+</form>
+
+
 
 <footer><ul class="nav nav-pills">
   <li><a href="#/audit/explore">
