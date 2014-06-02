@@ -3,7 +3,7 @@
 describe('Controller: AuditStartCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('wcagReporterApp'));
+  beforeEach(module('wcagReporter'));
 
   var AuditStartCtrl,
     scope;
@@ -16,7 +16,7 @@ describe('Controller: AuditStartCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
+  // it('should attach a list of awesomeThings to the scope', function () {
+  //   expect(scope.awesomeThings.length).toBe(3);
+  // });
 });

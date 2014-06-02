@@ -1,10 +1,6 @@
 'use strict';
 
-angular.module('wcagReporterApp')
+angular.module('wcagReporter')
   .controller('ReportCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
   });

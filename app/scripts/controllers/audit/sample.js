@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('wcagReporterApp')
-  .controller('AuditSampleCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('wcagReporter')
+.controller('AuditSampleCtrl', function ($scope, appState) {
+	var stateIndex = 3;
+  	$scope.state = appState;
+  	if (appState.currentStateIndex < stateIndex) {
+  		appState.currentStateIndex = stateIndex;
+  	}
+
+});

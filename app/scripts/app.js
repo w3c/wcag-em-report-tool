@@ -1,23 +1,20 @@
 'use strict';
 
 angular
-  .module('wcagReporterApp', [
+  .module('wcagReporter', [
     'ngResource',
     'ngSanitize',
     'ngRoute'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/start', {
-        templateUrl: 'views/start.html'
-      })
-      .when('/report', {
-        templateUrl: 'views/report.html',
-        controller: 'ReportCtrl'
+      .when('/audit/start', {
+        templateUrl: 'views/audit/start.html',
+        controller: 'AuditStartCtrl'
       })
       .when('/audit/scope', {
         templateUrl: 'views/audit/scope.html',
-        controller: 'AuditStartCtrl'
+        controller: 'AuditScopeCtrl'
       })
       .when('/audit/explore', {
         templateUrl: 'views/audit/explore.html',
@@ -31,7 +28,11 @@ angular
         templateUrl: 'views/audit/test.html',
         controller: 'AuditTestCtrl'
       })
+      .when('/report', {
+        templateUrl: 'views/report.html',
+        controller: 'ReportCtrl'
+      })
       .otherwise({
-        redirectTo: '/start'
+        redirectTo: '/audit/start'
       });
   });

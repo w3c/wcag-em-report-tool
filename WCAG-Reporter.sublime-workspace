@@ -8,25 +8,35 @@
 	"buffers":
 	[
 		{
-			"contents": "<ng-include src=\"'views/step-bar.html'\"></ng-include>\n\n<h1>Explore the website</h1>\n\n<p>During this step the evaluator explores the target website to be evaluated, to develop an initial understanding of the website and its use, purpose, and functionality. Much of this will not be immediately apparent to evaluators, in particular to those from outside the development team. In some cases it is also not possible to exhaustively identify and list all functionality, types of web pages, and technologies used to realize the website and its applications. The initial exploration carried out in this step is typically refined in the later steps <a class=\"termref\" href=\"#step3\">Step 3: Select a Representative Sample</a> and <a class=\"termref\" href=\"#step4\">Step 4: Audit the Selected Sample</a>, as the evaluator learns more about the target website. Involvement of website owners and website developers can help evaluators make their explorations more effective.</p>\n\n<p>Add pages to the text fields below while exploring the website:</p>\n<form class=\"form-inline\">\n	<ul>\n		<li>\n			<input class=\"form-control\" type=\"text\" placeholder=\"URL\">\n			<input class=\"form-control\" type=\"text\" placeholder=\"Tags\">\n		</li>\n	</ul>\n</form>\n\n<ul class=\"nav nav-pills\">\n  <li class=\"\"><a href=\"#/audit/start\">\n    <span class=\"glyphicon glyphicon-chevron-left\"></span> Previous step</a></li>\n  <li class=\"pull-right\"><a href=\"#/audit/sample\">\n    Next step <span class=\"glyphicon glyphicon-chevron-right\"></span>\n    </a></li>\n</ul>",
-			"file": "app/views/audit/explore.html",
-			"file_size": 1925,
-			"file_write_time": 130457411621464348,
+			"file": "app/styles/main.scss",
 			"settings":
 			{
-				"buffer_size": 1516,
+				"buffer_size": 774,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "h1 { font-size:1.4em }\nh2 { font-size:1.3em }\nh3 { font-size:1.2em }\nh4 { font-size:1.1em }\n\np a {\n    text-decoration:underline;\n}\n\n.offscreen \n{    position:absolute;\n    top:-9999em;\n}\n\ntable {\n    width:100%;\n    border-collapse:collapse;\n    \n    th { text-align:center }\n    td, th {\n        border:solid 1px gray;\n    }\n    input[type=text] {\n        width:100%;\n    }\n}\n\n.sample li {\n    padding:0;\n    margin:0;\n    list-style:none;\n\n}\n\n\n/* bower:scss */\n@import \"../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss\";\n/* endbower */\n\n/* bower:scss */\n@import \"../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss\";\n/* endbower */",
-			"file": "app/styles/main.scss",
-			"file_size": 656,
-			"file_write_time": 130457407399134109,
+			"file": "app/views/audit/test.html",
 			"settings":
 			{
-				"buffer_size": 685,
+				"buffer_size": 2413,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/audit/test/sample-pages.html",
+			"settings":
+			{
+				"buffer_size": 984,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/audit/test/criteria.html",
+			"settings":
+			{
+				"buffer_size": 3083,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -57,11 +67,13 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/test.html",
+		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/test/sample-pages.html",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/sample.html",
+		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/explore.html",
+		"/C/Users/Accessibility/AppData/Roaming/Sublime Text 3/Packages/User/HTML.sublime-settings",
+		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/test.html",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/start.html",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/scope.html",
-		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/audit/explore.html",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/styles/main.scss",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/styles/wai.css",
 		"/C/Users/Accessibility/Dropbox (Accessibility)/Shared/Projecten/WAI-ACT/Interactive guide/WCAG-Reporter/app/views/step-bar.html",
@@ -85,6 +97,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"131",
+			"131-b",
+			"control",
 			"input",
 			"/\">\n",
 			"h1",
@@ -110,52 +125,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/audit/explore.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1516,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1217,
-								1217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "app/styles/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 685,
+						"buffer_size": 774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								383,
-								383
+								428,
+								434
 							]
 						],
 						"settings":
@@ -165,10 +152,103 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/audit/test.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2072,
+								2072
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/audit/test/sample-pages.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 984,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								267,
+								267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/audit/test/criteria.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2719,
+								2719
+							],
+							[
+								2828,
+								2828
+							],
+							[
+								2929,
+								2929
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 883.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

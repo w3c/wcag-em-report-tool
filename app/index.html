@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="wcagReporterApp">
+  <body ng-app="wcagReporter">
     <!-- Add your site or application content here -->
     
     <div class="container">
@@ -38,12 +38,13 @@
 
 	<!-- build:js({.tmp,app}) scripts/scripts.js -->
 	<script src="scripts/app.js"></script>
-	<script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/report.js"></script>
+  <script src="scripts/models/AppState.js"></script>
   <script src="scripts/controllers/audit/start.js"></script>
+  <script src="scripts/controllers/audit/scope.js"></script>
   <script src="scripts/controllers/audit/explore.js"></script>
   <script src="scripts/controllers/audit/sample.js"></script>
   <script src="scripts/controllers/audit/test.js"></script>
+	<script src="scripts/controllers/report.js"></script>
 	<!-- endbuild -->
 </body>
 </html>
