@@ -1,0 +1,27 @@
+<div ng-include src="'views/navigation.html'"></div>
+<div ng-include src="'views/audit/stepbar.html'"></div>
+
+<h1>Finalize the report</h1>
+
+<form class="">
+	<label for="summary">Summary</label>
+	<textarea name="summary" id="summary" cols="30" rows="10" class="form-control"></textarea>
+</form>
+
+<p>-</p>
+<p>-</p>
+<p>((Findings go here))</p>
+<p>-</p>
+<p>-</p>
+
+<h2>Download</h2>
+<ul>
+	<li><a href="#/report" target="_blanc">Open the report (HTML)</a></li>
+	<li><a href="#/report" target="_blanc">Download the report (HTML)</a></li>
+	<li><a href="#/export" target="_blanc">Dowlnload the data (JSON)</a></li>
+</ul>
+
+<ul class="nav nav-pills">
+  <li><a href="#/audit/test">
+    <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
+</ul>

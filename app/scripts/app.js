@@ -12,7 +12,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/start.html',
-        controller: 'AuditStartCtrl'
+        controller: 'StartCtrl'
       })
       .when('/audit/scope', {
         templateUrl: 'views/audit/scope.html',
@@ -45,6 +45,10 @@ angular
       .when('/export', {
         templateUrl: 'views/export.html',
         controller: 'ExportCtrl'
+      })
+      .when('/audit/finalize', {
+        templateUrl: 'views/audit/finalize.html',
+        controller: 'AuditFinalizeCtrl'
       })
       .otherwise({
         redirectTo: '/'
