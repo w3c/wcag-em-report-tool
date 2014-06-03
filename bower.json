@@ -1,6 +1,6 @@
 {
   "name": "wcag-reporter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "angular": "1.2.15",
     "json3": "~3.2.6",
@@ -8,7 +8,8 @@
     "angular-resource": "1.2.15",
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
-    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#v3.1.0"
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#v3.1.0",
+    "jQuery": "2.1.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

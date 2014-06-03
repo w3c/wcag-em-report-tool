@@ -1,4 +1,5 @@
-<ng-include src="'views/step-bar.html'"></ng-include>
+<div ng-include src="'views/navigation.html'"></div>
+<div ng-include src="'views/audit/stepbar.html'"></div>
 
 <h1>Step 1: Define the Evaluation Scope</h1>
 
@@ -63,9 +64,7 @@
 </form>
 
 <ul class="nav nav-pills">
-  <li class="disabled"><a>
-    <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
-  <li class="pull-right"><a href="#/audit/explore">
+  <li class="pull-right active"><a href="#/audit/explore">
     Next step <span class="glyphicon glyphicon-chevron-right"></span>
     </a></li>
 </ul>

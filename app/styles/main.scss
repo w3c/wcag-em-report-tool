@@ -6,6 +6,9 @@ h4 { font-size:1.1em !important; }
 p a {
     text-decoration:underline;
 }
+.disable {
+    cursor: default !important;
+}
 
 .offscreen 
 {    position:absolute;
@@ -34,6 +37,10 @@ table {
     }
 }
 
+/* Need to fix this for keyboard */
+.dropdown:hover ul {
+    display:block;
+}
 
 /* bower:scss */
 @import "../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";

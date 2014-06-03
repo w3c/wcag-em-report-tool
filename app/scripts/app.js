@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular
   .module('wcagReporter', [
     'ngResource',
@@ -8,8 +10,8 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/audit/start', {
-        templateUrl: 'views/audit/start.html',
+      .when('/', {
+        templateUrl: 'views/start.html',
         controller: 'AuditStartCtrl'
       })
       .when('/audit/scope', {
@@ -32,7 +34,19 @@ angular
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
       })
+      .when('/help', {
+        templateUrl: 'views/help.html',
+        controller: 'HelpCtrl'
+      })
+      .when('/import', {
+        templateUrl: 'views/import.html',
+        controller: 'ImportCtrl'
+      })
+      .when('/export', {
+        templateUrl: 'views/export.html',
+        controller: 'ExportCtrl'
+      })
       .otherwise({
-        redirectTo: '/audit/start'
+        redirectTo: '/'
       });
   });

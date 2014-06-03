@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: ReportCtrl', function () {
+describe('Controller: ImportCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('wcagReporter'));
+  beforeEach(module('wcagReporterApp'));
 
-  var ReportCtrl,
+  var ImportCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ReportCtrl = $controller('ReportCtrl', {
+    ImportCtrl = $controller('ImportCtrl', {
       $scope: scope
     });
   }));

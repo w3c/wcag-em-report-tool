@@ -2,6 +2,6 @@
 
 angular.module('wcagReporter')
 .controller('AuditStartCtrl', function ($scope, appState) {
-  	$scope.state = appState;
-
+  	$scope.state = appState.moveToState('start');
+  	
 });
