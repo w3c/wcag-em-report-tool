@@ -16,12 +16,16 @@ p a {
 }
 
 table {
-    width:100%;
     border-collapse:collapse;
+    margin:0 auto;
+    min-width:65%;
     
-    th { text-align:center }
+    thead th { text-align:center }
+    tbody th { text-align:left } 
+
     td, th {
-        border:solid 1px gray;
+        border:solid 1px #dddddd;
+        padding: .2em .5em;
     }
     input[type=text] {
         width:100%;
