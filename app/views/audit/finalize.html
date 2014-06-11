@@ -8,18 +8,14 @@
 	<textarea name="summary" id="summary" cols="30" rows="10" class="form-control"></textarea>
 </form>
 
-<p>-</p>
-<p>-</p>
-<p>((Findings go here))</p>
-<p>-</p>
-<p>-</p>
+<div ng-include src="'views/report/findings.html'"></div>
 
-<h2>Download</h2>
-<ul>
-	<li><a href="#/report" target="_blanc">Open the report (HTML)</a></li>
-	<li><a href="#/report" target="_blanc">Download the report (HTML)</a></li>
-	<li><a href="#/export" target="_blanc">Dowlnload the data (JSON)</a></li>
-</ul>
+<h2>Sample</h2>
+<div ng-include src="'views/report/sample.html'"></div>
+
+<p><a href="#/report" class="btn btn-primary btn-lg">
+    Open the final report
+</a></p>
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/test">
