@@ -8,7 +8,7 @@
     "angular-resource": "1.2.15",
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
-    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#v3.1.0",
+    "bootstrap-sass-official": "3.1.0",
     "jQuery": "2.1.1"
   },
   "devDependencies": {
