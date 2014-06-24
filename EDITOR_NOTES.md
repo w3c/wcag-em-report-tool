@@ -3,6 +3,7 @@
 - Fonts are not copied to dist
 - Font references are linked to local files when building
 - thet views/audit/test folder is not coppied when building
+- Images are renamed but not rereferenced during build
 - The maxStateIndex doesn't seem to update in the build
 
 # Upcoming features
