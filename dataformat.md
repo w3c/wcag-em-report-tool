@@ -1,19 +1,24 @@
 ## Terms required from WCAG-EM namespace
 
-- *evaluation*: Website accessibilty audit
+- *evaluation*: Website accessibility audit
+- *evaluationScope*: What the evaluation is about, as agreed between auditor and commissioner
 - *website*: A collection of web pages that may it's self contain (sub)websites
-- *scope*: Property of Website. Rules to determine what pages are part of the website
+- *websiteScope*: Property of Website. Rules to determine what pages are part of the website
 - *accessibilitySupportBaseline*: Property of Website, see WCAG 2.0
 - *conformanceTarget*: Which WCAG level is the evaluation targeted at
-- *webPage*: A web page as defined in WCAG, and a description of it's state
+- *additionalEvalRequirement*: Other requirements of the evaluation
+- *commissioner*: Person or organization who commissioned the audit
+- *commonPages*, *essentialFunctionality*, *pageTypeVariety*, *otherRelevantPages*: as defined in WCAG-EM
+- *webPage*: A web page as defined in WCAG, and a description of it's state, subclass of http:response
 - *state*: Property of webPage, human readable description of the state
-- *structuredSample*: List of webPage entities
-- *randomSample*: List of webPage entities
+- *webPageSample*: List of webPage entities
+- *structuredSample*: Subclass of webPageSample for structured web pages
+- *randomSample*: Subclass of webPageSample for random web pages
 
  
 ## Terms required from WCAG 2.0 Namespace
 
-- *reliedUponTechnology*
+- *reliedUponTechnology*: Contains a dct:title and a pointer to it's specification
 - *level_a*, *level_aa*, *level_aaa*, 
 - *sc111*, *sc112*, ...
 
@@ -31,23 +36,23 @@ The following is a sample of what the data will 'more or less' look like when ex
             /* ... */
         },
         /* "@type": evaluation ; Type is probably defined in @context */
-        "website": {
-            "scope":                "Plain text",
-            "reliedUponTechnology": ["text", "text"],
-            "dct:title":            "Plain text",
-            "dct:conformsTo":       "wcag:level-a" /* Evaluation result*/
+        "evaluationScope": {
+            "conformanceTarget":        "wcag:level_a",
+            "commissioner":              "Plain text",
+            "additionalEvalRequirement":"Plain text",
+            "website": {
+                "websiteScope":         "Plain text",
+                "dct:title":            "Plain text"
+            }
         },
-        "conformanceTarget": "wcag:level_a",
         "earl:assertor": { /* As described in EARL */ }, /* One or more */
-        "commisioner":              "Plain text",
-        "additionalRequirement":    "Plain text",
-        "dct:date":                 "Some date",
-        "dct:title":                "Plain text",
-        "Specifics":                "Plain text",
-        "dct:abstract":             "Plain text", /* Evaluation summary */
+        "wcag:reliedUponTechnology": [{
+            'dct:title':'html',
+            'spec':''
+        }/*, ...*/],
         "commonPages":              "Plain text",
         "essentialFunctionality":   "Plain text",
-        "pageTypeVariaty":          "Plain text",
+        "pageTypeVariety":          "Plain text",
         "otherRelevantPages":       "Plain text",
         "structuredSample": [{
             /*"@type": "webPage" ; preset by @context' */
@@ -55,6 +60,10 @@ The following is a sample of what the data will 'more or less' look like when ex
             "state": "Plain text"
         }/*, ...*/],
         "randomSample": ["@webPage", "@webPage"/*, ...*/], // As structuredSample
+        "dct:date":                 "Some date",
+        "dct:title":                "Plain text",
+        "dct:abstract":             "Plain text", /* Evaluation summary */
+        "Specifics":                "Plain text",
         /* All the EARL assertions go here */
         "@list": [{
             // Assertion of a success criterion: 
