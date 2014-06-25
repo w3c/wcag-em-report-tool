@@ -1,6 +1,6 @@
 <wre:stepbar>
   	<wre:step ng-repeat="stateItem in state.stateList"
-  			complete="{{stateItem.copmlete}}"
+  			complete="{{stateItem.complete}}"
   			disabled="{{state.maxStateIndex >= $index}}"
   			href="{{stateItem.route}}"
   			active="{{state.currentStateIndex == $index}}">
