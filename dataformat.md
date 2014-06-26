@@ -38,7 +38,7 @@ The following is a sample of what the data will 'more or less' look like when ex
         /* "@type": evaluation ; Type is probably defined in @context */
         "evaluationScope": {
             "conformanceTarget":        "wcag:level_a",
-            "commissioner":              "Plain text",
+            "commissioner":             "Plain text",
             "additionalEvalRequirement":"Plain text",
             "website": {
                 "websiteScope":         "Plain text",
