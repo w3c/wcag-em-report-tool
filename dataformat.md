@@ -9,12 +9,12 @@
 - *additionalEvalRequirement*: Other requirements of the evaluation
 - *commissioner*: Person or organization who commissioned the audit
 - *commonPages*, *essentialFunctionality*, *pageTypeVariety*, *otherRelevantPages*: as defined in WCAG-EM
-- *webPage*: A web page as defined in WCAG, and a description of it's state, subclass of http:response
+- *webPage*: A web page as defined in WCAG, and a description of it's state
 - *state*: Property of webPage, human readable description of the state
 - *webPageSample*: List of webPage entities
 - *structuredSample*: Subclass of webPageSample for structured web pages
 - *randomSample*: Subclass of webPageSample for random web pages
-
+- *specifics*: Contains miscellaneous details about the evaluation, as described in WCAG-EM Step 5.b
  
 ## Terms required from WCAG 2.0 Namespace
 
@@ -60,8 +60,9 @@ The following is a sample of what the data will 'more or less' look like when ex
             "state": "Plain text"
         }/*, ...*/],
         "randomSample": ["@webPage", "@webPage"/*, ...*/], // As structuredSample
-        "dct:date":                 "Some date",
         "dct:title":                "Plain text",
+        /* When was the evaluation completed: */
+        "dct:date":                 "Some date",
         "dct:abstract":             "Plain text", /* Evaluation summary */
         "Specifics":                "Plain text",
         /* All the EARL assertions go here */
