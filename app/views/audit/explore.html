@@ -7,60 +7,59 @@
 
 <p>Add pages to the text fields below while exploring the website:</p>
 <form class="">
-	<h2 class="form-group">
-		<span class="col-sm-6">Sample page URL</span>
-		<span class="sr-only">and</span>
-		<span class="col-sm-6">Tags for the page</span>
-	</h2>
 
-	<ul class="sample">
-		<li>
-			<label class="sr-only">URLs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text" 
-					value="http://www.w3.org/"
-					placeholder="URL (required)">
-			</span>
-			<label class="sr-only">Tabs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text"
-					value="Homepage, main-template"
-					placeholder="No tags">
-			</span>
-		</li>
-		<li>
-			<label class="sr-only">URLs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text" 
-					value="http://www.w3.org/WAI"
-					placeholder="URL (required)">
-			</span>
-			<label class="sr-only">Tabs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text"
-					value=""
-					placeholder="No tags">
-			</span>
-		</li>
-		<li>
-			<label class="sr-only">URLs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text"
-					placeholder="URL  (required)">
-			</span>
-			<label class="sr-only">Tabs</label>
-			<span class="col-sm-6">
-				<input class="form-control" type="text"
-					placeholder="No tags">
-			</span>
-		</li>
-	</ul>
+	<div class="formgroup">
+    <label for="relied_upon_technologies">
+      Relied upon technologies
+    </label>
+    <textarea ng-model="explore.reliedUponTechnology"
+        id="relied_upon_technologies"
+        class="form-control" cols="40" rows="5"></textarea>
+  </div>
+  
+  <div class="formgroup">
+    <label for="common_pages">
+      Common web pages
+    </label>
+    <textarea ng-model="explore.commonPages"
+        id="common_pages"
+        class="form-control" cols="40" rows="5"></textarea>
+  </div>
+
+  <div class="formgroup">
+    <label for="essential_func">
+      Essential functionality of the website:
+    </label>
+    <textarea ng-model="explore.essentialFunctionality"
+        id="essential_func"
+        class="form-control" cols="40" rows="5"></textarea>
+  </div>
+
+  <div class="formgroup">
+    <label for="page_variety">
+      Variety of page types
+    </label>
+    <textarea ng-model="explore.pageTypeVariety"
+        id="page_variety"
+        class="form-control" cols="40" rows="5"></textarea>
+  </div>
+
+  <div class="formgroup">
+    <label for="other_pages">
+      Other relevant pages
+    </label>
+    <textarea ng-model="explore.otherRelevantPages"
+        id="other_pages"
+        class="form-control" cols="40" rows="5"></textarea>
+  </div>
+
 </form>
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/scope">
     <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
-  <li class="pull-right active"><a href="#/audit/sample">
-    Next step <span class="glyphicon glyphicon-chevron-right"></span>
+  <li class="pull-right active">
+    <a ng-click="validateInput()" href="#/audit/sample">
+      Next step <span class="glyphicon glyphicon-chevron-right"></span>
     </a></li>
 </ul>

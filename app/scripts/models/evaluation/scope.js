@@ -12,11 +12,11 @@ angular.module('wcagReporter').service('evalScopeModel', function() {
     
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
-     * @return {[type]} [description]
      */
     this.validate = function () {
         return [];
     };
 
+    // Lock up the object, for a little more dev security
     Object.preventExtensions(this);
 });
