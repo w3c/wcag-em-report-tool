@@ -4,6 +4,7 @@ dist
 .sass-cache
 app/bower_components
 .sublime-project
+.sublime-workspace
 .dropbox
 desktop.ini
 Thumbs.db
