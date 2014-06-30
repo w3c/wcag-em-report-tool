@@ -10,7 +10,7 @@
 
 	<div class="formgroup">
     <label for="relied_upon_technologies">
-      Relied upon technologies
+      {{ 'LABEL_RELIEDUP_TECH' | translate }}
     </label>
     <textarea ng-model="explore.reliedUponTechnology"
         id="relied_upon_technologies"
@@ -19,7 +19,7 @@
   
   <div class="formgroup">
     <label for="common_pages">
-      Common web pages
+      {{ 'LABEL_COMMON_PAGES' | translate }}
     </label>
     <textarea ng-model="explore.commonPages"
         id="common_pages"
@@ -28,7 +28,7 @@
 
   <div class="formgroup">
     <label for="essential_func">
-      Essential functionality of the website:
+      {{ 'LABEL_ESSENT_FUNC' | translate }}
     </label>
     <textarea ng-model="explore.essentialFunctionality"
         id="essential_func"
@@ -37,7 +37,7 @@
 
   <div class="formgroup">
     <label for="page_variety">
-      Variety of page types
+      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}
     </label>
     <textarea ng-model="explore.pageTypeVariety"
         id="page_variety"
@@ -46,7 +46,7 @@
 
   <div class="formgroup">
     <label for="other_pages">
-      Other relevant pages
+      {{ 'LABEL_OTHER_PAGES' | translate }}
     </label>
     <textarea ng-model="explore.otherRelevantPages"
         id="other_pages"
@@ -57,9 +57,12 @@
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/scope">
-    <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      {{'PREV_STEP' | translate}}
+  </a></li>
   <li class="pull-right active">
     <a ng-click="validateInput()" href="#/audit/sample">
-      Next step <span class="glyphicon glyphicon-chevron-right"></span>
-    </a></li>
+      {{'NEXT_STEP' | translate}}
+      <span class="glyphicon glyphicon-chevron-right"></span>
+  </a></li>
 </ul>

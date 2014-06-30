@@ -8,21 +8,21 @@
 <form>
   <div class="formgroup">
     <label for="commissioner">
-      Commissioner of this evaluation
+      {{ 'LABEL_COMMISSIONER' | translate }}
     </label>
     <input ng-model="evalScope.commissioner" type="text"
            class="form-control" id="commissioner">
   </div>
   <div class="formgroup">
     <label for="site-name">
-      Website name
+      {{ 'LABEL_SITE_NAME' | translate }}
     </label>
     <input ng-model="evalScope.website.name" type="text"
            class="form-control" id="site-name">
   </div>
   <div class="formgroup">
     <label for="website_scope">
-      Website scope
+      {{ 'LABEL_SITE_SCOPE' | translate }}
     </label>
     <textarea ng-model="evalScope.website.siteScope" id="website_scope"
         class="form-control" cols="40" rows="5"></textarea>
@@ -30,13 +30,19 @@
   
   <div class="formgroup">
     <label for="conformance_target">
-      Conformance Target
+      {{ 'LABEL_CONFORMANCE_TGT' | translate }}
     </label>
     <select ng-model="evalScope.conformanceTarget" 
             id="conformance_target" class="form-control">
-      <option value="wcag:level_a">Level A</option>
-      <option value="wcag:level_aa">Level A + AA</option>
-      <option value="wcag:level_aaa">Level A + AA + AAA</option>
+      <option value="wcag:level_a">
+        {{ 'WCAG_A' | translate }}
+      </option>
+      <option value="wcag:level_aa">
+        {{ 'WCAG_AA' | translate }}
+      </option>
+      <option value="wcag:level_aaa">
+        {{ 'WCAG_AAA' | translate }}
+      </option>
     </select>
   </div>
   
@@ -62,6 +68,6 @@
 <ul class="nav nav-pills">
   <li class="pull-right active">
     <a ng-click="validateInput()" href="#/audit/explore">
-      Next step <span class="glyphicon glyphicon-chevron-right"></span>
-    </a></li>
+      {{'NEXT_STEP' | translate}} <span class="glyphicon glyphicon-chevron-right"></span>
+  </a></li>
 </ul>
