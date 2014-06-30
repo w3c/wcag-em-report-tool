@@ -5,119 +5,39 @@
 <p>During this step the evaluator selects a sample of web pages and web page states that is representative of the target website to be evaluated. The purpose of this selection is to ensure that the evaluation results reflect the accessibility performance of the website with reasonable confidence. In cases where it is feasible to evaluate all web pages, this sampling procedure can be skipped and the selected sample is considered to be the entire website in the remaining steps of the conformance evaluation procedure.</p>
 
 <form class="">
-  <h2 class="row">
-    <span class="col-sm-6">Representative page URL</span>
-    <span class="sr-only">and</span>
-    <span class="col-sm-6">Tags for the page</span>
-  </h2>
-
-  <ul class="sample row">
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text" 
-          value="http://www.w3.org/"
-          placeholder="URL (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          value="Homepage, main-template"
-          placeholder="No tags">
-      </span>
-    </li>
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text" 
-          value="http://www.w3.org/WAI"
-          placeholder="URL (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          value=""
-          placeholder="No tags">
-      </span>
-    </li>
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          placeholder="URL  (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          placeholder="No tags">
-      </span>
+  <h2>{{'HD_STRUCT_SAMPLE' | translate }}</h2>
+  <ul>
+    <li ng-repeat="page in structuredSample">
+      url: <input type="text" ng-model="page.url">
+      state: <input type="text" ng-model="page.state">
+      <button ng-click="removePage(structuredSample, $index)">Del</button>
+      <a href="{{page.url}}" target="blanc">Open url</a>
     </li>
   </ul>
-  <div class="alert alert-warning"><p>
-    Please add pages from the subdomain http://mysub.w3.org/
-  </p></div>
+  <button ng-click="addPage(structuredSample)">Add a page</button>
 
 
-  <h2 class="row">
-    <span class="col-sm-6">Random page URL</span>
-    <span class="sr-only">and</span>
-    <span class="col-sm-6">Tags for the page</span>
-  </h2>
-
-  <ul class="sample row">
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text" 
-          value="http://www.w3.org/"
-          placeholder="URL (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          value="Homepage, main-template"
-          placeholder="No tags">
-      </span>
-    </li>
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text" 
-          value="http://www.w3.org/WAI"
-          placeholder="URL (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          value=""
-          placeholder="No tags">
-      </span>
-    </li>
-    <li>
-      <label class="sr-only">URLs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          placeholder="URL  (required)">
-      </span>
-      <label class="sr-only">Tabs</label>
-      <span class="col-sm-6">
-        <input class="form-control" type="text"
-          placeholder="No tags">
-      </span>
+  <h2>{{'HD_RANDOM_SAMPLE' | translate }}</h2>
+  <ul>
+    <li ng-repeat="page in randomSample">
+      url: <input type="text" ng-model="page.url">
+      state: <input type="text" ng-model="page.state">
+      <button ng-click="removePage(randomSample, $index)">Del</button>
+      <a href="{{page.url}}" target="blanc">Open url</a>
     </li>
   </ul>
-  <div class="alert alert-warning"><p>
-    10 more pages remaining
-  </p></div>
+  <button ng-click="addPage(randomSample)">Add a page</button>
 </form>
 
 
 <footer><ul class="nav nav-pills">
   <li><a href="#/audit/explore">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    {{'PREV_STEP' | translate}}</a></li>
-  <li class="pull-right active"><a href="#/audit/test">
-    {{'NEXT_STEP' | translate}} 
-    <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      {{'PREV_STEP' | translate}}
+  </a></li>
+  <li class="pull-right active">
+    <a href="#/audit/test" ng-click="processInput()">
+      {{'NEXT_STEP' | translate}} 
+      <span class="glyphicon glyphicon-chevron-right"></span>
   </a></li>
 </ul></footer>
