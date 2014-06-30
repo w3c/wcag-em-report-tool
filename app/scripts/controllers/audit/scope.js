@@ -5,7 +5,7 @@ angular.module('wcagReporter')
 	$scope.state = appState.moveToState('scope');
 	$scope.evalScope = evalScopeModel;
 
-	$scope.validateInput = function () {
+	$scope.processInput = function () {
 		var errors = evalScopeModel.validate();
 
 		if (errors.length > 0) {
