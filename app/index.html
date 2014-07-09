@@ -33,15 +33,21 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 	<!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
-  
+  <script src="scripts/locales/en.js"></script>
   <script src="scripts/directives/stepbar.js"></script>
   <script src="scripts/models/AppState.js"></script>
+  <script src="scripts/models/wcag20spec.js"></script>
+  <script src="scripts/models/evaluation/scope.js"></script>
+  <script src="scripts/models/evaluation/explore.js"></script>
+  <script src="scripts/models/evaluation/sample.js"></script>
+  <script src="scripts/models/evaluation.js"></script>
   <script src="scripts/controllers/start.js"></script>
   <script src="scripts/controllers/audit/scope.js"></script>
   <script src="scripts/controllers/audit/explore.js"></script>
@@ -53,5 +59,6 @@
   <script src="scripts/controllers/export.js"></script>
   <script src="scripts/controllers/audit/finalize.js"></script>
 	<!-- endbuild -->
+	
 </body>
 </html>

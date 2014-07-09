@@ -7,64 +7,67 @@
 
 <form>
   <div class="formgroup">
-    <label for="site-name">
-      Website name
+    <label for="commissioner">
+      {{ 'LABEL_COMMISSIONER' | translate }}
     </label>
-    <input class="form-control" id="site-name" type="text">
+    <input ng-model="evalScope.commissioner" type="text"
+           class="form-control" id="commissioner">
   </div>
   <div class="formgroup">
-    <label for="site-url">
-      Website location (URL)
+    <label for="site-name">
+      {{ 'LABEL_SITE_NAME' | translate }}
     </label>
-    <input class="form-control" id="site-url" type="text">
+    <input ng-model="evalScope.website.name" type="text"
+           class="form-control" id="site-name">
+  </div>
+  <div class="formgroup">
+    <label for="website_scope">
+      {{ 'LABEL_SITE_SCOPE' | translate }}
+    </label>
+    <textarea ng-model="evalScope.website.siteScope" id="website_scope"
+        class="form-control" cols="40" rows="5"></textarea>
   </div>
   
   <div class="formgroup">
-    <label for="conformance-target">
-      Conformance Target
+    <label for="conformance_target">
+      {{ 'LABEL_CONFORMANCE_TGT' | translate }}
     </label>
-    <select id="conformance-target" class="form-control" >
-      <option>Level A</option>
-      <option>Level A + AA</option>
-      <option>Level A + AA + AAA</option>
+    <select ng-model="evalScope.conformanceTarget" 
+            id="conformance_target" class="form-control">
+      <option value="wcag:level_a">
+        {{ 'WCAG_A' | translate }}
+      </option>
+      <option value="wcag:level_aa">
+        {{ 'WCAG_AA' | translate }}
+      </option>
+      <option value="wcag:level_aaa">
+        {{ 'WCAG_AAA' | translate }}
+      </option>
     </select>
   </div>
   
-  <table>
-    <caption>Accessibility Support Baseline</caption>
-    <thead><tr>
-        <th>User agent</th>
-        <th><span class="offscreen">User agent</span> Version</th>
-        <th>Assistive technology</th>
-        <th><span class="offscreen">Assistive technology</span> Version</th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td><input type="text"></td>
-        <td><input type="text" size="4"></td>
-        <td><input type="text"></td>
-        <td><input type="text" size="4"></td>
-      </tr>
-    </tbody>
-  </table>
-  
   <div class="formgroup">
-    <label for="eval-precedures">
-      Procedures for Success Criteria Evaluation
+    <label for="as_baseline">
+      Accessibility support baseline
     </label>
-    <textarea id="eval-precedures" class="form-control" cols="" rows=""></textarea>
+    <textarea ng-model="evalScope.accessibilitySupportBaseline"
+        id="as_baseline" class="form-control"
+        cols="40" rows="5"></textarea>
   </div>
   
   <div class="formgroup">
-    <label for="extra-requirements">
+    <label for="additional_requirements">
       Additional Evaluation Requirements
     </label>
-    <textarea id="extra-requirements" class="form-control" cols="" rows=""></textarea>
+    <textarea ng-model="evalScope.additionalEvalRequirement"
+        id="additional_requirements" class="form-control"
+        cols="40" rows="5"></textarea>
   </div>
 </form>
 
 <ul class="nav nav-pills">
-  <li class="pull-right active"><a href="#/audit/explore">
-    Next step <span class="glyphicon glyphicon-chevron-right"></span>
-    </a></li>
+  <li class="pull-right active">
+    <a ng-click="processInput()" href="#/audit/explore">
+      {{'NEXT_STEP' | translate}} <span class="glyphicon glyphicon-chevron-right"></span>
+  </a></li>
 </ul>

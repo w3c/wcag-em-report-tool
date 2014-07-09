@@ -3,9 +3,40 @@
 
 <h1>Finalize the report</h1>
 
-<form class="">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="commissioner" class="col-sm-3 control-label">commissioner</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="commissioner">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="auditor" class="col-sm-3 control-label">auditor</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="auditor">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="dct_title" class="col-sm-3 control-label">Report title</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="dct_title">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="dct_date" class="col-sm-3 control-label">Report date</label>
+    <div class="col-sm-9">
+      <input type="date" class="form-control date" id="dct_date">
+    </div>
+  </div>
+  
 	<label for="summary">Summary</label>
-	<textarea name="summary" id="summary" cols="30" rows="10" class="form-control"></textarea>
+	<textarea id="summary" cols="30" rows="10" class="form-control"></textarea>
+        
+	<label for="specifics">Evaluation specifics</label>
+	<textarea id="specifics" cols="30" rows="4" class="form-control"></textarea>
 </form>
 
 <div ng-include src="'views/report/findings.html'"></div>
@@ -19,5 +50,7 @@
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/test">
-    <span class="glyphicon glyphicon-chevron-left"></span> Previous step</a></li>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      {{'PREV_STEP' | translate}}
+  </a></li>
 </ul>

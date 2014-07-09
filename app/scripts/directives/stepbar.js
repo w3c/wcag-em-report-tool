@@ -19,19 +19,18 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
             if (attr.active === 'true') {
                 scope.status.push('active');
             }
-
             if (attr.disabled === 'false') {
                 scope.status.push('disabled');
                 scope.disabled = true;
             } else {
                 elm.find('a').attr('href', attr.href);
             }
-            if (attr.copmlete) {
+            if (attr.complete) {
               scope.glyphOk = 'glyphicon-ok';
             }
         },
         template:   '<li ng-class="{{status}}">  <a>' +
-                        '<span class="glyphicon {{glyphOk}}"></span>' +
+                        '<span class="glyphicon {{glyphOk}}"></span> ' +
                         '<span ng-transclude></span>' +
                     '</a>  </li>'
     };
