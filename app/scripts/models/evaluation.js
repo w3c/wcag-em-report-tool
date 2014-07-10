@@ -1,12 +1,12 @@
 'use strict';
 
 /**
- * Combine the different models into a single evaluation model
+ * 
  */
-angular.module('wcagReporter').service('evalModel', function() {
-    
-    this.jsonLdImport = function () {};
+angular.module('wcagReporter').factory('evalModel', function() {
+    return function () {
 
-    this.jsonLdExport = function () {};
+
+    };
 
 });

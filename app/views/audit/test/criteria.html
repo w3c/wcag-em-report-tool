@@ -9,51 +9,7 @@
    <option value="http://127.0.0.1:9000/#/audit/test">
 </datalist>
 
-
-
-<div ng-repeat="crit in criteria | limitTo: 10" class="">
-  <div class="panel panel-default">
-    <p class="panel-heading">
-      <input type="image" src="images/wip.png" alt="In progress">
-      <strong>{{crit.number}} {{crit.title}}:</strong>
-      <span class="badge">Level {{crit.level}}</span>
-      <button class="button pull-right">
-        Add result
-      </button>
-    </p>
-    
-    <div class="row" style="padding:0 1em;">
-      <label class="col-sm-1">Outcome</label>
-      <select class="col-sm-1">
-          <option>Pass</option>
-          <option>Fail</option>
-          <option>Not Present</option>
-      </select>
-      <label class="col-sm-1">Cause:</label>
-      <input class="col-sm-8" type="text">
-      <div class="col-sm-1">
-        <div class="dropdown"><button href="" class="button"><span class="glyphicon glyphicon-cog"></span>
-        <span class="">Opt.</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a>Duplicate result</a></li>
-          <li><a>Clear result</a></li>
-          <li><a>Add info field</a></li>
-          <li><a>Set criterion</a></li>
-          <li><a></a></li>
-        </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row" style="padding:0 1em;">
-      <div class="col-xs-12">
-      <input list="sample" class="form-control" type="text" placeholder="Sample page" title="Sample page">
-      </div>
-      <div class="col-xs-12">
-      <code>-- An empty sample page field will be added each time a new url is entered --</code>
-      </div>
-    </div>
-  </div>
+<div ng-repeat="crit in criteria | limitTo: 10">
+  <sc-audit></sc-audit>
 </div>
-
 <p>Showing 10 of {{criteria.length}}. <a>Show the next 10</a></p>
