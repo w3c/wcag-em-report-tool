@@ -6,14 +6,15 @@ angular.module('wcagReporter').service('evalTestModel', function() {
 		num = 0;
 
 	function TestCaseAssert() {
-		this.subject = [];
+		this.pages = [{}];
 		this.testCase = this.testCase += (num++);
 	}
+
 	TestCaseAssert.prototype = {
 		'@type': 'earl:assertion',
 		assertedBy: currentUser,
         description: 'myDesc',
-        subject: undefined,
+        pages: undefined,
         testCase: 'myTestName',
         outcome: 'earl:pass',
         mode: '@earlMode'
@@ -24,6 +25,7 @@ angular.module('wcagReporter').service('evalTestModel', function() {
 		this.testCaseAsserts = [];
 		this.addTestCaseAssertion();
 	}
+
 	CriterionAssert.prototype = {
 		'@type': 'earl:assertion',
 		testRequirement: undefined,
