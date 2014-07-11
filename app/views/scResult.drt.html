@@ -1,13 +1,13 @@
 <div>
   <div class="row" style="padding:0 1em;">
     <label class="col-sm-1">Outcome</label>
-    <select class="col-sm-1">
-        <option>Pass</option>
-        <option>Fail</option>
-        <option>Not Present</option>
+    <select class="col-sm-1"  ng-model="tcAssert.outcome">
+        <option value="earl:pass">Pass</option>
+        <option value="earl:fail">Fail</option>
+        <option value="wcagem:not_present">Not Present</option>
     </select>
     <label class="col-sm-1">Cause:</label>
-    <input class="col-sm-8" type="text">
+    <input class="col-sm-8" ng-model="tcAssert.testCase" type="text">
 
     <div class="col-sm-1">
       <div class="dropdown"><button href="" class="button"><span class="glyphicon glyphicon-cog"></span>
@@ -23,8 +23,9 @@
       </ul>
     </div>
   </div>
-  <div style="padding:0 1em; display:none;">
-    <textarea class="form-control"></textarea>
+  <div style="padding:0 1em;">
+    <textarea ng-model="tcAssert.description"
+        class="form-control"></textarea>
   </div>
   <div class="row" style="padding:0 1em;">
     <div class="col-xs-12">

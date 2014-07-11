@@ -7,12 +7,12 @@ angular.module('wcagReporter').directive(
         replace: true,
         scope: {
         	desc: '=description',
-        	sampleListId: '@samplelistid'
+        	sampleListId: '@samplelistid',
+        	assertion: '='
         },
         link: function (scope, elm) {
-        	console.log(scope.sampleListId);
-        	scope.addResult = function () {
-        		elm.append($compile('<sc-result></sc-result>')(scope));
+        	scope.addResult = function (assertion) {
+        		assertion.addTestCaseAssertion();
         	};
         },
         templateUrl: 'views/scAudit.drt.html'
@@ -22,8 +22,10 @@ angular.module('wcagReporter').directive(
     return directivePlugin({
         restrict: 'E',
         replace: true,
-        link: function () {
-        	
+        link: function (scope) {
+        	scope.updateUrlList = function () {
+
+        	};
         },
         templateUrl: 'views/scResult.drt.html'
     });
