@@ -6,7 +6,7 @@
  * Fow now, only additional link functions are supported
  */
 angular.module('wcagReporter').factory('directivePlugin', function() {
-	
+
     var func = function (directive) {
 		var link    = directive.link    || function () {};
 
@@ -28,13 +28,4 @@ angular.module('wcagReporter').factory('directivePlugin', function() {
     	return directive;
     };
     return func;
-    /*
-    this.extend = function () {
-
-    };
-    this.$get = function () {
-    	return fnc;
-    };
-    */
-
 });
