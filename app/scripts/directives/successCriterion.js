@@ -12,7 +12,7 @@ angular.module('wcagReporter').directive(
         	sampleListId: '@samplelistid',
         	assertion: '='
         },
-        
+
         link: function (scope) {
         	scope.addResult = function (assertion) {
         		assertion.addTestCaseAssertion();
@@ -29,8 +29,18 @@ angular.module('wcagReporter').directive(
         restrict: 'E',
         replace: true,
         link: function (scope) {
-        	scope.updateUrlList = function () {
-
+        	scope.newPage = '';
+        	scope.removeWhenEmpty = function (page, i) {
+        		if (page.url === '') {
+        			this.tcAssert.removePage(i);
+        		}
+        	};
+        	scope.addNewPage = function () {
+    			if (this.newPage === '') {
+    				return;
+    			}
+				this.tcAssert.addNewPage(this.newPage);
+    			this.newPage = '';
         	};
         },
         templateUrl: 'views/scResult.drt.html'

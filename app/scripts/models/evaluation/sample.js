@@ -16,7 +16,6 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.addPage = function (sample) {
-        console.log(sample);
         sample.push(new Page());
     };
 

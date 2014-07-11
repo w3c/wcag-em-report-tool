@@ -6,7 +6,7 @@ angular.module('wcagReporter').service('evalTestModel', function() {
 		num = 0;
 
 	function TestCaseAssert() {
-		this.pages = [{}];
+		this.pages = [];
 		this.testCase = this.testCase += (num++);
 	}
 
@@ -17,7 +17,13 @@ angular.module('wcagReporter').service('evalTestModel', function() {
         pages: undefined,
         testCase: 'myTestName',
         outcome: 'earl:pass',
-        mode: '@earlMode'
+        mode: '@earlMode',
+        addNewPage: function (url) {
+        	this.pages.push({url: url});
+        },
+		removePage: function (i) {
+			this.pages.splice(i, 1);
+		}
 	};
 
 	function CriterionAssert(idref) {

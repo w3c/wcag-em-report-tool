@@ -39,11 +39,20 @@
               id="result_descr_{{unique}}"
               class="form-control"></textarea>
   </div>
-  <div class="row" style="padding:0 1em;">
+  <div class="row" style="padding:0 1em;" id="test_url_list_{{unique}}">
     <div class="col-xs-12" ng-repeat="page in tcAssert.pages">
       <input list="{{sampleListId}}" class="form-control" 
-             type="text" placeholder="Sample page"
-             title="Sample page">
+             type="text" placeholder="Sample page" title="Sample page"
+             ng-model="page.url"
+             ng-blur="removeWhenEmpty(page, $index)">
+    </div>
+  </div>
+  <div class="row" style="padding:0 1em;">
+    <div class="col-xs-12">
+      <input type="text" list="{{sampleListId}}"
+             id="new_page_{{unique}}" class="form-control"
+             placeholder="Sample page" title="Sample page"
+             ng-model="newPage" ng-blur="addNewPage()">
     </div>
   </div>
 </div>
