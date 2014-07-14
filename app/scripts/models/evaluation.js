@@ -1,12 +1,38 @@
 'use strict';
 
 /**
- * Combine the different models into a single evaluation model
+ * 
  */
-angular.module('wcagReporter').service('evalModel', function() {
-    
-    this.jsonLdImport = function () {};
+angular.module('wcagReporter').factory('evalModel', function(
+		evalScopeModel, evalExploreModel, evalSampleModel, 
+		evalTestModel, evalReportModel) {
 
-    this.jsonLdExport = function () {};
+	function objectMerge(target, source) {
+		Object.keys(source).forEach(function (key) {
+			target[key] = source[key];
+		});
+	}
 
+	var evalModel = {
+		
+		scopeModel:   evalScopeModel,
+		exploreModel: evalExploreModel,
+		sampleModel:  evalSampleModel,
+		testModel:    evalTestModel,
+		reportModel:  evalReportModel,
+
+		getJsonLd: function () {
+			var jsonLd = {
+				dataType: 'evaluation',
+				evaluationScope: evalScopeModel,
+				successCriteria: evalTestModel
+			};
+			objectMerge(jsonLd, evalExploreModel);
+			objectMerge(jsonLd, evalSampleModel);
+			objectMerge(jsonLd, evalReportModel);
+			return JSON.stringify(jsonLd);
+		}
+	};
+
+    return evalModel;
 });
