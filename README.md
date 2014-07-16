@@ -6,6 +6,8 @@ Important references:
 - <http://www.w3.org/WAI/WCAG20/quickref/>
 - <http://www.w3.org/TR/WCAG-EM/>
 
+An example implementation can be found at <http://w3c.github.io/wcag-em-report-tool/dist/>.
+
 # Install
 
 Before you can use the WCAG-EM report tool you'll need to install the following components: `NodeJS` (with NPM), `grunt-cli` (NPM module), and `Ruby`. If you have any of these already installed make sure they are updated.

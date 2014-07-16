@@ -5,47 +5,61 @@
 
 <form class="form-horizontal">
   <div class="form-group">
-    <label for="commissioner" class="col-sm-3 control-label">commissioner</label>
+    <label for="commissioner" class="col-sm-3 control-label">
+      {{ 'LABEL_COMMISSIONER' | translate }}
+    </label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="commissioner">
+      <input ng-model="report.commissioner"
+          type="text" class="form-control" id="commissioner">
     </div>
   </div>
   
   <div class="form-group">
-    <label for="auditor" class="col-sm-3 control-label">auditor</label>
+    <label for="creator" class="col-sm-3 control-label">
+      {{ 'LABEL_CREATOR' | translate }}
+    </label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="auditor">
+      <input ng-model="report.creator"
+          type="text" class="form-control" id="creator">
     </div>
   </div>
   
   <div class="form-group">
-    <label for="dct_title" class="col-sm-3 control-label">Report title</label>
+    <label for="dct_title" class="col-sm-3 control-label">
+      {{ 'LABEL_TITLE' | translate }}
+    </label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="dct_title">
+      <input type="text" ng-model="report.title"
+          class="form-control" id="dct_title">
     </div>
   </div>
   
   <div class="form-group">
-    <label for="dct_date" class="col-sm-3 control-label">Report date</label>
+    <label for="dct_date" class="col-sm-3 control-label">
+      {{ 'LABEL_DATE' | translate }}
+    </label>
     <div class="col-sm-9">
-      <input type="date" class="form-control date" id="dct_date">
+      <input type="date" ng-model="report.date"
+          class="form-control date" id="dct_date">
     </div>
   </div>
   
-	<label for="summary">Summary</label>
-	<textarea id="summary" cols="30" rows="10" class="form-control"></textarea>
+	<label for="summary">{{ 'LABEL_SUMMARY' | translate }}</label>
+	<textarea id="summary" ng-model="report.summary"
+      cols="30" rows="10" class="form-control"></textarea>
         
-	<label for="specifics">Evaluation specifics</label>
-	<textarea id="specifics" cols="30" rows="4" class="form-control"></textarea>
+	<label for="specifics">{{ 'LABEL_SPECIFICS' | translate }}</label>
+	<textarea id="specifics" ng-model="report.specifics"
+      cols="30" rows="4" class="form-control"></textarea>
 </form>
 
 <div ng-include src="'views/report/findings.html'"></div>
 
-<h2>Sample</h2>
+<h2>{{ 'SAMPLE' | translate }}</h2>
 <div ng-include src="'views/report/sample.html'"></div>
 
 <p><a href="#/report" class="btn btn-primary btn-lg">
-    Open the final report
+    {{ 'OPEN_FINAL_REPORT' | translate }}
 </a></p>
 
 <ul class="nav nav-pills">

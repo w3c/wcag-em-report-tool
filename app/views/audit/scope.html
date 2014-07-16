@@ -7,13 +7,6 @@
 
 <form>
   <div class="formgroup">
-    <label for="commissioner">
-      {{ 'LABEL_COMMISSIONER' | translate }}
-    </label>
-    <input ng-model="evalScope.commissioner" type="text"
-           class="form-control" id="commissioner">
-  </div>
-  <div class="formgroup">
     <label for="site-name">
       {{ 'LABEL_SITE_NAME' | translate }}
     </label>
@@ -34,13 +27,13 @@
     </label>
     <select ng-model="evalScope.conformanceTarget" 
             id="conformance_target" class="form-control">
-      <option value="wcag:level_a">
+      <option value="wcag20:level_a">
         {{ 'WCAG_A' | translate }}
       </option>
-      <option value="wcag:level_aa">
+      <option value="wcag20:level_aa">
         {{ 'WCAG_AA' | translate }}
       </option>
-      <option value="wcag:level_aaa">
+      <option value="wcag20:level_aaa">
         {{ 'WCAG_AAA' | translate }}
       </option>
     </select>
