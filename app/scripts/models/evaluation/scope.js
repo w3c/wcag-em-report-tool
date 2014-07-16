@@ -2,7 +2,6 @@
 
 angular.module('wcagReporter').service('evalScopeModel', function() {
 	this.conformanceTarget = undefined;
-    this.commissioner = undefined;
     this.additionalEvalRequirement = undefined;
     this.website = {
     	name: undefined,

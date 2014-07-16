@@ -27,197 +27,92 @@
 The following is a sample of what the data will 'more or less' look like when exported from the tool. The prefixes will be removed in favor of names defined in the @context.
 
     {
-        "@context": {
-            "@vocab": "http://www.w3.org/TR/WCAG-EM/#",
-            "dataType": "@type",
-            "specs": "@id",
-            "wcag20": "http://www.w3.org/TR/WCAG20/#",
-            "reliedUponTechnologies": "http://www.w3.org/TR/WCAG20/#reliedupondef",
-            "assertor": "http://www.w3.org/ns/earl#assertor",
-            "assertedBy": "http://www.w3.org/ns/earl#assertedBy",
-            "testRequirement": "http://www.w3.org/ns/earl#testRequirement",
-            "testCase": "http://www.w3.org/ns/earl#testCase",
-            "mode": "http://www.w3.org/ns/earl#mode",
-            "subject": "http://www.w3.org/ns/earl#subject",
-            "pass": "http://www.w3.org/ns/earl#pass",
-            "fail": "http://www.w3.org/ns/earl#fail",
-            "info": "http://www.w3.org/ns/earl#info",
-            "evaluation": "http://www.w3.org/ns/earl#evaluation",
-
-            "outcome": "http://www.w3.org/ns/earl#outcome",
-
-            "successcriteria": "@list",
-            "testcases": "@list",
-
-            "title": "http://purl.org/dc/terms/title",
-            "date": "http://purl.org/dc/terms/date",
-            "summary": "http://purl.org/dc/terms/abstract",
-            "description": "http://purl.org/dc/terms/description"
+        '@context': {
+            '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
+            'wcag20': 'http://www.w3.org/TR/WCAG20/#',
+            'earl': 'http://www.w3.org/ns/earl#',
+            'dct': 'http://purl.org/dc/terms/'
         },
-        "@id": "http://bo.accessibility.nl/checks/1234",
-        "dataType": "evaluation",
-
-        "evaluationScope": {
-            "conformanceTarget":        "wcag:level_a",
-            "commissioner":             "Plain text",
-            "additionalEvalRequirement":"Plain text",
-            "website": {
-                "websiteScope":         "Plain text",
-                "title":            "Plain text"
-            }
+        '@id':   'https://bo.accessibility.nl/rapport/123456.json',
+        '@type': 'evaluation',
+        evaluationScope: {
+            conformanceTarget: 'wcag20:level_aa',
+            additionalEvalRequirement: 'Check if the site is cool too',
+            accessibilitySupportBaseline: 'My AS Baseline',
+            website: {
+                '@id': '_:website',
+                'dct:title': 'W3C website',
+                siteScope: 'All pages at http://w3.org\nAll pages at https://w3.org'
+            },
         },
-        "reliedUponTechnologies": [{
-            "title": "HTML5",
-            "specs": "http://www.w3.org/TR/html5/"
-        }, {
-            "title": "CSS3 (2010 snapshot)",
-            "specs": "http://www.w3.org/TR/css-2010/"
+        wcag20:reliedupondef: [{
+            'dct:title': 'html5',
+            '@id': 'http://www.w3.org/TR/html5/'
         }],
-
-        "title":               "Plain text",
-        "date":                "Some date",
-        "summary":             "Plain text",
-        "Specifics":           "Plain text",
-        "assertor":            {"name": "Wilco Fiers", "todo": "stuff"},
-
-        "commonPages":              "Plain text",
-        "essentialFunctionality":   "Plain text",
-        "pageTypeVariety":          "Plain text",
-        "otherRelevantPages":       "Plain text",
-
-        "structuredSample": [{
-            "id": "struct_01",
-            "uri":   "http://example.com/1",    
-            "state": "Plain text"
-        }, {
-            "id": "struct_02",
-            "uri":   "http://example.com/2",    
-            "state": "Plain text"
-        }],
-        "randomSample": [{
-            "id": "rand_01",
-            "uri":   "http://example.com/1",    
-            "state": "Plain text"
-        }, {
-            "id": "rand_02",
-            "uri":   "http://example.com/2",    
-            "state": "Plain text"
-        }],
-
-        "successCriteria": {
-            "wcag20:text-equiv-all" : {
-                "assertedBy": "",
-                "subject":    "@website",
-                "outcome":          "@earlResult",
-                "mode":            "@earlMode",
-                "testcases": [{
-
-                }]
-            }
-
-        }
-    }
-
-        "structuredSample": [{
-            /*"@type": "webPage" ; preset by @context' */
-            "uri":   "@uri",    
-            "state": "Plain text"
-        }/*, ...*/],
-        "randomSample": ["@webPage", "@webPage"/*, ...*/], // As structuredSample
-        /* All the EARL assertions go here */
-        "successcriteria": [{
-            // Assertion of a success criterion: 
-            /* @type: 'earl:assertion', */
-            "assertedBy":      "@auditor",
-            "subject":         "@website",
-            "testRequirement": "@wcag2Criterion",
-            "outcome":          "@earlResult",
-            "mode":            "@earlMode", /* Optional */
-            
-            "testcases": [{
-                // Assertion of a individual results: 
-                /* @type: 'earl:assertion', */
-                "assertedBy":      "@auditor",
-                "description":     "text",
-                "subject":         ["@pageID", "@pageID"/*, ...*/],
-                "testCase":        "Plain text",
-                "outcome":          "@earlResult",
-                "mode":            "@earlMode" /* Optional */
-                /*implicit: */
-                //"dct:isPartOf":         "@successcriterion"
-            }/*, ...*/]
-        }/*, ...*/]
-
-        // Tool specific properties, not part of wcag-em taxonomy
-        /* ... Possibly some other values as well such as which state the evaluator left off */
-    }
-
-
-
-    {
-        "@context": {
-            // Everything not prefixed is part of the WCAG-EM taxonomy: 
-            "@vocab": "http://www.w3.org/TR/WCAG-EM/",
-            "earl":   "http://www.w3.org/TR/EARL10-Schema/",
-            "wcag":   "http://www.w3.org/TR/WCAG20/",
-            "dct":    "http://purl.org/dc/terms/"
-            /* ... */
+        commonPages: 'Page some stuff\npage another thing\netc.',
+        essentialFunctionality: 'Be fancy\nCombat the dark side',
+        pageTypeVariety: 'pdf\nodt\ndoc',
+        otherRelevantPages: 'How to BBQ\nThought for food\nPong for dummies',
+        structuredSample: {
+            pages: [{
+                '@type': 'webpage',
+                '@id': '_:struct_0',
+                handle: 'Structure page 1',
+                description: 'http://example.com/1 Click on "Home"'
+            }, {
+                '@type': 'webpage',
+                '@id': '_:struct_1',
+                handle: 'Structure page 2',
+                description: 'http://example.com/2'
+            }]
         },
-        /* "@type": evaluation ; Type is probably defined in @context */
-        "evaluationScope": {
-            "conformanceTarget":        "wcag:level_a",
-            "commissioner":             "Plain text",
-            "additionalEvalRequirement":"Plain text",
-            "website": {
-                "websiteScope":         "Plain text",
-                "dct:title":            "Plain text"
-            }
+        randomSample: {
+            pages: [{
+                '@type': 'webpage',
+                '@id': '_:rand_0',
+                handle: 'Random page 1',
+                description: 'http://example.com/3 Click on "Home"'
+            }, {
+                '@type': 'webpage',
+                '@id': '_:rand_1',
+                handle: 'Random page 2',
+                description: 'http://example.com/4'
+            }]
         },
-        "earl:assertor": { /* As described in EARL */ }, /* One or more */
-        "wcag:reliedUponTechnology": [{
-            'dct:title':'html',
-            'spec':''
-        }/*, ...*/],
-        "commonPages":              "Plain text",
-        "essentialFunctionality":   "Plain text",
-        "pageTypeVariety":          "Plain text",
-        "otherRelevantPages":       "Plain text",
-        "structuredSample": [{
-            /*"@type": "webPage" ; preset by @context' */
-            "uri":   "@uri",
-            "state": "Plain text"
-        }/*, ...*/],
-        "randomSample": ["@webPage", "@webPage"/*, ...*/], // As structuredSample
-        "dct:title":                "Plain text",
-        /* When was the evaluation completed: */
-        "dct:date":                 "Some date",
-        "dct:abstract":             "Plain text", /* Evaluation summary */
-        "Specifics":                "Plain text",
-        /* All the EARL assertions go here */
-        "successcriteria": [{
-            // Assertion of a success criterion: 
-            /* @type: 'earl:assertion', */
-            "earl:assertedBy":      "@auditor",
-            "earl:subject":         "@website",
-            "earl:testRequirement": "@wcag2Criterion",
-            "earl:result":          "@earlResult",
-            "earl:mode":            "@earlMode", /* Optional */
-
-            "testcases": [{
-                // Assertion of a individual results: 
-                /* @type: 'earl:assertion', */
-                "earl:assertedBy":      "@auditor",
-                "earl:description":     "text",
-                "earl:subject":         ["@pageID", "@pageID"/*, ...*/],
-                "earl:testCase":        "Plain text",
-                "earl:result":          "@earlResult",
-                "earl:mode":            "@earlMode" /* Optional */
-                /*implicit: */
-                //"dct:isPartOf":         "@successcriterion"
-            }/*, ...*/]
-        }, ...]
-
-        // Tool specific properties, not part of wcag-em taxonomy
-        /* ... Possibly some other values as well such as which state the evaluator left off */
-    }
-
+        'dct:creator' : 'Wilco',
+        'dct:title'   : 'My report on the W3C website',
+        'dct:date'    : '2014-01-01',
+        'dct:summary' : 'It\'s pretty good',
+        commissioner  : 'The World Wide Web Consortium (W3C) ',
+        specifics     : 'We used W3C techniques',
+        successcriteria: [{
+            '@type':                'earl:assertion',
+            'earl:testRequirement': 'wcag20:text-equiv-all',
+            'earl:result': {
+                'earl:outcome':         'earl:failed',
+            },
+            'earl:subject':         '_:website',
+            'earl:assertedBy':      '_:auditor001',
+            'dct:date':             '2014-01-01T19:20:30+01:00',
+            testcases: [{
+                '@type':            'earl:assertion',
+                'earl:testCase':    'Used technique F1',
+                'earl:subject':     ['_:rand_0', '_:struct_1'],
+                'earl:result': {
+                    'earl:outcome':     'earl:passed',
+                    'dct:description':  'You can solve this by...',
+                },
+                'earl:assertedBy':  '_:auditor001',
+                'dct:date':         '2014-01-01T19:20:30+01:00',
+            }, {
+                '@type':            'earl:assertion',
+                'earl:testCase':    'Used technique G1',
+                'earl:subject':     ['_:rand_1', '_:struct_0'],
+                'earl:result': {
+                    'earl:outcome':     'earl:failed',
+                },
+                'earl:assertedBy':  '_:auditor001',
+                'dct:date':         '2014-01-01T19:20:30+01:00',
+            }]
+        }]
+    };

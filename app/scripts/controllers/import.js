@@ -1,6 +1,5 @@
 'use strict';
 
-angular.module('wcagReporter')
-  .controller('ImportCtrl', function () {
+angular.module('wcagReporter').controller('ImportCtrl', function () {
 
   });

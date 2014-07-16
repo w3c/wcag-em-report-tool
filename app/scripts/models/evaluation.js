@@ -21,17 +21,17 @@ angular.module('wcagReporter').factory('evalModel', function(
 		testModel:    evalTestModel,
 		reportModel:  evalReportModel,
 
-		getJsonLd: function () {
-			var jsonLd = {
-				dataType: 'evaluation',
-				evaluationScope: evalScopeModel,
-				successCriteria: evalTestModel
-			};
-			objectMerge(jsonLd, evalExploreModel);
-			objectMerge(jsonLd, evalSampleModel);
-			objectMerge(jsonLd, evalReportModel);
-			return JSON.stringify(jsonLd);
-		}
+		// getJsonLd: function () {
+		// 	var jsonLd = {
+		// 		dataType: 'evaluation',
+		// 		evaluationScope: evalScopeModel,
+		// 		successCriteria: evalTestModel
+		// 	};
+		// 	objectMerge(jsonLd, evalExploreModel);
+		// 	objectMerge(jsonLd, evalSampleModel);
+		// 	objectMerge(jsonLd, evalReportModel);
+		// 	return JSON.stringify(jsonLd);
+		// }
 	};
 
     return evalModel;
