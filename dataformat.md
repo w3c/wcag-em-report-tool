@@ -136,7 +136,7 @@
                 "earl:result": {
                     "earl:outcome":     "earl:failed"
                 },
-                "earl:assertedBy":  "_:auditor001",
+                "earl:assertedBy":  "http://nl.linkedin.com/in/wilcofiers/",
                 "dct:date":         "2014-01-01T19:20:30+01:00"
             }]
         }]
