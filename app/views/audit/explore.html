@@ -12,9 +12,7 @@
     <label for="relied_upon_technologies">
       {{ 'LABEL_RELIEDUP_TECH' | translate }}
     </label>
-    <textarea ng-model="explore.reliedUponTechnology"
-        id="relied_upon_technologies"
-        class="form-control" cols="40" rows="5"></textarea>
+    <tech-select selected="explore.reliedUponTechnology" />
   </div>
   
   <div class="formgroup">

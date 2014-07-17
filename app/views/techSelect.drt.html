@@ -1,0 +1,14 @@
+<div>
+  <datalist id="tech_titles">
+    <option ng-repeat="tech in technolgies">{{tech.title}}</option>
+  </datalist>
+  <datalist id="tech_specs">
+    <option ng-repeat="tech in technolgies">{{tech.specs}}</option>
+  </datalist>
+  <div ng-repeat="select in selected">
+    <input list="tech_titles" ng-model="select.title"
+    	ng-blur="updateSpec(select)" />
+    <input list="tech_specs" ng-model="select.specs" size="40"
+    	ng-blur="updateTitle(select)" />
+  </div>
+</div>
