@@ -136,13 +136,14 @@
                 "earl:result": {
                     "earl:outcome":     "earl:failed"
                 },
-                "earl:assertedBy":  "http://nl.linkedin.com/in/wilcofiers/",
+                "earl:assertedBy":  "_:auditor001",
                 "dct:date":         "2014-01-01T19:20:30+01:00"
             }]
         }]
     }, {
+        "@context": {"@vocab": "http://xmlns.com/foaf/spec/#"},
         "@id": "http://nl.linkedin.com/in/wilcofiers/",
-        "@type": "http://xmlns.com/foaf/0.1/#Person",
+        "@type": "Person",
         "firstName": "Wilco",
         "lastName": "Fiers"
     }]
