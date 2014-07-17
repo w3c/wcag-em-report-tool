@@ -14,9 +14,14 @@
 	<span class="col-sm-9"><progress class="form-control" value="10" max="100"></progress></span>
 </div>
 
-<ng-include src="'views/audit/test/sample-pages.html'"></ng-include>
-
-<ng-include src="'views/audit/test/criteria.html'"></ng-include>
+<div class="col-sm-4">
+  <div class="row" ng-include src="'views/audit/test/sample-pages.html'">
+  </div>
+</div>
+<div class="col-sm-8">
+  <div class="row" ng-include src="'views/audit/test/criteria.html'"></div>
+</div>
+	
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/sample">

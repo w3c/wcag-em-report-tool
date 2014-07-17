@@ -12,9 +12,13 @@ p a {
 .disable {
     cursor: default !important;
 }
+button[disabled] {
+    color:gray;
+    font-style:italic;
+}
 
-.offscreen 
-{    position:absolute;
+.offscreen {
+    position:absolute;
     top:-9999em;
 }
 

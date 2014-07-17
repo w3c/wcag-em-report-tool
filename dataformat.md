@@ -50,7 +50,6 @@
             "earl:outcome":                 {"@type": "@id"},
             "earl:subject":                 {"@type": "@id"},
             "earl:assertedBy":              {"@type": "@id"},
-            "earl:outcome":                 {"@type": "@id"},
             "earl:testRequirement":         {"@type": "@id"},
             "dct:creator":                  {"@type": "@id"},
             "handle":      null,

@@ -1,22 +1,44 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalSampleModel', function() {
-    
-    function Page() {
-        this.url = 'http://example.com';
-        this.state = 'some state';
-    }
+    var randomPages = [],
+        structuredPages = [];
 
-    this.structuredSample = [];
+    function Page() {}
+    Page.prototype = {
+        '@type': 'webpage',
+        '@id': 'someid',
+        description: undefined,
+        handle: undefined
+    };
 
-    this.randomSample = [];
+
+    this.structuredSample = {
+        webpage: randomPages
+    };
+
+    this.randomSample = {
+        webpage: structuredPages
+    };
 
     this.removePage = function (sample, index) {
-        sample.splice(index, 1);
+        sample.webpage.splice(index, 1);
     };
 
     this.addPage = function (sample) {
-        sample.push(new Page());
+        sample.webpage.push(new Page());
+    };
+
+    this.getPageByDescr = function (description) {
+        var foundPage;
+        function findPage (page) {
+            if (page.description === description) {
+                foundPage = page;
+            }
+        }
+        this.randomSample.webpage.forEach(findPage);
+        this.structuredSample.webpage.forEach(findPage);
+        return foundPage;
     };
 
 

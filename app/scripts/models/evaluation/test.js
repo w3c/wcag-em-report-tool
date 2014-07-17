@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalTestModel', function() {
-	var criterion = {},
+	var criteria = {},
 		currentUser = {},
 		num = 0;
 
 	function TestCaseAssert() {
-		this.pages = [];
+		this.subject = [];
 		this.testCase = this.testCase += (num++);
 	}
 
@@ -14,43 +14,50 @@ angular.module('wcagReporter').service('evalTestModel', function() {
 		'@type': 'earl:assertion',
 		assertedBy: currentUser,
         description: 'myDesc',
-        pages: undefined,
+        subject: undefined,
         testCase: 'myTestName',
-        outcome: 'earl:pass',
-        mode: '@earlMode',
-        addNewPage: function (url) {
-        	this.pages.push({url: url});
+        outcome: 'earl:untested',
+        mode: undefined,
+        addNewPage: function (page) {
+        	this.subject.push(page);
         },
 		removePage: function (i) {
-			this.pages.splice(i, 1);
+			this.subject.splice(i, 1);
 		}
 	};
 
 	function CriterionAssert(idref) {
 		this.testRequirement = idref;
 		this.testCaseAsserts = [];
-		this.addTestCaseAssertion();
 	}
 
 	CriterionAssert.prototype = {
 		'@type': 'earl:assertion',
 		testRequirement: undefined,
 		assertedBy: currentUser,
-        subject: 'website--todo',
- 	    outcome: '',
+        subject: '_:website',
+ 	    outcome: 'earl:untested',
  	    mode: 'manual',
         testCaseAsserts: undefined,
-        addTestCaseAssertion: function () {
-        	this.testCaseAsserts.push(new TestCaseAssert());
+        addTestCaseAssertion: function (obj) {
+        	var key,
+        		tc = new TestCaseAssert();
+        	if (obj) {
+        		for (key in obj) {
+        			tc[key] = obj[key];
+        		}
+        	}
+        	this.testCaseAsserts.push(tc);
         }
 	};
 
 	return {
 		getResult: function (idref) {
-			if (typeof criterion[idref] === 'undefined') {
-				criterion[idref] = new CriterionAssert(idref);
+			if (typeof criteria[idref] === 'undefined') {
+				criteria[idref] = new CriterionAssert(idref);
 			}
-			return criterion[idref];
-		}
+			return criteria[idref];
+		},
+		criteria: criteria
 	};
 });

@@ -4,7 +4,7 @@ angular.module('wcagReporter').service('evalScopeModel', function() {
 	this.conformanceTarget = undefined;
     this.additionalEvalRequirement = undefined;
     this.website = {
-    	name: undefined,
+    	title: undefined,
     	siteScope: undefined
     };
     this.accessibilitySupportBaseline = undefined;
@@ -17,5 +17,6 @@ angular.module('wcagReporter').service('evalScopeModel', function() {
     };
 
     // Lock up the object, for a little more dev security
+    Object.preventExtensions(this.website);
     Object.preventExtensions(this);
 });

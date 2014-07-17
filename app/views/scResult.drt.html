@@ -1,4 +1,4 @@
-<div ng-init="unique = getUnique()">
+<div ng-init="unique = getUnique()" class="panel-body">
   <div class="row" style="padding:0 1em;">
 
     <label class="col-sm-1" for="result_outcome_{{unique}}">
@@ -6,13 +6,13 @@
     </label>
     <select class="col-sm-1" id="result_outcome_{{unique}}"
             ng-model="tcAssert.outcome">
-      <option value="earl:pass">Pass</option>
-      <option value="earl:fail">Fail</option>
-      <option value="wcagem:not_present">Not Present</option>
+      <option ng-repeat="outcome in outcomes" value="{{outcome.id}}">
+        {{outcome.name}}
+      </option>
     </select>
 
     <label class="col-sm-1" for="result_cause_{{unique}}">
-      Cause:
+      Findings:
     </label>
     <input class="col-sm-8" id="result_cause_{{unique}}"
            ng-model="tcAssert.testCase" type="text">
@@ -21,7 +21,7 @@
       <div class="dropdown">
         <button class="button dropdown-toggle">
           <span class="glyphicon glyphicon-cog"></span>
-          <span class="">Opt.</span>
+          <span class="">Opt</span>
         </button>
       <ul class="dropdown-menu" style="left:0;">
         <li><a>Duplicate result</a></li>
@@ -42,10 +42,10 @@
               class="form-control"></textarea>
   </div>
   <div class="row" style="padding:0 1em;">
-    <div class="col-xs-12" ng-repeat="page in tcAssert.pages">
+    <div class="col-xs-12" ng-repeat="page in tcAssert.subject">
       <input list="{{sampleListId}}" class="form-control" 
              type="text" placeholder="Sample page" title="Sample page"
-             ng-model="page.url"
+             ng-model="page.description"
              ng-blur="removeWhenEmpty(page, $index)">
     </div>
     <div class="col-xs-12">
