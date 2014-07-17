@@ -104,7 +104,7 @@
                 "description": "http://example.com/4"
             }]
         },
-        "dct:creator" : "_:auditor001",
+        "dct:creator" : "http://nl.linkedin.com/in/wilcofiers/",
         "dct:title"   : "My report on the W3C website",
         "dct:date"    : "2014-01-01",
         "dct:summary" : "It\"s pretty good",
@@ -117,7 +117,7 @@
                 "earl:outcome":         "earl:failed"
             },
             "earl:subject":         "_:website",
-            "earl:assertedBy":      "_:auditor001",
+            "earl:assertedBy":      "http://nl.linkedin.com/in/wilcofiers/",
             "dct:date":             "2014-01-01T19:20:30+01:00",
             "dct:hasPart": [{
                 "@type":            "earl:assertion",
@@ -127,7 +127,7 @@
                     "earl:outcome":     "earl:passed",
                     "dct:description":  "You can solve this by..."
                 },
-                "earl:assertedBy":  "_:auditor001",
+                "earl:assertedBy":  "http://nl.linkedin.com/in/wilcofiers/",
                 "dct:date":         "2014-01-01T19:20:30+01:00"
             }, {
                 "@type":            "earl:assertion",
@@ -136,11 +136,13 @@
                 "earl:result": {
                     "earl:outcome":     "earl:failed"
                 },
-                "earl:assertedBy":  "_:auditor001",
+                "earl:assertedBy":  "http://nl.linkedin.com/in/wilcofiers/",
                 "dct:date":         "2014-01-01T19:20:30+01:00"
             }]
         }]
     }, {
-        "@id": "_:auditor001",
-        "@type": "http://nl.linkedin.com/in/wilcofiers/"
+        "@id": "http://nl.linkedin.com/in/wilcofiers/",
+        "@type": "http://xmlns.com/foaf/0.1/#Person",
+        "firstName": "Wilco",
+        "lastName": "Fiers"
     }]
