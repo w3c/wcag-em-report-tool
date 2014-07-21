@@ -5,7 +5,7 @@
       Outcome
     </label>
     <select class="col-sm-1" id="result_outcome_{{unique}}"
-            ng-model="tcAssert.outcome">
+            ng-model="tcAssert.result.outcome">
       <option ng-repeat="outcome in outcomes" value="{{outcome.id}}">
         {{outcome.name}}
       </option>
@@ -16,7 +16,7 @@
     </label>
     <input class="col-sm-8" id="result_cause_{{unique}}"
            ng-model="tcAssert.testCase" type="text">
-
+    
     <div class="col-sm-1">
       <div class="dropdown">
         <button class="button dropdown-toggle">

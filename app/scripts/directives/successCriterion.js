@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'scAudit', function (directivePlugin) {
+		'scAudit', function (directivePlugin, evalSampleModel) {
 	var uniqueNum = 0,
         outcomes = [
             {id: 'earl:untested', name: 'Untested'},
@@ -24,6 +24,9 @@ angular.module('wcagReporter').directive(
             scope.outcomes = outcomes;
         	scope.addDetails = function (assertion) {
         		assertion.addTestCaseAssertion();
+                
+                //evalSampleModel.getSelectedPage();
+                
                 scope.isVisible = true;
         	};
         	scope.getUnique = function () {

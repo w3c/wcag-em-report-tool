@@ -58,7 +58,7 @@ angular.module('wcagReporter')
     };
 
     $scope.getAssert = function (criterion) {
-        return evalTestModel.getResult(criterion.uri);
+        return evalTestModel.getResult('wcag20:' + criterion.uri.substr(1));
     };
     
     wcag20spec.forEach(function(principle) {

@@ -4,7 +4,7 @@
       <strong>{{desc.number}} {{desc.title}}:</strong>
       <span class="badge">Level {{desc.level}}</span>
       <span class="pull-right">
-        Details ({{assertion.testCaseAsserts.length}}):
+        Details ({{assertion.hasPart.length}}):
   	    <button ng-click="addDetails(assertion)" class="button">
   	      Add
   	    </button>
@@ -20,7 +20,7 @@
         Outcome
       </label>
       <select class="col-sm-1" id="result_outcome"
-              ng-model="assertion.outcome">
+              ng-model="assertion.result.outcome">
         <option ng-repeat="outcome in outcomes" value="{{outcome.id}}">
           {{outcome.name}}
         </option>
@@ -30,10 +30,10 @@
         Findings:
       </label>
       <input class="col-sm-9" id="result_cause"
-             ng-model="assertion.info" type="text">
+             ng-model="assertion.result.description" type="text">
     </p><br clear />
   </div>
   <div collapse="!isVisible">
-    <sc-result ng-repeat="tcAssert in assertion.testCaseAsserts" />
+    <sc-result ng-repeat="tcAssert in assertion.hasPart" />
   </div>
 </div>

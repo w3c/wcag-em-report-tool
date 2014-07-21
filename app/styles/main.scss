@@ -46,6 +46,12 @@ table {
     span {
         padding: .2em .1em;
     }
+    li:hover {
+        background:#DDD;
+    }
+    li.active {
+        background:#EEE;
+    }
 }
 
 /* bower:scss */
