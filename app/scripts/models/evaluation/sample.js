@@ -31,9 +31,13 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.getPageByDescr = function (description) {
-        return this.getPages().find(function(page) {
-            return page.description === description;
+        var res;
+        this.getPages().forEach(function(page) {
+            if (page.description === description) {
+                res = page;
+            }
         });
+        return res;
     };
 
     this.getPages = function () {
