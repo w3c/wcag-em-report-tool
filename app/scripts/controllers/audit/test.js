@@ -11,6 +11,35 @@ angular.module('wcagReporter')
     $scope.wcag20spec = wcag20spec; 
     $scope.criteria = [];
 
+    $scope.invertPageSelect = function () {
+        var pages = $scope.structuredSample.webpage
+            .concat($scope.randomSample.webpage);
+        pages.forEach(function (page) {
+            console.log(page.selected);
+            page.selected = !page.selected;
+        });
+    };
+
+    $scope.completeSelected = function () {
+        var pages = $scope.structuredSample.webpage
+            .concat($scope.randomSample.webpage);
+        pages.forEach(function (page) {
+            if (page.selected) {
+                page.tested = true;
+            }
+        });
+    };
+
+    $scope.incompleteSelected = function () {
+        var pages = $scope.structuredSample.webpage
+            .concat($scope.randomSample.webpage);
+        pages.forEach(function (page) {
+            if (page.selected) {
+                page.tested = false;
+            }
+        });
+    };
+
     /**
      * Add a detail for each sample page to each success criteiron
      */

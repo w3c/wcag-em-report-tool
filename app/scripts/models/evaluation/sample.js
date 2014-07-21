@@ -6,12 +6,13 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
 
     function Page() {}
     Page.prototype = {
-        '@type': 'webpage',
-        '@id': 'someid',
+        'type': 'webpage',
+        'id': 'someid',
         description: undefined,
-        handle: undefined
+        handle: undefined,
+        tested: true,
+        selected: true
     };
-
 
     this.structuredSample = {
         webpage: randomPages
@@ -30,17 +31,23 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.getPageByDescr = function (description) {
-        var foundPage;
-        function findPage (page) {
-            if (page.description === description) {
-                foundPage = page;
-            }
-        }
-        this.randomSample.webpage.forEach(findPage);
-        this.structuredSample.webpage.forEach(findPage);
-        return foundPage;
+        return this.getPages().find(function(page) {
+            return page.description === description;
+        });
     };
 
+    this.getPages = function () {
+        return this.randomSample.webpage
+            .concat(this.structuredSample.webpage);
+    };
+
+    this.getSelectedPages = function () {
+        return this.getPages().map(function (page) {
+            if (page.selected) {
+                return page;
+            }
+        });
+    };
 
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
