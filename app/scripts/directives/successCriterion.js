@@ -1,8 +1,15 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'scAudit', function ($compile, directivePlugin) {
-	var uniqueNum = 0;
+		'scAudit', function (directivePlugin) {
+	var uniqueNum = 0,
+        outcomes = [
+            {id: 'earl:untested', name: 'Untested'},
+            {id: 'earl:pass', name: 'Pass'},
+            {id: 'earl:fail', name: 'Fail'},
+            {id: 'earl:cantTell', name: 'Can\'t tell'},
+            {id: 'earl:inapplicable', name: 'inapplicable'},
+        ];
 
     return directivePlugin({
         restrict: 'E',
@@ -14,8 +21,10 @@ angular.module('wcagReporter').directive(
         },
 
         link: function (scope) {
-        	scope.addResult = function (assertion) {
+            scope.outcomes = outcomes;
+        	scope.addDetails = function (assertion) {
         		assertion.addTestCaseAssertion();
+                scope.isVisible = true;
         	};
         	scope.getUnique = function () {
     			return uniqueNum += 1;
@@ -24,22 +33,26 @@ angular.module('wcagReporter').directive(
         templateUrl: 'views/scAudit.drt.html'
     });
 
-}).directive('scResult', function(directivePlugin) {
+}).directive('scResult', function(directivePlugin, evalSampleModel) {
     return directivePlugin({
         restrict: 'E',
         replace: true,
-        link: function (scope) {
+        link: function (scope, elm, attr) {
+            if (attr.urls) {
+                scope.urls = true;
+            }
         	scope.newPage = '';
         	scope.removeWhenEmpty = function (page, i) {
-        		if (page.url === '') {
+        		if (page.description === '') {
         			this.tcAssert.removePage(i);
         		}
         	};
         	scope.addNewPage = function () {
-    			if (this.newPage === '') {
-    				return;
-    			}
-				this.tcAssert.addNewPage(this.newPage);
+                var page = evalSampleModel.getPageByDescr(this.newPage);
+                if (this.newPage === '') {
+                    return;
+                }
+				this.tcAssert.addNewPage(page);
     			this.newPage = '';
         	};
         },

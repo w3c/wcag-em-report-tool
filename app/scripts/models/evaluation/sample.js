@@ -1,24 +1,53 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalSampleModel', function() {
-    
-    function Page() {
-        this.url = 'http://example.com';
-        this.state = 'some state';
-    }
+    var randomPages = [],
+        structuredPages = [];
 
-    this.structuredSample = [];
+    function Page() {}
+    Page.prototype = {
+        'type': 'webpage',
+        'id': 'someid',
+        description: undefined,
+        handle: undefined,
+        tested: true,
+        selected: true
+    };
 
-    this.randomSample = [];
+    this.structuredSample = {
+        webpage: randomPages
+    };
+
+    this.randomSample = {
+        webpage: structuredPages
+    };
 
     this.removePage = function (sample, index) {
-        sample.splice(index, 1);
+        sample.webpage.splice(index, 1);
     };
 
     this.addPage = function (sample) {
-        sample.push(new Page());
+        sample.webpage.push(new Page());
     };
 
+    this.getPageByDescr = function (description) {
+        return this.getPages().find(function(page) {
+            return page.description === description;
+        });
+    };
+
+    this.getPages = function () {
+        return this.randomSample.webpage
+            .concat(this.structuredSample.webpage);
+    };
+
+    this.getSelectedPages = function () {
+        return this.getPages().map(function (page) {
+            if (page.selected) {
+                return page;
+            }
+        });
+    };
 
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
