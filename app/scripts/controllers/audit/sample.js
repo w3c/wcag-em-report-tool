@@ -7,7 +7,7 @@ angular.module('wcagReporter')
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
-    $scope.addPage = evalSampleModel.addPage;
+    $scope.addPage = evalSampleModel.addNewPage;
     $scope.removePage = evalSampleModel.removePage;
 
     $scope.processInput = function () {

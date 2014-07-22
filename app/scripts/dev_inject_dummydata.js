@@ -47,7 +47,7 @@ angular.module('wcagReporter').run(function (
 	var reportData =     [{
         '@context': context,
         'type': 'evaluation',
-        'id':   'https://bo.accessibility.nl/rapport/123456.json',
+        'id':   'http://example.com/eval/123456.json',
         'currentStep': 'test',
         'evaluationScope': {
             'conformanceTarget': 'wcag20:level_aa',
@@ -55,8 +55,8 @@ angular.module('wcagReporter').run(function (
             'accessibilitySupportBaseline': 'My AS Baseline',
             'website': {
                 'id': '_:website',
-                'title': 'W3C website',
-                'siteScope': 'All pages at http://w3.org\nAll pages at https://w3.org'
+                'title': 'example.com website',
+                'siteScope': 'All pages at http://example.com\nAll pages at https://my.example.com'
             }
         },
         'reliedUponTechnology': [{
@@ -74,83 +74,83 @@ angular.module('wcagReporter').run(function (
             'webpage': [{
                 'type': 'webpage',
                 'id': '_:struct_0',
-                'handle': 'Structure page 1',
-                'description': 'http://www.w3.org/'
+                'handle': 'Homepage',
+                'description': 'http://example.com/'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_1',
-                'handle': 'Structure page 2',
-                'description': 'http://www.w3.org/WAI/users/Overview.html'
+                'handle': 'Sitemap',
+                'description': 'http://example.com/sitemap'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_2',
-                'handle': 'Structure page 3',
-                'description': 'http://www.w3.org/community/'
+                'handle': 'Contact form',
+                'description': 'http://example.com/contact'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_3',
-                'handle': 'Structure page 4',
-                'description': 'http://www.w3.org/WAI/demos/bad/'
+                'handle': 'map',
+                'description': 'http://example.com/geo'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_4',
-                'handle': 'Structure page 5',
-                'description': 'http://www.w3.org/community/svga11y/wiki/Main_Page'
+                'handle': 'Video 1',
+                'description': 'http://example.com/blog/2004/01/01'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_5',
-                'handle': 'Structure page 6',
-                'description': 'http://www.w3.org/WAI/demos/bad/after/reports/template.html'
+                'handle': 'Video 2',
+                'description': 'http://example.com/media'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_6',
-                'handle': 'Structure page 7',
-                'description': 'http://validator.w3.org'
+                'handle': 'Structured page 7',
+                'description': 'http://example.com/signup'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_7',
-                'handle': 'Structure page 8',
-                'description': 'http://w3.org/TR/WCAG-EM/'
+                'handle': 'Structured page 8',
+                'description': 'http://example.com/webshop'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_8',
-                'handle': 'Structure page 9',
-                'description': 'http://www.w3.org/WAI/accessibility-support/#/log-in.html'
+                'handle': 'Payment process 1',
+                'description': 'http://example.com/payment/'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_9',
-                'handle': 'Structure page 10',
-                'description': 'http://www.w3.org/standards/agents/'
+                'handle': 'Payment process 2',
+                'description': 'http://example.com/payment/ Click on "Buy products"'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_10',
-                'handle': 'Structure page 11',
-                'description': 'http://www.w3.org/WAI/'
+                'handle': 'Payment process 3',
+                'description': 'http://example.com/payment/ Click on "Buy products", then fill in details and click "purchase"'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_11',
-                'handle': 'Structure page 12',
-                'description': 'http://lists.w3.org/Archives/Public/public-svga11y/'
+                'handle': 'Homepage logged in',
+                'description': 'http://example.com/ (after Login)'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_12',
-                'handle': 'Structure page 13',
-                'description': 'http://www.w3.org/WAI/WCAG20/quickref/'
+                'handle': 'Mobile version',
+                'description': 'http://example.com/ Resize the screen to have a width of 800'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_13',
-                'handle': 'Structure page 14',
-                'description': 'http://www.w3.org/TR/WCAG20/'
+                'handle': 'PDF download',
+                'description': 'http://example.com/downloads/reports.pdf'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_14',
-                'handle': 'Structure page 15',
-                'description': 'https://validator-suite.w3.org'
+                'handle': 'Accessibility statement',
+                'description': 'http://example.com/accessibility'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_15',
-                'handle': 'Structure page 16',
-                'description': 'http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html'
+                'handle': 'Structured page 16',
+                'description': 'http://example.com/social'
             }]
         },
         'randomSample': {
@@ -158,19 +158,19 @@ angular.module('wcagReporter').run(function (
                 'type': 'webpage',
                 'id': '_:rand_0',
                 'handle': 'Random page 1',
-                'description': 'http://www.w3.org/standards/'
+                'description': 'http://example.com/random1'
             }, {
                 'type': 'webpage',
                 'id': '_:rand_1',
                 'handle': 'Random page 2',
-                'description': 'http://www.w3.org/community/about/'
+                'description': 'http://example.com/random8'
             }]
         },
-        'creator' : 'http://nl.linkedin.com/in/wilcofiers/',
-        'title'   : 'My report on the W3C website',
+        'creator' : 'MyName',
+        'title'   : 'Dummy report on an example site',
         'date'    : '2014-01-01',
         'summary' : 'It\'s pretty good',
-        'commissioner': 'The World Wide Web Consortium (W3C) ',
+        'commissioner': 'The proud people at example.com',
         'specifics'   : 'We used W3C techniques',
         'auditResult': [{
             'type':                'assertion',

@@ -26,18 +26,16 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 							  evalData.evaluationScope);
 			}
 
-			if (evalData.auditResult) {
-				console.log(evalData.auditResult);
-				evalData.auditResult.forEach(
-						evalModel.testModel.addResult,
-						evalModel.testModel);
-			}
-
 			['exploreModel', 'sampleModel', 'reportModel']
 				.forEach(function (modelName) {
 				objectCollide(evalModel[modelName], evalData);
 			});
 
+			if (evalData.auditResult) {
+				evalData.auditResult.forEach(
+						evalModel.testModel.addResult,
+						evalModel.testModel);
+			}
 		}
 
 	};

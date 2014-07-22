@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalTestModel', function() {
+angular.module('wcagReporter').service('evalTestModel',
+        function(evalSampleModel) {
     var criteria = {},
         currentUser = {},
         num = 0;
@@ -26,6 +27,16 @@ angular.module('wcagReporter').service('evalTestModel', function() {
         },
         removePage: function (i) {
             this.subject.splice(i, 1);
+        },
+        setSubject: function (pageIds) {
+            var subject = [];
+            this.subject = subject;
+            pageIds.forEach(function (pageId) {
+                var page = evalSampleModel.getPageById(pageId);
+                if (page) {
+                    subject.push(page);
+                }
+            });
         }
     };
 
@@ -50,12 +61,17 @@ angular.module('wcagReporter').service('evalTestModel', function() {
         addTestCaseAssertion: function (obj) {
             var key,
                 tc = new TestCaseAssert();
-            if (obj) {
-                for (key in obj) {
+            this.hasPart.push(tc);
+            if (!obj) {
+                return;
+            }
+            for (key in obj) {
+                if (key === 'subject') {
+                    tc.setSubject(obj.subject);
+                } else {
                     tc[key] = obj[key];
                 }
             }
-            this.hasPart.push(tc);
         }
     };
 
