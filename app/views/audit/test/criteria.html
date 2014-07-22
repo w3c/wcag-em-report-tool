@@ -1,9 +1,5 @@
 <h2>Success criteria</h2>
 
-<p>
-  <button ng-click="addAllDetails()">Add details for each sample page</button>
-</p>
-
 <success-criterion showAllPages
     ng-repeat="crit in criteria | limitTo: 10"
     assertion="getAssert(crit)"

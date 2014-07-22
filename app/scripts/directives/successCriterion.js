@@ -18,10 +18,10 @@ angular.module('wcagReporter').directive(
         	desc: '=description',
         	sampleListId: '@samplelistid',
         	assertion: '=',
-            showAllPages: '='
+            showallpages: '='
         },
 
-        link: function (scope) {
+        link: function (scope, elm, attr) {
             scope.outcomes = outcomes;
         	scope.getUnique = function () {
     			return uniqueNum += 1;
@@ -30,35 +30,17 @@ angular.module('wcagReporter').directive(
             scope.getCases = function () {
                 return scope.assertion.hasPart;
             };
+
+            scope.flipCollapse = function () {
+                if (typeof attr.showallpages !== 'undefined') {
+                    if (!this.hasAllPages) {
+                        this.assertion.setCaseForEachPage();
+                        this.hasAllPages = true;
+                    }
+                }
+                this.isVisible = !this.isVisible;
+            };
         },
         templateUrl: 'views/audit/test/successCriterion.drt.html'
     });
-
-
-}).directive('scResult', function(directivePlugin, evalSampleModel) {
-    return directivePlugin({
-        restrict: 'E',
-        replace: true,
-        link: function (scope, elm, attr) {
-            if (attr.urls) {
-                scope.urls = true;
-            }
-        	scope.newPage = '';
-        	scope.removeWhenEmpty = function (page, i) {
-        		if (page.description === '') {
-        			this.tcAssert.removePage(i);
-        		}
-        	};
-        	scope.addNewPage = function () {
-                var page = evalSampleModel.getPageByDescr(this.newPage);
-                if (this.newPage === '') {
-                    return;
-                }
-				this.tcAssert.addNewPage(page);
-    			this.newPage = '';
-        	};
-        },
-        templateUrl: 'views/audit/test/scResult.drt.html'
-    });
-});
-
+})

@@ -4,7 +4,7 @@
       <strong>{{desc.number}} {{desc.title}}:</strong>
       <span class="badge">Level {{desc.level}}</span>
       <span class="pull-right">
-        <button ng-click="isVisible = !isVisible" class="button"
+        <button ng-click="flipCollapse()" class="button"
             ng-disabled="assertion.testCaseAsserts.length == 0">
           <span ng-if="isVisible">Collapse</span>
           <span ng-if="!isVisible">Expand</span>
@@ -16,6 +16,7 @@
 
   </div>
   <div collapse="!isVisible">
-    <sc-result ng-repeat="tcAssert in getCases()" />
+    <test-case ng-repeat="tcAssert in getCases()
+                          | selectedCasesOnly" />
   </div>
 </div>

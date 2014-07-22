@@ -43,23 +43,6 @@ angular.module('wcagReporter')
         });
     };
 
-    /**
-     * Add a detail for each sample page to each success criteiron
-     */
-    $scope.addAllDetails = function () {
-        var sample = $scope.structuredSample.webpage
-            .concat($scope.randomSample.webpage);
-
-        Object.keys(evalTestModel.criteria).forEach(function (key) {
-            var criterion = evalTestModel.criteria[key];
-            sample.forEach(function (page) {
-                criterion.addTestCaseAssertion({
-                    subject: [page]
-                });
-            });
-        });
-    };
-
     $scope.getAssert = function (criterion) {
         return evalTestModel.getResult('wcag20:' + criterion.uri.substr(1));
     };
