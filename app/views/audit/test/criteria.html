@@ -1,19 +1,9 @@
 <h2>Success criteria</h2>
 
-<p>---Some more filter options go here--</p>
-<datalist id="datalist_sample">
-  <option ng-repeat="page in structuredSample.webpage" value="{{page.description}}">
-  <option ng-repeat="page in randomSample.webpage" value="{{page.description}}">
-</datalist>
-
-<p>
-  <button ng-click="addAllDetails()">Add details for each sample page</button>
-</p>
-
-<sc-audit ng-repeat="crit in criteria | limitTo: 10"
-      samplelistid="datalist_sample"
-      assertion="getAssert(crit)"
-      description="crit"></sc-audit>
+<success-criterion showAllPages
+    ng-repeat="crit in criteria | limitTo: 10"
+    assert="getAssert(crit)"
+    description="crit"></success-criterion>
 
 
 <p>Showing 10 of {{criteria.length}}. <a>Show the next 10</a></p>

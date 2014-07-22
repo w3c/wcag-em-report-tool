@@ -28,6 +28,6 @@ angular.module('wcagReporter').directive('techSelect', function() {
         		updateTech(select, 'title', 'specs');
         	};
         },
-        templateUrl: 'views/techSelect.drt.html'
+        templateUrl: 'views/audit/techSelect.drt.html'
     };
 });

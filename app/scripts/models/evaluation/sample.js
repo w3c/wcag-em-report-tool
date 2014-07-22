@@ -1,21 +1,40 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalSampleModel', function() {
-    var randomPages = [],
+    var self = this,
+        randomPages = [],
         structuredPages = [];
 
+    /**
+     * Get the next available page number for a given sample
+     * @param  {object} sample 
+     * @return {int}    pageNum      
+     */
+    function getAvailablePageNum(sample) {
+        var name, lastId;
+        name = (sample === self.randomSample ? '_:rand_' : '_:struct_');
+        lastId = sample.webpage.map(function (page) {
+            return +page.id.substr(name.length);
+        }).sort(function (a,b) {
+            return a - b;
+        }).pop();
+
+        return lastId + 1;
+    }
+
     function Page() {}
+
     Page.prototype = {
         'type': 'webpage',
-        'id': 'someid',
+        'id': '',
         description: undefined,
-        handle: undefined,
+        handle: '',
         tested: true,
         selected: true
     };
 
     this.structuredSample = {
-        webpage: randomPages
+        webpage: randomPages,
     };
 
     this.randomSample = {
@@ -26,8 +45,23 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         sample.webpage.splice(index, 1);
     };
 
-    this.addPage = function (sample) {
-        sample.webpage.push(new Page());
+    this.addNewPage = function (sample) {
+        var num, page;
+        sample = sample || this.randomSample;
+
+        page = new Page();
+        num = getAvailablePageNum(sample);
+
+        if (sample === this.randomSample) {
+            page.id = '_:rand_' + num;
+            page.handle = 'Random page ' + (1+ num);
+        } else {
+            page.id = '_:struct_' + num;
+            page.handle = 'Structured page ' + (1 + num);
+        }
+
+        sample.webpage.push(page);
+        return page;
     };
 
     this.getPageByDescr = function (description) {
@@ -41,8 +75,8 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.getPages = function () {
-        return this.randomSample.webpage
-            .concat(this.structuredSample.webpage);
+        return this.structuredSample.webpage
+            .concat(this.randomSample.webpage);
     };
 
     this.getSelectedPages = function () {
@@ -58,6 +92,16 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
      */
     this.validate = function () {
         return [];
+    };
+
+    this.getPageById = function (id) {
+        // I really need the .find() method :\
+        var pages = this.getPages();
+        for (var i = 0; i < pages.length; i++) {
+            if (pages[i].id === id) {
+                return pages[i];
+            }
+        }
     };
 
     // Lock up the object, for a little more dev security

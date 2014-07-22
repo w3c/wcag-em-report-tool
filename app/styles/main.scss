@@ -21,6 +21,13 @@ button[disabled] {
     position:absolute;
     top:-9999em;
 }
+.stretch-control {
+    width:100%;
+}
+.panel-body {
+    padding:0 !important;
+    margin:15px;
+}
 
 table {
     border-collapse:collapse;
@@ -45,6 +52,12 @@ table {
     list-style:none;
     span {
         padding: .2em .1em;
+    }
+    li:hover {
+        background:#DDD;
+    }
+    li.active {
+        background:#EEE;
     }
 }
 

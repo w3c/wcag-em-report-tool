@@ -1,55 +1,20 @@
-<h2>Sampled pages</h2>
-<p>--Some filter options go here--</p>
+<p><a href="" ng-click="hideSample = !hideSample">
+    Select what page(s) to work on
+</a></p>
 
-<div class="btn-group">
-  <button class="btn btn-default" ng-click="invertPageSelect()">
-    Invert
-  </button>
-  <button class="btn btn-default" ng-click="completeSelected()">
-    <span class="glyphicon glyphicon-ok">Complete</span>
-  </button>
-  <button class="btn btn-default" ng-click="incompleteSelected()">
-    <span class="glyphicon glyphicon-wrench">Incomplete</span>
-  </button>
-  <button class="btn btn-default">
-    Open
-  </button>
-</div>
+<ul class="sample" collapse="hideSample">
+	<li class="row" ng-repeat="page in allPages()"
+    ng-class="{active: page.selected}"
+    ng-click="page.selected = !page.selected">
 
-<ul class="sample">
-	<li class="row" ng-repeat="page in structuredSample.webpage">
     <span class="col-sm-1">
-      <input type="checkbox" ng-model="page.selected">
+      <input id="sample_select_{{$index}}" 
+          type="checkbox" ng-model="page.selected">
     </span>
-    <span class="col-sm-1">
-      <span ng-if="page.tested" class="glyphicon glyphicon-ok">
-        <span class="sr-only">Completed</span>
-      </span>
-      <span ng-if="!page.tested" class="glyphicon glyphicon-wrench">
-        <span class="sr-only">Completed</span>
-      </span>
-    </span>
-      
-    <label class="col-sm-10">
-      <a href="" tooltip="{{page.description}}">{{page.handle}}</a>
+    <label class="col-sm-3" for="sample_select_{{$index}}">
+      {{page.handle}}
     </label>
-	</li>
 
-	<li class="row" ng-repeat="page in randomSample.webpage">
-    <span class="col-sm-1">
-      <input type="checkbox" ng-model="page.selected">
-    </span>
-    <span class="col-sm-1">
-      <span ng-if="page.tested" class="glyphicon glyphicon-ok">
-        <span class="sr-only">Completed</span>
-      </span>
-      <span ng-if="!page.tested" class="glyphicon glyphicon-wrench">
-        <span class="sr-only">Completed</span>
-      </span>
-    </span>
-      
-    <label class="col-sm-10">
-      <a href="" tooltip="{{page.description}}">{{page.handle}}</a>
-    </label>
+    <span class="col-sm-7">{{page.description}}</span>
 	</li>
 </ul>

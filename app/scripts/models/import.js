@@ -26,11 +26,16 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 							  evalData.evaluationScope);
 			}
 
-			['exploreModel', 'sampleModel', 'testModel', 'reportModel']
+			['exploreModel', 'sampleModel', 'reportModel']
 				.forEach(function (modelName) {
 				objectCollide(evalModel[modelName], evalData);
 			});
 
+			if (evalData.auditResult) {
+				evalData.auditResult.forEach(
+						evalModel.testModel.addResult,
+						evalModel.testModel);
+			}
 		}
 
 	};
