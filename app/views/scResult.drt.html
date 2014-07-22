@@ -1,35 +1,6 @@
 <div ng-init="unique = getUnique()" class="panel-body">
-  <div class="row" style="padding:0 1em;">
+  <sample-page ng-repeat="page in tcAssert.subject"
+      page="page"></sample-page>
 
-    <label class="col-sm-1" for="result_outcome_{{unique}}">
-      Outcome
-    </label>
-    <select class="col-sm-1" id="result_outcome_{{unique}}"
-            ng-model="tcAssert.result.outcome">
-      <option ng-repeat="outcome in outcomes" value="{{outcome.id}}">
-        {{outcome.name}}
-      </option>
-    </select>
-
-    <label class="col-sm-1" for="result_cause_{{unique}}">
-      Findings:
-    </label>
-    <input class="col-sm-8" id="result_cause_{{unique}}"
-           ng-model="tcAssert.testCase" type="text">
-    
-  </div>
-  <div style="padding:0 1em; display:none;">
-    <label class="sr-only" for="result_descr_{{unique}}">
-      Description
-    </label>
-    <textarea ng-model="tcAssert.description"
-              id="result_descr_{{unique}}"
-              class="form-control"></textarea>
-  </div>
-  <div class="row" style="padding:0 1em;">
-    {{tcAssert.subject}}
-    <div class="col-xs-12" ng-repeat="page in tcAssert.subject">
-      <sample-page page="page"></sample-page>
-    </div>
-  </div>
+  <assert-result assert="tcAssert"></assert-result>
 </div>

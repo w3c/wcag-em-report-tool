@@ -1,0 +1,23 @@
+<div class="row">
+  <span class="col-sm-1"><label for="result_outcome_{{unique}}">
+  	Outcome:
+  </label></span>
+
+  <span class="col-sm-2">
+    <select class="" id="result_outcome_{{unique}}"
+            ng-model="assert.result.outcome">
+      <option ng-repeat="oc in outcomes" value="{{oc.id}}">
+        {{oc.name}}
+      </option>
+    </select>
+  </span>
+
+  <span class="col-sm-1"><label for="result_cause_{{unique}}">
+    Findings:
+  </span>
+
+  <span class="col-sm-8">
+    <input class="" id="result_cause_{{unique}}"
+           ng-model="assert.testCase" type="text">
+  </span>
+</div>

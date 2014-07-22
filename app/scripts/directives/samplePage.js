@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('wcagReporter')
 	.directive('samplePage', function(directivePlugin) {
     return directivePlugin({
@@ -7,6 +6,6 @@ angular.module('wcagReporter')
         scope: {
         	page: '='
         },
-        template: 'asdf {{page.description}} {{page.handle}}'
+        templateUrl: 'views/samplePage.drt.html'
     });
 });
