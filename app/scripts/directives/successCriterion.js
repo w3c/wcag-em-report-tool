@@ -16,8 +16,7 @@ angular.module('wcagReporter').directive(
         replace: true,
         scope: {
         	desc: '=description',
-        	sampleListId: '@samplelistid',
-        	assertion: '=',
+        	assert: '=',
             showallpages: '='
         },
 
@@ -28,13 +27,13 @@ angular.module('wcagReporter').directive(
         	};
 
             scope.getCases = function () {
-                return scope.assertion.hasPart;
+                return scope.assert.hasPart;
             };
 
             scope.flipCollapse = function () {
                 if (typeof attr.showallpages !== 'undefined') {
                     if (!this.hasAllPages) {
-                        this.assertion.setCaseForEachPage();
+                        this.assert.setCaseForEachPage();
                         this.hasAllPages = true;
                     }
                 }
@@ -43,4 +42,4 @@ angular.module('wcagReporter').directive(
         },
         templateUrl: 'views/audit/test/successCriterion.drt.html'
     });
-})
+});

@@ -91,7 +91,7 @@ angular.module('wcagReporter').service('evalTestModel',
                        assert.subject.length === 1);
             // Put all pages from them in singlePageCases
             }).map(function (assert) {
-                return assert.subject;
+                return assert.subject[0];
             });
 
             // Select all pages, filter those not singlePageCases
