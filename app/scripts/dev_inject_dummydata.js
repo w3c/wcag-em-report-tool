@@ -185,7 +185,7 @@ angular.module('wcagReporter').run(function (
             'hasPart': [{
                 'type':        'assertion',
                 'testCase':    'Used technique F1',
-                'subject':     ['_:rand_0', '_:struct_1'],
+                'subject':     ['_:struct_1'],
                 'result': {
                     'outcome':     'earl:pass',
                     'description':  'You can solve this by...'
@@ -195,7 +195,7 @@ angular.module('wcagReporter').run(function (
             }, {
                 'type':            'assertion',
                 'testCase':    'Used technique G1',
-                'subject':     ['_:rand_1', '_:struct_0'],
+                'subject':     ['_:rand_1'],
                 'result': {
                     'outcome':     'earl:fail'
                 },

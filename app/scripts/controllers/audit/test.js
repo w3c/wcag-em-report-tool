@@ -10,6 +10,9 @@ angular.module('wcagReporter')
   
     $scope.wcag20spec = wcag20spec; 
     $scope.criteria = [];
+    $scope.allPages = function () {
+        return evalSampleModel.getPages();
+    };
 
     $scope.invertPageSelect = function () {
         var pages = $scope.structuredSample.webpage

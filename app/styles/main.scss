@@ -21,6 +21,13 @@ button[disabled] {
     position:absolute;
     top:-9999em;
 }
+.stretch-control {
+    width:100%;
+}
+.panel-body {
+    padding:0 !important;
+    margin:15px;
+}
 
 table {
     border-collapse:collapse;

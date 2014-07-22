@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <p>
+      <strong>{{desc.number}} {{desc.title}}:</strong>
+      <span class="badge">Level {{desc.level}}</span>
+      <span class="pull-right">
+        <button ng-click="isVisible = !isVisible" class="button"
+            ng-disabled="assertion.testCaseAsserts.length == 0">
+          <span ng-if="isVisible">Collapse</span>
+          <span ng-if="!isVisible">Expand</span>
+        </button>
+  	 </span>
+     </p>
+
+     <assert-result assert="assertion"></assert-result>
+
+  </div>
+  <div collapse="!isVisible">
+    <sc-result ng-repeat="tcAssert in getCases()" />
+  </div>
+</div>

@@ -6,6 +6,6 @@ angular.module('wcagReporter')
         scope: {
         	page: '='
         },
-        templateUrl: 'views/samplePage.drt.html'
+        templateUrl: 'views/audit/test/samplePage.drt.html'
     });
 });

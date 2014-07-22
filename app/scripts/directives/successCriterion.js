@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'scAudit', function (directivePlugin, evalSampleModel) {
+		'successCriterion', function (directivePlugin) {
 	var uniqueNum = 0,
         outcomes = [
             {id: 'earl:untested', name: 'Untested'},
@@ -17,24 +17,23 @@ angular.module('wcagReporter').directive(
         scope: {
         	desc: '=description',
         	sampleListId: '@samplelistid',
-        	assertion: '='
+        	assertion: '=',
+            showAllPages: '='
         },
 
         link: function (scope) {
             scope.outcomes = outcomes;
-        	scope.addDetails = function (assertion) {
-        		assertion.addTestCaseAssertion();
-                
-                //evalSampleModel.getSelectedPage();
-                
-                scope.isVisible = true;
-        	};
         	scope.getUnique = function () {
     			return uniqueNum += 1;
         	};
+
+            scope.getCases = function () {
+                return scope.assertion.hasPart;
+            };
         },
-        templateUrl: 'views/scAudit.drt.html'
+        templateUrl: 'views/audit/test/successCriterion.drt.html'
     });
+
 
 }).directive('scResult', function(directivePlugin, evalSampleModel) {
     return directivePlugin({
@@ -59,7 +58,7 @@ angular.module('wcagReporter').directive(
     			this.newPage = '';
         	};
         },
-        templateUrl: 'views/scResult.drt.html'
+        templateUrl: 'views/audit/test/scResult.drt.html'
     });
 });
 

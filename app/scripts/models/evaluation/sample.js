@@ -75,8 +75,8 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.getPages = function () {
-        return this.randomSample.webpage
-            .concat(this.structuredSample.webpage);
+        return this.structuredSample.webpage
+            .concat(this.randomSample.webpage);
     };
 
     this.getSelectedPages = function () {

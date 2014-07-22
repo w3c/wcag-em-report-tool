@@ -18,6 +18,6 @@ angular.module('wcagReporter')
         scope: {
         	assert: '='
         },
-        templateUrl: 'views/assertResult.drt.html'
+        templateUrl: 'views/audit/test/assertResult.drt.html'
     });
 });

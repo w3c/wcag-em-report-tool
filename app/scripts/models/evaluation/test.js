@@ -28,12 +28,14 @@ angular.module('wcagReporter').service('evalTestModel',
         removePage: function (i) {
             this.subject.splice(i, 1);
         },
-        setSubject: function (pageIds) {
+        setSubject: function (pages) {
             var subject = [];
             this.subject = subject;
-            pageIds.forEach(function (pageId) {
-                var page = evalSampleModel.getPageById(pageId);
-                if (page) {
+            pages.forEach(function (page) {
+                if (typeof page === 'string') {
+                    page = evalSampleModel.getPageById(page);    
+                }
+                if (typeof page === 'object') {
                     subject.push(page);
                 }
             });
@@ -72,6 +74,36 @@ angular.module('wcagReporter').service('evalTestModel',
                     tc[key] = obj[key];
                 }
             }
+        },
+
+        /**
+         * For each page in the sample, create a 
+         * test case if none exists already
+         */
+        setCaseForEachPage: function () {
+            var singlePageCases,
+                self = this;
+
+            // Find all test cases with a single page
+            singlePageCases = this.hasPart
+            .filter(function (assert) {
+                return (angular.isArray(assert.subject) &&
+                       assert.subject.length === 1);
+            // Put all pages from them in singlePageCases
+            }).map(function (assert) {
+                return assert.subject;
+            });
+
+            // Select all pages, filter those not singlePageCases
+            evalSampleModel.getPages()
+            .filter(function (page) {
+                return singlePageCases.indexOf(page) === -1;
+            // Then add a test case assertion with that page
+            }).forEach(function (page) {
+                self.addTestCaseAssertion({
+                    subject: [page]
+                });
+            });
         }
     };
 
