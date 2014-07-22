@@ -1,6 +1,7 @@
-<h2>Sampled pages</h2>
+<p><a href="" ng-click="hideSample = !hideSample">
+    Select what page(s) to work on
+</a></p>
 <!--
-<p>--Some filter options go here--</p>
 
 <div class="btn-group">
   <button class="btn btn-default" ng-click="invertPageSelect()">
@@ -17,7 +18,7 @@
   </button>
 </div>
 -->
-<ul class="sample">
+<ul class="sample" collapse="hideSample">
 	<li class="row" ng-repeat="page in structuredSample.webpage"
     ng-class="{active: page.selected}"
     ng-click="page.selected = !page.selected">
@@ -54,7 +55,7 @@
       </span>
     </span>
     -->
-      
+    
     <label class="col-sm-3">
       {{page.handle}}
     </label>
