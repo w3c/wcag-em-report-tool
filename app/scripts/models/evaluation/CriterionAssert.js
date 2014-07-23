@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .service('CriterionAssert', function(evalSampleModel,
-TestCaseAssert, wcag20spec) {
+TestCaseAssert, wcag20spec, currentUser) {
 
 	function CriterionAssert(idref) {
         this.testRequirement = idref;
@@ -16,7 +16,7 @@ TestCaseAssert, wcag20spec) {
     CriterionAssert.prototype = {
         '@type': 'earl:assertion',
         testRequirement: undefined,
-        assertedBy: undefined,
+        assertedBy: currentUser.id,
         subject: '_:website',
         result: undefined,
         mode: 'manual',

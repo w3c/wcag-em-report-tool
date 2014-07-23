@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('TestCaseAssert', function (evalSampleModel) {
+.service('TestCaseAssert', function (evalSampleModel, currentUser) {
 	var num = 0;
 
 	function TestCaseAssert() {
@@ -15,7 +15,7 @@ angular.module('wcagReporter')
 
     TestCaseAssert.prototype = {
         '@type': 'earl:assertion',
-        assertedBy: undefined,
+        assertedBy: currentUser.id,
         subject: undefined,
         testCase: 'myTestName',
         result: undefined,
@@ -28,7 +28,7 @@ angular.module('wcagReporter')
         removePage: function (i) {
             this.subject.splice(i, 1);
         },
-        
+
         setSubject: function (pages) {
             var subject = [];
             this.subject = subject;
