@@ -1,9 +1,6 @@
 <h2>Success criteria</h2>
 
 <success-criterion showAllPages
-    ng-repeat="crit in criteria | limitTo: 10"
-    assert="getAssert(crit)"
-    description="crit"></success-criterion>
-
-
-<p>Showing 10 of {{criteria.length}}. <a>Show the next 10</a></p>
+    ng-repeat="criterion in criteria"
+    assert="criterion"
+    description="criterion.getSpec()"></success-criterion>

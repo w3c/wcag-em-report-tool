@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalTestModel',
-        function(evalSampleModel) {
+angular.module('wcagReporter')
+.service('evalTestModel', function(evalSampleModel,
+        evalScopeModel, wcag20spec) {
+
     var criteria = {},
         currentUser = {},
         num = 0;
@@ -98,29 +100,40 @@ angular.module('wcagReporter').service('evalTestModel',
             evalSampleModel.getPages()
             .filter(function (page) {
                 return singlePageCases.indexOf(page) === -1;
+
             // Then add a test case assertion with that page
             }).forEach(function (page) {
                 self.addTestCaseAssertion({
                     subject: [page]
                 });
             });
+        },
+
+        getSpec: function () {
+            return wcag20spec.getCriterion(this.testRequirement);
         }
     };
 
     return {
         criteria: criteria,
-        getResult: function (idref) {
-            if (typeof criteria[idref] === 'undefined') {
-                criteria[idref] = new CriterionAssert(idref);
-            }
+
+        getCritAssert: function (idref) {
             return criteria[idref];
         },
 
-        addResult: function (result) {
+        getCriteriaSorted: function () {
+            var self = this;
+            return wcag20spec.getCriteria()
+            .map(function (criterion) {
+                    return self.criteria[criterion.uri];
+            }).filter(angular.isDefined);
+        },
+
+        addCritAssert: function (result) {
             var prop,
                 newCrit = Object.create(CriterionAssert.prototype);
-            newCrit.hasPart = [];
-
+            CriterionAssert.apply(newCrit);
+            
             for (prop in result) {
                 if (prop === 'hasPart') {
                     result.hasPart.forEach(
@@ -131,6 +144,19 @@ angular.module('wcagReporter').service('evalTestModel',
             }
             criteria[newCrit.testRequirement] = newCrit;
         },
+
+        updateToConformance: function () {
+            var self = this;
+            wcag20spec.getCriteria().forEach(function (spec) {
+                if (evalScopeModel.matchConformTarget(spec.level) &&
+                typeof self.criteria[spec.uri] === 'undefined') {
+                    self.addCritAssert({
+                        'testRequirement': spec.uri
+                    });
+                }
+            });
+            
+        }
 
     };
 });

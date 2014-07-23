@@ -9,7 +9,12 @@ angular.module('wcagReporter').directive(
             {id: 'earl:fail', name: 'Fail'},
             {id: 'earl:cantTell', name: 'Can\'t tell'},
             {id: 'earl:inapplicable', name: 'inapplicable'},
-        ];
+        ],
+        levels = {
+            'wcag20:level_a': 'Level A',
+            'wcag20:level_aa': 'Level AA',
+            'wcag20:level_aaa': 'Level AAA'
+        };
 
     return directivePlugin({
         restrict: 'E',
@@ -38,6 +43,10 @@ angular.module('wcagReporter').directive(
                     }
                 }
                 this.isVisible = !this.isVisible;
+            };
+
+            scope.getLevel = function (earlLevel) {
+                return levels[earlLevel];
             };
         },
         templateUrl: 'views/audit/test/successCriterion.drt.html'

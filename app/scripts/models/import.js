@@ -33,7 +33,7 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 
 			if (evalData.auditResult) {
 				evalData.auditResult.forEach(
-						evalModel.testModel.addResult,
+						evalModel.testModel.addCritAssert,
 						evalModel.testModel);
 			}
 		}
