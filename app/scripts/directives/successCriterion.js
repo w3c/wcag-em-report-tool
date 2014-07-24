@@ -22,7 +22,8 @@ angular.module('wcagReporter').directive(
         scope: {
         	assert: '=',
             showallpages: '=',
-            editable: '@'
+            editable: '@',
+            opt: '=options'
         },
 
         link: function (scope, elm, attr) {

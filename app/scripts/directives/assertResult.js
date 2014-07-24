@@ -14,16 +14,9 @@ angular.module('wcagReporter')
         restrict: 'E',
         scope: {
             assert: '=',
-            editable: '@'
+            opt: '=options'
         },
-        link: function (scope, elm, attr) {
-            if (attr.editable === 'false') {
-                scope.editable = false;
-            } else if (typeof attr.editable !== 'undefined') {
-                scope.editable = !!attr.editable;
-            } else {
-                scope.editable = false;
-            }
+        link: function (scope) {
             scope.outcomes = outcomes;
         },
         templateUrl: 'views/audit/test/assertResult.drt.html'
