@@ -16,7 +16,14 @@ button[disabled] {
     color:gray;
     font-style:italic;
 }
+textarea.expanding {
+    width:100%;
+    height:1.7em;
 
+    &:focus {
+        height:5em;
+    }
+}
 .offscreen {
     position:absolute;
     top:-9999em;

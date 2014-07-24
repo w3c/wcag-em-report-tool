@@ -13,7 +13,8 @@
       </div>
 
       <div class="col-sm-3">
-        <button ng-click="flipCollapse()" class="pull-right btn btn-default"
+        <button ng-click="flipCollapse()" 
+            class="pull-right btn btn-default"
             ng-disabled="assert.testCaseAsserts.length == 0">
           <span ng-if="!isVisible">Expand</span>
           <span ng-if="isVisible">Collapse</span>
@@ -21,11 +22,13 @@
         </button>
     	</div>
       
-      <assert-result class="col-sm-12" assert="assert"></assert-result>
+      <assert-result editable="{{editable}}"
+          class="col-sm-12" assert="assert" />
 
   </div></div>
+
   <div collapse="!isVisible">
-    <test-case ng-repeat="tcAssert in getCases()
-                          | selectedCasesOnly" />
+    <test-case
+        ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
   </div>
 </div>

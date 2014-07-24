@@ -2,15 +2,17 @@
 
 angular.module('wcagReporter')
 .service('TestCaseAssert', function (evalSampleModel, currentUser) {
-	var num = 0;
+	var num = 0,
+        protoResult = {
+            description: '',
+            outcome: 'earl:untested'
+        };
+
 
 	function TestCaseAssert() {
         this.subject = [];
         this.testCase = this.testCase += (num++);
-        this.result = {
-            description: 'myDesc',
-            outcome: 'earl:untested'
-        };
+        this.result = Object.create(protoResult);
     }
 
     TestCaseAssert.prototype = {
@@ -40,6 +42,11 @@ angular.module('wcagReporter')
                     subject.push(page);
                 }
             });
+        },
+
+        isDefined: function () {
+            return this.result.description === protoResult.description &&
+                   this.result.outcome === protoResult.outcome;
         }
     };
 

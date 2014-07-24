@@ -12,11 +12,19 @@ angular.module('wcagReporter')
 
     return directivePlugin({
         restrict: 'E',
-        link: function (scope) {
-        	scope.outcomes = outcomes;
-        },
         scope: {
-        	assert: '='
+            assert: '=',
+            editable: '@'
+        },
+        link: function (scope, elm, attr) {
+            if (attr.editable === 'false') {
+                scope.editable = false;
+            } else if (typeof attr.editable !== 'undefined') {
+                scope.editable = !!attr.editable;
+            } else {
+                scope.editable = false;
+            }
+            scope.outcomes = outcomes;
         },
         templateUrl: 'views/audit/test/assertResult.drt.html'
     });

@@ -20,12 +20,21 @@ angular.module('wcagReporter').directive(
         restrict: 'E',
         replace: true,
         scope: {
-        	desc: '=description',
         	assert: '=',
-            showallpages: '='
+            showallpages: '=',
+            editable: '@'
         },
 
         link: function (scope, elm, attr) {
+            if (attr.editable === 'false') {
+                scope.editable = false;
+            } else if (typeof attr.editable !== 'undefined') {
+                scope.editable = !!attr.editable;
+            } else {
+                scope.editable = false;
+            }
+
+            scope.desc = scope.assert.getSpec();
             scope.outcomes = outcomes;
         	scope.getUnique = function () {
     			return uniqueNum += 1;

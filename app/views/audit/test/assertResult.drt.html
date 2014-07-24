@@ -5,10 +5,12 @@
 
   <span class="col-sm-2">
     <select class="stretch-control" id="result_outcome_{{unique}}"
+            ng-if="editable"
             ng-model="assert.result.outcome"
             ng-options="outcome.id as outcome.name 
                         for outcome in outcomes">
     </select>
+    <span ng-if="!editable">{{assert.result.outcome}}</span>
   </span>
 
   <span class="col-sm-1"><label class="control-label"
@@ -17,7 +19,9 @@
   </span>
 
   <span class="col-sm-8">
-    <input class="stretch-control" id="result_cause_{{unique}}"
-           ng-model="assert.result.description" type="text">
+    <result-description ng-if="editable" 
+        id="result_cause_{{unique}}"
+        value="assert.result.description" />
+    <span ng-if="!editable">{{assert.result.description}}</span>
   </span>
 </div>

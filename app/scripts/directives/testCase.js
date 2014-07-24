@@ -8,6 +8,7 @@ angular.module('wcagReporter').directive('testCase', function(directivePlugin, e
             if (attr.urls) {
                 scope.urls = true;
             }
+
         	scope.newPage = '';
         	scope.removeWhenEmpty = function (page, i) {
         		if (page.description === '') {
