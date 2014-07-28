@@ -15,6 +15,7 @@
       {{page.handle}}
     </label>
 
-    <span class="col-sm-7">{{page.description}}</span>
+    <span class="col-sm-7"
+          ng-bind-html="page.description | linky : '_blanc'"></span>
 	</li>
 </ul>
