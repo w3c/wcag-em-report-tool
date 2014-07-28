@@ -176,7 +176,7 @@ angular.module('wcagReporter').run(function (
             'type':                'assertion',
             'testRequirement': 'wcag20:text-equiv-all',
             'result': {
-                'outcome':         'earl:fail',
+                'outcome':         'earl:failed',
                 'description':     'You can solve this by...'
             },
             'subject':         '_:website',
@@ -187,7 +187,7 @@ angular.module('wcagReporter').run(function (
                 //'testCase':    'Used technique F1',
                 'subject':     ['_:struct_1'],
                 'result': {
-                    'outcome':     'earl:pass',
+                    'outcome':     'earl:passed',
                     'description':  'You can solve this by...'
                 },
                 'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
@@ -197,7 +197,7 @@ angular.module('wcagReporter').run(function (
                 //'testCase':    'Used technique G1',
                 'subject':     ['_:rand_1'],
                 'result': {
-                    'outcome':     'earl:fail'
+                    'outcome':     'earl:failed'
                 },
                 'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
                 'date':         '2014-01-01T19:20:30+01:00'

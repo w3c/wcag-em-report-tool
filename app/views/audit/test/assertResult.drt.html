@@ -1,20 +1,23 @@
 <div class="row">
-  <span class="col-sm-1" ng-if="labeled">
+  <span class="col-sm-1" ng-if="!opt.narrow">
     <label for="result_outcome_{{unique}}">
   	  Outcome:
   </label></span>
-
+  
   <span class="col-sm-2">
     <select class="stretch-control" id="result_outcome_{{unique}}"
-            ng-if="editable" title="Outcome" aria-label="Outcome"
+            ng-if="opt.editable" title="Outcome" 
+            aria-label="Outcome"
             ng-model="assert.result.outcome"
             ng-options="outcome.id as outcome.name 
                         for outcome in outcomes">
     </select>
-    <span ng-if="!opt.editable">{{assert.result.outcome}}</span>
+    <span ng-if="!opt.editable">
+      {{assert.result.outcome | earlToLabel}}
+    </span>
   </span>
 
-  <span class="col-sm-1" ng-if="opt.labeled">
+  <span class="col-sm-1" ng-if="!opt.narrow">
     <label class="control-label" for="result_cause_{{unique}}">
       Findings:
   </span>
@@ -22,7 +25,9 @@
   <span class="col-sm-8">
     <result-description ng-if="opt.editable" 
         id="result_cause_{{unique}}"
-        value="assert.result.description" />
+        value="assert.result.description">
+    </result-description>
+
     <span ng-if="!opt.editable">
       {{assert.result.description}}
     </span>

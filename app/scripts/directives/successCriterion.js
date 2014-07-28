@@ -5,10 +5,10 @@ angular.module('wcagReporter').directive(
 	var uniqueNum = 0,
         outcomes = [
             {id: 'earl:untested', name: 'Untested'},
-            {id: 'earl:pass', name: 'Pass'},
-            {id: 'earl:fail', name: 'Fail'},
-            {id: 'earl:cantTell', name: 'Can\'t tell'},
-            {id: 'earl:inapplicable', name: 'inapplicable'},
+            {id: 'earl:passed', name: 'Passed'},
+            {id: 'earl:failed', name: 'Failed'},
+            {id: 'earl:cantTell', name: 'Cannot tell'},
+            {id: 'earl:inapplicable', name: 'Inapplicable'},
         ],
         levels = {
             'wcag20:level_a': 'Level A',
@@ -27,14 +27,6 @@ angular.module('wcagReporter').directive(
         },
 
         link: function (scope, elm, attr) {
-            if (attr.editable === 'false') {
-                scope.editable = false;
-            } else if (typeof attr.editable !== 'undefined') {
-                scope.editable = !!attr.editable;
-            } else {
-                scope.editable = false;
-            }
-
             scope.desc = scope.assert.getSpec();
             scope.outcomes = outcomes;
         	scope.getUnique = function () {
@@ -42,6 +34,13 @@ angular.module('wcagReporter').directive(
         	};
 
             scope.getCases = function () {
+                if (!scope.opt.editable) {
+                    return scope.assert.hasPart
+                    .filter(function (assert) {
+                        return assert.result.outcome !== 'earl:untested' ||
+                               assert.result.description.trim() !== '';
+                   });
+                }
                 return scope.assert.hasPart;
             };
 

@@ -4,7 +4,8 @@ angular.module('wcagReporter')
     return directivePlugin({
         restrict: 'E',
         scope: {
-        	page: '='
+        	page: '=',
+        	opt: '=options'
         },
         templateUrl: 'views/audit/test/samplePage.drt.html'
     });
