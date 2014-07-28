@@ -9,7 +9,7 @@
   <div class="panel-heading"><div class="row">
       <div class="col-sm-9">
         <strong>{{desc.number}} {{desc.title}}:</strong>
-        <span class="badge">{{getLevel(desc.level)}}</span>
+        <span class="badge">{{desc.level | rdfToLabel}}</span>
       </div>
 
       <div class="col-sm-3">

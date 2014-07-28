@@ -6,5 +6,6 @@
   <strong class="col-sm-1" ng-if="!opt.narrow">
      Description:
    </strong>
-  <span class="col-sm-8">{{page.description}}</span>
+  <span class="col-sm-8"
+  		ng-bind-html="page.description | linky:'_blanc'"></span>
 </div>

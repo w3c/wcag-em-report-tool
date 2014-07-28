@@ -1,20 +1,18 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'successCriterion', function (directivePlugin) {
+		'successCriterion', function (directivePlugin, $filter) {
 	var uniqueNum = 0,
-        outcomes = [
-            {id: 'earl:untested', name: 'Untested'},
-            {id: 'earl:passed', name: 'Passed'},
-            {id: 'earl:failed', name: 'Failed'},
-            {id: 'earl:cantTell', name: 'Cannot tell'},
-            {id: 'earl:inapplicable', name: 'Inapplicable'},
-        ],
-        levels = {
-            'wcag20:level_a': 'Level A',
-            'wcag20:level_aa': 'Level AA',
-            'wcag20:level_aaa': 'Level AAA'
-        };
+        outcomes = ['earl:untested', 'earl:passed',
+                    'earl:failed', 'earl:cantTell',
+                    'earl:inapplicable']
+        .map(function (rdfId) {
+            return {
+                id: rdfId,
+                name: $filter('rdfToLabel')(rdfId)
+            };
+        });       
+
 
     return directivePlugin({
         restrict: 'E',
@@ -52,10 +50,6 @@ angular.module('wcagReporter').directive(
                     }
                 }
                 this.isVisible = !this.isVisible;
-            };
-
-            scope.getLevel = function (earlLevel) {
-                return levels[earlLevel];
             };
         },
         templateUrl: 'views/audit/test/successCriterion.drt.html'

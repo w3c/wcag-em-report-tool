@@ -3,6 +3,9 @@
 angular.module('wcagReporter')
 .controller('ReportCtrl', function ($scope, evalModel, wcag20spec) {
 
+    $scope.scope = evalModel.scopeModel;
+    $scope.explore = evalModel.exploreModel;
+
     $scope.allPages = function () {
         return evalModel.sampleModel.getPages();
     };
