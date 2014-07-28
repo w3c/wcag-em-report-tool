@@ -53,4 +53,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function (translateFilter) {
+    window.onbeforeunload = function() {
+      return translateFilter('WARNING_BEFORE_UNLOAD');
+    };
   });

@@ -1,6 +1,10 @@
 <div class="row">
-  <strong class="col-sm-1">Handle:</strong>
+  <strong class="col-sm-1" ng-if="!opt.narrow">
+    Handle:
+  </strong>
   <span class="col-sm-2">{{page.handle}}</span>
-  <strong class="col-sm-1">Description:</strong>
+  <strong class="col-sm-1" ng-if="!opt.narrow">
+     Description:
+   </strong>
   <span class="col-sm-8">{{page.description}}</span>
 </div>

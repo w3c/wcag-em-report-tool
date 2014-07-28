@@ -1,30 +1,35 @@
 <div class="panel"
   ng-class="{
       'panel-default': assert.result.outcome == 'earl:untested',
-      'panel-success': assert.result.outcome == 'earl:pass',
-      'panel-danger': assert.result.outcome == 'earl:fail',
+      'panel-success': assert.result.outcome == 'earl:passed',
+      'panel-danger': assert.result.outcome == 'earl:failed',
       'panel-info': assert.result.outcome == 'earl:inapplicable',
       'panel-warning': assert.result.outcome == 'earl:cantTell'
     }">
-  <div class="panel-heading">
-    <p>
-      <strong>{{desc.number}} {{desc.title}}:</strong>
-      <span class="badge">Level {{desc.level}}</span>
-      <span class="pull-right">
-        <button ng-click="flipCollapse()" class="button"
-            ng-disabled="assert.testCaseAsserts.length == 0">
+  <div class="panel-heading"><div class="row">
+      <div class="col-sm-9">
+        <strong>{{desc.number}} {{desc.title}}:</strong>
+        <span class="badge">{{getLevel(desc.level)}}</span>
+      </div>
+
+      <div class="col-sm-3">
+        <button ng-click="flipCollapse()" 
+            class="pull-right btn btn-default"
+            ng-disabled="!(opt.showallpages === true ||
+                           getCases().length != 0)">
           <span ng-if="!isVisible">Expand</span>
           <span ng-if="isVisible">Collapse</span>
-           details per page
+           details per page 
         </button>
-  	 </span>
-     </p>
+    	</div>
+      
+      <assert-result options="opt"
+          class="col-sm-12" assert="assert" />
 
-     <assert-result assert="assert"></assert-result>
+  </div></div>
 
-  </div>
   <div collapse="!isVisible">
-    <test-case ng-repeat="tcAssert in getCases()
-                          | selectedCasesOnly" />
+    <test-case
+        ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
   </div>
 </div>

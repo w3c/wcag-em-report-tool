@@ -1,7 +1,7 @@
 <div ng-include src="'views/navigation.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>Finalize the report</h1>
+<h1>{{ 'HD_FINALIZE' | translate }}</h1>
 
 <form class="form-horizontal">
   <div class="form-group">
@@ -55,16 +55,15 @@
 
 <div ng-include src="'views/report/findings.html'"></div>
 
-<h2>{{ 'SAMPLE' | translate }}</h2>
+<h2>{{ 'HD_SAMPLE' | translate }}</h2>
 <div ng-include src="'views/report/sample.html'"></div>
-
-<p><a href="#/report" class="btn btn-primary btn-lg">
-    {{ 'OPEN_FINAL_REPORT' | translate }}
-</a></p>
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/test">
       <span class="glyphicon glyphicon-chevron-left"></span>
       {{'PREV_STEP' | translate}}
+  </a></li>
+  <li class="pull-right active"><a href="#/report">
+      {{'OPEN_FINAL_REPORT' | translate}}
   </a></li>
 </ul>

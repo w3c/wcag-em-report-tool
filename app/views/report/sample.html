@@ -1,19 +1,8 @@
-<table ng-init="rows=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Pages</th>
-            <th>Criteria <br>passed</th>
-            <th>Criteria <br>failed</th>
-            <th>Criteria <br>not present</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="row in rows"><td>{{row}}</td>
-            <td><a href="http://www.w3.org/">http://www.w3.org/</a></td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
-    </tbody>
-</table>
+<ul class="sample" collapse="hideSample">
+  <li class="row" ng-repeat="page in allPages()">
+    <span class="col-sm-3">
+      {{page.handle}}
+    </span>
+    <span class="col-sm-7">{{page.description}}</span>
+  </li>
+</ul>
