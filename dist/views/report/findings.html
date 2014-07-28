@@ -1,2 +1,1 @@
-<h2>Success criteria</h2><success-criterion options="{	editable: false,
-				narrow:false       }" ng-repeat="criterion in criteria" assert="criterion"></success-criterion>
+<div ng-repeat="p in principles"><h2>Principle {{p.number}} {{p.title}}</h2><div ng-repeat="g in p.guidelines"><h3>{{g.number}} {{g.title}}</h3><success-criterion ng-repeat="critSpec in g.criteria" ng-if="crit = getCritAssert(critSpec.uri)" options="{ editable: false, narrow:false }" assert="crit"></success-criterion></div></div>
