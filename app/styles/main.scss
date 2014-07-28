@@ -67,6 +67,12 @@ table {
         background:#EEE;
     }
 }
+.sample_narrow {
+    list-style:none;
+    li {
+        padding: .2em .1em;
+    }
+}
 
 /* bower:scss */
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";

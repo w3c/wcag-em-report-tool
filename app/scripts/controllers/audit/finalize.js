@@ -3,13 +3,15 @@
 angular.module('wcagReporter')
 		.controller('AuditFinalizeCtrl', function (
 			$scope, appState, evalSampleModel, 
-			evalReportModel, evalTestModel) {
+			evalReportModel, evalTestModel,
+			wcag20spec) {
 
   	$scope.state = appState.moveToState('finalize');
   	$scope.report = evalReportModel;
+  	$scope.principles = wcag20spec.getPrinciples();
 
   	evalTestModel.updateToConformance();
-  	$scope.criteria = evalTestModel.getCriteriaSorted();
+  	$scope.getCritAssert = evalTestModel.getCritAssert;
 
   	$scope.allPages = function () {
   		return evalSampleModel.getPages();
