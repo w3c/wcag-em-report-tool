@@ -15,6 +15,8 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'NAV_HELP': 'Help',
     'HD_STRUCT_SAMPLE': 'Structured sample',
     'HD_RANDOM_SAMPLE': 'Random sample',
+    'HD_SAMPLE': 'Sample',
+    'HD_FINALIZE': 'Finalize the report',
     'LABEL_RELIEDUP_TECH': 'Relied upon technologies',
     'LABEL_COMMON_PAGES': 'Common web pages',
     'LABEL_ESSENT_FUNC': 'Essential functionality of the website',
@@ -33,6 +35,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'WCAG_A': 'WCAG 2.0 level A',
     'WCAG_AA': 'WCAG 2.0 level AA',
     'WCAG_AAA': 'WCAG 2.0 level AAA',
+    'WARNING_BEFORE_UNLOAD': 'WARNING: WCAG-EM Reporter does not automatically save your changes. If you want to save changes soyou can continue later, save a local copy of thedata using export',
     'PREV_STEP': 'Previous step',
     'NEXT_STEP': 'Next step'
   });

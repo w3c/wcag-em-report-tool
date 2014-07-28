@@ -29,10 +29,7 @@
   "WCAG_AA": "WCAG 2.0 level AA",
   "WCAG_AAA": "WCAG 2.0 level AAA",
 
-  "WARNING_BEFORE_UNLOAD": "WARNING: WCAG-EM Reporter does not automatically 
-save your changes. If you want to save changes so
-you can continue later, save a local copy of the
-data using export",
+  "WARNING_BEFORE_UNLOAD": "WARNING: WCAG-EM Reporter does not automatically save your changes. If you want to save changes soyou can continue later, save a local copy of the data using export",
 
   "PREV_STEP": "Previous step",
   "NEXT_STEP": "Next step"
