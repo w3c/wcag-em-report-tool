@@ -14,9 +14,9 @@
 </head>
 <body ng-app="wcagReporter">
   <!-- Add your site or application content here -->
-  
   <div class="container">
-    <div ng-view></div>
+    <div ng-include src="'views/navigation.html'"></div>
+    <div ng-view autoscroll="true"></div>
   </div>
 
   <!--[if lt IE 9]>

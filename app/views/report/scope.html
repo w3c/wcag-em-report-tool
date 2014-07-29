@@ -1,23 +1,23 @@
 <table>
-  <tr><th>Website</th>
+  <tr><th>{{'LABEL_SITE_NAME' | translate}}</th>
       <td>{{scope.website.title}}</td></tr>
 
   <tr>
-    <th>Scope</th>
+    <th>{{'LABEL_SITE_SCOPE' | translate}}</th>
   	<td ng-bind-html="scope.website.siteScope | txtToHtml"></td>
   </tr>
 
-  <tr><th>Conformance target</th>
+  <tr><th>{{ 'LABEL_CONFORMANCE_TGT' | translate }}</th>
       <td>{{scope.conformanceTarget | rdfToLabel}}</td></tr>
 
-  <tr><th>Additional Requirements</th>
+  <tr><th>{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}</th>
       <td>{{scope.additionalEvalRequirement}}</td></tr>
 
-  <tr><th>Accessibilty Support Baseline</th>
+  <tr><th>{{ 'LABEL_SUPPORT_BASE' | translate }}</th>
       <td>{{scope.accessibilitySupportBaseline}}</td></tr>
 
   <tr ng-if="explore.reliedUponTechnology.length > 0">
-    <th>Relied upon technologies</th>
+    <th>{{ 'LABEL_RELIEDUP_TECH' | translate }}</th>
     <td><ul><li ng-repeat="tech in explore.reliedUponTechnology">
 		<a ng-if="tech.specs" href="{{tech.specs}}" target="_blanc">
 		  {{tech.title}}

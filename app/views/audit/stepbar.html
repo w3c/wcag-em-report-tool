@@ -4,6 +4,6 @@
   			disabled="{{state.maxStateIndex >= $index}}"
   			href="{{stateItem.route}}"
   			active="{{state.currentStateIndex == $index}}">
-		{{stateItem.name}}
+		{{ 'WZRD_' + stateItem.name | uppercase | translate}}
 	</wre:step>
 </wre:stepbar>

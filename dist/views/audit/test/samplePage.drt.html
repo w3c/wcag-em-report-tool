@@ -1,1 +1,5 @@
-<div class="row"><strong class="col-sm-1" ng-if="!opt.narrow">Handle:</strong> <span class="col-sm-2">{{page.handle}}</span> <strong class="col-sm-1" ng-if="!opt.narrow">Description:</strong> <span class="col-sm-8" ng-bind-html="page.description | linky:'_blanc'"></span></div>
+<div class="row"><div class="col-sm-12"><strong ng-if="!opt.narrow">{{ 'RESULTS_FOR' | translate }}:</strong> <span tooltip="{{page.description}}">{{page.handle}}</span></div><!--   <strong class="col-sm-1" ng-if="!opt.narrow">
+     
+   </strong>
+  <span class="col-sm-8"
+  		ng-bind-html="page.description | linky:'_blanc'"></span> --></div>
