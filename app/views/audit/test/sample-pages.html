@@ -1,6 +1,12 @@
 <p><a href="" ng-click="hideSample = !hideSample">
     {{'SELECT_PAGE_TO_WORK_ON' | translate}}
-</a></p>
+</a><info-button label="{{'LABEL_INFO' | translate}}"
+        target="inf_audit_sample"></info-button>
+</p>  
+<info-field ref="inf_audit_sample" exitto=""
+            button="{{'LABEL_CLOSE_INFO' | translate}}">
+  {{ 'INF_AUDIT_SAMPLE' | translate }}
+</info-field>
 
 <ul class="sample" collapse="hideSample">
 	<li class="row" ng-repeat="page in allPages()"

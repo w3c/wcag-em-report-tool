@@ -1,56 +1,124 @@
-<div ng-include src="'views/navigation.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
 <h1>{{ 'HD_FINALIZE' | translate }}</h1>
 
 <form class="form-horizontal">
   <div class="form-group">
-    <label for="commissioner" class="col-sm-3 control-label">
-      {{ 'LABEL_COMMISSIONER' | translate }}
-    </label>
+    <div class="col-sm-3 control-label">
+      <label for="commissioner">
+        {{ 'LABEL_COMMISSIONER' | translate }}
+      </label>
+      <info-button label="{{'LABEL_INFO' | translate}}"
+            target="inf_commissioner"></info-button>
+    </div>
+
     <div class="col-sm-9">
       <input ng-model="report.commissioner"
           type="text" class="form-control" id="commissioner">
     </div>
+    <div class="col-sm-12">
+      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                ref="inf_commissioner"
+                exitto="commissioner">
+      {{ 'INF_COMMISSIONER' | translate }}
+    </info-field></div>
   </div>
   
+
   <div class="form-group">
-    <label for="creator" class="col-sm-3 control-label">
-      {{ 'LABEL_CREATOR' | translate }}
-    </label>
+    <div class="col-sm-3 control-label">
+      <label for="creator">
+        {{ 'LABEL_CREATOR' | translate }}
+      </label>
+      <info-button label="{{'LABEL_INFO' | translate}}"
+              target="inf_creator"></info-button>
+    </div>
+
     <div class="col-sm-9">
       <input ng-model="report.creator"
           type="text" class="form-control" id="creator">
     </div>
+
+    <div class="col-sm-12">
+      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                ref="inf_creator"
+                exitto="creator">
+      {{ 'INF_CREATOR' | translate }}
+    </info-field></div>
   </div>
   
+
   <div class="form-group">
-    <label for="dct_title" class="col-sm-3 control-label">
-      {{ 'LABEL_TITLE' | translate }}
-    </label>
+    <div class="col-sm-3 control-label">
+      <label for="dct_title">
+        {{ 'LABEL_TITLE' | translate }}
+      </label>
+      <info-button label="{{'LABEL_INFO' | translate}}"
+              target="inf_dct_title"></info-button>
+    </div>
+
     <div class="col-sm-9">
       <input type="text" ng-model="report.title"
           class="form-control" id="dct_title">
     </div>
+
+    <div class="col-sm-12">
+      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                ref="inf_dct_title"
+                exitto="dct_title">
+      {{ 'INF_TITLE' | translate }}
+    </info-field></div>
   </div>
   
   <div class="form-group">
-    <label for="dct_date" class="col-sm-3 control-label">
-      {{ 'LABEL_DATE' | translate }}
-    </label>
+    <div class="col-sm-3 control-label">
+      <label for="dct_date">
+        {{ 'LABEL_DATE' | translate }}
+      </label>
+      <info-button label="{{'LABEL_INFO' | translate}}"
+              target="inf_date"></info-button>
+    </div>
+
     <div class="col-sm-9">
       <input type="date" ng-model="report.date"
           class="form-control date" id="dct_date">
     </div>
+
+    <div class="col-sm-12">
+      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                ref="inf_date"
+                exitto="date">
+      {{ 'INF_DATE' | translate }}
+    </info-field></div>
   </div>
   
-	<label for="summary">{{ 'LABEL_SUMMARY' | translate }}</label>
-	<textarea id="summary" ng-model="report.summary"
-      cols="30" rows="10" class="form-control"></textarea>
-        
-	<label for="specifics">{{ 'LABEL_SPECIFICS' | translate }}</label>
-	<textarea id="specifics" ng-model="report.specifics"
-      cols="30" rows="4" class="form-control"></textarea>
+  <div class="form-group">
+    <label for="summary">
+      {{ 'LABEL_SUMMARY' | translate }}
+    </label>
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="summary">
+      {{ 'INF_SUMMARY' | translate }}
+    </info-field>
+    <textarea id="summary" ng-model="report.summary"
+        cols="30" rows="10" class="form-control"></textarea>
+  </div>
+	
+  <div class="form-group">
+  	<label for="specifics">
+      {{ 'LABEL_SPECIFICS' | translate }}
+    </label>
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="specifics">
+      {{ 'INF_SPECIFICS' | translate }}
+    </info-field>
+  	<textarea id="specifics" ng-model="report.specifics"
+        cols="30" rows="4" class="form-control"></textarea>
+  </div>
 </form>
 
 <div ng-include src="'views/report/findings.html'"></div>
