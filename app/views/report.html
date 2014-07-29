@@ -1,10 +1,5 @@
 <div ng-include src="'views/navigation.html'"></div>
 
-<h1>{{report.title}}</h1>
-<p><em>By {{report.creator}},
-	   {{report.date | date: shortDate}}</em></p>
-<p><em>Commissioned by {{report.commissioner}}</em></p>
-
 <p><a href="#/report" class="btn btn-primary btn-lg">
     Save the evaluation report (HTML)
 </a></p>
@@ -12,27 +7,37 @@
     Download the evaluation data (JSON)
 </a></p>
 
+<div id="final_report">
+	<h1>{{report.title}}</h1>
+	<p><em>By {{report.creator}},
+		   {{report.date | date: shortDate}}</em></p>
+	<p><em>Commissioned by {{report.commissioner}}</em></p>
 
-<h2>Summary</h2>
-{{report.summary}}
+	<h2>Summary</h2>
+	{{report.summary}}
 
-<h2>Evaluation Scope</h2>
-<div ng-include src="'views/report/scope.html'"></div>
+	<h2>Evaluation Scope</h2>
+	<div ng-include src="'views/report/scope.html'"></div>
 
-<h2>Test Core</h2>
-<div ng-include src="'views/report/score.html'"></div>
+	<h2>Test Core</h2>
+	<div ng-include src="'views/report/score.html'"></div>
 
-<h2>Specifics</h2>
-{{report.specifics}}
+	<h2>Specifics</h2>
+	{{report.specifics}}
 
-<div ng-include src="'views/report/findings.html'"></div>
+	<div ng-include src="'views/report/findings.html'"></div>
 
-<h2>Sample</h2>
-<div ng-include src="'views/report/sample.html'"></div>
+	<h2>Sample</h2>
+	<div ng-include src="'views/report/sample.html'"></div>
 
-<h2>Documentation</h2>
-<ul>
-  <li><a href="http://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines 2.0</a></li>
-  <li><a href="http://www.w3.org/WAI/WCAG20/quickref/">How to meet WCAG 2.0</a></li>
-  <li><a href="http://www.w3.org/TR/WCAG-EM/">WCAG Evaluation Methodology</a></li>
-</ul>
+	<h2>Documentation</h2>
+	<ul>
+	  <li><a href="http://www.w3.org/TR/WCAG20/">Web Content 
+	  		Accessibility Guidelines 2.0
+	  </a></li> <li><a href="http://www.w3.org/WAI/WCAG20/quickref/">
+	  		How to meet WCAG 2.0
+	  </a></li> <li><a href="http://www.w3.org/TR/WCAG-EM/">
+	  		WCAG Evaluation Methodology
+	  </a></li>
+	</ul>
+</div>

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('wcagReporter')
-	.directive('assertResult', function(directivePlugin) {
+.directive('assertResult', function(directivePlugin) {
 
 	var outcomes = [
         {id: 'earl:untested', name: 'Untested'},

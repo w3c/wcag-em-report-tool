@@ -5,7 +5,7 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
         restrict: 'E',
         transclude: true,
         replace: true,
-        template: '<ul class="nav nav-tabs" ng-transclude></ul>'
+        template: '<ul class="wizard" ng-transclude></ul>'
     };
 
 }).directive('wreStep', function() {
@@ -29,7 +29,7 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
               scope.glyphOk = 'glyphicon-ok';
             }
         },
-        template:   '<li ng-class="{{status}}">  <a>' +
+        template:   '<li ng-class="{{status}}" class="wizard-step">  <a>' +
                         '<span class="glyphicon {{glyphOk}}"></span> ' +
                         '<span ng-transclude></span>' +
                     '</a>  </li>'
