@@ -1,7 +1,7 @@
 <div class="row">
   <span class="col-sm-1" ng-if="!opt.narrow">
     <label for="result_outcome_{{unique}}">
-  	  Outcome:
+  	  {{'LABEL_OUTCOME' | translate}}:
   </label></span>
   
   <span class="col-sm-2">
@@ -19,7 +19,7 @@
 
   <span class="col-sm-1" ng-if="!opt.narrow">
     <label class="control-label" for="result_cause_{{unique}}">
-      Findings:
+      {{ 'LABEL_DESCR' | translate }}:
   </span>
 
   <span class="col-sm-8">

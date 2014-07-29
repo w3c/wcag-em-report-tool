@@ -1,7 +1,7 @@
 <div ng-include src="'views/navigation.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>Step 1: Define the Evaluation Scope</h1>
+<h1>{{ 'HD_STEP1' | translate }}</h1>
 
 <form>
   <div class="form-group">
@@ -9,8 +9,10 @@
       {{ 'LABEL_SITE_NAME' | translate }}
     </label>
 
-    <info-button label="Info"></info-button>
-    <info-field button="Close info" exitto="site-title">
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="site-title">
       {{ 'INF_SITE_NAME' | translate }}
     </info-field>
 
@@ -23,8 +25,10 @@
       {{ 'LABEL_SITE_SCOPE' | translate }}
     </label>
 
-    <info-button label="Info"></info-button>
-    <info-field button="Close info" exitto="website_scope">
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="website_scope">
       {{ 'INF_SITE_SCOPE' | translate }}
     </info-field>
 
@@ -37,8 +41,10 @@
       {{ 'LABEL_CONFORMANCE_TGT' | translate }}
     </label>
 
-    <info-button label="Info"></info-button>
-    <info-field button="Close info" exitto="conformance_target">
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="conformance_target">
       {{ 'INF_CONF_TGT' | translate }}
     </info-field>
 
@@ -58,11 +64,13 @@
   
   <div class="form-group">
     <label for="as_baseline" class="">
-      Accessibility support baseline
+      {{ 'LABEL_SUPPORT_BASE' | translate }}
     </label>
 
-    <info-button label="Info"></info-button>
-    <info-field button="Close info" exitto="as_baseline">
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+                exitto="as_baseline">
       {{ 'INF_SUPPORT_BASE' | translate }}
     </info-field>
 
@@ -73,11 +81,12 @@
   
   <div class="form-group">
     <label for="additional_requirements">
-      Additional Evaluation Requirements
+      {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}
     </label>
 
-    <info-button label="Info"></info-button>
-    <info-field button="Close info"
+    <info-button label="{{'LABEL_INFO' | translate}}">
+    </info-button>
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
                 exitto="additional_requirements">
       {{ 'INF_EXTRA_REQUIREMENTS' | translate }}
     </info-field>
