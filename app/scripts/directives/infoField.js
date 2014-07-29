@@ -23,7 +23,7 @@ angular.module('wcagReporter')
             });
         },
         replace: true,
-        template: '&nbsp;<a class="info-icon" href="">' +
+        template: '<a class="info-icon" href="">&nbsp;' +
             '<span class="glyphicon glyphicon-info-sign"></span>' +
             '<span class="sr-only">{{label}}</span></a> '
     });
