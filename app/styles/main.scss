@@ -84,13 +84,12 @@ table {
         background:#efefef;
         position:relative;
         display:inline-block;
-        &.disabled a {
-            font-style:italic;
-            color:#777;
-            &:hover {
-                text-decoration:none;
-            }
+        a {
+            margin:-10px -17px;
+            padding:10px 17px;
+            display:block;
         }
+
         &:before,
         &:after {
             width:0px;
@@ -125,6 +124,21 @@ table {
             -webkit-border-radius: 0 8px 8px 0;
             border-radius:   0 8px 8px 0;
         }
+        &.active {
+            background:#007ACC;
+            color:#fff;
+            a { color:#fff; }
+            &:after {
+                border-left-color:#007ACC;
+            }
+        }
+        &.disabled a {
+            font-style:italic;
+            color:#777;
+            &:hover {
+                text-decoration:none;
+            }
+        }
     }
 
     .badge {
@@ -133,15 +147,6 @@ table {
     }
     .wizard-step:first-child .badge {
         margin-left:0;
-    }
-
-    .active {
-        background:#007ACC;
-        color:#fff;
-        a { color:#fff; }
-        &:after {
-            border-left-color:#007ACC;
-        }
     }
 }
 

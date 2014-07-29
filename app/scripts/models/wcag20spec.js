@@ -8,7 +8,7 @@ angular.module('wcagReporter')
     var guidelines, criteria,
         criteriaObj = {};
     
-    function concatProps(prop) {
+    function pluck(prop) {
         return function (a, b) {
             if (!angular.isArray(a)) {
                 a = a[prop];
@@ -18,10 +18,10 @@ angular.module('wcagReporter')
     }
 
     // Concat all guidelines arrays of each principle
-    guidelines = wcag20specData.reduce(concatProps('guidelines'));
+    guidelines = wcag20specData.reduce(pluck('guidelines'));
     
     // Concat all criteria arrays of each guideline
-    criteria   = guidelines.reduce(concatProps('criteria'));
+    criteria   = guidelines.reduce(pluck('criteria'));
 
     // Make an object of the criteria array with uri as keys
     criteria.forEach(function (criterion) {

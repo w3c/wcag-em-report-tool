@@ -4,25 +4,44 @@
 <h1>Step 1: Define the Evaluation Scope</h1>
 
 <form>
-  <div class="formgroup">
+  <div class="form-group">
     <label for="site-title">
       {{ 'LABEL_SITE_NAME' | translate }}
     </label>
+
+    <info-button label="Info"></info-button>
+    <info-field button="Close info" exitto="site-title">
+      {{ 'INF_SITE_NAME' | translate }}
+    </info-field>
+
     <input ng-model="evalScope.website.title" type="text"
            class="form-control" id="site-title">
   </div>
-  <div class="formgroup">
+
+  <div class="form-group">
     <label for="website_scope">
       {{ 'LABEL_SITE_SCOPE' | translate }}
     </label>
+
+    <info-button label="Info"></info-button>
+    <info-field button="Close info" exitto="website_scope">
+      {{ 'INF_SITE_SCOPE' | translate }}
+    </info-field>
+
     <textarea ng-model="evalScope.website.siteScope" id="website_scope"
         class="form-control" cols="40" rows="5"></textarea>
   </div>
   
-  <div class="formgroup">
+  <div class="form-group">
     <label for="conformance_target">
       {{ 'LABEL_CONFORMANCE_TGT' | translate }}
     </label>
+
+    <info-button label="Info"></info-button>
+    <info-field button="Close info" exitto="conformance_target">
+      {{ 'INF_CONF_TGT' | translate }}
+    </info-field>
+
     <select ng-model="evalScope.conformanceTarget" 
             id="conformance_target" class="form-control">
       <option value="wcag20:level_a">
@@ -37,19 +56,32 @@
     </select>
   </div>
   
-  <div class="formgroup">
-    <label for="as_baseline">
+  <div class="form-group">
+    <label for="as_baseline" class="">
       Accessibility support baseline
     </label>
+
+    <info-button label="Info"></info-button>
+    <info-field button="Close info" exitto="as_baseline">
+      {{ 'INF_SUPPORT_BASE' | translate }}
+    </info-field>
+
     <textarea ng-model="evalScope.accessibilitySupportBaseline"
         id="as_baseline" class="form-control"
         cols="40" rows="5"></textarea>
   </div>
   
-  <div class="formgroup">
+  <div class="form-group">
     <label for="additional_requirements">
       Additional Evaluation Requirements
     </label>
+
+    <info-button label="Info"></info-button>
+    <info-field button="Close info"
+                exitto="additional_requirements">
+      {{ 'INF_EXTRA_REQUIREMENTS' | translate }}
+    </info-field>
+
     <textarea ng-model="evalScope.additionalEvalRequirement"
         id="additional_requirements" class="form-control"
         cols="40" rows="5"></textarea>
