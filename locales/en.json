@@ -13,13 +13,13 @@
   "WZRD_FINALIZE": "Finalize Report",
   "WZRD_SAVE": "Save Report",
 
-
   "HD_START": "Start An Accessibility Audit",
   "HD_STEP1": "Step 1: Define The Evaluation Scope",
   "HD_STEP2": "Step 2: Explore The Website",
   "HD_STEP3": "Step 3: Create A Sample",
   "HD_STEP4": "Step 4: Audit The Sample",
   "HD_STEP5": "Step 5: Finalize The Report",
+  "HD_SAVE": "Save the pages",
 
   "HD_STRUCT_SAMPLE": "Structured Sample",
   "HD_RANDOM_SAMPLE": "Random Sample",
@@ -29,6 +29,7 @@
   "INTRO_STEP2": "Add pages to the text fields below while exploring the website",
   "SELECT_PAGE_TO_WORK_ON": "Select what page(s) to work on",
   "RESULTS_FOR": "Results for",
+  "SAMPLE_FINDINGS": "Results for the entire sample",
 
 
   "LABEL_SITE_NAME": "Website name",
@@ -52,6 +53,9 @@
   "LABEL_OUTCOME": "Outcome",
   "LABEL_DESCR": "Findings",
 
+
+  "ITEM": "Item",
+  "BTN_REMOVE_PAGE": "Remove page",
   "LABEL_INFO": "Info",
   "LABEL_CLOSE_INFO": "Close info",
 
@@ -59,6 +63,8 @@
   "WCAG_AA": "WCAG 2.0 level AA",
   "WCAG_AAA": "WCAG 2.0 level AAA",
 
+  "PLH_HANDLE": "Handler to identify the page",
+  "PLH_PAGE_URL": "URL or description of the page location",
 
   "INF_RELIEDUP_TECH":  "INF RELIEDUP TECH",
   "INF_COMMON_PAGES": "INF COMMON PAGES",

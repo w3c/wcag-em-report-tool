@@ -5,6 +5,7 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
+    'ngAnimate',
     'pascalprecht.translate',
     'ui.bootstrap'
   ])
