@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCtrl', function ($scope, evalModel, wcag20spec) {
-
+.controller('ReportCtrl', function ($scope,
+		evalModel, wcag20spec, appState) {
+	
+	$scope.state = appState.moveToState('save');
     $scope.scope = evalModel.scopeModel;
     $scope.explore = evalModel.exploreModel;
 
