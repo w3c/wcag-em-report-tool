@@ -4,7 +4,8 @@ angular.module('wcagReporter')
 .controller('AuditExploreCtrl', function ($scope, appState, evalExploreModel) {
   	$scope.state = appState.moveToState('explore');
   	$scope.explore = evalExploreModel;
-
+  	$scope.knownTech = evalExploreModel.knownTech;
+  	
   	$scope.processInput = function () {
 		var errors = evalExploreModel.validate();
 
@@ -18,4 +19,7 @@ angular.module('wcagReporter')
 		console.log(evalExploreModel);
 	};
 
+	$scope.addTechnology = function () {
+		$scope.explore.addReliedUponTech();
+	};
 });

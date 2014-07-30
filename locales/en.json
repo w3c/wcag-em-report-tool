@@ -52,7 +52,8 @@
   "LABEL_HANDLE": "Handle",
   "LABEL_OUTCOME": "Outcome",
   "LABEL_DESCR": "Findings",
-
+  "LABEL_TECH": "Technology",
+  "LABEL_TECH_SPEC": "Specification URI",
 
   "ITEM": "Item",
   "BTN_REMOVE_PAGE": "Remove page",
@@ -65,6 +66,8 @@
 
   "PLH_HANDLE": "Handler to identify the page",
   "PLH_PAGE_URL": "URL or description of the page location",
+  "PLH_TECH": "Name of the technology",
+  "PLH_TECH_SPEC": "URI for the technology's specification",
 
   "INF_RELIEDUP_TECH":  "INF RELIEDUP TECH",
   "INF_COMMON_PAGES": "INF COMMON PAGES",
@@ -98,11 +101,13 @@
   "HD_SCOPE": "Evaluation Scope",
   "HD_SUMMARY": "Summary",
 
-  "OPEN_FINAL_REPORT": "Open final report",
+  "BTN_ADD_TECH": "Add technology",
+  "BTN_REMOVE_TECH": "Remove technology",
   "BTN_ADD_PAGE": "Add web page",
   "BTN_START_EVAL": "Start a new WCAG evaluation",
   "BTN_CONTINUE_EVAL": "Continue the WCAG evaluation",
   "BTN_IMPORT_EVAL": "Import a previous WCAG evaluation",
+  "OPEN_FINAL_REPORT": "Open final report",
   "BTN_SAVE_HTML": "Save the evaluation report (HTML)",
   "BTN_SAVE_JSON": "Download the evaluation data (JSON)",
   "BTN_EXPAND_PAGES": "Expand details per page",
