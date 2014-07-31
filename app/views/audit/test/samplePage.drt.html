@@ -1,13 +1,10 @@
-<div class="row"><div class="col-sm-12">
-  <strong  ng-if="!opt.narrow">
+<div class="row">
+  <div class="col-sm-3"><strong>
     {{ 'RESULTS_FOR' | translate }}:
-  </strong>
-  <span tooltip="{{page.description}}">
-    {{page.handle}}
-  </span></div>
-<!--   <strong class="col-sm-1" ng-if="!opt.narrow">
-     
-   </strong>
-  <span class="col-sm-8"
-  		ng-bind-html="page.description | linky:'_blanc'"></span> -->
+  </strong></div>
+  <div class="col-sm-9">
+    <span tooltip="{{page.description}}">
+      {{page.handle}}
+    </span>
+  </div>
 </div>

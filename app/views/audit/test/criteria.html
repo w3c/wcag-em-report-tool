@@ -8,9 +8,17 @@
   {{ 'INF_AUDIT_SAMPLE' | translate }}
 </info-field>
 
-<success-criterion showAllPages
-	options="{	editable: true,
-				showallpages: true,
-				narrow:false       }"
-    ng-repeat="criterion in criteria"
-    assert="criterion"></success-criterion>
+<div ng-repeat="p in principles">
+  <h3>Principle {{p.number}} {{p.title}}</h3>
+  
+  <div ng-repeat="g in p.guidelines">
+  <h4>{{g.number}} {{g.title}}</h4>    
+  <success-criterion 
+       ng-repeat="critSpec in g.criteria"
+       ng-if="crit = getCritAssert(critSpec.uri)"
+      options="{editable: true,
+                showallpages: true,
+                narrow:false}"
+       assert="crit"></success-criterion>
+  </div>
+</div>

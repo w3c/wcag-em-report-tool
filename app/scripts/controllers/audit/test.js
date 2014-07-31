@@ -1,14 +1,17 @@
 'use strict'; 
-  
+
 angular.module('wcagReporter') 
-.controller('AuditTestCtrl', function ($scope, appState, 
+.controller('AuditTestCtrl', function ($scope, appState, wcag20spec,
              evalScopeModel, evalTestModel, evalSampleModel) {
 
     evalTestModel.updateToConformance();
-    
+
     $scope.criteria = evalTestModel.getCriteriaSorted();
 
     $scope.state = appState.moveToState('test'); 
+    $scope.principles = wcag20spec.getPrinciples();
+
+    $scope.getCritAssert = evalTestModel.getCritAssert;
 
     $scope.structuredSample = evalSampleModel.structuredSample; 
     $scope.randomSample = evalSampleModel.randomSample;

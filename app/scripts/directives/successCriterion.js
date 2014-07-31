@@ -43,7 +43,7 @@ angular.module('wcagReporter').directive(
             };
 
             scope.flipCollapse = function () {
-                if (typeof attr.showallpages !== 'undefined') {
+                if (this.opt.showallpages) {
                     if (!this.hasAllPages) {
                         this.assert.setCaseForEachPage();
                         this.hasAllPages = true;

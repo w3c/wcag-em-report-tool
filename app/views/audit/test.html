@@ -2,9 +2,13 @@
 
 <h1>{{'HD_STEP4' | translate}}</h1>
 
-<div ng-include src="'views/audit/test/sample-pages.html'"></div>
+<div class="row">
+  <div class="col-xs-12 col-sm-3"
+  	ng-include src="'views/audit/test/sample-pages.html'"></div>
 
-<div ng-include src="'views/audit/test/criteria.html'"></div>
+  <div class="col-xs-12 col-sm-9"
+  	ng-include src="'views/audit/test/criteria.html'"></div>
+</div>
 
 <ul class="nav nav-pills">
   <li><a href="#/audit/sample">

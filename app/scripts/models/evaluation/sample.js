@@ -46,21 +46,30 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.addNewPage = function (sample) {
-        var num, page;
-        sample = sample || this.randomSample;
+        var num, page, minRandomSample, i;
+        sample = sample || self.randomSample;
 
         page = new Page();
+        sample.webpage.push(page);
         num = getAvailablePageNum(sample);
 
-        if (sample === this.randomSample) {
+        if (sample === self.randomSample) {
             page.id = '_:rand_' + num;
             page.handle = 'Random page ' + (1+ num);
         } else {
             page.id = '_:struct_' + num;
             page.handle = 'Structured page ' + (1 + num);
+
+            minRandomSample = Math.max(5, Math
+                .ceil(sample.webpage.length / 10));
+            i = minRandomSample - self.randomSample.webpage.length;
+
+            while(i > 0) {
+                self.addNewPage();
+                i -= 1;
+            }
         }
 
-        sample.webpage.push(page);
         return page;
     };
 

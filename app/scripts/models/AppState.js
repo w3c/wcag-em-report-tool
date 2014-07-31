@@ -4,11 +4,13 @@ angular.module('wcagReporter').service('appState', function() {
     this.currentStateIndex = 0;
     this.maxStateIndex = 0;
     this.stateList = [
+        {name: 'start',   route:'#/',   copmlete: false},
         {name: 'scope',   route:'#/audit/scope',   copmlete: false},
         {name: 'explore', route:'#/audit/explore', copmlete: false},
         {name: 'sample',  route:'#/audit/sample',  copmlete: false},
         {name: 'test',    route:'#/audit/test',    copmlete: false},
-        {name: 'finalize',    route:'#/audit/finalize',    copmlete: false}
+        {name: 'finalize',    route:'#/audit/finalize',    copmlete: false},
+        {name: 'save',    route:'#/report',    copmlete: false}
     ];
 
     /**
