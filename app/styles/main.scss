@@ -127,7 +127,7 @@ table {
     list-style:none;
     .wizard-step {
         padding: 10px 17px 10px 35px;
-        margin-right:5px;
+        margin:3px 0 5px;
         background:#efefef;
         position:relative;
         display:inline-block;
@@ -207,3 +207,4 @@ table {
 .animate-enter.animate-enter-active {
     opacity: 1;
 }
+
