@@ -1,10 +1,11 @@
 <div ng-include src="'views/audit/stepbar.html'"></div>
-<p></p>
+
+<h1>{{ 'HD_SAVE' | translate }}</h1>
 <div class="container save-panel">
   <div class="panel panel-primary">
-    <div class="panel-heading"><h1>
-        {{ 'HD_SAVE' | translate }}
-    </h1></div>
+    <div class="panel-heading">
+        {{ 'DOWNLOAD_REPORT' | translate}}
+    </div>
     <ul class="list-group">
       <li class="list-group-item"><a href="">
           {{'BTN_SAVE_HTML' | translate}}
@@ -35,13 +36,13 @@
   <h2>{{'HD_SCORE' | translate }}</h2>
   <div ng-include src="'views/report/score.html'"></div>
 
-  <h2>{{'HD_SPECIFICS' | translate }}</h2>
-  {{report.specifics}}
-
   <div ng-include src="'views/report/findings.html'"></div>
 
   <h2>{{'HD_SAMPLE' | translate }}</h2>
   <div ng-include src="'views/report/sample.html'"></div>
+
+  <h2>{{'HD_SPECIFICS' | translate }}</h2>
+  {{report.specifics}}
 
   <h2>{{'HD_DOCS' | translate }}</h2>
   <ul lang="en">

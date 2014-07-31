@@ -11,6 +11,7 @@
                         for outcome in outcomes">
     </select>
     <span ng-if="!opt.editable">
+      <strong>{{ 'LABEL_OUTCOME' | translate }}</strong>
       {{assert.result.outcome | rdfToLabel}}
     </span>
   </span>

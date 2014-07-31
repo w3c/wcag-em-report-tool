@@ -8,7 +8,6 @@ try {
 
 angular.module('wcagReporter').config(function ($translateProvider) {
   $translateProvider.translations('en', {
-    'NAV_START': 'Start Evaluating',
     'NAV_LINKS': 'Important links',
     'NAV_IMPORT': 'Load Data',
     'NAV_EXPORT': 'Save Data',
@@ -30,12 +29,13 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'HD_STRUCT_SAMPLE': 'Structured Sample',
     'HD_RANDOM_SAMPLE': 'Randomly Selected Sample',
     'HD_SAMPLE': 'Sample of Audited Web Pages and Web Page States',
+    'HD_SAMPLE_SELECT': 'Sample',
     'HD_CRITERIA': 'Success Criteria',
-    'HD_FINALIZE': 'Finalize The Report',
     'INTRO_STEP2': 'Add pages to the text fields below while exploring the website',
     'SELECT_PAGE_TO_WORK_ON': 'Highlight specific web pages and web page states',
     'RESULTS_FOR': 'Results for',
     'SAMPLE_FINDINGS': 'Results for the entire sample',
+    'DOWNLOAD_REPORT': 'Download the report',
     'LABEL_SITE_NAME': 'Website name',
     'LABEL_SITE_SCOPE': 'Scope of the website',
     'LABEL_CONFORMANCE_TGT': 'Conformance target',
@@ -97,6 +97,8 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'HD_SCORE': 'Overview of audit results',
     'HD_SCOPE': 'Scope of the evaluation',
     'HD_SUMMARY': 'Summary of the evaluation findings',
+    'HD_CRITERIA_REPORT': 'Success Criteria',
+    'PRINCIPLE': 'Principle',
     'BTN_ADD_TECH': 'Add web technology',
     'BTN_REMOVE_TECH': 'Remove web technology',
     'BTN_ADD_PAGE': 'Add web page or web page state',
