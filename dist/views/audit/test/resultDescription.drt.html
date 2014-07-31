@@ -1,0 +1,1 @@
+<div ng-init="focused = false"><label for="assert_desc_{{$id}}" ng-class="{'sr-only': !focused}">{{ 'LABEL_DESCR' | translate }}:</label><textarea ng-model="value" class="expanding" id="assert_desc_{{$id}}" ng-focus="focused = true" ng-blur="focused = false" ng-class="{'focused': focused}" placeholder="{{'PLH_ASSERT_DESC'|translate}}" cols="20" rows="4" id="id"></textarea></div>

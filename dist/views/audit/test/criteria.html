@@ -1,3 +1,3 @@
-<h2>{{ 'HD_CRITERIA' | translate }}<info-button label="{{'LABEL_INFO' | translate}}" target="inf_audit_criteria"></info-button></h2><info-field ref="inf_audit_criteria" exitto="" button="{{'LABEL_CLOSE_INFO' | translate}}">{{ 'INF_AUDIT_SAMPLE' | translate }}</info-field><success-criterion showallpages="" options="{	editable: true,
-				showallpages: true,
-				narrow:false       }" ng-repeat="criterion in criteria" assert="criterion"></success-criterion>
+<h2>{{ 'HD_CRITERIA' | translate }}<info-button label="{{'LABEL_INFO' | translate}}" target="inf_audit_criteria"></info-button></h2><info-field ref="inf_audit_criteria" exitto="" button="{{'LABEL_CLOSE_INFO' | translate}}">{{ 'INF_AUDIT_SAMPLE' | translate }}</info-field><div ng-repeat="p in principles"><h3>Principle {{p.number}} {{p.title}}</h3><div ng-repeat="g in p.guidelines"><h4>{{g.number}} {{g.title}}</h4><success-criterion ng-repeat="critSpec in g.criteria" ng-if="crit = getCritAssert(critSpec.uri)" options="{editable: true,
+                showallpages: true,
+                narrow:false}" assert="crit"></success-criterion></div></div>
