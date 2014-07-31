@@ -69,6 +69,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'PLH_PAGE_URL': 'URL or description of the web page or web page state',
     'PLH_TECH': 'Name of the web technology that is relied upon for conformance',
     'PLH_TECH_SPEC': 'URI or description for the web technology specification',
+    'PLH_ASSERT_DESC': 'Observations made during evaluation',
     'INF_RELIEDUP_TECH': 'INF RELIEDUP TECH',
     'INF_COMMON_PAGES': 'INF COMMON PAGES',
     'INF_ESSENT_FUNC': 'INF ESSENT FUNC',

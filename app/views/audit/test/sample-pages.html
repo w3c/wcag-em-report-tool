@@ -9,19 +9,16 @@
 </info-field>
 
 <ul class="sample" collapse="hideSample">
-	<li class="row" ng-repeat="page in allPages()"
+	<li class="" ng-repeat="page in allPages()"
     ng-class="{active: page.selected}"
     ng-click="page.selected = !page.selected">
-
-    <span class="col-sm-1">
+    
+    <label for="sample_select_{{$index}}"
+           tooltip="{{page.description}}">
       <input id="sample_select_{{$index}}" 
-          type="checkbox" ng-model="page.selected">
-    </span>
-    <label class="col-sm-3" for="sample_select_{{$index}}">
+            type="checkbox" ng-model="page.selected">
       {{page.handle}}
     </label>
 
-    <span class="col-sm-7"
-          ng-bind-html="page.description | linky : '_blanc'"></span>
 	</li>
 </ul>

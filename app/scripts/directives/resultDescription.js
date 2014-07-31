@@ -8,7 +8,6 @@ angular.module('wcagReporter')
             value: '=',
             id: '@'
         },
-    	template: '<textarea ng-model="value" class="expanding"' +
-    			  'cols="20" rows="4" id="id"></textarea>'
+        templateUrl: 'views/audit/test/resultDescription.drt.html'
 	});
 });

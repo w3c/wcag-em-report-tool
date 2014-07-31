@@ -1,11 +1,11 @@
 'use strict'; 
-  
+
 angular.module('wcagReporter') 
 .controller('AuditTestCtrl', function ($scope, appState, wcag20spec,
              evalScopeModel, evalTestModel, evalSampleModel) {
 
     evalTestModel.updateToConformance();
-    
+
     $scope.criteria = evalTestModel.getCriteriaSorted();
 
     $scope.state = appState.moveToState('test'); 
