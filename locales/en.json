@@ -34,7 +34,7 @@
   "LABEL_SITE_NAME": "Website name",
   "LABEL_SITE_SCOPE": "Scope of the website",
   "LABEL_CONFORMANCE_TGT": "Conformance target",
-  "LABEL_SPECIFICS": "Evaluation specifics",
+  "LABEL_SPECIFICS": "Recordings of the evaluation specifics",
   "LABEL_EXTRA_REQUIREMENTS": "Additional evaluation requirements",
   "LABEL_SUPPORT_BASE": "Accessibility support baseline",
   "LABEL_RELIEDUP_TECH": "Web technologies relied upon",
