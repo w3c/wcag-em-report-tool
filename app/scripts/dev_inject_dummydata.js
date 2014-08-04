@@ -51,25 +51,25 @@ angular.module('wcagReporter').run(function (
         'currentStep': 'test',
         'evaluationScope': {
             'conformanceTarget': 'wcag20:level_aa',
-            'additionalEvalRequirement': 'Check if the site is cool too',
-            'accessibilitySupportBaseline': 'My AS Baseline',
+            'additionalEvalRequirement': 'Provide repair suggestions for the identified errors',
+            'accessibilitySupportBaseline': 'All content must be accessible using at least the following combinations of tools:\nWeb browser X versions a, b, and c with assistive technology M versions i, j, and k;\nWeb browser Y versions d, e, and f with assistive technology N versions p and q;\nWeb browser Z versions g and h with assistive Technology O versions r, s, t, and u.',
             'website': {
                 'id': '_:website',
-                'title': 'example.com website',
-                'siteScope': 'All pages at http://example.com\nAll pages at https://my.example.com'
+                'title': 'Public Website of Example Organization',
+                'siteScope': 'All pages at http://example.org\nAll pages at https://shop.example.org'
             }
         },
         'reliedUponTechnology': [{
-            'title': 'html5',
+            'title': 'HTML5',
             'specs': 'http://www.w3.org/TR/html5/'
         }, {
-        	'title': 'PDF/a',
+        	'title': 'CSS3',
         	'specs': 'http://en.wikipedia.org/?title=PDF/A'
     	}],
-        'commonPages': 'Page some stuff\npage another thing\netc.',
-        'essentialFunctionality': 'Be fancy\nCombat the dark side',
-        'pageTypeVariety': 'pdf\nodt\ndoc',
-        'otherRelevantPages': 'How to BBQ\nThought for food\nPong for dummies',
+        'commonPages': 'About Us (example.org/about)\nContact Us (example.org/contact)\nCopyright Notice (example.org/copyright)\nSitemap (example.org/sitemap)',
+        'essentialFunctionality': 'Create account (registered users have customized content)\nLog-in and log-out\nSearch function (provided on each page)\nAll functions of the web shop (at shop.example.org)\nCredits calculator provided at example.org/calculator',
+        'pageTypeVariety': 'Web pages under example.org/users/* have a separate design\nThere are electronic documents provided in PDF, DOC, and ODT formats\nThere is video content provided on some pages (eg example.org/speech)',
+        'otherRelevantPages': 'Website Accessibility (example.org/accessibility)\nWebsite Help (example.org/help)\nWebsite Policy (example.org/policy)',
         'structuredSample': {
             'webpage': [{
                 'type': 'webpage',
@@ -166,18 +166,18 @@ angular.module('wcagReporter').run(function (
                 'description': 'http://example.com/random8'
             }]
         },
-        'creator' : 'MyName',
-        'title'   : 'Dummy report on an example site',
+        'creator' : 'Example Evaluator for Example Agency',
+        'title'   : 'Website accessibility evaluation report for Example Organization',
         'date'    : '2014-01-01',
-        'summary' : 'It\'s pretty good',
-        'commissioner': 'The proud people at example.com',
-        'specifics'   : 'We used W3C techniques',
+        'summary' : 'Overall the website shows good practice towards accessibility and WCAG 2.0 conformance. However, some issues were identified such as...',
+        'commissioner': 'Example Organization',
+        'specifics'   : 'Screenshots attached to show some of the web pages when they are magnified; Also some audio recordings have been made to highlight some of the issues when the web pages are read aloud.',
         'auditResult': [{
             'type':                'assertion',
             'testRequirement': 'wcag20:text-equiv-all',
             'result': {
                 'outcome':         'earl:failed',
-                'description':     'You can solve this by...'
+                'description':     'Images without text alternatives, for example the illustration on the sitemap'
             },
             'subject':         '_:website',
             'assertedBy':      'http://nl.linkedin.com/in/wilcofiers/',
@@ -187,8 +187,8 @@ angular.module('wcagReporter').run(function (
                 //'testCase':    'Used technique F1',
                 'subject':     ['_:struct_1'],
                 'result': {
-                    'outcome':     'earl:passed',
-                    'description':  'You can solve this by...'
+                    'outcome':     'earl:failed',
+                    'description':  'Illustration does not have a text alternative'
                 },
                 'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
                 'date':         '2014-01-01T19:20:30+01:00'
