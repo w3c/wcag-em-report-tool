@@ -208,3 +208,34 @@ $wzrd-bg: #efefef;
         margin-left:0;
     }
 }
+
+$footer-height: 140px; 
+$footer-padding: 20px;
+html.full-page {
+    height: 100%;
+
+    body {
+        height: 100%;
+    }
+    .page-view {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto (0-$footer-height - $footer-padding); /* the bottom margin is the negative value of the footer's height */
+    }
+    .push-footer, .page-footer {
+        margin-top:$footer-padding;
+        height: $footer-height; /* .push must be the same height as .footer */
+    }
+}
+.page-footer {
+    ul {
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    border: solid $brand-primary;
+    border-width: 5px 0;
+    font-size: 0.8em;
+    padding: 1em;
+}
