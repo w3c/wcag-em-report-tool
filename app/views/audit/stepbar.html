@@ -3,5 +3,8 @@
   			step="stateItem"
   			active="state.currentStateIndex == $index">
 		{{ 'WZRD_' + stateItem.name | uppercase | translate}}
+        <span class="sr-only" 
+            ng-if="state.currentStateIndex == $index">
+          &nbsp;(Active)</span>
 	</wre:step>
 </wre:stepbar>
