@@ -36,6 +36,8 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'RESULTS_FOR': 'Results for',
     'SAMPLE_FINDINGS': 'Results for the entire sample',
     'DOWNLOAD_REPORT': 'Download the report',
+    'INTR_START_1': 'This tool does...',
+    'INTR_START_2': 'You should also know that...',
     'LABEL_SITE_NAME': 'Website name',
     'LABEL_SITE_SCOPE': 'Scope of the website',
     'LABEL_CONFORMANCE_TGT': 'Conformance target',
