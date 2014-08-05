@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="full-page">
 <head>
   <meta charset="utf-8">
   <title>WCAG-EM Reporter</title>
@@ -14,10 +14,13 @@
 </head>
 <body ng-app="wcagReporter">
   <!-- Add your site or application content here -->
-  <div class="container">
+  <div class="page-view">
     <div ng-include src="'views/navigation.html'"></div>
-    <div ng-view autoscroll="true"></div>
+
+    <div ng-view autoscroll="true" class="container"></div>
+    <div class="push-footer"></div>
   </div>
+  <div ng-include src="'views/footer.html'"></div>
 
   <!--[if lt IE 9]>
   <script src="bower_components/es5-shim/es5-shim.js"></script>
