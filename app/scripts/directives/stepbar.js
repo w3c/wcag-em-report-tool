@@ -11,27 +11,16 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
 }).directive('wreStep', function() {
     return {
         restrict: 'E',
-        scope: {},
+        scope: {
+            step: '=',
+            active: '&'
+        },
         transclude: true,
         replace: true,
-        link: function (scope, elm, attr) {
-            scope.status = [];
-            if (attr.active === 'true') {
-                scope.status.push('active');
-            }
-            if (attr.disabled === 'false') {
-                scope.status.push('disabled');
-                scope.disabled = true;
-            } else {
-                elm.find('a').attr('href', attr.href);
-            }
-            if (attr.complete) {
-              scope.glyphOk = 'glyphicon-ok';
-            }
-        },
-        template:   '<li ng-class="{{status}}" class="wizard-step">  <a>' +
-                        '<span class="glyphicon {{glyphOk}}"></span> ' +
-                        '<span ng-transclude></span>' +
-                    '</a>  </li>'
+        template: 
+            '<li ng-class="{active:active()}" class="wizard-step">' +
+            '<a href="{{step.route}}">'+
+            '<span ng-transclude></span></a>' +
+            '</li>'
     };
 });

@@ -2,6 +2,8 @@
 
 <h1>{{ 'HD_STEP1' | translate }}</h1>
 
+<p>{{ 'INTRO_STEP1' | translate }}</p>
+
 <form>
   <div class="form-group">
     <label for="site-title">
@@ -96,14 +98,9 @@
   </div>
 </form>
 
-<footer><ul class="nav nav-pills">
-  <li><a href="#/audit/explore">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}
-  </a></li>
+<ul class="nav nav-pills">
   <li class="pull-right active">
-    <a href="#/audit/test" ng-click="processInput()">
-      {{'NEXT_STEP' | translate}} 
-      <span class="glyphicon glyphicon-chevron-right"></span>
+    <a ng-click="processInput()" href="#/audit/explore">
+      {{'NEXT_STEP' | translate}} <span class="glyphicon glyphicon-chevron-right"></span>
   </a></li>
-</ul></footer>
+</ul>

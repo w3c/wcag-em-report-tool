@@ -1,9 +1,7 @@
 <wre:stepbar>
   	<wre:step ng-repeat="stateItem in state.stateList"
-  			complete="{{stateItem.complete}}"
-  			disabled="{{state.maxStateIndex >= $index}}"
-  			href="{{stateItem.route}}"
-  			active="{{state.currentStateIndex == $index}}">
+  			step="stateItem"
+  			active="state.currentStateIndex == $index">
 		{{ 'WZRD_' + stateItem.name | uppercase | translate}}
         <span class="sr-only" 
             ng-if="state.currentStateIndex == $index">
