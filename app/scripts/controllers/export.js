@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('wcagReporter')
-  .controller('ExportCtrl', function () {
-
-  });
+.controller('ExportCtrl', function () {
+    
+});

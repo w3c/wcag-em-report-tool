@@ -5,6 +5,9 @@ angular.module('wcagReporter')
   	$scope.state = appState.moveToState('explore');
   	$scope.explore = evalExploreModel;
   	$scope.knownTech = evalExploreModel.knownTech;
+  	if (evalExploreModel.reliedUponTechnology.length === 0) {
+  		evalExploreModel.addReliedUponTech();
+  	}
   	
   	$scope.processInput = function () {
 		var errors = evalExploreModel.validate();
@@ -16,7 +19,6 @@ angular.module('wcagReporter')
 			evalExploreModel.updateSample();
 			// continue to next step
 		}
-		console.log(evalExploreModel);
 	};
 
 	$scope.addTechnology = function () {

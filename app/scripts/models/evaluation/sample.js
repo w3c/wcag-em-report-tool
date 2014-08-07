@@ -12,6 +12,10 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
      */
     function getAvailablePageNum(sample) {
         var name, lastId;
+        if (sample.webpage.length === 0) {
+            return 0;
+        }
+
         name = (sample === self.randomSample ? '_:rand_' : '_:struct_');
         lastId = sample.webpage.map(function (page) {
             return +page.id.substr(name.length);
@@ -29,7 +33,7 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         'id': '',
         description: undefined,
         handle: '',
-        tested: true,
+        tested: false,
         selected: true
     };
 
@@ -46,12 +50,12 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     this.addNewPage = function (sample) {
-        var num, page, minRandomSample, i;
+        var num, page, minRndSmpl, i;
         sample = sample || self.randomSample;
 
         page = new Page();
-        sample.webpage.push(page);
         num = getAvailablePageNum(sample);
+        sample.webpage.push(page);
 
         if (sample === self.randomSample) {
             page.id = '_:rand_' + num;
@@ -60,11 +64,11 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
             page.id = '_:struct_' + num;
             page.handle = 'Structured page ' + (1 + num);
 
-            minRandomSample = Math.max(5, Math
-                .ceil(sample.webpage.length / 10));
-            i = minRandomSample - self.randomSample.webpage.length;
+            minRndSmpl = Math
+                .ceil(sample.webpage.length / 10);
+            i = minRndSmpl - self.randomSample.webpage.length;
 
-            while(i > 0) {
+            while (i > 0) {
                 self.addNewPage();
                 i -= 1;
             }
