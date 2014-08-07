@@ -4,6 +4,10 @@
   "NAV_EXPORT": "Save Data",
   "NAV_HELP": "Help",
 
+  "CLICK_EXPAND": "Click to expand",
+  "CLICK_COLLAPSE": "Click to collapse",
+
+
   "WZRD_START": "Start",
   "WZRD_SCOPE": "1. Define Scope",
   "WZRD_EXPLORE": "2. Explore Website",
@@ -38,6 +42,7 @@
   "INTRO_STEP4": "INTRO STEP 4",
   "INTRO_STEP5": "INTRO STEP 5",
   "INTRO_REPORT": "INTRO VIEW REPORT",
+  "RAND_SAMPLE_LENGTH": "A sample of {0} pages requires {1} random pages",
 
   "LABEL_SITE_NAME": "Website name",
   "LABEL_SITE_SCOPE": "Scope of the website",
@@ -121,8 +126,8 @@
   "OPEN_FINAL_REPORT": "Generate the sample report",
   "BTN_SAVE_HTML": "Download the evaluation report (HTML)",
   "BTN_SAVE_JSON": "Download the evaluation data (JSON)",
-  "BTN_EXPAND_PAGES": "Show available evaluation details",
-  "BTN_COLLAPSE_PAGES": "Hide evaluation details",
+  "BTN_EXPAND_PAGES": "Show results for individual pages",
+  "BTN_COLLAPSE_PAGES": "Hide  results for individual pages",
   "PREV_STEP": "Previous step",
   "NEXT_STEP": "Next step"
 }
