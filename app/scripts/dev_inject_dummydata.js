@@ -75,82 +75,98 @@ angular.module('wcagReporter').run(function (
                 'type': 'webpage',
                 'id': '_:struct_0',
                 'handle': 'Homepage',
-                'description': 'http://example.com/'
+                'description': 'http://example.com/',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_1',
                 'handle': 'Sitemap',
-                'description': 'http://example.com/sitemap'
+                'description': 'http://example.com/sitemap',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_2',
                 'handle': 'Contact form',
-                'description': 'http://example.com/contact'
+                'description': 'http://example.com/contact',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_3',
                 'handle': 'map',
-                'description': 'http://example.com/geo'
+                'description': 'http://example.com/geo',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_4',
                 'handle': 'Video 1',
-                'description': 'http://example.com/blog/2004/01/01'
+                'description': 'http://example.com/blog/2004/01/01',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_5',
                 'handle': 'Video 2',
-                'description': 'http://example.com/media'
+                'description': 'http://example.com/media',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_6',
                 'handle': 'Structured page 7',
-                'description': 'http://example.com/signup'
+                'description': 'http://example.com/signup',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_7',
                 'handle': 'Structured page 8',
-                'description': 'http://example.com/webshop'
+                'description': 'http://example.com/webshop',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_8',
                 'handle': 'Payment process 1',
-                'description': 'http://example.com/payment/'
+                'description': 'http://example.com/payment/',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_9',
                 'handle': 'Payment process 2',
-                'description': 'http://example.com/payment/ Click on "Buy products"'
+                'description': 'http://example.com/payment/ Click on "Buy products"',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_10',
                 'handle': 'Payment process 3',
-                'description': 'http://example.com/payment/ Click on "Buy products", then fill in details and click "purchase"'
+                'description': 'http://example.com/payment/ Click on "Buy products", then fill in details and click "purchase"',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_11',
                 'handle': 'Homepage logged in',
-                'description': 'http://example.com/ (after Login)'
+                'description': 'http://example.com/ (after Login)',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_12',
                 'handle': 'Mobile version',
-                'description': 'http://example.com/ Resize the screen to have a width of 800'
+                'description': 'http://example.com/ Resize the screen to have a width of 800',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_13',
                 'handle': 'PDF download',
-                'description': 'http://example.com/downloads/reports.pdf'
+                'description': 'http://example.com/downloads/reports.pdf',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_14',
                 'handle': 'Accessibility statement',
-                'description': 'http://example.com/accessibility'
+                'description': 'http://example.com/accessibility',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:struct_15',
                 'handle': 'Structured page 16',
-                'description': 'http://example.com/social'
+                'description': 'http://example.com/social',
+                'selected': true
             }]
         },
         'randomSample': {
@@ -158,12 +174,14 @@ angular.module('wcagReporter').run(function (
                 'type': 'webpage',
                 'id': '_:rand_0',
                 'handle': 'Random page 1',
-                'description': 'http://example.com/random1'
+                'description': 'http://example.com/random1',
+                'selected': true
             }, {
                 'type': 'webpage',
                 'id': '_:rand_1',
                 'handle': 'Random page 2',
-                'description': 'http://example.com/random8'
+                'description': 'http://example.com/random8',
+                'selected': true
             }]
         },
         'creator' : 'Example Evaluator for Example Agency',

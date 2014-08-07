@@ -7,8 +7,22 @@ angular.module('wcagReporter')
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
-    $scope.addPage = evalSampleModel.addNewPage;
-    $scope.removePage = evalSampleModel.removePage;
+    $scope.addPage = function (sample) {
+        return function () {
+            return evalSampleModel.addNewPage(sample);
+        };
+    };
+    $scope.removePage = function (sample) {
+        return function (index) {
+            return evalSampleModel.removePage(sample, index);
+        };
+    };
+
+    $scope.randPageCount = function () {
+        return Math
+        .ceil($scope.structuredSample.webpage.length / 10);
+    };
+
 
     $scope.processInput = function () {
         var errors = evalSampleModel.validate();

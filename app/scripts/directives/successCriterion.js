@@ -24,7 +24,7 @@ angular.module('wcagReporter').directive(
             opt: '=options'
         },
 
-        link: function (scope, elm, attr) {
+        link: function (scope) {
             scope.desc = scope.assert.getSpec();
             scope.outcomes = outcomes;
         	scope.getUnique = function () {
@@ -49,7 +49,7 @@ angular.module('wcagReporter').directive(
                         this.hasAllPages = true;
                     }
                 }
-                this.isVisible = !this.isVisible;
+                this.opt.collapsed = !this.opt.collapsed;
             };
         },
         templateUrl: 'views/audit/test/successCriterion.drt.html'

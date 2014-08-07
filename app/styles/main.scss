@@ -34,6 +34,9 @@ p a {
 * {
     @include placeholder(#767676);
 }
+.form-group .alert {
+    margin-top:1em;
+}
 
 button[disabled] {
     color:gray;
