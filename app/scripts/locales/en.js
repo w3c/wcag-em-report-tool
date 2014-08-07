@@ -43,6 +43,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'INTRO_STEP4': 'INTRO STEP 4',
     'INTRO_STEP5': 'INTRO STEP 5',
     'INTRO_REPORT': 'INTRO VIEW REPORT',
+    'RAND_SAMPLE_LENGTH': 'A sample of {0} pages requires {1} random pages',
     'LABEL_SITE_NAME': 'Website name',
     'LABEL_SITE_SCOPE': 'Scope of the website',
     'LABEL_CONFORMANCE_TGT': 'Conformance target',

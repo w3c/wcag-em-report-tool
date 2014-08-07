@@ -9,69 +9,15 @@
     <info-button label="{{'LABEL_INFO' | translate}}"
         target="inf_str_sample"></info-button>
   </h2>
+
   <info-field ref="inf_str_sample" exitto=""
               button="{{'LABEL_CLOSE_INFO' | translate}}">
     {{ 'INF_STRUCT_SAMPLE' | translate }}
   </info-field>
 
-  <header class="row hidden-xs form-block-head"
-    aria-hidden="true"
-    ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
-              col1 = 'col-xs-9 col-sm-4 col-md-3 form-block';
-              col2 = 'col-xs-9 col-sm-7 col-md-8 form-block';
-              col3 = 'hidden-xs col-sm-1 form-block';
-              colHide = 'col-xs-3 visible-xs-and-sr form-block'">
-    <div ng-class="col1">
-      {{'LABEL_HANDLE' | translate}}</div>
-    <div ng-class="col2">
-      {{'LABEL_PAGE' | translate}}</div>
-  </header>
-
-  <div class="row form-group-inline" ng-animate="'animate'"
-       ng-repeat="page in structuredSample.webpage">
-
-    <div ng-class="col0">
-      <strong>{{ 'ITEM' | translate }} {{$index+1}}</strong>
-      <button class="pull-right btn 
-                     glyphicon glyphicon-remove-sign"
-          ng-click="removePage(structuredSample, $index)">
-        <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
-        </span>
-      </button>
-    </div>
-
-    <label ng-class="colHide" for="struct_{{$index}}">
-      {{'LABEL_HANDLE' | translate}}:
-    </label>
-    <div ng-class="col1">
-      <input type="text" class="form-control"
-             id="struct_{{$index}}"
-             ng-model="page.handle"
-             placeholder="{{'PLH_HANDLE' | translate}}">
-    </div>
-    <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{'LABEL_PAGE' | translate }}:
-    </label>
-    <div ng-class="col2">
-      <input type="text" class="form-control"
-             id="rand_page_desc_{{$index}}"
-             ng-model="page.description"
-             placeholder="{{'PLH_PAGE_URL' | translate}}">
-    </div>
-    <div ng-class="col3">
-      <button class="btn glyphicon glyphicon-remove-sign"
-          ng-click="removePage(structuredSample, $index)">
-        <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
-        </span>
-      </button>
-    </div>
-  </div>
-  <button ng-click="addPage(structuredSample)">
-    {{'BTN_ADD_PAGE' | translate }}
-  </button>
-
+  <input-pages pages="structuredSample.webpage"
+           add-page="addPage(structuredSample)"
+        remove-page="removePage(structuredSample)"></input-pages>
 
   <h2>
     {{'HD_RANDOM_SAMPLE' | translate }}
@@ -83,63 +29,16 @@
     {{ 'INF_RAND_SAMPLE' | translate }}
   </info-field>
 
-  <header class="row hidden-xs form-block-head"
-    aria-hidden="true"
-    ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
-              col1 = 'col-xs-9 col-sm-4 col-md-3 form-block';
-              col2 = 'col-xs-9 col-sm-7 col-md-8 form-block';
-              col3 = 'hidden-xs col-sm-1 form-block';
-              colHide = 'col-xs-3 visible-xs-and-sr form-block'">
-    <div ng-class="col1">
-      {{'LABEL_HANDLE' | translate}}</div>
-    <div ng-class="col2">
-      {{'LABEL_PAGE' | translate}}</div>
-  </header>
-
-  <div class="row form-group-inline"
-       ng-repeat="page in randomSample.webpage">
-
-    <div ng-class="col0">
-      <strong>{{ 'ITEM' | translate }} {{$index+1}}</strong>
-      <button class="pull-right btn 
-                     glyphicon glyphicon-remove-sign"
-          ng-click="removePage(randomSample, $index)">
-        <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
-        </span>
-      </button>
-    </div>
-
-    <label ng-class="colHide" for="rand_page_hndl_{{$index}}">
-      {{'LABEL_HANDLE' | translate}}:
-    </label>
-    <div ng-class="col1">
-      <input type="text" class="form-control"
-             id="rand_page_hndl_{{$index}}"
-             ng-model="page.handle"
-             placeholder="{{'PLH_HANDLE' | translate}}">
-    </div>
-    <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{'LABEL_PAGE' | translate }}:
-    </label>
-    <div ng-class="col2">
-      <input type="text" class="form-control"
-             id="rand_page_desc_{{$index}}"
-             ng-model="page.description"
-             placeholder="{{'PLH_PAGE_URL' | translate}}">
-    </div>
-    <div ng-class="col3">
-      <button class="btn glyphicon glyphicon-remove-sign"
-          ng-click="removePage(randomSample, $index)">
-        <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
-        </span>
-      </button>
-    </div>
+  <div class="alert alert-warning">
+    {{ "RAND_SAMPLE_LENGTH" | translate | format
+          : structuredSample.webpage.length
+          : randPageCount() }}
   </div>
-  <button ng-click="addPage(randomSample)">
-    {{'BTN_ADD_PAGE' | translate }}
-  </button>
+
+  <input-pages pages="randomSample.webpage"
+  add-page="addPage(randomSample)"
+  remove-page="removePage(randomSample)"></input-pages>
+
 </form>
 
 
