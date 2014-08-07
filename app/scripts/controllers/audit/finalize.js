@@ -27,7 +27,6 @@ angular.module('wcagReporter')
 			evalReportModel.updateSample();
 			// continue to next step
 		}
-		console.log(evalReportModel);
 	};
 });
 
