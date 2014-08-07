@@ -116,8 +116,8 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'OPEN_FINAL_REPORT': 'Generate the sample report',
     'BTN_SAVE_HTML': 'Download the evaluation report (HTML)',
     'BTN_SAVE_JSON': 'Download the evaluation data (JSON)',
-    'BTN_EXPAND_PAGES': 'Show available evaluation details',
-    'BTN_COLLAPSE_PAGES': 'Hide evaluation details',
+    'BTN_EXPAND_PAGES': 'Show results for individual pages',
+    'BTN_COLLAPSE_PAGES': 'Hide  results for individual pages',
     'PREV_STEP': 'Previous step',
     'NEXT_STEP': 'Next step'
   });

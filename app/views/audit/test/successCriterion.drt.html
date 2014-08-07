@@ -12,15 +12,16 @@
         <span class="badge">{{desc.level | rdfToLabel}}</span>
       </div>
 
-      <div class="col-sm-3">
+      <div class="col-sm-3"
+          ng-if="!opt.hideCollapseBtn">
         <button ng-click="flipCollapse()" 
             class="pull-right btn btn-default"
             ng-disabled="!(opt.showallpages === true ||
                            getCases().length != 0)">
-          <span ng-if="!isVisible">
+          <span ng-if="opt.collapsed">
             {{ 'BTN_EXPAND_PAGES' | translate}}
           </span>
-          <span ng-if="isVisible">
+          <span ng-if="!opt.collapsed">
             {{ 'BTN_COLLAPSE_PAGES' | translate}}
           </span>
         </button>
@@ -32,8 +33,8 @@
           class="col-sm-12" assert="assert" />
 
   </div></div>
-
-  <div collapse="!isVisible" class="assert-indent">
+  
+  <div collapse="opt.collapsed" class="assert-indent">
     <test-case
         ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
   </div>
