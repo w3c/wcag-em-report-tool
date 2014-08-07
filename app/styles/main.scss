@@ -23,12 +23,18 @@ $font-size-h4: ceil(($font-size-base * 1.2));
     }
 }
 
+.navbar-nav .active a {
+    border-bottom: solid 3px $nav-pills-active-link-hover-bg;
+}
+
 p a {
     text-decoration:underline;
 }
-.disable {
-    cursor: default !important;
+
+* {
+    @include placeholder(#767676);
 }
+
 button[disabled] {
     color:gray;
     font-style:italic;
@@ -136,12 +142,15 @@ $wzrd-bg: #efefef;
     padding:0;
     list-style:none;
     .wizard-step {
-        padding: $wzrd-v-padding $wzrd-h-padding $wzrd-v-padding;
+        padding: $wzrd-v-padding ($wzrd-h-padding + 1) $wzrd-v-padding $wzrd-h-padding;
         padding-left: $wzrd-arrow-size + $wzrd-h-padding;
         margin:($wzrd-gap/2) 0 ($wzrd-gap/2) $wzrd-gap;
         background:$wzrd-bg;
         position:relative;
         display:inline-block;
+
+        @include border-right-radius(3px);
+
         a {
             margin:(0-$wzrd-v-padding) (0-$wzrd-h-padding);
             padding:$wzrd-v-padding $wzrd-h-padding;
@@ -164,7 +173,7 @@ $wzrd-bg: #efefef;
         }
         &:after {
             border-left: $wzrd-arrow-size solid $wzrd-bg;
-            right: (0 - $wzrd-arrow-size);
+            right: (1 - $wzrd-arrow-size);
             z-index:2;
         }
         &:first-child:before,
@@ -172,15 +181,11 @@ $wzrd-bg: #efefef;
             border:none;
         }
         &:first-child {
-            -moz-border-radius: $wzrd-border-rad 0 0 $wzrd-border-rad;
-            -webkit-border-radius: $wzrd-border-rad 0 0 $wzrd-border-rad;
-            border-radius: $wzrd-border-rad 0 0 $wzrd-border-rad;
+            @include border-left-radius($wzrd-border-rad);
             padding-left: $wzrd-v-padding-outer;
         }
         &:last-child {
-            -moz-border-radius: 0 $wzrd-border-rad $wzrd-border-rad 0;
-            -webkit-border-radius: 0 $wzrd-border-rad $wzrd-border-rad 0;
-            border-radius: 0 $wzrd-border-rad $wzrd-border-rad 0;
+            @include border-right-radius($wzrd-border-rad);
             padding-right: $wzrd-v-padding-outer;
         }
         &.active {

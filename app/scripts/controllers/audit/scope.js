@@ -14,8 +14,6 @@ angular.module('wcagReporter')
 		} else {
 			// continue to next step
 		}
-
-		console.log(evalScopeModel);
 	};
 
 });

@@ -18,7 +18,16 @@ angular.module('wcagReporter')
         } else {
             // continue to next step
         }
-
-        console.log(evalSampleModel);
     };
+
+    if (evalSampleModel.structuredSample.webpage.length === 0) {
+        evalSampleModel.addNewPage(
+            evalSampleModel.structuredSample
+        );
+    }
+    if (evalSampleModel.randomSample.webpage.length === 0) {
+        evalSampleModel.addNewPage(
+            evalSampleModel.randomSample
+        );
+    }
 });
