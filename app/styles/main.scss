@@ -23,6 +23,10 @@ $font-size-h4: ceil(($font-size-base * 1.2));
     }
 }
 
+.navbar-nav .active a {
+    border-bottom: solid 3px $nav-pills-active-link-hover-bg;
+}
+
 p a {
     text-decoration:underline;
 }
