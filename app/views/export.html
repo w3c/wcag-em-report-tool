@@ -1,3 +1,13 @@
-<p>This is the export view.</p>
+<h1>{{ 'HD_SAVE' | translate }}</h1>
+<p>{{ 'INTRO_SAVE' | translate }}</p>
+
+<div class="form-group">
+  <label for="text_export">
+  	{{ 'LABEL_TEXT_SAVE' | translate }}:
+  </label>
+  <textarea id="text_export" class="form-control"
+  		cols="30" rows="50">{{export}}</textarea>
+</div>
+
 
 <p><a href="#/">Back to the evaluation</a></p>

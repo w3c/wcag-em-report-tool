@@ -184,7 +184,7 @@ angular.module('wcagReporter').run(function (
                 'selected': true
             }]
         },
-        'creator' : 'Example Evaluator for Example Agency',
+        'creator' : '_:evaluator',
         'title'   : 'Website accessibility evaluation report for Example Organization',
         'date'    : '2014-01-01',
         'summary' : 'Overall the website shows good practice towards accessibility and WCAG 2.0 conformance. However, some issues were identified such as...',
@@ -198,7 +198,7 @@ angular.module('wcagReporter').run(function (
                 'description':     'Images without text alternatives, for example the illustration on the sitemap'
             },
             'subject':         '_:website',
-            'assertedBy':      'http://nl.linkedin.com/in/wilcofiers/',
+            'assertedBy':      '_:evaluator',
             'date':             '2014-01-01T19:20:30+01:00',
             'hasPart': [{
                 'type':        'assertion',
@@ -208,7 +208,7 @@ angular.module('wcagReporter').run(function (
                     'outcome':     'earl:failed',
                     'description':  'Illustration does not have a text alternative'
                 },
-                'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
+                'assertedBy':   '_:evaluator',
                 'date':         '2014-01-01T19:20:30+01:00'
             }, {
                 'type':            'assertion',
@@ -217,18 +217,17 @@ angular.module('wcagReporter').run(function (
                 'result': {
                     'outcome':     'earl:failed'
                 },
-                'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
+                'assertedBy':   '_:evaluator',
                 'date':         '2014-01-01T19:20:30+01:00'
             }]
         }]
     }, {
         '@context': {'@vocab': 'http://xmlns.com/foaf/spec/#'},
-        'id': 'http://nl.linkedin.com/in/wilcofiers/',
+        'id': '_:evaluator',
         'type': 'Person',
-        'firstName': 'Wilco',
-        'lastName': 'Fiers'
+        'name': 'Example Evaluator for Example Agency'
     }];
 
-	wcagReporterImport._setData(reportData[0]);
+	wcagReporterImport._setData(reportData);
 
 });

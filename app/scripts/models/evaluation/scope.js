@@ -8,6 +8,10 @@ angular.module('wcagReporter').service('evalScopeModel', function() {
     	siteScope: ''
     };
     this.accessibilitySupportBaseline = '';
+
+    this.toExport = function () {
+        return this;
+    };
     
     /**
      * Returns an array of errors indicating which (if any) properties are invalid

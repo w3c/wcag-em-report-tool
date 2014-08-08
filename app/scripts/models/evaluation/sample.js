@@ -107,6 +107,10 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         return [];
     };
 
+    this.toExport = function () {
+        return this;
+    };
+
     this.getPageById = function (id) {
         // I really need the .find() method :\
         var pages = this.getPages();

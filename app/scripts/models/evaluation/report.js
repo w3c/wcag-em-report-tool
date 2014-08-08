@@ -7,4 +7,8 @@ angular.module('wcagReporter').service('evalReportModel', function() {
 	this.summary   = undefined;
 	this.specifics = undefined;
 	this.commissioner = undefined;
+
+    this.toExport = function () {
+        return this;
+    };
 });

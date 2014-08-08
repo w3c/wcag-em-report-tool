@@ -9,6 +9,10 @@ angular.module('wcagReporter')
     return {
         criteria: criteria,
 
+        toExport: function () {
+            return this.getCriteriaSorted();
+        },
+
         getCritAssert: function (idref) {
             return criteria[idref];
         },

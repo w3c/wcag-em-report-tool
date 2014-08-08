@@ -20,7 +20,9 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		 * Inject evaluation data into the reporter
 		 * @param {[Object]} evalData
 		 */
-		_setData: function (evalData) {
+		_setData: function (data) {
+			var evalData = data[0];
+
 			if (evalData.evaluationScope) {
 				objectCollide(evalModel.scopeModel,
 							  evalData.evaluationScope);
@@ -36,6 +38,12 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 						evalModel.testModel.addCritAssert,
 						evalModel.testModel);
 			}
+
+			// Add the remaining data to evalModel.otherData
+			data = data.slice();
+			data.shift();
+			evalModel.otherData = evalModel.otherData
+			.concat.apply(evalModel.otherData, data);
 		}
 
 	};
