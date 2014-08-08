@@ -9,7 +9,9 @@ angular
     'pascalprecht.translate',
     'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/start.html',

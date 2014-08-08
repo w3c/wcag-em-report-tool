@@ -28,9 +28,32 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 		setAutoSave: function (options) {
 			console.log('autosave set', options);
 		},
+
+		getJson: function () {
+			return [getJsonLd()]
+			.concat(evalModel.otherData);
+		},
+
 		getString: function () {
-			var output = [getJsonLd()].concat(evalModel.otherData);
-			return angular.toJson(output, true);
+			return angular.toJson(this.getJson(), true);
+		},
+
+		getBlob: function () {
+			// Take the URL
+			return (window.URL || window.webkitURL)
+			// Create a blob for that URL
+			.createObjectURL(new Blob(
+				// Using the JSON from getString()
+				[ this.getString() ],
+				{ type : 'application/json;charset=utf-8' }
+			));
+		},
+
+		getFileName: function () {
+			return evalModel.reportModel.title
+			.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
+            .toLowerCase()
+            .replace(/[\/_| -]+/g, '-') + '.json';
 		}
 	};
 });
