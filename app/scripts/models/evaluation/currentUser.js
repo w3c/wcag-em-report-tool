@@ -3,6 +3,7 @@
 angular.module('wcagReporter')
 .service('currentUser', function() {
 	return {
-		id: '_:user' + Math.floor(Math.random() * 10000)
+		id: '_:evaluator',
+		name: ''
 	};
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalTestModel', function(evalSampleModel,
+.service('evalTestModel', function(evalSampleModel, TestCaseAssert,
         evalScopeModel, wcag20spec, CriterionAssert) {
 
     var criteria = {};
@@ -10,7 +10,27 @@ angular.module('wcagReporter')
         criteria: criteria,
 
         toExport: function () {
-            return this.getCriteriaSorted();
+            // Deep copy:
+            var criteria = angular.copy(this.getCriteriaSorted());
+
+            criteria.reduce(function (list, criterion) {
+                // Remove all empty test case asserts
+                criterion.hasPart = criterion.hasPart
+                .filter(function (testcase) {
+                    return TestCaseAssert.isDefined(testcase);
+                });
+                // get all hasPart
+                list.push.apply(list, criterion.hasPart);
+                return list;
+
+            }, []).forEach(function (testcase) {
+
+                // replace the page object with it's id
+                testcase.subject = testcase.subject.map(function (page) {
+                    return page.id;
+                });
+            });
+            return criteria;
         },
 
         getCritAssert: function (idref) {

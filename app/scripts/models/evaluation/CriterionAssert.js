@@ -14,7 +14,7 @@ TestCaseAssert, wcag20spec, currentUser) {
     }
 
     CriterionAssert.prototype = {
-        '@type': 'earl:assertion',
+        type: 'earl:assertion',
         testRequirement: undefined,
         assertedBy: currentUser.id,
         subject: '_:website',
@@ -25,6 +25,7 @@ TestCaseAssert, wcag20spec, currentUser) {
         addTestCaseAssertion: function (obj) {
             var key,
                 tc = new TestCaseAssert();
+            tc.testcase = this.testRequirement;
             this.hasPart.push(tc);
             if (!obj) {
                 return;

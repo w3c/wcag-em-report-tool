@@ -10,14 +10,15 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 		var jsonLd = {
 			'@context': evalModel.context,
 			type: 'evaluation',
-			'id': evalModel.id,
-			evaluationScope: evalModel.scopeModel.toExport(),
-			auditResult: evalModel.testModel.toExport()
+			'id': evalModel.id
 		};
+		angular.extend(jsonLd, evalModel.reportModel.toExport());
+		
+		jsonLd.evaluationScope =  evalModel.scopeModel.toExport();
+		jsonLd.auditResult =  evalModel.testModel.toExport();
 
 		angular.extend(jsonLd, evalModel.sampleModel.toExport());
 		angular.extend(jsonLd, evalModel.exploreModel.toExport());
-		angular.extend(jsonLd, evalModel.reportModel.toExport());
 		return jsonLd;
 	}
 
