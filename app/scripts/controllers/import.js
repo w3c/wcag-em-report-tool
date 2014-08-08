@@ -29,7 +29,7 @@
             } else if (reader) {
                 $scope.showError = false;
                 reader.readAsText(file);
-                $location.path('#/audit/finalize');
+                $location.path('/audit/scope');
             }
         };
     });
