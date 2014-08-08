@@ -1,3 +1,4 @@
+$textcolor-light: #767676;
 $brand-primary: #2570B0;
 $font-size-base: 15px;
 $font-size-h1: floor(($font-size-base * 2));
@@ -32,7 +33,7 @@ p a {
 }
 
 * {
-    @include placeholder(#767676);
+    @include placeholder($textcolor-light);
 }
 .form-group .alert {
     margin-top:1em;
@@ -246,4 +247,15 @@ html.full-page {
     border-width: 5px 0;
     font-size: 0.8em;
     padding: 1em;
+}
+
+.drop_zone {
+    border: 2px dashed $brand-primary;
+    @include border-left-radius(5px);
+    @include border-right-radius(5px);
+    padding: 25px;
+    text-align: center;
+    font: 20pt bold 'Vollkorn';
+    color: $textcolor-light;
+    max-width:30em;
 }

@@ -22,8 +22,6 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 		return jsonLd;
 	}
 
-
-
 	return {
 		setAutoSave: function (options) {
 			console.log('autosave set', options);

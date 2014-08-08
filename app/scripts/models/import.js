@@ -16,6 +16,13 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 	}
 
 	return {
+
+		fromJson: function (json) {
+			var evalData = angular.fromJson(json);
+			
+			console.log(evalData);
+		},
+
 		/**
 		 * Inject evaluation data into the reporter
 		 * @param {[Object]} evalData
