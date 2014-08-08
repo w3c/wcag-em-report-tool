@@ -48,8 +48,11 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 		},
 
 		getFileName: function () {
-			return evalModel.reportModel.title
-			.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
+			var title = evalModel.reportModel.title;
+			if (title === '') {
+				title = 'evaluation';
+			}
+			return title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
             .toLowerCase()
             .replace(/[\/_| -]+/g, '-') + '.json';
 		}
