@@ -37,6 +37,9 @@ angular.module('wcagReporter')
         setSubject: function (pages) {
             var subject = [];
             this.subject = subject;
+            if (pages && !angular.isArray(pages)) {
+                pages = [pages];
+            }
             pages.forEach(function (page) {
                 if (typeof page === 'string') {
                     page = evalSampleModel.getPageById(page);    

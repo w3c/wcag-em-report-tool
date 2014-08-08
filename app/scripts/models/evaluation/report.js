@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalReportModel', function() {
-	this.creator   = undefined;
-	this.title     = undefined;
+	this.creator   = '';
+	this.title     = '';
 	this.date      = Date.now();
-	this.summary   = undefined;
-	this.specifics = undefined;
-	this.commissioner = undefined;
+	this.summary   = '';
+	this.specifics = '';
+	this.commissioner = '';
 
     this.toExport = function () {
         return this;

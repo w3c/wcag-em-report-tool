@@ -1,11 +1,13 @@
 'use strict';
+
 /**
  * Originally created by Justin Marsan
  * https://github.com/justinmarsan/wcag.json
  */
 angular.module('wcagReporter').factory('wcagReporterImport',
-			function(evalModel) {
-	
+			function($rootScope, evalModel, currentUser) {
+	var jsonld = window.jsonld;
+
 	function objectCollide(obj1, obj2) {
 		Object.keys(obj1).forEach(function (prop) {
 			if (typeof obj1[prop] !== 'function' &&
@@ -15,44 +17,119 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		});
 	}
 
-	return {
+	function compactEach(callback) {
+		var testCallback,
+			results = [],
+			calls = 0,
+			evalType = 'http://www.w3.org/TR/WCAG-EM/#evaluation',
+			personType = 'http://xmlns.com/foaf/spec/#Person';
 
+		testCallback = function (err, compacted) {
+
+			results.push(compacted);
+			if (results.length === calls) {
+				callback(results);
+			}
+		};
+
+		return function (evalObj) {
+			calls += 1;
+
+			if (evalObj['@type'] &&
+					evalObj['@type'].indexOf(evalType) !== -1) {
+				// Compact with the evaluation context					
+				jsonld.compact(evalObj,
+						evalModel.context, testCallback);
+
+			} else if (evalObj['@type'] &&
+					evalObj['@type'].indexOf(personType) !== -1) {
+				// Compact with the FOAF context
+				jsonld.compact(evalObj,
+						currentUser['@context'], testCallback);
+			} else {
+				results.push(evalObj);
+			}
+		};
+	}
+
+	/**
+	 * Inject evaluation data into the reporter
+	 * @param {[Object]} evalData
+	 */
+	function updateEvalModel(evalData) {
+		if (evalData.evaluationScope) {
+			objectCollide(evalModel.scopeModel,
+						  evalData.evaluationScope);
+		}
+		
+		evalModel.id = evalData.id;
+
+		['exploreModel', 'sampleModel', 'reportModel']
+		.forEach(function (modelName) {
+			objectCollide(evalModel[modelName], evalData);
+		});
+
+		if (evalData.auditResult) {
+			if (!angular.isArray(evalData.auditResult)) {
+				evalData.auditResult = [evalData.auditResult];
+			}
+			evalData.auditResult.forEach(
+					evalModel.testModel.addCritAssert,
+					evalModel.testModel);
+		}
+	}
+
+	return {
+		/**
+		 * Import an evaluation from a JSON string
+		 * @param  {string} json Evaluation
+		 */
 		fromJson: function (json) {
-			var evalData = angular.fromJson(json);
-			
-			console.log(evalData);
+			this.fromObject(angular.fromJson(json));
+		}, 
+
+		fromObject: function (evalData) {
+			var self = this;
+			jsonld.expand(evalData, function(err, expanded) {
+				self.fromExpanded(expanded);
+			});
 		},
 
-		/**
-		 * Inject evaluation data into the reporter
-		 * @param {[Object]} evalData
-		 */
-		_setData: function (data) {
-			var evalData = data[0];
+		fromExpanded: function (evalData) {
+			evalData.forEach(compactEach(function(results) {
+				var evaluation = results.reduce(function (result, data) {
+					if (data.type === 'evaluation') {
+						if (typeof result !== 'undefined') {
+							throw new Error('Only one evaluation object allowed in JSON data');
+						}
+						return data;
+					}
+					return result;
+				}, undefined);
 
-			if (evalData.evaluationScope) {
-				objectCollide(evalModel.scopeModel,
-							  evalData.evaluationScope);
-			}
-			
-			evalModel.id = evalData.id;
+				results.forEach(function (data) {
+					if (data.type === 'Person') {
+						if (data.id === currentUser.id) {
+							currentUser = data;
+						}
+					}
+				});
 
-			['exploreModel', 'sampleModel', 'reportModel']
-			.forEach(function (modelName) {
-				objectCollide(evalModel[modelName], evalData);
-			});
+				if (!evaluation) {
+					throw new Error('No evaluation found in data');
+				}
 
-			if (evalData.auditResult) {
-				evalData.auditResult.forEach(
-						evalModel.testModel.addCritAssert,
-						evalModel.testModel);
-			}
+				// Put the evaluation as the first on the list
+				$rootScope.$apply(function () {
+					updateEvalModel(evaluation);
 
-			// Add the remaining data to evalModel.otherData
-			data = data.slice();
-			data.shift();
-			evalModel.otherData = evalModel.otherData
-			.concat.apply(evalModel.otherData, data);
+					// Add the remaining data to evalModel.otherData
+					evalModel.otherData = evalModel.otherData
+					.concat.apply(evalModel.otherData, results.filter(function (item) {
+						return item === evaluation;
+					}));
+				});
+			}));
 		}
 	};
 });

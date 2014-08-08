@@ -6,9 +6,9 @@
     });
 
     ng.module('wcagReporter')
-    .controller('ImportCtrl', function ($scope, wcagReporterImport) {
+    .controller('ImportCtrl', function ($scope, 
+            $location, wcagReporterImport) {
         var reader;
-
         try {
             reader = new FileReader();
             reader.addEventListener('load', function(event) {
@@ -27,11 +27,12 @@
                 $scope.showError = 'ERR_NO_FILE';
                 return;
             } else if (reader) {
+                $scope.showError = false;
                 reader.readAsText(file);
+                $location.path('#/audit/finalize');
             }
         };
-
     });
 
 
-}(jQuery, angular));
+}(window.jQuery, angular));
