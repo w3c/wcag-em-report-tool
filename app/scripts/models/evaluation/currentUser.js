@@ -5,11 +5,11 @@ angular.module('wcagReporter')
 	return {
 		'@context': {
 			'@vocab' : 'http://xmlns.com/foaf/spec/#',
-			'id': '@id',
-			'type': '@type'
+			id: '@id',
+			type: '@type'
 		},
-		'id': '_:evaluator',
-		'type': 'Person',
+		id: '_:evaluator',
+		type: 'Person',
 		name: ''
 	};
 });
