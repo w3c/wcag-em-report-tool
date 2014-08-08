@@ -2,11 +2,19 @@
 
 angular.module('wcagReporter').service('evalExploreModel', function(evalSampleModel) {
 
+    var self = this,
+    properties = [
+        'reliedUponTechnology',
+        'commonPages',
+        'essentialFunctionality',
+        'pageTypeVariety',
+        'otherRelevantPages'
+    ];
+    // add all properties to this
+    properties.forEach(function (prop) {
+        self[prop] = undefined;
+    });
     this.reliedUponTechnology = [];
-    this.commonPages = undefined;
-    this.essentialFunctionality = undefined;
-    this.pageTypeVariety = undefined;
-    this.otherRelevantPages = undefined;
 
     this.knownTech = [
         {title: 'HTML5', specs: 'http://www.w3.org/TR/html5/'},
@@ -34,18 +42,12 @@ angular.module('wcagReporter').service('evalExploreModel', function(evalSampleMo
         });
     };
 
-    /**
-     * Integrate export notes into the sample model
-     */
-    this.updateSample = function () {
-
-        // Do stuff to the sample
-        evalSampleModel.structuredSample;
-
-    };
-
     this.toExport = function () {
-        return this;
+        var exportData = {};
+        properties.forEach(function (prop) {
+            exportData[prop] = self[prop];
+        });
+        return exportData;
     };
 
     /**

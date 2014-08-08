@@ -107,8 +107,31 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         return [];
     };
 
+    /**
+     * Clean up the data so it can be exported
+     */
     this.toExport = function () {
-        return this;
+        var samples,
+            // Only export the following properties
+            props =['type', 'id', 'description',
+        'handle', 'tested'];
+        // For both samples
+        samples = [this.structuredSample.webpage, this.randomSample.webpage]
+        .map(function (webpages) {
+            return webpages.map(function (page) {
+                // create a copy of a page with only the permitted properties
+                var newPage = {};
+                props.forEach(function (prop) {
+                    newPage[prop] = page[prop];
+                });
+                return newPage;
+            });
+        });
+        // and return the samples
+        return {
+            structuredSample: {webpage: samples[0]},
+            randomSample:     {webpage: samples[1]}
+        };
     };
 
     this.getPageById = function (id) {

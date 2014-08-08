@@ -9,11 +9,12 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 	function getJsonLd () {
 		var jsonLd = {
 			'@context': evalModel.context,
-			dataType: 'evaluation',
+			type: 'evaluation',
+			'id': evalModel.id,
 			evaluationScope: evalModel.scopeModel.toExport(),
 			auditResult: evalModel.testModel.toExport()
 		};
-		
+
 		angular.extend(jsonLd, evalModel.sampleModel.toExport());
 		angular.extend(jsonLd, evalModel.exploreModel.toExport());
 		angular.extend(jsonLd, evalModel.reportModel.toExport());

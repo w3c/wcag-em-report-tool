@@ -32,7 +32,7 @@ angular.module('wcagReporter').factory('evalModel', function(
         'creator':                 {'type': 'id'},
         'handle':      null,
         'description': null,
-        'currentStep': null,
+        'tested': null,
         'id': '@id',
         'type': '@type',
         'title': 'dct:title',
@@ -41,6 +41,7 @@ angular.module('wcagReporter').factory('evalModel', function(
     };
 
 	var evalModel = {
+		id: undefined,
 		context: context,
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,
