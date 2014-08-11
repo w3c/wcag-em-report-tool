@@ -1,43 +1,11 @@
 'use strict';
 angular.module('wcagReporter').run(function (
+            evalModel,
 			wcagReporterExport, wcagReporterImport) {
 
 	wcagReporterExport.setAutoSave({
 		url: 'https://bo.accessibility.nl/report/api'
 	});
-
-	var context = {
-        '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
-        'wcag20': 'http://www.w3.org/TR/WCAG20/#',
-        'earl': 'http://www.w3.org/ns/earl#',
-        'dct': 'http://purl.org/dc/terms/',
-        'conformanceTarget': {'id': 'step1b', 'type': 'id'},
-        'evaluationScope':              {'id':   'step1'},
-        'accessibilitySupportBaseline': {'id':   'step1c'},
-        'additionalEvalRequirement':    {'id':   'step1d'},
-        'siteScope':                    {'id':   'step1a'},
-        'commonPages':                  {'id':   'step2a'},
-        'essentialFunctionality':       {'id':   'step2b'},
-        'pageTypeVariety':              {'id':   'step2c'},
-        'otherRelevantPages':           {'id':   'step2e'},
-        'structuredSample':             {'id':   'step3a'},
-        'randomSample':                 {'id':   'step3b'},
-        'specifics':                    {'id':   'step5b'},
-        'auditResult':                  {'id':   'step4'},
-        'outcome':                 {'type': 'id'},
-        'subject':                 {'type': 'id'},
-        'assertedBy':              {'type': 'id'},
-        'testRequirement':         {'type': 'id'},
-        'creator':                 {'type': 'id'},
-        'handle':      null,
-        'description': null,
-        'currentStep': null,
-        'id': '@id',
-        'type': '@type',
-        'title': 'dct:title',
-        'specs': '@id',
-        'reliedUponTechnology': 'wcag20:reliedupondef'
-    };
 
 	/*
 		WARNING: Don't use this method, a correct method with
@@ -45,7 +13,7 @@ angular.module('wcagReporter').run(function (
 		of the Import function later in the project.
 	 */
 	var reportData =     [{
-        '@context': context,
+        '@context': evalModel.context,
         'type': 'evaluation',
         'id':   'http://example.com/eval/123456.json',
         'currentStep': 'test',
@@ -184,7 +152,7 @@ angular.module('wcagReporter').run(function (
                 'selected': true
             }]
         },
-        'creator' : 'Example Evaluator for Example Agency',
+        'creator' : '_:evaluator',
         'title'   : 'Website accessibility evaluation report for Example Organization',
         'date'    : '2014-01-01',
         'summary' : 'Overall the website shows good practice towards accessibility and WCAG 2.0 conformance. However, some issues were identified such as...',
@@ -198,7 +166,7 @@ angular.module('wcagReporter').run(function (
                 'description':     'Images without text alternatives, for example the illustration on the sitemap'
             },
             'subject':         '_:website',
-            'assertedBy':      'http://nl.linkedin.com/in/wilcofiers/',
+            'assertedBy':      '_:evaluator',
             'date':             '2014-01-01T19:20:30+01:00',
             'hasPart': [{
                 'type':        'assertion',
@@ -208,7 +176,7 @@ angular.module('wcagReporter').run(function (
                     'outcome':     'earl:failed',
                     'description':  'Illustration does not have a text alternative'
                 },
-                'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
+                'assertedBy':   '_:evaluator',
                 'date':         '2014-01-01T19:20:30+01:00'
             }, {
                 'type':            'assertion',
@@ -217,18 +185,17 @@ angular.module('wcagReporter').run(function (
                 'result': {
                     'outcome':     'earl:failed'
                 },
-                'assertedBy':  'http://nl.linkedin.com/in/wilcofiers/',
+                'assertedBy':   '_:evaluator',
                 'date':         '2014-01-01T19:20:30+01:00'
             }]
         }]
     }, {
         '@context': {'@vocab': 'http://xmlns.com/foaf/spec/#'},
-        'id': 'http://nl.linkedin.com/in/wilcofiers/',
-        'type': 'Person',
-        'firstName': 'Wilco',
-        'lastName': 'Fiers'
+        '@id': '_:evaluator',
+        '@type': 'Person',
+        'name': 'Example Evaluator for Example Agency'
     }];
 
-	wcagReporterImport._setData(reportData[0]);
+	wcagReporterImport.fromObject(reportData);
 
 });
