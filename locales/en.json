@@ -7,7 +7,6 @@
   "CLICK_EXPAND": "Click to expand",
   "CLICK_COLLAPSE": "Click to collapse",
 
-
   "WZRD_START": "Start",
   "WZRD_SCOPE": "1. Define Scope",
   "WZRD_EXPLORE": "2. Explore Website",
@@ -23,6 +22,8 @@
   "HD_STEP4": "Step 4: Audit the Selected Sample",
   "HD_STEP5": "Step 5: Report the Evaluation Findings",
   "HD_REPORT": "Sample Website Accessibility Evalauation Report",
+  "HD_LOAD": "Load The Evaluation",
+  "HD_SAVE": "Save A Local Copy",
 
   "HD_STRUCT_SAMPLE": "Structured Sample",
   "HD_RANDOM_SAMPLE": "Randomly Selected Sample",
@@ -42,6 +43,9 @@
   "INTRO_STEP4": "INTRO STEP 4",
   "INTRO_STEP5": "INTRO STEP 5",
   "INTRO_REPORT": "INTRO VIEW REPORT",
+  "INTRO_SAVE": "INTRO SAVE",
+  "INTRO_LOAD": "INTRO LOAD",
+  
   "RAND_SAMPLE_LENGTH": "A sample of {0} pages requires {1} random pages",
 
   "LABEL_SITE_NAME": "Website name",
@@ -66,6 +70,7 @@
   "LABEL_DESCR": "Findings",
   "LABEL_TECH": "Web Technology",
   "LABEL_TECH_SPEC": "Specification URI",
+  "LABEL_SELECT_FILE": "Select the evaluation",
 
   "ITEM": "Item",
   "BTN_REMOVE_PAGE": "Remove page",
@@ -128,6 +133,10 @@
   "BTN_SAVE_JSON": "Download the evaluation data (JSON)",
   "BTN_EXPAND_PAGES": "Show results for individual pages",
   "BTN_COLLAPSE_PAGES": "Hide  results for individual pages",
+  "BTN_LOAD_FILE": "Load the file",
+  "BTN_DOWNLOAD_DATA_FILE": "Download the file",
+  "BTN_BACK_TO_EVAL": "Back to the evaluation",
+
   "PREV_STEP": "Previous step",
   "NEXT_STEP": "Next step"
 }

@@ -201,7 +201,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
+            '<%= yeoman.dist %>/scripts/{scripts,vendor}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
           ]
@@ -213,7 +213,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: ['<%= yeoman.app %>/index.html'],
+      html: '<%= yeoman.app %>/index.html',
       options: {
         dest: '<%= yeoman.dist %>',
         flow: {
@@ -318,7 +318,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/**/*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'scripts/{dev_inject_dummydata,report,jsonld}.js',
           ]
         }, {
           expand: true,
@@ -369,15 +370,25 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    uglify: {
+      report: {
+        files: {
+          '<%= yeoman.dist %>/scripts/report.js': [
+            '<%= yeoman.dist %>/scripts/report.js'
+          ]
+        }
+      },
+      jsonld: {
+        options: {
+          mangled: false
+        },
+        files: {
+          '<%= yeoman.dist %>/scripts/jsonld.js': [
+            '<%= yeoman.dist %>/scripts/jsonld.js'
+          ]
+        }
+      }
+    },
     // concat: {
     //   dist: {}
     // },
