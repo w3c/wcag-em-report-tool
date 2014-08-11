@@ -1,32 +1,23 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalExploreModel', function(evalSampleModel) {
+angular.module('wcagReporter')
+.service('evalExploreModel', function(knownTech) {
 
-    this.reliedUponTechnology = [];
-    this.commonPages = undefined;
-    this.essentialFunctionality = undefined;
-    this.pageTypeVariety = undefined;
-    this.otherRelevantPages = undefined;
-
-    this.knownTech = [
-        {title: 'HTML5', specs: 'http://www.w3.org/TR/html5/'},
-        {title: 'CSS', specs: 'http://www.w3.org/Style/CSS/specs/'},
-        {title: 'HTML 4.01', specs: 'http://www.w3.org/TR/html401/'},
-        {title: 'WAI-ARIA', spec: 'http://www.w3.org/TR/wai-aria/'},
-        {title: 'XHTML 1.0', spec: 'http://www.w3.org/TR/xhtml1/'},
-        {title: 'ECMAScript 3', spec: ''},
-        {title: 'ECMAScript 4', spec: ''},
-        {title: 'ECMAScript 5', spec: ''},
-        {title: 'DOM level 1', spec: ''},
-        {title: 'DOM level 2', spec: ''},
-        {title: 'DOM level 3', spec: ''},
-        {title: 'Silverlight', spec: ''},
-        {title: 'PDF/A', spec: ''},
-        {title: 'PDF/UA', spec: ''},
-        {title: 'DOCX', spec: ''},
-        {title: 'ODF', spec: ''},
-        {title: 'SMIL', spec: ''}
+    var self = this,
+    properties = [
+        'reliedUponTechnology',
+        'commonPages',
+        'essentialFunctionality',
+        'pageTypeVariety',
+        'otherRelevantPages'
     ];
+    // add all properties to this
+    properties.forEach(function (prop) {
+        self[prop] = undefined;
+    });
+    this.reliedUponTechnology = [];
+
+    this.knownTech = knownTech;
 
     this.addReliedUponTech = function () {
         this.reliedUponTechnology.push({
@@ -34,14 +25,12 @@ angular.module('wcagReporter').service('evalExploreModel', function(evalSampleMo
         });
     };
 
-    /**
-     * Integrate export notes into the sample model
-     */
-    this.updateSample = function () {
-
-        // Do stuff to the sample
-        evalSampleModel.structuredSample;
-
+    this.toExport = function () {
+        var exportData = {};
+        properties.forEach(function (prop) {
+            exportData[prop] = self[prop];
+        });
+        return exportData;
     };
 
     /**

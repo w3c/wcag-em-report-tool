@@ -3,6 +3,13 @@
 angular.module('wcagReporter')
 .service('currentUser', function() {
 	return {
-		id: '_:user' + Math.floor(Math.random() * 10000)
+		'@context': {
+			'@vocab' : 'http://xmlns.com/foaf/spec/#',
+			id: '@id',
+			type: '@type'
+		},
+		id: '_:evaluator',
+		type: 'Person',
+		name: ''
 	};
 });

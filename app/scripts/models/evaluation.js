@@ -5,33 +5,19 @@
  */
 angular.module('wcagReporter').factory('evalModel', function(
 		evalScopeModel, evalExploreModel, evalSampleModel, 
-		evalTestModel, evalReportModel) {
-
-	function objectMerge(target, source) {
-		Object.keys(source).forEach(function (key) {
-			target[key] = source[key];
-		});
-	}
+		evalTestModel, evalReportModel, evalContext) {
 
 	var evalModel = {
-		
+		id: undefined,
+		context: evalContext,
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,
 		sampleModel:  evalSampleModel,
 		testModel:    evalTestModel,
 		reportModel:  evalReportModel,
-
-		// getJsonLd: function () {
-		// 	var jsonLd = {
-		// 		dataType: 'evaluation',
-		// 		evaluationScope: evalScopeModel,
-		// 		successCriteria: evalTestModel
-		// 	};
-		// 	objectMerge(jsonLd, evalExploreModel);
-		// 	objectMerge(jsonLd, evalSampleModel);
-		// 	objectMerge(jsonLd, evalReportModel);
-		// 	return JSON.stringify(jsonLd);
-		// }
+		// This array collects data that is outside the evaluation
+		// For example the author and external rdf data
+		otherData: []
 	};
 
     return evalModel;

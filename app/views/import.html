@@ -1,3 +1,21 @@
-<p>This is the import view.</p>
+<h1>{{ 'HD_LOAD' | translate }}</h1>
 
-<p><a href="#/">Back to the evaluation</a></p>
+<div class="container form-group">
+  <label for="load_json">
+    {{ 'LABEL_SELECT_FILE' | translate }}
+  </label>
+  <!-- <div class="drop_zone">
+    {{ 'DROP_FILE_HERE' | translate }}
+  </div> -->
+  <input type="file" class="form-control" id="load_json" />
+</div>
+
+<div class="alert alert-danger" ng-if="showError">
+  <p>{{ showError | translate }}
+</div>
+
+<p><button class="btn btn-primary" ng-click="loadFile()">
+	{{ 'BTN_LOAD_FILE' | translate}}
+</button></p>
+
+<p><a href="#/">{{'BTN_BACK_TO_EVAL' | translate}}</a></p>

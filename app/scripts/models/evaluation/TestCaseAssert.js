@@ -2,26 +2,29 @@
 
 angular.module('wcagReporter')
 .service('TestCaseAssert', function (evalSampleModel, currentUser) {
-	var num = 0,
-        protoResult = {
-            description: '',
-            outcome: 'earl:untested'
-        };
+	var protoResult = {
+        description: '',
+        outcome: 'earl:untested'
+    };
 
 
 	function TestCaseAssert() {
         this.subject = [];
-        this.testCase = this.testCase += (num++);
         this.result = Object.create(protoResult);
     }
+    
+    TestCaseAssert.isDefined = function (tc) {
+        return !(tc.result.description === protoResult.description &&
+               tc.result.outcome === protoResult.outcome);
+    };
 
     TestCaseAssert.prototype = {
-        '@type': 'earl:assertion',
+        type: 'earl:assertion',
         assertedBy: currentUser.id,
         subject: undefined,
-        testCase: 'myTestName',
+        testCase: undefined,
         result: undefined,
-        mode: undefined,
+        mode: 'manual',
 
         addNewPage: function (page) {
             this.subject.push(page);
@@ -34,6 +37,9 @@ angular.module('wcagReporter')
         setSubject: function (pages) {
             var subject = [];
             this.subject = subject;
+            if (pages && !angular.isArray(pages)) {
+                pages = [pages];
+            }
             pages.forEach(function (page) {
                 if (typeof page === 'string') {
                     page = evalSampleModel.getPageById(page);    
@@ -42,11 +48,6 @@ angular.module('wcagReporter')
                     subject.push(page);
                 }
             });
-        },
-
-        isDefined: function () {
-            return this.result.description === protoResult.description &&
-                   this.result.outcome === protoResult.outcome;
         }
     };
 
