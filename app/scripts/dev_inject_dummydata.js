@@ -191,8 +191,8 @@ angular.module('wcagReporter').run(function (
         }]
     }, {
         '@context': {'@vocab': 'http://xmlns.com/foaf/spec/#'},
-        'id': '_:evaluator',
-        'type': 'Person',
+        '@id': '_:evaluator',
+        '@type': 'Person',
         'name': 'Example Evaluator for Example Agency'
     }];
 

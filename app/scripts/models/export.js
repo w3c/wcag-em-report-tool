@@ -3,8 +3,8 @@
  * Originally created by Justin Marsan
  * https://github.com/justinmarsan/wcag.json
  */
-angular.module('wcagReporter').factory('wcagReporterExport',
-			function(evalModel) {
+angular.module('wcagReporter')
+.factory('wcagReporterExport', function(evalModel) {
 
 	function getJsonLd () {
 		var jsonLd = {
@@ -28,8 +28,7 @@ angular.module('wcagReporter').factory('wcagReporterExport',
 		},
 
 		getJson: function () {
-			return [getJsonLd()]
-			.concat(evalModel.otherData);
+			return [getJsonLd()].concat(evalModel.otherData);
 		},
 
 		getString: function () {

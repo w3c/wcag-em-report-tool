@@ -25,7 +25,6 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 			personType = 'http://xmlns.com/foaf/spec/#Person';
 
 		testCallback = function (err, compacted) {
-
 			results.push(compacted);
 			if (results.length === calls) {
 				callback(results);
@@ -37,7 +36,7 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 
 			if (evalObj['@type'] &&
 					evalObj['@type'].indexOf(evalType) !== -1) {
-				// Compact with the evaluation context					
+				// Compact with the evaluation context
 				jsonld.compact(evalObj,
 						evalModel.context, testCallback);
 
@@ -107,10 +106,15 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 					return result;
 				}, undefined);
 
+				if (evaluation.creator.indexOf('_:') === 0) {
+					currentUser.id = evaluation.creator;
+				}
+				evaluation.creator = currentUser;
+
 				results.forEach(function (data) {
 					if (data.type === 'Person') {
 						if (data.id === currentUser.id) {
-							currentUser = data;
+							angular.extend(currentUser, data);
 						}
 					}
 				});
@@ -126,7 +130,7 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 					// Add the remaining data to evalModel.otherData
 					evalModel.otherData = evalModel.otherData
 					.concat.apply(evalModel.otherData, results.filter(function (item) {
-						return item === evaluation;
+						return item !== evaluation;
 					}));
 				});
 			}));
