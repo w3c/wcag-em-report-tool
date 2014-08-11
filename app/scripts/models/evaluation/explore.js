@@ -6,16 +6,18 @@ angular.module('wcagReporter')
     var self = this,
     properties = [
         'reliedUponTechnology',
-        'commonPages',
         'essentialFunctionality',
-        'pageTypeVariety',
-        'otherRelevantPages'
+        'pageTypeVariety'
     ];
+
     // add all properties to this
     properties.forEach(function (prop) {
         self[prop] = undefined;
     });
+    
     this.reliedUponTechnology = [];
+    this.commonPages = [];
+    this.otherRelevantPages = [];
 
     this.knownTech = knownTech;
 

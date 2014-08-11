@@ -92,6 +92,10 @@
                 exitto="common_pages">
       {{ 'INF_COMMON_PAGES' | translate }}
     </info-field>
+    
+    <input-pages pages="getPages(explore.commonPages)"
+           add-page="addPage(explore.commonPages)"
+        remove-page="removePage(explore.commonPages)"></input-pages>
 
     <textarea ng-model="explore.commonPages"
         id="common_pages"
