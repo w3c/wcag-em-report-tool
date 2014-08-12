@@ -4,7 +4,6 @@ angular.module('wcagReporter')
 .service('evalExploreModel', function(knownTech, evalSampleModel) {
 
     var exploreModel = {
-        reliedUponTechnology: [],
         commonPages: [],
         otherRelevantPages: [],
         knownTech: knownTech
@@ -19,8 +18,9 @@ angular.module('wcagReporter')
     basicProps.forEach(function (prop) {
         exploreModel[prop] = undefined;
     });
-    
 
+    exploreModel.reliedUponTechnology = [];
+    
     exploreModel.addReliedUponTech = function () {
         exploreModel.reliedUponTechnology.push({
             title: '', spec: ''
