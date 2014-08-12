@@ -35,15 +35,4 @@ evalExploreModel, evalSampleModel) {
             // continue to next step
         }
     };
-
-    if (evalSampleModel.structuredSample.webpage.length === 0) {
-        evalSampleModel.addNewPage(
-            evalSampleModel.structuredSample
-        );
-    }
-    if (evalSampleModel.randomSample.webpage.length === 0) {
-        evalSampleModel.addNewPage(
-            evalSampleModel.randomSample
-        );
-    }
 });

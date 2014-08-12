@@ -2,30 +2,31 @@
 
 angular.module('wcagReporter')
 .service('evalScopeModel', function() {
-	this.conformanceTarget = 'wcag20:level_aa';
-    this.additionalEvalRequirement = '';
-    this.website = {
-    	title: '',
-    	siteScope: ''
+    var scopeModel = {
+    	conformanceTarget: 'wcag20:level_aa',
+        additionalEvalRequirement: '',
+        website: { title: '', siteScope: '' },
+        accessibilitySupportBaseline: ''
     };
-    this.accessibilitySupportBaseline = '';
 
-    this.exportData = function () {
-        return this;
+    scopeModel.exportData = function () {
+        return Object.create(scopeModel);
     };
     
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
      */
-    this.validate = function () {
+    scopeModel.validate = function () {
         return [];
     };
 
-    this.matchConformTarget = function (level) {
-        return this.conformanceTarget.length >= level.length;
+    scopeModel.matchConformTarget = function (level) {
+        return scopeModel.conformanceTarget.length >= level.length;
     };
 
     // Lock up the object, for a little more dev security
-    Object.preventExtensions(this.website);
-    Object.preventExtensions(this);
+    Object.preventExtensions(scopeModel.website);
+    Object.preventExtensions(scopeModel);
+
+   return scopeModel; 
 });

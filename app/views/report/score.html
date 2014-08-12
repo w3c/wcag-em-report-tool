@@ -1,4 +1,4 @@
-<table>
+<table ng-controller="ReportScoreCtrl">
   <caption>
     Results of {{scope.conformanceTarget | rdfToLabel}}
   </caption>
@@ -9,11 +9,11 @@
       <th>Not found</th>
   </tr></thead>
   <tbody>
-    <tr ng-repeat="p in principles">
-      <th>{{p.number}}. {{p.title}}</th>
-      <td>##</td>
-      <td>##</td>
-      <td>##</td>
+    <tr ng-repeat="score in scores">
+      <th>{{score.name}}</th>
+      <td>{{score.passed}}</td>
+      <td>{{score.failed}}</td>
+      <td>{{score.notPresent}}</td>
     </tr>
     <tr>
       <th>Total</th>

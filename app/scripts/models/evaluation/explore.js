@@ -3,59 +3,57 @@
 angular.module('wcagReporter')
 .service('evalExploreModel', function(knownTech, evalSampleModel) {
 
-    var self = this,
+    var exploreModel = {
+        reliedUponTechnology: [],
+        commonPages: [],
+        otherRelevantPages: [],
+        knownTech: knownTech
+    },
     basicProps = [
         'reliedUponTechnology', 'essentialFunctionality',
         'pageTypeVariety',      'reliedUponTechnology'
     ],
     pageProps = ['commonPages', 'otherRelevantPages'];
 
-
-
     // add all properties to this
     basicProps.forEach(function (prop) {
-        self[prop] = undefined;
+        exploreModel[prop] = undefined;
     });
     
-    this.reliedUponTechnology = [];
-    this.commonPages = [];
-    this.otherRelevantPages = [];
 
-    this.knownTech = knownTech;
-
-    this.addReliedUponTech = function () {
-        self.reliedUponTechnology.push({
+    exploreModel.addReliedUponTech = function () {
+        exploreModel.reliedUponTechnology.push({
             title: '', spec: ''
         });
     };
 
-    this.updatePages = function () {
+    exploreModel.updatePages = function () {
         pageProps.forEach(function (prop) {
-            self[prop] = self[prop].filter(function (page) {
+            exploreModel[prop] = exploreModel[prop].filter(function (page) {
                 return angular.isDefined(evalSampleModel.getPageById(page.id));
             });
         });
     };
 
-    this.addPageToProp = function (pages) {
+    exploreModel.addPageToProp = function (pages) {
         pages.push(evalSampleModel.addNewPage(evalSampleModel.structuredSample));
     };
 
-    this.removePageToProp = function (pages, index) {
+    exploreModel.removePageToProp = function (pages, index) {
         var page = pages.splice(index, 1)[0];
         evalSampleModel.removePage(evalSampleModel.structuredSample, page);
     };
 
     
-    this.importData = function (evalData) {
+    exploreModel.importData = function (evalData) {
         basicProps.forEach(function (prop) {
             if (evalData[prop]) {
-               self[prop] = evalData[prop];
+               exploreModel[prop] = evalData[prop];
             }
         });
 
         pageProps.forEach(function (prop) {
-            self[prop] = evalData[prop].map(function (pageId) {
+            exploreModel[prop] = evalData[prop].map(function (pageId) {
                 if (typeof pageId === 'string') {
                     return evalSampleModel.getPageById(pageId);
                 }
@@ -64,15 +62,15 @@ angular.module('wcagReporter')
     };
 
 
-    this.exportData = function () {
+    exploreModel.exportData = function () {
         var exportData = {};
 
         basicProps.forEach(function (prop) {
-            exportData[prop] = self[prop];
+            exportData[prop] = exploreModel[prop];
         });
 
         pageProps.forEach(function (prop) {
-            exportData[prop] = self[prop].map(function (page) {
+            exportData[prop] = exploreModel[prop].map(function (page) {
                 return page.id;
             });
         });
@@ -83,10 +81,12 @@ angular.module('wcagReporter')
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
      */
-    this.validate = function () {
+    exploreModel.validate = function () {
         return [];
     };
 
     // Lock up the object, for a little more dev security
-    Object.preventExtensions(this);
+    Object.preventExtensions(exploreModel);
+
+    return exploreModel;
 });
