@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditSampleCtrl', function ($scope, appState, evalSampleModel) {
+.controller('AuditSampleCtrl', function ($scope, appState,
+evalExploreModel, evalSampleModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
@@ -14,7 +15,8 @@ angular.module('wcagReporter')
     };
     $scope.removePage = function (sample) {
         return function (index) {
-            return evalSampleModel.removePage(sample, index);
+            evalSampleModel.removePage(sample, index);
+            evalExploreModel.updatePages();
         };
     };
 

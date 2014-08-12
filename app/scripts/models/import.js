@@ -65,7 +65,7 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		
 		objectCollide(evalModel.sampleModel, evalData);
 		objectCollide(evalModel.reportModel, evalData);
-
+		
 		evalModel.testModel.importData(evalData);
 		evalModel.exploreModel.importData(evalData);
 	}

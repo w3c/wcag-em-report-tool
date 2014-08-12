@@ -46,8 +46,16 @@ angular.module('wcagReporter')
         webpage: structuredPages
     };
 
-    this.removePage = function (sample, index) {
-        sample.webpage.splice(index, 1);
+    this.removePage = function (sample, pageNum) {
+        console.log(sample);
+        var page;
+        if (!angular.isNumber(pageNum)) {
+            pageNum = sample.webpage.indexOf(pageNum);
+        }
+
+        if (angular.isNumber(pageNum) && pageNum > 0) {
+            page = sample.webpage.splice(pageNum, 1)[0];
+        }
     };
 
     this.addNewPage = function (sample) {
