@@ -24,4 +24,12 @@ angular.module('wcagReporter')
 	$scope.addTechnology = function () {
 		$scope.explore.addReliedUponTech();
 	};
+
+	$scope.addPage =    function (pages) {
+		console.log('add page');
+	};
+
+	$scope.removePage = function (pages) {
+		console.log('Remove page');
+	};
 });

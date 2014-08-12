@@ -93,13 +93,10 @@
       {{ 'INF_COMMON_PAGES' | translate }}
     </info-field>
     
-    <input-pages pages="getPages(explore.commonPages)"
+    <input-pages pages="explore.commonPages"
            add-page="addPage(explore.commonPages)"
         remove-page="removePage(explore.commonPages)"></input-pages>
 
-    <textarea ng-model="explore.commonPages"
-        id="common_pages"
-        class="form-control" cols="40" rows="5"></textarea>
   </div>
 
   <div class="form-group">
@@ -144,10 +141,10 @@
                 exitto="other_pages">
       {{ 'INF_OTHER_PAGES' | translate }}
     </info-field>
-
-    <textarea ng-model="explore.otherRelevantPages"
-        id="other_pages"
-        class="form-control" cols="40" rows="5"></textarea>
+    
+    <input-pages pages="explore.otherRelevantPages"
+           add-page="addPage(explore.otherRelevantPages)"
+        remove-page="removePage(explore.otherRelevantPages)"></input-pages>
   </div>
 
 </form>

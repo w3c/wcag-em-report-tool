@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalSampleModel', function() {
+angular.module('wcagReporter')
+.service('evalSampleModel', function() {
     var self = this,
         randomPages = [],
         structuredPages = [];
@@ -110,7 +111,7 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     /**
      * Clean up the data so it can be exported
      */
-    this.toExport = function () {
+    this.exportData = function () {
         var samples,
             // Only export the following properties
             props =['type', 'id', 'description',
@@ -136,7 +137,7 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
 
     this.getPageById = function (id) {
         // I really need the .find() method :\
-        var pages = this.getPages();
+        var pages = self.getPages();
         for (var i = 0; i < pages.length; i++) {
             if (pages[i].id === id) {
                 return pages[i];

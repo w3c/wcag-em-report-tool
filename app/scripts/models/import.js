@@ -62,20 +62,12 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		}
 		
 		evalModel.id = evalData.id;
+		
+		objectCollide(evalModel.sampleModel, evalData);
+		objectCollide(evalModel.reportModel, evalData);
 
-		['exploreModel', 'sampleModel', 'reportModel']
-		.forEach(function (modelName) {
-			objectCollide(evalModel[modelName], evalData);
-		});
-
-		if (evalData.auditResult) {
-			if (!angular.isArray(evalData.auditResult)) {
-				evalData.auditResult = [evalData.auditResult];
-			}
-			evalData.auditResult.forEach(
-					evalModel.testModel.addCritAssert,
-					evalModel.testModel);
-		}
+		evalModel.testModel.importData(evalData);
+		evalModel.exploreModel.importData(evalData);
 	}
 
 	return {

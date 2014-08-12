@@ -4,12 +4,13 @@ angular.module('wcagReporter')
 .service('evalTestModel', function(evalSampleModel, TestCaseAssert,
         evalScopeModel, wcag20spec, CriterionAssert) {
 
-    var criteria = {};
+    var testModel,
+        criteria = {};
     
-    return {
+    testModel = {
         criteria: criteria,
 
-        toExport: function () {
+        exportData: function () {
             // Deep copy:
             var criteria = angular.copy(this.getCriteriaSorted());
 
@@ -31,6 +32,15 @@ angular.module('wcagReporter')
                 });
             });
             return criteria;
+        },
+
+        importData: function (evalData) {
+            if (evalData.auditResult) {
+                if (!angular.isArray(evalData.auditResult)) {
+                    evalData.auditResult = [evalData.auditResult];
+                }
+                evalData.auditResult.forEach(testModel.addCritAssert);
+            }
         },
 
         getCritAssert: function (idref) {
@@ -61,16 +71,15 @@ angular.module('wcagReporter')
         },
 
         updateToConformance: function () {
-            var self = this;
             wcag20spec.getCriteria().forEach(function (spec) {
                 if (evalScopeModel.matchConformTarget(spec.level) &&
-                typeof self.criteria[spec.uri] === 'undefined') {
-                    self.addCritAssert({
+                typeof testModel.criteria[spec.uri] === 'undefined') {
+                    testModel.addCritAssert({
                         'testRequirement': spec.uri
                     });
                 }
             });
         }
     };
-    
+    return testModel;
 });

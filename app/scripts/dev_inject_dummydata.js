@@ -34,10 +34,10 @@ angular.module('wcagReporter').run(function (
         	'title': 'CSS3',
         	'specs': 'http://en.wikipedia.org/?title=PDF/A'
     	}],
-        'commonPages': 'About Us (example.org/about)\nContact Us (example.org/contact)\nCopyright Notice (example.org/copyright)\nSitemap (example.org/sitemap)',
+        'commonPages': ['_:struct_0', '_:struct_1', '_:struct_2'],
         'essentialFunctionality': 'Create account (registered users have customized content)\nLog-in and log-out\nSearch function (provided on each page)\nAll functions of the web shop (at shop.example.org)\nCredits calculator provided at example.org/calculator',
         'pageTypeVariety': 'Web pages under example.org/users/* have a separate design\nThere are electronic documents provided in PDF, DOC, and ODT formats\nThere is video content provided on some pages (eg example.org/speech)',
-        'otherRelevantPages': 'Website Accessibility (example.org/accessibility)\nWebsite Help (example.org/help)\nWebsite Policy (example.org/policy)',
+        'otherRelevantPages': ['_:struct_3', '_:struct_4'],
         'structuredSample': {
             'webpage': [{
                 'type': 'webpage',

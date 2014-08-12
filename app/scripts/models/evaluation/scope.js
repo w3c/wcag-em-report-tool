@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalScopeModel', function() {
+angular.module('wcagReporter')
+.service('evalScopeModel', function() {
 	this.conformanceTarget = 'wcag20:level_aa';
     this.additionalEvalRequirement = '';
     this.website = {
@@ -9,7 +10,7 @@ angular.module('wcagReporter').service('evalScopeModel', function() {
     };
     this.accessibilitySupportBaseline = '';
 
-    this.toExport = function () {
+    this.exportData = function () {
         return this;
     };
     

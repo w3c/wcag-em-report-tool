@@ -1,17 +1,21 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalExploreModel', function(knownTech) {
+.service('evalExploreModel', function(knownTech, evalSampleModel) {
 
     var self = this,
-    properties = [
+    basicProps = [
         'reliedUponTechnology',
         'essentialFunctionality',
-        'pageTypeVariety'
-    ];
+        'pageTypeVariety',
+        'reliedUponTechnology'
+    ],
+    pageProps = ['commonPages', 'otherRelevantPages'];
+
+
 
     // add all properties to this
-    properties.forEach(function (prop) {
+    basicProps.forEach(function (prop) {
         self[prop] = undefined;
     });
     
@@ -27,11 +31,35 @@ angular.module('wcagReporter')
         });
     };
 
-    this.toExport = function () {
+    this.importData = function (evalData) {
+        basicProps.forEach(function (prop) {
+            if (evalData[prop]) {
+               self[prop] = evalData[prop];
+            }
+        });
+
+        pageProps.forEach(function (prop) {
+            self[prop] = evalData[prop].map(function (pageId) {
+                if (typeof pageId === 'string') {
+                    return evalSampleModel.getPageById(pageId);
+                }
+            }).filter(angular.isDefined);
+        });
+    };
+
+    this.exportData = function () {
         var exportData = {};
-        properties.forEach(function (prop) {
+
+        basicProps.forEach(function (prop) {
             exportData[prop] = self[prop];
         });
+
+        pageProps.forEach(function (prop) {
+            exportData[prop] = self[prop].map(function (page) {
+                return page.id;
+            });
+        });
+
         return exportData;
     };
 

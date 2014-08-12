@@ -12,13 +12,13 @@ angular.module('wcagReporter')
 			type: 'evaluation',
 			'id': evalModel.id
 		};
-		angular.extend(jsonLd, evalModel.reportModel.toExport());
+		angular.extend(jsonLd, evalModel.reportModel.exportData());
 		
-		jsonLd.evaluationScope =  evalModel.scopeModel.toExport();
-		jsonLd.auditResult =  evalModel.testModel.toExport();
+		jsonLd.evaluationScope =  evalModel.scopeModel.exportData();
+		jsonLd.auditResult =  evalModel.testModel.exportData();
 
-		angular.extend(jsonLd, evalModel.sampleModel.toExport());
-		angular.extend(jsonLd, evalModel.exploreModel.toExport());
+		angular.extend(jsonLd, evalModel.sampleModel.exportData());
+		angular.extend(jsonLd, evalModel.exploreModel.exportData());
 		return jsonLd;
 	}
 
