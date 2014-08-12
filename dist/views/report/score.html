@@ -1,1 +1,1 @@
-<table><caption>Results of {{scope.conformanceTarget | rdfToLabel}}</caption><thead><tr><th>Principle<th>Passed<th>Failed<th>Not found<tbody><tr ng-repeat="p in principles"><th>{{p.number}}. {{p.title}}<td>##<td>##<td>##<tr><th>Total<td>#<td>#<td>#</table>
+<table ng-controller="ReportScoreCtrl"><caption>Results of {{scope.conformanceTarget | rdfToLabel}}</caption><thead><tr><th>Principle<th>Passed<th>Failed<th>Not found<tbody><tr ng-repeat="score in scores"><th>{{score.name}}<td>{{score.passed}}<td>{{score.failed}}<td>{{score.notPresent}}<tr><th>Total<td>#<td>#<td>#</table>
