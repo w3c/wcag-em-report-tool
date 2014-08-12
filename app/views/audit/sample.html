@@ -7,26 +7,27 @@
 <form>
   <h2>{{'HD_STRUCT_SAMPLE' | translate }}
     <info-button label="{{'LABEL_INFO' | translate}}"
-        target="inf_str_sample"></info-button>
+    target="inf_str_sample"></info-button>
   </h2>
 
   <info-field ref="inf_str_sample" exitto=""
-              button="{{'LABEL_CLOSE_INFO' | translate}}">
-    {{ 'INF_STRUCT_SAMPLE' | translate }}
+  button="{{'LABEL_CLOSE_INFO' | translate}}">
+    <p ng-bind-html="'INF_STRUCT_SAMPLE' | translateAndLink
+    : ['INF_STRUCT_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3a']"></p>
   </info-field>
 
-  <input-pages pages="structuredSample.webpage"
-           add-page="addPage(structuredSample)"
-        remove-page="removePage(structuredSample)"></input-pages>
+  <input-pages pages="structuredSample.webpage" add-page="addPage(structuredSample)"
+  remove-page="removePage(structuredSample)"></input-pages>
 
   <h2>
     {{'HD_RANDOM_SAMPLE' | translate }}
     <info-button label="{{'LABEL_INFO' | translate}}"
-        target="inf_rand_sample"></info-button>
+    target="inf_rand_sample"></info-button>
   </h2>
-  <info-field ref="inf_rand_sample" exitto=""
-              button="{{'LABEL_CLOSE_INFO' | translate}}">
-    {{ 'INF_RAND_SAMPLE' | translate }}
+  
+  <info-field ref="inf_rand_sample" exitto="" button="{{'LABEL_CLOSE_INFO' | translate}}">
+    <p ng-bind-html="'INF_RAND_SAMPLE' | translateAndLink
+    : ['INF_RAND_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3b']"></p>
   </info-field>
 
   <div class="alert alert-warning">

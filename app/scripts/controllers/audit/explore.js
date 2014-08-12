@@ -6,7 +6,8 @@ angular.module('wcagReporter')
   	$scope.explore = evalExploreModel;
   	$scope.knownTech = evalExploreModel.knownTech;
 
-  	if (evalExploreModel.reliedUponTechnology.length === 0) {
+  	if (evalExploreModel.reliedUponTechnology && 
+  	evalExploreModel.reliedUponTechnology.length === 0) {
   		evalExploreModel.addReliedUponTech();
   	}
   	

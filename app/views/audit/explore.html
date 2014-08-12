@@ -8,9 +8,10 @@
   <strong>{{ 'LABEL_RELIEDUP_TECH' | translate }}</strong>
 
   <info-button label="Info"></info-button>
-  <info-field button="Close info"
-              exitto="">
-    {{ 'INF_RELIEDUP_TECH' | translate }}
+  <info-field button="Close info"exitto="">
+    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
+    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
+    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
   </info-field>
 
   <datalist id="data_tech_titles">
@@ -52,18 +53,18 @@
         {{'LABEL_TECH' | translate}}:
       </label> <div ng-class="col1">
         <input type="text" class="form-control"
-               id="tech_{{$index}}" list="data_tech_titles"
-               ng-model="tech.title"
-               placeholder="{{'PLH_TECH' | translate}}">
+        id="tech_{{$index}}" list="data_tech_titles"
+        ng-model="tech.title"
+        placeholder="{{'PLH_TECH' | translate}}">
       </div>
 
       <label ng-class="colHide" for="tech_spec_{{$index}}">
         {{'LABEL_TECH_SPEC' | translate }}:
       </label> <div ng-class="col2">
         <input type="text" class="form-control"
-               id="tech_spec_{{$index}}" list="data_tech_specs"
-               ng-model="tech.id"
-               placeholder="{{'PLH_TECH_SPEC' | translate}}">
+        id="tech_spec_{{$index}}" list="data_tech_specs"
+        ng-model="tech.id"
+        placeholder="{{'PLH_TECH_SPEC' | translate}}">
       </div>
 
       <div ng-class="col3">
@@ -88,14 +89,14 @@
     </label>
 
     <info-button label="Info"></info-button>
-    <info-field button="Close info"
-                exitto="common_pages">
-      {{ 'INF_COMMON_PAGES' | translate }}
+    <info-field button="Close info" exitto="common_pages">
+      <p ng-bind-html="'INF_COMMON_PAGES' | translateAndLink
+      : ['INF_COMMON_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2a']"></p>
     </info-field>
     
     <input-pages pages="explore.commonPages"
-           add-page="addPage('commonPages')"
-        remove-page="removePage('commonPages')"></input-pages>
+    add-page="addPage('commonPages')"
+    remove-page="removePage('commonPages')"></input-pages>
 
   </div>
 
@@ -105,14 +106,14 @@
     </label>
 
     <info-button label="Info"></info-button>
-    <info-field button="Close info"
-                exitto="essential_func">
-      {{ 'INF_ESSENT_FUNC' | translate }}
+    <info-field button="Close info" exitto="essential_func">
+      <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
+      : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b']"></p>
     </info-field>
 
     <textarea ng-model="explore.essentialFunctionality"
-        id="essential_func"
-        class="form-control" cols="40" rows="5"></textarea>
+    id="essential_func"
+    class="form-control" cols="40" rows="5"></textarea>
   </div>
 
   <div class="form-group">
@@ -121,14 +122,14 @@
     </label>
 
     <info-button label="Info"></info-button>
-    <info-field button="Close info"
-                exitto="page_variety">
-      {{ 'INF_VARIETY_PAGE_TYPES' | translate }}
+    <info-field button="Close info" exitto="page_variety">
+      <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
+      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']"></p>
     </info-field>
 
     <textarea ng-model="explore.pageTypeVariety"
-        id="page_variety"
-        class="form-control" cols="40" rows="5"></textarea>
+    id="page_variety"
+    class="form-control" cols="40" rows="5"></textarea>
   </div>
 
   <div class="form-group">
@@ -137,14 +138,14 @@
     </label>
 
     <info-button label="Info"></info-button>
-    <info-field button="Close info"
-                exitto="other_pages">
-      {{ 'INF_OTHER_PAGES' | translate }}
+    <info-field button="Close info" exitto="other_pages">
+      <p ng-bind-html="'INF_OTHER_PAGES' | translateAndLink
+      : ['INF_OTHER_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2e']"></p>
     </info-field>
     
     <input-pages pages="explore.otherRelevantPages"
-           add-page="addPage('otherRelevantPages')"
-        remove-page="removePage('otherRelevantPages')"></input-pages>
+    add-page="addPage('otherRelevantPages')"
+    remove-page="removePage('otherRelevantPages')"></input-pages>
   </div>
 
 </form>

@@ -40,17 +40,19 @@ angular.module('wcagReporter')
         link: function (scope, elm) {
             elm.hide(0);
 
-            elm.find('button').andSelf()
-            .on('click keyup', function (e) {
+            function hide (e) {
                 // The div doesn't get a 'click' so 
                 // we check for a return keyup
-                if (e.type === 'keyup' && e.keyCode !== 13) {
+                if (e.type === 'keyup' &&
+                (e.keyCode !== 13 && e.keyCode !== 27)) {
                     return;
                 }
                 elm.hide(200, function () {
                     angular.element('#' + scope.exitto).focus();
                 });
-            });
+            }
+            elm.on('keyup', hide)
+            .find('button').on('click', hide);
         },
         replace: true,
         transclude: true,
