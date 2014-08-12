@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditSampleCtrl', function ($scope, appState, evalSampleModel) {
+.controller('AuditSampleCtrl', function ($scope, appState,
+evalExploreModel, evalSampleModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
@@ -14,7 +15,8 @@ angular.module('wcagReporter')
     };
     $scope.removePage = function (sample) {
         return function (index) {
-            return evalSampleModel.removePage(sample, index);
+            evalSampleModel.removePage(sample, index);
+            evalExploreModel.updatePages();
         };
     };
 
@@ -33,15 +35,4 @@ angular.module('wcagReporter')
             // continue to next step
         }
     };
-
-    if (evalSampleModel.structuredSample.webpage.length === 0) {
-        evalSampleModel.addNewPage(
-            evalSampleModel.structuredSample
-        );
-    }
-    if (evalSampleModel.randomSample.webpage.length === 0) {
-        evalSampleModel.addNewPage(
-            evalSampleModel.randomSample
-        );
-    }
 });

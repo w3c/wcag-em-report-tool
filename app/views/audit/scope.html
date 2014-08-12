@@ -14,7 +14,7 @@
     </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
                 exitto="site-title">
-      {{ 'INF_SITE_NAME' | translate }}
+      <p>{{ 'INF_SITE_NAME' | translate }}</p>
     </info-field>
 
     <input ng-model="evalScope.website.title" type="text"
@@ -28,9 +28,9 @@
 
     <info-button label="{{'LABEL_INFO' | translate}}">
     </info-button>
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-                exitto="website_scope">
-      {{ 'INF_SITE_SCOPE' | translate }}
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
+      <p ng-bind-html="'INF_SITE_SCOPE' | translateAndLink
+      : ['INF_SITE_SCOPE_0', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.website.siteScope" id="website_scope"
@@ -45,8 +45,9 @@
     <info-button label="{{'LABEL_INFO' | translate}}">
     </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-                exitto="conformance_target">
-      {{ 'INF_CONF_TGT' | translate }}
+    exitto="conformance_target">
+      <p ng-bind-html="'INF_CONF_TGT' | translateAndLink
+      : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
     </info-field>
 
     <select ng-model="evalScope.conformanceTarget" 
@@ -71,9 +72,12 @@
     <info-button label="{{'LABEL_INFO' | translate}}">
     </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-                exitto="as_baseline">
-      {{ 'INF_SUPPORT_BASE' | translate }}
-    </info-field>
+    exitto="as_baseline">
+      <p ng-bind-html="'INF_SUPPORT_BASE' | translateAndLink
+      : ['INF_SUPPORT_BASE_0', 'http://www.w3.org/TR/WCAG-EM/#step1c']"
+      : ['INF_SUPPORT_BASE_1', 'http://www.w3.org/TR/WCAG20/#useragentdef']"
+      : ['INF_SUPPORT_BASE_2', 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef']">
+    </p></info-field>
 
     <textarea ng-model="evalScope.accessibilitySupportBaseline"
         id="as_baseline" class="form-control"
@@ -88,8 +92,9 @@
     <info-button label="{{'LABEL_INFO' | translate}}">
     </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-                exitto="additional_requirements">
-      {{ 'INF_EXTRA_REQUIREMENTS' | translate }}
+    exitto="additional_requirements">
+      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS' | translateAndLink
+      : ['INF_EXTRA_REQUIREMENTS_0', 'http://www.w3.org/TR/WCAG-EM/#step1d']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.additionalEvalRequirement"

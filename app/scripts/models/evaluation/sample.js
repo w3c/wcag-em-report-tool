@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalSampleModel', function() {
-    var self = this,
+angular.module('wcagReporter')
+.service('evalSampleModel', function() {
+    var sampleModel = {},
         randomPages = [],
         structuredPages = [];
 
@@ -16,7 +17,7 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
             return 0;
         }
 
-        name = (sample === self.randomSample ? '_:rand_' : '_:struct_');
+        name = (sample === sampleModel.randomSample ? '_:rand_' : '_:struct_');
         lastId = sample.webpage.map(function (page) {
             return +page.id.substr(name.length);
         }).sort(function (a,b) {
@@ -37,27 +38,34 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         selected: true
     };
 
-    this.structuredSample = {
+    sampleModel.structuredSample = {
         webpage: randomPages,
     };
 
-    this.randomSample = {
+    sampleModel.randomSample = {
         webpage: structuredPages
     };
 
-    this.removePage = function (sample, index) {
-        sample.webpage.splice(index, 1);
+    sampleModel.removePage = function (sample, pageNum) {
+        var page;
+        if (!angular.isNumber(pageNum)) {
+            pageNum = sample.webpage.indexOf(pageNum);
+        }
+
+        if (angular.isNumber(pageNum) && pageNum >= 0) {
+            page = sample.webpage.splice(pageNum, 1)[0];
+        }
     };
 
-    this.addNewPage = function (sample) {
+    sampleModel.addNewPage = function (sample) {
         var num, page, minRndSmpl, i;
-        sample = sample || self.randomSample;
+        sample = sample || sampleModel.randomSample;
 
         page = new Page();
         num = getAvailablePageNum(sample);
         sample.webpage.push(page);
 
-        if (sample === self.randomSample) {
+        if (sample === sampleModel.randomSample) {
             page.id = '_:rand_' + num;
             page.handle = 'Random page ' + (1+ num);
         } else {
@@ -66,10 +74,10 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
 
             minRndSmpl = Math
                 .ceil(sample.webpage.length / 10);
-            i = minRndSmpl - self.randomSample.webpage.length;
+            i = minRndSmpl - sampleModel.randomSample.webpage.length;
 
             while (i > 0) {
-                self.addNewPage();
+                sampleModel.addNewPage();
                 i -= 1;
             }
         }
@@ -77,9 +85,9 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         return page;
     };
 
-    this.getPageByDescr = function (description) {
+    sampleModel.getPageByDescr = function (description) {
         var res;
-        this.getPages().forEach(function(page) {
+        sampleModel.getPages().forEach(function(page) {
             if (page.description === description) {
                 res = page;
             }
@@ -87,13 +95,13 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         return res;
     };
 
-    this.getPages = function () {
-        return this.structuredSample.webpage
-            .concat(this.randomSample.webpage);
+    sampleModel.getPages = function () {
+        return sampleModel.structuredSample.webpage
+            .concat(sampleModel.randomSample.webpage);
     };
 
-    this.getSelectedPages = function () {
-        return this.getPages().map(function (page) {
+    sampleModel.getSelectedPages = function () {
+        return sampleModel.getPages().map(function (page) {
             if (page.selected) {
                 return page;
             }
@@ -103,20 +111,20 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
      */
-    this.validate = function () {
+    sampleModel.validate = function () {
         return [];
     };
 
     /**
      * Clean up the data so it can be exported
      */
-    this.toExport = function () {
+    sampleModel.exportData = function () {
         var samples,
             // Only export the following properties
             props =['type', 'id', 'description',
         'handle', 'tested'];
         // For both samples
-        samples = [this.structuredSample.webpage, this.randomSample.webpage]
+        samples = [sampleModel.structuredSample.webpage, sampleModel.randomSample.webpage]
         .map(function (webpages) {
             return webpages.map(function (page) {
                 // create a copy of a page with only the permitted properties
@@ -134,9 +142,8 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
         };
     };
 
-    this.getPageById = function (id) {
-        // I really need the .find() method :\
-        var pages = this.getPages();
+    sampleModel.getPageById = function (id) {
+        var pages = sampleModel.getPages();
         for (var i = 0; i < pages.length; i++) {
             if (pages[i].id === id) {
                 return pages[i];
@@ -145,6 +152,9 @@ angular.module('wcagReporter').service('evalSampleModel', function() {
     };
 
     // Lock up the object, for a little more dev security
-    Object.preventExtensions(this);
+    Object.preventExtensions(sampleModel);
+
+    return sampleModel;
 
 });
+

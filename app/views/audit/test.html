@@ -2,7 +2,8 @@
 
 <h1>{{'HD_STEP4' | translate}}</h1>
 
-<p>{{ 'INTRO_STEP4' | translate }}</p>
+<p ng-bind-html="'INTRO_STEP4' | translateAndLink
+: ['INTRO_STEP4_0', 'http://www.w3.org/TR/WCAG20/#conformance-reqs']"></p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-3"

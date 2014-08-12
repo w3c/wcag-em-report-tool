@@ -8,7 +8,7 @@ angular.module('wcagReporter').service('evalReportModel', function() {
 	this.specifics = '';
 	this.commissioner = '';
 
-    this.toExport = function () {
+    this.exportData = function () {
     	var res = Object.create(this);
     	res.creator = res.creator.id;
         return res;
