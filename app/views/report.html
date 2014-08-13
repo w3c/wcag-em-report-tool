@@ -11,15 +11,15 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item"><a download="{{exportHtmlFile}}"
-        target="_blank" href="" ng-click="getHtml()">
+        target="_blank" id="html_download_link">
           {{'BTN_SAVE_HTML' | translate}}
       </a></li>
       <li class="list-group-item"><a download="{{exportJsonFile}}"
-        target="_blank" ng-href="{{exportJsonUrl}}">
+        target="_blank" href="{{exportJsonUrl}}">
           {{'BTN_SAVE_JSON' | translate}}
       </a></li>
     </ul>
   </div>
 </div>
 
-<div id="final_report" class="row" ng-include src="'views/report/main.html'"></div>
+<full-report></full-report>

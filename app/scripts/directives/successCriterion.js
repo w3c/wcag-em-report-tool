@@ -3,15 +3,15 @@
 angular.module('wcagReporter').directive(
 		'successCriterion', function (directivePlugin, $filter) {
 	var uniqueNum = 0,
-        outcomes = ['earl:untested', 'earl:passed',
-                    'earl:failed', 'earl:cantTell',
-                    'earl:inapplicable']
-        .map(function (rdfId) {
-            return {
-                id: rdfId,
-                name: $filter('rdfToLabel')(rdfId)
-            };
-        });       
+    outcomes = ['earl:untested', 'earl:passed',
+                'earl:failed', 'earl:inapplicable',
+                'earl:cantTell']
+    .map(function (rdfId) {
+        return {
+            id: rdfId,
+            name: $filter('rdfToLabel')(rdfId)
+        };
+    });
 
 
     return directivePlugin({

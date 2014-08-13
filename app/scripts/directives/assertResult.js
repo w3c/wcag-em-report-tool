@@ -1,14 +1,16 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('assertResult', function(directivePlugin) {
+.directive('assertResult', function($filter, directivePlugin) {
 
-	var outcomes = [
-        {id: 'earl:untested', name: 'Untested'},
-        {id: 'earl:passed', name: 'Passed'},
-        {id: 'earl:failed', name: 'Failed'},
-        {id: 'earl:cantTell', name: 'Cannot tell'},
-        {id: 'earl:inapplicable', name: 'Inapplicable'},
-    ];
+	var outcomes = ['earl:untested', 'earl:passed',
+                    'earl:failed', 'earl:inapplicable',
+                    'earl:cantTell']
+    .map(function (rdfId) {
+        return {
+            id: rdfId,
+            name: $filter('rdfToLabel')(rdfId)
+        };
+    });       
 
     return directivePlugin({
         restrict: 'E',
