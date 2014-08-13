@@ -39,4 +39,15 @@ angular.module('wcagReporter')
 		};
 	};
 
+	var techMap = {};
+	evalExploreModel.knownTech.forEach(function (knownTech) {
+		techMap[knownTech.title] = knownTech.id;
+	});
+	
+	$scope.updateSpec = function (tech) {
+		if (techMap[tech.title]) {
+			tech.id = techMap[tech.title];
+		}
+	};
+
 });

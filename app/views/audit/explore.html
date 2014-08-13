@@ -1,6 +1,6 @@
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ 'HD_STEP2' | translate}}</h1>
+<h1>{{ setTitle( translate('HD_STEP2') ) }}</h1>
 
 <p>{{ 'INTRO_STEP2' | translate }}</p>
 
@@ -17,7 +17,7 @@
   <datalist id="data_tech_titles">
     <option ng-repeat="t in knownTech">{{t.title}}</option>
   </datalist> <datalist id="data_tech_specs">
-    <option ng-repeat="t in knownTech">{{t.specs}}</option>
+    <option ng-repeat="t in knownTech">{{t.id}}</option>
   </datalist>
 
 	<div class="form-group" 
@@ -54,7 +54,7 @@
       </label> <div ng-class="col1">
         <input type="text" class="form-control"
         id="tech_{{$index}}" list="data_tech_titles"
-        ng-model="tech.title"
+        ng-model="tech.title" ng-change="updateSpec(tech)"
         placeholder="{{'PLH_TECH' | translate}}">
       </div>
 
