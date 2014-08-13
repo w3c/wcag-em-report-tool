@@ -11,15 +11,15 @@
   <tbody>
     <tr ng-repeat="score in scores">
       <th>{{score.name}}</th>
-      <td>{{score.passed}}</td>
-      <td>{{score.failed}}</td>
-      <td>{{score.notPresent}}</td>
+      <td>{{score['earl:passed']}}</td>
+      <td>{{score['earl:failed']}}</td>
+      <td>{{score['earl:inapplicable']}}</td>
     </tr>
     <tr>
       <th>Total</th>
-      <td>#</td>
-      <td>#</td>
-      <td>#</td>
+      <td>{{totals['earl:passed']}}</td>
+      <td>{{totals['earl:failed']}}</td>
+      <td>{{totals['earl:inapplicable']}}</td>
     </tr>
   </tbody>
 </table>

@@ -8,6 +8,16 @@ evalExploreModel, evalSampleModel) {
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
+    if ($scope.structuredSample && 
+    $scope.structuredSample.webpage.length === 0) {
+        evalSampleModel.addNewPage($scope.structuredSample);
+    }
+
+    if ($scope.randomSample && 
+    $scope.randomSample.webpage.length === 0) {
+        evalSampleModel.addNewPage($scope.randomSample);
+    }
+
     $scope.addPage = function (sample) {
         return function () {
             return evalSampleModel.addNewPage(sample);

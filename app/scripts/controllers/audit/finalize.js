@@ -1,17 +1,11 @@
 'use strict';
 
 angular.module('wcagReporter')
-		.controller('AuditFinalizeCtrl', function (
-			$scope, appState, evalSampleModel, 
-			evalReportModel, evalTestModel,
-			wcag20spec) {
+.controller('AuditFinalizeCtrl', function
+($scope, appState, evalSampleModel, evalReportModel) {
 
   	$scope.state = appState.moveToState('finalize');
   	$scope.report = evalReportModel;
-  	$scope.principles = wcag20spec.getPrinciples();
-
-  	evalTestModel.updateToConformance();
-  	$scope.getCritAssert = evalTestModel.getCritAssert;
 
   	$scope.allPages = function () {
   		return evalSampleModel.getPages();
@@ -28,5 +22,6 @@ angular.module('wcagReporter')
 			// continue to next step
 		}
 	};
+	
 });
 

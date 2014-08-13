@@ -13,7 +13,7 @@ angular.module('wcagReporter')
     };
 
     evalModel.testModel.updateToConformance();
-    $scope.getCritAssert = evalModel.testModel.getCritAssert;
+    
     $scope.report = evalModel.reportModel;
 
     $scope.getHtml = function () {

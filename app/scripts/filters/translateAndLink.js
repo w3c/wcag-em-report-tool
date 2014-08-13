@@ -15,8 +15,6 @@ angular.module('wcagReporter')
         });
         
         args.unshift(translate(str));
-        
-        //console.log(args);
         return format.apply(null, args);
     };
 });
