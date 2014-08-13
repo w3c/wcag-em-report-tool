@@ -19,7 +19,7 @@
   <tr ng-if="explore.reliedUponTechnology.length > 0">
     <th>{{ 'LABEL_RELIEDUP_TECH' | translate }}</th>
     <td><ul><li ng-repeat="tech in explore.reliedUponTechnology">
-		<a ng-if="tech.specs" href="{{tech.specs}}" target="_blanc">
+		<a ng-if="tech.specs" href="{{tech.specs}}" target="_blank">
 		  {{tech.title}}
 		</a><span ng-if="!tech.specs">
 		  {{tech.title}}

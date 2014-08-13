@@ -1,6 +1,7 @@
 {
   "NAV_LINKS": "Important links",
-  "NAV_IMPORT": "Load Report",
+  "NAV_NEW": "New Report",
+  "NAV_IMPORT": "Open Report",
   "NAV_EXPORT": "Save Report",
   "NAV_HELP": "Help",
 
@@ -143,7 +144,7 @@
   "BTN_ADD_TECH": "Add web technology",
   "BTN_REMOVE_TECH": "Remove web technology",
   "BTN_ADD_PAGE": "Add web page or web page state",
-  "BTN_START_EVAL": "Start a new evaluation report (clears data)",
+  "BTN_START_EVAL": "Start a new evaluation report",
   "BTN_CONTINUE_EVAL": "Continue working on your open evaluation report",
   "BTN_IMPORT_EVAL": "Import evaluation data from a previous session",
   "OPEN_FINAL_REPORT": "Generate the sample report",

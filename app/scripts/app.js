@@ -44,20 +44,17 @@ angular.module('wcagReporter', [
         redirectTo: '/'
     });
 
-}).run(function (translateFilter, $rootScope, $document) {
+}).run(function (translateFilter, $rootScope, $document, appState) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text() + ' - ';
 
     $rootScope.translate = translateFilter;
 
     $rootScope.setTitle = function (title) {
-       titleElm.text(prefix + title);
-       return title;
+        titleElm.text(prefix + title);
+        return title;
     };
 
-    window.onbeforeunload = function() {
-        return translateFilter('WARNING_BEFORE_UNLOAD');
-    };
-
-    $rootScope.prestine = true;
+    appState.init();
+    
 });
