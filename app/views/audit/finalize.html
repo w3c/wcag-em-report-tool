@@ -9,14 +9,13 @@
     <div class="col-sm-3 control-label">
       <label for="dct_title">
         {{ 'LABEL_TITLE' | translate }}
-      </label>
-      <info-button label="{{'LABEL_INFO' | translate}}"
-              target="inf_dct_title"></info-button>
+      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_dct_title">
+      </info-button>
     </div>
 
     <div class="col-sm-9">
       <input type="text" ng-model="report.title"
-          class="form-control" id="dct_title" />
+      class="form-control" id="dct_title" />
     </div>
 
     <div class="col-sm-12">
@@ -31,14 +30,13 @@
     <div class="col-sm-3 control-label">
       <label for="commissioner">
         {{ 'LABEL_COMMISSIONER' | translate }}
-      </label>
-      <info-button label="{{'LABEL_INFO' | translate}}"
-            target="inf_commissioner"></info-button>
+      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_commissioner">
+      </info-button>
     </div>
 
     <div class="col-sm-9">
       <input ng-model="report.commissioner"
-          type="text" class="form-control" id="commissioner" />
+      type="text" class="form-control" id="commissioner" />
     </div>
     <div class="col-sm-12">
       <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
@@ -51,9 +49,8 @@
     <div class="col-sm-3 control-label">
       <label for="creator">
         {{ 'LABEL_CREATOR' | translate }}
-      </label>
-      <info-button label="{{'LABEL_INFO' | translate}}"
-              target="inf_creator"></info-button>
+      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_creator">
+      </info-button>
     </div>
 
     <div class="col-sm-9">
@@ -72,9 +69,7 @@
     <div class="col-sm-3 control-label">
       <label for="dct_date">
         {{ 'LABEL_DATE' | translate }}
-      </label>
-      <info-button label="{{'LABEL_INFO' | translate}}"
-      target="inf_date"></info-button>
+      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_date"></info-button>
     </div>
 
     <div class="col-sm-9">
@@ -91,9 +86,8 @@
   <div class="form-group">
     <label for="summary">
       {{ 'LABEL_SUMMARY' | translate }}
-    </label>
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="summary">
       <p>{{ 'INF_SUMMARY' | translate }}</p>
     </info-field>
@@ -105,9 +99,7 @@
   <div class="form-group">
   	<label for="specifics">
       {{ 'LABEL_SPECIFICS' | translate }}
-    </label>
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
     
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="specifics">
       <p ng-bind-html="'INF_SPECIFICS' | translateAndLink
