@@ -1,31 +1,22 @@
 <div class="panel" ng-class="getClassName(assert.result.outcome)">
-  <div class="panel-heading"><div class="row">
-      <div class="col-sm-9">
-        <strong>{{desc.number}} {{desc.title}}:</strong>
-        <span class="badge">{{desc.level | rdfToLabel}}</span>
-      </div>
+  <earl-result class="panel-heading" value="assert.result">
 
-      <div class="col-sm-3" ng-if="!opt.hideCollapseBtn">
-        <button ng-click="flipCollapse()" 
-            class="pull-right btn btn-default"
-            ng-disabled="!(opt.showallpages === true ||
-                           getCases().length != 0)">
-          <span ng-if="opt.collapsed">
-            {{ 'BTN_EXPAND_PAGES' | translate}}
-          </span>
-          <span ng-if="!opt.collapsed">
-            {{ 'BTN_COLLAPSE_PAGES' | translate}}
-          </span>
-        </button>
-    	</div>
-      <div class="col-sm-12">
-        <p>{{ 'SAMPLE_FINDINGS' | translate }}:</p>
-      </div>
-      <assert-result options="opt"
-      class="col-sm-12" assert="assert" />
-  </div></div>
-  
-  <div collapse="opt.collapsed" class="assert-indent">
-    <test-case ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
-  </div>
+    <div ng-class="(opt.hideCollapseBtn ? 'col-sm-9': 'col-sm-12')">
+      <strong>{{desc.number}} {{desc.title}}:</strong>
+      <span class="badge">{{desc.level | rdfToLabel}}</span>
+    </div>
+
+    <div class="col-sm-3" ng-if="!opt.hideCollapseBtn">
+      <button ng-click="flipCollapse()" class="pull-right btn btn-default"
+      ng-disabled="!(opt.showallpages === true || getCases().length != 0)">
+        <span ng-if="opt.collapsed" ng-bind="BTN_EXPAND_PAGES | translate"></span>
+        <span ng-if="!opt.collapsed" ng-bind="BTN_COLLAPSE_PAGES | translate"></span>
+      </button>
+    </div>
+
+    <div class="col-sm-12"><p>{{ 'SAMPLE_FINDINGS' | translate }}:</p></div>
+
+  </earl-result>
+
+  <criterion-body></criterion-body>
 </div>
