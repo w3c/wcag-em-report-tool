@@ -10,13 +10,11 @@ angular.module('wcagReporter')
         var args = Array.prototype.slice.call(arguments, 1);
         
         args = args.map(function (link) {
-            var target = (link[1].substr(0, 4) === 'http' ? '" target="_blanc">' : '">');
+            var target = (link[1].substr(0, 4) === 'http' ? '" target="_blank">' : '">');
             return '<a href="' + link[1] + target  +  translate(link[0]) +  '</a>';
         });
         
         args.unshift(translate(str));
-        
-        //console.log(args);
         return format.apply(null, args);
     };
 });

@@ -1,6 +1,6 @@
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ 'HD_START' | translate }}</h1>
+<h1>{{ setTitle( translate('HD_START') ) }}</h1>
 
 <p ng-bind-html="'INTRO_START_1' | translateAndLink
 : ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']"></p>
@@ -9,12 +9,12 @@
 : ['INTRO_START_2_0', '#/export']"></p>
 
 <ul class="nav nav-pills pull-right">
-  <li class="default"><a href="#/audit/scope">
-      {{ 'BTN_CONTINUE_EVAL' | translate }}
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
-  <li class="active"><a href="#/audit/test">
-      {{ 'BTN_START_EVAL' | translate }}
+  <li class="active"><a href="#/audit/scope">
+  	  <span ng-if="state.empty">
+        {{ 'BTN_START_EVAL' | translate }}
+	  </span><span ng-if="!state.empty">
+	    {{ 'BTN_CONTINUE_EVAL' | translate }}
+      </span>
       <span class="glyphicon glyphicon-chevron-right"></span>
   </a></li>
 </ul>

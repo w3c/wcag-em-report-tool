@@ -1,64 +1,60 @@
 'use strict';
 
-angular
-  .module('wcagReporter', [
+angular.module('wcagReporter', [
     'ngResource',
     'ngSanitize',
     'ngRoute',
     'ngAnimate',
     'pascalprecht.translate',
     'ui.bootstrap'
-  ])
-  .config(function ($routeProvider, $compileProvider) {
+]).config(function ($routeProvider, $compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
 
-    $routeProvider
-      .when('/', {
+    $routeProvider.when('/', {
         templateUrl: 'views/start.html',
         controller: 'StartCtrl'
-      })
-      .when('/audit/scope', {
+    }).when('/audit/scope', {
         templateUrl: 'views/audit/scope.html',
         controller: 'AuditScopeCtrl'
-      })
-      .when('/audit/explore', {
+    }).when('/audit/explore', {
         templateUrl: 'views/audit/explore.html',
         controller: 'AuditExploreCtrl'
-      })
-      .when('/audit/sample', {
+    }).when('/audit/sample', {
         templateUrl: 'views/audit/sample.html',
         controller: 'AuditSampleCtrl'
-      })
-      .when('/audit/test', {
+    }).when('/audit/test', {
         templateUrl: 'views/audit/test.html',
         controller: 'AuditTestCtrl'
-      })
-      .when('/report', {
+    }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
-      })
-      .when('/help', {
+    }).when('/help', {
         templateUrl: 'views/help.html',
         controller: 'HelpCtrl'
-      })
-      .when('/import', {
+    }).when('/import', {
         templateUrl: 'views/import.html',
         controller: 'ImportCtrl'
-      })
-      .when('/export', {
+    }).when('/export', {
         templateUrl: 'views/export.html',
         controller: 'ExportCtrl'
-      })
-      .when('/audit/finalize', {
+    }).when('/audit/finalize', {
         templateUrl: 'views/audit/finalize.html',
         controller: 'AuditFinalizeCtrl'
-      })
-      .otherwise({
+    }).otherwise({
         redirectTo: '/'
-      });
-  })
-  .run(function (translateFilter) {
-    window.onbeforeunload = function() {
-      return translateFilter('WARNING_BEFORE_UNLOAD');
+    });
+
+}).run(function (translateFilter, $rootScope, $document, appState) {
+    var titleElm = $document.find('title'),
+        prefix = titleElm.text() + ' - ';
+
+    $rootScope.translate = translateFilter;
+
+    $rootScope.setTitle = function (title) {
+        titleElm.text(prefix + title);
+        return title;
     };
-  });
+
+    appState.init();
+    
+});

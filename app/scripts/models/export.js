@@ -22,7 +22,7 @@ angular.module('wcagReporter')
 		return jsonLd;
 	}
 
-	return {
+	var reportModel = {
 		setAutoSave: function (options) {
 			console.log('autosave set', options);
 		},
@@ -36,14 +36,17 @@ angular.module('wcagReporter')
 		},
 
 		getBlob: function () {
-			// Take the URL
-			return (window.URL || window.webkitURL)
+			return reportModel.makeBlob(
+				reportModel.getString(),
+				'application/json;charset=utf-8'
+			);
+		},
+
+		makeBlob: function (data, type) {
 			// Create a blob for that URL
-			.createObjectURL(new Blob(
-				// Using the JSON from getString()
-				[ this.getString() ],
-				{ type : 'application/json;charset=utf-8' }
-			));
+			var blob =  new Blob([ data ],{ type : type });
+			// Take the URL
+			return (window.URL || window.webkitURL).createObjectURL(blob);
 		},
 
 		getFileName: function () {
@@ -56,4 +59,6 @@ angular.module('wcagReporter')
             .replace(/[\/_| -]+/g, '-') + '.json';
 		}
 	};
+
+	return reportModel;
 });

@@ -1,6 +1,6 @@
-<h2>{{ 'HD_SAMPLE_SELECT' | translate}}
-  <info-button label="{{'LABEL_INFO' | translate}}"
-        target="inf_audit_sample"></info-button>
+<h2>
+  {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
+  label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"></info-button>
 </h2>
 
 <info-field ref="inf_audit_sample" exitto=""
@@ -14,7 +14,7 @@
     
     <label for="sample_select_{{$index}}">
       <input id="sample_select_{{$index}}" 
-            type="checkbox" ng-model="page.selected">&nbsp;
+            type="checkbox" ng-model="page.selected">
       {{page.handle}}
     </label>
     <a href="" tooltip="{{page.description}}"

@@ -1,6 +1,6 @@
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ 'HD_REPORT' | translate }}</h1>
+<h1>{{ setTitle( translate('HD_REPORT') ) }}</h1>
 
 <p>{{ 'INTRO_REPORT' | translate }}</p>
 
@@ -11,16 +11,15 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item"><a download="{{exportHtmlFile}}"
-        target="_blanc" href="" ng-click="getHtml()">
+        target="_blank" id="html_download_link">
           {{'BTN_SAVE_HTML' | translate}}
       </a></li>
       <li class="list-group-item"><a download="{{exportJsonFile}}"
-        target="_blanc" ng-href="{{exportJsonUrl}}">
+        target="_blank" href="{{exportJsonUrl}}">
           {{'BTN_SAVE_JSON' | translate}}
       </a></li>
     </ul>
   </div>
 </div>
 
-<div id="final_report" class="row" 
-ng-include src="'views/report/concat.html'"></div>
+<full-report></full-report>
