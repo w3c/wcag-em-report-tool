@@ -21,7 +21,7 @@
     <div class="col-sm-12">
       <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
       ref="inf_dct_title" exitto="dct_title">
-        <p>{{ 'INF_TITLE' | translate }}</p>
+        <p ng-bind-html="'INF_TITLE' | translate | nlToBr"></p>
     </info-field></div>
   </div>
   

@@ -12,7 +12,7 @@
     
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
                 exitto="site-title">
-      <p>{{ 'INF_SITE_NAME' | translate }}</p>
+      <p ng-bind-html="'INF_SITE_NAME' | translate | nlToBr"></p>
     </info-field>
 
     <input ng-model="evalScope.website.title" type="text"
