@@ -54,8 +54,8 @@ angular.module('wcagReporter', [
         titleElm.text(prefix + title);
         return title;
     };
-    $rootScope.rootHide = {};
 
+    $rootScope.rootHide = {};
     appState.init();
     
 });

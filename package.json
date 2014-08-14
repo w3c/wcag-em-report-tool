@@ -1,6 +1,6 @@
 {
-  "name": "wcagreporter",
-  "version": "0.0.1",
+  "name": "WCAG-EM-Report-Tool",
+  "version": "0.9.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",

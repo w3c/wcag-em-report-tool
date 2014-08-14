@@ -1,19 +1,11 @@
-<div class="panel"
-  ng-class="{
-      'panel-default': assert.result.outcome == 'earl:untested',
-      'panel-success': assert.result.outcome == 'earl:passed',
-      'panel-danger': assert.result.outcome == 'earl:failed',
-      'panel-info': assert.result.outcome == 'earl:inapplicable',
-      'panel-warning': assert.result.outcome == 'earl:cantTell'
-    }">
+<div class="panel" ng-class="getClassName(assert.result.outcome)">
   <div class="panel-heading"><div class="row">
       <div class="col-sm-9">
         <strong>{{desc.number}} {{desc.title}}:</strong>
         <span class="badge">{{desc.level | rdfToLabel}}</span>
       </div>
 
-      <div class="col-sm-3"
-          ng-if="!opt.hideCollapseBtn">
+      <div class="col-sm-3" ng-if="!opt.hideCollapseBtn">
         <button ng-click="flipCollapse()" 
             class="pull-right btn btn-default"
             ng-disabled="!(opt.showallpages === true ||
@@ -30,12 +22,10 @@
         <p>{{ 'SAMPLE_FINDINGS' | translate }}:</p>
       </div>
       <assert-result options="opt"
-          class="col-sm-12" assert="assert" />
-
+      class="col-sm-12" assert="assert" />
   </div></div>
   
   <div collapse="opt.collapsed" class="assert-indent">
-    <test-case
-        ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
+    <test-case ng-repeat="tcAssert in getCases() | selectedCasesOnly" />
   </div>
 </div>
