@@ -38,6 +38,9 @@ h3 .collapse-button {
     .glyphicon {
         font-size:$font-size-base;
     }
+    &:hover, &:focus {
+        border-bottom-color: darken($navbar-default-border, 15%);
+    }
 }
 
 p a {
