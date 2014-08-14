@@ -1,3 +1,3 @@
-<h1>{{ 'HD_LOAD' | translate }}</h1><p>{{ 'INTRO_LOAD' | translate }}</p><div class="container form-group"><label for="load_json">{{ 'LABEL_SELECT_FILE' | translate }}</label><!-- <div class="drop_zone">
+<h1>{{ setTitle( translate('HD_LOAD') ) }}</h1><p>{{ 'INTRO_LOAD' | translate }}</p><div class="container form-group"><label for="load_json">{{ 'LABEL_SELECT_FILE' | translate }}</label><!-- <div class="drop_zone">
     {{ 'DROP_FILE_HERE' | translate }}
   </div> --><input type="file" class="form-control" id="load_json"></div><div class="alert alert-danger" ng-if="showError"><p>{{ showError | translate }}</p></div><p><button class="btn btn-primary" ng-click="loadFile()">{{ 'BTN_LOAD_FILE' | translate}}</button></p><p><a href="#/">{{'BTN_BACK_TO_EVAL' | translate}}</a></p>

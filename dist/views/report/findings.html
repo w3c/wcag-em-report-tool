@@ -1,4 +1,1 @@
-<h2>{{ 'HD_CRITERIA_REPORT' | translate }}</h2><button class="toggle-page-details" ng-init="critOpt = {
-		    editable: false,
-        collapsed: false,
-       	hideCollapseBtn: true}"><span class="show_pages" style="display:none">Show page level details</span> <span class="hide_pages">Hide page level details</span></button><div ng-repeat="p in principles"><h3>{{ 'PRINCIPLE'| translate }} {{p.number}} {{p.title}}</h3><div ng-repeat="g in p.guidelines"><h4>{{g.number}} {{g.title}}</h4><success-criterion ng-repeat="critSpec in g.criteria" ng-if="crit = getCritAssert(critSpec.uri)" options="critOpt" assert="crit"></success-criterion></div></div>
+<div ng-controller="ReportCriteriaCtrl"><h2>{{ 'HD_CRITERIA_REPORT' | translate }}</h2><div ng-repeat="p in principles"><h3>{{ 'PRINCIPLE'| translate }} {{p.number}} {{p.title}}</h3><div ng-repeat="g in p.guidelines"><h4>{{g.number}} {{g.title}}</h4><success-criterion ng-repeat="critSpec in g.criteria" ng-if="crit = getCritAssert(critSpec.uri)" options="critOpt" assert="crit"></success-criterion></div></div></div>
