@@ -5,8 +5,8 @@
   "NAV_EXPORT": "Save Report",
   "NAV_HELP": "Help",
 
-  "CLICK_EXPAND": "Show section contents",
-  "CLICK_COLLAPSE": "Hide section contents",
+  "CLICK_EXPAND": "Click to show section",
+  "CLICK_COLLAPSE": "Click to Hide section",
 
   "WZRD_START": "Start",
   "WZRD_SCOPE": "1. Define Scope",

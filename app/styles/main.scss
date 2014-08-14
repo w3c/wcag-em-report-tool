@@ -28,6 +28,18 @@ $font-size-h4: ceil(($font-size-base * 1.2));
     border-bottom: solid 3px $nav-pills-active-link-hover-bg;
 }
 
+h3 .collapse-button {
+    color: $link-hover-color;
+}
+
+.collapse-button {
+    display:block;
+    border-bottom:solid 1px $navbar-default-border;
+    .glyphicon {
+        font-size:$font-size-base;
+    }
+}
+
 p a {
     text-decoration:underline;
 }
@@ -35,6 +47,7 @@ p a {
 * {
     @include placeholder($textcolor-light);
 }
+
 .form-group .alert {
     margin-top:1em;
 }
@@ -90,7 +103,7 @@ textarea.expanding {
     margin:15px;
 }
 .info-icon {
-    font-size:15px;
+    font-size:$font-size-base;
 }
 
 table {
@@ -118,9 +131,6 @@ table {
         padding:5px 10px 0;
         border-bottom:1px $navbar-default-border solid;
     }
-    // li:hover {
-    //     background:#DDD;
-    // }
     li.active {
         background:#EEE;
     }

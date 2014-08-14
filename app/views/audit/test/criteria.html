@@ -7,33 +7,14 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
 </info-field>
 
 <div ng-repeat="p in principles">
-  <h3><a href="" ng-click="p.showGuideline = !p.showGuideline">
-      Principle {{p.number}} {{p.title}}
-      <span ng-if="p.showGuideline"
-      class="glyphicon glyphicon-chevron-left pull-right">
-        <span class="sr-only">Click to expand</span>
-      </span>
-      <span ng-if="!p.showGuideline"
-      class="glyphicon glyphicon-chevron-down pull-right">
-        <span class="sr-only">Click to collapse</span>
-      </span>
-  </a></h3>
+  <h3><button-collapse target="p" property="showGuideline">
+      {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
+  </button-collapse></h3>
   
   <div ng-repeat="g in p.guidelines" collapse="p.showGuideline">
-  <h4><a href="" ng-click="g.showCritera = !g.showCritera">
+  <h4><button-collapse target="g" property="showCritera">
       {{g.number}} {{g.title}}
-
-      <span ng-if="g.showCritera"
-      class="glyphicon glyphicon-chevron-left pull-right">
-        <span class="sr-only">
-          {{ 'CLICK_EXPAND' | translate }</span>
-      </span>
-      <span ng-if="!g.showCritera"
-      class="glyphicon glyphicon-chevron-down pull-right">
-        <span class="sr-only">
-          {{ 'CLICK_COLLAPSE' | translate }</span>
-      </span>
-  </a></h4>
+  </button-collapse></h4>
 
   <success-criterion 
        ng-repeat="critSpec in g.criteria"
