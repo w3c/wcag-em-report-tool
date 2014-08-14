@@ -7,6 +7,8 @@ evalExploreModel, evalSampleModel) {
 
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
+    
+    $scope.exploreModel = evalExploreModel;
 
     if ($scope.structuredSample && 
     $scope.structuredSample.webpage.length === 0) {
