@@ -1,16 +1,30 @@
 'use strict';
 
 angular.module('wcagReporter').service('evalReportModel', function() {
-	this.creator   = '';
-	this.title     = '';
-	this.date      = Date.now();
-	this.summary   = '';
-	this.specifics = '';
-	this.commissioner = '';
+	var today = new Date(),
+	dd = today.getDate(),
+	mm = today.getMonth()+1,
+	yyyy = today.getFullYear(),
+	reportModel = {
+		creator: '',
+		title: '',
+		summary: '',
+		specifics: '',
+		commissioner: ''
+	};
+	 
+    if (dd<10){
+    	dd = '0' + dd;
+    } 
+    if (mm<10) {
+    	mm = '0' + mm;
+    }
+	reportModel.date = yyyy+'-'+mm+'-'+dd;
 
-    this.exportData = function () {
-    	var res = Object.create(this);
+    reportModel.exportData = function () {
+    	var res = Object.create(reportModel);
     	res.creator = res.creator.id;
         return res;
     };
+    return reportModel;
 });

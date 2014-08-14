@@ -1,6 +1,6 @@
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ 'HD_STEP1' | translate }}</h1>
+<h1>{{ setTitle( translate('HD_STEP1') ) }}</h1>
 
 <p>{{ 'INTRO_STEP1' | translate }}</p>
 
@@ -8,10 +8,8 @@
   <div class="form-group">
     <label for="site-title">
       {{ 'LABEL_SITE_NAME' | translate }}
-    </label>
-
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
                 exitto="site-title">
       <p>{{ 'INF_SITE_NAME' | translate }}</p>
@@ -24,10 +22,8 @@
   <div class="form-group">
     <label for="website_scope">
       {{ 'LABEL_SITE_SCOPE' | translate }}
-    </label>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
       <p ng-bind-html="'INF_SITE_SCOPE' | translateAndLink
       : ['INF_SITE_SCOPE_0', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
@@ -40,10 +36,8 @@
   <div class="form-group">
     <label for="conformance_target">
       {{ 'LABEL_CONFORMANCE_TGT' | translate }}
-    </label>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="conformance_target">
       <p ng-bind-html="'INF_CONF_TGT' | translateAndLink
@@ -67,10 +61,8 @@
   <div class="form-group">
     <label for="as_baseline" class="">
       {{ 'LABEL_SUPPORT_BASE' | translate }}
-    </label>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="as_baseline">
       <p ng-bind-html="'INF_SUPPORT_BASE' | translateAndLink
@@ -87,10 +79,8 @@
   <div class="form-group">
     <label for="additional_requirements">
       {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}
-    </label>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
-    <info-button label="{{'LABEL_INFO' | translate}}">
-    </info-button>
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="additional_requirements">
       <p ng-bind-html="'INF_EXTRA_REQUIREMENTS' | translateAndLink

@@ -4,6 +4,7 @@ angular.module('wcagReporter')
 
 	return directivePlugin({
         restrict: 'E',
+        replace: true,
         scope: {
             value: '=',
             id: '@'

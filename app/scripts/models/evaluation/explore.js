@@ -23,7 +23,7 @@ angular.module('wcagReporter')
     
     exploreModel.addReliedUponTech = function () {
         exploreModel.reliedUponTechnology.push({
-            title: '', spec: ''
+            title: '', id: ''
         });
     };
 
