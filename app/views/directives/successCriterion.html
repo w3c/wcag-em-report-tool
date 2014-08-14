@@ -1,0 +1,24 @@
+<div class="panel" ng-class="getClassName(assert.result.outcome)">
+
+  <earl-assert class="panel-heading" value="assert.result" options="opt">
+
+    <div ng-class="(!opt.hideCollapseBtn ? 'col-sm-9': 'col-sm-12')">
+      <strong>{{spec.number}} {{spec.title}}:</strong>
+      <span class="badge">{{spec.level | rdfToLabel}}</span>
+    </div>
+
+    <div class="col-sm-3" ng-if="!opt.hideCollapseBtn">
+      <button class="pull-right btn btn-default"
+      ng-click="flipCollapse(rootHide, spec.number + '-critbody')"
+      ng-disabled="!(opt.showallpages === true || getCases().length != 0)">
+        <span ng-if="opt.collapsed" ng-bind="'BTN_EXPAND_PAGES' | translate"></span>
+        <span ng-if="!opt.collapsed" ng-bind="'BTN_COLLAPSE_PAGES' | translate"></span>
+      </button>
+    </div>
+
+    <div class="col-sm-12"><p>{{ 'SAMPLE_FINDINGS' | translate }}:</p></div>
+
+  </earl-assert>
+
+  <criterion-body collapse="rootHide[spec.number + '-critbody']"></criterion-body>
+</div>

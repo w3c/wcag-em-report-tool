@@ -11,6 +11,7 @@ angular.module('wcagReporter')
     $scope.state = appState.moveToState('test'); 
     $scope.principles = wcag20spec.getPrinciples();
 
+
     $scope.getCritAssert = evalTestModel.getCritAssert;
 
     $scope.structuredSample = evalSampleModel.structuredSample; 
