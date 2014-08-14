@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter').directive(
 		'successCriterion', function (directivePlugin, $filter) {
-	var uniqueNum = 0,
+	var uniqueNum = 0, className,
     outcomes = ['earl:untested', 'earl:passed',
                 'earl:failed', 'earl:inapplicable',
                 'earl:cantTell']
@@ -13,6 +13,13 @@ angular.module('wcagReporter').directive(
         };
     });
 
+    className = {
+        'earl:untested': 'panel-default',
+        'earl:passed': 'panel-success',
+        'earl:failed': 'panel-danger',
+        'earl:inapplicable': 'panel-info',
+        'earl:cantTell': 'panel-warning'
+    };
 
     return directivePlugin({
         restrict: 'E',
@@ -27,6 +34,10 @@ angular.module('wcagReporter').directive(
         link: function (scope) {
             scope.desc = scope.assert.getSpec();
             scope.outcomes = outcomes;
+
+            scope.getClassName = function (state) {
+                return className[state];
+            };
         	scope.getUnique = function () {
     			return uniqueNum += 1;
         	};

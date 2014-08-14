@@ -1,6 +1,6 @@
 {
-  "name": "wcag-reporter",
-  "version": "0.0.1",
+  "name": "WCAG-EM-Report-Tool",
+  "version": "0.9.0",
   "dependencies": {
     "angular": "1.2.15",
     "json3": "~3.2.6",
