@@ -6,11 +6,10 @@
     
     <div ng-repeat="g in p.guidelines">
     <h4>{{g.number}} {{g.title}}</h4>
-    <success-criterion 
-         ng-repeat="critSpec in g.criteria"
-         ng-if="crit = getCritAssert(critSpec.uri)"
-         options="critOpt"
-         assert="crit"></success-criterion>
+    <success-criterion ng-repeat="critSpec in g.criteria"
+    collapse="g.showCritera" assertion="getCritAssert(critSpec.uri)"
+    ng-if="getCritAssert(critSpec.uri)" requirement="critSpec" options="critOpt">
+    </success-criterion>
     </div>
   </div>
 </div>

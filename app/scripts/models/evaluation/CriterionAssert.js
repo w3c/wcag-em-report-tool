@@ -5,8 +5,8 @@ angular.module('wcagReporter')
 TestCaseAssert, wcag20spec, currentUser) {
 
 	function CriterionAssert(idref) {
-        var self = this,
-            hasCaseForEachPage = false;
+        var self = this;
+        
         this.testRequirement = idref;
         this.hasPart = [];
         this.result = {
@@ -15,11 +15,6 @@ TestCaseAssert, wcag20spec, currentUser) {
         };
 
         this.getSinglePageAsserts = function () {
-            if (!hasCaseForEachPage) {
-                self.setCaseForEachPage();
-                hasCaseForEachPage = true;
-            }
-            
             return self.hasPart.filter(function (page) {
                 return page.multiPage !== true;
             });

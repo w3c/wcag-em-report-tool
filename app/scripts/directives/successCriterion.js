@@ -18,20 +18,16 @@ angular.module('wcagReporter').directive(
         scope: {
         	    assert: '=assertion',
                 spec: '=requirement',
-         //    editable: '@',
                 opt: '=options'
         },
 
         link: function (scope) {
             // scope.outcomes = outcomes;
             scope.rootHide = $rootScope.rootHide;
+            scope.critHide = scope.spec.number + '-cb';
             scope.getClassName = function (state) {
                 return className[state];
             };
-       //  	scope.getUnique = function () {
-    			// return uniqueNum += 1;
-       //  	};
-
        //      scope.getCases = function () {
        //          if (!scope.opt.editable) {
        //              return scope.assert.hasPart

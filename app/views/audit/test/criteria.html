@@ -22,10 +22,7 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
        assertion="getCritAssert(critSpec.uri)"
        ng-if="getCritAssert(critSpec.uri)"
        requirement="critSpec"
-       ng-init="opt = {editable: true, 
-                 collapsed: true,
-                 hideCollapseBtn: false,
-                 showallpages: true}; crit = getCritAssert(critSpec.uri)"
+       ng-init="opt = {editable: true, collapses: true}; crit = getCritAssert(critSpec.uri)"
        options="opt" ></success-criterion>
   </div>
 </div>
