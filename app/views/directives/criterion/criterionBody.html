@@ -1,0 +1,24 @@
+<div>
+  <div class="btn-group criterion-btn-group">
+  	<button class="btn btn-default btn-sm" ng-click="addMultiPage()">Add multi-page result</button>
+  </div>
+
+  <div class="panel-body" ng-repeat="assert in getMultiPageAsserts()">
+    <earl-assert value="assert.result" options="opt">
+      <div class="col-sm-4 col-md-3" ng-bind="'RESULTS_FOR' | translate"></div>
+      <page-select class="col-sm-8 col-md-9" pages="assert.subject"></page-select>
+    </earl-assert>
+  </div>
+
+  <hr ng-if="getMultiPageAsserts().length > 0" />
+  
+  <div class="panel-body" ng-repeat="assert in getSinglePageAsserts()">
+    <earl-assert value="assert.result" options="opt">
+      <div class="col-sm-4 col-md-3" ng-bind="'RESULTS_FOR' | translate"></div>
+    	<div class="col-sm-8 col-md-9">
+        <em ng-bind="assert.subject[0].handle"></em>
+      </div>
+    </earl-assert>
+  </div>
+
+</div>

@@ -17,12 +17,12 @@ angular.module('wcagReporter')
         replace: true,
         transclude: true,
         scope: {
-            // assert: '=',
+            result: '=value',
             opt: '=options'
         },
         link: function (scope) {
             scope.outcomes = outcomes;
         },
-        templateUrl: 'views/directives/criterion/earAssert.html'
+        templateUrl: 'views/directives/criterion/earlAssert.html'
     });
 });

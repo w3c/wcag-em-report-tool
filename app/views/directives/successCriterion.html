@@ -2,23 +2,24 @@
 
   <earl-assert class="panel-heading" value="assert.result" options="opt">
 
-    <div ng-class="(!opt.hideCollapseBtn ? 'col-sm-9': 'col-sm-12')">
+    <div class="col-xs-12" ng-class="(!opt.hideCollapseBtn ? 'col-sm-5 col-md-6  col-lg-8': 'col-sm-12')">
       <strong>{{spec.number}} {{spec.title}}:</strong>
       <span class="badge">{{spec.level | rdfToLabel}}</span>
     </div>
 
-    <div class="col-sm-3" ng-if="!opt.hideCollapseBtn">
+    <div class="col-xs-12 col-sm-7 col-md-6 col-lg-4" ng-if="!opt.hideCollapseBtn">
       <button class="pull-right btn btn-default"
-      ng-click="flipCollapse(rootHide, spec.number + '-critbody')"
+      ng-click="rootHide[spec.number + '-cb'] = !rootHide[spec.number + '-cb']"
       ng-disabled="!(opt.showallpages === true || getCases().length != 0)">
         <span ng-if="opt.collapsed" ng-bind="'BTN_EXPAND_PAGES' | translate"></span>
         <span ng-if="!opt.collapsed" ng-bind="'BTN_COLLAPSE_PAGES' | translate"></span>
       </button>
     </div>
 
-    <div class="col-sm-12"><p>{{ 'SAMPLE_FINDINGS' | translate }}:</p></div>
+    <div class="col-xs-12"><p>{{ 'SAMPLE_FINDINGS' | translate }}:</p></div>
 
   </earl-assert>
 
-  <criterion-body collapse="rootHide[spec.number + '-critbody']"></criterion-body>
+  <criterion-body options="opt" assert="assert" 
+  ng-if="rootHide[spec.number + '-cb']"></criterion-body>
 </div>

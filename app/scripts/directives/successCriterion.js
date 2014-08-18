@@ -1,18 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'successCriterion', function (directivePlugin) {
+		'successCriterion', function (directivePlugin, $rootScope) {
 	var className;
-    // uniqueNum = 0,
- //    outcomes = ['earl:untested', 'earl:passed',
- //                'earl:failed', 'earl:inapplicable',
- //                'earl:cantTell']
- //    .map(function (rdfId) {
- //        return {
- //            id: rdfId,
- //            name: $filter('rdfToLabel')(rdfId)
- //        };
- //    });
 
     className = {
         'earl:untested': 'panel-default',
@@ -28,14 +18,13 @@ angular.module('wcagReporter').directive(
         scope: {
         	    assert: '=assertion',
                 spec: '=requirement',
-         //    showallpages: '=',
          //    editable: '@',
                 opt: '=options'
         },
 
         link: function (scope) {
             // scope.outcomes = outcomes;
-
+            scope.rootHide = $rootScope.rootHide;
             scope.getClassName = function (state) {
                 return className[state];
             };

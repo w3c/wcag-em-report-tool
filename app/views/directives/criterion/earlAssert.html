@@ -1,0 +1,28 @@
+<div>
+  <div class="row" ng-transclude></div>
+
+  <div class="row" ng-if="opt.editable">
+    <div class="col-sm-4 col-md-3">
+      <label for="result_outcome_{{$id}}" class="sr-only" ng-bind="'LABEL_OUTCOME' | translate"></label>
+      <select class="stretch-control result-select" id="result_outcome_{{$id}}" ng-model="result.outcome"
+      ng-options="outcome.id as outcome.name for outcome in outcomes"></select>
+    </div>
+
+    <div class="col-sm-8 col-md-9" ng-if="opt.editable">
+      <result-description id="result_cause_{{unique}}"
+      value="result.description"></result-description>
+    </div>    
+  </div>
+
+
+  <div class="row" ng-if="!opt.editable">
+    <div class="col-sm-4 col-md-3">
+      {{'LABEL_OUTCOME' | translate}} result.outcome
+    </div>
+
+    <div class="col-sm-8 col-md-9">
+      <strong>{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>{{result.description}}
+    </div>
+  </div>
+
+</div>
