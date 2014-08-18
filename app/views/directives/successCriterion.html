@@ -10,8 +10,8 @@
     <div class="col-xs-12 col-sm-7 col-md-6 col-lg-4" ng-if="opt.collapses">
       <button class="pull-right btn btn-default"
       ng-click="rootHide[critHide] = !rootHide[critHide]">
-        <span ng-if="rootHide[critHide]" ng-bind="'BTN_EXPAND_PAGES' | translate"></span>
-        <span ng-if="!rootHide[critHide]" ng-bind="'BTN_COLLAPSE_PAGES' | translate"></span>
+        <span ng-if="!rootHide[critHide]" ng-bind="'BTN_EXPAND_PAGES' | translate"></span>
+        <span ng-if="rootHide[critHide]" ng-bind="'BTN_COLLAPSE_PAGES' | translate"></span>
       </button>
     </div>
 
