@@ -3,17 +3,23 @@
   	<button class="btn btn-default btn-sm" ng-click="addMultiPage()">Add multi-page result</button>
   </div>
 
-  <div class="panel-body assert-indent" ng-repeat="assert in getMultiPageAsserts()">
-    <earl-assert value="assert.result" options="opt">
-      <div class="col-sm-4 col-md-3" ng-bind="'RESULTS_FOR' | translate"></div>
-      <page-select class="col-sm-8 col-md-9" pages="assert.subject"></page-select>
+  <div class="panel-body assert-indent">
+    <earl-assert value="assert.result" options="opt" ng-repeat="assert in getMultiPageAsserts()">
+      <div class="col-sm-4 col-md-3 subject-type" ng-bind="'COMBINED_RESULTS_FOR' | translate"></div>
+      <div class="col-sm-8 col-md-9">
+        <button type="submit" class="glyphicon glyphicon-trash pull-right" ng-click="removeAssert()">
+          <span class="sr-only">Remove multi-page assertion</span>
+        </button>
+        <page-select pages="assert.subject"></page-select>
+      </div>
     </earl-assert>
   </div>
 
   <hr ng-if="getMultiPageAsserts().length > 0" />
   
-  <div class="panel-body assert-indent" ng-repeat="assert in getSinglePageAsserts()">
-    <earl-assert value="assert.result" options="opt">
+  <div class="panel-body assert-indent">
+    <earl-assert ng-repeat="assert in getSinglePageAsserts() | selectedCasesOnly "
+    value="assert.result" options="opt">
       <div class="col-sm-4 col-md-3" ng-bind="'RESULTS_FOR' | translate"></div>
     	<div class="col-sm-8 col-md-9">
         <em ng-bind="assert.subject[0].handle"></em>

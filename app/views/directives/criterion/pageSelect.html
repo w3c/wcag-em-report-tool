@@ -1,3 +1,21 @@
 <div>
-  {{pages}}
+  <datalist id="pagehandles_{{$id}}">
+    <option ng-repeat="samplePage in unselectedPages"
+    value="{{samplePage.handle}}">{{samplePage.handle}}</option>
+  </datalist>
+
+  <form ng-submit="addPageToAssert()">
+    <button ng-repeat="page in pages"
+    type="button" class="tag label"
+    tooltip="{{page.description}}" tooltip-trigger="focus blur mouseenter mouseleave"
+    title="{{page.description}}" ng-click="removePage(page)">
+      {{page.handle}}&nbsp;<span class="glyphicon glyphicon-remove"></span>
+      <span class="sr-only">, Click to Delete</span>
+    </button>
+
+    <input type="text" ng-model="newPage" class="taginput"
+    placeholder="Page handle" list="pagehandles_{{$id}}" />
+    <button type="submit" class="glyphicon glyphicon-plus"><span class="sr-only">Add page</span></button>
+    
+  </form>
 </div>

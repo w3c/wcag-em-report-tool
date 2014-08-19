@@ -85,10 +85,10 @@ angular.module('wcagReporter')
         return page;
     };
 
-    sampleModel.getPageByDescr = function (description) {
+    sampleModel.getPageByHandle = function (handle) {
         var res;
         sampleModel.getPages().forEach(function(page) {
-            if (page.description === description) {
+            if (page.handle === handle) {
                 res = page;
             }
         });

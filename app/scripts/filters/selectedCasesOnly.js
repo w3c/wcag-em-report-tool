@@ -1,6 +1,6 @@
 'use strict'; 
 
-angular.module('wcagReporter') 
+angular.module('wcagReporter')
 .filter('selectedCasesOnly', function(evalSampleModel) {
 
     function critHasSelectedPages(criterion) {

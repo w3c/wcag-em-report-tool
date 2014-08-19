@@ -12,7 +12,7 @@ angular.module('wcagReporter')
         },
         controller: function ($scope) {
             $scope.getMultiPageAsserts = $scope.criterion.getMultiPageAsserts;
-
+            
             $scope.getSinglePageAsserts = function () {
                 if ($scope.opt.editable) {
                     $scope.criterion.setCaseForEachPage();

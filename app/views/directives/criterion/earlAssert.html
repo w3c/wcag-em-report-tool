@@ -1,7 +1,7 @@
-<div>
+<div class="earl-assert">
   <div class="row" ng-transclude></div>
 
-  <div class="row" ng-if="opt.editable">
+  <div class="row outcome" ng-if="opt.editable">
     <div class="col-sm-4 col-md-3">
       <label for="result_outcome_{{$id}}" class="sr-only" ng-bind="'LABEL_OUTCOME' | translate"></label>
       <select class="stretch-control result-select" id="result_outcome_{{$id}}" ng-model="result.outcome"
@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="row" ng-if="!opt.editable">
+  <div class="row outcome" ng-if="!opt.editable">
     <div class="col-sm-4 col-md-3">
       {{'LABEL_OUTCOME' | translate}}:<em>{{ result.outcome | rdfToLabel }}</em>
     </div>
