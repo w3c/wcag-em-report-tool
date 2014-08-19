@@ -7,6 +7,10 @@
 
   "CLICK_EXPAND": "Click to show section",
   "CLICK_COLLAPSE": "Click to Hide section",
+  "CLICK_TO_DELETE": "Click to delete",
+  "BTN_ADD_PAGE": "Add page",
+  "REMOVE_MULTI_ASSERT": "Remove multi-page assertion",
+  "COMBINED_RESULTS_FOR": "Combined results for",
 
   "WZRD_START": "Start",
   "WZRD_SCOPE": "1. Define Scope",

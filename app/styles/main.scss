@@ -1,6 +1,8 @@
 $textcolor-light: #767676;
 $brand-primary: #2570B0;
 $font-size-base: 15px;
+$panel-body-padding: 7px 15px;
+$gray-light: #767676;
 $font-size-h1: floor(($font-size-base * 2));
 $font-size-h2: floor(($font-size-base * 1.6));
 $font-size-h3: ceil(($font-size-base * 1.4));
@@ -14,6 +16,24 @@ $font-size-h4: ceil(($font-size-base * 1.2));
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 /* endbower */
 
+input:-webkit-autofill {
+    background-color: #fff !important;
+}
+.tag {
+    font-size:100% !important;
+    color:$text-color;
+    border:solid 1px $gray-light;
+    font-weight:normal;
+    font-style:italic;
+    background-color:#EEE;
+    display:inline-block;
+    margin:0 2px;
+    padding:.2em .3em .2em .4em;
+}
+.tag .glyphicon {
+    font-size:75%;
+}
+
 .visible-xs-and-sr {
     position:relative !important;
 }
@@ -26,6 +46,12 @@ $font-size-h4: ceil(($font-size-base * 1.2));
 
 .navbar-nav .active a {
     border-bottom: solid 3px $nav-pills-active-link-hover-bg;
+}
+
+.criterion-btn-group {
+    border-bottom:solid 1px $navbar-default-border;
+    background:$navbar-default-bg;
+    width:100%;
 }
 
 h3 .collapse-button {
@@ -66,8 +92,17 @@ button[disabled] {
     text-align:center;
     max-width:500px;
 }
-.assert-indent {
-    margin-left:1em;
+.panel-body.assert-indent {
+    margin-left:15px;
+    .subject-type {
+        line-height:30px;
+    }
+}
+.panel-body + hr {
+    margin:0;
+}
+.panel-body .earl-assert {
+    margin-bottom:7px;
 }
 .form-group-inline {
     .form-block {
@@ -86,9 +121,26 @@ button[disabled] {
     font-weight:bold;
     text-align:center;
 }
+select.result-select,
 textarea.expanding {
     width:100%;
+}
+button.glyphicon {
+    background:inherit;
+    border:solid 1px gray;
+    padding:3px 6px;
+    @include border-right-radius(3px);
+    @include border-left-radius(3px);
+}
+
+select.result-select,
+input.taginput,
+textarea.expanding {
     height:1.7em;
+    padding:.1em .5em;
+    border:solid 1px gray;
+    @include border-right-radius(3px);
+    @include border-left-radius(3px);
 
     &.focused {
         height:auto;
@@ -100,10 +152,6 @@ textarea.expanding {
 }
 .stretch-control {
     width:100%;
-}
-.panel-body {
-    padding:0 !important;
-    margin:15px;
 }
 .info-icon {
     font-size:$font-size-base;

@@ -5,11 +5,25 @@ angular.module('wcagReporter')
 TestCaseAssert, wcag20spec, currentUser) {
 
 	function CriterionAssert(idref) {
+        var self = this;
+        
         this.testRequirement = idref;
         this.hasPart = [];
         this.result = {
             outcome: 'earl:untested',
             description: ''
+        };
+
+        this.getSinglePageAsserts = function () {
+            return self.hasPart.filter(function (page) {
+                return page.multiPage !== true;
+            });
+        };
+
+        this.getMultiPageAsserts = function () {
+            return self.hasPart.filter(function (page) {
+                return page.multiPage === true;
+            });
         };
     }
 
@@ -21,6 +35,8 @@ TestCaseAssert, wcag20spec, currentUser) {
         result: undefined,
         mode: 'manual',
         hasPart: undefined,
+        getSinglePageAsserts: undefined,
+        getMultiPageAsserts: undefined,
 
         addTestCaseAssertion: function (obj) {
             var key,

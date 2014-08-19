@@ -24,6 +24,7 @@ angular.module('wcagReporter')
         subject: undefined,
         testCase: undefined,
         result: undefined,
+        multiPage: false,
         mode: 'manual',
 
         addNewPage: function (page) {

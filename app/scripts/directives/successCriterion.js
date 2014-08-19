@@ -1,17 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter').directive(
-		'successCriterion', function (directivePlugin, $filter) {
-	var uniqueNum = 0, className,
-    outcomes = ['earl:untested', 'earl:passed',
-                'earl:failed', 'earl:inapplicable',
-                'earl:cantTell']
-    .map(function (rdfId) {
-        return {
-            id: rdfId,
-            name: $filter('rdfToLabel')(rdfId)
-        };
-    });
+		'successCriterion', function (directivePlugin, $rootScope) {
+	var className;
 
     className = {
         'earl:untested': 'panel-default',
@@ -25,44 +16,39 @@ angular.module('wcagReporter').directive(
         restrict: 'E',
         replace: true,
         scope: {
-        	assert: '=',
-            showallpages: '=',
-            editable: '@',
-            opt: '=options'
+        	    assert: '=assertion',
+                spec: '=requirement',
+                opt: '=options'
         },
 
         link: function (scope) {
-            scope.desc = scope.assert.getSpec();
-            scope.outcomes = outcomes;
-
+            // scope.outcomes = outcomes;
+            scope.rootHide = $rootScope.rootHide;
+            scope.critHide = scope.spec.number + '-cb';
             scope.getClassName = function (state) {
                 return className[state];
             };
-        	scope.getUnique = function () {
-    			return uniqueNum += 1;
-        	};
+       //      scope.getCases = function () {
+       //          if (!scope.opt.editable) {
+       //              return scope.assert.hasPart
+       //              .filter(function (assert) {
+       //                  return assert.result.outcome !== 'earl:untested' ||
+       //                         assert.result.description.trim() !== '';
+       //             });
+       //          }
+       //          return scope.assert.hasPart;
+       //      };
 
-            scope.getCases = function () {
-                if (!scope.opt.editable) {
-                    return scope.assert.hasPart
-                    .filter(function (assert) {
-                        return assert.result.outcome !== 'earl:untested' ||
-                               assert.result.description.trim() !== '';
-                   });
-                }
-                return scope.assert.hasPart;
-            };
-
-            scope.flipCollapse = function () {
-                if (this.opt.showallpages) {
-                    if (!this.hasAllPages) {
-                        this.assert.setCaseForEachPage();
-                        this.hasAllPages = true;
-                    }
-                }
-                this.opt.collapsed = !this.opt.collapsed;
-            };
+       //      scope.flipCollapse = function () {
+       //          if (this.opt.showallpages) {
+       //              if (!this.hasAllPages) {
+       //                  this.assert.setCaseForEachPage();
+       //                  this.hasAllPages = true;
+       //              }
+       //          }
+       //          this.opt.collapsed = !this.opt.collapsed;
+       //      };
         },
-        templateUrl: 'views/audit/test/successCriterion.drt.html'
+        templateUrl: 'views/directives/successCriterion.html'
     });
 });

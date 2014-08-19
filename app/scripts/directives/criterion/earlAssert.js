@@ -1,6 +1,6 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('assertResult', function($filter, directivePlugin) {
+.directive('earlAssert', function($filter, directivePlugin) {
 
 	var outcomes = ['earl:untested', 'earl:passed',
                     'earl:failed', 'earl:inapplicable',
@@ -10,18 +10,19 @@ angular.module('wcagReporter')
             id: rdfId,
             name: $filter('rdfToLabel')(rdfId)
         };
-    });       
+    });
 
     return directivePlugin({
         restrict: 'E',
         replace: true,
+        transclude: true,
         scope: {
-            assert: '=',
+            result: '=value',
             opt: '=options'
         },
         link: function (scope) {
             scope.outcomes = outcomes;
         },
-        templateUrl: 'views/audit/test/assertResult.drt.html'
+        templateUrl: 'views/directives/criterion/earlAssert.html'
     });
 });

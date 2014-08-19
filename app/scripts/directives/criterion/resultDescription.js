@@ -9,6 +9,6 @@ angular.module('wcagReporter')
             value: '=',
             id: '@'
         },
-        templateUrl: 'views/audit/test/resultDescription.drt.html'
+        templateUrl: 'views/directives/criterion/resultDescription.html'
 	});
 });
