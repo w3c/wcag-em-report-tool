@@ -10,7 +10,7 @@ angular.module('wcagReporter')
             id: rdfId,
             name: $filter('rdfToLabel')(rdfId)
         };
-    });       
+    });
 
     return directivePlugin({
         restrict: 'E',

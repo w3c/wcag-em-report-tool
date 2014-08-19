@@ -1,9 +1,12 @@
 'use strict'; 
 
 angular.module('wcagReporter')
-.filter('selectedCasesOnly', function(evalSampleModel) {
+.filter('selectedCasesOnly', function() {
 
     function critHasSelectedPages(criterion) {
+        if (criterion.subject.length === 0) {
+            return true;
+        }
         for (var i = 0; i < criterion.subject.length; i++) {
             if (criterion.subject[i].selected) {
                 return true;
@@ -13,17 +16,6 @@ angular.module('wcagReporter')
     }
 
     return function(criterion) {
-        var anySelected = false;
-        evalSampleModel.getPages().forEach(function (page) {
-            if (anySelected || page.selected) {
-                anySelected = true;
-            }
-        });
-
-        if (anySelected) {
-            return criterion.filter(critHasSelectedPages);
-        } else {
-            return criterion;
-        }
+        return criterion.filter(critHasSelectedPages);
     };
 });

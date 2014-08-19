@@ -11,7 +11,9 @@ angular.module('wcagReporter')
             opt: '=options'
         },
         controller: function ($scope) {
-            $scope.getMultiPageAsserts = $scope.criterion.getMultiPageAsserts;
+            $scope.getMultiPageAsserts = function () {
+                return $scope.criterion.getMultiPageAsserts().reverse();
+            };
             
             $scope.getSinglePageAsserts = function () {
                 if ($scope.opt.editable) {
@@ -23,6 +25,13 @@ angular.module('wcagReporter')
             
             $scope.addMultiPage = function () {
                 $scope.criterion.addTestCaseAssertion({ multiPage : true });
+            };
+
+            $scope.removeAssert = function (assert) {
+                var index = $scope.criterion.hasPart.indexOf(assert);
+                if (index >= 0) {
+                    $scope.criterion.hasPart.splice(index, 1);
+                }
             };
         },
         link: function (scope) {
