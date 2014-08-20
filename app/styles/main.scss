@@ -33,11 +33,18 @@ input:-webkit-autofill {
 .tag .glyphicon {
     font-size:75%;
 }
+.confirm-transfer,
+.confirm-remove {
+    left: auto;
+    display:block;
+}
 .confirm-remove {
     top: -20px;
-    left: auto;
     right:55px;
-    display: block;
+}
+.confirm-transfer {
+    right:85px;
+    top:-30px;
 }
 
 .visible-xs-and-sr {
@@ -48,6 +55,10 @@ input:-webkit-autofill {
         position:absolute !important;
         top:-9999em;
     }
+}
+
+.macro-result {
+    background:$gray-lighter;
 }
 
 .navbar-nav .active a {
@@ -99,7 +110,7 @@ button[disabled] {
     max-width:500px;
 }
 .panel-body.assert-indent {
-    margin-left:15px;
+    padding-left:30px;
     .subject-type {
         line-height:30px;
     }

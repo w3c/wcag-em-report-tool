@@ -10,15 +10,8 @@ angular.module('wcagReporter')
             opt: '=options'
         },
 
-        controller: ['$scope', function ($scope) {
-            $scope.$on('macroPageUpdated', function () {
-                console.log('on');
-                $scope.multiPageAsserts = $scope.criterion.getMultiPageAsserts();
-            });
-        }],
-
         link: function (scope) {
-        	scope.multiPageAsserts = scope.criterion.getMultiPageAsserts();
+        	scope.getMultiPageAsserts = scope.criterion.getMultiPageAsserts;
 
             scope.removeAssert = function (assert) {
                 var index = scope.criterion.hasPart.indexOf(assert);
@@ -26,7 +19,19 @@ angular.module('wcagReporter')
                     scope.criterion.hasPart.splice(index, 1);
                 }
             };
-            
+
+            scope.transferMacroData = function (macroAssert) {
+                // Get all single page asserts where a tag is part of this macro assert
+                scope.criterion.transferMacroData(macroAssert);
+                scope.removeAssert(macroAssert);
+            };
+
+            scope.getAllHandles = function(assert) {
+                return assert.subject.map(function (page) {
+                    return page.handle;
+                }).join(', ');
+            };
+
         },
         templateUrl: 'views/directives/criterion/macroResults.html'
 	});

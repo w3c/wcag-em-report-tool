@@ -1,6 +1,6 @@
 <div>
   <datalist id="pagehandles_{{$id}}">
-    <option ng-repeat="samplePage in unselectedPages | filter: {selected:true}"
+    <option ng-repeat="samplePage in unselectedPages"
     value="{{samplePage.handle}}">{{samplePage.handle}}</option>
   </datalist>
 

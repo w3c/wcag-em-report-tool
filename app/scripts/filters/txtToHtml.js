@@ -4,8 +4,11 @@ angular.module('wcagReporter')
 .filter('txtToHtml', function($filter) {
 
     return function(text) {
-        var txt =  text.split('\n').reduce(function (cur, line, i) {
-            
+        if (typeof text !== 'string') {
+            return '';
+        }
+
+        return  text.split('\n').reduce(function (cur, line, i) {
             if (line.trim() === '') {
                 return cur + '</p><p>';
             } else {
@@ -13,8 +16,6 @@ angular.module('wcagReporter')
                 return cur + (i === 0 ? '' : '<br />') + line;
             }
         }, '<p>') + '</p>';
-        
-        return txt;
     };
 
 });

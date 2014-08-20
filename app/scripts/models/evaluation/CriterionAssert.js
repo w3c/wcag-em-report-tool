@@ -55,6 +55,22 @@ TestCaseAssert, wcag20spec, currentUser) {
             }
         },
 
+        transferMacroData: function (macroAssert) {
+            this.getSinglePageAsserts().filter(function (assert) {
+                return macroAssert.subject.indexOf(assert.subject[0]) !== -1;
+
+            // Append the current result
+            }).forEach(function (assert) {
+                if (assert.result.description.trim() === '') {
+                    assert.result.description = macroAssert.result.description.trim();
+                } else {
+                    assert.result.description = (macroAssert.result.description +
+                        '\n\n' + assert.result.description).trim();
+                }
+                assert.result.outcome = macroAssert.result.outcome;
+            });
+        },
+
         /**
          * For each page in the sample, create a 
          * test case if none exists already

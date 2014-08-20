@@ -10,22 +10,18 @@ angular.module('wcagReporter')
             criterion: '=assert',
             opt: '=options'
         },
-        controller: ['$scope', function ($scope) {
-            $scope.addMultiPage = function () {
-                $scope.criterion.addTestCaseAssertion({
-                    multiPage : true,
-                    subject: evalSampleModel.getSelectedPages()
-                });
-
-                console.log('broadcast');
-                $scope.$broadcast('macroPageUpdated', []);
-                $scope.$emit('macroPageUpdated', []);
-            };
-        }],
 
         link: function (scope) {
             scope.getMultiPageAsserts = scope.criterion.getMultiPageAsserts;
             scope.hasMultipage = false;
+
+            scope.addMultiPage = function () {
+                scope.criterion.addTestCaseAssertion({
+                    multiPage : true,
+                    subject: evalSampleModel.getSelectedPages()
+                });
+            };
+            
         },
         templateUrl: 'views/directives/criterion/criterionBody.html'
     });
