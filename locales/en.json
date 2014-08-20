@@ -5,12 +5,17 @@
   "NAV_EXPORT": "Save Report",
   "NAV_HELP": "Help",
 
+  "CONFIRM_REMOVE_RESULT": "Are you sure you want to remove this result?",
+  "YES": "Yes",
+  "NO": "No",
+
   "CLICK_EXPAND": "Click to show section",
   "CLICK_COLLAPSE": "Click to Hide section",
   "CLICK_TO_DELETE": "Click to delete",
   "BTN_ADD_PAGE": "Add page",
-  "REMOVE_MULTI_ASSERT": "Remove multi-page assertion",
-  "COMBINED_RESULTS_FOR": "Combined results for",
+  "BTN_REMOVE_MACRO_ASSERT": "Remove macro result",
+  "BTN_ADD_MACRO_ASSERT": "Add macro result",
+  "MACRO_RESULTS_FOR": "Macro results for",
 
   "WZRD_START": "Start",
   "WZRD_SCOPE": "1. Define Scope",

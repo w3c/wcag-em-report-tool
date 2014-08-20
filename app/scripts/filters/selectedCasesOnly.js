@@ -16,6 +16,8 @@ angular.module('wcagReporter')
     }
 
     return function(criterion) {
-        return criterion.filter(critHasSelectedPages);
+        if (criterion) {
+            return criterion.filter(critHasSelectedPages);
+        }
     };
 });

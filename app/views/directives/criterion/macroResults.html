@@ -1,0 +1,24 @@
+<div>
+  <earl-assert ng-repeat="assert in multiPageAsserts | selectedCasesOnly"
+  value="assert.result" options="opt">    
+    <div class="col-sm-4 col-md-3 subject-type">{{ 'MACRO_RESULTS_FOR' | translate }}:</div>
+    <div class="col-sm-8 col-md-9">
+      <button ng-click="removeConfirm = true"
+      type="submit" class="glyphicon glyphicon-trash pull-right">
+        <span class="sr-only">{{ 'BTN_REMOVE_MACRO_ASSERT' | translate }}</span>
+      </button>
+      
+      <div class="popover left confirm-remove" ng-show="removeConfirm">
+        <span class="arrow"></span>
+        <div class="popover-inner">
+          <div class="popover-content ng-binding">
+            {{ 'CONFIRM_REMOVE_RESULT' | translate }}
+            <a href="" ng-click="removeAssert(assert)">{{ 'YES' | translate }}</a>
+            <a href="" ng-click="removeConfirm = false">{{ 'NO' | translate }}</a>
+          </div>
+        </div>
+      </div>
+      <page-select pages="assert.subject"></page-select>
+    </div>
+  </earl-assert>
+</div>

@@ -101,6 +101,12 @@ angular.module('wcagReporter')
     };
 
     sampleModel.getSelectedPages = function () {
+        return sampleModel.getPages().filter(function (page) {
+            return page.selected === true;
+        });
+    };
+
+    sampleModel.getSelectedPages = function () {
         return sampleModel.getPages().map(function (page) {
             if (page.selected) {
                 return page;

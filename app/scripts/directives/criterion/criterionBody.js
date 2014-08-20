@@ -1,6 +1,6 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('criterionBody', function(directivePlugin) {
+.directive('criterionBody', function(directivePlugin, evalSampleModel) {
 
     return directivePlugin({
         restrict: 'E',
@@ -11,30 +11,20 @@ angular.module('wcagReporter')
             opt: '=options'
         },
         controller: ['$scope', function ($scope) {
-            $scope.getMultiPageAsserts = function () {
-                return $scope.criterion.getMultiPageAsserts().reverse();
-            };
-            
-            $scope.getSinglePageAsserts = function () {
-                if ($scope.opt.editable) {
-                    $scope.criterion.setCaseForEachPage();
-                }
-                $scope.getSinglePageAsserts = $scope.criterion.getSinglePageAsserts;
-                return $scope.getSinglePageAsserts();
-            };
-            
             $scope.addMultiPage = function () {
-                $scope.criterion.addTestCaseAssertion({ multiPage : true });
-            };
+                $scope.criterion.addTestCaseAssertion({
+                    multiPage : true,
+                    subject: evalSampleModel.getSelectedPages()
+                });
 
-            $scope.removeAssert = function (assert) {
-                var index = $scope.criterion.hasPart.indexOf(assert);
-                if (index >= 0) {
-                    $scope.criterion.hasPart.splice(index, 1);
-                }
+                console.log('broadcast');
+                $scope.$broadcast('macroPageUpdated', []);
+                $scope.$emit('macroPageUpdated', []);
             };
         }],
+
         link: function (scope) {
+            scope.getMultiPageAsserts = scope.criterion.getMultiPageAsserts;
             scope.hasMultipage = false;
         },
         templateUrl: 'views/directives/criterion/criterionBody.html'
