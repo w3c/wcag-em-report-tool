@@ -49,92 +49,77 @@ angular.module('wcagReporter').run(function (
                 'type': 'webpage',
                 'id': '_:struct_1',
                 'handle': 'Sitemap',
-                'description': 'http://example.com/sitemap',
-                'selected': true
+                'description': 'http://example.com/sitemap'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_2',
                 'handle': 'Contact form',
-                'description': 'http://example.com/contact',
-                'selected': true
+                'description': 'http://example.com/contact'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_3',
                 'handle': 'map',
-                'description': 'http://example.com/geo',
-                'selected': true
+                'description': 'http://example.com/geo'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_4',
                 'handle': 'Video 1',
-                'description': 'http://example.com/blog/2004/01/01',
-                'selected': true
+                'description': 'http://example.com/blog/2004/01/01'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_5',
                 'handle': 'Video 2',
-                'description': 'http://example.com/media',
-                'selected': true
+                'description': 'http://example.com/media'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_6',
                 'handle': 'Structured page 7',
-                'description': 'http://example.com/signup',
-                'selected': true
+                'description': 'http://example.com/signup'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_7',
                 'handle': 'Structured page 8',
-                'description': 'http://example.com/webshop',
-                'selected': true
+                'description': 'http://example.com/webshop'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_8',
                 'handle': 'Payment process 1',
-                'description': 'http://example.com/payment/',
-                'selected': true
+                'description': 'http://example.com/payment/'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_9',
                 'handle': 'Payment process 2',
-                'description': 'http://example.com/payment/ Click on "Buy products"',
-                'selected': true
+                'description': 'http://example.com/payment/ Click on "Buy products"'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_10',
                 'handle': 'Payment process 3',
-                'description': 'http://example.com/payment/ Click on "Buy products", then fill in details and click "purchase"',
-                'selected': true
+                'description': 'http://example.com/payment/ Click on "Buy products", then fill in details and click "purchase"'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_11',
                 'handle': 'Homepage logged in',
-                'description': 'http://example.com/ (after Login)',
-                'selected': true
+                'description': 'http://example.com/ (after Login)'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_12',
                 'handle': 'Mobile version',
-                'description': 'http://example.com/ Resize the screen to have a width of 800',
-                'selected': true
+                'description': 'http://example.com/ Resize the screen to have a width of 800'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_13',
                 'handle': 'PDF download',
-                'description': 'http://example.com/downloads/reports.pdf',
-                'selected': true
+                'description': 'http://example.com/downloads/reports.pdf'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_14',
                 'handle': 'Accessibility statement',
-                'description': 'http://example.com/accessibility',
-                'selected': true
+                'description': 'http://example.com/accessibility'
             }, {
                 'type': 'webpage',
                 'id': '_:struct_15',
                 'handle': 'Structured page 16',
-                'description': 'http://example.com/social',
-                'selected': true
+                'description': 'http://example.com/social'
             }]
         },
         'randomSample': {
@@ -142,14 +127,12 @@ angular.module('wcagReporter').run(function (
                 'type': 'webpage',
                 'id': '_:rand_0',
                 'handle': 'Random page 1',
-                'description': 'http://example.com/random1',
-                'selected': true
+                'description': 'http://example.com/random1'
             }, {
                 'type': 'webpage',
                 'id': '_:rand_1',
                 'handle': 'Random page 2',
-                'description': 'http://example.com/random8',
-                'selected': true
+                'description': 'http://example.com/random8'
             }]
         },
         'creator' : '_:evaluator',

@@ -371,12 +371,8 @@ module.exports = function (grunt) {
     //   }
     // },
     uglify: {
-      report: {
-        files: {
-          '<%= yeoman.dist %>/scripts/report.js': [
-            '<%= yeoman.dist %>/scripts/report.js'
-          ]
-        }
+      options: {
+        //sourceMap: true,
       },
       jsonld: {
         options: {

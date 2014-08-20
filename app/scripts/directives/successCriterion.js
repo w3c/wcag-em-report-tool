@@ -1,10 +1,8 @@
 'use strict';
 
-angular.module('wcagReporter').directive(
-		'successCriterion', function (directivePlugin, $rootScope) {
-	var className;
-
-    className = {
+angular.module('wcagReporter')
+.directive('successCriterion', function (directivePlugin, $rootScope) {
+    var className = {
         'earl:untested': 'panel-default',
         'earl:passed': 'panel-success',
         'earl:failed': 'panel-danger',
@@ -16,11 +14,10 @@ angular.module('wcagReporter').directive(
         restrict: 'E',
         replace: true,
         scope: {
-        	    assert: '=assertion',
+                assert: '=assertion',
                 spec: '=requirement',
                 opt: '=options'
         },
-
         link: function (scope) {
             // scope.outcomes = outcomes;
             scope.rootHide = $rootScope.rootHide;
@@ -28,26 +25,6 @@ angular.module('wcagReporter').directive(
             scope.getClassName = function (state) {
                 return className[state];
             };
-       //      scope.getCases = function () {
-       //          if (!scope.opt.editable) {
-       //              return scope.assert.hasPart
-       //              .filter(function (assert) {
-       //                  return assert.result.outcome !== 'earl:untested' ||
-       //                         assert.result.description.trim() !== '';
-       //             });
-       //          }
-       //          return scope.assert.hasPart;
-       //      };
-
-       //      scope.flipCollapse = function () {
-       //          if (this.opt.showallpages) {
-       //              if (!this.hasAllPages) {
-       //                  this.assert.setCaseForEachPage();
-       //                  this.hasAllPages = true;
-       //              }
-       //          }
-       //          this.opt.collapsed = !this.opt.collapsed;
-       //      };
         },
         templateUrl: 'views/directives/successCriterion.html'
     });
