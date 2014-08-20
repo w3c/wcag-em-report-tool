@@ -2,6 +2,7 @@ node_modules
 .tmp
 .sass-cache
 app/bower_components
+dist/
 .sublime-project
 .sublime-workspace
 .dropbox
