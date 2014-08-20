@@ -5,11 +5,10 @@ angular.module('wcagReporter')
     return directivePlugin({
         restrict: 'E',
         replace: true,
-        transclude: true,
         scope: {
             pages: '=',
         },
-        controller: function ($scope) {
+        controller: ['$scope', function ($scope) {
             $scope.updateSampleList = function () {
                 $scope.unselectedPages = sample.filter(function (page) {
                     return $scope.pages.indexOf(page) === -1;
@@ -36,11 +35,7 @@ angular.module('wcagReporter')
 
             sample = evalSampleModel.getPages();
             $scope.updateSampleList();
-        },
-
-        link: function () {
-            
-        },
+        }],
         templateUrl: 'views/directives/criterion/pageSelect.html'
     });
 });

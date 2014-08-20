@@ -1,6 +1,6 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('criterionBody', function($filter, directivePlugin) {
+.directive('criterionBody', function(directivePlugin) {
 
     return directivePlugin({
         restrict: 'E',
@@ -10,7 +10,7 @@ angular.module('wcagReporter')
             criterion: '=assert',
             opt: '=options'
         },
-        controller: function ($scope) {
+        controller: ['$scope', function ($scope) {
             $scope.getMultiPageAsserts = function () {
                 return $scope.criterion.getMultiPageAsserts().reverse();
             };
@@ -33,7 +33,7 @@ angular.module('wcagReporter')
                     $scope.criterion.hasPart.splice(index, 1);
                 }
             };
-        },
+        }],
         link: function (scope) {
             scope.hasMultipage = false;
         },

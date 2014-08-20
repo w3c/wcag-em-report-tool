@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter').directive('techSelect', function() {
+angular.module('wcagReporter')
+.directive('techSelect', function() {
 	var knownTechnologies = [
 		{title: 'HTML5', specs: 'http://www.w3.org/TR/html5/'},
 		{title: 'CSS', specs: 'http://www.w3.org/Style/CSS/specs/'},
