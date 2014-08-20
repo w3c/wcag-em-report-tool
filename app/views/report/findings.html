@@ -8,7 +8,7 @@
       <h4>{{g.number}} {{g.title}}</h4>
 
       <success-criterion ng-repeat="critSpec in g.criteria"
-      collapse="g.showCritera" assertion="getCritAssert(critSpec.uri)"
+      assertion="getCritAssert(critSpec.uri)"
       ng-if="getCritAssert(critSpec.uri)" requirement="critSpec" options="critOpt">
       </success-criterion>
     </div>

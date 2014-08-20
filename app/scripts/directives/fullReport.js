@@ -22,7 +22,7 @@ angular.module('wcagReporter')
 
             }, 200);
         },
-        templateUrl: 'views/report/fullReport.drt.html'
+        templateUrl: 'views/directives/fullReport.html'
     });
 
 });

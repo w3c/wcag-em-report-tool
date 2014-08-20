@@ -29,8 +29,8 @@ angular.module('wcagReporter')
                 if (page && $scope.pages.indexOf(page) === -1) {
                     $scope.unselectedPages.splice($scope.unselectedPages.indexOf(page), 1);
                     $scope.pages.push(page);
+                    $scope.newPage = '';
                 }
-                $scope.newPage = '';
             };
 
             sample = evalSampleModel.getPages();

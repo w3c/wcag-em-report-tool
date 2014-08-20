@@ -9,6 +9,6 @@ angular.module('wcagReporter')
         	obj: '=target',
         	prop: '@property'
         },
-        templateUrl: 'views/buttonCollapse.drt.html'
+        templateUrl: 'views/directives/buttonCollapse.html'
 	});
 });

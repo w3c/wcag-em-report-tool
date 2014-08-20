@@ -5,12 +5,12 @@
     </button>
   </div>
   
-  <macro-results ng-if="getMultiPageAsserts().length > 0"
-  class="panel-body assert-indent macro-result"
+  <macro-results ng-if="getMultiPageAsserts().length > 0" class="panel-body assert-indent"
   value="criterion" options="opt"></macro-results>
+
+  <hr ng-if="getMultiPageAsserts().length > 0" />
 
   <page-results class="panel-body assert-indent"
   value="criterion" options="opt"></page-results>
 
 </div>
-

@@ -61,6 +61,10 @@ TestCaseAssert, wcag20spec, currentUser) {
 
             // Append the current result
             }).forEach(function (assert) {
+                if (typeof assert.result.description !== 'string') {
+                    assert.result.description = '';
+                }
+                
                 if (assert.result.description.trim() === '') {
                     assert.result.description = macroAssert.result.description.trim();
                 } else {

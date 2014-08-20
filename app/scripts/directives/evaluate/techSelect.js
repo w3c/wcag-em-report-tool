@@ -29,6 +29,6 @@ angular.module('wcagReporter')
         		updateTech(select, 'title', 'specs');
         	};
         },
-        templateUrl: 'views/audit/techSelect.drt.html'
+        templateUrl: 'views/directives/evaluate/techSelect.html'
     };
 });

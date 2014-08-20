@@ -26,6 +26,9 @@ angular.module('wcagReporter')
         result: undefined,
         multiPage: false,
         mode: 'manual',
+        isDefined: function () {
+            return TestCaseAssert.isDefined(this);
+        },
 
         addNewPage: function (page) {
             this.subject.push(page);

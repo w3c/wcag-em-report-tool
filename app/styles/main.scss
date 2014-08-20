@@ -33,6 +33,12 @@ input:-webkit-autofill {
 .tag .glyphicon {
     font-size:75%;
 }
+
+button.glyphicon-copy {
+    background: url("../images/copy.png") 7px 3px no-repeat !important;
+    width:30px;
+    height:23px;
+}
 .confirm-transfer,
 .confirm-remove {
     left: auto;
@@ -146,6 +152,7 @@ button.glyphicon {
     background:inherit;
     border:solid 1px gray;
     padding:3px 6px;
+    margin-bottom:3px;
     @include border-right-radius(3px);
     @include border-left-radius(3px);
 }

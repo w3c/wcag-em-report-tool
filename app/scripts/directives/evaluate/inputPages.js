@@ -14,6 +14,6 @@ angular.module('wcagReporter')
             scope.addPage = scope.addPage();
             scope.removePage = scope.removePage();
         },
-        templateUrl: 'views/audit/inputPages.drt.html'
+        templateUrl: 'views/directives/evaluate/inputPages.html'
     });
 });

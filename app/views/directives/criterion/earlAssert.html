@@ -16,11 +16,11 @@
 
   <div class="row outcome" ng-if="!opt.editable">
     <div class="col-sm-4 col-md-3">
-      {{'LABEL_OUTCOME' | translate}}:<em>{{ result.outcome | rdfToLabel }}</em>
+      <strong>{{'LABEL_OUTCOME' | translate}}</strong>:&nbsp;{{ result.outcome | rdfToLabel }}
     </div>
 
     <div class="col-sm-8 col-md-9">
-      <strong>{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>{{result.description}}
+      <strong ng-if="result.description">{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>{{result.description}}
     </div>
   </div>
 

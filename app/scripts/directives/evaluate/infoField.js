@@ -56,6 +56,6 @@ angular.module('wcagReporter')
         },
         replace: true,
         transclude: true,
-        templateUrl: 'views/audit/infoField.drt.html'
+        templateUrl: 'views/directives/evaluate/infoField.html'
     });
 });
