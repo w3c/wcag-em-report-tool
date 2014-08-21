@@ -55,10 +55,12 @@
         }
         .tested {
             text-decoration: line-through;
+            border-bottom:1px 
         }
     }
     li.active {
         background:#EEE;
+        border-bottom-color:#DDD;
     }
 }
 
