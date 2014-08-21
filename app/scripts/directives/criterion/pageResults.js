@@ -10,7 +10,6 @@ angular.module('wcagReporter')
             opt: '=options'
         },
         link: function (scope) {
-            console.log($animate);
             scope.getSinglePageAsserts = function () {
                 if (scope.opt.editable) {
                     scope.criterion.setCaseForEachPage();

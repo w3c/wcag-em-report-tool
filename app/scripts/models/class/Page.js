@@ -4,7 +4,6 @@ angular.module('wcagReporter')
 .service('Page', function () {
 
 	function Page() {
-		console.log(123);
 	}
 
 	Page.getUrl = function (page) {
