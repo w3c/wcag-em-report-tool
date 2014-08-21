@@ -1,0 +1,35 @@
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+
+button.glyphicon-copy {
+    background: url("../images/copy.png") 7px 3px no-repeat !important;
+    width:30px;
+    height:23px;
+}
+
+.visible-xs-and-sr {
+    position:relative !important;
+}
+@media (min-width: $screen-sm-min) {
+    .visible-xs-and-sr {
+        position:absolute !important;
+        top:-9999em;
+    }
+}
+
+.form-group .alert {
+    margin-top:1em;
+}
+
+.panel-heading h1 {
+    margin:0;
+}
+
+button.glyphicon {
+    background:inherit;
+    border:solid 1px gray;
+    padding:3px 6px;
+    margin-bottom:3px;
+    @include border-right-radius(3px);
+    @include border-left-radius(3px);
+}

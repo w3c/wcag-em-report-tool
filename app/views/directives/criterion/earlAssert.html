@@ -11,7 +11,7 @@
     <div class="col-sm-8 col-md-9" ng-if="opt.editable">
       <result-description id="result_cause_{{unique}}"
       value="result.description"></result-description>
-    </div>    
+    </div>
   </div>
 
   <div class="row outcome" ng-if="!opt.editable">
@@ -20,7 +20,9 @@
     </div>
 
     <div class="col-sm-8 col-md-9">
-      <strong ng-if="result.description">{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>{{result.description}}
+      <strong>{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>
+      {{result.description}}
+      <em ng-if="!result.description">{{ 'NO_TEXT_PROVIDED' | translate }}</em>
     </div>
   </div>
 

@@ -1,0 +1,104 @@
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+
+.tag {
+    font-size:100% !important;
+    color:$text-color;
+    border:solid 1px $gray-light;
+    font-weight:normal;
+    font-style:italic;
+    background-color:#EEE;
+    display:inline-block;
+    margin:0 2px;
+    padding:.2em .3em .2em .4em;
+}
+.tag .glyphicon {
+    font-size:75%;
+}
+
+
+.confirm-transfer,
+.confirm-remove {
+    left: auto;
+    display:block;
+}
+.confirm-remove {
+    top: -20px;
+    right:55px;
+}
+.confirm-transfer {
+    right:85px;
+    top:-30px;
+}
+
+.criterion-btn-group {
+    border-bottom:solid 1px $navbar-default-border;
+    background:$navbar-default-bg;
+    width:100%;
+}
+
+h3 .collapse-button {
+    color: $link-hover-color;
+}
+
+.collapse-button {
+    display:block;
+    border-bottom:solid 1px $navbar-default-border;
+    .glyphicon {
+        font-size:$font-size-base;
+    }
+    &:hover, &:focus {
+        border-bottom-color: darken($navbar-default-border, 15%);
+    }
+}
+
+.save-panel {
+    text-align:center;
+    max-width:500px;
+}
+
+.form-group-inline {
+    .form-block {
+        padding: 5px 0px 5px 15px;
+    }
+    label {
+        font-weight:normal;
+    }
+    .form-control {
+        padding: 3px 6px;
+        height:auto;
+    }
+}
+.form-block-head {
+    padding:1em 0px 0px 15px;
+    font-weight:bold;
+    text-align:center;
+}
+
+
+select.result-select,
+textarea.expanding {
+    width:100%;
+    @include transition(100ms linear height);
+}
+select.result-select,
+input.taginput,
+textarea.expanding {
+    height:1.7em;
+    padding:.1em .5em;
+    border:solid 1px gray;
+    @include border-right-radius(3px);
+    @include border-left-radius(3px);
+
+    &.focused {
+        height:6em;
+    }
+}
+
+.stretch-control {
+    width:100%;
+}
+
+.info-icon {
+    font-size:$font-size-base;
+}

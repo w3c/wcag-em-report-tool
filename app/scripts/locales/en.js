@@ -93,6 +93,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'LABEL_SELECT_FILE': 'Select the evaluation',
     'LABEL_PAGE_HANDLE': 'Page handle',
     'ITEM': 'Item',
+    'NO_TEXT_PROVIDED': '- No text provided -',
     'BTN_REMOVE_PAGE': 'Remove page',
     'LABEL_INFO': 'Info',
     'LABEL_CLOSE_INFO': 'Close info',

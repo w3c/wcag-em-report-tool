@@ -1,0 +1,46 @@
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+
+.panel-body {
+    &.assert-indent {
+        padding-left:15px;
+        .subject-type {
+            line-height:30px;
+        }
+        .earl-assert {
+            padding-left:15px;
+        }
+    }
+    + hr {
+        margin:0;
+    }
+    .earl-assert {
+        margin-bottom:7px;
+        border-bottom:solid 1px #dddddd;
+        &:last-child {
+            border-bottom:none;
+        }
+    }
+}
+
+.sample {
+    padding:0;
+    margin:0;
+    list-style:none;
+    li {
+        padding:5px 10px 0;
+        border-bottom:1px $navbar-default-border solid;
+        background:white;
+        @include transition(100ms linear background);
+    }
+    li.active {
+        background:#EEE;
+    }
+}
+
+.sample_narrow {
+    list-style:none;
+    li {
+        padding: .2em .1em;
+    }
+}

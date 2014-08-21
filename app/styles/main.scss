@@ -12,173 +12,9 @@ $font-size-h4: ceil(($font-size-base * 1.2));
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 /* endbower */
 
-/* bower:scss */
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
-/* endbower */
 
 input:-webkit-autofill {
     background-color: #fff !important;
-}
-.tag {
-    font-size:100% !important;
-    color:$text-color;
-    border:solid 1px $gray-light;
-    font-weight:normal;
-    font-style:italic;
-    background-color:#EEE;
-    display:inline-block;
-    margin:0 2px;
-    padding:.2em .3em .2em .4em;
-}
-.tag .glyphicon {
-    font-size:75%;
-}
-
-button.glyphicon-copy {
-    background: url("../images/copy.png") 7px 3px no-repeat !important;
-    width:30px;
-    height:23px;
-}
-.confirm-transfer,
-.confirm-remove {
-    left: auto;
-    display:block;
-}
-.confirm-remove {
-    top: -20px;
-    right:55px;
-}
-.confirm-transfer {
-    right:85px;
-    top:-30px;
-}
-
-.visible-xs-and-sr {
-    position:relative !important;
-}
-@media (min-width: $screen-sm-min) {
-    .visible-xs-and-sr {
-        position:absolute !important;
-        top:-9999em;
-    }
-}
-
-.macro-result {
-    background:$gray-lighter;
-}
-
-.navbar-nav .active a {
-    border-bottom: solid 3px $nav-pills-active-link-hover-bg;
-}
-
-.criterion-btn-group {
-    border-bottom:solid 1px $navbar-default-border;
-    background:$navbar-default-bg;
-    width:100%;
-}
-
-h3 .collapse-button {
-    color: $link-hover-color;
-}
-
-.collapse-button {
-    display:block;
-    border-bottom:solid 1px $navbar-default-border;
-    .glyphicon {
-        font-size:$font-size-base;
-    }
-    &:hover, &:focus {
-        border-bottom-color: darken($navbar-default-border, 15%);
-    }
-}
-
-p a {
-    text-decoration:underline;
-}
-
-* {
-    @include placeholder($textcolor-light);
-}
-
-.form-group .alert {
-    margin-top:1em;
-}
-
-button[disabled] {
-    color:gray;
-    font-style:italic;
-}
-.panel-heading h1 {
-    margin:0;
-}
-.save-panel {
-    text-align:center;
-    max-width:500px;
-}
-.panel-body.assert-indent {
-    padding-left:30px;
-    .subject-type {
-        line-height:30px;
-    }
-}
-.panel-body + hr {
-    margin:0;
-}
-.panel-body .earl-assert {
-    margin-bottom:7px;
-}
-.form-group-inline {
-    .form-block {
-        padding: 5px 0px 5px 15px;
-    }
-    label {
-        font-weight:normal;
-    }
-    .form-control {
-        padding: 3px 6px;
-        height:auto;
-    }
-}
-.form-block-head {
-    padding:1em 0px 0px 15px;
-    font-weight:bold;
-    text-align:center;
-}
-select.result-select,
-textarea.expanding {
-    width:100%;
-}
-button.glyphicon {
-    background:inherit;
-    border:solid 1px gray;
-    padding:3px 6px;
-    margin-bottom:3px;
-    @include border-right-radius(3px);
-    @include border-left-radius(3px);
-}
-
-select.result-select,
-input.taginput,
-textarea.expanding {
-    height:1.7em;
-    padding:.1em .5em;
-    border:solid 1px gray;
-    @include border-right-radius(3px);
-    @include border-left-radius(3px);
-
-    &.focused {
-        height:auto;
-    }
-}
-.offscreen {
-    position:absolute;
-    top:-9999em;
-}
-.stretch-control {
-    width:100%;
-}
-.info-icon {
-    font-size:$font-size-base;
 }
 
 table {
@@ -198,109 +34,16 @@ table {
     }
 }
 
-.sample {
-    padding:0;
-    margin:0;
-    list-style:none;
-    li {
-        padding:5px 10px 0;
-        border-bottom:1px $navbar-default-border solid;
-    }
-    li.active {
-        background:#EEE;
-    }
-}
-.sample_narrow {
-    list-style:none;
-    li {
-        padding: .2em .1em;
-    }
+p a {
+    text-decoration:underline;
 }
 
-
-$wzrd-v-padding: 8px;
-$wzrd-h-padding: 5px;
-$wzrd-border-rad: 8px;
-$wzrd-gap: 5px;
-$wzrd-arrow-size: floor($wzrd-v-padding + ($font-size-base/2) + 3px);
-$wzrd-v-padding-outer: 12px;
-$wzrd-bg: #efefef;
-
-.wizard {
-    margin:0;
-    padding:0;
-    list-style:none;
-    .wizard-step {
-        padding: $wzrd-v-padding ($wzrd-h-padding + 1) $wzrd-v-padding $wzrd-h-padding;
-        padding-left: $wzrd-arrow-size + $wzrd-h-padding;
-        margin:($wzrd-gap/2) 0 ($wzrd-gap/2) $wzrd-gap;
-        background:$wzrd-bg;
-        position:relative;
-        display:inline-block;
-
-        @include border-right-radius(3px);
-
-        a {
-            margin:(0-$wzrd-v-padding) (0-$wzrd-h-padding);
-            padding:$wzrd-v-padding $wzrd-h-padding;
-            display:block;
-        }
-
-        &:before,
-        &:after {
-            width:0px;
-            height:0px;
-            top: 0;
-            position: absolute;
-            content: "";
-            border-top: $wzrd-arrow-size inset transparent;
-            border-bottom: $wzrd-arrow-size inset transparent;
-        }
-        &:before {
-            border-left: $wzrd-arrow-size solid $body-bg;
-            left: 0;
-        }
-        &:after {
-            border-left: $wzrd-arrow-size solid $wzrd-bg;
-            right: (1 - $wzrd-arrow-size);
-            z-index:2;
-        }
-        &:first-child:before,
-        &:last-child:after {
-            border:none;
-        }
-        &:first-child {
-            @include border-left-radius($wzrd-border-rad);
-            padding-left: $wzrd-v-padding-outer;
-        }
-        &:last-child {
-            @include border-right-radius($wzrd-border-rad);
-            padding-right: $wzrd-v-padding-outer;
-        }
-        &.active {
-            background:$brand-primary;
-            color:$btn-primary-color;
-            a { color:$btn-primary-color; }
-            &:after {
-                border-left-color:$brand-primary;
-            }
-        }
-        &.disabled a {
-            font-style:italic;
-            color:$btn-link-disabled-color;
-            &:hover {
-                text-decoration:none;
-            }
-        }
-    }
-
-    .badge {
-        margin-right:5px;
-        position:relative; top:-1px;
-    }
-    .wizard-step:first-child .badge {
-        margin-left:0;
-    }
+* {
+    @include placeholder($textcolor-light);
+}
+button[disabled] {
+    color:gray;
+    font-style:italic;
 }
 
 $footer-height: 140px; 
@@ -334,13 +77,12 @@ html.full-page {
     padding: 1em;
 }
 
-.drop_zone {
-    border: 2px dashed $brand-primary;
-    @include border-left-radius(5px);
-    @include border-right-radius(5px);
-    padding: 25px;
-    text-align: center;
-    font: 20pt bold 'Vollkorn';
-    color: $textcolor-light;
-    max-width:30em;
-}
+@import "bootstrap-extend";
+
+@import "wizard";
+
+@import "animation";
+
+@import "evaluate";
+
+@import "report";
