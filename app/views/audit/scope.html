@@ -93,9 +93,14 @@
   </div>
 </form>
 
-<ul class="nav nav-pills">
-  <li class="pull-right active">
-    <a ng-click="processInput()" href="#/audit/explore">
-      {{'NEXT_STEP' | translate}} <span class="glyphicon glyphicon-chevron-right"></span>
+<footer><ul class="nav nav-pills">
+  <li><a href="#/start">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      {{'PREV_STEP' | translate}}
   </a></li>
-</ul>
+  <li class="pull-right active">
+    <a href="#/audit/explore" ng-click="processInput()">
+      {{'NEXT_STEP' | translate}} 
+      <span class="glyphicon glyphicon-chevron-right"></span>
+  </a></li>
+</ul></footer>

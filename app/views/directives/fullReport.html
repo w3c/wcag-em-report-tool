@@ -22,8 +22,10 @@
   <h2>{{'HD_SAMPLE' | translate }}</h2>
   <div ng-include src="'views/report/sample.html'"></div>
 
-  <h2>{{'HD_SPECIFICS' | translate }}</h2>
-  {{report.specifics}}
+  <div ng-if="report.specifics.trim()">
+    <h2>{{'HD_SPECIFICS' | translate }}</h2>
+    <div ng-bind-html="report.specifics | txtToHtml"></div>
+  </div>
 
   <h2>{{'HD_DOCS' | translate }}</h2>
   <ul lang="en">
