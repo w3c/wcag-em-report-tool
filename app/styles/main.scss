@@ -34,6 +34,18 @@ table {
     }
 }
 
+.H2-P-combined {
+    margin: 0 0 ($line-height-computed / 2);
+    h2 {
+        display:inline;
+        font-weight:bold;
+        font-size: $font-size-base;
+    }
+    p {
+        display:inline;
+    }
+}
+
 input, textarea, select {
     &.form-control {
         @include gradient-vertical(#EEE, #FFF, 0, 15px);
