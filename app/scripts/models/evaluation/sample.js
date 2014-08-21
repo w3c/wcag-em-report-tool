@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalSampleModel', function() {
+.service('evalSampleModel', function(Page) {
     var sampleModel = {},
         randomPages = [],
         structuredPages = [];
@@ -27,16 +27,7 @@ angular.module('wcagReporter')
         return lastId + 1;
     }
 
-    function Page() {}
 
-    Page.prototype = {
-        'type': 'webpage',
-        'id': '',
-        description: undefined,
-        handle: '',
-        tested: false,
-        selected: true
-    };
 
     sampleModel.structuredSample = {
         webpage: randomPages,

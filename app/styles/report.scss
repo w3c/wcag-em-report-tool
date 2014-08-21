@@ -1,6 +1,12 @@
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
 
+#final_report {
+    border: solid 2px $brand-primary;
+    padding: 1em;
+    border-radius: 10px;
+}
+
 .panel-body {
     &.assert-indent {
         padding-left:15px;
@@ -20,21 +26,6 @@
         &:last-child {
             border-bottom:none;
         }
-    }
-}
-
-.sample {
-    padding:0;
-    margin:0;
-    list-style:none;
-    li {
-        padding:5px 10px 0;
-        border-bottom:1px $navbar-default-border solid;
-        background:white;
-        @include transition(100ms linear background);
-    }
-    li.active {
-        background:#EEE;
     }
 }
 

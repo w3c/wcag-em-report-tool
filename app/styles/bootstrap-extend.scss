@@ -6,6 +6,13 @@ button.glyphicon-copy {
     width:30px;
     height:23px;
 }
+.alert a {
+    color:$text-color;
+    &:hover,
+    &:focus {
+        color:black;
+    }
+}
 
 .visible-xs-and-sr {
     position:relative !important;

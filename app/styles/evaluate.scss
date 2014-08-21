@@ -16,7 +16,6 @@
     font-size:75%;
 }
 
-
 .confirm-transfer,
 .confirm-remove {
     left: auto;
@@ -30,6 +29,39 @@
     right:85px;
     top:-30px;
 }
+
+.sample {
+    padding:0;
+    margin:0;
+    list-style:none;
+    li {
+        padding:0;
+        border-bottom:1px $navbar-default-border solid;
+        background:white;
+        @include transition(100ms linear background);
+        position:relative;
+
+        a {
+            position: absolute;
+            top: 8px;
+            right: 6px;
+        }
+        label {
+            display: block;
+            margin-right: 20px;
+            padding: 5px 10px 5px 20px;
+            margin-bottom: 0;
+            text-indent:-10px;
+        }
+        .tested {
+            text-decoration: line-through;
+        }
+    }
+    li.active {
+        background:#EEE;
+    }
+}
+
 
 .criterion-btn-group {
     border-bottom:solid 1px $navbar-default-border;

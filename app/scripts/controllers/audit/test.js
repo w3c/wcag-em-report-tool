@@ -1,7 +1,7 @@
 'use strict'; 
 
 angular.module('wcagReporter') 
-.controller('AuditTestCtrl', function ($scope, appState, wcag20spec,
+.controller('AuditTestCtrl', function ($scope, appState, wcag20spec, Page,
              evalScopeModel, evalTestModel, evalSampleModel) {
 
     evalTestModel.updateToConformance();
@@ -27,6 +27,10 @@ angular.module('wcagReporter')
         pages.forEach(function (page) {
             page.selected = !page.selected;
         });
+    };
+
+    $scope.openPage = function (clickedPage) {
+        Page.windowOpen(clickedPage);
     };
 
     $scope.completeSelected = function () {

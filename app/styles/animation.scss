@@ -1,23 +1,26 @@
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
 
-.appear.ng-enter, .appear.ng-leave,
-.appear-tall.ng-enter, .appear-tall.ng-leave,
-.reporter-view.ng-enter, .reporter-view.ng-leave {
-    @include transition(200ms linear all);
-    position: relative;
-    display: block;
-    overflow: hidden;
-    text-overflow: clip;
-    white-space:nowrap;
+.appear,
+.appear-tall,
+.reporter-view {
+    &.ng-enter, &.ng-leave {
+        @include transition(200ms linear all);
+        position: relative;
+        display: block;
+        overflow: hidden;
+        text-overflow: clip;
+        white-space:nowrap;
+    }
 }
 
-.appear.ng-enter,/* starting animations for enter */
-.appear.ng-leave.ng-leave-active, /* terminal animations for leave */
-.appear-tall.ng-enter,/* starting animations for enter */
-.appear-tall.ng-leave.ng-leave-active { /* terminal animations for leave */
-    opacity: 0;
-    max-height: 0px;
+.appear,
+.appear-tall {
+    &.ng-enter,/* starting animations for enter */
+    &.ng-leave.ng-leave-active {/* terminal animations for leave */
+        opacity: 0;
+        max-height: 0px;
+    }
 }
 .appear.ng-leave, /* starting animations for leave */
 .appear.ng-enter.ng-enter-active {/* terminal animations for enter */
@@ -29,4 +32,3 @@
     opacity: 1;
     max-height: 400px;
 }
-
