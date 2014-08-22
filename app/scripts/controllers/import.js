@@ -1,9 +1,51 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ImportCtrl', function ($scope, $location, 
+.controller('ImportCtrl', function ($scope, reportStorage, evalLoader) {
+
+    $scope.postSettings = reportStorage.settings;
+
+    function success() {
+        // Redirect?
+    }
+
+    function error() {
+        // Show messages
+    }
+
+    $scope.loadFile = function () {
+        var file = window.jQuery('#load_json')[0].files[0];
+        evalLoader.openFromFile(file)
+        .success(success)
+        .error(error);
+    };
+
+    $scope.loadUrl = function () {
+        evalLoader.openFromUrl($scope.postSettings.url)
+        .success(success)
+        .error(error);
+    };
+
+});
+
+/*
+
+
+'use strict';
+
+angular.module('wcagReporter')
+.controller('ImportCtrl', function ($scope, $location, reportStorage,
         appState, wcagReporterImport) {
     var newWindow, reader;
+
+    console.log('REMOVE ME!!!');
+    reportStorage.settings.url = 'https://wcag-em-reporter-tool.iriscouch.com/reports/511081';
+
+    $scope.postSettings = reportStorage.settings;
+
+    $scope.getJson = function () {
+
+    };
 
     function setEvalData(data) {
         wcagReporterImport.fromJson(data);
@@ -14,7 +56,6 @@ angular.module('wcagReporter')
         delete window.setEvalData;
         delete window.loadingEvaluation;
     }
-
 
     try {
         reader = new FileReader();
@@ -68,3 +109,4 @@ angular.module('wcagReporter')
         }
     };
 });
+*/
