@@ -8,6 +8,14 @@ try {
 
 angular.module('wcagReporter').config(function ($translateProvider) {
   $translateProvider.translations('en', {
+    'HD_POST_TO_URL': 'Save Evaluation To A URL',
+    'INTRO_POST_TO_URL': 'The evaluation can be posted to w RESTful API such as those used with MongoDB. Please make sure the access-control-allow-origin header is set, to accept requests from this server.',
+    'LABEL_POST_TO_URL': 'URL of the ',
+    'MSG_SAVED_SUCCESS': 'The evaluation was saved successfully',
+    'MSG_SAVING': 'Saving the evaluation, please wait...',
+    'MSG_PROBLEM_CONNECTING': 'Problem connecting to the server. Please check the console for details.',
+    'MSG_SERVER_ERROR': 'Error received from the server.',
+    'MSG_BAD_RESPONSE': 'Response message',
     'NAV_LINKS': 'Key Resources',
     'NAV_NEW': 'New Report',
     'NAV_IMPORT': 'Open Report',

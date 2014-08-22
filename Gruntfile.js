@@ -319,7 +319,7 @@ module.exports = function (grunt) {
             'views/**/*.html',
             'images/{,*/}*.{webp}',
             'fonts/*',
-            'scripts/{dev_inject_dummydata,report,jsonld}.js',
+            'scripts/{dev_inject_dummydata,jsonld}.js',
           ]
         }, {
           expand: true,
