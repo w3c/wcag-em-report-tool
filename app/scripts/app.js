@@ -46,7 +46,11 @@ angular.module('wcagReporter', [
 
 }).run(function (translateFilter, $rootScope, $document, appState) {
     var titleElm = $document.find('title'),
+        prefix = titleElm.text().trim();
+    
+    if (prefix) {
         prefix = titleElm.text() + ' - ';
+    }
 
     $rootScope.translate = translateFilter;
 
