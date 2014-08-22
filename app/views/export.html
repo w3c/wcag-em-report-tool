@@ -9,9 +9,10 @@
 </a></p>
 
 <h2>{{ 'HD_POST_TO_URL' | translate }}</h2>
-<p>{{ 'INTRO_POST_TO_URL' | translate}}</p>
-
 <form class="form-horizontal">
+
+  <p>{{ 'INTRO_POST_TO_URL' | translate}}</p>
+  
   <div class="form-group">
     <div class="col-sm-2 control-label"><label for="url_{{$id}}">
         {{ 'LABEL_POST_TO_URL' | translate}}
@@ -25,7 +26,7 @@
     <p>{{ 'MSG_SAVED_SUCCESS' | translate }}</p>
   </div>
   <div class="alert alert-info appear" ng-if="posted">
-    <p>{{ 'MSG_SAVE' | translate }}</p>
+    <p>{{ 'MSG_SAVING' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="failure">
     <p>{{ 'MSG_SERVER_ERROR' | translate}}<p>

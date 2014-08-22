@@ -16,6 +16,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'MSG_PROBLEM_CONNECTING': 'Problem connecting to the server. Please check the console for details.',
     'MSG_SERVER_ERROR': 'Error received from the server.',
     'MSG_BAD_RESPONSE': 'Response message',
+    'BTN_POST_TO_URL': 'Post to URL',
     'NAV_LINKS': 'Key Resources',
     'NAV_NEW': 'New Report',
     'NAV_IMPORT': 'Open Report',

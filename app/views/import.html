@@ -20,4 +20,39 @@
 	{{ 'BTN_LOAD_FILE' | translate}}
 </button></p>
 
+
+<h2>{{ 'HD_GET_FROM_URL' | translate }}</h2>
+<form class="form-horizontal">
+
+  <p>{{ 'INTRO_GET_FROM_URL' | translate}}</p>
+  
+  <div class="form-group">
+    <div class="col-sm-2 control-label"><label for="url_{{$id}}">
+        {{ 'LABEL_GET_FROM_URL' | translate}}
+    </label></div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
+    </div>
+  </div>
+
+  <div class="alert alert-info appear" ng-if="posted">
+    <p>{{ 'MSG_LOADING' | translate }}</p>
+  </div>
+  <div class="alert alert-danger appear" ng-if="failure">
+    <p>{{ 'MSG_SERVER_ERROR' | translate}}<p>
+    <p ng-if="failure === true">{{ 'MSG_PROBLEM_CONNECTING' | translate }}</p>
+    <p ng-if="failure !== true">{{ 'MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+      <button class="btn btn-default" ng-click="postJson()">
+        {{ 'BTN_GET_FROM_URL' | translate }}
+      </button>
+    </div>
+  </div>
+</form>
+
+
 <p><a href="javascript:window.history.back()">{{'BTN_BACK_TO_EVAL' | translate}}</a></p>
