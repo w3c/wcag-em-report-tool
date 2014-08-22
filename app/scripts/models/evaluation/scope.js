@@ -10,7 +10,15 @@ angular.module('wcagReporter')
     };
 
     scopeModel.exportData = function () {
-        return Object.create(scopeModel);
+        return {
+            conformanceTarget: scopeModel.conformanceTarget,
+            additionalEvalRequirement: scopeModel.additionalEvalRequirement,
+            website: {
+                title: scopeModel.website.title,
+                siteScope: scopeModel.website.siteScope
+            },
+            accessibilitySupportBaseline: scopeModel.accessibilitySupportBaseline
+        };
     };
     
     /**

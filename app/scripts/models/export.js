@@ -28,7 +28,9 @@ angular.module('wcagReporter')
 		},
 
 		getJson: function () {
-			return [getJsonLd()].concat(evalModel.otherData);
+			return { 
+				'@graph': [getJsonLd()].concat(evalModel.otherData)
+			};
 		},
 
 		getString: function () {
