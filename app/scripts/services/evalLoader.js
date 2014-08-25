@@ -1,13 +1,19 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalLoader', function (evalWindow, appState, fileReader, $http) {
+.service('evalLoader', function (evalWindow, appState, fileReader, $http, $q) {
 
 	function loadFactory(promiseGen) {
         var importTarget;
 
         return function () {
-            var promise = promiseGen.apply(null, arguments);
+            var promise = promiseGen.apply(null, arguments),
+            	defer = $q.defer();
+            
+            function reject(e) {
+            	defer.reject(e);
+            	importTarget.abort();
+            }
 
             if (!appState.empty) {
                 importTarget = evalWindow.openEmptyWindow();
@@ -15,26 +21,29 @@ angular.module('wcagReporter')
                 importTarget = evalWindow;
             }
 
-            promise.success(function (data) {
-                importTarget.loadJson(data);
-            });
+            promise.then(function (data) {
+            	try {
+                	importTarget.loadJson(data);
+                	appState.setDirtyState();
+                	defer.resolve();
+            	} catch (e) {
+            		reject(e);
+            	}
+            }, reject);
 
-            promise.error(function () {
-                // Show error
-                importTarget.abort();
-            });
-
-            return promise;
+            return defer.promise;
         };
     }
 
 	return {
 		openFromFile: loadFactory(function (file) {
-	        // return  FileReader promise
-	        return fileReader.get(file);
+	        return fileReader.readAsText(file);
 	    }),
+
 	    openFromUrl: loadFactory(function (url) {
-	        return $http.get(url);
+	        return $http.get(url).then(function (response) {
+	        	return response.data;
+	        });
 	    })
 	};
 });

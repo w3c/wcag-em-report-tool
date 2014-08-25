@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalWindow', function ($http, wcagReporterImport) {
+.service('evalWindow', function ($http, wcagReporterImport, $rootScope) {
 	var curWindow,
 		waitingForEvaluation = 'waitingForEvaluation',
 		loadEvaluationData = 'loadEvaluationData',
@@ -40,15 +40,20 @@ angular.module('wcagReporter')
 		abort: angular.noop
 	};
 
+	function processPageData(data) {
+    	curWindow.loadJson(data);
+		$rootScope.setEvalLocation();
+	}
+
 	curWindow = new EvalWindow();
 
 	if (window[waitingForEvaluation]) {
 		window[waitingForEvaluation] = undefined;
 
 		if (window[evaluateDataWhenReady]) {
-    		curWindow.loadJson(window[evaluateDataWhenReady]);
+			processPageData(window[evaluateDataWhenReady]);
     	} else {
-    		window[loadEvaluationData] = curWindow.loadJson;
+    		window[loadEvaluationData] = processPageData;
     	}
 	}
 
