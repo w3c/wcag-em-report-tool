@@ -21,6 +21,16 @@
       <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
     </div>
   </div>
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+      <label>
+        <input type="checkbox" ng-model="postSettings.autosave"
+        ng-change="updateSettings()" />
+        Enable autosave (every 3 seconds)
+      </label>
+    </div>
+  </div>
 
   <div class="alert alert-success appear" ng-if="success">
     <p>{{ 'MSG_SAVED_SUCCESS' | translate }}</p>
@@ -44,4 +54,4 @@
   </div>
 </form>
 
-<p><a href="javascript:window.history.back()">{{'BTN_BACK_TO_EVAL' | translate }}</a></p>
+<p><a href="#/audit/scope">{{'BTN_BACK_TO_EVAL' | translate }}</a></p>

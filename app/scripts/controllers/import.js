@@ -38,4 +38,8 @@ angular.module('wcagReporter')
     $scope.loadUrl = function () {
         handleLoad( evalLoader.openFromUrl($scope.postSettings.url), $scope.urlFeedback );
     };
+
+    $scope.updateSettings = function () {
+        reportStorage.updateSettings();
+    };
 });

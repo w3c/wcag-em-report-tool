@@ -48,7 +48,10 @@ angular.module('wcagReporter')
 		importModel: undefined,
 
 		updateSettings: function (obj) {
-			angular.extend(settings, obj);
+			if (obj) {
+				angular.extend(settings, obj);
+			}
+			
 			if (settings.autosave && loading) {
 				loading.then(startAutosave);
 			} else if (settings.autosave) {

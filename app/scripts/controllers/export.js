@@ -25,4 +25,7 @@ angular.module('wcagReporter')
         });
     };
 
+    $scope.updateSettings = function () {
+        wcagReporterExport.storage.updateSettings();
+    };
 });
