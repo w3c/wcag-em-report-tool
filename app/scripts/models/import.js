@@ -5,8 +5,9 @@
  * https://github.com/justinmarsan/wcag.json
  */
 angular.module('wcagReporter').factory('wcagReporterImport',
-			function($rootScope, evalModel, currentUser) {
+			function($rootScope, evalModel, currentUser, reportStorage) {
 	var jsonld = window.jsonld;
+
 
 	function objectCollide(obj1, obj2) {
 		Object.keys(obj1).forEach(function (prop) {
@@ -16,6 +17,7 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 			}
 		});
 	}
+
 
 	function compactEach(callback) {
 		var testCallback,
@@ -51,14 +53,14 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		};
 	}
 
+
 	/**
 	 * Inject evaluation data into the reporter
 	 * @param {[Object]} evalData
 	 */
 	function updateEvalModel(evalData) {
 		if (evalData.evaluationScope) {
-			objectCollide(evalModel.scopeModel,
-						  evalData.evaluationScope);
+			objectCollide(evalModel.scopeModel, evalData.evaluationScope);
 		}
 		
 		evalModel.id = evalData.id;
@@ -81,6 +83,9 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 
 		fromObject: function (evalData) {
 			var self = this;
+			if (evalData.rev) {
+				reportStorage.revisionId = evalData.rev;
+			}
 			jsonld.expand(evalData, function(err, expanded) {
 				self.fromExpanded(expanded);
 			});

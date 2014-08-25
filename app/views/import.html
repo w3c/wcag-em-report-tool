@@ -9,6 +9,13 @@
   <!-- <div class="drop_zone">
     {{ 'DROP_FILE_HERE' | translate }}
   </div> -->
+  <div class="alert alert-info appear" ng-if="fileFeedback.posted">
+    <p>{{ 'MSG_LOADING' | translate }}</p>
+  </div>
+  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
+    <p>{{fileFeedback.failure}}</p>
+  </div>
+
   <input type="file" class="form-control" id="load_json" />
 </div>
 
@@ -35,19 +42,17 @@
     </div>
   </div>
 
-  <div class="alert alert-info appear" ng-if="posted">
+  <div class="alert alert-info appear" ng-if="urlFeedback.posted">
     <p>{{ 'MSG_LOADING' | translate }}</p>
   </div>
-  <div class="alert alert-danger appear" ng-if="failure">
-    <p>{{ 'MSG_SERVER_ERROR' | translate}}<p>
-    <p ng-if="failure === true">{{ 'MSG_PROBLEM_CONNECTING' | translate }}</p>
-    <p ng-if="failure !== true">{{ 'MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
+  <div class="alert alert-danger appear" ng-if="urlFeedback.failure">
+    <p>{{urlFeedback.failure}}</p>
   </div>
 
   <div class="form-group">
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
-      <button class="btn btn-default" ng-click="getJson()">
+      <button class="btn btn-primary" ng-click="loadUrl()">
         {{ 'BTN_GET_FROM_URL' | translate }}
       </button>
     </div>

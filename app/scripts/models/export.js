@@ -4,7 +4,7 @@
  * https://github.com/justinmarsan/wcag.json
  */
 angular.module('wcagReporter')
-.factory('wcagReporterExport', function(evalModel) {
+.factory('wcagReporterExport', function(evalModel, reportStorage) {
 
 	function getJsonLd () {
 		var jsonLd = {
@@ -23,14 +23,26 @@ angular.module('wcagReporter')
 	}
 
 	var reportModel = {
+		
+		storage: reportStorage,
+
 		setAutoSave: function (options) {
 			console.log('autosave set', options);
+			angular.extend(reportStorage, options);
+		},
+
+		saveToUrl: function () {
+			return reportStorage.post(reportModel.getJson());
 		},
 
 		getJson: function () {
-			return { 
+			var json = { 
 				'@graph': [getJsonLd()].concat(evalModel.otherData)
 			};
+			if (reportStorage.revisionId) {
+				json._rev = reportStorage.revisionId;
+			}
+			return json;
 		},
 
 		getString: function () {
