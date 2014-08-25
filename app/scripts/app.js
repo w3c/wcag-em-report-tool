@@ -44,7 +44,7 @@ angular.module('wcagReporter', [
         redirectTo: '/'
     });
 
-}).run(function (translateFilter, $rootScope, $document, appState) {
+}).run(function (translateFilter, $rootScope, $document, appState, $location) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text().trim();
     
@@ -61,5 +61,10 @@ angular.module('wcagReporter', [
 
     $rootScope.rootHide = {};
     appState.init();
-    
+
+    $rootScope.setEvalLocation = function () {
+        appState.setDirtyState();
+        $location.path('/audit/scope');
+    };
+
 });
