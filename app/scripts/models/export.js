@@ -23,12 +23,12 @@ angular.module('wcagReporter')
 	}
 
 	var reportModel = {
-		
+
 		storage: reportStorage,
 
 		setAutoSave: function (options) {
 			console.log('autosave set', options);
-			angular.extend(reportStorage, options);
+			angular.extend(reportStorage.settings, options);
 		},
 
 		saveToUrl: function () {
@@ -36,13 +36,9 @@ angular.module('wcagReporter')
 		},
 
 		getJson: function () {
-			var json = { 
+			return { 
 				'@graph': [getJsonLd()].concat(evalModel.otherData)
 			};
-			if (reportStorage.revisionId) {
-				json._rev = reportStorage.revisionId;
-			}
-			return json;
 		},
 
 		getString: function () {

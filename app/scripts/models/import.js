@@ -4,8 +4,9 @@
  * Originally created by Justin Marsan
  * https://github.com/justinmarsan/wcag.json
  */
-angular.module('wcagReporter').factory('wcagReporterImport',
-			function($rootScope, evalModel, currentUser, reportStorage) {
+angular.module('wcagReporter')
+.factory('wcagReporterImport',
+function($rootScope, evalModel, currentUser, reportStorage) {
 	var jsonld = window.jsonld;
 
 
@@ -72,22 +73,26 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 		evalModel.exploreModel.importData(evalData);
 	}
 
-	return {
+	var importModel = {
 		/**
 		 * Import an evaluation from a JSON string
 		 * @param  {string} json Evaluation
 		 */
 		fromJson: function (json) {
-			this.fromObject(angular.fromJson(json));
-		}, 
+			importModel.fromObject(angular.fromJson(json));
+		},
+
+		getFromUrl: function () {
+			return reportStorage.get()
+			.then(function (data) {
+				importModel.fromJson(data);
+				return data;
+			});
+		},
 
 		fromObject: function (evalData) {
-			var self = this;
-			if (evalData.rev) {
-				reportStorage.revisionId = evalData.rev;
-			}
 			jsonld.expand(evalData, function(err, expanded) {
-				self.fromExpanded(expanded);
+				importModel.fromExpanded(expanded);
 			});
 		},
 
@@ -133,4 +138,6 @@ angular.module('wcagReporter').factory('wcagReporterImport',
 			}));
 		}
 	};
+
+	return importModel;
 });

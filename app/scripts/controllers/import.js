@@ -4,8 +4,6 @@ angular.module('wcagReporter')
 .controller('ImportCtrl', function ($scope, reportStorage, evalLoader, $rootScope) {
 
     $scope.postSettings = reportStorage.settings;
-
-    $scope.postSettings.url = 'https://wcag-em-reporter-tool.iriscouch.com/reports/18026';
     $scope.fileFeedback = {
         posted: false, failures: false
     };
@@ -29,7 +27,6 @@ angular.module('wcagReporter')
             } else {
                 feedback.failure = e;
             }
-            // Show messages
         });
     }
 

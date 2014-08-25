@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalLoader', function (evalWindow, appState, fileReader, $http, $q) {
+.service('evalLoader', function (evalWindow, appState, fileReader, wcagReporterImport, $q) {
 
 	function loadFactory(promiseGen) {
         var importTarget;
@@ -41,9 +41,7 @@ angular.module('wcagReporter')
 	    }),
 
 	    openFromUrl: loadFactory(function (url) {
-	        return $http.get(url).then(function (response) {
-	        	return response.data;
-	        });
+            return wcagReporterImport.getFromUrl()
 	    })
 	};
 });

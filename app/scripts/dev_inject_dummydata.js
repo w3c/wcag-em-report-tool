@@ -4,8 +4,9 @@ angular.module('wcagReporter').run(function (
 			wcagReporterExport, wcagReporterImport) {
 
 	wcagReporterExport.setAutoSave({
-		url: 'https://bo.accessibility.nl/report/api'
+		url: 'https://wcag-em-reporter-tool.iriscouch.com/reports/18026'
 	});
+    wcagReporterImport.getFromUrl();
 
 	/*
 		WARNING: Don't use this method, a correct method with
@@ -179,6 +180,6 @@ angular.module('wcagReporter').run(function (
         'name': 'Example Evaluator for Example Agency'
     }];
 
-	wcagReporterImport.fromObject(reportData);
+	// wcagReporterImport.fromObject(reportData);
 
 });
