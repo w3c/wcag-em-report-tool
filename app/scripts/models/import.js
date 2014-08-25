@@ -141,8 +141,6 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 			}));
 		}
 	};
-
-	reportStorage.importModel = importModel;
-
+	
 	return importModel;
 });

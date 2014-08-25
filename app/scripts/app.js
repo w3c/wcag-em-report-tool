@@ -44,6 +44,7 @@ angular.module('wcagReporter', [
         redirectTo: '/'
     });
 
+
 }).run(function (translateFilter, $rootScope, $document, appState, $location) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text().trim();
@@ -52,14 +53,14 @@ angular.module('wcagReporter', [
         prefix = titleElm.text() + ' - ';
     }
 
-    $rootScope.translate = translateFilter;
-
     $rootScope.setTitle = function (title) {
         titleElm.text(prefix + title);
         return title;
     };
 
+    $rootScope.translate = translateFilter;
     $rootScope.rootHide = {};
+
     appState.init();
 
     $rootScope.setEvalLocation = function () {
@@ -67,4 +68,17 @@ angular.module('wcagReporter', [
         $location.path('/audit/scope');
     };
 
+
+// Setup automatic import/export based on attributes of the root element
+}).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
+    var autosave = $rootElement.attr('autosave');
+    wcagReporterExport.storage.init({
+        autosave: (autosave === '' || autosave.toLowerCase() === 'autosave'),
+        url: $rootElement.attr('url'),
+        saveDelay: ($rootElement.attr('save-delay') || 1500)
+    });
+    if ($rootElement.attr('url')) {
+        wcagReporterImport.getFromUrl();
+    }
 });
+

@@ -22,8 +22,10 @@ angular.module('wcagReporter').service('evalReportModel', function() {
 	reportModel.date = yyyy+'-'+mm+'-'+dd;
 
     reportModel.exportData = function () {
-    	var res = Object.create(reportModel);
+    	var res = angular.copy(reportModel);
+
     	res.creator = res.creator.id;
+
         return res;
     };
     return reportModel;

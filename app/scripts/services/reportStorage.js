@@ -5,13 +5,17 @@ angular.module('wcagReporter')
 	var reportStorage, autosave, loading,
 		failedSaveAttempts = 0,
 		settings = {
-			url: '',
+			url: undefined,
 			revisionId: undefined,
 			autosave: false,
 			saveDelay: 3000
 		};
 
 	function startAutosave() {
+		if (!settings.url) {
+			settings.autosave = false;
+			return;
+		}
 		autosave = $timeout(function autosaveFunc() {
 			reportStorage.exportModel.saveToUrl()
 			.then(function () {
@@ -45,7 +49,9 @@ angular.module('wcagReporter')
 
 		exportModel: undefined,
 
-		importModel: undefined,
+		init: function (obj) {
+			reportStorage.updateSettings(obj);
+		},
 
 		updateSettings: function (obj) {
 			if (obj) {

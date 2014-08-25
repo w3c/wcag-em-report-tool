@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body ng-app="wcagReporter">
+<body ng-app="wcagReporter" autosave
+url="http://wcag-em-reporter-tool.iriscouch.com/reports/1">
   <!-- Add your site or application content here -->
   <div class="page-view">
     <div ng-include src="'views/navigation.html'"></div>
@@ -103,7 +104,6 @@
   <!-- endbuild -->
 
   <script src="scripts/jsonld.js"></script>
-  <script src="scripts/dev_inject_dummydata.js"></script>
   
 </body>
 </html>
