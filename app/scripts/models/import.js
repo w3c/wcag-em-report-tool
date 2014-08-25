@@ -74,6 +74,9 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 	}
 
 	var importModel = {
+
+		storage: reportStorage,
+
 		/**
 		 * Import an evaluation from a JSON string
 		 * @param  {string} json Evaluation
@@ -138,6 +141,8 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 			}));
 		}
 	};
+
+	reportStorage.importModel = importModel;
 
 	return importModel;
 });

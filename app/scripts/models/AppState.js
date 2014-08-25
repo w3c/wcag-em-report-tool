@@ -50,14 +50,17 @@ angular.module('wcagReporter')
     appState.setPrestineState = function () {
         appState.pristine = true;
         jqWin.off('beforeunload', warningFn);
+        $document.one('change', 'input[type=text], textarea, select', appState.setDirtyState);
+        $rootScope.$emit('appstate:prestine');
     };
 
     appState.setDirtyState = function setDirtyState() {
-        appState.pristine = false;
-        appState.empty = false;
-        if (appState.pristine && appState.empty) {
+        if (appState.pristine) {
+            $rootScope.$emit('appstate:dirty');
             jqWin.on('beforeunload', warningFn);
         }
+        appState.pristine = false;
+        appState.empty = false;
     };
 
     appState.init = function () {

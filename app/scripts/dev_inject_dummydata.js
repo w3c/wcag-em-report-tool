@@ -3,9 +3,11 @@ angular.module('wcagReporter').run(function (
             evalModel,
 			wcagReporterExport, wcagReporterImport) {
 
-	wcagReporterExport.setAutoSave({
-		url: 'https://wcag-em-reporter-tool.iriscouch.com/reports/18026'
-	});
+    wcagReporterImport.storage.updateSettings({
+        url: 'https://wcag-em-reporter-tool.iriscouch.com/reports/18026',
+        autosave: true
+    });
+
     wcagReporterImport.getFromUrl();
 
 	/*

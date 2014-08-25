@@ -21,18 +21,13 @@ angular.module('wcagReporter')
 		angular.extend(jsonLd, evalModel.exploreModel.exportData());
 		return jsonLd;
 	}
-
-	var reportModel = {
+	
+	var exportModel = {
 
 		storage: reportStorage,
 
-		setAutoSave: function (options) {
-			console.log('autosave set', options);
-			angular.extend(reportStorage.settings, options);
-		},
-
 		saveToUrl: function () {
-			return reportStorage.post(reportModel.getJson());
+			return reportStorage.post(exportModel.getJson());
 		},
 
 		getJson: function () {
@@ -46,8 +41,8 @@ angular.module('wcagReporter')
 		},
 
 		getBlob: function () {
-			return reportModel.makeBlob(
-				reportModel.getString(),
+			return exportModel.makeBlob(
+				exportModel.getString(),
 				'application/json;charset=utf-8'
 			);
 		},
@@ -70,5 +65,7 @@ angular.module('wcagReporter')
 		}
 	};
 
-	return reportModel;
+	reportStorage.exportModel = exportModel;
+
+	return exportModel;
 });

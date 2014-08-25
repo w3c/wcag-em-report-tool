@@ -40,8 +40,8 @@ angular.module('wcagReporter')
 	        return fileReader.readAsText(file);
 	    }),
 
-	    openFromUrl: loadFactory(function (url) {
-            return wcagReporterImport.getFromUrl()
+	    openFromUrl: loadFactory(function () {
+            return wcagReporterImport.getFromUrl();
 	    })
 	};
 });
