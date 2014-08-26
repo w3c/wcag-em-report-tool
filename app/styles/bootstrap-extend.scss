@@ -1,16 +1,35 @@
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
 
+$focus-color: #477BA5;
+
 button.glyphicon-copy {
     background: url("../images/copy.png") 7px 3px no-repeat !important;
     width:30px;
     height:23px;
 }
-.alert a {
+
+* a:focus {
+    outline: 5px auto $focus-color;
+}
+.form-control:focus {
+    border-color: $focus-color;
+}
+
+.panel {
+    border-width:2px;
+}
+
+.panel .panel-heading,
+.alert {
     color:$text-color;
-    &:hover,
-    &:focus {
-        color:black;
+    a {
+        color:$text-color;
+        text-decoration:underline;
+        &:hover,
+        &:focus {
+            color:black;
+        }
     }
 }
 

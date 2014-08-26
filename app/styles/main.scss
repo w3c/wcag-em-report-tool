@@ -1,5 +1,6 @@
 $textcolor-light: #767676;
 $brand-primary: #2570B0;
+$navbar-default-link-color: #727272;
 $font-size-base: 15px;
 $panel-body-padding: 7px 15px;
 $gray-light: #767676;
@@ -53,9 +54,15 @@ table {
 
 input, textarea, select {
     &.form-control {
+        @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+        &:focus {
+            @include gradient-vertical(#EEE, #FFF, 0, 15px);
+        }
+    }
+    @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+    &:focus {
         @include gradient-vertical(#EEE, #FFF, 0, 15px);
     }
-    @include gradient-vertical(#EEE, #FFF, 0, 15px);
 }
 
 p a {
