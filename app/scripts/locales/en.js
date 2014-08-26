@@ -59,6 +59,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'HD_LOAD': 'Load Evaluation Report',
     'HD_SAVE': 'Save Evaluation Report',
     'HD_STRUCT_SAMPLE': 'Structured Sample',
+    'HD_STRUCT_SAMPLE_SUB': 'Structured Sample Pages',
     'HD_RANDOM_SAMPLE': 'Randomly Selected Sample',
     'HD_SAMPLE': 'Sample of Audited Web Pages and Web Page States',
     'HD_SAMPLE_SELECT': 'Sample to Evaluate',

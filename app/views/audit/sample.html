@@ -16,18 +16,20 @@
   </info-field>
 
   
-  <p><button-collapse target="rootHide" property="essentialFunctionality">
+  <h3><button-collapse target="rootHide" property="essentialFunctionality">
       {{ 'LABEL_ESSENT_FUNC' | translate }}
-  </button-collapse></p>
+  </button-collapse></h3>
   <div class="alert alert-warning" collapse="rootHide.essentialFunctionality"
   ng-bind-html="exploreModel.essentialFunctionality | txtToHtml"></div>
 
-  <p><button-collapse target="rootHide" property="pageTypeVariety">
+  <h3><button-collapse target="rootHide" property="pageTypeVariety">
       {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}
-  </button-collapse></p>
+  </button-collapse></h3>
   <div class="alert alert-warning" collapse="rootHide.pageTypeVariety"
   ng-bind-html="exploreModel.pageTypeVariety | txtToHtml"></div>
 
+  <h3>{{ 'HD_STRUCT_SAMPLE_SUB' | translate }}</h3>
+  
   <input-pages pages="structuredSample.webpage" add-page="addPage(structuredSample)"
   remove-page="removePage(structuredSample)"></input-pages>
 
