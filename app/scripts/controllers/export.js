@@ -3,7 +3,7 @@
 angular.module('wcagReporter')
 .controller('ExportCtrl', function ($scope, wcagReporterExport) {
 
-    $scope.exportUrl = wcagReporterExport.getBlob();
+    $scope.exportUrl = wcagReporterExport.getBlobUrl();
     $scope.exportFile = wcagReporterExport.getFileName();
     $scope.postSettings = wcagReporterExport.storage.settings;
     $scope.posted = false;
@@ -24,6 +24,8 @@ angular.module('wcagReporter')
             $scope.posted = false;
         });
     };
+
+    $scope.openBlobIE = wcagReporterExport.saveBlobIE;    
 
     $scope.updateSettings = function () {
         wcagReporterExport.storage.updateSettings();

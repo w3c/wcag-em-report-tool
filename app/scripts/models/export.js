@@ -39,31 +39,38 @@ angular.module('wcagReporter')
 		},
 
 		getString: function () {
-			return angular.toJson(this.getJson(), true);
+			return angular.toJson(exportModel.getJson(), true);
 		},
 
-		getBlob: function () {
-			return exportModel.makeBlob(
-				exportModel.getString(),
-				'application/json;charset=utf-8'
-			);
-		},
-
-		makeBlob: function (data, type) {
-			// Create a blob for that URL
-			var blob =  new Blob([ data ],{ type : type });
-			// Take the URL
+		getBlobUrl: function (blob) {
+			blob = blob || exportModel.getBlob();
 			return (window.URL || window.webkitURL).createObjectURL(blob);
 		},
 
-		getFileName: function () {
-			var title = evalModel.reportModel.title;
+		saveBlobIE: function (blob, filename) {
+			blob = blob || exportModel.getBlob();
+			filename = filename || exportModel.getFileName();
+
+			if (window.navigator.msSaveOrOpenBlob) {
+	            window.navigator.msSaveBlob(blob, filename);
+	        }
+		},
+
+		getBlob: function (data, type) {
+			data = data || exportModel.getString();
+			type = type || 'application/json;charset=utf-8';
+			return new Blob([data], { type: type });
+		},
+
+		getFileName: function (title, ext) {
+			title = title || evalModel.reportModel.title;
+			ext = ext || 'json';
 			if (title === '') {
 				title = 'evaluation';
 			}
 			return title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
             .toLowerCase()
-            .replace(/[\/_| -]+/g, '-') + '.json';
+            .replace(/[\/_| -]+/g, '-') + '.' + ext;
 		}
 	};
 

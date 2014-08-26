@@ -11,10 +11,11 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item"><a download="{{exportHtmlFile}}"
-        target="_blank" id="html_download_link">
+        ng-click="saveHtmlBlobIE()" target="_blank" id="html_download_link">
           {{'BTN_SAVE_HTML' | translate}}
       </a></li>
       <li class="list-group-item"><a download="{{exportJsonFile}}"
+        ng-click="saveJsonBlobIE()"
         target="_blank" href="{{exportJsonUrl}}">
           {{'BTN_SAVE_JSON' | translate}}
       </a></li>

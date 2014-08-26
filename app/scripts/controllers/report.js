@@ -3,7 +3,10 @@
 angular.module('wcagReporter')
 .controller('ReportCtrl', function ($scope, $document, $interval, $timeout,
 		evalModel, wcag20spec, appState, wcagReporterExport) {
-	
+	var htmlBlob,
+        htmlFileName = evalModel.reportModel.title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
+    .toLowerCase().replace(/[\/_| -]+/g, '-');
+
 	$scope.state = appState.moveToState('save');
     $scope.scope = evalModel.scopeModel;
     $scope.explore = evalModel.exploreModel;
@@ -23,15 +26,26 @@ angular.module('wcagReporter')
 
     $scope.$on('reportReady', function(e, data) {
         var html = tpl[0] + data.html() + tpl[1];
-        var blob = wcagReporterExport.makeBlob(
+
+        htmlBlob = wcagReporterExport.getBlob(
             html, 'text/html;charset=utf-8'
         );
-        $document.find('#html_download_link').attr('href', blob);
+        $document.find('#html_download_link').attr('href',
+            wcagReporterExport.getBlobUrl(htmlBlob));
     });
 
-    $scope.exportHtmlFile = evalModel.reportModel.title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
-    .toLowerCase().replace(/[\/_| -]+/g, '-') + '.html';
+    $scope.saveJsonBlobIE = function () {
+        wcagReporterExport.saveBlobIE();
+    };
 
-    $scope.exportJsonUrl = wcagReporterExport.getBlob();
+    $scope.saveHtmlBlobIE = function () {
+        if (htmlBlob) {
+            wcagReporterExport.saveBlobIE(htmlBlob, $scope.exportHtmlFile);
+        }
+    };
+
+    $scope.exportHtmlFile = (htmlFileName || 'report') + '.html';
+
+    $scope.exportJsonUrl = wcagReporterExport.getBlobUrl();
     $scope.exportJsonFile = wcagReporterExport.getFileName();    
 });
