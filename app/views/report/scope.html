@@ -4,24 +4,24 @@
 
   <tr>
     <th>{{'LABEL_SITE_SCOPE' | translate}}</th>
-  	<td ng-bind-html="scope.website.siteScope | txtToHtml"></td>
+  	<td data-ng-bind-html="scope.website.siteScope | txtToHtml"></td>
   </tr>
 
   <tr><th>{{ 'LABEL_CONFORMANCE_TGT' | translate }}</th>
       <td>{{scope.conformanceTarget | rdfToLabel}}</td></tr>
 
   <tr><th>{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}</th>
-      <td>{{scope.additionalEvalRequirement}}</td></tr>
+      <td data-ng-bind-html="scope.additionalEvalRequirement | txtToHtml"></td></tr>
 
   <tr><th>{{ 'LABEL_SUPPORT_BASE' | translate }}</th>
-      <td>{{scope.accessibilitySupportBaseline}}</td></tr>
+      <td data-ng-bind-html="scope.accessibilitySupportBaseline | txtToHtml"></td></tr>
 
-  <tr ng-if="explore.reliedUponTechnology.length > 0">
+  <tr data-ng-if="explore.reliedUponTechnology.length > 0">
     <th>{{ 'LABEL_RELIEDUP_TECH' | translate }}</th>
-    <td><ul><li ng-repeat="tech in explore.reliedUponTechnology">
-		<a ng-if="tech.specs" href="{{tech.specs}}" target="_blank">
+    <td><ul><li data-ng-repeat="tech in explore.reliedUponTechnology">
+		<a data-ng-if="tech.specs" href="{{tech.specs}}" target="_blank">
 		  {{tech.title}}
-		</a><span ng-if="!tech.specs">
+		</a><span data-ng-if="!tech.specs">
 		  {{tech.title}}
 		</span>
     </li></ul></td>

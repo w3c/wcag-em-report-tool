@@ -1,15 +1,15 @@
-<div ng-controller="ReportCriteriaCtrl">
+<div data-ng-controller="ReportCriteriaCtrl">
   <h2>{{ 'HD_CRITERIA_REPORT' | translate }}</h2>
 
-  <div  ng-repeat="p in principles">
+  <div  data-ng-repeat="p in principles">
     <h3>{{ 'PRINCIPLE'| translate }} {{p.number}} {{p.title}}</h3>
     
-    <div ng-repeat="g in p.guidelines">
+    <div data-ng-repeat="g in p.guidelines">
       <h4>{{g.number}} {{g.title}}</h4>
 
-      <success-criterion ng-repeat="critSpec in g.criteria"
+      <success-criterion data-ng-repeat="critSpec in g.criteria"
       assertion="getCritAssert(critSpec.uri)"
-      ng-if="getCritAssert(critSpec.uri)" requirement="critSpec" options="critOpt">
+      data-ng-if="getCritAssert(critSpec.uri)" requirement="critSpec" options="critOpt">
       </success-criterion>
     </div>
     
