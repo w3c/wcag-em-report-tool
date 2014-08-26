@@ -10,7 +10,10 @@ angular.module('wcagReporter')
 
     $scope.state = appState.moveToState('test'); 
     $scope.principles = wcag20spec.getPrinciples();
-
+    
+    $scope.sampleChange = function () {
+        $scope.$broadcast('audit:sample-change');
+    };
 
     $scope.getCritAssert = evalTestModel.getCritAssert;
 

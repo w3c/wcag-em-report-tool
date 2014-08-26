@@ -7,16 +7,19 @@ angular.module('wcagReporter')
         replace: true,
         scope: {
             criterion: '=value',
+            asserts: '=',
             opt: '=options'
         },
 
         link: function (scope) {
-        	scope.getMultiPageAsserts = scope.criterion.getMultiPageAsserts;
-
             scope.removeAssert = function (assert) {
                 var index = scope.criterion.hasPart.indexOf(assert);
                 if (index >= 0) {
                     scope.criterion.hasPart.splice(index, 1);
+                }
+                index = scope.asserts.indexOf(assert);
+                if (index >= 0) {
+                    scope.asserts.splice(index, 1);
                 }
             };
 

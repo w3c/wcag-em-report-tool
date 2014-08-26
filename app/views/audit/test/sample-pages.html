@@ -9,11 +9,11 @@
 </info-field>
 
 <ul class="sample" collapse="hideSample">
-	<li class="" ng-repeat="page in allPages()"
+	<li ng-repeat="page in allPages()"
   ng-class="{active: page.selected}">
     
     <label for="sample_select_{{$id}}">
-      <input id="sample_select_{{$id}}" 
+      <input id="sample_select_{{$id}}"  ng-change="sampleChange()"
       type="checkbox" ng-model="page.selected">&nbsp;{{page.handle}}&nbsp;
       <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
     </label>

@@ -1,18 +1,27 @@
-<div class="">
+<div>
 <!--
   <div class="btn-group criterion-btn-group" ng-if="opt.editable">
   	<button class="btn btn-default btn-sm" ng-click="addMultiPage()">
        {{ 'BTN_ADD_MACRO_ASSERT' | translate}} 
     </button>
   </div>
+-->
 
-  <macro-results ng-if="getMultiPageAsserts().length > 0"
-  class="panel-body assert-indent appear-tall"
+  <macro-results ng-if="multiPageAsserts.length > 0"
+  class="panel-body assert-indent appear"
+  asserts="multiPageAsserts"
   value="criterion" options="opt"></macro-results>
 
-  <hr ng-if="getMultiPageAsserts().length > 0" />
- -->
-  <page-results class="panel-body assert-indent"
+  <hr ng-if="multiPageAsserts.length > 0" />
+
+  <page-results ng-if="singlePageAsserts.length > 0"
+  class="panel-body assert-indent appear"
+  asserts="singlePageAsserts"
   value="criterion" options="opt"></page-results>
+  
+  <div ng-if="singlePageAsserts.length === 0 && opt.editable"
+  class="panel-body assert-indent appear no-selection">
+    {{ 'NO_PAGE_SELECTED' | translate}}
+  </div>
 
 </div>
