@@ -18,7 +18,11 @@ button.glyphicon-copy {
 
 .panel {
     border-width:2px;
+    &.panel-primary .panel-heading {
+        color:white;
+    }
 }
+
 
 .panel .panel-heading,
 .alert {

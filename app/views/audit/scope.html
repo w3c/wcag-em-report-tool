@@ -93,14 +93,4 @@
   </div>
 </form>
 
-<footer><ul class="nav nav-pills">
-  <li><a href="#/start">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}
-  </a></li>
-  <li class="pull-right active">
-    <a href="#/audit/explore" ng-click="processInput()">
-      {{'NEXT_STEP' | translate}} 
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
-</ul></footer>
+<nav ng-include src="'views/step-buttons.html'"></nav>

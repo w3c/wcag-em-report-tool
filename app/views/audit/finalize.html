@@ -113,12 +113,4 @@
 
 <div ng-include src="'views/report/findings.html'"></div>
 
-<ul class="nav nav-pills">
-  <li><a href="#/audit/test">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}
-  </a></li>
-  <li class="pull-right active"><a href="#/report">
-      {{'OPEN_FINAL_REPORT' | translate}}
-  </a></li>
-</ul>
+<nav ng-include src="'views/step-buttons.html'"></nav>

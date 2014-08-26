@@ -148,14 +148,4 @@
 
 </form>
 
-<ul class="nav nav-pills">
-  <li><a href="#/audit/scope">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}
-  </a></li>
-  <li class="pull-right active">
-    <a ng-click="processInput()" href="#/audit/sample">
-      {{'NEXT_STEP' | translate}}
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
-</ul>
+<nav ng-include src="'views/step-buttons.html'"></nav>

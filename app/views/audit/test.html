@@ -13,13 +13,4 @@
   	ng-include src="'views/audit/test/criteria.html'"></div>
 </div>
 
-<ul class="nav nav-pills">
-  <li><a href="#/audit/sample">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}</a></li>
-  <li class="pull-right active"><a href="#/audit/finalize">
-      {{'NEXT_STEP' | translate}}
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
-</ul>
-
+<nav ng-include src="'views/step-buttons.html'"></nav>

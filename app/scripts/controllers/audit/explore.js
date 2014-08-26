@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditExploreCtrl', function ($scope, appState, evalExploreModel) {
+.controller('AuditExploreCtrl', function ($scope, appState, evalExploreModel, $location) {
     $scope.state = appState.moveToState('explore');
     $scope.explore = evalExploreModel;
     $scope.knownTech = evalExploreModel.knownTech;
@@ -58,6 +58,14 @@ angular.module('wcagReporter')
         if (techMap[tech.title]) {
             tech.id = techMap[tech.title];
         }
+    };
+
+    $scope.nextStep = function () {
+        $location.path('/audit/sample');
+    };
+
+    $scope.previousStep = function () {
+        $location.path('/audit/scope');
     };
 
 });

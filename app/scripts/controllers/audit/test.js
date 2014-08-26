@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter') 
 .controller('AuditTestCtrl', function ($scope, appState, wcag20spec, Page,
-             evalScopeModel, evalTestModel, evalSampleModel) {
+             evalScopeModel, evalTestModel, evalSampleModel, $location) {
 
     evalTestModel.updateToConformance();
 
@@ -34,6 +34,14 @@ angular.module('wcagReporter')
 
     $scope.openPage = function (clickedPage) {
         Page.windowOpen(clickedPage);
+    };
+
+    $scope.nextStep = function () {
+        $location.path('/audit/finalize');
+    };
+
+    $scope.previousStep = function () {
+        $location.path('/audit/sample');
     };
 
     $scope.completeSelected = function () {

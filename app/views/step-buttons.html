@@ -1,0 +1,13 @@
+<ul class="nav nav-pills">
+  <li ng-if="previousStep">
+    <button ng-click="previousStep()" class="btn btn-default">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      {{'PREV_STEP' | translate}}
+  </button></li>
+
+  <li ng-if="previousStep" class="pull-right">
+    <button ng-click="nextStep()" class="btn btn-primary">
+      {{'NEXT_STEP' | translate}}
+      <span class="glyphicon glyphicon-chevron-right"></span>
+  </button></li>
+</ul>
