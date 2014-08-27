@@ -73,7 +73,6 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         addPageForAsserts: function (page) {
             Object.keys(criteria).forEach(function (critName) {
                 criteria[critName].addPage(page);
-                console.log(criteria[critName].hasPart.length);
             });
         },
 

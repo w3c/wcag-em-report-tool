@@ -125,7 +125,7 @@
   "WCAG_AA": "WCAG 2.0 level AA",
   "WCAG_AAA": "WCAG 2.0 level AAA",
 
-  "PLH_HANDLE": "Short name to help you identify the web page or web page state",
+  "PLH_HANDLE": "Identifier for the page (or state)",
   "PLH_PAGE_URL": "URL or description of the web page or web page state",
   "PLH_TECH": "Name of the web technology that is relied upon for conformance",
   "PLH_TECH_SPEC": "URI or description for the web technology specification",

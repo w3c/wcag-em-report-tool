@@ -41,7 +41,6 @@ angular.module('wcagReporter')
         elm = angular.element(elm)
         .closest('.alert-info')
         .find(selector).last();
-
         return focusable[focusable.index(elm)+1];
     }
 
@@ -55,12 +54,16 @@ angular.module('wcagReporter')
         link: function (scope, elm) {
             elm.hide(0);
             scope.close = function ($event) {
-                var nextElm = angular.element('#' + scope.exitto);
+                var nextElm;
+                
                 if ($event.type === 'keyup' &&
                 ($event.keyCode !== 13 && $event.keyCode !== 27)) {
                     return;
                 }
-                if (!nextElm) {
+                if (scope.exitto) {
+                    nextElm = angular.element('#' + scope.exitto);
+                }
+                if (!nextElm || nextElm.length === 0) {
                     nextElm = getNextFocusElement($event.target);
                 }
                 nextElm.focus();
