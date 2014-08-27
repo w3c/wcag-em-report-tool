@@ -10,11 +10,15 @@ button.glyphicon-copy {
 }
 
 * a:focus,
-* button:focus {
+* button:focus,
+* .dropdown-toggle:focus {
     outline: thin solid $focus-color;
 }
 .form-control:focus {
     border-color: $focus-color;
+}
+.active *:focus {
+    outline-color:white;
 }
 
 .panel {

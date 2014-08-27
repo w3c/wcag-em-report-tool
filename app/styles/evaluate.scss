@@ -16,6 +16,20 @@
     font-size:75%;
 }
 
+.info-box {
+    position:relative;
+    .floater {
+        width:30px;
+        height:30px;
+        float:right;
+    }
+    .close {
+        position:absolute;
+        top:15px;
+        right:15px;
+    }
+}
+
 .confirm-transfer,
 .confirm-remove {
     left: auto;
