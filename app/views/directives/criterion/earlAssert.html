@@ -19,11 +19,8 @@
       <strong>{{'LABEL_OUTCOME' | translate}}</strong>:&nbsp;{{ result.outcome | rdfToLabel }}
     </div>
 
-    <div class="col-sm-8 col-md-9">
-      <strong>{{ 'LABEL_DESCR' | translate }}:&nbsp;</strong>
-      {{result.description}}
-      <em ng-if="!result.description">{{ 'NO_TEXT_PROVIDED' | translate }}</em>
-    </div>
+    <div class="col-sm-8 col-md-9" ng-init=""
+    ng-bind-html="htmlResult"></div>
   </div>
 
 </div>

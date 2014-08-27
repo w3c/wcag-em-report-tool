@@ -9,22 +9,22 @@
   </em></p>
 
   <h2>{{'HD_SUMMARY'| translate}}</h2>
-  {{report.summary}}
+  <div data-ng-bind-html="report.summary | txtToHtml"></div>
 
   <h2>{{'HD_SCOPE' | translate }}</h2>
-  <div ng-include src="'views/report/scope.html'"></div>
+  <div data-ng-include data-src="'views/report/scope.html'"></div>
 
   <h2>{{'HD_SCORE' | translate }}</h2>
-  <div ng-include src="'views/report/score.html'"></div>
+  <div data-ng-include data-src="'views/report/score.html'"></div>
 
-  <div ng-include src="'views/report/findings.html'"></div>
+  <div data-ng-include data-src="'views/report/findings.html'"></div>
 
   <h2>{{'HD_SAMPLE' | translate }}</h2>
-  <div ng-include src="'views/report/sample.html'"></div>
+  <div data-ng-include data-src="'views/report/sample.html'"></div>
 
-  <div ng-if="report.specifics.trim()">
+  <div data-ng-if="report.specifics.trim()">
     <h2>{{'HD_SPECIFICS' | translate }}</h2>
-    <div ng-bind-html="report.specifics | txtToHtml"></div>
+    <div data-ng-bind-html="report.specifics | txtToHtml"></div>
   </div>
 
   <h2>{{'HD_DOCS' | translate }}</h2>

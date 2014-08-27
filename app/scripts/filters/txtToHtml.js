@@ -7,15 +7,14 @@ angular.module('wcagReporter')
         if (typeof text !== 'string') {
             return '';
         }
-
-        return  text.split('\n').reduce(function (cur, line, i) {
+        return text.split('\n').reduce(function (cur, line) {
             if (line.trim() === '') {
                 return cur + '</p><p>';
             } else {
                 line = $filter('linky')(line, '_blank');
-                return cur + (i === 0 ? '' : '<br />') + line;
+                return cur + (cur.substr(-3) === '<p>' ? '' : '<br />') + line;
             }
-        }, '<p>') + '</p>';
+        }, '<p>') +'</p>';
     };
 
 });

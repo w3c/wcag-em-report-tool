@@ -22,6 +22,20 @@ angular.module('wcagReporter')
         },
         link: function (scope) {
             scope.outcomes = outcomes;
+
+            scope.getStaticHtmlResult = function (text) {
+                var html;
+                text = (typeof text === 'string' ? text.trim() : '');
+
+                html = (text !== '' ? $filter('txtToHtml')(text) :
+                '<p><em>' + $filter('translate')('NO_TEXT_PROVIDED') + '</em></p>');
+
+                html = '<p><strong>' +  $filter('translate')('LABEL_DESCR') + ':</strong> ' +
+                        html.substr(3);
+                return html;
+            };
+            scope.htmlResult = scope.getStaticHtmlResult(scope.result.description);
+
         },
         templateUrl: 'views/directives/criterion/earlAssert.html'
     });

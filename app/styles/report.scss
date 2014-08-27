@@ -7,6 +7,10 @@
     border-radius: 10px;
 }
 
+.outcome p:last-child {
+    margin-bottom: 0;
+}
+
 .panel-body {
     &.assert-indent {
         padding-left:15px;
