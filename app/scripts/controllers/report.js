@@ -47,5 +47,6 @@ angular.module('wcagReporter')
     $scope.exportHtmlFile = (htmlFileName || 'report') + '.html';
 
     $scope.exportJsonUrl = wcagReporterExport.getBlobUrl();
-    $scope.exportJsonFile = wcagReporterExport.getFileName();    
+    $scope.exportJsonFile = wcagReporterExport.getFileName();
+
 });
