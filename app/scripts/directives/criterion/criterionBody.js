@@ -21,7 +21,7 @@ angular.module('wcagReporter')
             opt: '=options'
         },
 
-        controller: function ($scope) {
+        controller: ['$scope', function ($scope) {
             if ($scope.opt.editable) {
                 $scope.criterion.setCaseForEachPage();
             }
@@ -30,7 +30,7 @@ angular.module('wcagReporter')
                 $scope.multiPageAsserts = $scope.criterion.getMultiPageAsserts();
                 $scope.singlePageAsserts = singlePageAssert($scope);
             });
-        },
+        }],
 
         link: function (scope) {
             scope.showBody = function () {

@@ -14,9 +14,9 @@ angular.module('wcagReporter')
         restrict: 'E',
         replace: true,
         scope: {
-                assert: '=assertion',
-                spec: '=requirement',
-                opt: '=options'
+            assert: '=assertion',
+            spec: '=requirement',
+            opt: '=options'
         },
         link: function (scope) {
             // scope.outcomes = outcomes;
