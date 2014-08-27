@@ -30,6 +30,7 @@ angular.module('wcagReporter')
 
 
 }).directive('infoField', function(directivePlugin, $document) {
+
     /**
      * Get the next visible element that can receive focus outside the .alert-info
      */
@@ -53,28 +54,18 @@ angular.module('wcagReporter')
         },
         link: function (scope, elm) {
             elm.hide(0);
-
             scope.close = function ($event) {
+                var nextElm = angular.element('#' + scope.exitto);
                 if ($event.type === 'keyup' &&
                 ($event.keyCode !== 13 && $event.keyCode !== 27)) {
                     return;
                 }
-                getNextFocusElement($event.target).focus();
+                if (!nextElm) {
+                    nextElm = getNextFocusElement($event.target);
+                }
+                nextElm.focus();
                 elm.hide(200);
             };
-            // function hide (e) {
-            //     // The div doesn't get a 'click' so 
-            //     // we check for a return keyup
-            //     if (e.type === 'keyup' &&
-            //     (e.keyCode !== 13 && e.keyCode !== 27)) {
-            //         return;
-            //     }
-            //     elm.hide(200, function () {
-            //         angular.element('#' + scope.exitto).focus();
-            //     });
-            // }
-            // elm.on('keyup', hide)
-            // .find('button').on('click', hide);
         },
         replace: true,
         transclude: true,
