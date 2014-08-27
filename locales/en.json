@@ -99,7 +99,6 @@
   "LABEL_RELIEDUP_TECH": "Web technologies relied upon",
   "LABEL_COMMON_PAGES": "Common web pages",
   "LABEL_ESSENT_FUNC": "Essential functionality of the website",
-  "LABEL_VARIETY_PAGE_TYPES": "Variety of web page types",
   "LABEL_OTHER_PAGES": "Other relevant web pages",
   "LABEL_COMMISSIONER": "Evaluation commissioner",
   "LABEL_CREATOR": "Evaluator",
@@ -127,7 +126,7 @@
 
   "PLH_HANDLE": "Identifier for the page (or state)",
   "PLH_PAGE_URL": "URL or description of the web page or web page state",
-  "PLH_TECH": "Name of the web technology that is relied upon for conformance",
+  "PLH_TECH": "E.g. HTML5, CSS, DOM",
   "PLH_TECH_SPEC": "URI or description for the web technology specification",
   "PLH_ASSERT_DESC": "Observations made during evaluation",
 
@@ -181,6 +180,8 @@
 
   "BY" : "Report Creator:",
   "COMMISION_BY": "Evaluation Commissioner:",
+  "HD_ESSENT_FUNC": "Essential functionality (from previous step)",
+  "HD_VARIETY_PAGE_TYPES": "Variety of web page types (from previous step)",
   "HD_SPECIFICS": "Recording of evaluation specifics",
   "HD_DOCS": "Related WCAG 2.0 resources",
   "HD_SCORE": "Overview of audit results",
