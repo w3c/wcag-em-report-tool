@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .controller('AuditSampleCtrl', function ($scope, appState, $location,
-evalExploreModel, evalSampleModel) {
+evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
@@ -22,12 +22,16 @@ evalExploreModel, evalSampleModel) {
 
     $scope.addPage = function (sample) {
         return function () {
-            return evalSampleModel.addNewPage(sample);
+            var page = evalSampleModel.addNewPage(sample);
+            evalTestModel.addPageForAsserts(page);
+            return page;
         };
     };
+
     $scope.removePage = function (sample) {
         return function (index) {
-            evalSampleModel.removePage(sample, index);
+            var page = evalSampleModel.removePage(sample, index);
+            evalTestModel.removePageFromAsserts(page);
             evalExploreModel.updatePages();
         };
     };

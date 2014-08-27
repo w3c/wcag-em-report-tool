@@ -28,8 +28,7 @@ angular.module('wcagReporter')
         description: undefined,
         handle: '',
         tested: false,
-        selected: true,
-        
+        selected: false
     };
 
     return Page;

@@ -46,6 +46,7 @@ angular.module('wcagReporter')
         if (angular.isNumber(pageNum) && pageNum >= 0) {
             page = sample.webpage.splice(pageNum, 1)[0];
         }
+        return page;
     };
 
     sampleModel.addNewPage = function (sample) {

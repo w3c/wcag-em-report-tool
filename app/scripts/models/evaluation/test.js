@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalTestModel', function(evalSampleModel, TestCaseAssert,
-        evalScopeModel, wcag20spec, CriterionAssert) {
+.service('evalTestModel', function(TestCaseAssert,
+evalScopeModel, wcag20spec, CriterionAssert) {
 
     var testModel,
         criteria = {};
@@ -68,6 +68,19 @@ angular.module('wcagReporter')
                 }
             }
             criteria[newCrit.testRequirement] = newCrit;
+        },
+
+        addPageForAsserts: function (page) {
+            Object.keys(criteria).forEach(function (critName) {
+                criteria[critName].addPage(page);
+                console.log(criteria[critName].hasPart.length);
+            });
+        },
+
+        removePageFromAsserts: function (page) {
+            Object.keys(criteria).forEach(function (critName) {
+                criteria[critName].removePage(page);
+            });
         },
 
         updateToConformance: function () {

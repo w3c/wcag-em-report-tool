@@ -25,6 +25,26 @@ TestCaseAssert, wcag20spec, currentUser) {
                 return page.multiPage === true;
             });
         };
+
+        this.addPage = function (page) {
+            this.addTestCaseAssertion({
+                subject:[page],
+            });
+        };
+
+        this.removePage = function (page) {
+            var parts = this.hasPart;
+            parts.forEach(function (assert, partIndex) {
+                var subjIndex = assert.subject.indexOf(page);
+                if (subjIndex !== -1) {
+                    if (assert.multiPage) {
+                        parts.subject.splice(subjIndex, 1);
+                    } else {
+                        parts.splice(partIndex, 1);
+                    }
+                }
+            });
+        };
     }
 
     CriterionAssert.prototype = {

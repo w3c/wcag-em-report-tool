@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditExploreCtrl', function ($scope, appState, evalExploreModel, $location) {
+.controller('AuditExploreCtrl', function ($scope, appState, 
+evalExploreModel, evalTestModel, $location) {
+
     $scope.state = appState.moveToState('explore');
     $scope.explore = evalExploreModel;
     $scope.knownTech = evalExploreModel.knownTech;
@@ -37,15 +39,17 @@ angular.module('wcagReporter')
         $scope.explore.addReliedUponTech();
     };
 
-    $scope.addPage =    function (prop) {
+    $scope.addPage = function (prop) {
         return function () {
-            evalExploreModel.addPageToProp(evalExploreModel[prop]);
+            var page = evalExploreModel.addPageToProp(evalExploreModel[prop]);
+            evalTestModel.addPageForAsserts(page);
         };
     };
 
     $scope.removePage = function (prop) {
         return function (index) {
-            evalExploreModel.removePageToProp(evalExploreModel[prop], index);
+            var page = evalExploreModel.removePageFromProp(evalExploreModel[prop], index);
+            evalTestModel.removePageFromAsserts(page);
         };
     };
 
