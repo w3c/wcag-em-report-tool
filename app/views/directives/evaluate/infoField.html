@@ -1,5 +1,5 @@
-<div class="alert alert-info" id="{{ref}}" tabindex="-1">
-  <button class="close" style="">
+<div class="alert alert-info" id="{{ref}}" tabindex="-1" ng-keyup="close($event)">
+  <button class="close" ng-click="close($event)">
     <span class="glyphicon glyphicon-remove"></span>
     <span class="sr-only">{{button}}</span>
   </button>
