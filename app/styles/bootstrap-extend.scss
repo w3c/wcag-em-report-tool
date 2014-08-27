@@ -9,8 +9,9 @@ button.glyphicon-copy {
     height:23px;
 }
 
-* a:focus {
-    outline: 5px auto $focus-color;
+* a:focus,
+* button:focus {
+    outline: thin solid $focus-color;
 }
 .form-control:focus {
     border-color: $focus-color;
