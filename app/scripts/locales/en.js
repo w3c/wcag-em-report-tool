@@ -97,6 +97,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'LABEL_COMMON_PAGES': 'Common web pages',
     'LABEL_ESSENT_FUNC': 'Essential functionality of the website',
     'LABEL_OTHER_PAGES': 'Other relevant web pages',
+    'LABEL_VARIETY_PAGE_TYPES': 'Variety of web page types',
     'LABEL_COMMISSIONER': 'Evaluation commissioner',
     'LABEL_CREATOR': 'Evaluator',
     'LABEL_TITLE': 'Report title',
