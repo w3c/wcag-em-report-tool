@@ -19,6 +19,7 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.2",
     "grunt-google-cdn": "~0.2.0",
+    "grunt-json-angular-translate": "~0.1.13",
     "grunt-karma": "^0.8.3",
     "grunt-newer": "~0.6.1",
     "grunt-ngmin": "~0.0.2",
@@ -27,11 +28,12 @@
     "grunt-usemin": "~2.0.0",
     "jshint-stylish": "~0.1.3",
     "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.0",
     "karma-ng-scenario": "^0.1.0",
     "load-grunt-tasks": "~0.4.0",
-    "time-grunt": "~0.2.1",
-    "grunt-json-angular-translate": "~0.1.13"
+    "time-grunt": "~0.2.1"
   },
   "engines": {
     "node": ">=0.10.0"
