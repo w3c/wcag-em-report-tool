@@ -20,6 +20,10 @@ angular.module('wcagReporter')
             accessibilitySupportBaseline: scopeModel.accessibilitySupportBaseline
         };
     };
+
+    scopeModel.conformanceOptions = [
+        'wcag20:level_a', 'wcag20:level_aa', 'wcag20:level_aaa'
+    ];
     
     /**
      * Returns an array of errors indicating which (if any) properties are invalid

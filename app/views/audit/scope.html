@@ -44,17 +44,9 @@
       : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
     </info-field>
 
-    <select ng-model="evalScope.conformanceTarget" 
-            id="conformance_target" class="form-control">
-      <option value="wcag20:level_a">
-        {{ 'WCAG_A' | translate }}
-      </option>
-      <option value="wcag20:level_aa">
-        {{ 'WCAG_AA' | translate }}
-      </option>
-      <option value="wcag20:level_aaa">
-        {{ 'WCAG_AAA' | translate }}
-      </option>
+    <select id="conformance_target" class="form-control" 
+    ng-options="key as value for (key,value) in conformanceOptions"
+    ng-model="evalScope.conformanceTarget">
     </select>
   </div>
   

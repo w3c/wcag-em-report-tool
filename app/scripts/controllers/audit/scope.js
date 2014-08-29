@@ -1,9 +1,16 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditScopeCtrl', function ($scope, appState, evalScopeModel, $location) {
+.controller('AuditScopeCtrl', function ($scope, appState, 
+evalScopeModel, $location, $filter) {
 	$scope.state = appState.moveToState('scope');
 	$scope.evalScope = evalScopeModel;
+
+	$scope.conformanceOptions = evalScopeModel.conformanceOptions
+	.reduce(function (tgt, lvl) {
+		tgt[lvl] = $filter('rdfToLabel')(lvl);
+		return tgt;
+	}, {});
 
 	$scope.processInput = function () {
 		var errors = evalScopeModel.validate();
