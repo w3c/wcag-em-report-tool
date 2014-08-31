@@ -17,6 +17,7 @@ module.exports = function (grunt) {
   
   // load plugins
   grunt.loadNpmTasks('grunt-json-angular-translate');
+  grunt.loadNpmTasks('grunt-html2js');
   
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -43,7 +44,32 @@ module.exports = function (grunt) {
         }]
       }
     },
-
+    
+    html2js: {
+      options: {
+        module: 'wcagReporter-templates',
+        quoteChar: '\'',
+        singleModule: true
+        /*htmlmin: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true
+        }, rename: function (val) {
+            // remove '../dist/'
+            return val.substr(8);
+        }*/
+      },
+      main: {
+        src: ['<%= yeoman.dist %>/views/{,*/}*.html'],
+        dest: '<%= yeoman.dist %>/scripts/templates.js'
+      },
+    },
+    
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -100,6 +126,7 @@ module.exports = function (grunt) {
           ]
         }
       },
+      
       dist: {
         options: {
           base: '<%= yeoman.dist %>'
@@ -436,6 +463,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
+    'html2js',
     'htmlmin'
   ]);
 

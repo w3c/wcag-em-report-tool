@@ -19,6 +19,7 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.5.2",
     "grunt-google-cdn": "~0.2.0",
+    "grunt-html2js": "^0.2.8",
     "grunt-json-angular-translate": "~0.1.13",
     "grunt-karma": "^0.8.3",
     "grunt-newer": "~0.6.1",
