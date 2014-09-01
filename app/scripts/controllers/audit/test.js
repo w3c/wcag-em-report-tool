@@ -44,6 +44,10 @@ angular.module('wcagReporter')
         $location.path('/audit/sample');
     };
 
+    $scope.nextStepName = 'STEP_REPORT';
+    $scope.previousStepName = 'STEP_SAMPLE';
+
+
     $scope.completeSelected = function () {
         var pages = $scope.structuredSample.webpage
             .concat($scope.randomSample.webpage);

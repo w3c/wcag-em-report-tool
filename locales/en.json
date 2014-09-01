@@ -47,6 +47,14 @@
   "WZRD_FINALIZE": "5. Report Findings",
   "WZRD_SAVE": "View Report",
 
+  "STEP_START": "Start",
+  "STEP_SCOPE": "Scope",
+  "STEP_EXPLORE": "Explore",
+  "STEP_SAMPLE": "Sample",
+  "STEP_AUDIT": "Audit",
+  "STEP_REPORT": "Report",
+  "STEP_VIEW": "View Report",
+
   "HD_START": "WCAG-EM Report Tool",
   "HD_START_1": "Website Accessibility Evaluation Report Generator",
   "HD_STEP1": "Step 1: Define the Evaluation Scope",

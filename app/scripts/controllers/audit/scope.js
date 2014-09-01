@@ -24,4 +24,7 @@ angular.module('wcagReporter')
         $location.path('/');
     };
 
+    $scope.nextStepName = 'STEP_EXPLORE';
+    $scope.previousStepName = 'STEP_START';
+
 });
