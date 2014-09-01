@@ -59,4 +59,8 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.previousStep = function () {
         $location.path('/audit/explore');
     };
+
+    $scope.nextStepName = 'STEP_AUDIT';
+    $scope.previousStepName = 'STEP_EXPLORE';
+
 });

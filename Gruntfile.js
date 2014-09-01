@@ -30,7 +30,7 @@ module.exports = function (grunt) {
     
     // Translations
     jsonAngularTranslate: {
-      jobName: {
+      createJs: {
         options: {
           moduleName: 'wcagReporter',
         },
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'locales',
           src: '*.json',
-          dest: 'app/scripts/locales',
+          dest: '<%= yeoman.app %>/scripts/locales',
           ext: '.js'
         }]
       }
@@ -58,6 +58,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
       },
+      jsonAngularTranslate: {
+        files: ['locales/*.json'],
+        tasks: ['jsonAngularTranslate:createJs']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -67,6 +71,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/scripts/locales/*.js',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -405,6 +410,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'jsonAngularTranslate',
       'clean:server',
       'bowerInstall',
       'concurrent:server',
@@ -415,6 +421,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'jsonAngularTranslate',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -423,6 +430,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'jsonAngularTranslate',
     'clean:dist',
     'bowerInstall',
     'useminPrepare',

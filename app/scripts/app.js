@@ -25,21 +25,18 @@ angular.module('wcagReporter', [
     }).when('/audit/test', {
         templateUrl: 'views/audit/test.html',
         controller: 'AuditTestCtrl'
+    }).when('/audit/finalize', {
+        templateUrl: 'views/audit/finalize.html',
+        controller: 'AuditFinalizeCtrl'
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
-    }).when('/help', {
-        templateUrl: 'views/help.html',
-        controller: 'HelpCtrl'
     }).when('/import', {
         templateUrl: 'views/import.html',
         controller: 'ImportCtrl'
     }).when('/export', {
         templateUrl: 'views/export.html',
         controller: 'ExportCtrl'
-    }).when('/audit/finalize', {
-        templateUrl: 'views/audit/finalize.html',
-        controller: 'AuditFinalizeCtrl'
     }).otherwise({
         redirectTo: '/'
     });

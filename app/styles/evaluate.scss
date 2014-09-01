@@ -17,7 +17,19 @@
 }
 
 .step-buttons {
-    padding-top:2em;
+    padding: .5em .5em 0;
+    margin-top: 1.5em;
+    border-top: solid 2px #DDD;
+}
+
+.btn.btn-primary-invert {
+    background:white;
+    border:2px solid #2570b0;
+    color:#2570b0;
+    &:focus, &:hover {
+        border-color:#1e5b8e;
+        color:#1e5b8e;
+    }
 }
 
 .info-box {
