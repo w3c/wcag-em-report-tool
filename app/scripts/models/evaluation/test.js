@@ -61,6 +61,10 @@ evalScopeModel, wcag20spec, CriterionAssert) {
             
             for (prop in result) {
                 if (prop === 'hasPart') {
+                    // Make sure hasPart is an array:
+                    if (!angular.isArray(result.hasPart)) {
+                        result.hasPart = [result.hasPart];
+                    }
                     result.hasPart.forEach(
                             newCrit.addTestCaseAssertion, newCrit);
                 } else {
