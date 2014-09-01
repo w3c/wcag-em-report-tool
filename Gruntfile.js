@@ -17,6 +17,7 @@ module.exports = function (grunt) {
   
   // load plugins
   grunt.loadNpmTasks('grunt-json-angular-translate');
+  grunt.loadNpmTasks('grunt-lineending');
   
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -44,6 +45,18 @@ module.exports = function (grunt) {
       }
     },
 
+    lineending: {
+      crlfTranslateFile: {                   // Target
+        options: {              // Target options
+          eol: 'lf',
+          overwrite: true
+        },
+        files: {
+          '': ['<%= yeoman.app %>/scripts/locales/*.js']
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -60,7 +73,7 @@ module.exports = function (grunt) {
       },
       jsonAngularTranslate: {
         files: ['locales/*.json'],
-        tasks: ['jsonAngularTranslate:createJs']
+        tasks: ['jsonAngularTranslate:createJs', 'lineending']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -411,6 +424,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'jsonAngularTranslate',
+      'lineending',
       'clean:server',
       'bowerInstall',
       'concurrent:server',
@@ -422,6 +436,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'jsonAngularTranslate',
+    'lineending',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -431,6 +446,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'jsonAngularTranslate',
+    'lineending',
     'clean:dist',
     'bowerInstall',
     'useminPrepare',

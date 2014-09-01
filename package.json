@@ -21,6 +21,7 @@
     "grunt-google-cdn": "~0.2.0",
     "grunt-json-angular-translate": "~0.1.13",
     "grunt-karma": "^0.8.3",
+    "grunt-lineending": "^0.2.2",
     "grunt-newer": "~0.6.1",
     "grunt-ngmin": "~0.0.2",
     "grunt-rev": "~0.1.0",
