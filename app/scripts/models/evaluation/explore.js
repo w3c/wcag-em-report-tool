@@ -56,11 +56,15 @@ angular.module('wcagReporter')
         });
 
         pageProps.forEach(function (prop) {
-            exploreModel[prop] = evalData[prop].map(function (pageId) {
-                if (typeof pageId === 'string') {
-                    return evalSampleModel.getPageById(pageId);
-                }
-            }).filter(angular.isDefined);
+            if (!angular.isArray(evalData[prop])) {
+                exploreModel[prop] = [];
+            } else {
+                exploreModel[prop] = evalData[prop].map(function (pageId) {
+                    if (typeof pageId === 'string') {
+                        return evalSampleModel.getPageById(pageId);
+                    }
+                }).filter(angular.isDefined);
+            }
         });
     };
 
