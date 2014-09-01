@@ -6,12 +6,12 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
   <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
 </info-field>
 
-<div ng-repeat="p in principles | whereCriteriaVisible">
+<div ng-repeat="p in principles | whereCriteriaVisible: getCritAssert">
   <h3><button-collapse target="p" property="showGuideline">
       {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
   </button-collapse></h3>
   
-  <div ng-repeat="g in p.guidelines | whereCriteriaVisible"
+  <div ng-repeat="g in p.guidelines | whereCriteriaVisible: getCritAssert"
   collapse="p.showGuideline">
     <h4><button-collapse target="g" property="showCritera">
         {{g.number}} {{g.title}}
