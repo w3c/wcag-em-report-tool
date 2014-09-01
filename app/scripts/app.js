@@ -76,9 +76,9 @@ $location, $rootElement) {
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
-    var autosave = $rootElement.attr('autosave');
+    
     wcagReporterExport.storage.init({
-        autosave: (autosave === '' || autosave.toLowerCase() === 'autosave'),
+        autosave: (typeof $rootElement.attr('autosave') === 'string'),
         url: $rootElement.attr('url'),
         saveDelay: ($rootElement.attr('save-delay') || 1500)
     });
@@ -87,4 +87,3 @@ $location, $rootElement) {
         wcagReporterImport.getFromUrl();
     }
 });
-
