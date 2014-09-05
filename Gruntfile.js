@@ -153,6 +153,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      distView: '<%= yeoman.dist %>/views',
       server: '.tmp'
     },
 
@@ -217,9 +218,8 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{scripts,vendor}*.js',
+            '<%= yeoman.dist %>/scripts/*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
           ]
         }
       }
@@ -271,33 +271,29 @@ module.exports = function (grunt) {
       }
     },
 
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
     htmlmin: {
+      options: {
+        removeComments: true,
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        collapseBooleanAttributes: true,
+        removeCommentsFromCDATA: true,
+        removeOptionalTags: true,
+        removeAttributeQuotes: true
+      },
       dist: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true,
-          removeAttributeQuotes: true,
-          keepClosingSlash: true
-        },
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/**/*.html'],
+          src: ['*.html'],
+          dest: '<%= yeoman.dist %>'
+        }]
+      },
+      distView: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: ['views/**/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -338,8 +334,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/**/*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*',
-            'scripts/{dev_inject_dummydata,jsonld}.js',
+            'fonts/*'
           ]
         }, {
           expand: true,
@@ -372,8 +367,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
-        'svgmin'
+        'imagemin'
       ]
     },
 
@@ -394,14 +388,11 @@ module.exports = function (grunt) {
       options: {
         //sourceMap: true,
       },
-      jsonld: {
-        options: {
-          mangled: false
-        },
+      dist: {
         files: {
-          '<%= yeoman.dist %>/scripts/jsonld.js': [
-            '<%= yeoman.dist %>/scripts/jsonld.js'
-          ]
+          '<%= yeoman.dist %>/scripts/scripts.js': ['<%= yeoman.dist %>/scripts/scripts.js'],
+          '<%= yeoman.dist %>/scripts/templates.js': ['<%= yeoman.dist %>/scripts/templates.js'],
+          '<%= yeoman.dist %>/scripts/vendor.js': ['<%= yeoman.dist %>/scripts/vendor.js']
         }
       }
     },
@@ -453,11 +444,13 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
+    'htmlmin:distView',
+    'html2js',
     'uglify',
     'rev',
     'usemin',
-    'htmlmin',
-    'html2js'
+    'clean:distView',
+    'htmlmin:dist'
   ]);
 
   grunt.registerTask('default', [
