@@ -1,4 +1,8 @@
 $body-bg: #f5f5f5;
+$panel-bg: $body-bg;
+$navbar-default-bg: #e8e8e8;
+$panel-default-heading-bg: $navbar-default-bg;
+$input-border: #aaa;
 $textcolor-light: #767676;
 $brand-primary: #2570B0;
 $navbar-default-link-color: #727272;
@@ -55,14 +59,14 @@ table {
 
 input, textarea, select {
     &.form-control {
-        @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+        @include gradient-vertical(#EEE, #FFF, 0, 15px);
         &:focus {
-            @include gradient-vertical(#EEE, #FFF, 0, 15px);
+            @include gradient-vertical(#F8F8F8, #FFF, 0, 15px);
         }
     }
-    @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+    @include gradient-vertical(#EEE, #FFF, 0, 15px);
     &:focus {
-        @include gradient-vertical(#EEE, #FFF, 0, 15px);
+        @include gradient-vertical(#F8F8F8, #FFF, 0, 15px);
     }
 }
 
@@ -73,10 +77,6 @@ li a {
 
 * {
     @include placeholder($textcolor-light);
-}
-button[disabled] {
-    color:gray;
-    font-style:italic;
 }
 .no-selection {
     text-align:center;

@@ -67,7 +67,7 @@
     li {
         padding:0;
         border-bottom:1px $navbar-default-border solid;
-        background:white;
+        background:$body-bg;
         @include transition(100ms linear background);
         position:relative;
 
@@ -89,7 +89,7 @@
         }
     }
     li.active {
-        background:#EEE;
+        background:#E8E8E8;
         border-bottom-color:#DDD;
     }
 }

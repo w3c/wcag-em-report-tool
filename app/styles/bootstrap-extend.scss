@@ -9,6 +9,11 @@ button.glyphicon-copy {
     height:23px;
 }
 
+
+body .btn.btn-primary-invert {
+    background-color: $body-bg;
+}
+
 label {
     display:inline;
 }

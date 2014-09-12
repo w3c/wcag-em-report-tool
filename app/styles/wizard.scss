@@ -7,7 +7,7 @@ $wzrd-border-rad: 8px;
 $wzrd-gap: 5px;
 $wzrd-arrow-size: floor($wzrd-v-padding + ($font-size-base/2) + 3px);
 $wzrd-v-padding-outer: 12px;
-$wzrd-bg: #e8e8e8;
+$wzrd-bg: $navbar-default-bg;
 
 .wizard {
     margin:0;
