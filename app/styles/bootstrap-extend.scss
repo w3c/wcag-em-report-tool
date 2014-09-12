@@ -9,6 +9,14 @@ button.glyphicon-copy {
     height:23px;
 }
 
+label {
+    display:inline;
+}
+
+.alert p:last-child {
+    margin-bottom: 0;
+}
+
 * a:focus,
 * button:focus,
 * .dropdown-toggle:focus {
