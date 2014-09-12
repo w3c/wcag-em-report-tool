@@ -44,7 +44,10 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCritAssert: function (idref) {
-            return criteria[idref];
+            var crit = criteria[idref];
+            if (crit && evalScopeModel.matchConformTarget(crit.getSpec().level)) {
+                return  crit;
+            }
         },
 
         getCriteriaSorted: function () {
