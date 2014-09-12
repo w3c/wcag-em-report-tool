@@ -12,6 +12,7 @@ button.glyphicon-copy {
 
 body .btn.btn-primary-invert {
     background-color: $body-bg;
+    padding:5px 11px;
 }
 
 label {
@@ -65,6 +66,12 @@ label {
     .visible-xs-and-sr {
         position:absolute !important;
         top:-9999em;
+    }
+}
+
+@media (max-width: $screen-sm-min) {
+    body .navbar-nav {
+        margin:7px 0;
     }
 }
 
