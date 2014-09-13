@@ -18,6 +18,10 @@ body .btn.btn-primary-invert {
     padding:5px 11px;
 }
 
+body .navbar-nav > li > a {
+    text-decoration: none;
+}
+
 label {
     display:inline;
 }
@@ -70,11 +74,22 @@ label {
         position:absolute !important;
         top:-9999em;
     }
+    body .navbar-nav > li > a {
+        border-left:solid 1px #ccc;
+    }
 }
 
 @media (max-width: $screen-sm-min) {
     body .navbar-nav {
-        margin:7px 0;
+        margin:0;
+        &  > li > a {
+            border-top:solid 1px #ccc;
+        }.dropdown-menu {
+            padding:0;
+            > li > a {
+                border-top:solid 1px #ccc;
+            }
+        }
     }
 }
 
