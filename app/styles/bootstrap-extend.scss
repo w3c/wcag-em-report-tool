@@ -24,6 +24,11 @@ body .navbar-nav > li > a {
 
 label {
     display:inline;
+    &:before {
+        content: "\200B";
+        display: inline-block;
+        margin-bottom: 5px;
+    }
 }
 
 .alert p:last-child {

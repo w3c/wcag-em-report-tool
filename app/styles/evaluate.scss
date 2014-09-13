@@ -163,6 +163,9 @@ textarea.expanding {
     width:100%;
 }
 
-.info-icon {
+a.info-icon {
     font-size:$font-size-base;
+    span.glyphicon.glyphicon-info-sign {
+        top: 2px;
+    }
 }
