@@ -9,7 +9,10 @@ button.glyphicon-copy {
     height:23px;
 }
 
-
+body .btn-default {
+    border-color: #888;
+    background-color: $body-bg;
+}
 body .btn.btn-primary-invert {
     background-color: $body-bg;
     padding:5px 11px;

@@ -85,7 +85,7 @@
       </div>
     </header>
  
-    <div ng-class="row" class="appear"
+    <div ng-class="row" class="appear" id="technologies"
     ng-repeat="tech in explore.reliedUponTechnology">
       <div ng-class="col0">
         <strong>{{ 'ITEM' | translate }} {{$index+1}}</strong>
@@ -125,7 +125,8 @@
       </div>
     </div><!-- /row -->
 
-    <button ng-click="addTechnology()">
+    <button ng-click="addTechnology()" class="btn btn-default">
+      <span class="glyphicon glyphicon-plus-sign"></span>
       {{'BTN_ADD_TECH' | translate }}
     </button>
   </div><!-- /form-group -->
