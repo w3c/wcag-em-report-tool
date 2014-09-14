@@ -72,6 +72,11 @@ $location, $rootElement) {
         $rootElement.focus();
     });
 
+    $rootScope.support = {
+        hasSupport: appState.hasBrowserSupport(),
+        hideMessage: false
+    };
+
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
     //var autosave = $rootElement.attr('autosave');

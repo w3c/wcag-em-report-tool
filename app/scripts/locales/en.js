@@ -200,6 +200,8 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'BTN_LOAD_FILE': 'Load data file',
     'BTN_DOWNLOAD_DATA_FILE': 'Download and save',
     'BTN_BACK_TO_EVAL': 'Back',
+    'BROWSER_NOT_SUPPORTED': 'This web browser is not supported. You will not be able to use all features, which may include loading and saving. Use a web browser for which you have the latest version instead.',
+    'HIDE_MESSAGE': 'Hide message',
     'PREV_STEP': 'Previous step',
     'NEXT_STEP': 'Next step'
   });

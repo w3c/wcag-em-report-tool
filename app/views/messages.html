@@ -1,0 +1,12 @@
+<div class="alert alert-danger"
+ng-if="!support.hasSupport"
+collapse="support.hideMessage">
+  <span class="floater"></span>
+  
+  <p ng-bind="'BROWSER_NOT_SUPPORTED' | translate"></p>
+
+  <button class="close" ng-click="support.hideMessage = true">
+    <span class="glyphicon glyphicon-remove"></span>
+    <span class="sr-only" ng-bind="'HIDE_MESSAGE' | translate"></span>
+  </button>
+</div>
