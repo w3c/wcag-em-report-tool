@@ -43,8 +43,12 @@ angular.module('wcagReporter')
 		},
 
 		getBlobUrl: function (blob) {
-			blob = blob || exportModel.getBlob();
-			return (window.URL || window.webkitURL).createObjectURL(blob);
+			try {
+				blob = blob || exportModel.getBlob();
+				return (window.URL || window.webkitURL).createObjectURL(blob);
+			} catch (e) {
+				console.error(e);
+			}
 		},
 
 		saveBlobIE: function (blob, filename) {
