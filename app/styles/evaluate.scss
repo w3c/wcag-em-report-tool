@@ -16,6 +16,20 @@
     font-size:75%;
 }
 
+.alert.alert-info.infobox {
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.crit-detail-btn .btn {
+    width:100%;
+    padding:3px 15px;
+}
+
+.key-value-group {
+    margin-bottom:22px;
+}
+
 .step-buttons {
     padding: .5em .5em 0;
     margin-top: 1.5em;
@@ -120,7 +134,7 @@ h3 .collapse-button {
     }
 }
 .form-block-head {
-    padding:1em 0px 0px 15px;
+    padding:0 0 0 15px;
     font-weight:bold;
     text-align:center;
 }

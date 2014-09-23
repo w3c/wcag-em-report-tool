@@ -9,18 +9,34 @@ button.glyphicon-copy {
     height:23px;
 }
 
-body .btn-default {
-    border-color: #888;
-    background-color: $body-bg;
-}
-body .btn.btn-primary-invert {
-    background-color: $body-bg;
-    padding:5px 11px;
+body {
+    .btn-default {
+        border-color: #888;
+        background-color: $body-bg;
+    }
+    .btn.btn-primary-invert {
+        background-color: $body-bg;
+        padding:5px 11px;
+    }
+    .navbar-nav > li > a {
+        text-decoration: none;
+    }
+
+    h1, .h1,
+    h2, .h2,
+    h3, .h3 {
+      margin-top: $line-height-computed;
+      margin-bottom: ($line-height-computed / 3);
+    }
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      margin-top: ($line-height-computed / 1.5);
+      margin-bottom: ($line-height-computed / 3);
+    }
 }
 
-body .navbar-nav > li > a {
-    text-decoration: none;
-}
+
 
 .alert {
     position:relative;
