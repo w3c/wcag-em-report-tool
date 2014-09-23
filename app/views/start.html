@@ -21,13 +21,4 @@
   : ['INTRO_START_3_0', '#/export']"></p>
 </div>
 
-<ul class="nav nav-pills pull-right">
-  <li class="active"><a href="#/audit/scope">
-  	  <span ng-if="state.empty">
-        {{ 'BTN_START_EVAL' | translate }}
-	  </span><span ng-if="!state.empty">
-	    {{ 'BTN_CONTINUE_EVAL' | translate }}
-      </span>
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
-</ul>
+<nav ng-include src="'views/step-buttons.html'"></nav>
