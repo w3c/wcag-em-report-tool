@@ -1,11 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalReportModel', function() {
-    var today = new Date(),
-    dd = today.getDate(),
-    mm = today.getMonth()+1,
-    yyyy = today.getFullYear(),
-    protoModel = {
+angular.module('wcagReporter').service('evalReportModel', function($filter) {
+    var protoModel = {
         creator: '',
         title: '',
         summary: '',
@@ -13,14 +9,7 @@ angular.module('wcagReporter').service('evalReportModel', function() {
         commissioner: ''
     },
     reportModel = Object.create(protoModel);
-     
-    if (dd<10){
-        dd = '0' + dd;
-    } 
-    if (mm<10) {
-        mm = '0' + mm;
-    }
-    protoModel.date = yyyy+'-'+mm+'-'+dd;
+    protoModel.date = $filter('date')(new Date(), 'longDate');
 
     reportModel.exportData = function () {
         var res = angular.copy(reportModel);
