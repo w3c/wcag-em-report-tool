@@ -19,14 +19,22 @@
   <h3><button-collapse target="rootHide" property="essentialFunctionality">
       {{ 'HD_ESSENT_FUNC' | translate }}
   </button-collapse></h3>
-  <div class="alert alert-warning" collapse="rootHide.essentialFunctionality"
-  ng-bind-html="exploreModel.essentialFunctionality | txtToHtml"></div>
+  <div class="alert alert-warning" collapse="rootHide.essentialFunctionality">
+    <div ng-bind-html="exploreModel.essentialFunctionality | txtToHtml"></div>
+    <em ng-if="!exploreModel.essentialFunctionality">
+      {{ 'NO_TEXT_PROVIDED' | translate}}
+    </em>
+  </div>
 
   <h3><button-collapse target="rootHide" property="pageTypeVariety">
       {{ 'HD_VARIETY_PAGE_TYPES' | translate }}
   </button-collapse></h3>
-  <div class="alert alert-warning" collapse="rootHide.pageTypeVariety"
-  ng-bind-html="exploreModel.pageTypeVariety | txtToHtml"></div>
+  <div class="alert alert-warning" collapse="rootHide.pageTypeVariety">
+    <div ng-bind-html="exploreModel.pageTypeVariety | txtToHtml"></div>
+    <em ng-if="!exploreModel.pageTypeVariety" >
+      {{ 'NO_TEXT_PROVIDED' | translate}}
+    </em>
+  </div>
 
   <h3>{{ 'HD_STRUCT_SAMPLE_SUB' | translate }}</h3>
 
