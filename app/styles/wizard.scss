@@ -65,7 +65,10 @@ $wzrd-indent: 1em;
         &.active {
             background:$brand-primary;
             color:$btn-primary-color;
-            a { color:$btn-primary-color; }
+            a { 
+                color:$btn-primary-color;
+                text-decoration: none;
+            }
             &:after {
                 border-left-color:$brand-primary;
             }
