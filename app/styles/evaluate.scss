@@ -136,11 +136,15 @@ h3 .collapse-button {
     position:relative;
     legend {
         font-weight: bold;
+        margin-bottom: 5px;
+        font-size: $font-size-base;
     }
     .form-block {
         padding: 5px 0px 5px 15px;
     }
-    @media (max-width: $screen-xs-max) { 
+    @media (max-width: $screen-xs-max) {
+        margin-top:10px;
+
         .remove-button {
             position:absolute;
             top:0;
