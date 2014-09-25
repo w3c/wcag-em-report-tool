@@ -3,9 +3,7 @@
 angular.module('wcagReporter')
 .controller('ReportCtrl', function ($scope, $document, $interval, $timeout,
 		evalModel, wcag20spec, appState, wcagReporterExport) {
-	var htmlBlob,
-        htmlFileName = evalModel.reportModel.title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
-    .toLowerCase().replace(/[\/_| -]+/g, '-');
+	var htmlBlob;
 
 	$scope.state = appState.moveToState('save');
     $scope.scope = evalModel.scopeModel;
@@ -44,9 +42,8 @@ angular.module('wcagReporter')
         }
     };
 
-    $scope.exportHtmlFile = (htmlFileName || 'report') + '.html';
-
-    $scope.exportJsonUrl = wcagReporterExport.getBlobUrl();
+    $scope.exportHtmlFile = wcagReporterExport.getFileName(undefined, 'html');
+    $scope.exportJsonUrl  = wcagReporterExport.getBlobUrl();
     $scope.exportJsonFile = wcagReporterExport.getFileName();
 
 });

@@ -16,6 +16,17 @@
     font-size:75%;
 }
 
+.to-top {
+    text-align: right;
+    margin-top: -18px;
+    a {
+        text-decoration: underline;
+    }
+}
+.download-link {
+    min-width:300px;
+}
+
 .alert.alert-info.infobox {
     margin-top:5px;
     margin-bottom:10px;
@@ -122,8 +133,23 @@ h3 .collapse-button {
 }
 
 .form-group-inline {
+    position:relative;
+    legend {
+        font-weight: bold;
+    }
     .form-block {
         padding: 5px 0px 5px 15px;
+    }
+    @media (max-width: $screen-xs-max) { 
+        .remove-button {
+            position:absolute;
+            top:0;
+            right:15px;
+            margin-top: -10px;
+        }
+        .right-col {
+            padding-right:15px;
+        }
     }
     label {
         font-weight:normal;

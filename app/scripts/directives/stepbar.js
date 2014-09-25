@@ -18,7 +18,6 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
         transclude: true,
         replace: true,
         link: function (scope) {
-            console.log(scope, scope.active());
             if (!scope.active()) {
                 scope.route = scope.step.route;
             }

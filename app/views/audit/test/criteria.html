@@ -24,5 +24,9 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
     ng-repeat="critSpec in g.criteria"
     assertion="getCritAssert(critSpec.uri)" requirement="critSpec"
     collapse="g.showCritera" options="opt" ></success-criterion>
+
+    <div class="to-top">
+      <a href="" ng-click="toTop()">{{ 'TO_TOP' | translate }}</a>
+    </div>
   </div>
 </div>

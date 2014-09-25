@@ -56,9 +56,9 @@
 
   <div class="form-group key-value-group" 
   ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
-           col1 = 'col-xs-9 col-sm-4 col-md-3 form-block';
-           col2 = 'col-xs-9 col-sm-7 col-md-8 form-block';
-           col3 = 'hidden-xs col-sm-1 form-block';
+           col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
+           col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
+           col3 = 'col-sm-1 form-block remove-button';
            colHide = 'col-xs-3 visible-xs-and-sr form-block';
            row = 'row form-group-inline';
            head = 'row hidden-xs form-block-head';
@@ -85,18 +85,13 @@
         {{'LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
- 
-    <div ng-class="row" class="appear" id="technologies"
+  
+
+    <fieldset class="row form-group-inline appear" id="technologies"
     ng-repeat="tech in explore.reliedUponTechnology">
-      <div ng-class="col0">
-        <strong>{{ 'ITEM' | translate }} {{$index+1}}</strong>
-        <button class="pull-right" ng-class="delButton"
-        ng-click="explore.reliedUponTechnology.splice($index,1)">
-          <span class="sr-only">
-            {{'BTN_REMOVE_TECH' | translate}}
-          </span>
-        </button>
-      </div>
+      <legend ng-class="col0">
+        {{ 'LABEL_TECH' | translate }} {{$index+1}}
+      </legend>
 
       <label ng-class="colHide" for="tech_{{$index}}">
         {{'LABEL_TECH' | translate}}:
@@ -118,13 +113,15 @@
 
       <div ng-class="col3">
         <button ng-class="delButton"
-        ng-click="explore.reliedUponTechnology.splice($index,1)">
+        ng-click="explore.reliedUponTechnology.splice($index,1)"
+        tooltip-trigger="focus blur mouseenter mouseleave"
+        tooltip="{{'BTN_REMOVE_TECH' | translate}}">
           <span class="sr-only">
             {{'BTN_REMOVE_TECH' | translate}}
           </span>
         </button>
       </div>
-    </div><!-- /row -->
+    </fieldset><!-- /row -->
 
     <button ng-click="addTechnology()" class="btn btn-default">
       <span class="glyphicon glyphicon-plus-sign"></span>

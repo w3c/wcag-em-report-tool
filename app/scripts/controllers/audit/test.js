@@ -2,7 +2,8 @@
 
 angular.module('wcagReporter') 
 .controller('AuditTestCtrl', function ($scope, appState, wcag20spec, Page,
-             evalScopeModel, evalTestModel, evalSampleModel, $location) {
+evalScopeModel, evalTestModel, evalSampleModel, $location,
+$rootElement, $anchorScroll) {
 
     evalTestModel.updateToConformance();
 
@@ -68,4 +69,9 @@ angular.module('wcagReporter')
         });
     };
     
+    $scope.toTop = function () {
+        console.log($rootElement);
+        $rootElement.focus();
+        $anchorScroll();
+    };
 });

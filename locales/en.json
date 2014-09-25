@@ -27,6 +27,7 @@
   
   "YES": "Yes",
   "NO": "No",
+  "TO_TOP": "Back to top",
 
   "CLICK_EXPAND": "Click to show section",
   "CLICK_COLLAPSE": "Click to Hide section",
@@ -202,7 +203,7 @@
   "RESULTS_OF": "Results of",
 
   "BTN_ADD_TECH": "Add web technology",
-  "BTN_REMOVE_TECH": "Remove web technology",
+  "BTN_REMOVE_TECH": "Remove technology",
   "BTN_ADD_PAGE": "Add web page or web page state",
   "BTN_START_EVAL": "Start a new evaluation report",
   "BTN_CONTINUE_EVAL": "Continue working on your open evaluation report",
@@ -221,4 +222,5 @@
 
   "PREV_STEP": "Previous step",
   "NEXT_STEP": "Next step"
+
 }
