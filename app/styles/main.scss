@@ -151,9 +151,6 @@ body .branding {
         }
         .wai {
             float:right;
-            a {
-                margin-right:5px;
-            }
             img {
                 @include border-right-radius(2px);
                 @include border-left-radius(2px);
@@ -162,11 +159,11 @@ body .branding {
     }
 }
 
-@media (min-width: $screen-sm-max) {
-    .navbar-nav.navbar-right:last-child {
-        margin-right: 0;
-    }
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
 }
+
 
 @import "bootstrap-extend";
 

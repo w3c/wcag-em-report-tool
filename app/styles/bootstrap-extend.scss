@@ -139,13 +139,10 @@ label {
         margin-top:-5px;
         margin-bottom:5px;
     }
-    .crit-detail-btn {
-        margin:5px 0 !important;
-        .btn {
-            width:100%;
-            padding:4px;
-        }
-    }
+}
+.crit-detail-btn .btn {
+    width:100%;
+    padding:4px;
 }
 
 .form-group .alert {

@@ -42,6 +42,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'BTN_RESULT_COPY': 'Copy this result',
     'MACRO_RESULTS_FOR': 'Issue for',
     'NO_PAGE_SELECTED': 'No pages selected under Sample to Evaluate.',
+    'NO_SAMPLE': 'No sample selected',
     'WZRD_START': 'Start',
     'WZRD_SCOPE': '1. Define Scope',
     'WZRD_EXPLORE': '2. Explore Website',

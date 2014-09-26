@@ -8,6 +8,8 @@
   <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
 </info-field>
 
+<p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
+
 <ul class="sample" collapse="hideSample">
 	<li ng-repeat="page in allPages()"
   ng-class="{active: page.selected}">
