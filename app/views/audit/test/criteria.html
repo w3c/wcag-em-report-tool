@@ -16,17 +16,19 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
     <h4><button-collapse target="g" property="showCritera">
         {{g.number}} {{g.title}}
     </button-collapse></h4>
-  
-    <success-criterion 
-    ng-init="opt = {editable: true, collapses: true};
-             crit = getCritAssert(critSpec.uri)"
-    ng-if="getCritAssert(critSpec.uri)"
-    ng-repeat="critSpec in g.criteria"
-    assertion="getCritAssert(critSpec.uri)" requirement="critSpec"
-    collapse="g.showCritera" options="opt" ></success-criterion>
+    
+    <div collapse="g.showCritera">
+      <success-criterion 
+      ng-init="opt = {editable: true, collapses: true};
+               crit = getCritAssert(critSpec.uri)"
+      ng-if="getCritAssert(critSpec.uri)"
+      ng-repeat="critSpec in g.criteria"
+      assertion="getCritAssert(critSpec.uri)" requirement="critSpec"
+      options="opt" ></success-criterion>
 
-    <div class="to-top">
-      <a href="" ng-click="toTop()">{{ 'TO_TOP' | translate }}</a>
+      <div class="to-top">
+        <a href="" ng-click="toTop()">{{ 'TO_TOP' | translate }}</a>
+      </div>
     </div>
   </div>
 </div>
