@@ -10,6 +10,10 @@ button.glyphicon-copy {
 }
 
 body {
+    .alert {
+        margin-bottom:10px;
+    }
+
     .btn-default {
         border-color: #888;
         background-color: $body-bg;
@@ -21,13 +25,17 @@ body {
     .navbar-nav > li > a {
         text-decoration: none;
     }
-
     h1, .h1,
-    h2, .h2,
     h3, .h3 {
       margin-top: $line-height-computed;
       margin-bottom: ($line-height-computed / 3);
     }
+
+    h2, .h2 {
+      margin-top: ($line-height-computed * 1.5);
+      margin-bottom: ($line-height-computed / 3);
+    }
+
     h4, .h4,
     h5, .h5,
     h6, .h6 {
