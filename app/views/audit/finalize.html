@@ -94,7 +94,7 @@
       <p>{{ 'INF_SUMMARY' | translate }}</p>
     </info-field>
 
-    <textarea id="summary" ng-model="report.summary"
+    <textarea id="summary" ng-model="report.summary" auto-resize
     cols="30" rows="10" class="form-control"></textarea>
   </div></div>
 	
@@ -108,7 +108,7 @@
       : ['INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>
 
-  	<textarea id="specifics" ng-model="report.specifics"
+  	<textarea id="specifics" ng-model="report.specifics" auto-resize
     cols="30" rows="4" class="form-control"></textarea>
   </div></div>
 </form>

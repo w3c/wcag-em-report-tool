@@ -80,6 +80,22 @@ input, textarea, select {
     }
 }
 
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { 
+    textarea {
+        max-height: 250px;
+    }
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) { 
+    textarea {
+        max-height: 350px;
+    }
+}
+@media (min-width: $screen-lg-min) {
+    textarea {
+        max-height: 450px;
+    }
+}
+
 p a,
 li a {
     text-decoration:underline;
