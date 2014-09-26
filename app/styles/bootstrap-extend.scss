@@ -140,9 +140,12 @@ label {
         margin-bottom:5px;
     }
 }
-.crit-detail-btn .btn {
-    width:100%;
-    padding:4px;
+.crit-detail-btn {
+    padding:2px;
+    .btn {
+        width:100%;
+        padding:4px;
+    }
 }
 
 .form-group .alert {
