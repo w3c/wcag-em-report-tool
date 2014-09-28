@@ -15,10 +15,20 @@
 .tag .glyphicon {
     font-size:75%;
 }
+.criterion {
+    .panel-heading {
+        padding-bottom:0;
+    }
+    .criterion-title {
+        margin-bottom: 5px;
+    }
+}
+
 
 .to-top {
     text-align: right;
     margin-top: -18px;
+    margin-bottom:-10px;
     a {
         text-decoration: underline;
         padding:0 5px;
