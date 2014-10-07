@@ -28,6 +28,9 @@ $alert-danger-border: #a94442;
 input:-webkit-autofill {
     background-color: #fff !important;
 }
+.primary-color {
+    color:$brand-primary;
+}
 
 table {
     border-collapse:collapse;
