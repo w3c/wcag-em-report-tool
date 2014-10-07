@@ -26,8 +26,14 @@
     </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
-      <p ng-bind-html="'INF_SITE_SCOPE' | translateAndLink
-      : ['INF_SITE_SCOPE_0', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p>{{ 'INF_SITE_SCOPE_0' | translate }}</p>
+      <ul>
+        <li>{{ 'INF_SITE_SCOPE_LI0' | translate }}</li>
+        <li>{{ 'INF_SITE_SCOPE_LI1' | translate }}</li>
+        <li>{{ 'INF_SITE_SCOPE_LI2' | translate }}</li>
+      </ul>
+      <p ng-bind-html="'INF_SITE_SCOPE_1' | translateAndLink
+      : ['INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.website.siteScope"
@@ -77,8 +83,14 @@
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="additional_requirements">
-      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS' | translateAndLink
-      : ['INF_EXTRA_REQUIREMENTS_0', 'http://www.w3.org/TR/WCAG-EM/#step1d']"></p>
+      <p>{{ 'INF_EXTRA_REQUIREMENTS_0' | translate }}</p>
+      <ul>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI0' | translate }}</li>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI1' | translate }}</li>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI2' | translate }}</li>
+      </ul>
+      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS_1' | translateAndLink
+      : ['INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.additionalEvalRequirement"

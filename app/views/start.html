@@ -6,19 +6,38 @@
 <h2>{{ 'HD_START_1' | translate }}</h2>
 
 <p ng-bind-html="'INTRO_START_1' | translateAndLink
-: ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']"></p>
+: ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']
+: ['INTRO_START_1_1', '#/report']"></p>
 
 <div class="H2-P-combined">
   <h2>{{ 'INTRO_START_2_HD' | translate }}:&nbsp;</h2>
   <p ng-bind-html="'INTRO_START_2' | translateAndLink
   : ['INTRO_START_2_0', 'http://www.w3.org/WAI/intro/wcag']
-  : ['INTRO_START_2_1', 'http://www.w3.org/WAI/eval/preliminary']"></p>
+  : ['INTRO_START_2_1', 'http://www.w3.org/WAI/eval/conformance']"></p>
 </div>
 
-<div class="H2-P-combined">
-  <h2>{{ 'INTRO_START_3_HD' | translate}}:&nbsp;</h2>
-  <p ng-bind-html="'INTRO_START_3' | translateAndLink
-  : ['INTRO_START_3_0', '#/export']"></p>
-</div>
+<p ng-bind-html="'INTRO_START_3' | translateAndLink
+: ['INTRO_START_3_0', 'http://www.w3.org/WAI/eval/preliminary']"></p>
+
+<h2>{{ 'INTRO_START_4_HD' | translate}}</h2>
+<ul>
+  <li>{{ 'INTRO_START_4_LI1' | translate }}</li>
+  <li><strong>{{ 'INTRO_START_4_LI2A' | translate }}</strong>
+    {{ 'INTRO_START_4_LI2B' | translate }}
+  </li>
+  <li>{{ 'INTRO_START_4_LI3' | translate }}</li>
+</ul>
+
+<h2>{{ 'INTRO_START_5_HD' | translate}}</h2>
+<ul>
+  <li>{{ 'INTRO_START_5_LI1' | translate }}</li>
+  <li>
+    {{ 'INTRO_START_5_LI2A' | translate }}
+    <span class="">ICON</span>
+    {{ 'INTRO_START_5_LI2B' | translate }}
+  </li>
+  <li>{{ 'INTRO_START_5_LI3' | translate }}</li>
+</ul>
+
 
 <nav ng-include src="'views/step-buttons.html'"></nav>
