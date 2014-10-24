@@ -28,6 +28,9 @@ $alert-danger-border: #a94442;
 input:-webkit-autofill {
     background-color: #fff !important;
 }
+.primary-color {
+    color:$brand-primary;
+}
 
 table {
     border-collapse:collapse;
@@ -109,7 +112,7 @@ li a {
     font-style:italic;
 }
 
-$footer-height: 137px; 
+$footer-height: 170px; 
 $footer-padding: 20px;
 html.full-page {
     height: 100%;
