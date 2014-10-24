@@ -25,6 +25,12 @@ body {
     .navbar-nav > li > a {
         text-decoration: none;
     }
+
+    h1 + h2,
+    h2 + h3 {
+        margin-top:12px
+    }
+
     h1, .h1,
     h3, .h3 {
       margin-top: $line-height-computed;
@@ -32,7 +38,7 @@ body {
     }
 
     h2, .h2 {
-      margin-top: ($line-height-computed * 1.5);
+      margin-top: $line-height-computed;
       margin-bottom: ($line-height-computed / 3);
     }
 
