@@ -4,6 +4,9 @@
   
   <span ng-transclude></span>
 
-  <span ng-if="!obj[prop]" class="sr-only">{{ 'CLICK_COLLAPSE' | translate }}</span>
-  <span ng-if="obj[prop]" class="sr-only">{{ 'CLICK_EXPAND' | translate }}</span>
+  <span ng-if="!obj[prop]" class="sr-only">
+    {{:: 'CLICK_COLLAPSE' | translate }}
+  </span><span ng-if="obj[prop]" class="sr-only">
+    {{:: 'CLICK_EXPAND' | translate }}
+  </span>
 </a>

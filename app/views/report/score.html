@@ -1,12 +1,12 @@
 <table ng-controller="ReportScoreCtrl">
   <caption>
-    {{ translate('RESULTS_OF') + ' ' + scope.conformanceTarget | rdfToLabel}}
+    {{:: translate('RESULTS_OF') + ' ' + scope.conformanceTarget | rdfToLabel}}
   </caption>
   <thead><tr>
-      <th>{{ 'PRINCIPLE' | translate }}</th>
-      <th>{{ 'PASSED' | translate }}</th>
-      <th>{{ 'FAILED' | translate }}</th>
-      <th>{{ 'NOT_PRESENT' | translate }}</th>
+      <th>{{:: 'PRINCIPLE' | translate }}</th>
+      <th>{{:: 'PASSED' | translate }}</th>
+      <th>{{:: 'FAILED' | translate }}</th>
+      <th>{{:: 'NOT_PRESENT' | translate }}</th>
   </tr></thead>
   <tbody>
     <tr ng-repeat="score in scores">
@@ -16,7 +16,7 @@
       <td>{{score['earl:inapplicable']}}</td>
     </tr>
     <tr class="score-total">
-      <th>Total</th>
+      <th>{{:: 'TOTAL_SCORE' | translate }}</th>
       <td>{{totals['earl:passed']}}</td>
       <td>{{totals['earl:failed']}}</td>
       <td>{{totals['earl:inapplicable']}}</td>
