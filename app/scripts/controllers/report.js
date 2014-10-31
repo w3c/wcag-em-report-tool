@@ -42,7 +42,7 @@ angular.module('wcagReporter')
         }
     };
 
-    $scope.exportHtmlFile = wcagReporterExport.getFileName(undefined, 'html');
+    $scope.exportHtmlFile = wcagReporterExport.getFileName('html');
     $scope.exportJsonUrl  = wcagReporterExport.getBlobUrl();
     $scope.exportJsonFile = wcagReporterExport.getFileName();
 

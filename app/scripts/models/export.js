@@ -66,8 +66,8 @@ angular.module('wcagReporter')
 			return new Blob([data], { type: type });
 		},
 
-		getFileName: function (title, ext) {
-			title = title || (evalModel.scopeModel.website.title +
+		getFileName: function (ext) {
+			var title = (evalModel.scopeModel.website.title +
 			' evaluation report');
 			ext = ext || 'json';
 			title = title.trim();
