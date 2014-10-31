@@ -3,10 +3,10 @@
   <earl-assert class="panel-heading" value="assert.result" options="opt">
 
     <div class="col-xs-12 criterion-title">
-      <strong>{{spec.number}} {{spec.title}}:</strong>
-      <span class="badge">{{spec.level | rdfToLabel}}</span>
+      <strong>{{:: spec.number}} {{:: spec.title}}:</strong>
+      <span class="badge">{{::spec.level | rdfToLabel}}</span>
     </div>
-    <div class="col-xs-12">{{ 'SAMPLE_FINDINGS' | translate }}:</div>
+    <div class="col-xs-12">{{:: 'SAMPLE_FINDINGS' | translate }}:</div>
 
   </earl-assert>
 

@@ -7,18 +7,18 @@
               col3 = 'col-sm-1 form-block remove-button';
               colHide = 'col-xs-3 visible-xs-and-sr form-block'">
     <div ng-class="col1">
-      {{'LABEL_HANDLE' | translate}}</div>
+      {{:: 'LABEL_HANDLE' | translate}}</div>
     <div ng-class="col2">
-      {{'LABEL_PAGE' | translate}}</div>
+      {{:: 'LABEL_PAGE' | translate}}</div>
   </header>
   
   <fieldset class="row form-group-inline appear" ng-repeat="page in pages">
     <legend ng-class="col0">
-      {{ 'ITEM' | translate }} {{$index+1}}
+      {{:: 'ITEM' | translate }} {{$index+1}}
     </legend>
 
     <label ng-class="colHide" for="struct_{{$index}}">
-      {{'LABEL_HANDLE' | translate}}:
+      {{::'LABEL_HANDLE' | translate}}:
     </label>
     <div ng-class="col1">
       <input type="text" class="form-control"
@@ -27,7 +27,7 @@
              placeholder="{{'PLH_HANDLE' | translate}}">
     </div>
     <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{'LABEL_PAGE' | translate }}:
+      {{:: 'LABEL_PAGE' | translate }}:
     </label>
     <div ng-class="col2">
       <input type="text" class="form-control"
@@ -41,7 +41,7 @@
       tooltip-trigger="focus blur mouseenter mouseleave"
       tooltip="{{'BTN_REMOVE_PAGE' | translate}}">
         <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
+          {{:: 'BTN_REMOVE_PAGE' | translate}}
         </span>
       </button>
     </div>
@@ -49,6 +49,6 @@
 
   <button ng-click="addPage()" class="btn btn-default">
     <span class="glyphicon glyphicon-plus-sign"></span>
-    {{'BTN_ADD_PAGE' | translate }}
+    {{:: 'BTN_ADD_PAGE' | translate }}
   </button>
 </div>

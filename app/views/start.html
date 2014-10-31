@@ -1,22 +1,22 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_START') ) }}</h1>
+<h1>{{:: setTitle( translate('HD_START') ) }}</h1>
 
-<h2>{{ 'HD_START_1' | translate }}</h2>
+<h2>{{:: 'HD_START_1' | translate }}</h2>
 
 <p ng-bind-html="'INTRO_START_1' | translateAndLink
 : ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']"></p>
 
 <div class="H2-P-combined">
-  <h2>{{ 'INTRO_START_2_HD' | translate }}:&nbsp;</h2>
+  <h2>{{:: 'INTRO_START_2_HD' | translate }}:&nbsp;</h2>
   <p ng-bind-html="'INTRO_START_2' | translateAndLink
   : ['INTRO_START_2_0', 'http://www.w3.org/WAI/intro/wcag']
   : ['INTRO_START_2_1', 'http://www.w3.org/WAI/eval/preliminary']"></p>
 </div>
 
 <div class="H2-P-combined">
-  <h2>{{ 'INTRO_START_3_HD' | translate}}:&nbsp;</h2>
+  <h2>{{:: 'INTRO_START_3_HD' | translate}}:&nbsp;</h2>
   <p ng-bind-html="'INTRO_START_3' | translateAndLink
   : ['INTRO_START_3_0', '#/export']"></p>
 </div>

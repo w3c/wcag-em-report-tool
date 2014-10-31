@@ -32,6 +32,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'YES': 'Yes',
     'NO': 'No',
     'TO_TOP': 'Back to top',
+    'TOTAL_SCORE': 'Total',
     'CLICK_EXPAND': 'Click to show section',
     'CLICK_COLLAPSE': 'Click to Hide section',
     'CLICK_TO_DELETE': 'Click to delete',
