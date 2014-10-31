@@ -1,18 +1,18 @@
 <div ng-include src="'views/messages.html'"></div>
 
-<h1>{{ setTitle( translate('HD_LOAD') ) }}</h1>
+<h1>{{:: setTitle( translate('HD_LOAD') ) }}</h1>
 
-<p>{{ 'INTRO_LOAD' | translate }}</p>
+<p>{{:: 'INTRO_LOAD' | translate }}</p>
 
 <div class="container form-group">
   <label for="load_json">
-    {{ 'LABEL_SELECT_FILE' | translate }}
+    {{:: 'LABEL_SELECT_FILE' | translate }}
   </label>
   <!-- <div class="drop_zone">
-    {{ 'DROP_FILE_HERE' | translate }}
+    {{:: 'DROP_FILE_HERE' | translate }}
   </div> -->
   <div class="alert alert-info appear" ng-if="fileFeedback.posted">
-    <p>{{ 'MSG_LOADING' | translate }}</p>
+    <p>{{:: 'MSG_LOADING' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
     <p>{{fileFeedback.failure}}</p>
@@ -26,18 +26,18 @@
 </div>
 
 <p><button class="btn btn-primary" ng-click="loadFile()">
-	{{ 'BTN_LOAD_FILE' | translate}}
+	{{:: 'BTN_LOAD_FILE' | translate}}
 </button></p>
 
 <!-- 
-<h2>{{ 'HD_GET_FROM_URL' | translate }}</h2>
+<h2>{{:: 'HD_GET_FROM_URL' | translate }}</h2>
 <form class="form-horizontal">
 
-  <p>{{ 'INTRO_GET_FROM_URL' | translate}}</p>
+  <p>{{:: 'INTRO_GET_FROM_URL' | translate}}</p>
   
   <div class="form-group">
     <div class="col-sm-2 control-label"><label for="url_{{$id}}">
-        {{ 'LABEL_GET_FROM_URL' | translate}}
+        {{:: 'LABEL_GET_FROM_URL' | translate}}
     </label></div>
     <div class="col-sm-4">
       <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
@@ -55,7 +55,7 @@
   </div>
 
   <div class="alert alert-info appear" ng-if="urlFeedback.posted">
-    <p>{{ 'MSG_LOADING' | translate }}</p>
+    <p>{{:: 'MSG_LOADING' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="urlFeedback.failure">
     <p>{{urlFeedback.failure}}</p>
@@ -65,11 +65,11 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
       <button class="btn btn-primary" ng-click="loadUrl()">
-        {{ 'BTN_GET_FROM_URL' | translate }}
+        {{:: 'BTN_GET_FROM_URL' | translate }}
       </button>
     </div>
   </div>
 </form>
  -->
 
-<p><a href="#/audit/scope">{{'BTN_BACK_TO_EVAL' | translate}}</a></p>
+<p><a href="#/audit/scope">{{::'BTN_BACK_TO_EVAL' | translate}}</a></p>
