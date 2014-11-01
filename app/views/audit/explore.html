@@ -86,6 +86,9 @@
       </div>
     </header>
   
+    <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
+      {{:: 'NO_TECH_DEFINED' | translate}}
+    </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"
     ng-repeat="tech in explore.reliedUponTechnology">

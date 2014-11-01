@@ -87,10 +87,6 @@ li a {
 * {
     @include placeholder($textcolor-light);
 }
-.no-selection {
-    text-align:center;
-    font-style:italic;
-}
 
 $footer-height: 170px; 
 $footer-padding: 20px;

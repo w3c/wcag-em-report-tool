@@ -12,16 +12,6 @@ evalExploreModel, evalTestModel, $location) {
     evalExploreModel.reliedUponTechnology.length === 0) {
         evalExploreModel.addReliedUponTech();
     }
-
-    if (evalExploreModel.commonPages && 
-    evalExploreModel.commonPages.length === 0) {
-        evalExploreModel.addCommonPage();
-    }
-    
-    if (evalExploreModel.otherRelevantPages && 
-    evalExploreModel.otherRelevantPages.length === 0) {
-        evalExploreModel.addRelevantPage();
-    }
     
     $scope.processInput = function () {
         var errors = evalExploreModel.validate();

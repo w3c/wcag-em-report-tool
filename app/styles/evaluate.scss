@@ -13,6 +13,17 @@ table {
     }
 }
 
+.no-selection {
+    text-align:center;
+    font-style:italic;
+}
+.key-value-group, .no-selection {
+    text-align: left;
+    line-height: 1.8em;
+    text-indent: 1em;
+}
+
+
 .panel.panel-primary .panel-heading {
     color:white;
 }
