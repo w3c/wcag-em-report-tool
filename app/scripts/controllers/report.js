@@ -20,7 +20,8 @@ angular.module('wcagReporter')
     var tpl = ['<!DOCTYPE html><html lang="en"><head>' +
     '<title>' + evalModel.reportModel.title +  '</title>' +
     '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />'+
-    '</head><body><div class="container">',  '</div></body></html>'];
+    '<link rel="stylesheet" href="report.css" />'+
+    '</head><body><div class="container reporter-view">',  '</div></body></html>'];
 
     $scope.$on('reportReady', function(e, data) {
         var html = tpl[0] + data.html() + tpl[1];

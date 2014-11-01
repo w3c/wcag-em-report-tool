@@ -211,6 +211,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'BTN_IMPORT_EVAL': 'Import evaluation data from a previous session',
     'OPEN_FINAL_REPORT': 'Generate the sample report',
     'BTN_SAVE_HTML': 'Download the evaluation report (HTML)',
+    'BTN_SAVE_CSS': 'Download the report stylesheet (CSS)',
     'BTN_SAVE_JSON': 'Download the evaluation data (JSON)',
     'BTN_EXPAND_PAGES': 'Show results for individual web pages',
     'BTN_COLLAPSE_PAGES': 'Hide results for individual web pages',
