@@ -28,7 +28,12 @@ angular.module('wcagReporter')
         description: undefined,
         handle: '',
         tested: false,
-        selected: false
+        selected: false,
+        prependProtocol: function () {
+            if (this.description && this.description.match(/^([\da-z\.-]+)\.([a-z\.]{2,6})/)) {
+                this.description = 'http://' + this.description;
+            }
+        }
     };
 
     return Page;

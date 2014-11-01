@@ -33,6 +33,7 @@
       <input type="text" class="form-control"
       id="rand_page_desc_{{$index}}"
       ng-model="page.description"
+      ng-blur="page.prependProtocol()"
       placeholder="{{'PLH_PAGE_URL' | translate}}">
     </div>
 
