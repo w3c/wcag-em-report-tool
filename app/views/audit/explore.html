@@ -114,8 +114,9 @@
       <div ng-class="col3">
         <button ng-class="delButton"
         ng-click="explore.reliedUponTechnology.splice($index,1)"
-        tooltip-trigger="focus blur mouseenter mouseleave"
-        tooltip="{{'BTN_REMOVE_TECH' | translate}}">
+        tooltip="{{'BTN_REMOVE_TECH' | translate}}"
+        tooltip-animation="false"
+        tooltip-trigger="focus blur mouseenter mouseleave">
           <span class="sr-only">
             {{'BTN_REMOVE_TECH' | translate}}
           </span>

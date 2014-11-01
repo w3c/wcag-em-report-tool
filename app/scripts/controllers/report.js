@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCtrl', function ($scope, $document, $interval, $timeout, appState,
+.controller('ReportCtrl', function ($scope, $document, $interval, $timeout,
 		evalModel, wcag20spec, appState, wcagReporterExport) {
 	var htmlBlob;
 
@@ -35,7 +35,7 @@ angular.module('wcagReporter')
     $scope.downloadJsonStart = function () {
         wcagReporterExport.saveBlobIE();
         appState.setPrestineState();
-    }
+    };
 
     $scope.saveHtmlBlobIE = function () {
         if (htmlBlob) {

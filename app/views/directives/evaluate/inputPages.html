@@ -37,8 +37,9 @@
     </div>
 
     <div ng-class="col3">
-      <button class="btn glyphicon glyphicon-remove-sign" ng-click="removePage($index)"
+      <button class="btn glyphicon glyphicon-remove-sign" ng-click="removePage($index, $event)"
       tooltip-trigger="focus blur mouseenter mouseleave"
+      tooltip-animation="false"
       tooltip="{{'BTN_REMOVE_PAGE' | translate}}">
         <span class="sr-only">
           {{:: 'BTN_REMOVE_PAGE' | translate}}
@@ -47,7 +48,7 @@
     </div>
   </fieldset>
 
-  <button ng-click="addPage()" class="btn btn-default">
+  <button ng-click="addPage($event)" class="btn btn-default">
     <span class="glyphicon glyphicon-plus-sign"></span>
     {{:: 'BTN_ADD_PAGE' | translate }}
   </button>

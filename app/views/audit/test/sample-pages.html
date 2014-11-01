@@ -19,8 +19,9 @@
       type="checkbox" ng-model="page.selected">&nbsp;{{page.handle}}&nbsp;
       <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
     </label>
-    <a href="" tooltip="{{page.description}}"
-    ng-click="openPage(page)"
+    <a href="" ng-click="openPage(page)"
+    tooltip="{{page.description}}"
+    tooltip-animation="false"
     tooltip-trigger="focus blur mouseenter mouseleave"
     class="pull-right glyphicon glyphicon-link">
       <span class="sr-only">{{page.description}}</span>
