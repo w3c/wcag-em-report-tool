@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditExploreCtrl', function ($scope, appState, 
+.controller('AuditExploreCtrl', function ($scope, appState, $timeout,
 evalExploreModel, evalTestModel, $location) {
 
     $scope.state = appState.moveToState('explore');
@@ -35,8 +35,24 @@ evalExploreModel, evalTestModel, $location) {
         }
     };
 
-    $scope.addTechnology = function () {
+    $scope.addTechnology = function ($event) {
         $scope.explore.addReliedUponTech();
+        var button = angular.element($event.delegateTarget);
+        $timeout(function () {
+            var inputs = button.prev().find('input');
+            inputs[inputs.length-2].select();
+        }, 100);
+    };
+
+    $scope.removeTechnology = function ($index, $event) {
+        evalExploreModel.reliedUponTechnology.splice($index,1);
+        // We need this timeout to prevent Angular UI from throwing an error
+        $timeout(function () {
+            angular.element($event.delegateTarget)
+            .closest('fieldset').parent()
+            .children().last()
+            .focus();
+        });
     };
 
     $scope.addPage = function (prop) {

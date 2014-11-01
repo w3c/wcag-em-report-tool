@@ -113,7 +113,7 @@
 
       <div ng-class="col3">
         <button ng-class="delButton"
-        ng-click="explore.reliedUponTechnology.splice($index,1)"
+        ng-click="removeTechnology($index, $event)"
         tooltip="{{'BTN_REMOVE_TECH' | translate}}"
         tooltip-animation="false"
         tooltip-trigger="focus blur mouseenter mouseleave">
@@ -124,7 +124,7 @@
       </div>
     </fieldset><!-- /row -->
 
-    <button ng-click="addTechnology()" class="btn btn-default">
+    <button ng-click="addTechnology($event)" class="btn btn-default">
       <span class="glyphicon glyphicon-plus-sign"></span>
       {{'BTN_ADD_TECH' | translate }}
     </button>
