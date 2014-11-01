@@ -1,29 +1,21 @@
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
 
-.tag {
-    font-size:100% !important;
-    color:$text-color;
-    border:solid 1px $gray-light;
-    font-weight:normal;
-    font-style:italic;
-    background-color:#EEE;
-    display:inline-block;
-    margin:0 2px;
-    padding:.2em .3em .2em .4em;
+#final_report {
+    border: solid 2px $brand-primary;
+    padding: 1em;
+    border-radius: 10px;
 }
-.tag .glyphicon {
-    font-size:75%;
-}
-.criterion {
-    .panel-heading {
-        padding-bottom:0;
-    }
-    .criterion-title {
-        margin-bottom: 5px;
+
+table {
+    input[type=text] {
+        width:100%;
     }
 }
 
+.panel.panel-primary .panel-heading {
+    color:white;
+}
 
 .to-top {
     text-align: right;

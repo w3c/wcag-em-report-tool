@@ -25,32 +25,7 @@ body {
     .navbar-nav > li > a {
         text-decoration: none;
     }
-
-    h1 + h2,
-    h2 + h3 {
-        margin-top:12px
-    }
-
-    h1, .h1,
-    h3, .h3 {
-      margin-top: $line-height-computed;
-      margin-bottom: ($line-height-computed / 3);
-    }
-
-    h2, .h2 {
-      margin-top: $line-height-computed;
-      margin-bottom: ($line-height-computed / 3);
-    }
-
-    h4, .h4,
-    h5, .h5,
-    h6, .h6 {
-      margin-top: ($line-height-computed / 1.5);
-      margin-bottom: ($line-height-computed / 3);
-    }
 }
-
-
 
 .alert {
     position:relative;
@@ -93,28 +68,6 @@ label {
 .dropdown-menu a {
     text-decoration:none;
 }
-
-.panel {
-    border-width:2px;
-    &.panel-primary .panel-heading {
-        color:white;
-    }
-}
-
-
-.panel .panel-heading,
-.alert {
-    color:$text-color;
-    a {
-        color:$text-color;
-        text-decoration:underline;
-        &:hover,
-        &:focus {
-            color:black;
-        }
-    }
-}
-
 
 @media (min-width: $screen-sm-min) {
     .visible-xs-and-sr {
@@ -164,10 +117,6 @@ label {
 
 .form-group .alert {
     margin-top:1em;
-}
-
-.panel-heading h1 {
-    margin:0;
 }
 
 button.glyphicon {

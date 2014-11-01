@@ -33,27 +33,6 @@ input:-webkit-autofill {
     color:$brand-primary;
 }
 
-table {
-    border-collapse:collapse;
-    margin:0 auto;
-    min-width:65%;
-    
-    thead th { text-align:center }
-    tbody th { text-align:left } 
-
-    td, th {
-        border:solid 1px #dddddd;
-        padding: .2em .5em;
-
-        > p:only-child {
-            padding:0;
-            margin:0;
-        }
-    }
-    input[type=text] {
-        width:100%;
-    }
-}
 body legend {
     font-size: $font-size-base;
     margin-bottom: 5px;
@@ -179,11 +158,9 @@ body .branding {
     }
 }
 
-
 .navbar-nav.navbar-right:last-child {
     margin-right: 0;
 }
-
 
 @import "bootstrap-extend";
 
@@ -192,5 +169,3 @@ body .branding {
 @import "animation";
 
 @import "evaluate";
-
-@import "report";
