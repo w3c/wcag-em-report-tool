@@ -237,7 +237,7 @@ module.exports = function (grunt) {
         files: {
           src: [
             '<%= yeoman.dist %>/scripts/*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/styles/main.css',
           ]
         }
       }
@@ -331,13 +331,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -406,13 +399,13 @@ module.exports = function (grunt) {
       options: {
         //sourceMap: true,
       },
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': ['<%= yeoman.dist %>/scripts/scripts.js'],
-          '<%= yeoman.dist %>/scripts/templates.js': ['<%= yeoman.dist %>/scripts/templates.js'],
-          '<%= yeoman.dist %>/scripts/vendor.js': ['<%= yeoman.dist %>/scripts/vendor.js']
-        }
-      }
+      // dist: {
+      //   files: {
+      //     '<%= yeoman.dist %>/scripts/scripts.js': ['<%= yeoman.dist %>/scripts/scripts.js'],
+      //     '<%= yeoman.dist %>/scripts/templates.js': ['<%= yeoman.dist %>/scripts/templates.js'],
+      //     '<%= yeoman.dist %>/scripts/vendor.js': ['<%= yeoman.dist %>/scripts/vendor.js']
+      //   }
+      // }
     },
     // concat: {
     //   dist: {}
@@ -462,11 +455,9 @@ module.exports = function (grunt) {
     'bowerInstall',
     'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'htmlmin:distView',
     'html2js',
