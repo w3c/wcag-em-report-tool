@@ -50,32 +50,43 @@ angular.module('wcagReporter')
         return page;
     };
 
-    sampleModel.addNewPage = function (sample) {
-        var num, page, minRndSmpl, i;
-        sample = sample || sampleModel.randomSample;
-
-        page = new Page();
+    sampleModel.addNewStructuredPage = function () {
+        var minRndSmpl, i,
+        sample = sampleModel.structuredSample,
+        page = new Page(),
         num = getAvailablePageNum(sample);
+
         sample.webpage.push(page);
+        page.id = '_:struct_' + num;
+        page.handle = 'Structured page ' + (1 + num);
+        
+        minRndSmpl = Math
+        .ceil(sample.webpage.length / 10);
+        i = minRndSmpl - sampleModel.randomSample.webpage.length;
 
-        if (sample === sampleModel.randomSample) {
-            page.id = '_:rand_' + num;
-            page.handle = 'Random page ' + (1+ num);
-        } else {
-            page.id = '_:struct_' + num;
-            page.handle = 'Structured page ' + (1 + num);
-            
-            minRndSmpl = Math
-                .ceil(sample.webpage.length / 10);
-            i = minRndSmpl - sampleModel.randomSample.webpage.length;
-
-            while (i > 0) {
-                sampleModel.addNewPage();
-                i -= 1;
-            }
+        while (i > 0) {
+            sampleModel.addNewRandomPage();
+            i -= 1;
         }
-
         return page;
+    };
+
+    sampleModel.addNewRandomPage = function () {
+        var page = new Page(),
+        num = getAvailablePageNum(sampleModel.randomSample);
+
+        sampleModel.randomSample.webpage.push(page);
+        page.id = '_:rand_' + num;
+        page.handle = 'Random page ' + (1+ num);
+        return page;
+    };
+
+    sampleModel.addNewPage = function (sample) {
+        if (sample === sampleModel.randomSample) {
+            sampleModel.addNewRandomPage();
+        } else {
+            sampleModel.addNewStructuredPage();
+        }
     };
 
     sampleModel.getPageByHandle = function (handle) {

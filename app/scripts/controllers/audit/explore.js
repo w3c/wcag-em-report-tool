@@ -15,12 +15,12 @@ evalExploreModel, evalTestModel, $location) {
 
     if (evalExploreModel.commonPages && 
     evalExploreModel.commonPages.length === 0) {
-        evalExploreModel.addPageToProp(evalExploreModel.commonPages);
+        evalExploreModel.addCommonPage();
     }
     
     if (evalExploreModel.otherRelevantPages && 
     evalExploreModel.otherRelevantPages.length === 0) {
-        evalExploreModel.addPageToProp(evalExploreModel.otherRelevantPages);
+        evalExploreModel.addRelevantPage();
     }
     
     $scope.processInput = function () {
@@ -55,14 +55,14 @@ evalExploreModel, evalTestModel, $location) {
         });
     };
 
-    $scope.addPage = function (prop) {
+    $scope.getPageAdder = function (prop) {
         return function () {
             var page = evalExploreModel.addPageToProp(evalExploreModel[prop]);
             evalTestModel.addPageForAsserts(page);
         };
     };
 
-    $scope.removePage = function (prop) {
+    $scope.getPageRemover = function (prop) {
         return function (index) {
             var page = evalExploreModel.removePageFromProp(evalExploreModel[prop], index);
             evalTestModel.removePageFromAsserts(page);

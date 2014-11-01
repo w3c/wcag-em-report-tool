@@ -36,9 +36,17 @@ angular.module('wcagReporter')
     };
 
     exploreModel.addPageToProp = function (pages) {
-        var page = evalSampleModel.addNewPage(evalSampleModel.structuredSample);
+        var page = evalSampleModel.addNewStructuredPage();
         pages.push(page);
         return page;
+    };
+
+    exploreModel.addCommonPage = function () {
+        return exploreModel.addPageToProp(exploreModel.commonPages);
+    };
+
+    exploreModel.addRelevantPage = function () {
+        return exploreModel.addPageToProp(exploreModel.otherRelevantPages);
     };
 
     exploreModel.removePageFromProp = function (pages, index) {
