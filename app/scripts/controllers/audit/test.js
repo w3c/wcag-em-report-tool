@@ -34,7 +34,7 @@ $rootElement, $anchorScroll) {
     };
 
     $scope.openPage = function (clickedPage) {
-        Page.windowOpen(clickedPage);
+        Page.openInWindow(clickedPage);
     };
 
     $scope.nextStep = function () {

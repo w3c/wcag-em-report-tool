@@ -38,7 +38,7 @@ ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
       <input type="text" class="form-control"
       id="rand_page_desc_{{$index}}"
       ng-model="page.description"
-      ng-blur="page.prependProtocol()"
+      ng-blur="prependProtocol(page)"
       placeholder="{{'PLH_PAGE_URL' | translate}}">
     </div>
 

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('inputPages', function(directivePlugin, $timeout) {
+.directive('inputPages', function(directivePlugin, $timeout, Page) {
 
     return directivePlugin({
         restrict: 'E',
@@ -22,6 +22,8 @@ angular.module('wcagReporter')
                     inputs[inputs.length-2].select();
                 }, 100);
             };
+
+            scope.prependProtocol = Page.prependProtocol;
 
             scope.removePage = function ($index, $event) {
                 removePageFunc($index);
