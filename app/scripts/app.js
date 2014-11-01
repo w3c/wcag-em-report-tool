@@ -44,16 +44,21 @@ angular.module('wcagReporter', [
 
 
 }).run(function (translateFilter, $rootScope, $document, appState,
-$location, $rootElement) {
+$location, $rootElement, evalScopeModel) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text().trim();
     
     if (prefix) {
-        prefix = titleElm.text() + ' - ';
+        prefix = titleElm.text() + ', ';
     }
 
     $rootScope.setTitle = function (title) {
-        titleElm.text(prefix + title);
+        var sitename = '';
+        if (evalScopeModel.website && evalScopeModel.website.title) {
+            sitename = evalScopeModel.website.title + ' - ';
+        }
+        
+        titleElm.text(prefix + sitename + title);
         return title;
     };
 
