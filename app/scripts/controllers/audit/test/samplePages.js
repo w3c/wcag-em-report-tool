@@ -27,6 +27,7 @@ angular.module('wcagReporter')
     	var selected = getSelected().length;
     	$scope.auditSize = selected;
     	$scope.anySelect = selected > 0;
+    	console.log('!!This event does\'t get picked up anymore!!');
         $scope.$broadcast('audit:sample-change');
     };
 
@@ -56,7 +57,7 @@ angular.module('wcagReporter')
     	selected.forEach(function (page) {
     		page.selected = false;
     	});
-    	
+
 		$scope.anySelect = true;
     	
     	if (lastIndex === pages.length-1) {
