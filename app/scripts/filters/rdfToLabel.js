@@ -2,6 +2,7 @@
 
 angular.module('wcagReporter') 
 .filter('rdfToLabel', function($filter) {
+	var rdfToLabel;
 	var keymap = {
 		'earl:passed': 'PASSED',
 		'earl:failed': 'FAILED',
@@ -14,7 +15,10 @@ angular.module('wcagReporter')
 		'wcag20:level_aaa': 'LEVEL_AAA'
 	};
 
-	return function(earl) {
+	rdfToLabel = function(earl) {
 		return $filter('translate')(keymap[earl]);
 	};
+	rdfToLabel.keymap = keymap;
+
+	return rdfToLabel;
 });

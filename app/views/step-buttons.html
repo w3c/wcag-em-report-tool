@@ -1,13 +1,15 @@
 <ul class="nav nav-pills step-buttons">
   <li ng-if="previousStep">
-    <button ng-click="previousStep()" class="btn btn-default">
+    <button ng-click="previousStep()" class="btn btn-primary-invert">
       <span class="glyphicon glyphicon-chevron-left"></span>
-      {{'PREV_STEP' | translate}}
+      {{:: 'PREV_STEP' | translate}}:
+      {{:: previousStepName | translate}}
   </button></li>
 
-  <li ng-if="previousStep" class="pull-right">
+  <li ng-if="nextStep" class="pull-right">
     <button ng-click="nextStep()" class="btn btn-primary">
-      {{'NEXT_STEP' | translate}}
+      {{:: 'NEXT_STEP' | translate}}: 
+      {{:: nextStepName | translate}}
       <span class="glyphicon glyphicon-chevron-right"></span>
   </button></li>
 </ul>

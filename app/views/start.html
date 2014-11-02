@@ -1,32 +1,35 @@
+<div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_START') ) }}</h1>
+<h1>{{:: setTitle( translate('HD_START') ) }}</h1>
 
-<h2>{{ 'HD_START_1' | translate }}</h2>
+<h2>{{:: 'HD_START_1' | translate }}</h2>
 
 <p ng-bind-html="'INTRO_START_1' | translateAndLink
-: ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']"></p>
+: ['INTRO_START_1_0', 'http://www.w3.org/TR/WCAG-EM/']
+: ['INTRO_START_1_1', '#/report']
+: ['INTRO_START_1_2', 'http://www.w3.org/WAI/intro/wcag']
+: ['INTRO_START_1_3', 'http://www.w3.org/WAI/eval/conformance']"></p>
 
-<div class="H2-P-combined">
-  <h2>{{ 'INTRO_START_2_HD' | translate }}:&nbsp;</h2>
-  <p ng-bind-html="'INTRO_START_2' | translateAndLink
-  : ['INTRO_START_2_0', 'http://www.w3.org/WAI/intro/wcag']
-  : ['INTRO_START_2_1', 'http://www.w3.org/WAI/eval/preliminary']"></p>
-</div>
-
-<div class="H2-P-combined">
-  <h2>{{ 'INTRO_START_3_HD' | translate}}:&nbsp;</h2>
-  <p ng-bind-html="'INTRO_START_3' | translateAndLink
-  : ['INTRO_START_3_0', '#/export']"></p>
-</div>
-
-<ul class="nav nav-pills pull-right">
-  <li class="active"><a href="#/audit/scope">
-  	  <span ng-if="state.empty">
-        {{ 'BTN_START_EVAL' | translate }}
-	  </span><span ng-if="!state.empty">
-	    {{ 'BTN_CONTINUE_EVAL' | translate }}
-      </span>
-      <span class="glyphicon glyphicon-chevron-right"></span>
-  </a></li>
+<h2>{{:: 'INTRO_START_2_HD' | translate}}</h2>
+<ul>
+  <li>{{:: 'INTRO_START_2_LI1' | translate }}</li>
+  <li><strong>{{:: 'INTRO_START_2_LI2A' | translate }}</strong>
+    {{:: 'INTRO_START_2_LI2B' | translate }}
+  </li>
+  <li>{{:: 'INTRO_START_2_LI3' | translate }}</li>
 </ul>
+
+<h2>{{:: 'INTRO_START_3_HD' | translate}}</h2>
+<ul>
+  <li>{{:: 'INTRO_START_3_LI1' | translate }}</li>
+  <li>
+    {{:: 'INTRO_START_3_LI2A' | translate }}
+    <span class="glyphicon glyphicon-info-sign primary-color"></span>
+    <span class="sr-only">{{:: 'LABEL_INFO' | translate }}</span>
+    {{:: 'INTRO_START_3_LI2B' | translate }}
+  </li>
+  <li>{{:: 'INTRO_START_3_LI3' | translate }}</li>
+</ul>
+
+<nav ng-include src="'views/step-buttons.html'"></nav>

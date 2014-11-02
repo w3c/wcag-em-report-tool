@@ -1,3 +1,4 @@
+<div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
 <h1>{{ setTitle( translate('HD_STEP1') ) }}</h1>
@@ -25,12 +26,19 @@
     </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
-      <p ng-bind-html="'INF_SITE_SCOPE' | translateAndLink
-      : ['INF_SITE_SCOPE_0', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p>{{ 'INF_SITE_SCOPE_0' | translate }}</p>
+      <ul>
+        <li>{{ 'INF_SITE_SCOPE_LI0' | translate }}</li>
+        <li>{{ 'INF_SITE_SCOPE_LI1' | translate }}</li>
+        <li>{{ 'INF_SITE_SCOPE_LI2' | translate }}</li>
+      </ul>
+      <p ng-bind-html="'INF_SITE_SCOPE_1' | translateAndLink
+      : ['INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
-    <textarea ng-model="evalScope.website.siteScope" id="website_scope"
-        class="form-control" cols="40" rows="5"></textarea>
+    <textarea ng-model="evalScope.website.siteScope"
+    class="form-control" id="website_scope" auto-resize
+    cols="40" rows="3"></textarea>
   </div>
   
   <div class="form-group">
@@ -44,17 +52,9 @@
       : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
     </info-field>
 
-    <select ng-model="evalScope.conformanceTarget" 
-            id="conformance_target" class="form-control">
-      <option value="wcag20:level_a">
-        {{ 'WCAG_A' | translate }}
-      </option>
-      <option value="wcag20:level_aa">
-        {{ 'WCAG_AA' | translate }}
-      </option>
-      <option value="wcag20:level_aaa">
-        {{ 'WCAG_AAA' | translate }}
-      </option>
+    <select id="conformance_target" class="form-control" 
+    ng-options="key as value for (key,value) in conformanceOptions"
+    ng-model="evalScope.conformanceTarget">
     </select>
   </div>
   
@@ -72,8 +72,8 @@
     </p></info-field>
 
     <textarea ng-model="evalScope.accessibilitySupportBaseline"
-        id="as_baseline" class="form-control"
-        cols="40" rows="5"></textarea>
+    id="as_baseline" class="form-control" auto-resize
+    cols="40" rows="5"></textarea>
   </div>
   
   <div class="form-group">
@@ -83,13 +83,19 @@
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="additional_requirements">
-      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS' | translateAndLink
-      : ['INF_EXTRA_REQUIREMENTS_0', 'http://www.w3.org/TR/WCAG-EM/#step1d']"></p>
+      <p>{{ 'INF_EXTRA_REQUIREMENTS_0' | translate }}</p>
+      <ul>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI0' | translate }}</li>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI1' | translate }}</li>
+        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI2' | translate }}</li>
+      </ul>
+      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS_1' | translateAndLink
+      : ['INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.additionalEvalRequirement"
-        id="additional_requirements" class="form-control"
-        cols="40" rows="5"></textarea>
+    id="additional_requirements" class="form-control" auto-resize
+    cols="40" rows="5"></textarea>
   </div>
 </form>
 

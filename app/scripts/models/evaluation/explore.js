@@ -14,6 +14,22 @@ angular.module('wcagReporter')
     ],
     pageProps = ['commonPages', 'otherRelevantPages'];
 
+
+    function getAvailablePageNum(pages, prefix) {
+        if (!angular.isArray(pages) || pages.length === 0) {
+            return 1;
+        }
+        var lastId = pages.map(function (page) {
+            if (page.handle.indexOf(prefix) === 0) {
+                return +page.handle.substr(prefix.length+1);
+            }
+        }).sort(function (a,b) {
+            return a - b;
+        }).pop();
+
+        return lastId + 1;
+    }
+
     // add all properties to this
     basicProps.forEach(function (prop) {
         exploreModel[prop] = undefined;
@@ -36,9 +52,26 @@ angular.module('wcagReporter')
     };
 
     exploreModel.addPageToProp = function (pages) {
-        var page = evalSampleModel.addNewPage(evalSampleModel.structuredSample);
+        var num,
+        page = evalSampleModel.addNewStructuredPage();
+
+        if (pages === exploreModel.commonPages) {
+            num = getAvailablePageNum(pages, 'Common page');
+            page.handle = 'Common page ' + num;
+        } else if (pages === exploreModel.otherRelevantPages) {
+            num = getAvailablePageNum(pages, 'Other relevant page');
+            page.handle = 'Other relevant page ' + num;
+        }
         pages.push(page);
         return page;
+    };
+
+    exploreModel.addCommonPage = function () {
+        return exploreModel.addPageToProp(exploreModel.commonPages);
+    };
+
+    exploreModel.addRelevantPage = function () {
+        return exploreModel.addPageToProp(exploreModel.otherRelevantPages);
     };
 
     exploreModel.removePageFromProp = function (pages, index) {
@@ -56,11 +89,15 @@ angular.module('wcagReporter')
         });
 
         pageProps.forEach(function (prop) {
-            exploreModel[prop] = evalData[prop].map(function (pageId) {
-                if (typeof pageId === 'string') {
-                    return evalSampleModel.getPageById(pageId);
-                }
-            }).filter(angular.isDefined);
+            if (!angular.isArray(evalData[prop])) {
+                exploreModel[prop] = [];
+            } else {
+                exploreModel[prop] = evalData[prop].map(function (pageId) {
+                    if (typeof pageId === 'string') {
+                        return evalSampleModel.getPageById(pageId);
+                    }
+                }).filter(angular.isDefined);
+            }
         });
     };
 

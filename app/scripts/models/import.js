@@ -66,9 +66,10 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 		
 		evalModel.id = evalData.id;
 		
-		objectCollide(evalModel.sampleModel, evalData);
-		objectCollide(evalModel.reportModel, evalData);
-		
+		evalModel.sampleModel.importData(evalData);
+
+		evalModel.reportModel.importData(evalData);
+
 		evalModel.testModel.importData(evalData);
 		evalModel.exploreModel.importData(evalData);
 	}

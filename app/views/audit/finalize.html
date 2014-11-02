@@ -1,3 +1,4 @@
+<div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
 <h1>{{ setTitle( translate('HD_STEP5') ) }}</h1>
@@ -84,7 +85,7 @@
     </info-field></div>
   </div>
   
-  <div class="form-group">
+  <div class="form-group"><div class="col-sm-12">
     <label for="summary">
       {{ 'LABEL_SUMMARY' | translate }}
     </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
@@ -93,11 +94,11 @@
       <p>{{ 'INF_SUMMARY' | translate }}</p>
     </info-field>
 
-    <textarea id="summary" ng-model="report.summary"
+    <textarea id="summary" ng-model="report.summary" auto-resize
     cols="30" rows="10" class="form-control"></textarea>
-  </div>
+  </div></div>
 	
-  <div class="form-group">
+  <div class="form-group"><div class="col-sm-12">
   	<label for="specifics">
       {{ 'LABEL_SPECIFICS' | translate }}
     </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
@@ -107,9 +108,9 @@
       : ['INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>
 
-  	<textarea id="specifics" ng-model="report.specifics"
+  	<textarea id="specifics" ng-model="report.specifics" auto-resize
     cols="30" rows="4" class="form-control"></textarea>
-  </div>
+  </div></div>
 </form>
 
 <div ng-include src="'views/report/findings.html'"></div>

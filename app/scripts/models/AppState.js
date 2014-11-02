@@ -67,5 +67,28 @@ angular.module('wcagReporter')
         $document.one('change', 'input[type=text], textarea, select', appState.setDirtyState);
     };
 
+    /**
+     * Check if the browser supports all required features
+     * @return {Boolean}
+     */
+    appState.hasBrowserSupport = function () {
+        var res = true;
+        if (!window.Blob) {
+            console.error('Blob not supported in this browser.');
+            res = false;
+        }
+        if (!window.FileReader) {
+            console.error('FileReader not supported in this browser.');
+            res = false;
+        }
+        if (!window.navigator.msSaveOrOpenBlob && 
+            !((window.URL || window.webkitURL) &&
+              (window.URL || window.webkitURL).createObjectURL)) {
+            console.error('msSaveOrOpenBlob or createObjectURL not supported in this browser.');
+            res = false;
+        }
+        return res;
+    };
+
     return appState;
 });

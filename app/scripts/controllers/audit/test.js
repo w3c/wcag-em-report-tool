@@ -2,7 +2,8 @@
 
 angular.module('wcagReporter') 
 .controller('AuditTestCtrl', function ($scope, appState, wcag20spec, Page,
-             evalScopeModel, evalTestModel, evalSampleModel, $location) {
+evalScopeModel, evalTestModel, evalSampleModel, $location,
+$rootElement, $anchorScroll) {
 
     evalTestModel.updateToConformance();
 
@@ -33,7 +34,7 @@ angular.module('wcagReporter')
     };
 
     $scope.openPage = function (clickedPage) {
-        Page.windowOpen(clickedPage);
+        Page.openInWindow(clickedPage);
     };
 
     $scope.nextStep = function () {
@@ -43,6 +44,10 @@ angular.module('wcagReporter')
     $scope.previousStep = function () {
         $location.path('/audit/sample');
     };
+
+    $scope.nextStepName = 'STEP_REPORT';
+    $scope.previousStepName = 'STEP_SAMPLE';
+
 
     $scope.completeSelected = function () {
         var pages = $scope.structuredSample.webpage
@@ -64,4 +69,9 @@ angular.module('wcagReporter')
         });
     };
     
+    $scope.toTop = function () {
+        console.log($rootElement);
+        $rootElement.focus();
+        $anchorScroll();
+    };
 });

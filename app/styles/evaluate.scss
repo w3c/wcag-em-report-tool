@@ -1,36 +1,68 @@
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
 
-.tag {
-    font-size:100% !important;
-    color:$text-color;
-    border:solid 1px $gray-light;
-    font-weight:normal;
-    font-style:italic;
-    background-color:#EEE;
-    display:inline-block;
-    margin:0 2px;
-    padding:.2em .3em .2em .4em;
+#final_report {
+    border: solid 2px $brand-primary;
+    padding: 1em;
+    border-radius: 10px;
 }
-.tag .glyphicon {
-    font-size:75%;
+
+table {
+    input[type=text] {
+        width:100%;
+    }
+}
+
+.no-selection {
+    text-align:center;
+    font-style:italic;
+}
+.key-value-group, .no-selection {
+    text-align: left;
+    line-height: 1.8em;
+    text-indent: 1em;
+}
+
+
+.panel.panel-primary .panel-heading {
+    color:white;
+}
+
+.to-top {
+    text-align: right;
+    margin-top: -18px;
+    margin-bottom:-10px;
+    a {
+        text-decoration: underline;
+        padding:0 5px;
+    }
+}
+.download-link {
+    min-width:300px;
+}
+
+.alert.alert-info.infobox {
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.key-value-group {
+    margin-bottom:22px;
 }
 
 .step-buttons {
-    padding-top:2em;
+    padding: .5em .5em 0;
+    margin-top: 1.5em;
+    border-top: solid 2px #DDD;
 }
 
-.info-box {
-    position:relative;
-    .floater {
-        width:30px;
-        height:30px;
-        float:right;
-    }
-    .close {
-        position:absolute;
-        top:15px;
-        right:15px;
+.btn.btn-primary-invert {
+    background:white;
+    border:2px solid #2570b0;
+    color:#2570b0;
+    &:focus, &:hover {
+        border-color:#1e5b8e;
+        color:#1e5b8e;
     }
 }
 
@@ -55,7 +87,7 @@
     li {
         padding:0;
         border-bottom:1px $navbar-default-border solid;
-        background:white;
+        background:$body-bg;
         @include transition(100ms linear background);
         position:relative;
 
@@ -77,7 +109,7 @@
         }
     }
     li.active {
-        background:#EEE;
+        background:#E8E8E8;
         border-bottom-color:#DDD;
     }
 }
@@ -110,8 +142,27 @@ h3 .collapse-button {
 }
 
 .form-group-inline {
+    position:relative;
+    legend {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: $font-size-base;
+    }
     .form-block {
         padding: 5px 0px 5px 15px;
+    }
+    @media (max-width: $screen-xs-max) {
+        margin-top:10px;
+
+        .remove-button {
+            position:absolute;
+            top:0;
+            right:15px;
+            margin-top: -10px;
+        }
+        .right-col {
+            padding-right:15px;
+        }
     }
     label {
         font-weight:normal;
@@ -122,7 +173,7 @@ h3 .collapse-button {
     }
 }
 .form-block-head {
-    padding:1em 0px 0px 15px;
+    padding:0 0 0 15px;
     font-weight:bold;
     text-align:center;
 }
@@ -131,12 +182,13 @@ h3 .collapse-button {
 select.result-select,
 textarea.expanding {
     width:100%;
-    @include transition(100ms linear height);
+    @include transition(200ms linear max-height);
 }
 select.result-select,
 input.taginput,
 textarea.expanding {
     height:1.7em;
+    max-height:1.7em;
     padding:.1em .5em;
     border:solid 1px gray;
     @include border-right-radius(3px);
@@ -144,6 +196,7 @@ textarea.expanding {
 
     &.focused {
         height:6em;
+        max-height:300px;
     }
 }
 
@@ -151,6 +204,9 @@ textarea.expanding {
     width:100%;
 }
 
-.info-icon {
+a.info-icon {
     font-size:$font-size-base;
+    span.glyphicon.glyphicon-info-sign {
+        top: 2px;
+    }
 }

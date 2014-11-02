@@ -3,9 +3,7 @@
 angular.module('wcagReporter')
 .controller('ReportCtrl', function ($scope, $document, $interval, $timeout,
 		evalModel, wcag20spec, appState, wcagReporterExport) {
-	var htmlBlob,
-        htmlFileName = evalModel.reportModel.title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
-    .toLowerCase().replace(/[\/_| -]+/g, '-');
+	var htmlBlob;
 
 	$scope.state = appState.moveToState('save');
     $scope.scope = evalModel.scopeModel;
@@ -21,8 +19,9 @@ angular.module('wcagReporter')
     $scope.report = evalModel.reportModel;
     var tpl = ['<!DOCTYPE html><html lang="en"><head>' +
     '<title>' + evalModel.reportModel.title +  '</title>' +
-    '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />'+
-    '</head><body><div class="container">',  '</div></body></html>'];
+    '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />'+
+    '<link rel="stylesheet" href="report.css" />'+
+    '</head><body><div class="container reporter-view">',  '</div></body></html>'];
 
     $scope.$on('reportReady', function(e, data) {
         var html = tpl[0] + data.html() + tpl[1];
@@ -34,8 +33,9 @@ angular.module('wcagReporter')
             wcagReporterExport.getBlobUrl(htmlBlob));
     });
 
-    $scope.saveJsonBlobIE = function () {
+    $scope.downloadJsonStart = function () {
         wcagReporterExport.saveBlobIE();
+        appState.setPrestineState();
     };
 
     $scope.saveHtmlBlobIE = function () {
@@ -44,9 +44,8 @@ angular.module('wcagReporter')
         }
     };
 
-    $scope.exportHtmlFile = (htmlFileName || 'report') + '.html';
-
-    $scope.exportJsonUrl = wcagReporterExport.getBlobUrl();
+    $scope.exportHtmlFile = wcagReporterExport.getFileName('html');
+    $scope.exportJsonUrl  = wcagReporterExport.getBlobUrl();
     $scope.exportJsonFile = wcagReporterExport.getFileName();
 
 });

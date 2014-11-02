@@ -1,3 +1,4 @@
+<div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/audit/stepbar.html'"></div>
 
 <h1>{{ setTitle( translate('HD_STEP3') ) }}</h1>
@@ -18,19 +19,27 @@
   <h3><button-collapse target="rootHide" property="essentialFunctionality">
       {{ 'HD_ESSENT_FUNC' | translate }}
   </button-collapse></h3>
-  <div class="alert alert-warning" collapse="rootHide.essentialFunctionality"
-  ng-bind-html="exploreModel.essentialFunctionality | txtToHtml"></div>
+  <div class="alert alert-warning" collapse="rootHide.essentialFunctionality">
+    <div ng-bind-html="exploreModel.essentialFunctionality | txtToHtml"></div>
+    <em ng-if="!exploreModel.essentialFunctionality">
+      {{ 'NO_TEXT_PROVIDED' | translate}}
+    </em>
+  </div>
 
   <h3><button-collapse target="rootHide" property="pageTypeVariety">
       {{ 'HD_VARIETY_PAGE_TYPES' | translate }}
   </button-collapse></h3>
-  <div class="alert alert-warning" collapse="rootHide.pageTypeVariety"
-  ng-bind-html="exploreModel.pageTypeVariety | txtToHtml"></div>
+  <div class="alert alert-warning" collapse="rootHide.pageTypeVariety">
+    <div ng-bind-html="exploreModel.pageTypeVariety | txtToHtml"></div>
+    <em ng-if="!exploreModel.pageTypeVariety" >
+      {{ 'NO_TEXT_PROVIDED' | translate}}
+    </em>
+  </div>
 
   <h3>{{ 'HD_STRUCT_SAMPLE_SUB' | translate }}</h3>
 
-  <input-pages pages="structuredSample.webpage" add-page="addPage(structuredSample)"
-  remove-page="removePage(structuredSample)"></input-pages>
+  <input-pages pages="structuredSample.webpage" add-page="getPageAdder(structuredSample)"
+  remove-page="getPageRemover(structuredSample)"></input-pages>
 
   <h2>
     {{'HD_RANDOM_SAMPLE' | translate }}&nbsp;<info-button
@@ -49,8 +58,8 @@
   </div>
 
   <input-pages pages="randomSample.webpage"
-  add-page="addPage(randomSample)"
-  remove-page="removePage(randomSample)"></input-pages>
+  add-page="getPageAdder(randomSample)"
+  remove-page="getPageRemover(randomSample)"></input-pages>
 
 </form>
 

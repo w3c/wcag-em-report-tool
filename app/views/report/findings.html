@@ -1,11 +1,12 @@
 <div data-ng-controller="ReportCriteriaCtrl">
-  <h2>{{ 'HD_CRITERIA_REPORT' | translate }}</h2>
+  <h2>{{:: 'HD_CRITERIA_REPORT' | translate }}</h2>
 
-  <div  data-ng-repeat="p in principles">
-    <h3>{{ 'PRINCIPLE'| translate }} {{p.number}} {{p.title}}</h3>
+  <div data-ng-repeat="p in principles | whereCriteriaVisible: getCritAssert">
+    <h3>{{:: 'PRINCIPLE'| translate }}
+    {{:: p.number}} {{:: p.title}}</h3>
     
-    <div data-ng-repeat="g in p.guidelines">
-      <h4>{{g.number}} {{g.title}}</h4>
+    <div data-ng-repeat="g in p.guidelines | whereCriteriaVisible: getCritAssert">
+      <h4>{{:: g.number}} {{:: g.title}}</h4>
 
       <success-criterion data-ng-repeat="critSpec in g.criteria"
       assertion="getCritAssert(critSpec.uri)"

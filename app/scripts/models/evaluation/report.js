@@ -1,32 +1,29 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalReportModel', function() {
-	var today = new Date(),
-	dd = today.getDate(),
-	mm = today.getMonth()+1,
-	yyyy = today.getFullYear(),
-	reportModel = {
-		creator: '',
-		title: '',
-		summary: '',
-		specifics: '',
-		commissioner: ''
-	};
-	 
-    if (dd<10){
-    	dd = '0' + dd;
-    } 
-    if (mm<10) {
-    	mm = '0' + mm;
-    }
-	reportModel.date = yyyy+'-'+mm+'-'+dd;
+angular.module('wcagReporter').service('evalReportModel', function($filter) {
+    var protoModel = {
+        creator: '',
+        title: '',
+        summary: '',
+        specifics: '',
+        commissioner: ''
+    },
+    reportModel = Object.create(protoModel);
+    protoModel.date = $filter('date')(new Date(), 'longDate');
 
     reportModel.exportData = function () {
-    	var res = angular.copy(reportModel);
-
-    	res.creator = res.creator.id;
-
+        var res = angular.copy(reportModel);
+        res.creator = res.creator.id;
         return res;
     };
+
+    reportModel.importData = function (evalData) {
+        Object.keys(protoModel).forEach(function (key) {
+            if (angular.isDefined(evalData[key])) {
+                reportModel[key] = evalData[key];
+            }
+        });
+    };
+
     return reportModel;
 });

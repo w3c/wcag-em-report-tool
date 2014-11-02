@@ -12,15 +12,15 @@ evalExploreModel, evalSampleModel, evalTestModel) {
 
     if ($scope.structuredSample && 
     $scope.structuredSample.webpage.length === 0) {
-        evalSampleModel.addNewPage($scope.structuredSample);
+        evalSampleModel.addNewStructuredPage();
     }
 
     if ($scope.randomSample && 
     $scope.randomSample.webpage.length === 0) {
-        evalSampleModel.addNewPage($scope.randomSample);
+        evalSampleModel.addNewRandomPage();
     }
 
-    $scope.addPage = function (sample) {
+    $scope.getPageAdder = function (sample) {
         return function () {
             var page = evalSampleModel.addNewPage(sample);
             evalTestModel.addPageForAsserts(page);
@@ -28,7 +28,7 @@ evalExploreModel, evalSampleModel, evalTestModel) {
         };
     };
 
-    $scope.removePage = function (sample) {
+    $scope.getPageRemover = function (sample) {
         return function (index) {
             var page = evalSampleModel.removePage(sample, index);
             evalTestModel.removePageFromAsserts(page);
@@ -59,4 +59,8 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.previousStep = function () {
         $location.path('/audit/explore');
     };
+
+    $scope.nextStepName = 'STEP_AUDIT';
+    $scope.previousStepName = 'STEP_EXPLORE';
+
 });

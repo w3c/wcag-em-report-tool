@@ -17,9 +17,14 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
         },
         transclude: true,
         replace: true,
+        link: function (scope) {
+            if (!scope.active()) {
+                scope.route = scope.step.route;
+            }
+        },
         template: 
             '<li ng-class="{active:active()}" class="wizard-step">' +
-            '<a href="{{step.route}}">'+
+            '<a ng-href="{{route}}">'+
             '<span ng-transclude></span></a>' +
             '</li>'
     };

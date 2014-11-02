@@ -1,43 +1,41 @@
+$body-bg: #f5f5f5;
+$icon-font-path: 'bootstrap/';
+$wai-border-color: #930;
+$panel-bg: $body-bg;
+$list-group-bg: $body-bg;
+$navbar-default-bg: #f2f2f2;
+$input-border: #aaa;
+$panel-default-heading-bg: #e8e8e8;
+$panel-default-border: #d6d6d6;
 $textcolor-light: #767676;
 $brand-primary: #2570B0;
-$navbar-default-link-color: #727272;
-$font-size-base: 15px;
+$navbar-default-link-color: #6E6E6E;
+$font-size-base: 16px;
 $panel-body-padding: 7px 15px;
 $gray-light: #767676;
+$state-warning-bg: #FCF8DE;
 $font-size-h1: floor(($font-size-base * 2));
 $font-size-h2: floor(($font-size-base * 1.6));
 $font-size-h3: ceil(($font-size-base * 1.4));
 $font-size-h4: ceil(($font-size-base * 1.2));
+$focus-color: #477BA5;
+$alert-danger-border: #a94442;
 
 /* bower:scss */
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 /* endbower */
 
 
 input:-webkit-autofill {
     background-color: #fff !important;
 }
+.primary-color {
+    color:$brand-primary;
+}
 
-table {
-    border-collapse:collapse;
-    margin:0 auto;
-    min-width:65%;
-    
-    thead th { text-align:center }
-    tbody th { text-align:left } 
-
-    td, th {
-        border:solid 1px #dddddd;
-        padding: .2em .5em;
-
-        > p:only-child {
-            padding:0;
-            margin:0;
-        }
-    }
-    input[type=text] {
-        width:100%;
-    }
+body legend {
+    font-size: $font-size-base;
+    margin-bottom: 5px;
 }
 
 .H2-P-combined {
@@ -54,14 +52,30 @@ table {
 
 input, textarea, select {
     &.form-control {
-        @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+        @include gradient-vertical(#EEE, #FFF, 0, 15px);
         &:focus {
-            @include gradient-vertical(#EEE, #FFF, 0, 15px);
+            @include gradient-vertical(#F8F8F8, #FFF, 0, 15px);
         }
     }
-    @include gradient-vertical(#EEE, #FAFAFA, 0, 15px);
+    @include gradient-vertical(#EEE, #FFF, 0, 15px);
     &:focus {
-        @include gradient-vertical(#EEE, #FFF, 0, 15px);
+        @include gradient-vertical(#F8F8F8, #FFF, 0, 15px);
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { 
+    textarea {
+        max-height: 250px;
+    }
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) { 
+    textarea {
+        max-height: 350px;
+    }
+}
+@media (min-width: $screen-lg-min) {
+    textarea {
+        max-height: 450px;
     }
 }
 
@@ -73,22 +87,15 @@ li a {
 * {
     @include placeholder($textcolor-light);
 }
-button[disabled] {
-    color:gray;
-    font-style:italic;
-}
-.no-selection {
-    text-align:center;
-    font-style:italic;
-}
 
-$footer-height: 140px; 
+$footer-height: 170px; 
 $footer-padding: 20px;
 html.full-page {
     height: 100%;
 
     body {
         height: 100%;
+        border-top:5px solid $wai-border-color;
     }
     .page-view {
         min-height: 100%;
@@ -98,7 +105,7 @@ html.full-page {
     }
     .push-footer, .page-footer {
         margin-top:$footer-padding;
-        height: $footer-height; /* .push must be the same height as .footer */
+        min-height: $footer-height; /* .push must be the same height as .footer */
     }
 }
 .page-footer {
@@ -107,10 +114,48 @@ html.full-page {
         margin:0;
         list-style:none;
     }
-    border: solid $brand-primary;
+    border: solid $wai-border-color;
     border-width: 5px 0;
     font-size: 0.8em;
     padding: 1em;
+    p:last-child {
+        margin-bottom:0;
+    }
+}
+body .branding {
+    .wai img {
+        margin: 1px 0;
+    }
+    a {
+        display: inline-block;
+        outline-color: $wai-border-color;
+    }
+    @media (max-width: $screen-xs-max) { 
+        border-bottom:none;
+    }
+    @media (max-width: $screen-sm-max) { 
+        display:block;
+        border-bottom:1px #ccc solid;
+        padding: 5px 15px;
+
+        .navbar-nav.navbar-right:last-child {
+            float:none !important;
+        }
+        .w3c img {
+            margin:-1px 0;
+        }
+        .wai {
+            float:right;
+            img {
+                @include border-right-radius(2px);
+                @include border-left-radius(2px);
+            }
+        }
+    }
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
 }
 
 @import "bootstrap-extend";
@@ -120,5 +165,3 @@ html.full-page {
 @import "animation";
 
 @import "evaluate";
-
-@import "report";

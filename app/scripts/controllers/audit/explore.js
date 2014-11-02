@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditExploreCtrl', function ($scope, appState, 
+.controller('AuditExploreCtrl', function ($scope, appState, $timeout,
 evalExploreModel, evalTestModel, $location) {
 
     $scope.state = appState.moveToState('explore');
@@ -11,16 +11,6 @@ evalExploreModel, evalTestModel, $location) {
     if (evalExploreModel.reliedUponTechnology && 
     evalExploreModel.reliedUponTechnology.length === 0) {
         evalExploreModel.addReliedUponTech();
-    }
-
-    if (evalExploreModel.commonPages && 
-    evalExploreModel.commonPages.length === 0) {
-        evalExploreModel.addPageToProp(evalExploreModel.commonPages);
-    }
-    
-    if (evalExploreModel.otherRelevantPages && 
-    evalExploreModel.otherRelevantPages.length === 0) {
-        evalExploreModel.addPageToProp(evalExploreModel.otherRelevantPages);
     }
     
     $scope.processInput = function () {
@@ -35,18 +25,34 @@ evalExploreModel, evalTestModel, $location) {
         }
     };
 
-    $scope.addTechnology = function () {
+    $scope.addTechnology = function ($event) {
         $scope.explore.addReliedUponTech();
+        var button = angular.element($event.delegateTarget);
+        $timeout(function () {
+            var inputs = button.prev().find('input');
+            inputs[inputs.length-2].select();
+        }, 100);
     };
 
-    $scope.addPage = function (prop) {
+    $scope.removeTechnology = function ($index, $event) {
+        evalExploreModel.reliedUponTechnology.splice($index,1);
+        // We need this timeout to prevent Angular UI from throwing an error
+        $timeout(function () {
+            angular.element($event.delegateTarget)
+            .closest('fieldset').parent()
+            .children().last()
+            .focus();
+        });
+    };
+
+    $scope.getPageAdder = function (prop) {
         return function () {
             var page = evalExploreModel.addPageToProp(evalExploreModel[prop]);
             evalTestModel.addPageForAsserts(page);
         };
     };
 
-    $scope.removePage = function (prop) {
+    $scope.getPageRemover = function (prop) {
         return function (index) {
             var page = evalExploreModel.removePageFromProp(evalExploreModel[prop], index);
             evalTestModel.removePageFromAsserts(page);
@@ -71,5 +77,8 @@ evalExploreModel, evalTestModel, $location) {
     $scope.previousStep = function () {
         $location.path('/audit/scope');
     };
+
+    $scope.nextStepName = 'STEP_SAMPLE';
+    $scope.previousStepName = 'STEP_SCOPE';
 
 });

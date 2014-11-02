@@ -6,10 +6,11 @@
 
   <button ng-repeat="page in pages"
   type="button" class="tag label"
+  tooltip-animation="false"
   tooltip="{{page.description}}" tooltip-trigger="focus blur mouseenter mouseleave"
   title="{{page.description}}" ng-click="removePage(page)">
     {{page.handle}}&nbsp;<span class="glyphicon glyphicon-remove"></span>
-    <span class="sr-only">, {{ 'CLICK_TO_DELETE' | translate }}</span>
+    <span class="sr-only">, {{:: 'CLICK_TO_DELETE' | translate }}</span>
   </button>
 
   <input type="text" ng-model="newPage" class="taginput"

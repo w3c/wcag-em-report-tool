@@ -1,32 +1,29 @@
-<div class="input-page">
-  <header class="row hidden-xs form-block-head"
-    aria-hidden="true"
-    ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
-              col1 = 'col-xs-9 col-sm-4 col-md-3 form-block';
-              col2 = 'col-xs-9 col-sm-7 col-md-8 form-block';
-              col3 = 'hidden-xs col-sm-1 form-block';
+<div class="input-page key-value-group"
+ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
+              col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
+              col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
+              col3 = 'col-sm-1 form-block remove-button';
               colHide = 'col-xs-3 visible-xs-and-sr form-block'">
+  
+  <header class="row hidden-xs form-block-head"
+  aria-hidden="true">
     <div ng-class="col1">
-      {{'LABEL_HANDLE' | translate}}</div>
+      {{:: 'LABEL_HANDLE' | translate}}</div>
     <div ng-class="col2">
-      {{'LABEL_PAGE' | translate}}</div>
+      {{:: 'LABEL_PAGE' | translate}}</div>
   </header>
 
-  <div class="row form-group-inline appear" ng-repeat="page in pages">
-
-    <div ng-class="col0">
-      <strong>{{ 'ITEM' | translate }} {{$index+1}}</strong>
-      <button class="pull-right btn 
-                     glyphicon glyphicon-remove-sign"
-          ng-click="removePage($index)">
-        <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
-        </span>
-      </button>
-    </div>
+  <p ng-if="pages.length === 0" class="appear no-selection"><em>
+    {{:: 'NO_PAGES_DEFINED' | translate}}
+  </em></p>
+  
+  <fieldset class="row form-group-inline appear" ng-repeat="page in pages">
+    <legend ng-class="col0">
+      {{:: 'ITEM' | translate }} {{$index+1}}
+    </legend>
 
     <label ng-class="colHide" for="struct_{{$index}}">
-      {{'LABEL_HANDLE' | translate}}:
+      {{::'LABEL_HANDLE' | translate}}:
     </label>
     <div ng-class="col1">
       <input type="text" class="form-control"
@@ -35,25 +32,30 @@
              placeholder="{{'PLH_HANDLE' | translate}}">
     </div>
     <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{'LABEL_PAGE' | translate }}:
+      {{:: 'LABEL_PAGE' | translate }}:
     </label>
     <div ng-class="col2">
       <input type="text" class="form-control"
-             id="rand_page_desc_{{$index}}"
-             ng-model="page.description"
-             placeholder="{{'PLH_PAGE_URL' | translate}}">
+      id="rand_page_desc_{{$index}}"
+      ng-model="page.description"
+      ng-blur="prependProtocol(page)"
+      placeholder="{{'PLH_PAGE_URL' | translate}}">
     </div>
+
     <div ng-class="col3">
-      <button class="btn glyphicon glyphicon-remove-sign"
-          ng-click="removePage($index)">
+      <button class="btn glyphicon glyphicon-remove-sign" ng-click="removePage($index, $event)"
+      tooltip-trigger="focus blur mouseenter mouseleave"
+      tooltip-animation="false"
+      tooltip="{{'BTN_REMOVE_PAGE' | translate}}">
         <span class="sr-only">
-          {{'BTN_REMOVE_PAGE' | translate}}
+          {{:: 'BTN_REMOVE_PAGE' | translate}}
         </span>
       </button>
     </div>
-  </div>
+  </fieldset>
 
-  <button ng-click="addPage()">
-    {{'BTN_ADD_PAGE' | translate }}
+  <button ng-click="addPage($event)" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    {{:: 'BTN_ADD_PAGE' | translate }}
   </button>
 </div>

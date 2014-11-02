@@ -177,7 +177,7 @@ angular.module('wcagReporter')
             "description": "Text that is part of a logo or brand name has no minimum contrast requirement."
           }],
           "number": "1.4.3",
-          "uri": "wcag20:visual-audio-contrast-"
+          "uri": "wcag20:visual-audio-contrast-contrast"
         }, {
           "title": "Resize text",
           "description": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",

@@ -1,10 +1,78 @@
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_mixins.scss";
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
 
-#final_report {
-    border: solid 2px $brand-primary;
-    padding: 1em;
-    border-radius: 10px;
+.reporter-view {
+    table {
+        border-collapse:collapse;
+        margin:0 auto;
+        min-width:65%;
+        
+        thead th { text-align:center }
+        tbody th { text-align:left } 
+
+        td, th {
+            border:solid 1px #dddddd;
+            padding: .2em .5em;
+
+            > p:only-child {
+                padding:0;
+                margin:0;
+            }
+        }
+    }
+
+    h1 + h2,
+    h2 + h3 {
+        margin-top:12px
+    }
+
+    h1, .h1,
+    h3, .h3 {
+      margin-top: $line-height-computed;
+      margin-bottom: ($line-height-computed / 3);
+    }
+
+    h2, .h2 {
+      margin-top: $line-height-computed;
+      margin-bottom: ($line-height-computed / 3);
+    }
+
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      margin-top: ($line-height-computed / 1.5);
+      margin-bottom: ($line-height-computed / 3);
+    }
+}
+
+.criterion {
+    .panel-heading {
+        padding-bottom:0;
+    }
+    .criterion-title {
+        margin-bottom: 5px;
+    }
+}
+
+.panel {
+    border-width:2px;
+}
+
+.panel .panel-heading,
+.alert {
+    color:$text-color;
+    a {
+        color:$text-color;
+        text-decoration:underline;
+        &:hover,
+        &:focus {
+            color:black;
+        }
+    }
+}
+
+.panel-heading h1 {
+    margin:0;
 }
 
 .outcome p:last-child {

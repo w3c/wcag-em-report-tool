@@ -31,5 +31,8 @@ $location, evalSampleModel, evalReportModel) {
         $location.path('/audit/test');
     };
 
+    $scope.nextStepName = 'STEP_VIEW';
+    $scope.previousStepName = 'STEP_AUDIT';
+
 });
 

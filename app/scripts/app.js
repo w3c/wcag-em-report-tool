@@ -6,7 +6,8 @@ angular.module('wcagReporter', [
     'ngRoute',
     'ngAnimate',
     'pascalprecht.translate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'wert-templates'
 ]).config(function ($routeProvider, $compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
 
@@ -25,37 +26,39 @@ angular.module('wcagReporter', [
     }).when('/audit/test', {
         templateUrl: 'views/audit/test.html',
         controller: 'AuditTestCtrl'
+    }).when('/audit/finalize', {
+        templateUrl: 'views/audit/finalize.html',
+        controller: 'AuditFinalizeCtrl'
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
-    }).when('/help', {
-        templateUrl: 'views/help.html',
-        controller: 'HelpCtrl'
     }).when('/import', {
         templateUrl: 'views/import.html',
         controller: 'ImportCtrl'
     }).when('/export', {
         templateUrl: 'views/export.html',
         controller: 'ExportCtrl'
-    }).when('/audit/finalize', {
-        templateUrl: 'views/audit/finalize.html',
-        controller: 'AuditFinalizeCtrl'
     }).otherwise({
         redirectTo: '/'
     });
 
 
 }).run(function (translateFilter, $rootScope, $document, appState,
-$location, $rootElement) {
+$location, $rootElement, evalScopeModel) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text().trim();
     
     if (prefix) {
-        prefix = titleElm.text() + ' - ';
+        prefix = titleElm.text() + ', ';
     }
 
     $rootScope.setTitle = function (title) {
-       titleElm.text(prefix + title);
+        var sitename = '';
+        if (evalScopeModel.website && evalScopeModel.website.title) {
+            sitename = evalScopeModel.website.title + ' - ';
+        }
+        
+        titleElm.text(prefix + sitename + title);
         return title;
     };
 
@@ -73,6 +76,11 @@ $location, $rootElement) {
     $rootScope.$on('$routeChangeSuccess', function () {
         $rootElement.focus();
     });
+
+    $rootScope.support = {
+        hasSupport: appState.hasBrowserSupport(),
+        hideMessage: false
+    };
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {

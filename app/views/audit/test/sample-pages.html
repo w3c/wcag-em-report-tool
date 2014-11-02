@@ -8,6 +8,8 @@
   <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
 </info-field>
 
+<p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
+
 <ul class="sample" collapse="hideSample">
 	<li ng-repeat="page in allPages()"
   ng-class="{active: page.selected}">
@@ -17,8 +19,9 @@
       type="checkbox" ng-model="page.selected">&nbsp;{{page.handle}}&nbsp;
       <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
     </label>
-    <a href="" tooltip="{{page.description}}"
-    ng-click="openPage(page)"
+    <a href="" ng-click="openPage(page)"
+    tooltip="{{page.description}}"
+    tooltip-animation="false"
     tooltip-trigger="focus blur mouseenter mouseleave"
     class="pull-right glyphicon glyphicon-link">
       <span class="sr-only">{{page.description}}</span>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ExportCtrl', function ($scope, wcagReporterExport) {
+.controller('ExportCtrl', function ($scope, wcagReporterExport, appState) {
 
     $scope.exportUrl = wcagReporterExport.getBlobUrl();
     $scope.exportFile = wcagReporterExport.getFileName();
@@ -25,7 +25,10 @@ angular.module('wcagReporter')
         });
     };
 
-    $scope.openBlobIE = wcagReporterExport.saveBlobIE;    
+    $scope.downloadStart = function () {
+        wcagReporterExport.saveBlobIE();
+        appState.setPrestineState();
+    }
 
     $scope.updateSettings = function () {
         wcagReporterExport.storage.updateSettings();

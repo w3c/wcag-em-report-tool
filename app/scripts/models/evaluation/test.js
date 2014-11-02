@@ -44,7 +44,10 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCritAssert: function (idref) {
-            return criteria[idref];
+            var crit = criteria[idref];
+            if (crit && evalScopeModel.matchConformTarget(crit.getSpec().level)) {
+                return  crit;
+            }
         },
 
         getCriteriaSorted: function () {
@@ -61,6 +64,10 @@ evalScopeModel, wcag20spec, CriterionAssert) {
             
             for (prop in result) {
                 if (prop === 'hasPart') {
+                    // Make sure hasPart is an array:
+                    if (!angular.isArray(result.hasPart)) {
+                        result.hasPart = [result.hasPart];
+                    }
                     result.hasPart.forEach(
                             newCrit.addTestCaseAssertion, newCrit);
                 } else {
