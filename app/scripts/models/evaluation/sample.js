@@ -101,21 +101,16 @@ angular.module('wcagReporter')
 
     sampleModel.getPages = function () {
         return sampleModel.structuredSample.webpage
-            .concat(sampleModel.randomSample.webpage);
+        .concat(sampleModel.randomSample.webpage);
     };
 
     sampleModel.getSelectedPages = function () {
-        return sampleModel.getPages().filter(function (page) {
-            return page.selected === true;
-        });
-    };
-
-    sampleModel.getSelectedPages = function () {
-        return sampleModel.getPages().map(function (page) {
+        return sampleModel.getPages().reduce(function (arr, page) {
             if (page.selected) {
-                return page;
+                arr.push(page);
             }
-        });
+            return arr;
+        }, []);
     };
 
     /**

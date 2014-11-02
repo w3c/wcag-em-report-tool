@@ -1,0 +1,53 @@
+<div ng-controller="TestSamplePagesCtrl">
+  <h2>
+    {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"></info-button>
+  </h2>
+
+  <info-field ref="inf_audit_sample" exitto=""
+              button="{{'LABEL_CLOSE_INFO' | translate}}">
+    <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
+  </info-field>
+
+  <div class="btn-group">
+    <input type="checkbox" ng-model="anySelect" ng-click="changeAll()">
+
+    <icon-button icon="'check'" label="'BTN_COMPLETE_SELECTED' | translate"
+    click="completePages()"></icon-button>
+    <icon-button icon="'edit'" label="'BTN_UNCOMPLETE_SELECTED' | translate"
+    click="uncompletePages()"></icon-button>
+
+    <icon-button icon="'backward'" label="'BTN_COMPLETE_SELECTED' | translate"
+    click="prevPages()"></icon-button>
+    <input type="text" size="1" ng-model="auditSize">
+    <icon-button icon="'forward'" label="'BTN_UNCOMPLETE_SELECTED' | translate"
+    click="nextPages()"></icon-button>
+
+    <icon-button icon="'link'" label="'BTN_OPEN_SELECTED' | translate"
+    click="openSelected()"></icon-button>
+
+  </div>
+
+  <p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
+
+  <ul class="sample" collapse="hideSample">
+  	<li ng-repeat="page in allPages()"
+    ng-class="{active: page.selected}">
+      
+      <label for="sample_select_{{$id}}">
+        <input id="sample_select_{{$id}}" ng-change="sampleChange()"
+        type="checkbox" ng-model="page.selected">&nbsp;<span
+        ng-class="{'page-tested' : page.tested}">{{page.handle}}</span>&nbsp;
+        <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
+      </label>
+      <a href="" ng-click="openPage(page)"
+      tooltip="{{page.description}}"
+      tooltip-animation="false"
+      tooltip-trigger="focus blur mouseenter mouseleave"
+      class="pull-right glyphicon glyphicon-link">
+        <span class="sr-only">{{page.description}}</span>
+      </a>
+  	</li>
+  </ul>
+
+</div>
