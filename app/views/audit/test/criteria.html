@@ -6,6 +6,8 @@ button="{{'LABEL_CLOSE_INFO' | translate}}">
   <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
 </info-field>
 
+<div ng-include src="'views/audit/test/criterion-tools.html'"></div>
+
 <div ng-repeat="p in principles | whereCriteriaVisible: getCritAssert">
   <h3><button-collapse target="p" property="showGuideline">
       {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
