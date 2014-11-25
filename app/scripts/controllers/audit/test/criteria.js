@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('TestPrinciplesCtrl', function ($scope, evalTestModel, wcag20spec,
-$rootElement, $anchorScroll, $filter, $rootScope) {
+.controller('TestPrinciplesCtrl', function ($scope, evalTestModel, evalScopeModel, 
+wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 
     evalTestModel.updateToConformance();
 
@@ -23,8 +23,9 @@ $rootElement, $anchorScroll, $filter, $rootScope) {
 	    Object.keys($filter('rdfToLabel').keymap)
 	    .forEach(function (key) {
 	    	// WCAG 2 stuff is all about levels
+	    	
 	    	if (key.substr(0, 7) === 'wcag20:') {
-	    		$scope.critFilter.level[key] = true;
+	    		$scope.critFilter.level[key] = evalScopeModel.matchConformTarget(key);
 			// EARL stuff is about outcomes
 	    	} else if (key.substr(0, 5) === 'earl:') {
 	    		$scope.critFilter.outcome[key] = true;

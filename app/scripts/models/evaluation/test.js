@@ -44,10 +44,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCritAssert: function (idref) {
-            var crit = criteria[idref];
-            if (crit && evalScopeModel.matchConformTarget(crit.getSpec().level)) {
-                return  crit;
-            }
+            return criteria[idref];
         },
 
         getCriteriaSorted: function () {
@@ -91,8 +88,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
 
         updateToConformance: function () {
             wcag20spec.getCriteria().forEach(function (spec) {
-                if (evalScopeModel.matchConformTarget(spec.level) &&
-                typeof testModel.criteria[spec.uri] === 'undefined') {
+                if (typeof testModel.criteria[spec.uri] === 'undefined') {
                     testModel.addCritAssert({
                         'testRequirement': spec.uri
                     });

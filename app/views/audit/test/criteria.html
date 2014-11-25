@@ -10,8 +10,7 @@
 
   <div ng-include src="'views/audit/test/criteria-tools.html'"></div>
 
-  <div ng-repeat="p in principles" ng-if="isPrincipleVisible(p)"
-  class="appear-tall">
+  <div ng-repeat="p in principles" ng-if="isPrincipleVisible(p)" class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
         {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
     </button-collapse></h3>
