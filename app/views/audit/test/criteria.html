@@ -10,19 +10,20 @@
 
   <div ng-include src="'views/audit/test/criteria-tools.html'"></div>
 
-  <div ng-repeat="p in principles" ng-if="isPrincipleVisible(p)">
+  <div ng-repeat="p in principles" ng-if="isPrincipleVisible(p)"
+  class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
         {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
     </button-collapse></h3>
     
     <div ng-repeat="g in p.guidelines" ng-if="isGuidelineVisible(g)"
-    collapse="p.showGuideline">
+    collapse="p.showGuideline" class="appear">
       <h4><button-collapse target="g" property="showCritera">
           {{g.number}} {{g.title}}
       </button-collapse></h4>
       
       <div collapse="g.showCritera">
-        <success-criterion 
+        <success-criterion class="appear"
         ng-init="opt = {editable: true, collapses: true};
                  crit = getCritAssert(critSpec.uri)"
         ng-repeat="critSpec in g.criteria"

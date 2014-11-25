@@ -110,6 +110,4 @@ angular.module('wcagReporter')
     	}
     };
 
-
-
 });
