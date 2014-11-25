@@ -6,6 +6,13 @@ angular.module('wcagReporter')
 	var getSelected = evalSampleModel.getSelectedPages;
 	var getPages = evalSampleModel.getPages;
 
+    $scope.structuredSample = evalSampleModel.structuredSample; 
+    $scope.randomSample = evalSampleModel.randomSample;
+
+    $scope.allPages = function () {
+        return evalSampleModel.getPages();
+    };
+
 	$scope.auditSize = getSelected.length;
 	$scope.anySelect = $scope.auditSize !== 0;
 
@@ -14,6 +21,10 @@ angular.module('wcagReporter')
 			Page.openInWindow(page);
 		});
 	};
+
+    $scope.openPage = function (clickedPage) {
+        Page.openInWindow(clickedPage);
+    };
 
 	$scope.changeAll = function () {
 		var pages = getPages();
