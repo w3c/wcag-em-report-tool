@@ -1,8 +1,7 @@
 'use strict'; 
 
 angular.module('wcagReporter') 
-.controller('AuditTestCtrl', function ($scope, appState, $location,
-$rootElement, $anchorScroll) {
+.controller('AuditTestCtrl', function ($scope, appState, $location) {
 
     $scope.state = appState.moveToState('test'); 
 
@@ -16,9 +15,4 @@ $rootElement, $anchorScroll) {
 
     $scope.nextStepName = 'STEP_REPORT';
     $scope.previousStepName = 'STEP_SAMPLE';
-    
-    $scope.toTop = function () {
-        $rootElement.focus();
-        $anchorScroll();
-    };
 });
