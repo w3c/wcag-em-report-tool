@@ -44,7 +44,13 @@
     }
 }
 
-.criterion {
+.panel.criterion {
+    border-left-width:6px;
+    &.passed       { border-left-color:#86C8A7 }
+    &.failed       { border-left-color:#E48996 }
+    &.inapplicable { border-left-color:#A6A6C7 }
+    &.canttell     { border-left-color:#E0B970 }
+    
     .panel-heading {
         padding-bottom:0;
     }

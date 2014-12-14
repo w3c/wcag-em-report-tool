@@ -3,11 +3,11 @@
 angular.module('wcagReporter')
 .directive('successCriterion', function (directivePlugin, $rootScope) {
     var className = {
-        'earl:untested': 'panel-default',
-        'earl:passed': 'panel-success',
-        'earl:failed': 'panel-danger',
-        'earl:inapplicable': 'panel-info',
-        'earl:cantTell': 'panel-warning'
+        'earl:untested': 'untested',
+        'earl:passed': 'passed',
+        'earl:failed': 'failed',
+        'earl:inapplicable': 'inapplicable',
+        'earl:cantTell': 'canttell'
     };
 
     return directivePlugin({
