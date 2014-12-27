@@ -3,7 +3,8 @@
 
 <h1>{{ setTitle( translate('HD_STEP2') ) }}</h1>
 
-<p>{{ 'INTRO_STEP2' | translate }}</p>
+<p ng-bind-html="'INTRO_STEP2' | translateAndLink
+: ['INTRO_STEP2_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
 
 <form class="">
   <div class="form-group">
@@ -14,7 +15,8 @@
     
     <info-field button="Close info">
       <p ng-bind-html="'INF_COMMON_PAGES' | translateAndLink
-      : ['INF_COMMON_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2a']"></p>
+      : ['INF_COMMON_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2a']
+      : ['INF_COMMON_PAGES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
     </info-field>
     
     <input-pages pages="explore.commonPages"
@@ -45,7 +47,8 @@
 
     <info-field button="Close info">
       <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
-      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']"></p>
+      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
+      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
     </info-field>
 
     <textarea ng-model="explore.pageTypeVariety"
@@ -141,7 +144,8 @@
 
     <info-field button="Close info">
       <p ng-bind-html="'INF_OTHER_PAGES' | translateAndLink
-      : ['INF_OTHER_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2e']"></p>
+      : ['INF_OTHER_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2e']
+      : ['INF_OTHER_PAGES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
     </info-field>
     
     <input-pages pages="explore.otherRelevantPages"

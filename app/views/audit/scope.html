@@ -3,7 +3,8 @@
 
 <h1>{{ setTitle( translate('HD_STEP1') ) }}</h1>
 
-<p>{{ 'INTRO_STEP1' | translate }}</p>
+<p ng-bind-html="'INTRO_STEP1' | translateAndLink
+: ['INTRO_STEP1_0', 'http://www.w3.org/TR/WCAG-EM/#step1']"></p>
 
 <form>
   <div class="form-group">

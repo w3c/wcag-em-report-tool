@@ -3,7 +3,8 @@
 
 <h1>{{ setTitle( translate('HD_STEP5') ) }}</h1>
 
-<p>{{ 'INTRO_STEP5' | translate }}</p>
+<p ng-bind-html="'INTRO_STEP5' | translateAndLink
+: ['INTRO_STEP5_0', 'http://www.w3.org/TR/WCAG-EM/#step5']"></p>
 
 <form class="form-horizontal">
   <div class="form-group">
@@ -113,6 +114,11 @@
   </div></div>
 </form>
 
-<div ng-include src="'views/report/findings.html'"></div>
+<h2><button-collapse target="rootHide" property="criteriaReport">
+    {{ 'HD_CRITERIA_REPORT' | translate}}
+</button-collapse></h2>
+
+<div collapse="rootHide.criteriaReport"
+ng-include src="'views/report/findings.html'"></div>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>

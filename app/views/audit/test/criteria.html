@@ -2,6 +2,10 @@
   <h2>{{ 'HD_CRITERIA' | translate }}&nbsp;<info-button
     label="{{'LABEL_INFO' | translate}}" target="inf_audit_criteria"></info-button>
   </h2>
+  <info-field ref="inf_audit_criteria" exitto=""
+  button="{{'LABEL_CLOSE_INFO' | translate}}">
+    <p>{{ 'INF_AUDIT_CRITERIA' | translate }}</p>
+  </info-field>
 
   <info-field ref="inf_audit_criteria" exitto=""
   button="{{'LABEL_CLOSE_INFO' | translate}}">
@@ -10,12 +14,14 @@
 
   <div ng-include src="'views/audit/test/criteria-tools.html'"></div>
 
-  <div ng-repeat="p in principles" ng-if="isPrincipleVisible(p)" class="appear-tall">
+  <div ng-repeat="p in principles"
+  ng-if="isPrincipleVisible(p)" class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
         {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
     </button-collapse></h3>
     
-    <div ng-repeat="g in p.guidelines" ng-if="isGuidelineVisible(g)"
+    <div ng-repeat="g in p.guidelines" 
+    ng-if="isGuidelineVisible(g)"
     collapse="p.showGuideline" class="appear">
       <h4><button-collapse target="g" property="showCritera">
           {{g.number}} {{g.title}}
@@ -27,8 +33,9 @@
                  crit = getCritAssert(critSpec.uri)"
         ng-repeat="critSpec in g.criteria"
         ng-if="isCriterionVisible(critSpec)"
-        assertion="getCritAssert(critSpec.uri)" requirement="critSpec"
-        options="opt" ></success-criterion>
+        assertion="getCritAssert(critSpec.uri)" 
+        requirement="critSpec" options="opt">
+        </success-criterion>
 
         <div class="to-top">
           <a href="" ng-click="toTop()">{{ 'TO_TOP' | translate }}</a>
