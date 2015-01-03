@@ -11,7 +11,7 @@ describe('Model: evalModel', function () {
         evalModel = _evalModel_;
     }));
 
-    it('should do something', function () {
+    it('should exist', function () {
         expect(!!evalModel).toBe(true);
     });
     
