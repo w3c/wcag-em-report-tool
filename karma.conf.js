@@ -11,11 +11,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-resource/angular-resource.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
-      'app/bower_components/angular-route/angular-route.js',
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/angular/angular.js',
+      'bower_components/json3/lib/json3.js',
+      'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/angular-route/angular-route.js',
+      'bower_components/angular-translate/angular-translate.js',
+      'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
       'app/scripts/{,*/}*.js',
       // 'test/mock/**/*.js',
       'test/spec/**/{,*/}*.js'
