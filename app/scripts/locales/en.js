@@ -60,7 +60,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'STEP_AUDIT': 'Audit Sample',
     'STEP_REPORT': 'Report Findings',
     'STEP_VIEW': 'View Report',
-    'HD_START': 'WCAG-EM Report Tool [Beta]',
+    'HD_START': 'WCAG-EM Report Tool',
     'HD_START_1': 'Website Accessibility Evaluation Report Generator',
     'HD_STEP1': 'Step 1: Define the Evaluation Scope',
     'HD_STEP2': 'Step 2: Explore the Target Website',
