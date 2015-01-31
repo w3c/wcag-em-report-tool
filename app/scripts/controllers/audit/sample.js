@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditSampleCtrl', function ($scope, appState, $location,
+.controller('AuditSampleCtrl', function ($scope, appState, $location, $timeout,
 evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.state = appState.moveToState('sample');
 
@@ -9,6 +9,7 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.randomSample = evalSampleModel.randomSample;
     
     $scope.exploreModel = evalExploreModel;
+    $scope.knownTech = evalExploreModel.knownTech;
 
     if ($scope.structuredSample && 
     $scope.structuredSample.webpage.length === 0) {
@@ -18,6 +19,11 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     if ($scope.randomSample && 
     $scope.randomSample.webpage.length === 0) {
         evalSampleModel.addNewRandomPage();
+    }
+
+    if (evalExploreModel.reliedUponTechnology && 
+    evalExploreModel.reliedUponTechnology.length === 0) {
+        evalExploreModel.addReliedUponTech();
     }
 
     $scope.getPageAdder = function (sample) {
@@ -41,7 +47,6 @@ evalExploreModel, evalSampleModel, evalTestModel) {
         .ceil($scope.structuredSample.webpage.length / 10);
     };
 
-
     $scope.processInput = function () {
         var errors = evalSampleModel.validate();
         if (errors.length > 0) {
@@ -51,6 +56,41 @@ evalExploreModel, evalSampleModel, evalTestModel) {
             // continue to next step
         }
     };
+
+    
+    $scope.updateSpec = function (tech) {
+        if (techMap[tech.title]) {
+            tech.id = techMap[tech.title];
+        }
+    };
+
+
+
+    $scope.addTechnology = function ($event) {
+        evalExploreModel.addReliedUponTech();
+        var button = angular.element($event.delegateTarget);
+        $timeout(function () {
+            var inputs = button.prev().find('input');
+            inputs[inputs.length-2].select();
+        }, 100);
+    };
+
+    $scope.removeTechnology = function ($index, $event) {
+        evalExploreModel.reliedUponTechnology.splice($index,1);
+        // We need this timeout to prevent Angular UI from throwing an error
+        $timeout(function () {
+            angular.element($event.delegateTarget)
+            .closest('fieldset').parent()
+            .children().last()
+            .focus();
+        });
+    };
+
+    var techMap = {};
+    evalExploreModel.knownTech.forEach(function (knownTech) {
+        techMap[knownTech.title] = knownTech.id;
+    });
+
 
     $scope.nextStep = function () {
         $location.path('/audit/test');

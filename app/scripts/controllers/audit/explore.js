@@ -6,13 +6,7 @@ evalExploreModel, evalTestModel, $location) {
 
     $scope.state = appState.moveToState('explore');
     $scope.explore = evalExploreModel;
-    $scope.knownTech = evalExploreModel.knownTech;
 
-    if (evalExploreModel.reliedUponTechnology && 
-    evalExploreModel.reliedUponTechnology.length === 0) {
-        evalExploreModel.addReliedUponTech();
-    }
-    
     $scope.processInput = function () {
         var errors = evalExploreModel.validate();
 
@@ -22,51 +16,6 @@ evalExploreModel, evalTestModel, $location) {
         } else {
             evalExploreModel.updateSample();
             // continue to next step
-        }
-    };
-
-    $scope.addTechnology = function ($event) {
-        $scope.explore.addReliedUponTech();
-        var button = angular.element($event.delegateTarget);
-        $timeout(function () {
-            var inputs = button.prev().find('input');
-            inputs[inputs.length-2].select();
-        }, 100);
-    };
-
-    $scope.removeTechnology = function ($index, $event) {
-        evalExploreModel.reliedUponTechnology.splice($index,1);
-        // We need this timeout to prevent Angular UI from throwing an error
-        $timeout(function () {
-            angular.element($event.delegateTarget)
-            .closest('fieldset').parent()
-            .children().last()
-            .focus();
-        });
-    };
-
-    $scope.getPageAdder = function (prop) {
-        return function () {
-            var page = evalExploreModel.addPageToProp(evalExploreModel[prop]);
-            evalTestModel.addPageForAsserts(page);
-        };
-    };
-
-    $scope.getPageRemover = function (prop) {
-        return function (index) {
-            var page = evalExploreModel.removePageFromProp(evalExploreModel[prop], index);
-            evalTestModel.removePageFromAsserts(page);
-        };
-    };
-
-    var techMap = {};
-    evalExploreModel.knownTech.forEach(function (knownTech) {
-        techMap[knownTech.title] = knownTech.id;
-    });
-    
-    $scope.updateSpec = function (tech) {
-        if (techMap[tech.title]) {
-            tech.id = techMap[tech.title];
         }
     };
 
