@@ -43,8 +43,8 @@ angular.module('wcagReporter', [
     });
 
 
-}).run(function (translateFilter, $rootScope, $document, appState,
-$location, $rootElement, evalScopeModel) {
+}).run(function (translateFilter, $rootScope, $document, appState, wcagReporterExport,
+$location, $rootElement, evalScopeModel, showSave) {
     var titleElm = $document.find('title'),
         prefix = titleElm.text().trim();
     
@@ -81,6 +81,20 @@ $location, $rootElement, evalScopeModel) {
         hasSupport: appState.hasBrowserSupport(),
         hideMessage: false
     };
+
+    if (showSave) {
+        $rootElement.on('keydown', function (e) {
+            // ctrl+s || cmd+s
+            if (e.keyCode === 83 && (e.ctrlKey || e.metaKey)) {
+                showSave(wcagReporterExport.getString(),
+                         wcagReporterExport.getFileName(),
+                         'application/json');
+                
+                appState.setPrestineState();
+                e.preventDefault();
+            }
+        });
+    }
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
