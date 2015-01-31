@@ -1,3 +1,30 @@
+Roadmap WeRT
+
+1.1
+- Recreate the navigation bar
+- Toolbars for the audit screen
+- Save to and load from REST API, including autosave
+- Improved integration with auditing tools
+- Refactored the tool for easier maintenance
+- Set up testing
+
+
+1.2
+- Support more EARL features
+- WCAG-EM validation messages
+- Final report customisation
+- Improved documentation
+
+- Support for multiple languages
+
+- Option to add screen grabs
+- Support for auditing and reporting subsites
+
+- Improved design
+- Backend for managing evaluations and reëvaluations
+- Export to PDF
+
+
 --- Current state ---
 @ wcagReporter
 wcagReporterExport
@@ -86,15 +113,6 @@ evalModel                       (evaluationModel)
   evaluationExport
 
 
-@ wcagReporter
-  @ wcagReporterModel
-  @ wertStorage
-
-appState (wertAppMain)
-  evalModel
-
-
---- Module structure ---
 
 @ WcagEmReportTool
   @ wertControllers
@@ -102,3 +120,9 @@ appState (wertAppMain)
     @ wertModelComponents
   @ wertStorage
     @ wertUtill
+
+appState (wertAppMain)
+  evalModel
+
+
+--- Module structure ---
