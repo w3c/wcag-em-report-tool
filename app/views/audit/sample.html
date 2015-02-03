@@ -62,8 +62,19 @@
   add-page="getPageAdder(randomSample)"
   remove-page="getPageRemover(randomSample)"></input-pages>
 
-
+  <h2>
+    {{'HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"></info-button>
+  </h2>
   
+  <info-field ref="inf_reliedup_tech" button="Close info">
+    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
+    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
+    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
+  </info-field>
+
+  <p>{{:: 'INTRO_RELIEDUP_TECH' | translate }}</p>
+
   <div class="form-group key-value-group" 
   ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
            col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
@@ -74,14 +85,6 @@
            head = 'row hidden-xs form-block-head';
            delButton = 'btn glyphicon glyphicon-remove-sign'">
 
-  <strong>{{ 'LABEL_RELIEDUP_TECH' | translate }}</strong>&nbsp;<info-button
-  label="{{'LABEL_INFO' | translate}}"></info-button>
-
-  <info-field button="Close info">
-    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
-    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
-  </info-field>
 
     <datalist id="data_tech_titles">
       <option ng-repeat="t in knownTech">{{t.title}}</option>

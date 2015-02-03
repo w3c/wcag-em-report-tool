@@ -115,6 +115,7 @@
   "INTRO_LOAD": "Select an evaluation report data file that was previously saved on your computer to load and continue working on it. ",
 
   "RAND_SAMPLE_LENGTH": "Based on your structured sample of {0} web pages, chose at least {1} randomly selected web pages (to meet the 10% requirement in WCAG-EM).",
+  "INTRO_RELIEDUP_TECH": "INTRO RELIEDUP TECH",
 
   "LABEL_SITE_NAME": "Website name",
   "LABEL_SITE_SCOPE": "Scope of the website",
@@ -122,7 +123,6 @@
   "LABEL_SPECIFICS": "Recordings of any evaluation specifics",
   "LABEL_EXTRA_REQUIREMENTS": "Additional evaluation requirements",
   "LABEL_SUPPORT_BASE": "Accessibility support baseline",
-  "LABEL_RELIEDUP_TECH": "Web technologies relied upon",
   "LABEL_COMMON_PAGES": "Common web pages",
   "LABEL_ESSENT_FUNC": "Essential functionality of the website",
   "LABEL_VARIETY_PAGE_TYPES": "Variety of web page types",
@@ -229,6 +229,7 @@
   "HD_SCOPE": "Scope of the evaluation",
   "HD_SUMMARY": "Summary of the evaluation findings",
   "HD_CRITERIA_REPORT": "Detailed audit results",
+  "HD_RELIEDUP_TECH": "Web Technologies Relied Upon",
   "PRINCIPLE": "Principle",
   "RESULTS_OF": "Results of",
 
