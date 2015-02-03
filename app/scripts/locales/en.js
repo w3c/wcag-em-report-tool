@@ -111,7 +111,6 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'INTRO_SAVE_2': 'Use Ctrl + S or ⌘ S on any page as a shortcut to download and save the evaluation report data file.',
     'INTRO_LOAD': 'Select an evaluation report data file that was previously saved on your computer to load and continue working on it. ',
     'RAND_SAMPLE_LENGTH': 'Based on your structured sample of {0} web pages, chose at least {1} randomly selected web pages (to meet the 10% requirement in WCAG-EM).',
-    'INTRO_RELIEDUP_TECH': 'INTRO RELIEDUP TECH',
     'LABEL_SITE_NAME': 'Website name',
     'LABEL_SITE_SCOPE': 'Scope of the website',
     'LABEL_CONFORMANCE_TGT': 'Conformance target',
