@@ -24,7 +24,7 @@
   "NAV_HELP": "Help",
 
   "CONFIRM_REMOVE_RESULT": "Are you sure you want to remove this result?",
-  "CONFIRM_TRANSFER_MACRO_RESULT": "Merging  multi-page results into pages can not be undone. Continue?",
+  "CONFIRM_TRANSFER_MACRO_RESULT": "Merging multi-page results into pages can not be undone. Continue?",
 
   "YES": "Yes",
   "NO": "No",
@@ -37,7 +37,7 @@
   "BTN_ADD_PAGE": "Add page",
   "BTN_REMOVE_MACRO_ASSERT": "Remove multi-page result",
   "BTN_ADD_MACRO_ASSERT": "Add  multi-page result",
-  "BTN_TRANSFER_MACRO_ASSERT": "Merge  multi-page result into page results",
+  "BTN_TRANSFER_MACRO_ASSERT": "Merge multi-page result into page results",
   "BTN_RESULT_COPY": "Copy this result",
   "MACRO_RESULTS_FOR": "Issue for",
   "NO_PAGES_DEFINED": "No pages defined for this list",
@@ -91,7 +91,7 @@
   "INTRO_START_2_HD": "How it works in your browser",
   "INTRO_START_2_LI1": "All functionality provided by this tool is now loaded and running locally in your web browser. You don't need an Internet connection beyond this point. When you close your browser window, any unsaved data would be lost.",
   "INTRO_START_2_LI2A": "This tool does not record or automatically save the information that you enter.",
-  "INTRO_START_2_LI2B": "Use the Save Report link (Ctrl + C or ⌘ C) that is at the top of all pages to save your data in a file locally on your computer. You can Save periodically as you work to avoid losing data if your browser closes.",
+  "INTRO_START_2_LI2B": "Use the Save Report link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer. You can Save periodically as you work to avoid losing data if your browser closes.",
   "INTRO_START_2_LI3": "You can save partially-complete reports and work on them later. Use the Open Report link at the top and find the file that you previously saved.",
   "INTRO_START_3_HD": "Tips for using the tool",
   "INTRO_START_3_LI1": "You can go back and forth between the steps in any order. None of the fields are required.",
@@ -248,7 +248,7 @@
   "BTN_DOWNLOAD_DATA_FILE": "Download and save",
   "BTN_BACK_TO_EVAL": "Back",
 
-  "BROWSER_NOT_SUPPORTED": "This web browser is not supported. You will not be able to use all features, which may include loading and saving. Use a web browser for which you have the latest version instead.",
+  "BROWSER_NOT_SUPPORTED": "The web browser you are using does not support some functionality, such as saving and loading reports. You can continue to use this report tool with limited functionality, or you may be able to update or use a different web browser.",
   "HIDE_MESSAGE": "Hide message",
 
   "PREV_STEP": "Previous step",
