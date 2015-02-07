@@ -15,19 +15,22 @@
 <h2><button-collapse target="rootHide" property="start1">
     {{ 'INTRO_START_2_HD' | translate }}
 </button-collapse></h2>
-<div collapse="!rootHide.start1"> <ul>
+<div collapse="rootHide.start1">
+  <p><strong>{{:: 'INTRO_START_2A' | translate }}</strong>
+    {{:: 'INTRO_START_2B' | translate}}
+  </p>
+  <ul>
     <li>{{:: 'INTRO_START_2_LI1' | translate }}</li>
-    <li><strong>{{:: 'INTRO_START_2_LI2A' | translate }}</strong>
-      {{:: 'INTRO_START_2_LI2B' | translate }}
-    </li>
+    <li>{{:: 'INTRO_START_2_LI2' | translate }}</li>
     <li>{{:: 'INTRO_START_2_LI3' | translate }}</li>
-</ul> </div>
+  </ul>
+</div>
 
 
 <h2><button-collapse target="rootHide" property="start2">
     {{ 'INTRO_START_3_HD' | translate }}
 </button-collapse></h2>
-<div collapse="!rootHide.start2"> <ul>
+<div collapse="rootHide.start2"> <ul>
     <li>{{:: 'INTRO_START_3_LI1' | translate }}</li>
     <li>
       {{:: 'INTRO_START_3_LI2A' | translate }}
@@ -36,6 +39,7 @@
       {{:: 'INTRO_START_3_LI2B' | translate }}
     </li>
     <li>{{:: 'INTRO_START_3_LI3' | translate }}</li>
+    <li>{{:: 'INTRO_START_3_LI4' | translate }}</li>
 </ul> </div>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>

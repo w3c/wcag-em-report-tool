@@ -88,9 +88,9 @@
   "INTRO_START_1_1": "structured report",
   "INTRO_START_1_2": "Web Content Accessibility Guidelines (WCAG) 2.0",
   "INTRO_START_1_3": "WCAG-EM Overview",
-  "INTRO_START_2A": "Note:", // please make this bold
-  "INTRO_START_2B": "This tool does not record or automatically save the information that you enter. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer.", // new text as a paragraph together with INTRO_START_2A
   "INTRO_START_2_HD": "How this tool works",
+  "INTRO_START_2A": "Note:",
+  "INTRO_START_2B": "This tool does not record or automatically save the information that you enter. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer.",
   "INTRO_START_2_LI1": "All functionality provided by this tool is now loaded and running locally in your web browser. You don't need an Internet connection beyond this point. When you close your browser window, any unsaved data would be lost.",
   "INTRO_START_2_LI2": "All input that you provide through this tool is recorded as JSON data in the background (in your web browser, not on any server). You can Save periodically as you work to avoid losing data if your web browser closes.",
   "INTRO_START_2_LI3": "You can save partially-complete reports and work on them later. Use the 'Open' link at the top and find the file that you previously saved to reload it. If you have already entered data, then 'Open' will load the file in a new report.",
@@ -113,7 +113,7 @@
   "INTRO_STEP5_0": "WCAG-EM Step 5: Report the Evaluation Findings",
   "INTRO_REPORT": "Below is the sample evaluation report based on the input that you provided in previous steps. You can go back and adjust any of this information as needed. You can download the evaluation report as HTML to further customize it to your liking, and you can save the data locally to your own computer to retrieve it at a later time.",
   "INTRO_SAVE_1": "Use the link below to save your data in a JSON data file locally on your computer. You can save partially-complete reports and work on them later. You can also use save to transfer the data to another computer or web browser. You can Save periodically as you work to avoid losing data if your web browser closes.",
-  "INTRO_SAVE_2": "Use Ctrl + S or ⌘ S on any page as a shortcut to save the your data as JSON data file. This shortcut initiates the file save dialog of your web browser, or it may automatically save it in your downloads folder depending on your web browser settings.", // please move this paragraph after the download link
+  "INTRO_SAVE_2": "Use Ctrl + S or ⌘ S on any page as a shortcut to save the your data as JSON data file. This shortcut initiates the file save dialog of your web browser, or it may automatically save it in your downloads folder depending on your web browser settings.",
   "INTRO_LOAD": "Find and select the JSON data file that your previously saved to reload it. If you have already entered data, then data file will be loaded in a new report.",
 
   "RAND_SAMPLE_LENGTH": "Based on your structured sample of {0} web pages, chose at least {1} randomly selected web pages (to meet the 10% requirement in WCAG-EM).",
