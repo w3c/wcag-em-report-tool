@@ -136,6 +136,7 @@ angular.module('wcagReporter').config(function ($translateProvider) {
     'LABEL_TECH_SPEC': 'Specification Address (URL)',
     'LABEL_SELECT_FILE': 'Find and select the data file',
     'LABEL_PAGE_HANDLE': 'Short page name',
+    'LABEL_RELIEDUP_TECH': 'Relied upon technologies',
     'ITEM': 'Web page',
     'NO_TEXT_PROVIDED': 'No text provided',
     'BTN_REMOVE_PAGE': 'Remove page',
