@@ -125,8 +125,8 @@
   "LABEL_EXTRA_REQUIREMENTS": "Additional evaluation requirements",
   "LABEL_SUPPORT_BASE": "Accessibility support baseline",
   "LABEL_COMMON_PAGES": "Common web pages",
-  "LABEL_ESSENT_FUNC": "(Optional) Essential functionality of the website",
-  "LABEL_VARIETY_PAGE_TYPES": "(Optional) Variety of web page types",
+  "LABEL_ESSENT_FUNC": "Essential functionality of the website",
+  "LABEL_VARIETY_PAGE_TYPES": "Variety of web page types",
   "LABEL_OTHER_PAGES": "Other web pages relevant to accessibility",
   "LABEL_COMMISSIONER": "Evaluation commissioner",
   "LABEL_CREATOR": "Evaluator",
@@ -231,6 +231,7 @@
   "HD_SUMMARY": "Summary of the evaluation findings",
   "HD_CRITERIA_REPORT": "Detailed audit results",
   "HD_RELIEDUP_TECH": "Web Technologies Relied Upon",
+  "HD_NOTE_TAKING": "(Optional) Note Taking",
   "PRINCIPLE": "Principle",
   "RESULTS_OF": "Results of",
 
