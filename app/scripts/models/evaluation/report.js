@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('wcagReporter').service('evalReportModel', function($filter) {
+angular.module('wcagReporter')
+.service('evalReportModel', function($filter, currentUser) {
     var protoModel = {
-        creator: '',
+        creator: currentUser,
         title: '',
         summary: '',
         specifics: '',

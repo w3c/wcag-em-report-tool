@@ -13,14 +13,11 @@ evalExploreModel, evalTestModel, $location) {
         evalExploreModel.addReliedUponTech();
     }
 
-    
     $scope.updateSpec = function (tech) {
         if (techMap[tech.title]) {
             tech.id = techMap[tech.title];
         }
     };
-
-
 
     $scope.addTechnology = function ($event) {
         evalExploreModel.addReliedUponTech();

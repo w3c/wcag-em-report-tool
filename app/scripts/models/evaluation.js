@@ -4,8 +4,8 @@
  * 
  */
 angular.module('wcagReporter').factory('evalModel', function(
-		evalScopeModel, evalExploreModel, evalSampleModel, 
-		evalTestModel, evalReportModel, evalContext) {
+		evalScopeModel, evalExploreModel, evalSampleModel,
+		evalTestModel, evalReportModel, evalContext, currentUser) {
 
 	var evalModel = {
 		id: undefined,
@@ -17,7 +17,7 @@ angular.module('wcagReporter').factory('evalModel', function(
 		reportModel:  evalReportModel,
 		// This array collects data that is outside the evaluation
 		// For example the author and external rdf data
-		otherData: []
+		otherData: [currentUser]
 	};
 
     return evalModel;
