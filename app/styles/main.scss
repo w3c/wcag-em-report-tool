@@ -85,20 +85,18 @@ li a {
     text-decoration:underline;
 }
 
-* {
-    &::-moz-placeholder {// Firefox
-        color: $textcolor-light;   
-        opacity: 1;// See https://github.com/twbs/bootstrap/pull/11526
-        font-style:italic;
-    }
-    &:-ms-input-placeholder { // Internet Explorer 10+
-        color: $textcolor-light;
-        font-style:italic;
-    }
-    &::-webkit-input-placeholder  { // Safari and Chrome
-        color: $textcolor-light;
-        font-style:italic;
-    }
+::-moz-placeholder {// Firefox
+    color: $textcolor-light;   
+    opacity: 1;// See https://github.com/twbs/bootstrap/pull/11526
+    font-style:italic;
+}
+:-ms-input-placeholder { // Internet Explorer 10+
+    color: $textcolor-light;
+    font-style:italic;
+}
+::-webkit-input-placeholder  { // Safari and Chrome
+    color: $textcolor-light;
+    font-style:italic;
 }
 
 
