@@ -6,7 +6,90 @@
 <p ng-bind-html="'INTRO_STEP2' | translateAndLink
 : ['INTRO_STEP2_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
 
-<form class="">
+<form>
+
+  <h2>
+    {{'HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"></info-button>
+  </h2>
+  
+  <info-field ref="inf_reliedup_tech" button="Close info">
+    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
+    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
+    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
+  </info-field>
+
+  <div class="form-group key-value-group" 
+  ng-init="col0 = 'visible-xs col-xs-12';
+           col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
+           col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
+           col3 = 'col-sm-1 form-block remove-button';
+           colHide = 'col-xs-3 visible-xs-and-sr form-block';
+           row = 'row form-group-inline';
+           head = 'row hidden-xs form-block-head';
+           delButton = 'btn glyphicon glyphicon-remove-sign'">
+
+
+    <datalist id="data_tech_titles">
+      <option ng-repeat="t in knownTech">{{t.title}}</option>
+    </datalist> <datalist id="data_tech_specs">
+      <option ng-repeat="t in knownTech">{{t.id}}</option>
+    </datalist>
+    <header ng-class="head" aria-hidden="true">
+      <div ng-class="col1">
+        {{'LABEL_TECH' | translate}}
+      </div> <div ng-class="col2">
+        {{'LABEL_TECH_SPEC' | translate}}
+      </div>
+    </header>
+  
+    <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
+      {{:: 'NO_TECH_DEFINED' | translate}}
+    </em></p>
+
+    <fieldset class="row form-group-inline appear" id="technologies"
+    ng-repeat="tech in exploreModel.reliedUponTechnology">
+      <legend ng-class="col0">
+        {{ 'LABEL_TECH' | translate }} {{$index+1}}
+      </legend>
+
+      <label ng-class="colHide" for="tech_{{$index}}">
+        {{'LABEL_TECH' | translate}}:
+      </label> <div ng-class="col1">
+        <input type="text" class="form-control"
+        id="tech_{{$index}}" list="data_tech_titles"
+        ng-model="tech.title" ng-change="updateSpec(tech)"
+        placeholder="{{'PLH_TECH' | translate}}">
+      </div>
+
+      <label ng-class="colHide" for="tech_spec_{{$index}}">
+        {{'LABEL_TECH_SPEC' | translate }}:
+      </label> <div ng-class="col2">
+        <input type="text" class="form-control"
+        id="tech_spec_{{$index}}" list="data_tech_specs"
+        ng-model="tech.id"
+        placeholder="{{'PLH_TECH_SPEC' | translate}}">
+      </div>
+
+      <div ng-class="col3">
+        <button ng-class="delButton"
+        ng-click="removeTechnology($index, $event)"
+        tooltip="{{'BTN_REMOVE_TECH' | translate}}"
+        tooltip-animation="false"
+        tooltip-trigger="focus blur mouseenter mouseleave">
+          <span class="sr-only">
+            {{'BTN_REMOVE_TECH' | translate}}
+          </span>
+        </button>
+      </div>
+    </fieldset><!-- /row -->
+
+    <button ng-click="addTechnology($event)" class="btn btn-default">
+      <span class="glyphicon glyphicon-plus-sign"></span>
+      {{'BTN_ADD_TECH' | translate }}
+    </button>
+  </div><!-- /form-group -->
+
 
   <div class="form-group">
     <label for="essential_func">
@@ -18,7 +101,7 @@
       : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
     </info-field>
 
-    <textarea ng-model="explore.essentialFunctionality"
+    <textarea ng-model="exploreModel.essentialFunctionality"
     class="form-control" id="essential_func" auto-resize
     cols="40" rows="5"></textarea>
   </div><!-- /form-group -->
@@ -35,7 +118,7 @@
       : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
     </info-field>
 
-    <textarea ng-model="explore.pageTypeVariety"
+    <textarea ng-model="exploreModel.pageTypeVariety"
     class="form-control" id="page_variety" auto-resize
     cols="40" rows="5"></textarea>
   </div><!-- /form-group -->

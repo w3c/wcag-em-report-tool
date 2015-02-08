@@ -5,7 +5,7 @@ angular.module('wcagReporter')
 evalExploreModel, evalTestModel, $location) {
 
     $scope.state = appState.moveToState('explore');
-    $scope.explore = evalExploreModel;
+    $scope.exploreModel = evalExploreModel;
 
     $scope.processInput = function () {
         var errors = evalExploreModel.validate();
