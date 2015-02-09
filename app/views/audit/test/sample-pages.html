@@ -16,7 +16,7 @@
     
     <label for="sample_select_{{$id}}">
       <input id="sample_select_{{$id}}"  ng-change="sampleChange()"
-      type="checkbox" ng-model="page.selected">&nbsp;{{page.handle}}&nbsp;
+      type="checkbox" ng-model="page.selected">&nbsp;{{ page.displayHandle() }}&nbsp;
       <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
     </label>
     <a href="" ng-click="openPage(page)"

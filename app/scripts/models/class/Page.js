@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('Page', function () {
+.service('Page', function (translateFilter) {
 
 	function Page() {
 	}
@@ -34,7 +34,21 @@ angular.module('wcagReporter')
         description: undefined,
         handle: '',
         tested: false,
-        selected: false
+        selected: false,
+        displayHandle: function () {
+            var num = 0;
+            if (this.handle.trim()) {
+                return this.handle;
+            } else if (this.id.substr(0, 9) === '_:struct_') {
+                num = +this.id.substr(9);
+                return translateFilter('STRUCTURED_PAGE') + ' ' + (num + 1);
+            } else if (this.id.substr(0, 7) === '_:rand_') {
+                num = +this.id.substr(7);
+                return translateFilter('RANDOM_PAGE') + ' ' + (num + 1);
+            } else {
+                return translateFilter('SAMPLE_PAGE');
+            }
+        }
     };
 
     return Page;

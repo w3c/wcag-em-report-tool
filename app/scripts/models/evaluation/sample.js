@@ -58,7 +58,7 @@ angular.module('wcagReporter')
 
         sample.webpage.push(page);
         page.id = '_:struct_' + num;
-        page.handle = 'Structured page ' + (1 + num);
+        page.handle = '';
         
         minRndSmpl = Math
         .ceil(sample.webpage.length / 10);
@@ -77,7 +77,7 @@ angular.module('wcagReporter')
 
         sampleModel.randomSample.webpage.push(page);
         page.id = '_:rand_' + num;
-        page.handle = 'Random page ' + (1+ num);
+        page.handle = '';
         return page;
     };
 
