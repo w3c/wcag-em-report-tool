@@ -162,6 +162,7 @@
   "INF_RELIEDUP_TECH": "Identify the web technologies {1} to provide the website. Examples of web technologies are HTML5, CSS, and DOM. For more information, see {0}.\n Note: The input field 'Web Technology' is also a drop-down list with a selection of web technologies that you can use, or add to.",
   "INF_RELIEDUP_TECH_0": "WCAG-EM Step 2.d: Identify Web Technologies Relied Upon",
   "INF_RELIEDUP_TECH_1": "relied upon according to WCAG 2.0",
+  "INF_NOTE_TAKING": "INF NOTE TAKING",
   "INF_COMMON_PAGES": "Identify web pages that are common to the entire website. Examples of 'common web pages' include the home page, login page, and other entry pages, as well as any site maps, contacts pages, site help, legal information, and similar web pages that are typically linked to from all web pages. For more information, see {0}.\n Note: Web pages include different web page states; see definition of {1}.",
   "INF_COMMON_PAGES_0": "WCAG-EM Step 2.a: Identify Common Web Pages of the Website",
   "INF_COMMON_PAGES_1": "web page states",

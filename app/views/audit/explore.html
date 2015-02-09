@@ -91,9 +91,15 @@
   </div><!-- /form-group -->
 
 
-  <div class="form-group">
-    <h2>{{ 'HD_NOTE_TAKING' | translate }}</h2>
+  <h2>{{ 'HD_NOTE_TAKING' | translate }}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_notes"></info-button>
+  </h2>
+  
+  <info-field ref="inf_notes" button="Close info">
+    <p ng-bind-html="'INF_NOTE_TAKING' | translate"></p>
+  </info-field>
 
+  <div class="form-group">
     <label for="essential_func">
       {{ 'LABEL_ESSENT_FUNC' | translate }}
     </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
