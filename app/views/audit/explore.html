@@ -10,7 +10,8 @@
 
   <h2>
     {{'HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
-    label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"></info-button>
+    label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"
+    title="{{ 'HD_RELIEDUP_TECH' | translate }}"></info-button>
   </h2>
   
   <info-field ref="inf_reliedup_tech" button="Close info">
@@ -92,7 +93,8 @@
 
 
   <h2>{{ 'HD_NOTE_TAKING' | translate }}&nbsp;<info-button
-    label="{{'LABEL_INFO' | translate}}" target="inf_notes"></info-button>
+    label="{{'LABEL_INFO' | translate}}" target="inf_notes"
+    title="{{ 'HD_NOTE_TAKING' | translate }}"></info-button>
   </h2>
   
   <info-field ref="inf_notes" button="Close info">
@@ -102,7 +104,8 @@
   <div class="form-group">
     <label for="essential_func">
       {{ 'LABEL_ESSENT_FUNC' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_ESSENT_FUNC' | translate }}"></info-button>
 
     <info-field button="Close info">
       <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
@@ -118,7 +121,8 @@
   <div class="form-group">
     <label for="page_variety">
       {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
 
     <info-field button="Close info">
       <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink

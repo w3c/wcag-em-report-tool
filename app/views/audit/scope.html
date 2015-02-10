@@ -10,7 +10,8 @@
   <div class="form-group">
     <label for="site-title">
       {{ 'LABEL_SITE_NAME' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_SITE_NAME' | translate }}"></info-button>
     
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
                 exitto="site-title">
@@ -18,13 +19,14 @@
     </info-field>
 
     <input ng-model="evalScope.website.title" type="text"
-           class="form-control" id="site-title">
+    class="form-control" id="site-title">
   </div>
 
   <div class="form-group">
     <label for="website_scope">
       {{ 'LABEL_SITE_SCOPE' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_SITE_SCOPE' | translate }}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
       <p>{{ 'INF_SITE_SCOPE_0' | translate }}</p>
@@ -45,7 +47,8 @@
   <div class="form-group">
     <label for="conformance_target">
       {{ 'LABEL_CONFORMANCE_TGT' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_CONFORMANCE_TGT' | translate }}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="conformance_target">
@@ -62,7 +65,8 @@
   <div class="form-group">
     <label for="as_baseline" class="">
       {{ 'LABEL_SUPPORT_BASE' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_SUPPORT_BASE' | translate }}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="as_baseline">
@@ -80,7 +84,8 @@
   <div class="form-group">
     <label for="additional_requirements">
       {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
+    title="{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}"></info-button>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
     exitto="additional_requirements">

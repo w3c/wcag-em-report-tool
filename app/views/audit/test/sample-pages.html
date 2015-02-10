@@ -1,6 +1,7 @@
 <h2>
   {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
-  label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"></info-button>
+  label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"
+    title="{{ 'HD_SAMPLE_SELECT' | translate }}"></info-button>
 </h2>
 
 <info-field ref="inf_audit_sample" exitto=""
@@ -24,7 +25,7 @@
     tooltip-animation="false"
     tooltip-trigger="focus blur mouseenter mouseleave"
     class="pull-right glyphicon glyphicon-link">
-      <span class="sr-only">{{page.description}}</span>
+      <span class="sr-only">{{page.displayHandle()}}</span>
     </a>
 	</li>
 </ul>
