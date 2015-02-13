@@ -10,10 +10,10 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_title">
-        {{ 'LABEL_TITLE' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_dct_title"
-      title="{{ 'LABEL_TITLE' | translate }}">
-      </info-button>
+        {{ 'LABEL_TITLE' | translate }}&nbsp;<info-button
+        label="{{'LABEL_INFO' | translate}}" target="inf_dct_title"
+        title="{{ 'LABEL_TITLE' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -32,10 +32,11 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="commissioner">
-        {{ 'LABEL_COMMISSIONER' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" 
-      title="{{ 'LABEL_COMMISSIONER' | translate }}"target="inf_commissioner">
-      </info-button>
+        {{ 'LABEL_COMMISSIONER' | translate }}&nbsp;<info-button
+        title="{{ 'LABEL_COMMISSIONER' | translate }}" 
+        label="{{'LABEL_INFO' | translate}}" target="inf_commissioner">
+        </info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -52,10 +53,10 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="creator">
-        {{ 'LABEL_CREATOR' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_creator"
-      title="{{ 'LABEL_CREATOR' | translate }}">
-      </info-button>
+        {{ 'LABEL_CREATOR' | translate }}&nbsp;<info-button
+        label="{{'LABEL_INFO' | translate}}" target="inf_creator"
+        title="{{ 'LABEL_CREATOR' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -73,9 +74,10 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_date">
-        {{ 'LABEL_DATE' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_date"
-      title="{{ 'LABEL_DATE' | translate }}"></info-button>
+        {{ 'LABEL_DATE' | translate }}&nbsp;<info-button
+        label="{{'LABEL_INFO' | translate}}" target="inf_date"
+        title="{{ 'LABEL_DATE' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -92,11 +94,13 @@
   
   <div class="form-group"><div class="col-sm-12">
     <label for="summary">
-      {{ 'LABEL_SUMMARY' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
-    title="{{ 'LABEL_SUMMARY' | translate }}"></info-button>
+      {{ 'LABEL_SUMMARY' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_summary"
+      title="{{ 'LABEL_SUMMARY' | translate }}"></info-button>
+    </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="summary">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    exitto="summary" ref="inf_summary">
       <p>{{ 'INF_SUMMARY' | translate }}</p>
     </info-field>
 
@@ -106,11 +110,13 @@
 	
   <div class="form-group"><div class="col-sm-12">
   	<label for="specifics">
-      {{ 'LABEL_SPECIFICS' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
-    title="{{ 'LABEL_SPECIFICS' | translate }}"></info-button>
+      {{ 'LABEL_SPECIFICS' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_specifics"
+      title="{{ 'LABEL_SPECIFICS' | translate }}"></info-button>
+    </label>
     
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="specifics">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    exitto="specifics" ref="inf_specifics">
       <p ng-bind-html="'INF_SPECIFICS' | translateAndLink
       : ['INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>

@@ -103,11 +103,12 @@
 
   <div class="form-group">
     <label for="essential_func">
-      {{ 'LABEL_ESSENT_FUNC' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
-    title="{{ 'LABEL_ESSENT_FUNC' | translate }}"></info-button>
+      {{ 'LABEL_ESSENT_FUNC' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_essent_func"
+      title="{{ 'LABEL_ESSENT_FUNC' | translate }}"></info-button>
+    </label>
 
-    <info-field button="Close info">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" ref="inf_essent_func">
       <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
       : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
     </info-field>
@@ -120,11 +121,12 @@
 
   <div class="form-group">
     <label for="page_variety">
-      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"
-    title="{{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
+      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_page_type"
+      title="{{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
+    </label>
 
-    <info-field button="Close info">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" ref="inf_page_type">
       <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
       : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
       : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
