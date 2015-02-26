@@ -6,7 +6,7 @@
 
 <info-field ref="inf_audit_sample" exitto=""
             button="{{'LABEL_CLOSE_INFO' | translate}}">
-  <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
+  <p ng-bind-html="'INF_AUDIT_SAMPLE' | translate | nlToBr"></p>
 </info-field>
 
 <p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
@@ -14,7 +14,7 @@
 <ul class="sample" collapse="hideSample">
 	<li ng-repeat="page in allPages()"
   ng-class="{active: page.selected}">
-    
+
     <label for="sample_select_{{$id}}">
       <input id="sample_select_{{$id}}"  ng-change="sampleChange()"
       type="checkbox" ng-model="page.selected">&nbsp;{{ page.displayHandle() }}&nbsp;

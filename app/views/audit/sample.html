@@ -8,7 +8,7 @@
 
 <form>
   <h2>{{'HD_STRUCT_SAMPLE' | translate }}</h2>
-  
+
   <h3><button-collapse target="rootHide" property="essentialFunctionality">
       {{ 'HD_ESSENT_FUNC' | translate }}
   </button-collapse></h3>
@@ -22,7 +22,7 @@
   <h3><button-collapse target="rootHide" property="pageTypeVariety">
       {{ 'HD_VARIETY_PAGE_TYPES' | translate }}
   </button-collapse></h3>
-  
+
   <div collapse="rootHide.pageTypeVariety">
     <textarea ng-model="exploreModel.pageTypeVariety"
     class="form-control" id="page_variety" auto-resize
@@ -37,7 +37,8 @@
   <info-field ref="inf_str_sample" button="{{'LABEL_CLOSE_INFO' | translate}}">
     <p ng-bind-html="'INF_STRUCT_SAMPLE' | translateAndLink
     : ['INF_STRUCT_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3a']
-    : ['INF_STRUCT_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
+    : ['INF_STRUCT_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr">
+    </p>
   </info-field>
 
   <input-pages pages="structuredSample.webpage" add-page="getPageAdder(structuredSample)"
@@ -48,11 +49,11 @@
     label="{{'LABEL_INFO' | translate}}" target="inf_rand_sample"
     title="{{ 'HD_RANDOM_SAMPLE' | translate }}"></info-button>
   </h2>
-  
+
   <info-field ref="inf_rand_sample" button="{{'LABEL_CLOSE_INFO' | translate}}">
     <p ng-bind-html="'INF_RAND_SAMPLE' | translateAndLink
     : ['INF_RAND_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3b']
-    : ['INF_RAND_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
+    : ['INF_RAND_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr"></p>
   </info-field>
 
   <div class="alert alert-warning">

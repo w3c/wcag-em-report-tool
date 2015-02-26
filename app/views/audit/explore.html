@@ -13,14 +13,15 @@
     label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"
     title="{{ 'HD_RELIEDUP_TECH' | translate }}"></info-button>
   </h2>
-  
+
   <info-field ref="inf_reliedup_tech" button="Close info">
     <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
     : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
+    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
+    | nlToBr"></p>
   </info-field>
 
-  <div class="form-group key-value-group" 
+  <div class="form-group key-value-group"
   ng-init="col0 = 'visible-xs col-xs-12';
            col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
            col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
@@ -43,7 +44,7 @@
         {{'LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
-  
+
     <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
       {{:: 'NO_TECH_DEFINED' | translate}}
     </em></p>
@@ -96,7 +97,7 @@
     label="{{'LABEL_INFO' | translate}}" target="inf_notes"
     title="{{ 'HD_NOTE_TAKING' | translate }}"></info-button>
   </h2>
-  
+
   <info-field ref="inf_notes" button="Close info">
     <p ng-bind-html="'INF_NOTE_TAKING' | translate"></p>
   </info-field>
@@ -129,7 +130,8 @@
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" ref="inf_page_type">
       <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
       : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
-      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
+      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
+      | nlToBr"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.pageTypeVariety"
