@@ -118,7 +118,7 @@
   "INTRO_REPORT": "Below is the evaluation report based on the input that you provided in previous steps. You can go back to previous steps now and change any of this information. You can download the evaluation data so that you can work on it later. (This is the same as the 'Save' functionality.) \n This report is intended to be downloaded. You can download the Evaluation Report HTML and CSS files below. You can then change the report content and visual design to meet your needs.",
   "INTRO_SAVE_1": "Use the link below to save the evaluation report information that you have entered in a JSON data file locally on your computer.",
   "INTRO_SAVE_2": "You can save partially-complete reports (and notes) and work on them later. You can open them from any web browser and you can transfer the data file to another computer. \n You can Save periodically as you work to avoid losing data if your web browser closes. You can use Windows shortcut keys Ctrl+S or Mac shortcut keys ⌘S to open the Save dialog (or automatically save it in your downloads folder depending on your web browser settings). \n When you are done entering your evaluation report information, you can download an HTML file of the completed report from the {0} page.",
-  "INTRO_SAVE_2_0": "View Report" // view report page
+  "INTRO_SAVE_2_0": "View Report",
   "INTRO_LOAD": "To reload a saved file, 'Browse' to find the JSON data file that you previously saved, then select the 'Load data from selected file' button.",
   "RAND_SAMPLE_LENGTH": "Based on your structured sample of {0} web pages, chose at least {1} randomly selected web pages (to meet the 10% requirement in WCAG-EM).",
 
