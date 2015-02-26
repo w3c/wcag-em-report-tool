@@ -70,8 +70,7 @@ $location, $rootElement, evalScopeModel, showSave) {
             'tabindex': -1,
             // This is a bug workaround for NVDA + IE, which
             // seems to think our <h1> is an input field
-            'role': 'heading',
-            'aria-heading': 1
+            'role': 'heading'
         });
         setTimeout(function () {
             h1.focus();
