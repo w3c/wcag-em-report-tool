@@ -49,10 +49,6 @@ $location, $rootElement, evalScopeModel, showSave) {
     var prefix = titleElm.text().trim();
     var moveFocusToH1;
 
-    titleElm.attr({
-        'aria-live': 'polite'
-    });
-
     if (prefix) {
         prefix = titleElm.text() + ', ';
     }
