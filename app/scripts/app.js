@@ -45,11 +45,41 @@ angular.module('wcagReporter', [
 
 }).run(function (translateFilter, $rootScope, $document, appState, wcagReporterExport,
 $location, $rootElement, evalScopeModel, showSave) {
-    var titleElm = $document.find('title'),
-        prefix = titleElm.text().trim();
-    
+    var titleElm = $document.find('title');
+    var prefix = titleElm.text().trim();
+    var moveFocusToH1;
+
+    titleElm.attr({
+        'aria-live': 'polite'
+    });
+
     if (prefix) {
         prefix = titleElm.text() + ', ';
+    }
+
+    /*
+    Few workaround to make screen readers behave.
+    We move the focus to the h1, but since angular has no ready
+    event for route loading we've moved this to a delayed call
+    in the setTile method above.
+
+    JAWS will always read the updated title. To have NVDA comply
+    we'll blur when the route changes so SR's won't try to read
+    all the changes to the DOM. Then once setTitle indicates the
+    view is loaded, we'll wait another half second for it to compile
+    and then move focus to the h1.
+     */
+    function focusH1() {
+        var h1 = $rootElement.find('h1:first()').attr({
+            'tabindex': -1,
+            // This is a bug workaround for NVDA + IE, which
+            // seems to think our <h1> is an input field
+            'role': 'heading',
+            'aria-heading': 1
+        });
+        setTimeout(function () {
+            h1.focus();
+        }, 10);
     }
 
     $rootScope.setTitle = function (title) {
@@ -57,10 +87,19 @@ $location, $rootElement, evalScopeModel, showSave) {
         if (evalScopeModel.website && evalScopeModel.website.title) {
             sitename = evalScopeModel.website.title + ' - ';
         }
-        
+
         titleElm.text(prefix + sitename + title);
+
+        // Move focus to h1 when the title is set after the initial load
+        if (moveFocusToH1) {
+            moveFocusToH1 = false;
+            // Wait for the template to compile, then focus to h1
+            setTimeout(focusH1, 750);
+        }
+
         return title;
     };
+
 
     $rootScope.translate = translateFilter;
     $rootScope.rootHide = {};
@@ -72,9 +111,17 @@ $location, $rootElement, evalScopeModel, showSave) {
         $location.path('/audit/scope');
     };
 
-    $rootElement.attr('tabindex', -1);
+    /*
+    Set the next title change up to move the focus to h1
+    This little workaround is to ensure
+     */
     $rootScope.$on('$routeChangeSuccess', function () {
-        $rootElement.focus();
+        // Move focus, starting at the second route change
+        moveFocusToH1 = (moveFocusToH1 !== undefined);
+
+        if (document.activeElement) {
+            document.activeElement.blur();
+        }
     });
 
     $rootScope.support = {
@@ -89,7 +136,7 @@ $location, $rootElement, evalScopeModel, showSave) {
                 showSave(wcagReporterExport.getString(),
                          wcagReporterExport.getFileName(),
                          'application/json');
-                
+
                 appState.setPrestineState();
                 e.preventDefault();
             }
