@@ -10,6 +10,10 @@ button.glyphicon-copy {
 }
 
 body {
+    .form-horizontal .control-label {
+        text-align:left;
+    }
+
     .alert {
         margin-bottom:10px;
     }
