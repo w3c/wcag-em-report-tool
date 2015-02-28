@@ -2,6 +2,7 @@
 // http://karma-runner.github.io/0.10/config/configuration-file.html
 
 module.exports = function(config) {
+  'use strict';
   config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '',
@@ -22,6 +23,7 @@ module.exports = function(config) {
       'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
+      'app/scripts/promise-1.0.0.js',
       'app/scripts/**/{,*/}*.js',
       // 'test/mock/**/*.js',
       'test/spec/**/{,*/}*.js'
@@ -50,7 +52,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
