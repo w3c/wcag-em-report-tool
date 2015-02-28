@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ImportCtrl', function ($scope, reportStorage, evalLoader, $rootScope) {
+.controller('OpenCtrl', function ($scope, reportStorage, evalLoader, $rootScope) {
 
     $scope.postSettings = reportStorage.settings;
     $scope.fileFeedback = {
@@ -11,7 +11,7 @@ angular.module('wcagReporter')
     $scope.urlFeedback = {
         posted: false, failures: false
     };
-    
+
     function handleLoad(defer, feedback) {
         feedback.posted = true;
         feedback.failure = false;

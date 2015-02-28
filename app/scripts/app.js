@@ -32,12 +32,12 @@ angular.module('wcagReporter', [
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
-    }).when('/import', {
-        templateUrl: 'views/import.html',
-        controller: 'ImportCtrl'
-    }).when('/export', {
-        templateUrl: 'views/export.html',
-        controller: 'ExportCtrl'
+    }).when('/open', {
+        templateUrl: 'views/open.html',
+        controller: 'OpenCtrl'
+    }).when('/save', {
+        templateUrl: 'views/save.html',
+        controller: 'SaveCtrl'
     }).otherwise({
         redirectTo: '/'
     });
@@ -140,7 +140,7 @@ $location, $rootElement, evalScopeModel, showSave) {
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
-    
+
     wcagReporterExport.storage.init({
         autosave: (typeof $rootElement.attr('autosave') === 'string'),
         url: $rootElement.attr('url'),
