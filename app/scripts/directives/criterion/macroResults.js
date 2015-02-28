@@ -31,7 +31,7 @@ angular.module('wcagReporter')
 
             scope.getAllHandles = function(assert) {
                 return assert.subject.map(function (page) {
-                    return page.handle;
+                    return page.displayHandle();
                 }).join(', ');
             };
 

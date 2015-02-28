@@ -28,7 +28,7 @@ angular.module('wcagReporter')
     $scope.downloadStart = function () {
         wcagReporterExport.saveBlobIE();
         appState.setPrestineState();
-    }
+    };
 
     $scope.updateSettings = function () {
         wcagReporterExport.storage.updateSettings();

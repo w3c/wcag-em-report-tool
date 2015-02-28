@@ -3,7 +3,7 @@
 
 <h1>{{:: setTitle( translate('HD_REPORT') ) }}</h1>
 
-<p>{{:: 'INTRO_REPORT' | translate }}</p>
+<p ng-bind-html="'INTRO_REPORT' | translate  | nlToBr"></p>
 
 <div class="container save-panel">
   <div class="panel panel-default">

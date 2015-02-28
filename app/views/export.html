@@ -2,7 +2,7 @@
 
 <h1>{{:: setTitle( translate('HD_SAVE') ) }}</h1>
 
-<p>{{:: 'INTRO_SAVE' | translate }}</p>
+<p>{{:: 'INTRO_SAVE_1' | translate }}</p>
 
 <p><a download="{{exportFile}}" ng-click="downloadStart()"
       target="_blank" ng-href="{{exportUrl}}"
@@ -10,12 +10,15 @@
     {{:: 'BTN_DOWNLOAD_DATA_FILE' | translate }}
 </a></p>
 
-<h2>{{ 'HD_POST_TO_URL' | translate }}</h2>
+<p ng-bind-html="'INTRO_SAVE_2' | translateAndLink
+: ['INTRO_SAVE_2_0', '#/report'] | nlToBr"></p>
+
+<h2>{{:: 'HD_POST_TO_URL' | translate }}</h2>
 
 <form class="form-horizontal">
 
   <p>{{:: 'INTRO_POST_TO_URL' | translate}}</p>
-  
+
   <div class="form-group">
     <div class="col-sm-2 control-label"><label for="url_{{$id}}">
         {{:: 'LABEL_POST_TO_URL' | translate}}
@@ -57,4 +60,4 @@
   </div>
 </form>
 
-<p><a href="#/audit/scope">{{::'BTN_BACK_TO_EVAL' | translate }}</a></p>
+<p><a href="javascript:window.history.back()">{{::'BTN_BACK_TO_EVAL' | translate }}</a></p>

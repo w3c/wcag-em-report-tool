@@ -9,24 +9,29 @@
 <form>
   <div class="form-group">
     <label for="site-title">
-      {{ 'LABEL_SITE_NAME' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
-    
+      {{ 'LABEL_SITE_NAME' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_site_name"
+      title="{{ 'LABEL_SITE_NAME' | translate }}"></info-button>
+    </label>
+
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-                exitto="site-title">
+    exitto="site-title" ref="inf_site_name">
       <p ng-bind-html="'INF_SITE_NAME' | translate | nlToBr"></p>
     </info-field>
 
     <input ng-model="evalScope.website.title" type="text"
-           class="form-control" id="site-title">
+    class="form-control" id="site-title">
   </div>
 
   <div class="form-group">
     <label for="website_scope">
-      {{ 'LABEL_SITE_SCOPE' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+      {{ 'LABEL_SITE_SCOPE' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_site_scope"
+      title="{{ 'LABEL_SITE_SCOPE' | translate }}"></info-button>
+    </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="website_scope">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    exitto="website_scope" ref="inf_site_scope">
       <p>{{ 'INF_SITE_SCOPE_0' | translate }}</p>
       <ul>
         <li>{{ 'INF_SITE_SCOPE_LI0' | translate }}</li>
@@ -41,31 +46,35 @@
     class="form-control" id="website_scope" auto-resize
     cols="40" rows="3"></textarea>
   </div>
-  
+
   <div class="form-group">
     <label for="conformance_target">
-      {{ 'LABEL_CONFORMANCE_TGT' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+      {{ 'LABEL_CONFORMANCE_TGT' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_conf_tgt"
+      title="{{ 'LABEL_CONFORMANCE_TGT' | translate }}"></info-button>
+    </label>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-    exitto="conformance_target">
+    exitto="conformance_target" ref="inf_conf_tgt">
       <p ng-bind-html="'INF_CONF_TGT' | translateAndLink
-      : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
+      : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b'] | nlToBr"></p>
     </info-field>
 
-    <select id="conformance_target" class="form-control" 
+    <select id="conformance_target" class="form-control"
     ng-options="key as value for (key,value) in conformanceOptions"
     ng-model="evalScope.conformanceTarget">
     </select>
   </div>
-  
+
   <div class="form-group">
     <label for="as_baseline" class="">
-      {{ 'LABEL_SUPPORT_BASE' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+      {{ 'LABEL_SUPPORT_BASE' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_support_base"
+      title="{{ 'LABEL_SUPPORT_BASE' | translate }}"></info-button>
+    </label>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-    exitto="as_baseline">
+    exitto="as_baseline" ref="inf_support_base">
       <p ng-bind-html="'INF_SUPPORT_BASE' | translateAndLink
       : ['INF_SUPPORT_BASE_0', 'http://www.w3.org/TR/WCAG-EM/#step1c']
       : ['INF_SUPPORT_BASE_1', 'http://www.w3.org/TR/WCAG20/#useragentdef']
@@ -76,14 +85,16 @@
     id="as_baseline" class="form-control" auto-resize
     cols="40" rows="5"></textarea>
   </div>
-  
+
   <div class="form-group">
     <label for="additional_requirements">
-      {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+      {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_extra_req"
+      title="{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}"></info-button>
+    </label>
 
     <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
-    exitto="additional_requirements">
+    exitto="additional_requirements" ref="inf_extra_req">
       <p>{{ 'INF_EXTRA_REQUIREMENTS_0' | translate }}</p>
       <ul>
         <li>{{ 'INF_EXTRA_REQUIREMENTS_LI0' | translate }}</li>

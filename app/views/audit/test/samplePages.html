@@ -13,14 +13,14 @@
     <div class="btn-group btn-group-xs">
       <input type="checkbox" ng-model="anySelect" ng-click="changeAll()">
     </div>
-    
+
     <div class="btn-group btn-group-xs">
       <icon-button icon="'check'" label="'BTN_COMPLETE_SELECTED' | translate"
       click="completePages()"></icon-button>
       <icon-button icon="'edit'" label="'BTN_UNCOMPLETE_SELECTED' | translate"
       click="uncompletePages()"></icon-button>
     </div>
-    
+
     <div class="btn-group btn-group-xs">
       <icon-button icon="'backward'" label="'BTN_COMPLETE_SELECTED' | translate"
       click="prevPages()"></icon-button>
@@ -36,15 +36,15 @@
   </div>
 
   <p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
- 
+
   <ul class="sample" collapse="hideSample">
   	<li ng-repeat="page in allPages()"
     ng-class="{active: page.selected}">
-      
+
       <label for="sample_select_{{$id}}">
         <input id="sample_select_{{$id}}" ng-change="sampleChange()"
         type="checkbox" ng-model="page.selected">&nbsp;<span
-        ng-class="{'page-tested' : page.tested}">{{page.handle}}</span>&nbsp;
+        ng-class="{'page-tested' : page.tested}">{{page.displayHandle()}}</span>&nbsp;
         <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
       </label>
       <a href="" ng-click="openPage(page)"

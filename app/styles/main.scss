@@ -7,7 +7,7 @@ $navbar-default-bg: #f2f2f2;
 $input-border: #aaa;
 $panel-default-heading-bg: #e8e8e8;
 $panel-default-border: #d6d6d6;
-$textcolor-light: #767676;
+$textcolor-light: #707070;
 $brand-primary: #2570B0;
 $navbar-default-link-color: #6E6E6E;
 $font-size-base: 16px;
@@ -51,6 +51,7 @@ body legend {
 }
 
 input, textarea, select {
+    color: $text-color;
     &.form-control {
         @include gradient-vertical(#EEE, #FFF, 0, 15px);
         &:focus {
@@ -84,9 +85,20 @@ li a {
     text-decoration:underline;
 }
 
-* {
-    @include placeholder($textcolor-light);
+::-moz-placeholder {// Firefox
+    color: $textcolor-light;   
+    opacity: 1;// See https://github.com/twbs/bootstrap/pull/11526
+    font-style:italic;
 }
+:-ms-input-placeholder { // Internet Explorer 10+
+    color: $textcolor-light;
+    font-style:italic;
+}
+::-webkit-input-placeholder  { // Safari and Chrome
+    color: $textcolor-light;
+    font-style:italic;
+}
+
 
 $footer-height: 170px; 
 $footer-padding: 20px;

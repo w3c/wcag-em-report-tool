@@ -6,59 +6,23 @@
 <p ng-bind-html="'INTRO_STEP2' | translateAndLink
 : ['INTRO_STEP2_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
 
-<form class="">
-  <div class="form-group">
-    <label for="common_pages">
-      {{ 'LABEL_COMMON_PAGES' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+<form>
 
-    
-    <info-field button="Close info">
-      <p ng-bind-html="'INF_COMMON_PAGES' | translateAndLink
-      : ['INF_COMMON_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2a']
-      : ['INF_COMMON_PAGES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
-    </info-field>
-    
-    <input-pages pages="explore.commonPages"
-    add-page="getPageAdder('commonPages')"
-    remove-page="getPageRemover('commonPages')"></input-pages>
-  </div><!-- /form-group -->
+  <h2>
+    {{'HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_reliedup_tech"
+    title="{{ 'HD_RELIEDUP_TECH' | translate }}"></info-button>
+  </h2>
 
-  <div class="form-group">
-    <label for="essential_func">
-      {{ 'LABEL_ESSENT_FUNC' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+  <info-field ref="inf_reliedup_tech" button="Close info">
+    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
+    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
+    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
+    | nlToBr"></p>
+  </info-field>
 
-    <info-field button="Close info">
-      <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
-      : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
-    </info-field>
-
-    <textarea ng-model="explore.essentialFunctionality"
-    class="form-control" id="essential_func" auto-resize
-    cols="40" rows="5"></textarea>
-  </div><!-- /form-group -->
-
-
-  <div class="form-group">
-    <label for="page_variety">
-      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
-
-    <info-field button="Close info">
-      <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
-      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
-      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
-    </info-field>
-
-    <textarea ng-model="explore.pageTypeVariety"
-    class="form-control" id="page_variety" auto-resize
-    cols="40" rows="5"></textarea>
-  </div><!-- /form-group -->
-
-
-  <div class="form-group key-value-group" 
-  ng-init="col0 = 'visible-xs col-xs-12 form-block-head';
+  <div class="form-group key-value-group"
+  ng-init="col0 = 'visible-xs col-xs-12';
            col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
            col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
            col3 = 'col-sm-1 form-block remove-button';
@@ -67,14 +31,6 @@
            head = 'row hidden-xs form-block-head';
            delButton = 'btn glyphicon glyphicon-remove-sign'">
 
-  <strong>{{ 'LABEL_RELIEDUP_TECH' | translate }}</strong>&nbsp;<info-button
-  label="{{'LABEL_INFO' | translate}}"></info-button>
-
-  <info-field button="Close info">
-    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
-    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
-  </info-field>
 
     <datalist id="data_tech_titles">
       <option ng-repeat="t in knownTech">{{t.title}}</option>
@@ -88,13 +44,13 @@
         {{'LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
-  
+
     <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
       {{:: 'NO_TECH_DEFINED' | translate}}
     </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"
-    ng-repeat="tech in explore.reliedUponTechnology">
+    ng-repeat="tech in exploreModel.reliedUponTechnology">
       <legend ng-class="col0">
         {{ 'LABEL_TECH' | translate }} {{$index+1}}
       </legend>
@@ -137,20 +93,50 @@
   </div><!-- /form-group -->
 
 
-  <div class="form-group">
-    <label for="other_pages">
-      {{ 'LABEL_OTHER_PAGES' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+  <h2>{{ 'HD_NOTE_TAKING' | translate }}&nbsp;<info-button
+    label="{{'LABEL_INFO' | translate}}" target="inf_notes"
+    title="{{ 'HD_NOTE_TAKING' | translate }}"></info-button>
+  </h2>
 
-    <info-field button="Close info">
-      <p ng-bind-html="'INF_OTHER_PAGES' | translateAndLink
-      : ['INF_OTHER_PAGES_0', 'http://www.w3.org/TR/WCAG-EM/#step2e']
-      : ['INF_OTHER_PAGES_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
+  <info-field ref="inf_notes" button="Close info">
+    <p ng-bind-html="'INF_NOTE_TAKING' | translate"></p>
+  </info-field>
+
+  <div class="form-group">
+    <label for="essential_func">
+      {{ 'LABEL_ESSENT_FUNC' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_essent_func"
+      title="{{ 'LABEL_ESSENT_FUNC' | translate }}"></info-button>
+    </label>
+
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" ref="inf_essent_func">
+      <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
+      : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
     </info-field>
-    
-    <input-pages pages="explore.otherRelevantPages"
-    add-page="getPageAdder('otherRelevantPages')"
-    remove-page="getPageRemover('otherRelevantPages')"></input-pages>
+
+    <textarea ng-model="exploreModel.essentialFunctionality"
+    class="form-control" id="essential_func" auto-resize
+    cols="40" rows="5"></textarea>
+  </div><!-- /form-group -->
+
+
+  <div class="form-group">
+    <label for="page_variety">
+      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_page_type"
+      title="{{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
+    </label>
+
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" ref="inf_page_type">
+      <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
+      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
+      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
+      | nlToBr"></p>
+    </info-field>
+
+    <textarea ng-model="exploreModel.pageTypeVariety"
+    class="form-control" id="page_variety" auto-resize
+    cols="40" rows="5"></textarea>
   </div><!-- /form-group -->
 
 </form>

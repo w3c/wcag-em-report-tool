@@ -13,6 +13,10 @@ table {
     }
 }
 
+*[tabindex="-1"]:focus {
+    outline:0 none;
+}
+
 .no-selection {
     text-align:center;
     font-style:italic;
@@ -110,7 +114,7 @@ table {
         }
         .tested {
             text-decoration: line-through;
-            border-bottom:1px 
+            border-bottom:1px
         }
     }
     li.active {
@@ -178,9 +182,8 @@ h3 .collapse-button {
     }
 }
 .form-block-head {
-    padding:0 0 0 15px;
+    padding:2px 0 0;
     font-weight:bold;
-    text-align:center;
 }
 
 
@@ -214,4 +217,13 @@ a.info-icon {
     span.glyphicon.glyphicon-info-sign {
         top: 2px;
     }
+
+    @media (min-width: $screen-sm-min) {
+        &.info-float {
+            position: absolute;
+            right: -2px;
+            top: 6px;
+        }
+    }
 }
+

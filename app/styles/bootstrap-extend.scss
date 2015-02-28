@@ -10,6 +10,10 @@ button.glyphicon-copy {
 }
 
 body {
+    .form-horizontal .control-label {
+        text-align:left;
+    }
+
     .alert {
         margin-bottom:10px;
     }
@@ -32,6 +36,9 @@ body {
     }
     .navbar-nav > li > a {
         text-decoration: none;
+    }
+    .key-value-group {
+        text-indent: 0;
     }
 }
 

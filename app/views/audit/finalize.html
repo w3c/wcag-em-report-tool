@@ -10,9 +10,10 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_title">
-        {{ 'LABEL_TITLE' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_dct_title">
-      </info-button>
+        {{ 'LABEL_TITLE' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'LABEL_INFO' | translate}}" target="inf_dct_title"
+        title="{{ 'LABEL_TITLE' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -26,14 +27,16 @@
         <p ng-bind-html="'INF_TITLE' | translate | nlToBr"></p>
     </info-field></div>
   </div>
-  
+
 
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="commissioner">
-        {{ 'LABEL_COMMISSIONER' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_commissioner">
-      </info-button>
+        {{ 'LABEL_COMMISSIONER' | translate }}&nbsp;<info-button
+        title="{{ 'LABEL_COMMISSIONER' | translate }}" class="info-float"
+        label="{{'LABEL_INFO' | translate}}" target="inf_commissioner">
+        </info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -41,18 +44,19 @@
       type="text" class="form-control" id="commissioner" />
     </div>
     <div class="col-sm-12">
-      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" class="info-float"
       ref="inf_commissioner" exitto="commissioner">
         <p>{{ 'INF_COMMISSIONER' | translate }}</p>
     </info-field></div>
   </div>
-  
+
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="creator">
-        {{ 'LABEL_CREATOR' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_creator">
-      </info-button>
+        {{ 'LABEL_CREATOR' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'LABEL_INFO' | translate}}" target="inf_creator"
+        title="{{ 'LABEL_CREATOR' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -66,12 +70,14 @@
         <p>{{ 'INF_CREATOR' | translate }}</p>
     </info-field></div>
   </div>
-  
+
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_date">
-        {{ 'LABEL_DATE' | translate }}
-      </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}" target="inf_date"></info-button>
+        {{ 'LABEL_DATE' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'LABEL_INFO' | translate}}" target="inf_date"
+        title="{{ 'LABEL_DATE' | translate }}"></info-button>
+      </label>
     </div>
 
     <div class="col-sm-9">
@@ -85,26 +91,32 @@
         <p>{{ 'INF_DATE' | translate }}</p>
     </info-field></div>
   </div>
-  
+
   <div class="form-group"><div class="col-sm-12">
     <label for="summary">
-      {{ 'LABEL_SUMMARY' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
+      {{ 'LABEL_SUMMARY' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_summary"
+      title="{{ 'LABEL_SUMMARY' | translate }}"></info-button>
+    </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="summary">
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    exitto="summary" ref="inf_summary">
       <p>{{ 'INF_SUMMARY' | translate }}</p>
     </info-field>
 
     <textarea id="summary" ng-model="report.summary" auto-resize
     cols="30" rows="10" class="form-control"></textarea>
   </div></div>
-	
+
   <div class="form-group"><div class="col-sm-12">
   	<label for="specifics">
-      {{ 'LABEL_SPECIFICS' | translate }}
-    </label>&nbsp;<info-button label="{{'LABEL_INFO' | translate}}"></info-button>
-    
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" exitto="specifics">
+      {{ 'LABEL_SPECIFICS' | translate }}&nbsp;<info-button
+      label="{{'LABEL_INFO' | translate}}" target="inf_specifics"
+      title="{{ 'LABEL_SPECIFICS' | translate }}"></info-button>
+    </label>
+
+    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    exitto="specifics" ref="inf_specifics">
       <p ng-bind-html="'INF_SPECIFICS' | translateAndLink
       : ['INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>

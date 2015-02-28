@@ -112,9 +112,11 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 					return result;
 				}, undefined);
 
-				if (evaluation.creator.indexOf('_:') === 0) {
+				if (typeof evaluation.creator === 'string' &&
+				evaluation.creator.indexOf('_:') === 0) {
 					currentUser.id = evaluation.creator;
 				}
+				
 				evaluation.creator = currentUser;
 
 				results.forEach(function (data) {

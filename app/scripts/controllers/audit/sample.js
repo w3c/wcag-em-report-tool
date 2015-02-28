@@ -7,15 +7,15 @@ evalExploreModel, evalSampleModel, evalTestModel) {
 
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
-    
+
     $scope.exploreModel = evalExploreModel;
 
-    if ($scope.structuredSample && 
+    if ($scope.structuredSample &&
     $scope.structuredSample.webpage.length === 0) {
         evalSampleModel.addNewStructuredPage();
     }
 
-    if ($scope.randomSample && 
+    if ($scope.randomSample &&
     $scope.randomSample.webpage.length === 0) {
         evalSampleModel.addNewRandomPage();
     }
@@ -40,7 +40,6 @@ evalExploreModel, evalSampleModel, evalTestModel) {
         return Math
         .ceil($scope.structuredSample.webpage.length / 10);
     };
-
 
     $scope.processInput = function () {
         var errors = evalSampleModel.validate();

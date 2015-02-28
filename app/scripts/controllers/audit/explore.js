@@ -5,28 +5,22 @@ angular.module('wcagReporter')
 evalExploreModel, evalTestModel, $location) {
 
     $scope.state = appState.moveToState('explore');
-    $scope.explore = evalExploreModel;
+    $scope.exploreModel = evalExploreModel;
     $scope.knownTech = evalExploreModel.knownTech;
 
     if (evalExploreModel.reliedUponTechnology && 
     evalExploreModel.reliedUponTechnology.length === 0) {
         evalExploreModel.addReliedUponTech();
     }
-    
-    $scope.processInput = function () {
-        var errors = evalExploreModel.validate();
 
-        if (errors.length > 0) {
-            // display errors
-            // prevent default
-        } else {
-            evalExploreModel.updateSample();
-            // continue to next step
+    $scope.updateSpec = function (tech) {
+        if (techMap[tech.title]) {
+            tech.id = techMap[tech.title];
         }
     };
 
     $scope.addTechnology = function ($event) {
-        $scope.explore.addReliedUponTech();
+        evalExploreModel.addReliedUponTech();
         var button = angular.element($event.delegateTarget);
         $timeout(function () {
             var inputs = button.prev().find('input');
@@ -45,28 +39,21 @@ evalExploreModel, evalTestModel, $location) {
         });
     };
 
-    $scope.getPageAdder = function (prop) {
-        return function () {
-            var page = evalExploreModel.addPageToProp(evalExploreModel[prop]);
-            evalTestModel.addPageForAsserts(page);
-        };
-    };
-
-    $scope.getPageRemover = function (prop) {
-        return function (index) {
-            var page = evalExploreModel.removePageFromProp(evalExploreModel[prop], index);
-            evalTestModel.removePageFromAsserts(page);
-        };
-    };
-
     var techMap = {};
     evalExploreModel.knownTech.forEach(function (knownTech) {
         techMap[knownTech.title] = knownTech.id;
     });
-    
-    $scope.updateSpec = function (tech) {
-        if (techMap[tech.title]) {
-            tech.id = techMap[tech.title];
+
+
+    $scope.processInput = function () {
+        var errors = evalExploreModel.validate();
+
+        if (errors.length > 0) {
+            // display errors
+            // prevent default
+        } else {
+            evalExploreModel.updateSample();
+            // continue to next step
         }
     };
 

@@ -4,7 +4,7 @@
 
     <div class="col-xs-12">
       {{:: 'RESULTS_FOR' | translate}}:
-      <em ng-bind="assert.subject[0].handle"></em>
+      <em ng-bind="assert.subject[0].displayHandle()"></em>
 
       <button ng-if="opt.editable" ng-click="createMacro(assert)"
       type="submit" class="glyphicon glyphicon-copy pull-right">
