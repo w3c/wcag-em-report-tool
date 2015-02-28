@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('EvalTestCtrl', function ($scope, appState, $location) {
+.controller('EvalAuditCtrl', function ($scope, appState, $location) {
 
-    $scope.state = appState.moveToState('test');
+    $scope.state = appState.moveToState('audit');
 
     $scope.nextStep = function () {
-        $location.path('/evaluation/finalize');
+        $location.path('/evaluation/report');
     };
 
     $scope.previousStep = function () {

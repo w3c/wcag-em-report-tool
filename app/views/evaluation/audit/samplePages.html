@@ -1,4 +1,4 @@
-<div ng-controller="TestSamplePagesCtrl">
+<div ng-controller="AuditSamplePagesCtrl">
   <h2>
     {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
     label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"></info-button>
@@ -6,7 +6,7 @@
 
   <info-field ref="inf_audit_sample" exitto=""
               button="{{'LABEL_CLOSE_INFO' | translate}}">
-    <p>{{ 'INF_AUDIT_SAMPLE' | translate }}</p>
+    <p ng-bind-html="'INF_AUDIT_SAMPLE' | translate | nlToBr"></p>
   </info-field>
 
   <div class="btn-toolbar">

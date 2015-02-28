@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('TestPrinciplesCtrl', function ($scope, evalTestModel, evalScopeModel, 
+.controller('AuditPrinciplesCtrl', function ($scope, evalAuditModel, evalScopeModel,
 wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 
-    evalTestModel.updateToConformance();
+    evalAuditModel.updateToConformance();
 
-    $scope.criteria = evalTestModel.getCriteriaSorted();
+    $scope.criteria = evalAuditModel.getCriteriaSorted();
     $scope.principles = wcag20spec.getPrinciples();
-    $scope.getCritAssert = evalTestModel.getCritAssert;
+    $scope.getCritAssert = evalAuditModel.getCritAssert;
 
 
     if ($rootScope.rootHide.criteria) {
@@ -23,7 +23,7 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 	    Object.keys($filter('rdfToLabel').keymap)
 	    .forEach(function (key) {
 	    	// WCAG 2 stuff is all about levels
-	    	
+
 	    	if (key.substr(0, 7) === 'wcag20:') {
 	    		$scope.critFilter.level[key] = evalScopeModel.matchConformTarget(key);
 			// EARL stuff is about outcomes
@@ -42,7 +42,7 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     		return false;
     	}
 		// Check if the assert has an outcome, if no, don't show the criterion
-		critAssert = evalTestModel.getCritAssert(critSpec.uri);
+		critAssert = evalAuditModel.getCritAssert(critSpec.uri);
 		if (typeof critAssert !== 'object' ||
 		typeof critAssert.result !== 'object') {
 			return false;
@@ -72,7 +72,7 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     	});
     	return visible;
     };
-    
+
     $scope.toTop = function () {
         $rootElement.focus();
         $anchorScroll();

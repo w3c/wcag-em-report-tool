@@ -23,12 +23,12 @@ angular.module('wcagReporter', [
     }).when('/evaluation/sample', {
         templateUrl: 'views/evaluation/sample.html',
         controller: 'EvalSampleCtrl'
-    }).when('/evaluation/test', {
-        templateUrl: 'views/evaluation/test.html',
-        controller: 'EvalTestCtrl'
-    }).when('/evaluation/finalize', {
-        templateUrl: 'views/evaluation/finalize.html',
-        controller: 'EvalFinalizeCtrl'
+    }).when('/evaluation/audit', {
+        templateUrl: 'views/evaluation/audit.html',
+        controller: 'EvalAuditCtrl'
+    }).when('/evaluation/report', {
+        templateUrl: 'views/evaluation/report.html',
+        controller: 'EvalReportCtrl'
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'

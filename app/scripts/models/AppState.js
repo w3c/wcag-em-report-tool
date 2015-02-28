@@ -16,8 +16,8 @@ angular.module('wcagReporter')
             {name: 'scope',     route:'#/evaluation/scope',   copmlete: false},
             {name: 'explore',   route:'#/evaluation/explore', copmlete: false},
             {name: 'sample',    route:'#/evaluation/sample',  copmlete: false},
-            {name: 'test',      route:'#/evaluation/test',    copmlete: false},
-            {name: 'finalize',  route:'#/evaluation/finalize',    copmlete: false},
+            {name: 'audit',     route:'#/evaluation/audit',   copmlete: false},
+            {name: 'report',    route:'#/evaluation/report',  copmlete: false},
             {name: 'save',      route:'#/report',    copmlete: false}
         ]
     };

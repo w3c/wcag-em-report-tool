@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('TestSamplePagesCtrl', function ($scope, evalSampleModel, Page) {
+.controller('AuditSamplePagesCtrl', function ($scope, evalSampleModel, Page) {
 
 	var getSelected = evalSampleModel.getSelectedPages;
 	var getPages = evalSampleModel.getPages;
 
-    $scope.structuredSample = evalSampleModel.structuredSample; 
+    $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
     $scope.allPages = function () {
@@ -70,7 +70,7 @@ angular.module('wcagReporter')
     	});
 
 		$scope.anySelect = true;
-    	
+
     	if (lastIndex === pages.length-1) {
     		lastIndex = 0;
     	}

@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .controller('EvalExploreCtrl', function ($scope, appState, $timeout,
-evalExploreModel, evalTestModel, $location) {
+evalExploreModel, evalAuditModel, $location) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
