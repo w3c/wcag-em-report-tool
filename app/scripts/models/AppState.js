@@ -5,7 +5,7 @@ angular.module('wcagReporter')
     var appState,
         warningTxt = translateFilter('WARNING_BEFORE_UNLOAD'),
         jqWin = window.jQuery(window);
-    
+
     appState = {
         pristine: true,
         empty: true,
@@ -13,11 +13,11 @@ angular.module('wcagReporter')
         maxStateIndex: 0,
         stateList: [
             {name: 'start',     route:'#/',   copmlete: false},
-            {name: 'scope',     route:'#/audit/scope',   copmlete: false},
-            {name: 'explore',   route:'#/audit/explore', copmlete: false},
-            {name: 'sample',    route:'#/audit/sample',  copmlete: false},
-            {name: 'test',      route:'#/audit/test',    copmlete: false},
-            {name: 'finalize',  route:'#/audit/finalize',    copmlete: false},
+            {name: 'scope',     route:'#/evaluation/scope',   copmlete: false},
+            {name: 'explore',   route:'#/evaluation/explore', copmlete: false},
+            {name: 'sample',    route:'#/evaluation/sample',  copmlete: false},
+            {name: 'test',      route:'#/evaluation/test',    copmlete: false},
+            {name: 'finalize',  route:'#/evaluation/finalize',    copmlete: false},
             {name: 'save',      route:'#/report',    copmlete: false}
         ]
     };
@@ -34,7 +34,7 @@ angular.module('wcagReporter')
     appState.moveToState = function (newState) {
     	var i, newIndex;
     	for (i = 0; i < this.stateList.length; i+=1) {
-			
+
 			if (appState.stateList[i].name === newState) {
 				newIndex = i;
 				break;
@@ -81,7 +81,7 @@ angular.module('wcagReporter')
             console.error('FileReader not supported in this browser.');
             res = false;
         }
-        if (!window.navigator.msSaveOrOpenBlob && 
+        if (!window.navigator.msSaveOrOpenBlob &&
             !((window.URL || window.webkitURL) &&
               (window.URL || window.webkitURL).createObjectURL)) {
             console.error('msSaveOrOpenBlob or createObjectURL not supported in this browser.');

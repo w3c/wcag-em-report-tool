@@ -14,21 +14,21 @@ angular.module('wcagReporter', [
     $routeProvider.when('/', {
         templateUrl: 'views/start.html',
         controller: 'StartCtrl'
-    }).when('/audit/scope', {
-        templateUrl: 'views/audit/scope.html',
-        controller: 'AuditScopeCtrl'
-    }).when('/audit/explore', {
-        templateUrl: 'views/audit/explore.html',
-        controller: 'AuditExploreCtrl'
-    }).when('/audit/sample', {
-        templateUrl: 'views/audit/sample.html',
-        controller: 'AuditSampleCtrl'
-    }).when('/audit/test', {
-        templateUrl: 'views/audit/test.html',
-        controller: 'AuditTestCtrl'
-    }).when('/audit/finalize', {
-        templateUrl: 'views/audit/finalize.html',
-        controller: 'AuditFinalizeCtrl'
+    }).when('/evaluation/scope', {
+        templateUrl: 'views/evaluation/scope.html',
+        controller: 'EvalScopeCtrl'
+    }).when('/evaluation/explore', {
+        templateUrl: 'views/evaluation/explore.html',
+        controller: 'EvalExploreCtrl'
+    }).when('/evaluation/sample', {
+        templateUrl: 'views/evaluation/sample.html',
+        controller: 'EvalSampleCtrl'
+    }).when('/evaluation/test', {
+        templateUrl: 'views/evaluation/test.html',
+        controller: 'EvalTestCtrl'
+    }).when('/evaluation/finalize', {
+        templateUrl: 'views/evaluation/finalize.html',
+        controller: 'EvalFinalizeCtrl'
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
@@ -103,7 +103,7 @@ $location, $rootElement, evalScopeModel, showSave) {
 
     $rootScope.setEvalLocation = function () {
         appState.setDirtyState();
-        $location.path('/audit/scope');
+        $location.path('/evaluation/scope');
     };
 
     /*
