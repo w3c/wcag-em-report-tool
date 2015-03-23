@@ -9,8 +9,8 @@ angular.module('wcagReporter')
 
     /**
      * Get the next available page number for a given sample
-     * @param  {object} sample 
-     * @return {int}    pageNum      
+     * @param  {object} sample
+     * @return {int}    pageNum
      */
     function getAvailablePageNum(sample) {
         var name, lastId;
@@ -59,7 +59,7 @@ angular.module('wcagReporter')
         sample.webpage.push(page);
         page.id = '_:struct_' + num;
         page.handle = '';
-        
+
         minRndSmpl = Math
         .ceil(sample.webpage.length / 10);
         i = minRndSmpl - sampleModel.randomSample.webpage.length;
@@ -150,7 +150,6 @@ angular.module('wcagReporter')
     sampleModel.importData = function (data) {
         ['structuredSample', 'randomSample'].forEach(function (prop) {
             sampleModel[prop] = data[prop];
-
             if (typeof data[prop] !== 'object') {
                 sampleModel[prop] = {};
             }
@@ -161,6 +160,9 @@ angular.module('wcagReporter')
             } else if (!ng.isArray(sampleModel[prop].webpage)) {
                 sampleModel[prop].webpage = [sampleModel[prop].webpage];
             }
+            sampleModel[prop].webpage.forEach(function (pageData) {
+                pageData.displayHandle = Page.prototype.displayHandle;
+            });
         });
     };
 

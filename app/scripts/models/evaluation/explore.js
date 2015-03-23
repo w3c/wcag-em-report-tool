@@ -10,7 +10,7 @@ angular.module('wcagReporter')
     },
     basicProps = [
         'reliedUponTechnology', 'essentialFunctionality',
-        'pageTypeVariety',      'reliedUponTechnology'
+        'pageTypeVariety'
     ],
     pageProps = ['commonPages', 'otherRelevantPages'];
 
@@ -36,7 +36,7 @@ angular.module('wcagReporter')
     });
 
     exploreModel.reliedUponTechnology = [];
-    
+
     exploreModel.addReliedUponTech = function () {
         exploreModel.reliedUponTechnology.push({
             title: '', id: ''
@@ -80,9 +80,9 @@ angular.module('wcagReporter')
         return page;
     };
 
-    
+
     exploreModel.importData = function (evalData) {
-        if (typeof evalData.reliedUponTechnology === 'object') {
+        if (!angular.isArray(evalData.reliedUponTechnology)) {
             evalData.reliedUponTechnology = [evalData.reliedUponTechnology];
         }
         basicProps.forEach(function (prop) {
