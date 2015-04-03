@@ -9,13 +9,13 @@ angular.module('wcagReporter')
     $scope.scope = evalModel.scopeModel;
     $scope.explore = evalModel.exploreModel;
 
-    $scope.allPages = function () {
-        return evalModel.sampleModel.getPages();
+    $scope.filledPages = function () {
+        return evalModel.sampleModel.getFilledPages();
     };
 
     evalModel.testModel.updateToConformance();
 
-    
+
     $scope.report = evalModel.reportModel;
     var tpl = ['<!DOCTYPE html><html lang="en"><head>' +
     '<title>' + evalModel.reportModel.title +  '</title>' +

@@ -4,12 +4,8 @@ angular.module('wcagReporter')
 .controller('AuditFinalizeCtrl', function ($scope, appState,
 $location, evalSampleModel, evalReportModel) {
 
-    $scope.state = appState.moveToState('finalize');
+    $scope.state  = appState.moveToState('finalize');
     $scope.report = evalReportModel;
-
-    $scope.allPages = function () {
-          return evalSampleModel.getPages();
-    };
 
     $scope.processInput = function () {
         var errors = evalReportModel.validate();
