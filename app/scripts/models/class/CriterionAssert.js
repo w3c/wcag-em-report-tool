@@ -6,7 +6,7 @@ TestCaseAssert, wcag20spec, currentUser) {
 
 	function CriterionAssert(idref) {
         var self = this;
-        
+
         this.testRequirement = idref;
         this.hasPart = [];
         this.result = {
@@ -84,7 +84,7 @@ TestCaseAssert, wcag20spec, currentUser) {
                 if (typeof assert.result.description !== 'string') {
                     assert.result.description = '';
                 }
-                
+
                 if (assert.result.description.trim() === '') {
                     assert.result.description = macroAssert.result.description.trim();
                 } else {
@@ -96,7 +96,7 @@ TestCaseAssert, wcag20spec, currentUser) {
         },
 
         /**
-         * For each page in the sample, create a 
+         * For each page in the sample, create a
          * test case if none exists already
          */
         setCaseForEachPage: function () {

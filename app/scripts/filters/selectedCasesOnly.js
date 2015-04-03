@@ -1,14 +1,12 @@
-'use strict'; 
+'use strict';
 
 angular.module('wcagReporter')
 .filter('selectedCasesOnly', function() {
 
     function critHasSelectedPages(criterion) {
-        if (criterion.subject.length === 0) {
-            return true;
-        }
         for (var i = 0; i < criterion.subject.length; i++) {
-            if (criterion.subject[i].selected) {
+            var page = criterion.subject[i];
+            if (page.selected && (page.handle || page.description)) {
                 return true;
             }
         }
