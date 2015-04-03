@@ -1,6 +1,10 @@
 {
   "name": "WCAG-EM-Report-Tool",
   "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/w3c/wcag-em-report-tool.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
