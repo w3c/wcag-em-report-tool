@@ -9,6 +9,13 @@ angular.module('wcagReporter')
 
 
 	function TestCaseAssert() {
+        // Copy prototype onto the object - prevents problems with JSON.stringify()
+        for (var key in TestCaseAssert.prototype) {
+            if (!this.hasOwnProperty(key)) {
+                this[key] = TestCaseAssert.prototype[key];
+            }
+        }
+
         this.subject = [];
         this.result = Object.create(protoResult);
     }

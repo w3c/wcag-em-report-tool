@@ -5,7 +5,10 @@ angular.module('wcagReporter')
     var scopeModel = {
     	conformanceTarget: 'wcag20:level_aa',
         additionalEvalRequirement: '',
-        website: { title: '', siteScope: '' },
+        website: {
+            'id': '_:website',
+            title: '',
+            siteScope: '' },
         accessibilitySupportBaseline: ''
     };
 
@@ -14,7 +17,8 @@ angular.module('wcagReporter')
             conformanceTarget: scopeModel.conformanceTarget,
             additionalEvalRequirement: scopeModel.additionalEvalRequirement,
             website: {
-                title: scopeModel.website.title,
+                id:        scopeModel.website.id,
+                title:     scopeModel.website.title,
                 siteScope: scopeModel.website.siteScope
             },
             accessibilitySupportBaseline: scopeModel.accessibilitySupportBaseline
@@ -24,7 +28,7 @@ angular.module('wcagReporter')
     scopeModel.conformanceOptions = [
         'wcag20:level_a', 'wcag20:level_aa', 'wcag20:level_aaa'
     ];
-    
+
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
      */
@@ -40,5 +44,5 @@ angular.module('wcagReporter')
     Object.preventExtensions(scopeModel.website);
     Object.preventExtensions(scopeModel);
 
-   return scopeModel; 
+   return scopeModel;
 });

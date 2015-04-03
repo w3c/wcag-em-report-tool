@@ -7,6 +7,13 @@ TestCaseAssert, wcag20spec, currentUser) {
 	function CriterionAssert(idref) {
         var self = this;
 
+        // Copy prototype onto the object - prevents problems with JSON.stringify()
+        for (var key in CriterionAssert.prototype) {
+            if (!this.hasOwnProperty(key)) {
+                this[key] = CriterionAssert.prototype[key];
+            }
+        }
+
         this.testRequirement = idref;
         this.hasPart = [];
         this.result = {
