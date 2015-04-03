@@ -9,13 +9,23 @@ angular.module('wcagReporter')
 
 
 	function TestCaseAssert() {
+        // Copy prototype onto the object - prevents problems with JSON.stringify()
+        for (var key in TestCaseAssert.prototype) {
+            if (!this.hasOwnProperty(key)) {
+                this[key] = TestCaseAssert.prototype[key];
+            }
+        }
+
         this.subject = [];
         this.result = Object.create(protoResult);
     }
-    
+
     TestCaseAssert.isDefined = function (tc) {
-        return !(tc.result.description === protoResult.description &&
-               tc.result.outcome === protoResult.outcome);
+        var hasPage = false;
+        tc.subject.forEach(function (page) {
+            hasPage = (hasPage || page.handle || page.description);
+        });
+        return ((tc.result.description || tc.result.outcome !== protoResult.outcome) && hasPage);
     };
 
     TestCaseAssert.prototype = {
@@ -46,7 +56,7 @@ angular.module('wcagReporter')
             }
             pages.forEach(function (page) {
                 if (typeof page === 'string') {
-                    page = evalSampleModel.getPageById(page);    
+                    page = evalSampleModel.getPageById(page);
                 }
                 if (typeof page === 'object') {
                     subject.push(page);

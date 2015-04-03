@@ -1,22 +1,22 @@
-Roadmap WeRT
+# Roadmap WeRT
 
 1.1
 - Recreate the navigation bar
-- Toolbars for the audit screen
-- Save to and load from REST API, including autosave
 - Improved integration with auditing tools
 - Refactored the tool for easier maintenance
-- Set up testing
+- Set up basic testing
+- Add multi-language support
 
 
 1.2
+- Toolbars for the audit screen
+- Save to and load from REST API, including autosave
 - Support more EARL features
 - WCAG-EM validation messages
 - Final report customisation
 - Improved documentation
 
-- Support for multiple languages
-
+later
 - Option to add screen grabs
 - Support for auditing and reporting subsites
 
@@ -83,7 +83,7 @@ promise
 _fileReader                      (fileStorage)
 reportStorage                    (networkStorage)
 evalLoaderService
-  _evalWindow  
+  _evalWindow
 
 
 @ wertModelComponents

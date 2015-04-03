@@ -1,6 +1,6 @@
-'use strict'; 
+'use strict';
 
-angular.module('wcagReporter') 
+angular.module('wcagReporter')
 .controller('AuditTestCtrl', function ($scope, appState, wcag20spec, Page,
 evalScopeModel, evalTestModel, evalSampleModel, $location,
 $rootElement, $anchorScroll) {
@@ -9,20 +9,21 @@ $rootElement, $anchorScroll) {
 
     $scope.criteria = evalTestModel.getCriteriaSorted();
 
-    $scope.state = appState.moveToState('test'); 
+    $scope.state = appState.moveToState('test');
     $scope.principles = wcag20spec.getPrinciples();
-    
+
     $scope.sampleChange = function () {
         $scope.$broadcast('audit:sample-change');
     };
 
     $scope.getCritAssert = evalTestModel.getCritAssert;
 
-    $scope.structuredSample = evalSampleModel.structuredSample; 
+    $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
-    $scope.allPages = function () {
-        return evalSampleModel.getPages();
+    $scope.filledPages = function () {
+        //console.log(evalSampleModel.getFilledPages());
+        return evalSampleModel.getFilledPages();
     };
 
     $scope.invertPageSelect = function () {
@@ -68,7 +69,7 @@ $rootElement, $anchorScroll) {
             }
         });
     };
-    
+
     $scope.toTop = function () {
         console.log($rootElement);
         $rootElement.focus();

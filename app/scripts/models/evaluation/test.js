@@ -6,7 +6,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
 
     var testModel,
         criteria = {};
-    
+
     testModel = {
         criteria: criteria,
 
@@ -61,7 +61,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
             var prop,
                 newCrit = Object.create(CriterionAssert.prototype);
             CriterionAssert.apply(newCrit);
-            
+
             for (prop in result) {
                 if (prop === 'hasPart') {
                     // Make sure hasPart is an array:
