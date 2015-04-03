@@ -6,13 +6,17 @@ try {
   angular.module('wcagReporter', ['pascalprecht.translate']);
 }
 
-angular.module('wcagReporter').config(function ($translateProvider) {
-  $translateProvider.translations('nl', {
-    'NAV_START': 'Toetsing beginnen',
-    'NAV_LINKS': 'Belangrijke links',
-    'NAV_IMPORT': 'Importeren',
-    'NAV_EXPORT': 'Exporteren',
-    'NAV_HELP': 'Hulp'
-  });
-  $translateProvider.preferredLanguage('nl');
-});
+angular.module('wcagReporter').config(['$translateProvider',
+  function ($translateProvider) {
+    var translations = {
+      'NAV_START': 'Toetsing beginnen',
+      'NAV_LINKS': 'Belangrijke links',
+      'NAV_IMPORT': 'Importeren',
+      'NAV_EXPORT': 'Exporteren',
+      'NAV_HELP': 'Hulp'
+    };
+    $translateProvider.translations('nl', translations);
+    $translateProvider.translations(translations);
+    $translateProvider.preferredLanguage('nl');
+  }
+]);
