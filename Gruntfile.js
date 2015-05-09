@@ -14,12 +14,12 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-  
+
   // load plugins
   grunt.loadNpmTasks('grunt-json-angular-translate');
   grunt.loadNpmTasks('grunt-lineending');
   grunt.loadNpmTasks('grunt-html2js');
-  
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
     },
-    
+
     // Translations
     jsonAngularTranslate: {
       createJs: {
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'locales',
           src: '*.json',
-          dest: '<%= yeoman.app %>/scripts/locales',
+          dest: '.tmp/scripts/locales',
           ext: '.js'
         }]
       }
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
     html2js: {
       options: {
         module: 'wert-templates',
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/scripts/templates.js'
       }
     },
-    
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
           ]
         }
       },
-      
+
       dist: {
         options: {
           base: '<%= yeoman.dist %>'
@@ -427,12 +427,12 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'jsonAngularTranslate',
       'lineending',
       'clean:server',
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',
+      'jsonAngularTranslate',
       'connect:livereload',
       'watch'
     ]);
@@ -449,10 +449,10 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'jsonAngularTranslate',
     'lineending',
     'clean:dist',
     'bowerInstall',
+    'jsonAngularTranslate',
     'useminPrepare',
     'concurrent:dist',
     'concat',
