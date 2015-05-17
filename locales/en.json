@@ -1,4 +1,54 @@
 {
+
+  "COMMON": {
+    "WCAG_A": "WCAG 2.0 level A",
+    "WCAG_AA": "WCAG 2.0 level AA",
+    "WCAG_AAA": "WCAG 2.0 level AAA",
+    "BROWSER_NOT_SUPPORTED": "The web browser you are using does not support some functionality, such as saving and loading reports. You can continue to use this report tool with limited functionality. Update or use a different web browser to make use of all functionality of this report tool.",
+    "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
+    "HIDE_MESSAGE": "Hide message",
+    "LABEL_INFO": "Info expand",
+    "LABEL_CLOSE_INFO": "Close info"
+  },
+
+  "NAV": {
+    "MENU_RESOURCES": "Key Resources",
+    "MENU_NEW": "New Report",
+    "MENU_OPEN": "Open",
+    "MENU_SAVE": "Save",
+    "MENU_SAVE_TITLE": "Ctrl + S or ⌘ S",
+
+    "WZRD_START": "Start",
+    "WZRD_SCOPE": "1. Define Scope",
+    "WZRD_EXPLORE": "2. Explore Website",
+    "WZRD_SAMPLE": "3. Select Sample",
+    "WZRD_AUDIT": "4. Audit Sample",
+    "WZRD_REPORT": "5. Report Findings",
+    "WZRD_ACTIVE": "Active",
+    "WZRD_EXPORT": "View Report",
+    "PREV_STEP": "Previous step",
+    "NEXT_STEP": "Next step",
+    "STEP_START": "Start",
+    "STEP_SCOPE": "Define Scope",
+    "STEP_EXPLORE": "Explore Website",
+    "STEP_SAMPLE": "Select Sample",
+    "STEP_AUDIT": "Audit Sample",
+    "STEP_REPORT": "Report Findings",
+    "STEP_VIEW": "View Report",
+    "BTN_BACK_TO_EVAL": "Back"
+  },
+
+  "EARL": {
+    "PASSED": "Passed",
+    "FAILED": "Failed",
+    "CANT_TELL": "Cannot tell",
+    "NOT_PRESENT": "Not present",
+    "NOT_CHECKED": "Not checked",
+    "LEVEL_A": "Level A",
+    "LEVEL_AA": "Level AA",
+    "LEVEL_AAA": "Level AAA"
+  },
+
   "START": {
     "TITLE": "WCAG-EM Report Tool",
     "SUBTITLE": "Website Accessibility Evaluation Report Generator",
@@ -217,54 +267,9 @@
   },
 
 
-  "COMMON": {
-    "WCAG_A": "WCAG 2.0 level A",
-    "WCAG_AA": "WCAG 2.0 level AA",
-    "WCAG_AAA": "WCAG 2.0 level AAA",
-    "BROWSER_NOT_SUPPORTED": "The web browser you are using does not support some functionality, such as saving and loading reports. You can continue to use this report tool with limited functionality. Update or use a different web browser to make use of all functionality of this report tool.",
-    "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
-    "HIDE_MESSAGE": "Hide message",
-    "LABEL_INFO": "Info expand",
-    "LABEL_CLOSE_INFO": "Close info"
-  },
-
   "BTN_START_EVAL": "Start a new evaluation report",
   "BTN_CONTINUE_EVAL": "Continue working on your open evaluation report",
-  "BTN_IMPORT_EVAL": "Import evaluation data from a previous session",
+  "BTN_IMPORT_EVAL": "Import evaluation data from a previous session"
 
-  "NAV": {
-    "NAV_LINKS": "Key Resources",
-    "NAV_NEW": "New Report",
-    "NAV_IMPORT": "Open",
-    "NAV_EXPORT": "Save",
-    "NAV_EXPORT_TITLE": "Ctrl + S or ⌘ S",
-    "NAV_HELP": "Help",
-    "WZRD_START": "Start",
-    "WZRD_SCOPE": "1. Define Scope",
-    "WZRD_EXPLORE": "2. Explore Website",
-    "WZRD_SAMPLE": "3. Select Sample",
-    "WZRD_AUDIT": "4. Audit Sample",
-    "WZRD_REPORT": "5. Report Findings",
-    "WZRD_SAVE": "View Report",
-    "PREV_STEP": "Previous step",
-    "NEXT_STEP": "Next step",
-    "STEP_START": "Start",
-    "STEP_SCOPE": "Define Scope",
-    "STEP_EXPLORE": "Explore Website",
-    "STEP_SAMPLE": "Select Sample",
-    "STEP_AUDIT": "Audit Sample",
-    "STEP_REPORT": "Report Findings",
-    "STEP_VIEW": "View Report",
-    "BTN_BACK_TO_EVAL": "Back"
-  },
-  "EARL": {
-    "PASSED": "Passed",
-    "FAILED": "Failed",
-    "CANT_TELL": "Cannot tell",
-    "NOT_PRESENT": "Not present",
-    "NOT_CHECKED": "Not checked",
-    "LEVEL_A": "Level A",
-    "LEVEL_AA": "Level AA",
-    "LEVEL_AAA": "Level AAA"
-  }
+
 }

@@ -2,9 +2,9 @@
   	<wre:step ng-repeat="stateItem in state.stateList"
   			step="stateItem"
   			active="state.currentStateIndex == $index">
-		{{ 'WZRD_' + stateItem.name | uppercase | translate}}
-        <span class="sr-only" 
+		{{ 'NAV.WZRD_' + stateItem.name | uppercase | translate}}
+        <span class="sr-only"
             ng-if="state.currentStateIndex == $index">
-          &nbsp;(Active)</span>
+          &nbsp;({{'NAV.WZRD_ACTIVE' | translate}})</span>
 	</wre:step>
 </wre:stepbar>
