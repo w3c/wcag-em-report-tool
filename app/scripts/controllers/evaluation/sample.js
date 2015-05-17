@@ -1,21 +1,21 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditSampleCtrl', function ($scope, appState, $location, $timeout,
-evalExploreModel, evalSampleModel, evalTestModel) {
+.controller('EvalSampleCtrl', function ($scope, appState, $location,
+evalExploreModel, evalSampleModel, evalAuditModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
-    
+
     $scope.exploreModel = evalExploreModel;
 
-    if ($scope.structuredSample && 
+    if ($scope.structuredSample &&
     $scope.structuredSample.webpage.length === 0) {
         evalSampleModel.addNewStructuredPage();
     }
 
-    if ($scope.randomSample && 
+    if ($scope.randomSample &&
     $scope.randomSample.webpage.length === 0) {
         evalSampleModel.addNewRandomPage();
     }
@@ -23,7 +23,7 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.getPageAdder = function (sample) {
         return function () {
             var page = evalSampleModel.addNewPage(sample);
-            evalTestModel.addPageForAsserts(page);
+            evalAuditModel.addPageForAsserts(page);
             return page;
         };
     };
@@ -31,7 +31,7 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     $scope.getPageRemover = function (sample) {
         return function (index) {
             var page = evalSampleModel.removePage(sample, index);
-            evalTestModel.removePageFromAsserts(page);
+            evalAuditModel.removePageFromAsserts(page);
             evalExploreModel.updatePages();
         };
     };
@@ -52,11 +52,11 @@ evalExploreModel, evalSampleModel, evalTestModel) {
     };
 
     $scope.nextStep = function () {
-        $location.path('/audit/test');
+        $location.path('/evaluation/audit');
     };
 
     $scope.previousStep = function () {
-        $location.path('/audit/explore');
+        $location.path('/evaluation/explore');
     };
 
     $scope.nextStepName = 'STEP_AUDIT';

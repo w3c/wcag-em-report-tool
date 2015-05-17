@@ -1,17 +1,17 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCriteriaCtrl', function ($scope, wcag20spec, evalTestModel) {
+.controller('ReportCriteriaCtrl', function ($scope, wcag20spec, evalAuditModel) {
 
-    evalTestModel.updateToConformance();
+    evalAuditModel.updateToConformance();
 
     $scope.principles = wcag20spec.getPrinciples();
-    $scope.testModel = evalTestModel;
+    $scope.testModel = evalAuditModel;
     $scope.critOpt = {
         editable: false,       collapsed: false,
         showallpages: false,   hideCollapseBtn: true
     };
 
-    $scope.getCritAssert = evalTestModel.getCritAssert;
-    
+    $scope.getCritAssert = evalAuditModel.getCritAssert;
+
 });

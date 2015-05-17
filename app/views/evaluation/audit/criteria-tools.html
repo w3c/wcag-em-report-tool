@@ -1,0 +1,47 @@
+<fieldset>
+  <legend>{{:: 'critFilter_CRITERIA' | translate }}</legend>
+  <div>
+    <label for="show_level-a">
+      <input id="show_level-a" type="checkbox"
+      ng-model="critFilter.level['wcag20:level_a']">
+      {{:: 'LEVEL_A' | translate}}
+    </label>
+    <label for="show_level-aa">
+      <input id="show_level-aa" type="checkbox"
+      ng-model="critFilter.level['wcag20:level_aa']">
+      {{:: 'LEVEL_AA' | translate}}
+    </label>
+    <label for="show_level-aaa">
+      <input id="show_level-aaa" type="checkbox"
+      ng-model="critFilter.level['wcag20:level_aaa']">
+      {{:: 'LEVEL_AAA' | translate}}
+    </label>
+  </div>
+  <div>
+    <label for="show_not-checked">
+      <input id="show_level-a" type="checkbox"
+      ng-model="critFilter.outcome['earl:untested']">
+      {{:: 'NOT_CHECKED' | translate}}
+    </label>
+    <label for="show_passed">
+      <input id="show_passed" type="checkbox"
+      ng-model="critFilter.outcome['earl:passed']">
+      {{:: 'PASSED' | translate}}
+    </label>
+    <label for="show_failed">
+      <input id="show_failed" type="checkbox"
+      ng-model="critFilter.outcome['earl:failed']">
+      {{:: 'FAILED' | translate}}
+    </label>
+    <label for="show_not-present">
+      <input id="show_not-present" type="checkbox"
+      ng-model="critFilter.outcome['earl:inapplicable']">
+      {{:: 'NOT_PRESENT' | translate}}
+    </label>
+    <label for="show_cannot-tell">
+      <input id="show_cannot-tell" type="checkbox"
+      ng-model="critFilter.outcome['earl:cantTell']">
+      {{:: 'CANT_TELL' | translate}}
+    </label>
+  </div>
+</fieldset>

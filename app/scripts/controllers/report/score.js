@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportScoreCtrl', function ($scope, wcag20spec, evalTestModel) {
+.controller('ReportScoreCtrl', function ($scope, wcag20spec, evalAuditModel) {
 
     $scope.principles = wcag20spec.getPrinciples();
     $scope.totals = {
@@ -29,7 +29,7 @@ angular.module('wcagReporter')
 
         }, []).forEach(function (crit) {
         // For each, set the result
-            var critResult = evalTestModel.getCritAssert(crit.uri);
+            var critResult = evalAuditModel.getCritAssert(crit.uri);
             if (critResult) {
                 result[critResult.result.outcome] += 1;
                 $scope.totals[critResult.result.outcome] += 1;

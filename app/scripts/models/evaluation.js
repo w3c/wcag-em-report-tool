@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * 
+ *
  */
 angular.module('wcagReporter').factory('evalModel', function(
 		evalScopeModel, evalExploreModel, evalSampleModel,
-		evalTestModel, evalReportModel, evalContext, currentUser) {
+		evalAuditModel, evalReportModel, evalContext, currentUser) {
 
 	var evalModel = {
 		id: undefined,
@@ -13,7 +13,7 @@ angular.module('wcagReporter').factory('evalModel', function(
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,
 		sampleModel:  evalSampleModel,
-		testModel:    evalTestModel,
+		testModel:    evalAuditModel,
 		reportModel:  evalReportModel,
 		// This array collects data that is outside the evaluation
 		// For example the author and external rdf data

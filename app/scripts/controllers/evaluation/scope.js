@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditScopeCtrl', function ($scope, appState, 
+.controller('EvalScopeCtrl', function ($scope, appState,
 evalScopeModel, $location, $filter) {
 	$scope.state = appState.moveToState('scope');
 	$scope.evalScope = evalScopeModel;
@@ -24,7 +24,7 @@ evalScopeModel, $location, $filter) {
 	};
 
     $scope.nextStep = function () {
-        $location.path('/audit/explore');
+        $location.path('/evaluation/explore');
     };
 
     $scope.previousStep = function () {

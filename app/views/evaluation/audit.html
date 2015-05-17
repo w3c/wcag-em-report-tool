@@ -1,5 +1,5 @@
 <div ng-include src="'views/messages.html'"></div>
-<div ng-include src="'views/audit/stepbar.html'"></div>
+<div ng-include src="'views/evaluation/stepbar.html'"></div>
 
 <h1>{{ setTitle( translate('HD_STEP4') ) }}</h1>
 
@@ -7,11 +7,11 @@
 : ['INTRO_STEP4_0', 'http://www.w3.org/TR/WCAG-EM/#step4'] | nlToBr"></p>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-3"
-  	ng-include src="'views/audit/test/sample-pages.html'"></div>
+  <div class="col-xs-12 col-sm-4 col-md-3"
+  	ng-include src="'views/evaluation/audit/samplePages.html'"></div>
 
-  <div class="col-xs-12 col-sm-9"
-  	ng-include src="'views/audit/test/criteria.html'"></div>
+  <div class="col-xs-12 col-sm-8 col-md-9"
+  	ng-include src="'views/evaluation/audit/criteria.html'"></div>
 </div>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>

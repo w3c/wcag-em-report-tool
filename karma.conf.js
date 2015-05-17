@@ -2,6 +2,7 @@
 // http://karma-runner.github.io/0.10/config/configuration-file.html
 
 module.exports = function(config) {
+  'use strict';
   config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '',
@@ -11,12 +12,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/bower_components/json3/lib/json3.js',
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
-      'app/scripts/{,*/}*.js',
+      'app/bower_components/angular-translate/angular-translate.js',
+      'app/bower_components/angular-animate/angular-animate.js',
+      'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
+      'app/scripts/promise-1.0.0.js',
+      'app/scripts/**/{,*/}*.js',
       // 'test/mock/**/*.js',
       'test/spec/**/{,*/}*.js'
     ],
@@ -44,7 +52,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

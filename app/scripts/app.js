@@ -14,30 +14,30 @@ angular.module('wcagReporter', [
     $routeProvider.when('/', {
         templateUrl: 'views/start.html',
         controller: 'StartCtrl'
-    }).when('/audit/scope', {
-        templateUrl: 'views/audit/scope.html',
-        controller: 'AuditScopeCtrl'
-    }).when('/audit/explore', {
-        templateUrl: 'views/audit/explore.html',
-        controller: 'AuditExploreCtrl'
-    }).when('/audit/sample', {
-        templateUrl: 'views/audit/sample.html',
-        controller: 'AuditSampleCtrl'
-    }).when('/audit/test', {
-        templateUrl: 'views/audit/test.html',
-        controller: 'AuditTestCtrl'
-    }).when('/audit/finalize', {
-        templateUrl: 'views/audit/finalize.html',
-        controller: 'AuditFinalizeCtrl'
+    }).when('/evaluation/scope', {
+        templateUrl: 'views/evaluation/scope.html',
+        controller: 'EvalScopeCtrl'
+    }).when('/evaluation/explore', {
+        templateUrl: 'views/evaluation/explore.html',
+        controller: 'EvalExploreCtrl'
+    }).when('/evaluation/sample', {
+        templateUrl: 'views/evaluation/sample.html',
+        controller: 'EvalSampleCtrl'
+    }).when('/evaluation/audit', {
+        templateUrl: 'views/evaluation/audit.html',
+        controller: 'EvalAuditCtrl'
+    }).when('/evaluation/report', {
+        templateUrl: 'views/evaluation/report.html',
+        controller: 'EvalReportCtrl'
     }).when('/report', {
         templateUrl: 'views/report.html',
         controller: 'ReportCtrl'
-    }).when('/import', {
-        templateUrl: 'views/import.html',
-        controller: 'ImportCtrl'
-    }).when('/export', {
-        templateUrl: 'views/export.html',
-        controller: 'ExportCtrl'
+    }).when('/open', {
+        templateUrl: 'views/open.html',
+        controller: 'OpenCtrl'
+    }).when('/save', {
+        templateUrl: 'views/save.html',
+        controller: 'SaveCtrl'
     }).otherwise({
         redirectTo: '/'
     });
@@ -103,7 +103,7 @@ $location, $rootElement, evalScopeModel, showSave) {
 
     $rootScope.setEvalLocation = function () {
         appState.setDirtyState();
-        $location.path('/audit/scope');
+        $location.path('/evaluation/scope');
     };
 
     /*
@@ -140,9 +140,9 @@ $location, $rootElement, evalScopeModel, showSave) {
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
-    //var autosave = $rootElement.attr('autosave');
+
     wcagReporterExport.storage.init({
-        //autosave: (autosave === '' || autosave.toLowerCase() === 'autosave'),
+        autosave: (typeof $rootElement.attr('autosave') === 'string'),
         url: $rootElement.attr('url'),
         saveDelay: ($rootElement.attr('save-delay') || 1500)
     });
@@ -151,4 +151,3 @@ $location, $rootElement, evalScopeModel, showSave) {
         wcagReporterImport.getFromUrl();
     }
 });
-

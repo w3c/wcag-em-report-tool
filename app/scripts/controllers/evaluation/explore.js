@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditExploreCtrl', function ($scope, appState, $timeout,
-evalExploreModel, evalTestModel, $location) {
+.controller('EvalExploreCtrl', function ($scope, appState, $timeout,
+evalExploreModel, evalAuditModel, $location) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
     $scope.knownTech = evalExploreModel.knownTech;
 
-    if (evalExploreModel.reliedUponTechnology && 
+    if (evalExploreModel.reliedUponTechnology &&
     evalExploreModel.reliedUponTechnology.length === 0) {
         evalExploreModel.addReliedUponTech();
     }
@@ -58,11 +58,11 @@ evalExploreModel, evalTestModel, $location) {
     };
 
     $scope.nextStep = function () {
-        $location.path('/audit/sample');
+        $location.path('/evaluation/sample');
     };
 
     $scope.previousStep = function () {
-        $location.path('/audit/scope');
+        $location.path('/evaluation/scope');
     };
 
     $scope.nextStepName = 'STEP_SAMPLE';

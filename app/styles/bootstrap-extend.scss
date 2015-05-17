@@ -17,10 +17,18 @@ body {
     .alert {
         margin-bottom:10px;
     }
-
+    .btn > button {
+        border:none;
+        background:transparent;
+        margin:-1px -5px;
+        padding:1px 5px;
+    }
     .btn-default {
         border-color: #888;
         background-color: $body-bg;
+    }
+    .btn-group > input {
+        float:left;
     }
     .btn.btn-primary-invert {
         background-color: $body-bg;

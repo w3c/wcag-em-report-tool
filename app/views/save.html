@@ -13,8 +13,8 @@
 <p ng-bind-html="'INTRO_SAVE_2' | translateAndLink
 : ['INTRO_SAVE_2_0', '#/report'] | nlToBr"></p>
 
-<!--
 <h2>{{:: 'HD_POST_TO_URL' | translate }}</h2>
+
 <form class="form-horizontal">
 
   <p>{{:: 'INTRO_POST_TO_URL' | translate}}</p>
@@ -39,15 +39,15 @@
   </div>
 
   <div class="alert alert-success appear" ng-if="success">
-    <p>{{ 'MSG_SAVED_SUCCESS' | translate }}</p>
+    <p>{{:: 'MSG_SAVED_SUCCESS' | translate }}</p>
   </div>
   <div class="alert alert-info appear" ng-if="posted">
-    <p>{{ 'MSG_SAVING' | translate }}</p>
+    <p>{{:: 'MSG_SAVING' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="failure">
-    <p>{{ 'MSG_SERVER_ERROR' | translate}}<p>
-    <p ng-if="failure === true">{{ 'MSG_PROBLEM_CONNECTING' | translate }}</p>
-    <p ng-if="failure !== true">{{ 'MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
+    <p>{{:: 'MSG_SERVER_ERROR' | translate}}<p>
+    <p ng-if="failure === true">{{:: 'MSG_PROBLEM_CONNECTING' | translate }}</p>
+    <p ng-if="failure !== true">{{:: 'MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
   </div>
 
   <div class="form-group">
@@ -59,5 +59,5 @@
     </div>
   </div>
 </form>
- -->
+
 <p><a href="javascript:window.history.back()">{{::'BTN_BACK_TO_EVAL' | translate }}</a></p>

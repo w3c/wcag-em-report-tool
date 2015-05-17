@@ -88,6 +88,11 @@ table {
     padding:0;
     margin:0;
     list-style:none;
+    .page-tested {
+        text-decoration: line-through;
+        color:#666666;
+        font-style: italic;
+    }
     li {
         padding:0;
         border-bottom:1px $navbar-default-border solid;

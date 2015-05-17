@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ExportCtrl', function ($scope, wcagReporterExport, appState) {
+.controller('SaveCtrl', function ($scope, wcagReporterExport, appState) {
 
     $scope.exportUrl = wcagReporterExport.getBlobUrl();
     $scope.exportFile = wcagReporterExport.getFileName();
@@ -9,7 +9,7 @@ angular.module('wcagReporter')
     $scope.posted = false;
     $scope.failure = false;
     $scope.success = false;
-    
+
     $scope.postJson = function () {
         $scope.posted = true;
         $scope.failure = false;
