@@ -1,14 +1,10 @@
 {
-
   "COMMON": {
-    "WCAG_A": "WCAG 2.0 level A",
-    "WCAG_AA": "WCAG 2.0 level AA",
-    "WCAG_AAA": "WCAG 2.0 level AAA",
     "BROWSER_NOT_SUPPORTED": "The web browser you are using does not support some functionality, such as saving and loading reports. You can continue to use this report tool with limited functionality. Update or use a different web browser to make use of all functionality of this report tool.",
     "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
     "HIDE_MESSAGE": "Hide message",
-    "LABEL_INFO": "Info expand",
-    "LABEL_CLOSE_INFO": "Close info"
+    "BTN_INFO": "Info expand",
+    "BTN_CLOSE_INFO": "Close info"
   },
 
   "NAV": {

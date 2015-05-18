@@ -3,7 +3,7 @@
 angular.module('wcagReporter')
 .service('appState', function ($rootScope, $document, translateFilter) {
     var appState,
-        warningTxt = translateFilter('WARNING_BEFORE_UNLOAD'),
+        warningTxt = translateFilter('COMMON.WARNING_BEFORE_UNLOAD'),
         jqWin = window.jQuery(window);
 
     appState = {
