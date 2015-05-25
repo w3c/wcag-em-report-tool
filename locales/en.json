@@ -7,6 +7,8 @@
     "BTN_CLOSE_INFO": "Close info",
     "YES": "Yes",
     "NO": "No",
+    "CLICK_EXPAND": "Click to show section",
+    "CLICK_COLLAPSE": "Click to hide section",
     "TO_TOP": "Back to top"
   },
 
@@ -274,24 +276,5 @@
     "MSG_PROBLEM_CONNECTING": "Problem connecting to the server. Please check the console for details.",
     "MSG_BAD_RESPONSE": "Response message",
     "BTN_POST_TO_URL": "Post to URL"
-  },
-
-
-  "SELECT_PAGE_TO_WORK_ON": "Highlight specific web pages",
-  "MACRO_RESULTS_FOR": "Issue for",
-  "CLICK_EXPAND": "Click to show section",
-  "CLICK_COLLAPSE": "Click to hide section",
-  "INF_COMMON_PAGES": "Identify web pages that are common to the entire website. Examples of 'common web pages' include the home page, login page, and other entry pages, as well as any site maps, contacts pages, site help, legal information, and similar web pages that are typically linked to from all web pages. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
-  "INF_COMMON_PAGES_0": "WCAG-EM Step 2.a: Identify Common Web Pages of the Website",
-  "INF_COMMON_PAGES_1": "web page states",
-  "LABEL_OTHER_PAGES": "Other web pages relevant to accessibility",
-  "LABEL_COMMON_PAGES": "Common web pages",
-  "INF_OTHER_PAGES": "Identify web pages that are particularly relevant to people with disabilities and to the accessibility of the website, if you haven't already listed them above as common web pages. Examples of other relevant web pages include web pages explaining the accessibility features of the website, information and help on the use of the website, explanations for settings, preferences, options, and shortcuts, and contact information, directions, and support instructions. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
-  "INF_OTHER_PAGES_0": "WCAG-EM Step 2.e: Identify Other Relevant Web Pages",
-  "INF_OTHER_PAGES_1": "web page states",
-  "BTN_START_EVAL": "Start a new evaluation report",
-  "BTN_CONTINUE_EVAL": "Continue working on your open evaluation report",
-  "BTN_IMPORT_EVAL": "Import evaluation data from a previous session",
-  "OPEN_FINAL_REPORT": "Generate the evaluation report"
-
+  }
 }
