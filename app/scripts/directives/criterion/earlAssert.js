@@ -28,9 +28,9 @@ angular.module('wcagReporter')
                 text = (typeof text === 'string' ? text.trim() : '');
 
                 html = (text !== '' ? $filter('txtToHtml')(text) :
-                '<p><em>' + $filter('translate')('NO_TEXT_PROVIDED') + '</em></p>');
+                '<p><em>' + $filter('translate')('HTML_REPORT.NO_TEXT_PROVIDED') + '</em></p>');
 
-                html = '<p><strong>' +  $filter('translate')('LABEL_DESCR') + ':</strong> ' +
+                html = '<p><strong>' +  $filter('translate')('HTML_REPORT.LABEL_DESCR') + ':</strong> ' +
                         html.substr(3);
                 return html;
             };

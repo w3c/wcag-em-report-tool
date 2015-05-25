@@ -181,7 +181,7 @@
     "LABEL_OUTCOME": "Outcome",
     "BTN_ADD_MACRO_ASSERT": "Add  multi-page result",
     "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
-    "LABEL_DESCR": "Findings",
+
     "PLH_ASSERT_DESC": "Observations made during evaluation",
     "CLICK_TO_DELETE": "Click to delete",
     "LABEL_PAGE_HANDLE": "Short page name",
@@ -213,24 +213,36 @@
     "HD_CRITERIA_REPORT": "Detailed audit results"
   },
 
-  "EXPORT": {
-    "HD_REPORT": "Website Accessibility Evaluation Report",
+  "DOWNLOAD": {
+    "TITLE": "Website Accessibility Evaluation Report",
+    "INTRO": "Below is the evaluation report based on the input that you provided in previous steps. You can go back to previous steps now and change any of this information. You can download the evaluation data so that you can work on it later. (This is the same as the 'Save' functionality.) \n This report is intended to be downloaded. You can download the Evaluation Report HTML and CSS files below. You can then change the report content and visual design to meet your needs.",
     "DOWNLOAD_REPORT": "Download and customize this report",
-    "INTRO_REPORT": "Below is the evaluation report based on the input that you provided in previous steps. You can go back to previous steps now and change any of this information. You can download the evaluation data so that you can work on it later. (This is the same as the 'Save' functionality.) \n This report is intended to be downloaded. You can download the Evaluation Report HTML and CSS files below. You can then change the report content and visual design to meet your needs.",
-    "BY" : "Report Creator:",
-    "COMMISION_BY": "Evaluation Commissioner:",
-    "DOWNLOAD_REPORT": "Download the report",
-    "OPEN_FINAL_REPORT": "Generate the evaluation report",
     "BTN_SAVE_HTML": "Download the evaluation report (HTML)",
     "BTN_SAVE_CSS": "Download the report stylesheet (CSS)",
-    "BTN_SAVE_JSON": "Save the evaluation data (JSON)",
-    "TOTAL_SCORE": "Total",
-    "HD_SPECIFICS": "Recording of evaluation specifics",
-    "HD_DOCS": "Related WCAG 2.0 resources",
-    "HD_SCORE": "Overview of audit results",
-    "HD_SCOPE": "Scope of the evaluation",
+    "BTN_SAVE_JSON": "Save the evaluation data (JSON)"
+  },
+
+  "HTML_REPORT": {
+    "BY" : "Report Creator:",
+    "COMMISION_BY": "Evaluation Commissioner:",
     "HD_SUMMARY": "Summary of the evaluation findings",
-    "RESULTS_OF": "Results of"
+    "HD_SCOPE": "Scope of the evaluation",
+    "LABEL_SITE_NAME": "Website name",
+    "LABEL_SITE_SCOPE": "Scope of the website",
+    "LABEL_CONFORMANCE_TGT": "Conformance target",
+    "LABEL_EXTRA_REQUIREMENTS": "Additional evaluation requirements",
+    "LABEL_SUPPORT_BASE": "Accessibility support baseline",
+    "LABEL_RELIEDUP_TECH": "Relied upon technologies",
+    "HD_SCORE": "Overview of audit results",
+    "RESULTS_OF": "Results of",
+    "PRINCIPLE": "Principle",
+    "TOTAL_SCORE": "Total",
+    "HD_CRITERIA_REPORT": "Detailed audit results",
+    "LABEL_DESCR": "Findings",
+    "NO_TEXT_PROVIDED": "No text provided",
+    "HD_SAMPLE": "Sample of audited web pages",
+    "HD_SPECIFICS": "Recording of evaluation specifics",
+    "HD_DOCS": "Related WCAG 2.0 resources"
   },
 
   "OPEN": {
@@ -263,23 +275,21 @@
   },
 
 
-  "HD_SAMPLE": "Sample of audited web pages",
   "SELECT_PAGE_TO_WORK_ON": "Highlight specific web pages",
   "MACRO_RESULTS_FOR": "Issue for",
   "CLICK_EXPAND": "Click to show section",
   "CLICK_COLLAPSE": "Click to hide section",
-  "LABEL_COMMON_PAGES": "Common web pages",
   "INF_COMMON_PAGES": "Identify web pages that are common to the entire website. Examples of 'common web pages' include the home page, login page, and other entry pages, as well as any site maps, contacts pages, site help, legal information, and similar web pages that are typically linked to from all web pages. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
   "INF_COMMON_PAGES_0": "WCAG-EM Step 2.a: Identify Common Web Pages of the Website",
   "INF_COMMON_PAGES_1": "web page states",
   "LABEL_OTHER_PAGES": "Other web pages relevant to accessibility",
+  "LABEL_COMMON_PAGES": "Common web pages",
   "INF_OTHER_PAGES": "Identify web pages that are particularly relevant to people with disabilities and to the accessibility of the website, if you haven't already listed them above as common web pages. Examples of other relevant web pages include web pages explaining the accessibility features of the website, information and help on the use of the website, explanations for settings, preferences, options, and shortcuts, and contact information, directions, and support instructions. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
   "INF_OTHER_PAGES_0": "WCAG-EM Step 2.e: Identify Other Relevant Web Pages",
   "INF_OTHER_PAGES_1": "web page states",
-  "LABEL_RELIEDUP_TECH": "Relied upon technologies",
   "BTN_START_EVAL": "Start a new evaluation report",
   "BTN_CONTINUE_EVAL": "Continue working on your open evaluation report",
-  "BTN_IMPORT_EVAL": "Import evaluation data from a previous session"
-
+  "BTN_IMPORT_EVAL": "Import evaluation data from a previous session",
+  "OPEN_FINAL_REPORT": "Generate the evaluation report"
 
 }

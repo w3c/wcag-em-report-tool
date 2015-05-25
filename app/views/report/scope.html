@@ -1,23 +1,23 @@
 <table>
-  <tr><th>{{'LABEL_SITE_NAME' | translate}}</th>
+  <tr><th>{{'HTML_REPORT.LABEL_SITE_NAME' | translate}}</th>
       <td>{{scope.website.title}}</td></tr>
 
   <tr>
-    <th>{{'LABEL_SITE_SCOPE' | translate}}</th>
+    <th>{{'HTML_REPORT.LABEL_SITE_SCOPE' | translate}}</th>
   	<td data-ng-bind-html="scope.website.siteScope | txtToHtml"></td>
   </tr>
 
-  <tr><th>{{ 'LABEL_CONFORMANCE_TGT' | translate }}</th>
+  <tr><th>{{ 'HTML_REPORT.LABEL_CONFORMANCE_TGT' | translate }}</th>
       <td>{{scope.conformanceTarget | rdfToLabel}}</td></tr>
 
-  <tr><th>{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}</th>
+  <tr><th>{{ 'HTML_REPORT.LABEL_EXTRA_REQUIREMENTS' | translate }}</th>
       <td data-ng-bind-html="scope.additionalEvalRequirement | txtToHtml"></td></tr>
 
-  <tr><th>{{ 'LABEL_SUPPORT_BASE' | translate }}</th>
+  <tr><th>{{ 'HTML_REPORT.LABEL_SUPPORT_BASE' | translate }}</th>
       <td data-ng-bind-html="scope.accessibilitySupportBaseline | txtToHtml"></td></tr>
 
   <tr data-ng-if="explore.reliedUponTechnology.length > 0">
-    <th>{{ 'LABEL_RELIEDUP_TECH' | translate }}</th>
+    <th>{{ 'HTML_REPORT.LABEL_RELIEDUP_TECH' | translate }}</th>
     <td><ul><li data-ng-repeat="tech in explore.reliedUponTechnology">
 		<a data-ng-if="tech.specs" href="{{tech.specs}}" target="_blank">
 		  {{tech.title}}
@@ -26,5 +26,5 @@
 		</span>
     </li></ul></td>
   </tr>
-  
+
 </table>
