@@ -1,27 +1,27 @@
 <div ng-include src="'views/messages.html'"></div>
 
-<h1>{{:: setTitle( translate('HD_SAVE') ) }}</h1>
+<h1>{{:: setTitle( translate('SAVE.TITLE') ) }}</h1>
 
-<p>{{:: 'INTRO_SAVE_1' | translate }}</p>
+<p>{{:: 'SAVE.INTRO' | translate }}</p>
 
 <p><a download="{{exportFile}}" ng-click="downloadStart()"
       target="_blank" ng-href="{{exportUrl}}"
       class="btn btn-primary-invert download-link">
-    {{:: 'BTN_DOWNLOAD_DATA_FILE' | translate }}
+    {{:: 'SAVE.BTN_DOWNLOAD_DATA_FILE' | translate }}
 </a></p>
 
-<p ng-bind-html="'INTRO_SAVE_2' | translateAndLink
-: ['INTRO_SAVE_2_0', '#/report'] | nlToBr"></p>
+<p ng-bind-html="'SAVE.TIPS' | translateAndLink
+: ['SAVE.TIPS_0', '#/report'] | nlToBr"></p>
 
-<h2>{{:: 'HD_POST_TO_URL' | translate }}</h2>
+<h2>{{:: 'SAVE.HD_POST_TO_URL' | translate }}</h2>
 
 <form class="form-horizontal">
 
-  <p>{{:: 'INTRO_POST_TO_URL' | translate}}</p>
+  <p>{{:: 'SAVE.INTRO_POST_TO_URL' | translate}}</p>
 
   <div class="form-group">
     <div class="col-sm-2 control-label"><label for="url_{{$id}}">
-        {{:: 'LABEL_POST_TO_URL' | translate}}
+        {{:: 'SAVE.LABEL_POST_TO_URL' | translate}}
     </label></div>
     <div class="col-sm-4">
       <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
@@ -33,31 +33,31 @@
       <label>
         <input type="checkbox" ng-model="postSettings.autosave"
         ng-change="updateSettings()" />
-        Enable autosave (every 3 seconds)
+        {{:: 'SAVE.ENABLE_AUTOSAVE' | translate }}
       </label>
     </div>
   </div>
 
-  <div class="alert alert-success appear" ng-if="success">
-    <p>{{:: 'MSG_SAVED_SUCCESS' | translate }}</p>
-  </div>
   <div class="alert alert-info appear" ng-if="posted">
-    <p>{{:: 'MSG_SAVING' | translate }}</p>
+    <p>{{:: 'SAVE.MSG_SAVING' | translate }}</p>
+  </div>
+  <div class="alert alert-success appear" ng-if="success">
+    <p>{{:: 'SAVE.MSG_SAVED_SUCCESS' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="failure">
-    <p>{{:: 'MSG_SERVER_ERROR' | translate}}<p>
-    <p ng-if="failure === true">{{:: 'MSG_PROBLEM_CONNECTING' | translate }}</p>
-    <p ng-if="failure !== true">{{:: 'MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
+    <p>{{:: 'SAVE.MSG_SERVER_ERROR' | translate}}<p>
+    <p ng-if="failure === true">{{:: 'SAVE.MSG_PROBLEM_CONNECTING' | translate }}</p>
+    <p ng-if="failure !== true">{{:: 'SAVE.MSG_BAD_RESPONSE' | translate }}: {{failure}}</p>
   </div>
 
   <div class="form-group">
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
       <button class="btn btn-default" ng-click="postJson()">
-        {{:: 'BTN_POST_TO_URL' | translate }}
+        {{:: 'SAVE.BTN_POST_TO_URL' | translate }}
       </button>
     </div>
   </div>
 </form>
 
-<p><a href="javascript:window.history.back()">{{::'BTN_BACK_TO_EVAL' | translate }}</a></p>
+<p><a href="javascript:window.history.back()">{{::'NAV.BTN_BACK_TO_EVAL' | translate }}</a></p>
