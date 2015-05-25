@@ -4,7 +4,10 @@
     "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
     "HIDE_MESSAGE": "Hide message",
     "BTN_INFO": "Info expand",
-    "BTN_CLOSE_INFO": "Close info"
+    "BTN_CLOSE_INFO": "Close info",
+    "YES": "Yes",
+    "NO": "No",
+    "TO_TOP": "Back to top"
   },
 
   "NAV": {
@@ -156,30 +159,40 @@
     "TITLE": "Step 4: Audit the Selected Sample",
     "INTRO": "Record the outcome from evaluating the web pages selected in the previous step. Compare the results between the structured page and randomly selected pages, and if needed, adjust the selected sample in the previous step. More guidance on this step is provided in {0}. \n Note: For each WCAG 2.0 success criteria, you can enter 'Results for the entire sample' and you can enter results for individual web pages. You can choose to enter either or both. To enter individual results, select the web page(s) under 'Sample to Evaluate' (in the left column); then under the specific success criteria, select 'Show web pages to enter individual results'",
     "INTRO_0": "WCAG-EM Step 4: Audit the Selected Sample",
-    "HD_SAMPLE": "Sample of audited web pages",
+
     "HD_SAMPLE_SELECT": "Sample to Evaluate",
-    "HD_CRITERIA": "Success Criteria to Evaluate",
-    "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
-    "SELECT_PAGE_TO_WORK_ON": "Highlight specific web pages",
-    "RESULTS_FOR": "Results for",
-    "SAMPLE_FINDINGS": "Results for the entire sample",
-    "LABEL_OUTCOME": "Outcome",
-    "LABEL_DESCR": "Findings",
     "INF_AUDIT_SAMPLE": "This section lists the web pages you selected in the previous step. The web pages that are checked in this section are listed when 'Show web pages to enter individual results' is activated in the 'Success Criteria to Evaluate' section. You can show an individual web page that you are evaluating, or show several web pages at the same time. \n The chainlink icon opens the web page in a separate browser window.",
-    "INF_AUDIT_CRITERIA": "This section lists the WCAG 2.0 success criteria at the level (A, AA, or AAA) that you set in the 'Conformance target' in Step 1. You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
-    "BTN_ADD_MACRO_ASSERT": "Add  multi-page result",
-    "BTN_TRANSFER_MACRO_ASSERT": "Merge multi-page result into page results",
-    "BTN_RESULT_COPY": "Copy this result",
-    "MACRO_RESULTS_FOR": "Issue for",
+    "BTN_COMPLETE_SELECTED": "Set selected to complete",
+    "BTN_UNCOMPLETE_SELECTED": "Set selected to incomplete",
+    "BTN_SELECT_PREVIOUS": "select previous pages",
+    "BTN_SELECT_NEXT": "Select next pages",
+    "BTN_OPEN_SELECTED": "Open selected pages",
     "NO_SAMPLE": "No sample available. Create a sample in step 2 and step 3.",
-    "CONFIRM_REMOVE_RESULT": "Are you sure you want to remove this result?",
-    "CONFIRM_TRANSFER_MACRO_RESULT": "Merging multi-page results into pages can not be undone. Continue?",
-    "YES": "Yes",
-    "NO": "No",
+    "TESTED": "Tested",
+
+    "HD_CRITERIA": "Success Criteria to Evaluate",
+    "INF_AUDIT_CRITERIA": "This section lists the WCAG 2.0 success criteria at the level (A, AA, or AAA) that you set in the 'Conformance target' in Step 1. You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
+    "FILTER_CRITERIA": "Filter success criteria",
+    "PRINCIPLE": "Principle",
+    "BTN_SHOW_TEXT": "Show criterion text",
+    "UNDERSTAND": "Understanding",
+    "HOW_TO": "How to meet",
+    "SAMPLE_FINDINGS": "Results for the entire sample",
     "BTN_EXPAND_PAGES": "Show web pages to enter individual results",
-    "BTN_REMOVE_MACRO_ASSERT": "Remove multi-page result",
     "BTN_COLLAPSE_PAGES": "Hide web pages to enter individual results",
-    "TO_TOP": "Back to top"
+    "LABEL_OUTCOME": "Outcome",
+    "BTN_ADD_MACRO_ASSERT": "Add  multi-page result",
+    "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
+    "LABEL_DESCR": "Findings",
+    "PLH_ASSERT_DESC": "Observations made during evaluation",
+    "CLICK_TO_DELETE": "Click to delete",
+    "LABEL_PAGE_HANDLE": "Short page name",
+    "RESULTS_FOR": "Results for",
+    "BTN_RESULT_COPY": "Copy this result",
+    "BTN_TRANSFER_MACRO_ASSERT": "Merge multi-page result into page results",
+    "CONFIRM_TRANSFER_MACRO_RESULT": "Merging multi-page results into pages can not be undone. Continue?",
+    "BTN_REMOVE_MACRO_ASSERT": "Remove multi-page result",
+    "CONFIRM_REMOVE_RESULT": "Are you sure you want to remove this result?"
   },
 
   "REPORT": {
@@ -219,7 +232,6 @@
     "HD_SCOPE": "Scope of the evaluation",
     "HD_SUMMARY": "Summary of the evaluation findings",
     "HD_CRITERIA_REPORT": "Detailed audit results",
-    "PRINCIPLE": "Principle",
     "RESULTS_OF": "Results of"
   },
 
@@ -253,8 +265,9 @@
   },
 
 
-  "CLICK_TO_DELETE": "Click to delete",
-  "LABEL_PAGE_HANDLE": "Short page name",
+  "HD_SAMPLE": "Sample of audited web pages",
+  "SELECT_PAGE_TO_WORK_ON": "Highlight specific web pages",
+  "MACRO_RESULTS_FOR": "Issue for",
   "CLICK_EXPAND": "Click to show section",
   "CLICK_COLLAPSE": "Click to hide section",
   "LABEL_COMMON_PAGES": "Common web pages",

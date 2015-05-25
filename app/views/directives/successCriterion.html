@@ -6,7 +6,7 @@ ng-class="getClassName(assert.result.outcome)">
     <div class="col-xs-12 criterion-title">
       <strong>{{:: spec.number}} {{:: spec.title}}</strong>: ({{::spec.level | rdfToLabel}})
       <icon-button class="pull-right"
-      icon="'book'" label="'BTN_SHOW_TEXT' | translate"
+      icon="'book'" label="'AUDIT.BTN_SHOW_TEXT' | translate"
       click="spec.show_text = !spec.show_text">
       </icon-button>
     </div>
@@ -24,16 +24,16 @@ ng-class="getClassName(assert.result.outcome)">
         <a target="_blank" href="{{::
           'http://www.w3.org/TR/UNDERSTANDING-WCAG20/' +
           spec.uri.substr(7) +
-          '.html'}}">Understanding {{::spec.number}}
+          '.html'}}">{{ "AUDIT.UNDERSTAND" | translate }} {{::spec.number}}
           <span class="glyphicon glyphicon-new-window"></span></a>
         <a target="_blank" href="{{::
           'http://www.w3.org/WAI/WCAG20/quickref/#qr-' +
           spec.uri.substr(7)
-          }}">How to meet {{::spec.number}}
+          }}">{{ "AUDIT.HOW_TO" | translate }} {{::spec.number}}
           <spasn class="glyphicon glyphicon-new-window"></span></a>
       </p>
     </div>
-    <div class="col-xs-12">{{:: 'SAMPLE_FINDINGS' | translate }}:</div>
+    <div class="col-xs-12">{{:: 'AUDIT.SAMPLE_FINDINGS' | translate }}:</div>
 
   </earl-assert>
 
@@ -42,12 +42,12 @@ ng-class="getClassName(assert.result.outcome)">
     ng-click="rootHide[critHide] = !rootHide[critHide]">
 
       <span ng-if="!rootHide[critHide]" class="glyphicon glyphicon-chevron-right"></span>
-      <span ng-if="!rootHide[critHide]" 
-      ng-bind="'BTN_EXPAND_PAGES' | translate"></span>
+      <span ng-if="!rootHide[critHide]"
+      ng-bind="'AUDIT.BTN_EXPAND_PAGES' | translate"></span>
 
       <span ng-if="rootHide[critHide]" class="glyphicon glyphicon-chevron-down"></span>
-      <span ng-if="rootHide[critHide]" 
-      ng-bind="'BTN_COLLAPSE_PAGES' | translate"></span>
+      <span ng-if="rootHide[critHide]"
+      ng-bind="'AUDIT.BTN_COLLAPSE_PAGES' | translate"></span>
 
     </button>
   </div>

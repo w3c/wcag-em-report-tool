@@ -1,12 +1,12 @@
 <div ng-controller="AuditSamplePagesCtrl">
   <h2>
-    {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
+    {{ 'AUDIT.HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
     label="{{'COMMON.BTN_INFO' | translate}}" target="inf_audit_sample"></info-button>
   </h2>
 
   <info-field ref="inf_audit_sample" exitto=""
               button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
-    <p ng-bind-html="'INF_AUDIT_SAMPLE' | translate | nlToBr"></p>
+    <p ng-bind-html="'AUDIT.INF_AUDIT_SAMPLE' | translate | nlToBr"></p>
   </info-field>
 
   <div class="btn-toolbar">
@@ -15,27 +15,27 @@
     </div>
 
     <div class="btn-group btn-group-xs">
-      <icon-button icon="'check'" label="'BTN_COMPLETE_SELECTED' | translate"
+      <icon-button icon="'check'" label="'AUDIT.BTN_COMPLETE_SELECTED' | translate"
       click="completePages()"></icon-button>
-      <icon-button icon="'edit'" label="'BTN_UNCOMPLETE_SELECTED' | translate"
+      <icon-button icon="'edit'" label="'AUDIT.BTN_UNCOMPLETE_SELECTED' | translate"
       click="uncompletePages()"></icon-button>
     </div>
 
     <div class="btn-group btn-group-xs">
-      <icon-button icon="'backward'" label="'BTN_COMPLETE_SELECTED' | translate"
+      <icon-button icon="'backward'" label="'AUDIT.BTN_SELECT_PREVIOUS' | translate"
       click="prevPages()"></icon-button>
       <input type="text" size="1" ng-model="auditSize">
-      <icon-button icon="'forward'" label="'BTN_UNCOMPLETE_SELECTED' | translate"
+      <icon-button icon="'forward'" label="'AUDIT.BTN_SELECT_NEXT' | translate"
       click="nextPages()"></icon-button>
     </div>
 
     <div class="btn-group btn-group-xs">
-      <icon-button icon="'link'" label="'BTN_OPEN_SELECTED' | translate"
+      <icon-button icon="'link'" label="'AUDIT.BTN_OPEN_SELECTED' | translate"
       click="openSelected()"></icon-button>
     </div>
   </div>
 
-  <p ng-if="allPages().length === 0"><em>{{ 'NO_SAMPLE' | translate }}</em></p>
+  <p ng-if="allPages().length === 0"><em>{{ 'AUDIT.NO_SAMPLE' | translate }}</em></p>
 
   <ul class="sample" collapse="hideSample">
   	<li ng-repeat="page in allPages()"
@@ -45,7 +45,7 @@
         <input id="sample_select_{{$id}}" ng-change="sampleChange()"
         type="checkbox" ng-model="page.selected">&nbsp;<span
         ng-class="{'page-tested' : page.tested}">{{page.displayHandle()}}</span>&nbsp;
-        <span ng-if="page.tested" class="sr-only">{{ 'TESTED'| translate}}</span>
+        <span ng-if="page.tested" class="sr-only">{{ 'AUDIT.TESTED'| translate}}</span>
       </label>
       <a href="" ng-click="openPage(page)"
       tooltip="{{page.description}}"
