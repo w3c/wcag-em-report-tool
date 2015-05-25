@@ -3,7 +3,7 @@
 angular.module('wcagReporter')
 .service('appState', function ($rootScope, $document, translateFilter) {
     var appState,
-        warningTxt = translateFilter('WARNING_BEFORE_UNLOAD'),
+        warningTxt = translateFilter('COMMON.WARNING_BEFORE_UNLOAD'),
         jqWin = window.jQuery(window);
 
     appState = {
@@ -18,7 +18,7 @@ angular.module('wcagReporter')
             {name: 'sample',    route:'#/evaluation/sample',  copmlete: false},
             {name: 'audit',     route:'#/evaluation/audit',   copmlete: false},
             {name: 'report',    route:'#/evaluation/report',  copmlete: false},
-            {name: 'save',      route:'#/report',    copmlete: false}
+            {name: 'export',      route:'#/report',    copmlete: false}
         ]
     };
 

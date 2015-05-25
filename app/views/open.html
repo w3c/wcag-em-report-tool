@@ -1,18 +1,18 @@
 <div ng-include src="'views/messages.html'"></div>
 
-<h1>{{:: setTitle( translate('HD_LOAD') ) }}</h1>
+<h1>{{:: setTitle( translate('OPEN.TITLE') ) }}</h1>
 
-<p>{{:: 'INTRO_LOAD' | translate }}</p>
+<p>{{:: 'OPEN.INTRO' | translate }}</p>
 
 <div class="container form-group">
   <label for="load_json">
-    {{:: 'LABEL_SELECT_FILE' | translate }}
+    {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
   </label>
   <!-- <div class="drop_zone">
     {{:: 'DROP_FILE_HERE' | translate }}
   </div> -->
   <div class="alert alert-info appear" ng-if="fileFeedback.posted">
-    <p>{{:: 'MSG_LOADING' | translate }}</p>
+    <p>{{:: 'OPEN.MSG_LOADING' | translate }}</p>
   </div>
   <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
     <p>{{fileFeedback.failure}}</p>
@@ -22,22 +22,22 @@
 </div>
 
 <div class="alert alert-danger" ng-if="showError">
-  <p>{{ showError | translate }}
+  <p>{{ 'OPEN.' + showError | translate }}
 </div>
 
 <p><button class="btn btn-primary" ng-click="loadFile()">
-	{{:: 'BTN_LOAD_FILE' | translate}}
+	{{:: 'OPEN.BTN_LOAD_FILE' | translate}}
 </button></p>
 
-<h2>{{:: 'HD_GET_FROM_URL' | translate }}</h2>
+<h2>{{:: 'OPEN.HD_GET_FROM_URL' | translate }}</h2>
 
 <form class="form-horizontal">
 
-  <p>{{:: 'INTRO_GET_FROM_URL' | translate}}</p>
+  <p>{{:: 'OPEN.INTRO_GET_FROM_URL' | translate}}</p>
 
   <div class="form-group">
     <div class="col-sm-2 control-label"><label for="url_{{$id}}">
-        {{:: 'LABEL_GET_FROM_URL' | translate}}
+        {{:: 'OPEN.LABEL_GET_FROM_URL' | translate}}
     </label></div>
     <div class="col-sm-4">
       <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
@@ -49,7 +49,7 @@
       <label>
         <input type="checkbox" ng-model="postSettings.autosave"
         ng-change="updateSettings()" />
-        Enable autosave (every 3 seconds)
+        {{:: 'OPEN.ENABLE_AUTOSAVE' | translate }}
       </label>
     </div>
   </div>
@@ -71,4 +71,4 @@
   </div>
 </form>
 
-<p><a href="javascript:window.history.back()">{{::'BTN_BACK_TO_EVAL' | translate}}</a></p>
+<p><a href="javascript:window.history.back()">{{::'NAV.BTN_BACK_TO_EVAL' | translate}}</a></p>

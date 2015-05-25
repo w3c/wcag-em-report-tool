@@ -1,13 +1,13 @@
 <div ng-controller="AuditPrinciplesCtrl">
   <h2>
-    {{ 'HD_SAMPLE_SELECT' | translate}}&nbsp;<info-button
-    label="{{'LABEL_INFO' | translate}}" target="inf_audit_sample"
-      title="{{ 'HD_SAMPLE_SELECT' | translate }}"></info-button>
+    {{ 'AUDIT.HD_CRITERIA' | translate}}&nbsp;<info-button
+    label="{{'COMMON.BTN_INFO' | translate}}" target="inf_audit_criteria"
+      title="{{ 'AUDIT.HD_CRITERIA' | translate }}"></info-button>
   </h2>
 
   <info-field ref="inf_audit_criteria" exitto=""
-  button="{{'LABEL_CLOSE_INFO' | translate}}">
-    <p>{{ 'INF_AUDIT_CRITERIA' | translate }}</p>
+  button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
+    <p>{{ 'AUDIT.INF_AUDIT_CRITERIA' | translate }}</p>
   </info-field>
 
   <div ng-include src="'views/evaluation/audit/criteria-tools.html'"></div>
@@ -15,7 +15,7 @@
   <div ng-repeat="p in principles"
   ng-if="isPrincipleVisible(p)" class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
-        {{ 'PRINCIPLE' | translate}} {{p.number}} {{p.title}}
+        {{ 'AUDIT.PRINCIPLE' | translate}} {{p.number}} {{p.title}}
     </button-collapse></h3>
 
     <div ng-repeat="g in p.guidelines"
@@ -36,7 +36,7 @@
         </success-criterion>
 
         <div class="to-top">
-          <a href="" ng-click="toTop()">{{ 'TO_TOP' | translate }}</a>
+          <a href="" ng-click="toTop()">{{ 'COMMON.TO_TOP' | translate }}</a>
         </div>
       </div>
     </div>

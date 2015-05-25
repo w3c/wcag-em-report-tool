@@ -1,22 +1,22 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_STEP1') ) }}</h1>
+<h1>{{ setTitle( translate('SCOPE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'INTRO_STEP1' | translateAndLink
-: ['INTRO_STEP1_0', 'http://www.w3.org/TR/WCAG-EM/#step1']"></p>
+<p ng-bind-html="'SCOPE.INTRO' | translateAndLink
+: ['SCOPE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step1']"></p>
 
 <form>
   <div class="form-group">
     <label for="site-title">
-      {{ 'LABEL_SITE_NAME' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_site_name"
-      title="{{ 'LABEL_SITE_NAME' | translate }}"></info-button>
+      {{ 'SCOPE.LABEL_SITE_NAME' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_site_name"
+      title="{{ 'SCOPE.LABEL_SITE_NAME' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="site-title" ref="inf_site_name">
-      <p ng-bind-html="'INF_SITE_NAME' | translate | nlToBr"></p>
+      <p ng-bind-html="'SCOPE.INF_SITE_NAME' | translate | nlToBr"></p>
     </info-field>
 
     <input ng-model="evalScope.website.title" type="text"
@@ -25,21 +25,21 @@
 
   <div class="form-group">
     <label for="website_scope">
-      {{ 'LABEL_SITE_SCOPE' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_site_scope"
-      title="{{ 'LABEL_SITE_SCOPE' | translate }}"></info-button>
+      {{ 'SCOPE.LABEL_SITE_SCOPE' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_site_scope"
+      title="{{ 'SCOPE.LABEL_SITE_SCOPE' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="website_scope" ref="inf_site_scope">
-      <p>{{ 'INF_SITE_SCOPE_0' | translate }}</p>
+      <p>{{ 'SCOPE.INF_SITE_SCOPE_0' | translate }}</p>
       <ul>
-        <li>{{ 'INF_SITE_SCOPE_LI0' | translate }}</li>
-        <li>{{ 'INF_SITE_SCOPE_LI1' | translate }}</li>
-        <li>{{ 'INF_SITE_SCOPE_LI2' | translate }}</li>
+        <li>{{ 'SCOPE.INF_SITE_SCOPE_LI0' | translate }}</li>
+        <li>{{ 'SCOPE.INF_SITE_SCOPE_LI1' | translate }}</li>
+        <li>{{ 'SCOPE.INF_SITE_SCOPE_LI2' | translate }}</li>
       </ul>
-      <p ng-bind-html="'INF_SITE_SCOPE_1' | translateAndLink
-      : ['INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p ng-bind-html="'SCOPE.INF_SITE_SCOPE_1' | translateAndLink
+      : ['SCOPE.INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.website.siteScope"
@@ -49,15 +49,15 @@
 
   <div class="form-group">
     <label for="conformance_target">
-      {{ 'LABEL_CONFORMANCE_TGT' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_conf_tgt"
-      title="{{ 'LABEL_CONFORMANCE_TGT' | translate }}"></info-button>
+      {{ 'SCOPE.LABEL_CONFORMANCE_TGT' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_conf_tgt"
+      title="{{ 'SCOPE.LABEL_CONFORMANCE_TGT' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="conformance_target" ref="inf_conf_tgt">
-      <p ng-bind-html="'INF_CONF_TGT' | translateAndLink
-      : ['INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b'] | nlToBr"></p>
+      <p ng-bind-html="'SCOPE.INF_CONF_TGT' | translateAndLink
+      : ['SCOPE.INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b'] | nlToBr"></p>
     </info-field>
 
     <select id="conformance_target" class="form-control"
@@ -68,17 +68,17 @@
 
   <div class="form-group">
     <label for="as_baseline" class="">
-      {{ 'LABEL_SUPPORT_BASE' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_support_base"
-      title="{{ 'LABEL_SUPPORT_BASE' | translate }}"></info-button>
+      {{ 'SCOPE.LABEL_SUPPORT_BASE' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_support_base"
+      title="{{ 'SCOPE.LABEL_SUPPORT_BASE' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="as_baseline" ref="inf_support_base">
-      <p ng-bind-html="'INF_SUPPORT_BASE' | translateAndLink
-      : ['INF_SUPPORT_BASE_0', 'http://www.w3.org/TR/WCAG-EM/#step1c']
-      : ['INF_SUPPORT_BASE_1', 'http://www.w3.org/TR/WCAG20/#useragentdef']
-      : ['INF_SUPPORT_BASE_2', 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef']">
+      <p ng-bind-html="'SCOPE.INF_SUPPORT_BASE' | translateAndLink
+      : ['SCOPE.INF_SUPPORT_BASE_0', 'http://www.w3.org/TR/WCAG-EM/#step1c']
+      : ['SCOPE.INF_SUPPORT_BASE_1', 'http://www.w3.org/TR/WCAG20/#useragentdef']
+      : ['SCOPE.INF_SUPPORT_BASE_2', 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef']">
     </p></info-field>
 
     <textarea ng-model="evalScope.accessibilitySupportBaseline"
@@ -88,21 +88,21 @@
 
   <div class="form-group">
     <label for="additional_requirements">
-      {{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_extra_req"
-      title="{{ 'LABEL_EXTRA_REQUIREMENTS' | translate }}"></info-button>
+      {{ 'SCOPE.LABEL_EXTRA_REQUIREMENTS' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_extra_req"
+      title="{{ 'SCOPE.LABEL_EXTRA_REQUIREMENTS' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="additional_requirements" ref="inf_extra_req">
-      <p>{{ 'INF_EXTRA_REQUIREMENTS_0' | translate }}</p>
+      <p>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_0' | translate }}</p>
       <ul>
-        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI0' | translate }}</li>
-        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI1' | translate }}</li>
-        <li>{{ 'INF_EXTRA_REQUIREMENTS_LI2' | translate }}</li>
+        <li>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_LI0' | translate }}</li>
+        <li>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_LI1' | translate }}</li>
+        <li>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_LI2' | translate }}</li>
       </ul>
-      <p ng-bind-html="'INF_EXTRA_REQUIREMENTS_1' | translateAndLink
-      : ['INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p ng-bind-html="'SCOPE.INF_EXTRA_REQUIREMENTS_1' | translateAndLink
+      : ['SCOPE.INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
     <textarea ng-model="evalScope.additionalEvalRequirement"

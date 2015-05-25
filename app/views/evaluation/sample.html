@@ -1,16 +1,16 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_STEP3') ) }}</h1>
+<h1>{{ setTitle( translate('SAMPLE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'INTRO_STEP3' | translateAndLink
-: ['INTRO_STEP3_0', 'http://www.w3.org/TR/WCAG-EM/#step3']"></p>
+<p ng-bind-html="'SAMPLE.INTRO' | translateAndLink
+: ['SAMPLE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step3']"></p>
 
 <form>
-  <h2>{{'HD_STRUCT_SAMPLE' | translate }}</h2>
+  <h2>{{'SAMPLE.HD_STRUCT_SAMPLE' | translate }}</h2>
 
   <h3><button-collapse target="rootHide" property="essentialFunctionality">
-      {{ 'HD_ESSENT_FUNC' | translate }}
+      {{ 'SAMPLE.HD_ESSENT_FUNC' | translate }}
   </button-collapse></h3>
 
   <div collapse="rootHide.essentialFunctionality">
@@ -20,7 +20,7 @@
   </div>
 
   <h3><button-collapse target="rootHide" property="pageTypeVariety">
-      {{ 'HD_VARIETY_PAGE_TYPES' | translate }}
+      {{ 'SAMPLE.HD_VARIETY_PAGE_TYPES' | translate }}
   </button-collapse></h3>
 
   <div collapse="rootHide.pageTypeVariety">
@@ -30,14 +30,14 @@
   </div>
 
 
-  <h3>{{ 'HD_STRUCT_SAMPLE_SUB' | translate }}&nbsp;<info-button
-  label="{{'LABEL_INFO' | translate}}" target="inf_str_sample"
-  title="{{ 'HD_STRUCT_SAMPLE_SUB' | translate }}"></info-button></h3>
+  <h3>{{ 'SAMPLE.HD_STRUCT_SAMPLE_SUB' | translate }}&nbsp;<info-button
+  label="{{'COMMON.BTN_INFO' | translate}}" target="inf_str_sample"
+  title="{{ 'SAMPLE.HD_STRUCT_SAMPLE_SUB' | translate }}"></info-button></h3>
 
-  <info-field ref="inf_str_sample" button="{{'LABEL_CLOSE_INFO' | translate}}">
-    <p ng-bind-html="'INF_STRUCT_SAMPLE' | translateAndLink
-    : ['INF_STRUCT_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3a']
-    : ['INF_STRUCT_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr">
+  <info-field ref="inf_str_sample" button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
+    <p ng-bind-html="'SAMPLE.INF_STRUCT_SAMPLE' | translateAndLink
+    : ['SAMPLE.INF_STRUCT_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3a']
+    : ['SAMPLE.INF_STRUCT_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr">
     </p>
   </info-field>
 
@@ -45,19 +45,19 @@
   remove-page="getPageRemover(structuredSample)"></input-pages>
 
   <h2>
-    {{'HD_RANDOM_SAMPLE' | translate }}&nbsp;<info-button
-    label="{{'LABEL_INFO' | translate}}" target="inf_rand_sample"
-    title="{{ 'HD_RANDOM_SAMPLE' | translate }}"></info-button>
+    {{'SAMPLE.HD_RANDOM_SAMPLE' | translate }}&nbsp;<info-button
+    label="{{'COMMON.BTN_INFO' | translate}}" target="inf_rand_sample"
+    title="{{ 'SAMPLE.HD_RANDOM_SAMPLE' | translate }}"></info-button>
   </h2>
 
-  <info-field ref="inf_rand_sample" button="{{'LABEL_CLOSE_INFO' | translate}}">
-    <p ng-bind-html="'INF_RAND_SAMPLE' | translateAndLink
-    : ['INF_RAND_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3b']
-    : ['INF_RAND_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr"></p>
+  <info-field ref="inf_rand_sample" button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
+    <p ng-bind-html="'SAMPLE.INF_RAND_SAMPLE' | translateAndLink
+    : ['SAMPLE.INF_RAND_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3b']
+    : ['SAMPLE.INF_RAND_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states'] | nlToBr"></p>
   </info-field>
 
   <div class="alert alert-warning">
-    {{ "RAND_SAMPLE_LENGTH" | translate | format
+    {{ "SAMPLE.RAND_SAMPLE_LENGTH" | translate | format
           : structuredSample.webpage.length
           : randPageCount() }}
   </div>

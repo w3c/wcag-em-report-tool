@@ -10,11 +10,12 @@
   tooltip="{{page.description}}" tooltip-trigger="focus blur mouseenter mouseleave"
   title="{{page.description}}" ng-click="removePage(page)">
     {{page.handle}}&nbsp;<span class="glyphicon glyphicon-remove"></span>
-    <span class="sr-only">, {{:: 'CLICK_TO_DELETE' | translate }}</span>
+    <span class="sr-only">, {{:: 'AUDIT.CLICK_TO_DELETE' | translate }}</span>
   </button>
 
   <input type="text" ng-model="newPage" class="taginput"
-  placeholder="{{ 'LABEL_PAGE_HANDLE' | translate }}" title="{{ 'LABEL_PAGE_HANDLE' | translate }}"
+  placeholder="{{ 'AUDIT.LABEL_PAGE_HANDLE' | translate }}"
+  title="{{ 'AUDIT.LABEL_PAGE_HANDLE' | translate }}"
   list="pagehandles_{{$id}}" ng-change="addPageToAssert()" />
-    
+
 </div>

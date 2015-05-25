@@ -1,18 +1,18 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_STEP5') ) }}</h1>
+<h1>{{ setTitle( translate('REPORT.TITLE') ) }}</h1>
 
-<p ng-bind-html="'INTRO_STEP5' | translateAndLink
-: ['INTRO_STEP5_0', 'http://www.w3.org/TR/WCAG-EM/#step5']"></p>
+<p ng-bind-html="'REPORT.INTRO' | translateAndLink
+: ['REPORT.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step5']"></p>
 
 <form class="form-horizontal">
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_title">
-        {{ 'LABEL_TITLE' | translate }}&nbsp;<info-button class="info-float"
-        label="{{'LABEL_INFO' | translate}}" target="inf_dct_title"
-        title="{{ 'LABEL_TITLE' | translate }}"></info-button>
+        {{ 'REPORT.LABEL_TITLE' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'COMMON.BTN_INFO' | translate}}" target="inf_dct_title"
+        title="{{ 'REPORT.LABEL_TITLE' | translate }}"></info-button>
       </label>
     </div>
 
@@ -22,9 +22,9 @@
     </div>
 
     <div class="col-sm-12">
-      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+      <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
       ref="inf_dct_title" exitto="dct_title">
-        <p ng-bind-html="'INF_TITLE' | translate | nlToBr"></p>
+        <p ng-bind-html="'REPORT.INF_TITLE' | translate | nlToBr"></p>
     </info-field></div>
   </div>
 
@@ -32,9 +32,9 @@
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="commissioner">
-        {{ 'LABEL_COMMISSIONER' | translate }}&nbsp;<info-button
-        title="{{ 'LABEL_COMMISSIONER' | translate }}" class="info-float"
-        label="{{'LABEL_INFO' | translate}}" target="inf_commissioner">
+        {{ 'REPORT.LABEL_COMMISSIONER' | translate }}&nbsp;<info-button
+        title="{{ 'REPORT.LABEL_COMMISSIONER' | translate }}" class="info-float"
+        label="{{'COMMON.BTN_INFO' | translate}}" target="inf_commissioner">
         </info-button>
       </label>
     </div>
@@ -44,18 +44,18 @@
       type="text" class="form-control" id="commissioner" />
     </div>
     <div class="col-sm-12">
-      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}" class="info-float"
+      <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" class="info-float"
       ref="inf_commissioner" exitto="commissioner">
-        <p>{{ 'INF_COMMISSIONER' | translate }}</p>
+        <p>{{ 'REPORT.INF_COMMISSIONER' | translate }}</p>
     </info-field></div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="creator">
-        {{ 'LABEL_CREATOR' | translate }}&nbsp;<info-button class="info-float"
-        label="{{'LABEL_INFO' | translate}}" target="inf_creator"
-        title="{{ 'LABEL_CREATOR' | translate }}"></info-button>
+        {{ 'REPORT.LABEL_CREATOR' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'COMMON.BTN_INFO' | translate}}" target="inf_creator"
+        title="{{ 'REPORT.LABEL_CREATOR' | translate }}"></info-button>
       </label>
     </div>
 
@@ -65,18 +65,18 @@
     </div>
 
     <div class="col-sm-12">
-      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+      <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
       ref="inf_creator" exitto="creator">
-        <p>{{ 'INF_CREATOR' | translate }}</p>
+        <p>{{ 'REPORT.INF_CREATOR' | translate }}</p>
     </info-field></div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-3 control-label">
       <label for="dct_date">
-        {{ 'LABEL_DATE' | translate }}&nbsp;<info-button class="info-float"
-        label="{{'LABEL_INFO' | translate}}" target="inf_date"
-        title="{{ 'LABEL_DATE' | translate }}"></info-button>
+        {{ 'REPORT.LABEL_DATE' | translate }}&nbsp;<info-button class="info-float"
+        label="{{'COMMON.BTN_INFO' | translate}}" target="inf_date"
+        title="{{ 'REPORT.LABEL_DATE' | translate }}"></info-button>
       </label>
     </div>
 
@@ -86,22 +86,22 @@
     </div>
 
     <div class="col-sm-12">
-      <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+      <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
       ref="inf_date" exitto="dct_date">
-        <p>{{ 'INF_DATE' | translate }}</p>
+        <p>{{ 'REPORT.INF_DATE' | translate }}</p>
     </info-field></div>
   </div>
 
   <div class="form-group"><div class="col-sm-12">
     <label for="summary">
-      {{ 'LABEL_SUMMARY' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_summary"
-      title="{{ 'LABEL_SUMMARY' | translate }}"></info-button>
+      {{ 'REPORT.LABEL_SUMMARY' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_summary"
+      title="{{ 'REPORT.LABEL_SUMMARY' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="summary" ref="inf_summary">
-      <p>{{ 'INF_SUMMARY' | translate }}</p>
+      <p>{{ 'REPORT.INF_SUMMARY' | translate }}</p>
     </info-field>
 
     <textarea id="summary" ng-model="report.summary" auto-resize
@@ -110,15 +110,15 @@
 
   <div class="form-group"><div class="col-sm-12">
   	<label for="specifics">
-      {{ 'LABEL_SPECIFICS' | translate }}&nbsp;<info-button
-      label="{{'LABEL_INFO' | translate}}" target="inf_specifics"
-      title="{{ 'LABEL_SPECIFICS' | translate }}"></info-button>
+      {{ 'REPORT.LABEL_SPECIFICS' | translate }}&nbsp;<info-button
+      label="{{'COMMON.BTN_INFO' | translate}}" target="inf_specifics"
+      title="{{ 'REPORT.LABEL_SPECIFICS' | translate }}"></info-button>
     </label>
 
-    <info-field button="{{'LABEL_CLOSE_INFO' | translate}}"
+    <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="specifics" ref="inf_specifics">
-      <p ng-bind-html="'INF_SPECIFICS' | translateAndLink
-      : ['INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
+      <p ng-bind-html="'REPORT.INF_SPECIFICS' | translateAndLink
+      : ['REPORT.INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>
 
   	<textarea id="specifics" ng-model="report.specifics" auto-resize
@@ -127,7 +127,7 @@
 </form>
 
 <h2><button-collapse target="rootHide" property="criteriaReport">
-    {{ 'HD_CRITERIA_REPORT' | translate}}
+    {{ 'REPORT.HD_CRITERIA_REPORT' | translate}}
 </button-collapse></h2>
 
 <div collapse="rootHide.criteriaReport"

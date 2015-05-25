@@ -2,7 +2,7 @@
 
   <div class="btn-group criterion-btn-group" ng-if="opt.editable">
   	<button class="btn btn-default btn-sm" ng-click="addMultiPage()">
-       {{ 'BTN_ADD_MACRO_ASSERT' | translate}} 
+       {{ 'AUDIT.BTN_ADD_MACRO_ASSERT' | translate}}
     </button>
   </div>
 
@@ -17,10 +17,10 @@
   class="panel-body assert-indent appear"
   asserts="singlePageAsserts"
   value="criterion" options="opt"></page-results>
-  
+
   <div ng-if="singlePageAsserts.length === 0 && opt.editable"
   class="panel-body assert-indent appear no-selection">
-    {{:: 'NO_PAGE_SELECTED' | translate}}
+    {{:: 'AUDIT.NO_PAGE_SELECTED' | translate}}
   </div>
 
 </div>
