@@ -1,23 +1,23 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
-<h1>{{ setTitle( translate('HD_STEP2') ) }}</h1>
+<h1>{{ setTitle( translate('EXPLORE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'INTRO_STEP2' | translateAndLink
-: ['INTRO_STEP2_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
+<p ng-bind-html="'EXPLORE.INTRO' | translateAndLink
+: ['EXPLORE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
 
 <form>
 
   <h2>
-    {{'HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
+    {{'EXPLORE.HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
     label="{{'COMMON.BTN_INFO' | translate}}" target="inf_reliedup_tech"
-    title="{{ 'HD_RELIEDUP_TECH' | translate }}"></info-button>
+    title="{{ 'EXPLORE.HD_RELIEDUP_TECH' | translate }}"></info-button>
   </h2>
 
   <info-field ref="inf_reliedup_tech" button="Close info">
-    <p ng-bind-html="'INF_RELIEDUP_TECH' | translateAndLink
-    : ['INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
+    <p ng-bind-html="'EXPLORE.INF_RELIEDUP_TECH' | translateAndLink
+    : ['EXPLORE.INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
+    : ['EXPLORE.INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
     | nlToBr"></p>
   </info-field>
 
@@ -39,38 +39,38 @@
     </datalist>
     <header ng-class="head" aria-hidden="true">
       <div ng-class="col1">
-        {{'LABEL_TECH' | translate}}
+        {{'EXPLORE.LABEL_TECH' | translate}}
       </div> <div ng-class="col2">
-        {{'LABEL_TECH_SPEC' | translate}}
+        {{'EXPLORE.LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
 
     <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
-      {{:: 'NO_TECH_DEFINED' | translate}}
+      {{:: 'EXPLORE.NO_TECH_DEFINED' | translate}}
     </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"
     ng-repeat="tech in exploreModel.reliedUponTechnology">
       <legend ng-class="col0">
-        {{ 'LABEL_TECH' | translate }} {{$index+1}}
+        {{ 'EXPLORE.LABEL_TECH' | translate }} {{$index+1}}
       </legend>
 
       <label ng-class="colHide" for="tech_{{$index}}">
-        {{'LABEL_TECH' | translate}}:
+        {{'EXPLORE.LABEL_TECH' | translate}}:
       </label> <div ng-class="col1">
         <input type="text" class="form-control"
         id="tech_{{$index}}" list="data_tech_titles"
         ng-model="tech.title" ng-change="updateSpec(tech)"
-        placeholder="{{'PLH_TECH' | translate}}">
+        placeholder="{{'EXPLORE.PLH_TECH' | translate}}">
       </div>
 
       <label ng-class="colHide" for="tech_spec_{{$index}}">
-        {{'LABEL_TECH_SPEC' | translate }}:
+        {{'EXPLORE.LABEL_TECH_SPEC' | translate }}:
       </label> <div ng-class="col2">
         <input type="text" class="form-control"
         id="tech_spec_{{$index}}" list="data_tech_specs"
         ng-model="tech.id"
-        placeholder="{{'PLH_TECH_SPEC' | translate}}">
+        placeholder="{{'EXPLORE.PLH_TECH_SPEC' | translate}}">
       </div>
 
       <div ng-class="col3">
@@ -80,7 +80,7 @@
         tooltip-animation="false"
         tooltip-trigger="focus blur mouseenter mouseleave">
           <span class="sr-only">
-            {{'BTN_REMOVE_TECH' | translate}}
+            {{'EXPLORE.BTN_REMOVE_TECH' | translate}}
           </span>
         </button>
       </div>
@@ -88,30 +88,30 @@
 
     <button ng-click="addTechnology($event)" class="btn btn-default">
       <span class="glyphicon glyphicon-plus-sign"></span>
-      {{'BTN_ADD_TECH' | translate }}
+      {{'EXPLORE.BTN_ADD_TECH' | translate }}
     </button>
   </div><!-- /form-group -->
 
 
-  <h2>{{ 'HD_NOTE_TAKING' | translate }}&nbsp;<info-button
+  <h2>{{ 'EXPLORE.HD_NOTE_TAKING' | translate }}&nbsp;<info-button
     label="{{'COMMON.BTN_INFO' | translate}}" target="inf_notes"
-    title="{{ 'HD_NOTE_TAKING' | translate }}"></info-button>
+    title="{{ 'EXPLORE.HD_NOTE_TAKING' | translate }}"></info-button>
   </h2>
 
   <info-field ref="inf_notes" button="Close info">
-    <p ng-bind-html="'INF_NOTE_TAKING' | translate"></p>
+    <p ng-bind-html="'EXPLORE.INF_NOTE_TAKING' | translate"></p>
   </info-field>
 
   <div class="form-group">
     <label for="essential_func">
-      {{ 'LABEL_ESSENT_FUNC' | translate }}&nbsp;<info-button
+      {{ 'EXPLORE.LABEL_ESSENT_FUNC' | translate }}&nbsp;<info-button
       label="{{'COMMON.BTN_INFO' | translate}}" target="inf_essent_func"
-      title="{{ 'LABEL_ESSENT_FUNC' | translate }}"></info-button>
+      title="{{ 'EXPLORE.LABEL_ESSENT_FUNC' | translate }}"></info-button>
     </label>
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_essent_func">
-      <p ng-bind-html="'INF_ESSENT_FUNC' | translateAndLink
-      : ['INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
+      <p ng-bind-html="'EXPLORE.INF_ESSENT_FUNC' | translateAndLink
+      : ['EXPLORE.INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.essentialFunctionality"
@@ -122,15 +122,15 @@
 
   <div class="form-group">
     <label for="page_variety">
-      {{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}&nbsp;<info-button
+      {{ 'EXPLORE.LABEL_VARIETY_PAGE_TYPES' | translate }}&nbsp;<info-button
       label="{{'COMMON.BTN_INFO' | translate}}" target="inf_page_type"
-      title="{{ 'LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
+      title="{{ 'EXPLORE.LABEL_VARIETY_PAGE_TYPES' | translate }}"></info-button>
     </label>
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_page_type">
-      <p ng-bind-html="'INF_VARIETY_PAGE_TYPES' | translateAndLink
-      : ['INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
-      : ['INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
+      <p ng-bind-html="'EXPLORE.INF_VARIETY_PAGE_TYPES' | translateAndLink
+      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
+      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
       | nlToBr"></p>
     </info-field>
 
