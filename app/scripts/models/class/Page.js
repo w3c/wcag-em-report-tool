@@ -41,12 +41,12 @@ angular.module('wcagReporter')
                 return this.handle;
             } else if (this.id.substr(0, 9) === '_:struct_') {
                 num = +this.id.substr(9);
-                return translateFilter('STRUCTURED_PAGE') + ' ' + (num + 1);
+                return translateFilter('SAMPLE.STRUCTURED_PAGE') + ' ' + (num + 1);
             } else if (this.id.substr(0, 7) === '_:rand_') {
                 num = +this.id.substr(7);
-                return translateFilter('RANDOM_PAGE') + ' ' + (num + 1);
+                return translateFilter('SAMPLE.RANDOM_PAGE') + ' ' + (num + 1);
             } else {
-                return translateFilter('SAMPLE_PAGE');
+                return translateFilter('SAMPLE.SAMPLE_PAGE');
             }
         }
     };
