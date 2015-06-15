@@ -1,6 +1,9 @@
 # WeRT Change log
 
 ## Version 1.0
+### Version 1.0.3 - 2015-06-15
+- Fix: Resource menu wouldn't open properly
+
 ### Version 1.0.2 - 2015-04-03
 - Add change log
 - Add Repository to package.json
