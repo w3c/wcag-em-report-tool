@@ -9,8 +9,9 @@ angular.module('wcagReporter')
     $scope.structuredSample = evalSampleModel.structuredSample;
     $scope.randomSample = evalSampleModel.randomSample;
 
-    $scope.allPages = function () {
-        return evalSampleModel.getPages();
+
+    $scope.filledPages = function () {
+        return evalSampleModel.getFilledPages();
     };
 
 	$scope.auditSize = getSelected.length;

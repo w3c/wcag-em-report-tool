@@ -3,10 +3,11 @@ angular.module('wcagReporter')
 .directive('criterionBody', function(directivePlugin, evalSampleModel, selectedCasesOnlyFilter) {
 
     function singlePageAssert(scope) {
+        var asserts = scope.criterion.getSinglePageAsserts();
         if (scope.opt.editable) {
-            return selectedCasesOnlyFilter(scope.criterion.getSinglePageAsserts());
+            return selectedCasesOnlyFilter(asserts);
         } else {
-            return  scope.criterion.getSinglePageAsserts().filter(function (assert) {
+            return  asserts.filter(function (assert) {
                 return assert.isDefined();
             });
         }

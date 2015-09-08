@@ -63,15 +63,16 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 		if (evalData.evaluationScope) {
 			objectCollide(evalModel.scopeModel, evalData.evaluationScope);
 		}
-		
+
 		evalModel.id = evalData.id;
-		
+
 		evalModel.sampleModel.importData(evalData);
 
 		evalModel.reportModel.importData(evalData);
 
 		evalModel.testModel.importData(evalData);
 		evalModel.exploreModel.importData(evalData);
+		evalModel.otherData = evalData.otherData;
 	}
 
 	var importModel = {
@@ -112,38 +113,44 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 					return result;
 				}, undefined);
 
-				if (typeof evaluation.creator === 'string' &&
-				evaluation.creator.indexOf('_:') === 0) {
-					currentUser.id = evaluation.creator;
-				}
-				
-				evaluation.creator = currentUser;
-
-				results.forEach(function (data) {
-					if (data.type === 'Person') {
-						if (data.id === currentUser.id) {
-							angular.extend(currentUser, data);
-						}
-					}
-				});
-
 				if (!evaluation) {
 					throw new Error('No evaluation found in data');
 				}
 
+				// If the creator has an id, give that id to the current user
+				if (typeof evaluation.creator === 'string' &&
+				evaluation.creator.indexOf('_:') === 0) {
+					currentUser.id = evaluation.creator;
+				}
+				evaluation.creator = currentUser;
+
+				var foundUser = false;
+				// Find the first Person that matches the ID of the current user
+				results.forEach(function (data) {
+					if (!foundUser && data.type === 'Person' &&
+					data.id === currentUser.id) {
+
+						// overwrite the current user with the new data
+						angular.extend(currentUser, data);
+						foundUser = true;
+					}
+				});
+
+				// Take all data that isn't the evaluation or the current user
+				evaluation.otherData = results.reduce(function (otherData, data) {
+					if (data !== evaluation && data.id !== currentUser.id) {
+						otherData.push(data);
+					}
+					return otherData;
+				}, [currentUser]);
+
 				// Put the evaluation as the first on the list
 				$rootScope.$apply(function () {
 					updateEvalModel(evaluation);
-
-					// Add the remaining data to evalModel.otherData
-					evalModel.otherData = evalModel.otherData
-					.concat.apply(evalModel.otherData, results.filter(function (item) {
-						return item !== evaluation;
-					}));
 				});
 			}));
 		}
 	};
-	
+
 	return importModel;
 });
