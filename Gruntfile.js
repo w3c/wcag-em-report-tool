@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-json-angular-translate');
   grunt.loadNpmTasks('grunt-lineending');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-concat-json');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -31,6 +32,13 @@ module.exports = function (grunt) {
     },
 
     // Translations
+    'concat-json': {
+      en: {
+        cwd: 'app/locale/en',
+        src: '*.json',
+        dest: '.tmp/locales/en.json'
+      }
+    },
     jsonAngularTranslate: {
       createJs: {
         options: {
@@ -38,23 +46,11 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'locales',
+          cwd: '.tmp/locales',
           src: '*.json',
           dest: '.tmp/scripts/locales',
           ext: '.js'
         }]
-      }
-    },
-
-    lineending: {
-      crlfTranslateFile: {                   // Target
-        options: {              // Target options
-          eol: 'lf',
-          overwrite: true
-        },
-        files: {
-          '': ['<%= yeoman.app %>/scripts/locales/*.js']
-        }
       }
     },
 
@@ -194,7 +190,7 @@ module.exports = function (grunt) {
     bowerInstall: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: '<%= yeoman.app %>/', 
+        ignorePath: '<%= yeoman.app %>/',
         exclude: ['bootstrap-sass-official']
       },
       sass: {
@@ -428,11 +424,11 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'lineending',
       'clean:server',
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',
+      'concat-json',
       'jsonAngularTranslate',
       'connect:livereload',
       'watch'
@@ -441,7 +437,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'jsonAngularTranslate',
-    'lineending',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -450,9 +445,9 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'lineending',
     'clean:dist',
     'bowerInstall',
+    'concat-json',
     'jsonAngularTranslate',
     'useminPrepare',
     'concurrent:dist',
