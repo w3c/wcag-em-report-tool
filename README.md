@@ -29,8 +29,13 @@ To create a build in the /dist folder run:
 
     grunt build
 
-# Data format
+## Localisation
+Files for localisation are part of the `app/locale/` directory. By default
+the 'en' folder will be used. To serve or build the app using the `--lang`
+flag, and give it what directory to use as the default language, i.e.
+`--lang nl` will build with `app/locale/nl` as the default language.
 
+# Data format
 Data in the WCAG-EM Report Tool is saved and can again be loaded in a JSON
 format. The data format is [JSON Linked Data](http://json-ld.org/), and
 uses [EARL](http://www.w3.org/TR/EARL10-Schema/) to store the test results.
