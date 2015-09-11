@@ -7,7 +7,8 @@ angular.module('wcagReporter', [
     'ngAnimate',
     'pascalprecht.translate',
     'ui.bootstrap',
-    'wert-templates'
+    'wert-templates',
+    'wcag20spec'
 ]).config(function ($routeProvider, $compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
 
