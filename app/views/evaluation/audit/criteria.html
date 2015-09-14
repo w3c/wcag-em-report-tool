@@ -15,21 +15,22 @@
   <div ng-repeat="p in principles"
   ng-if="isPrincipleVisible(p)" class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
-        {{ 'AUDIT.PRINCIPLE' | translate}} {{p.number}} {{p.title}}
+        <!-- {{ 'AUDIT.PRINCIPLE' | translate}} {{p.num}} -->
+        {{p.title}}
     </button-collapse></h3>
 
     <div ng-repeat="g in p.guidelines"
     ng-if="isGuidelineVisible(g)"
     collapse="p.showGuideline" class="appear">
       <h4><button-collapse target="g" property="showCritera">
-          {{g.number}} {{g.title}}
+          {{g.num}} {{g.title}}
       </button-collapse></h4>
 
       <div collapse="g.showCritera">
         <success-criterion class="appear"
         ng-init="opt = {editable: true, collapses: true};
                  crit = getCritAssert(critSpec.uri)"
-        ng-repeat="critSpec in g.criteria"
+        ng-repeat="critSpec in g.successcriteria"
         ng-if="isCriterionVisible(critSpec)"
         assertion="getCritAssert(critSpec.uri)"
         requirement="critSpec" options="opt">

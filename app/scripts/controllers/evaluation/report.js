@@ -7,10 +7,6 @@ $location, evalSampleModel, evalReportModel) {
     $scope.state = appState.moveToState('report');
     $scope.report = evalReportModel;
 
-    $scope.allPages = function () {
-          return evalSampleModel.getPages();
-    };
-
     $scope.processInput = function () {
         var errors = evalReportModel.validate();
 

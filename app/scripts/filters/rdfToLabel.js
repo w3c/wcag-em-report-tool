@@ -9,7 +9,9 @@ angular.module('wcagReporter')
 		'earl:cantTell': 'CANT_TELL',
 		'earl:inapplicable': 'NOT_PRESENT',
 		'earl:untested': 'NOT_CHECKED',
-
+		'A': 'LEVEL_A',
+		'AA': 'LEVEL_AA',
+		'AAA': 'LEVEL_AAA',
 		'wcag20:level_a': 'LEVEL_A',
 		'wcag20:level_aa': 'LEVEL_AA',
 		'wcag20:level_aaa': 'LEVEL_AAA'
