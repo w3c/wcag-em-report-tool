@@ -61,7 +61,7 @@
         <input type="text" class="form-control"
         id="tech_{{$index}}" list="data_tech_titles"
         ng-model="tech.title" ng-change="updateSpec(tech)"
-        placeholder="{{'EXPLORE.PLH_TECH' | translate}}">
+        shy-placeholder="'EXPLORE.PLH_TECH' | translate">
       </div>
 
       <label ng-class="colHide" for="tech_spec_{{$index}}">
@@ -70,7 +70,7 @@
         <input type="text" class="form-control"
         id="tech_spec_{{$index}}" list="data_tech_specs"
         ng-model="tech.id"
-        placeholder="{{'EXPLORE.PLH_TECH_SPEC' | translate}}">
+        shy-placeholder="'EXPLORE.PLH_TECH_SPEC' | translate">
       </div>
 
       <div ng-class="col3">

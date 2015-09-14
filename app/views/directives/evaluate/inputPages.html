@@ -30,7 +30,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
       id="rand_page_desc_{{$index}}"
       ng-model="page.description"
       ng-blur="prependProtocol(page)"
-      placeholder="{{'SAMPLE.PLH_PAGE_URL' | translate}}">
+      shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
     </div>
     <label ng-class="colHide" for="rand_page_desc_{{$index}}">
       {{::'SAMPLE.LABEL_HANDLE' | translate}}:
@@ -39,7 +39,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
       <input type="text" class="form-control"
              id="struct_{{$index}}"
              ng-model="page.handle"
-             placeholder="{{'SAMPLE.PLH_HANDLE' | translate}}">
+             shy-placeholder="'SAMPLE.PLH_HANDLE' | translate">
     </div>
 
     <div ng-class="col3">
