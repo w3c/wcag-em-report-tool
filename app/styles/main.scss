@@ -107,7 +107,6 @@ html.full-page {
 
     body {
         height: 100%;
-        border-top:5px solid $wai-border-color;
     }
     .page-view {
         min-height: 100%;
@@ -134,41 +133,63 @@ html.full-page {
         margin-bottom:0;
     }
 }
-body .branding {
-    .wai img {
-        margin: 1px 0;
-    }
-    a {
-        display: inline-block;
-        outline-color: $wai-border-color;
-    }
-    @media (max-width: $screen-xs-max) {
-        border-bottom:none;
-    }
-    @media (max-width: $screen-sm-max) {
-        display:block;
-        border-bottom:1px #ccc solid;
-        padding: 5px 15px;
 
-        .navbar-nav.navbar-right:last-child {
-            float:none !important;
+@media (min-width: $screen-sm-max) {
+    body .wert-head {
+        margin-bottom:81px;
+        & > .navbar {
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:3;
         }
-        .w3c img {
-            margin:-1px 0;
+    }
+}
+body .wert-head {
+    & > .navbar {
+        border-top:5px solid $wai-border-color;
+        border-bottom:0;
+        -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    }
+    .branding {
+        .wai img {
+            margin: 1px 0;
         }
-        .wai {
-            float:right;
-            img {
-                @include border-right-radius(2px);
-                @include border-left-radius(2px);
+        a {
+            display: inline-block;
+            outline-color: $wai-border-color;
+        }
+        @media (max-width: $screen-xs-max) {
+            border-bottom:none;
+        }
+        @media (max-width: $screen-sm-max) {
+            display:block;
+            border-bottom:1px #ccc solid;
+            padding: 5px 15px;
+
+            .navbar-nav.navbar-right:last-child {
+                float:none !important;
+            }
+            .w3c img {
+                margin:-1px 0;
+            }
+            .wai {
+                float:right;
+                img {
+                    @include border-right-radius(2px);
+                    @include border-left-radius(2px);
+                }
             }
         }
     }
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
 }
 
-.navbar-nav.navbar-right:last-child {
-    margin-right: 0;
-}
 
 @import "bootstrap-extend";
 
