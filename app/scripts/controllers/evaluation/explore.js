@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .controller('EvalExploreCtrl', function ($scope, appState, $timeout,
-evalExploreModel, evalAuditModel, $location) {
+evalExploreModel, evalAuditModel, $location, $filter) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
@@ -18,6 +18,32 @@ evalExploreModel, evalAuditModel, $location) {
             tech.id = techMap[tech.title];
         }
     };
+
+
+    var l = Math.floor((evalExploreModel.knownTech.length + 2) / 3);
+    $scope.techLists = [0,1,2].map(function (i) {
+        var arr = evalExploreModel.knownTech
+        .slice(i*l, (i + 1)*l);
+        return arr;
+    });
+    $scope.techLists[2].push({title: 'other'});
+
+    $scope.selectedTech = [];
+    $scope.allTech = evalExploreModel.knownTech;
+    var filter = $filter('filter');
+    $scope.changeTech = function (tech) {
+        console.log('optimize!!', tech);
+        $scope.playList = filter(evalExploreModel.knownTech,
+                                 {checked: true})
+        .map(function (elm) {
+            return {
+                title: elm.title,
+                id: elm.id
+            };
+        });
+        console.log($scope.playList);
+    };
+
 
     $scope.addTechnology = function ($event) {
         evalExploreModel.addReliedUponTech();

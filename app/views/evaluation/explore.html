@@ -21,6 +21,24 @@
     | nlToBr"></p>
   </info-field>
 
+<!--   <ul ng-repeat="tech in allTech">
+    <input type="checkbox" id="{{tech.title}}"
+    ng-model="tech.checked" ng-change="changeTech()">
+    <label for="{{tech.title}}">{{tech.title}}</label>
+</label>
+  </ul> -->
+  <div class="row">
+  <ul ng-repeat="techList in techLists" class="col-sm-3">
+    <li ng-repeat="tech in techList">
+      <input type="checkbox" for=""
+      ng-model="tech.checked" ng-change="changeTech(tech)">
+      <label id="">
+        {{tech.title}}
+      </label>
+    </li>
+  </ul>
+  </div>
+
   <div class="form-group key-value-group"
   ng-init="col0 = 'visible-xs col-xs-12';
            col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
@@ -30,13 +48,6 @@
            row = 'row form-group-inline';
            head = 'row hidden-xs form-block-head';
            delButton = 'btn glyphicon glyphicon-remove-sign'">
-
-
-    <datalist id="data_tech_titles">
-      <option ng-repeat="t in knownTech">{{t.title}}</option>
-    </datalist> <datalist id="data_tech_specs">
-      <option ng-repeat="t in knownTech">{{t.id}}</option>
-    </datalist>
     <header ng-class="head" aria-hidden="true">
       <div ng-class="col1">
         {{'EXPLORE.LABEL_TECH' | translate}}
