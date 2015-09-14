@@ -67,7 +67,7 @@ $location, $rootElement, evalScopeModel, showSave) {
     view is loaded, we'll wait another half second for it to compile
     and then move focus to the h1.
      */
-    function focusH1() {
+    $rootElement.focusH1 = function focusH1() {
         var h1 = $rootElement.find('h1:first()').attr({
             'tabindex': -1,
             // This is a bug workaround for NVDA + IE, which
@@ -77,7 +77,7 @@ $location, $rootElement, evalScopeModel, showSave) {
         setTimeout(function () {
             h1.focus();
         }, 10);
-    }
+    };
 
     $rootScope.setTitle = function (title) {
         var sitename = '';
@@ -91,7 +91,7 @@ $location, $rootElement, evalScopeModel, showSave) {
         if (moveFocusToH1) {
             moveFocusToH1 = false;
             // Wait for the template to compile, then focus to h1
-            setTimeout(focusH1, 750);
+            setTimeout($rootScope.focusH1, 750);
         }
 
         return title;

@@ -79,8 +79,10 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     	return visible;
     };
 
+    // Scroll to the top, then move focus to the h1
     $scope.toTop = function () {
-        $rootElement.focus();
-        $anchorScroll();
+        $('html, body').animate({
+            scrollTop: $rootElement.offset().top
+        }, 200, $rootElement.focusH1);
     };
 });
