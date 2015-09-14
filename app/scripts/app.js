@@ -6,6 +6,7 @@ angular.module('wcagReporter', [
     'ngRoute',
     'ngAnimate',
     'pascalprecht.translate',
+    '720kb.tooltips',
     'ui.bootstrap',
     'wert-templates',
     'wcag20spec'
@@ -138,6 +139,15 @@ $location, $rootElement, evalScopeModel, showSave) {
             }
         });
     }
+
+// Setup the tooltips default
+}).config(function(tooltipsConfigProvider) {
+    tooltipsConfigProvider.options({
+        speed: 'fast',
+        lazy: false,
+        showTrigger: 'mouseover focus',
+        hideTrigger: 'mouseout blur'
+    });
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {

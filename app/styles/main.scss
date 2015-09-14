@@ -64,12 +64,12 @@ input, textarea, select {
     }
 }
 
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { 
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
     textarea {
         max-height: 250px;
     }
 }
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) { 
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
     textarea {
         max-height: 350px;
     }
@@ -86,7 +86,7 @@ li a {
 }
 
 ::-moz-placeholder {// Firefox
-    color: $textcolor-light;   
+    color: $textcolor-light;
     opacity: 1;// See https://github.com/twbs/bootstrap/pull/11526
     font-style:italic;
 }
@@ -100,7 +100,7 @@ li a {
 }
 
 
-$footer-height: 170px; 
+$footer-height: 170px;
 $footer-padding: 20px;
 html.full-page {
     height: 100%;
@@ -142,10 +142,10 @@ body .branding {
         display: inline-block;
         outline-color: $wai-border-color;
     }
-    @media (max-width: $screen-xs-max) { 
+    @media (max-width: $screen-xs-max) {
         border-bottom:none;
     }
-    @media (max-width: $screen-sm-max) { 
+    @media (max-width: $screen-sm-max) {
         display:block;
         border-bottom:1px #ccc solid;
         padding: 5px 15px;
@@ -171,6 +171,8 @@ body .branding {
 }
 
 @import "bootstrap-extend";
+
+@import "angular-tooltips";
 
 @import "wizard";
 

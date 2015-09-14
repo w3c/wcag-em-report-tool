@@ -48,9 +48,7 @@
         <span ng-if="page.tested" class="sr-only">{{ 'AUDIT.TESTED'| translate}}</span>
       </label>
       <a href="" ng-click="openPage(page)"
-      tooltip="{{page.description}}"
-      tooltip-animation="false"
-      tooltip-trigger="focus blur mouseenter mouseleave"
+      tooltips tooltip-title="{{page.description}}"
       class="pull-right glyphicon glyphicon-link">
         <span class="sr-only">{{page.description}}</span>
       </a>
