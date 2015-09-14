@@ -1,8 +1,7 @@
 'use strict';
 
 /**
- * Originally created by Justin Marsan
- * https://github.com/justinmarsan/wcag.json
+ * 
  */
 angular.module('wcagReporter')
 .factory('wcagReporterImport',
