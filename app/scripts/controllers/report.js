@@ -9,8 +9,8 @@ angular.module('wcagReporter')
     $scope.scope = evalModel.scopeModel;
     $scope.explore = evalModel.exploreModel;
 
-    $scope.allPages = function () {
-        return evalModel.sampleModel.getPages();
+    $scope.filledPages = function () {
+        return evalModel.sampleModel.getFilledPages();
     };
 
     evalModel.testModel.updateToConformance();

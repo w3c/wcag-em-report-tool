@@ -35,10 +35,10 @@
     </div>
   </div>
 
-  <p ng-if="allPages().length === 0"><em>{{ 'AUDIT.NO_SAMPLE' | translate }}</em></p>
+  <p ng-if="filledPages().length === 0"><em>{{ 'AUDIT.NO_SAMPLE' | translate }}</em></p>
 
   <ul class="sample" collapse="hideSample">
-  	<li ng-repeat="page in allPages()"
+  	<li ng-repeat="page in filledPages()"
     ng-class="{active: page.selected}">
 
       <label for="sample_select_{{$id}}">

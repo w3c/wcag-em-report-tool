@@ -15,4 +15,5 @@ angular.module('wcagReporter')
 
     $scope.nextStepName = 'STEP_REPORT';
     $scope.previousStepName = 'STEP_SAMPLE';
+
 });

@@ -1,0 +1,12 @@
+{
+    "TITLE": "Open Evaluation Report",
+    "INTRO": "To reload a saved file, 'Browse' to find the JSON data file that you previously saved, then select the 'Load data from selected file' button.",
+    "LABEL_SELECT_FILE": "Find and select the data file",
+    "MSG_LOADING": "Loading the evaluation, please wait...",
+    "BTN_LOAD_FILE": "Load data from selected file",
+    "HD_GET_FROM_URL": "Load Evaluation To A URL",
+    "INTRO_GET_FROM_URL": "If the evaluation file is hosted on publicly accessible URL it can be imported.",
+    "LABEL_GET_FROM_URL": "URL of the evaluation",
+    "ENABLE_AUTOSAVE": "Enable autosave (every 3 seconds)",
+    "BTN_GET_FROM_URL": "Get from URL"
+}

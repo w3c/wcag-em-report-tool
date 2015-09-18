@@ -3,10 +3,10 @@
  * 
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function(wcag20specData) {
+.factory('wcag20spec', function(wcag20spec_en) {
     var guidelines, criteria,
         criteriaObj = {};
-    
+
     function pluck(prop) {
         return function (a, b) {
             if (!angular.isArray(a)) {
@@ -17,14 +17,15 @@ angular.module('wcagReporter')
     }
 
     // Concat all guidelines arrays of each principle
-    guidelines = wcag20specData.reduce(pluck('guidelines'));
-    
+    guidelines = wcag20spec_en.principles
+    .reduce(pluck('guidelines'), []);
+
     // Concat all criteria arrays of each guideline
-    criteria   = guidelines.reduce(pluck('criteria'));
+    criteria   = guidelines.reduce(pluck('successcriteria'), []);
 
     // Make an object of the criteria array with uri as keys
     criteria.forEach(function (criterion) {
-        criteriaObj[criterion.uri] = criterion;
+        criteriaObj[criterion.id] = criterion;
     });
 
     return {
@@ -34,11 +35,11 @@ angular.module('wcagReporter')
         getCriteria: function () {
             return criteria;
         },
-        getCriterion: function (uri) {
-            return criteriaObj[uri];
+        getCriterion: function (id) {
+            return criteriaObj[id];
         },
         getPrinciples: function () {
-            return wcag20specData;
+            return wcag20spec_en.principles;
         }
     };
 });
