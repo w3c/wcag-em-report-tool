@@ -1,36 +1,42 @@
 'use strict';
 
 describe('model: evalModel import+export', function () {
+
     // load the angular module
     beforeEach(module('wcagReporter'));
+    beforeEach(module('wertDummy'));
+
+    function getEval(linkedData) {
+        return linkedData['@graph'].filter(function (obj) {
+            return obj.type === 'evaluation';
+        })[0];
+    }
 
     // instantiate model
     var reportImport;
     var reportExport;
     var context;
+    var dummyData;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, evalContext) {
+    wcagReporterExport, evalContext, basicEvalOutput) {
         reportImport = wcagReporterImport;
         reportExport = wcagReporterExport;
         context      = evalContext;
+        dummyData    = basicEvalOutput;
     }));
 
-    var dummyData;
     var testTitel = 'some title';
     beforeEach(function () {
-        dummyData = {
-            '@context': context,
-            'title': testTitel
-        };
+        // reportImport.fromObject(dummyData);
     });
 
-    it('export the same title it imports', function () {
-        reportImport.fromObject(dummyData);
-        var out = reportExport.getJson()['@graph'][0];
+    // it('export the same title it imports', function () {
+    //     reportImport.fromObject(dummyData);
+    //     var out = reportExport.getJson();
 
-        expect(out.title).toBe(testTitel);
-    });
+    //     expect(out)
+    //     .toBe(getEval(dummyData).title);
+    // });
 
 });
->>>>>>> d3cdf7928110e0708e8832b8f8aea237489c6da1
