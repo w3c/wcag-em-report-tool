@@ -87,17 +87,30 @@ describe('model: evalModel import', function () {
     });
 
 
-    it('stores audit properties on evalModel.testModel', function () {
-    	// TODO
+    it('stores audit properties on evalModel.auditModel', function () {
+    	var auditModel = evalModel.auditModel;
+
+        importEval.auditResult        
+        .forEach(function (assert) {
+            var critAssert = auditModel
+            .criteria[assert.testRequirement];
+
+            ['type', 'assertedBy', 'mode', 'subject',
+             'result', 'testRequirement']
+            .forEach(function (prop) {
+                expect(critAssert[prop])
+                .toEqual(assert[prop]);
+            });
+        });
+
     });
 
 
     it('stores report properties on evalModel.reportModel', function () {
-    	var reportModel = evalModel.reportModel;
-    	[	'title',
-    	 	'summary',
-    	 	'specifics',
-    	 	'commissioner']
+        var reportModel = evalModel.reportModel;
+    	
+        ['title', 'summary', 'specifics',
+         'commissioner']
     	.forEach(function (prop) {
 	    	expect(reportModel[prop])
 	    	.toEqual(importEval[prop]);
