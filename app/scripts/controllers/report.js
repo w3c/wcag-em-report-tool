@@ -13,7 +13,7 @@ angular.module('wcagReporter')
         return evalModel.sampleModel.getFilledPages();
     };
 
-    evalModel.testModel.updateToConformance();
+    evalModel.auditModel.updateToConformance();
 
 
     $scope.report = evalModel.reportModel;

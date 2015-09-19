@@ -69,7 +69,7 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 
 		evalModel.reportModel.importData(evalData);
 
-		evalModel.testModel.importData(evalData);
+		evalModel.auditModel.importData(evalData);
 		evalModel.exploreModel.importData(evalData);
 		evalModel.otherData = evalData.otherData;
 	}

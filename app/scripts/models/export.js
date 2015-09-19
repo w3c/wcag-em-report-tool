@@ -13,7 +13,7 @@ angular.module('wcagReporter')
 		};
 
 		jsonLd.evaluationScope =  evalModel.scopeModel.exportData();
-		jsonLd.auditResult =  evalModel.testModel.exportData();
+		jsonLd.auditResult =  evalModel.auditModel.exportData();
 
 		angular.extend(jsonLd,
 			evalModel.reportModel.exportData(),
