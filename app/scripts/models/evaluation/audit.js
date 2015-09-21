@@ -4,10 +4,10 @@ angular.module('wcagReporter')
 .service('evalAuditModel', function(TestCaseAssert,
 evalScopeModel, wcag20spec, CriterionAssert) {
 
-    var testModel,
+    var auditModel,
         criteria = {};
 
-    testModel = {
+    auditModel = {
         criteria: criteria,
 
         exportData: function () {
@@ -20,6 +20,14 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                 .filter(function (testcase) {
                     return TestCaseAssert.isDefined(testcase);
                 });
+
+                // Delete any methods from the output object
+                Object.keys(criterion).forEach(function (key) {
+                    if (typeof criterion[key] === 'function') {
+                        delete criterion[key];
+                    }
+                });
+
                 // get all hasPart
                 list.push.apply(list, criterion.hasPart);
                 return list;
@@ -39,7 +47,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                 if (!angular.isArray(evalData.auditResult)) {
                     evalData.auditResult = [evalData.auditResult];
                 }
-                evalData.auditResult.forEach(testModel.addCritAssert);
+                evalData.auditResult.forEach(auditModel.addCritAssert);
             }
         },
 
@@ -50,7 +58,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         getCriteriaSorted: function () {
             return wcag20spec.getCriteria()
             .map(function (criterion) {
-                    return criteria[criterion.uri];
+                    return criteria[criterion.id];
             }).filter(angular.isDefined);
         },
 
@@ -88,13 +96,13 @@ evalScopeModel, wcag20spec, CriterionAssert) {
 
         updateToConformance: function () {
             wcag20spec.getCriteria().forEach(function (spec) {
-                if (typeof testModel.criteria[spec.uri] === 'undefined') {
-                    testModel.addCritAssert({
+                if (typeof auditModel.criteria[spec.uri] === 'undefined') {
+                    auditModel.addCritAssert({
                         'testRequirement': spec.uri
                     });
                 }
             });
         }
     };
-    return testModel;
+    return auditModel;
 });

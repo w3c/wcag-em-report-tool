@@ -13,7 +13,7 @@ angular.module('wcagReporter').factory('evalModel', function(
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,
 		sampleModel:  evalSampleModel,
-		testModel:    evalAuditModel,
+		auditModel:   evalAuditModel,
 		reportModel:  evalReportModel,
 		// This array collects data that is outside the evaluation
 		// For example the author and external rdf data
