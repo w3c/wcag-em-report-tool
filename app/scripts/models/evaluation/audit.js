@@ -20,6 +20,14 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                 .filter(function (testcase) {
                     return TestCaseAssert.isDefined(testcase);
                 });
+
+                // Delete any methods from the output object
+                Object.keys(criterion).forEach(function (key) {
+                    if (typeof criterion[key] === 'function') {
+                        delete criterion[key];
+                    }
+                });
+
                 // get all hasPart
                 list.push.apply(list, criterion.hasPart);
                 return list;
@@ -50,7 +58,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         getCriteriaSorted: function () {
             return wcag20spec.getCriteria()
             .map(function (criterion) {
-                    return criteria[criterion.uri];
+                    return criteria[criterion.id];
             }).filter(angular.isDefined);
         },
 

@@ -16,40 +16,74 @@ describe('model: evalModel export', function () {
     var reportExport;
     var dummyData;
     var exportData;
+    var importEval;
+    var exportEval;
 
     beforeEach(inject(function (wcagReporterImport,
     wcagReporterExport, basicEvalOutput) {
         reportImport = wcagReporterImport;
-        reportExport = wcagReporterExport
+        reportExport = wcagReporterExport;
         dummyData    = basicEvalOutput;
     }));
 
     beforeEach(function (done) {
-		reportImport.fromJson(dummyData, done);
-		setTimeout(function () {
-            exportData = reportExport.getJson()
+        reportImport.fromJson(dummyData, done);
+        setTimeout(function () {
+            exportData = reportExport.getJson();
+            importEval = getEval(dummyData);
+            exportEval = getEval(exportData);
             done();
-        }, 100);
+        }, 200);
     });
 
 
     it('shares properties with imported data', function () {
-        var importEval = getEval(dummyData);
-        var exportEval = getEval(exportData);
-
         ['evaluationScope', '@context', 'type',
          'id', 'title', 'commissioner', 'summary',
-         'creator', 'reliedUponTechnology', 
+         'creator', 'reliedUponTechnology',
          'essentialFunctionality', 'pageTypeVariety'
         ].forEach(function (prop) {
 
-        	expect(exportEval[prop])
-        	.toEqual(importEval[prop]);
+            expect(exportEval[prop])
+            .toEqual(importEval[prop]);
         });
     });
 
-    xit('has the same sample');
-    
-    xit('has the same results');
+    it('has the same sample', function () {
+        ['structuredSample', 'randomSample']
+        .forEach(function (sampleType) {
+            var importPages = importEval[sampleType].webpage;
+            var exportPages = exportEval[sampleType].webpage;
+            expect(importPages.length)
+            .toBe(exportPages.length);
+
+            importPages.forEach(function (importPage, i) {
+                expect(importPage)
+                .toEqual(exportPages[i]);
+            });
+        });
+    });
+
+    it('has the same results', function () {
+        // Find all none-empty assertions
+        importEval.auditResult.filter(function (assert) {
+            var result = assert.result;
+            return (result.outcome !== 'earl:untested' ||
+                    !!result.description);
+
+        }).forEach(function (assertOut) {
+            var asserts = [];
+            exportEval.auditResult.forEach(function (assertIn) {
+                if (assertIn.subject === assertOut.subject &&
+                assertIn.testRequirement === assertOut.testRequirement) {
+                    asserts.push(assertIn);
+                }
+            });
+            expect(asserts.length).toBe(1);
+            expect(asserts[0]).toEqual(assertOut);
+        });
+        expect(exportEval.auditResult.length)
+        .toBe(importEval.auditResult.length);
+    });
 
 });

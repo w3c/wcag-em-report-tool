@@ -1,9 +1,9 @@
 'use strict';
 /**
- * 
+ *
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function(wcag20spec_en) {
+.factory('wcag20spec', function(wcag20specEn) {
     var guidelines, criteria,
         criteriaObj = {};
 
@@ -17,14 +17,16 @@ angular.module('wcagReporter')
     }
 
     // Concat all guidelines arrays of each principle
-    guidelines = wcag20spec_en.principles
+    guidelines = wcag20specEn.principles
     .reduce(pluck('guidelines'), []);
 
     // Concat all criteria arrays of each guideline
     criteria   = guidelines.reduce(pluck('successcriteria'), []);
 
     // Make an object of the criteria array with uri as keys
+    console.log('fix "wcag2:" to "WCAG20:" issue');
     criteria.forEach(function (criterion) {
+        criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
         criteriaObj[criterion.id] = criterion;
     });
 
@@ -39,7 +41,7 @@ angular.module('wcagReporter')
             return criteriaObj[id];
         },
         getPrinciples: function () {
-            return wcag20spec_en.principles;
+            return wcag20specEn.principles;
         }
     };
 });
