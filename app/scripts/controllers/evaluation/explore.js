@@ -2,16 +2,11 @@
 
 angular.module('wcagReporter')
 .controller('EvalExploreCtrl', function ($scope, appState, $timeout,
-evalExploreModel, evalAuditModel, $location, $filter) {
+evalExploreModel, evalAuditModel, $location) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
     $scope.knownTech = evalExploreModel.knownTech;
-
-    if (evalExploreModel.reliedUponTechnology &&
-    evalExploreModel.reliedUponTechnology.length === 0) {
-        evalExploreModel.addReliedUponTech();
-    }
 
     $scope.updateSpec = function (tech) {
         if (techMap[tech.title]) {
@@ -19,34 +14,67 @@ evalExploreModel, evalAuditModel, $location, $filter) {
         }
     };
 
+    var knownTech    = angular.copy(evalExploreModel.knownTech);
+    $scope.otherTech = [];
+    // set relied upon technologies in the right field
+    evalExploreModel.reliedUponTechnology.forEach(function (tech) {
+        var index = knownTech
+        .reduce(function(index, currTech, currIndex) {
+            if (currTech.id === tech.id && currTech.title === tech.title) {
+                return currIndex;
+            }
+            return index;
+        }, -1);
 
-    var l = Math.floor((evalExploreModel.knownTech.length + 2) / 3);
-    $scope.techLists = [0,1,2].map(function (i) {
-        var arr = evalExploreModel.knownTech
-        .slice(i*l, (i + 1)*l);
-        return arr;
+        // Set checkboxes for known fields
+        if (index !== -1) {
+           knownTech[index].checked = true;
+        } else {
+        // Push the tech to the other tech field
+            $scope.otherTech.push(tech);
+        }
     });
-    $scope.techLists[2].push({title: 'other'});
 
-    $scope.selectedTech = [];
-    $scope.allTech = evalExploreModel.knownTech;
-    var filter = $filter('filter');
+    // Add an empty field by default
+    if ($scope.otherTech.length === 0) {
+        $scope.otherTech.push({});
+    } else {
+        $scope.rootHide.OtherTech = $scope.rootHide.OtherTech || true;
+    }
+
+    $scope.techLists = knownTech;
+
     $scope.changeTech = function (tech) {
-        console.log('optimize!!', tech);
-        $scope.playList = filter(evalExploreModel.knownTech,
-                                 {checked: true})
-        .map(function (elm) {
-            return {
-                title: elm.title,
-                id: elm.id
-            };
-        });
-        console.log($scope.playList);
+        if (tech.checked) {
+            evalExploreModel.reliedUponTechnology.push({
+                title: tech.title,
+                id: tech.id
+            });
+        } else {
+            evalExploreModel.reliedUponTechnology = evalExploreModel.reliedUponTechnology
+            .filter(function (item) {
+                return item.title !== tech.title && item.id !== tech.id;
+            });
+        }
+    };
+
+
+    $scope.updateOtherTech = function (tech) {
+        var index   = evalExploreModel.reliedUponTechnology.indexOf(tech);
+        var isEmpty = !!tech.title || !!tech.id;
+        if (index === -1 && isEmpty) {
+            evalExploreModel.reliedUponTechnology.push(tech);
+        } else if (index !== -1 && !isEmpty) {
+            evalExploreModel.reliedUponTechnology.splice(index, 1);
+        }
+        console.log(evalExploreModel.reliedUponTechnology);
     };
 
 
     $scope.addTechnology = function ($event) {
-        evalExploreModel.addReliedUponTech();
+        $scope.otherTech.push({});
+
+        //evalExploreModel.addReliedUponTech();
         var button = angular.element($event.delegateTarget);
         $timeout(function () {
             var inputs = button.prev().find('input');
@@ -54,8 +82,15 @@ evalExploreModel, evalAuditModel, $location, $filter) {
         }, 100);
     };
 
+
     $scope.removeTechnology = function ($index, $event) {
-        evalExploreModel.reliedUponTechnology.splice($index,1);
+        var tech = $scope.otherTech[$index];
+        var index   = evalExploreModel.reliedUponTechnology.indexOf(tech);
+        evalExploreModel.reliedUponTechnology.splice(index, 1);
+        $scope.otherTech.splice($index, 1);
+
+        console.log(evalExploreModel.reliedUponTechnology);
+        // evalExploreModel.reliedUponTechnology.splice($index,1);
         // We need this timeout to prevent Angular UI from throwing an error
         $timeout(function () {
             angular.element($event.delegateTarget)

@@ -7,7 +7,6 @@
 : ['EXPLORE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
 
 <form>
-
   <h2>
     {{'EXPLORE.HD_RELIEDUP_TECH' | translate }}&nbsp;<info-button
     label="{{'COMMON.BTN_INFO' | translate}}" target="inf_reliedup_tech"
@@ -28,18 +27,27 @@
 </label>
   </ul> -->
   <div class="row">
-  <ul ng-repeat="techList in techLists" class="col-sm-3">
-    <li ng-repeat="tech in techList">
-      <input type="checkbox" for=""
+  <ul class="col-sm-9 known-tech">
+    <li ng-repeat="tech in knownTech">
+      <input type="checkbox"
+      id="{{ tech.title | makeId }}"
       ng-model="tech.checked" ng-change="changeTech(tech)">
-      <label id="">
+      <label for="{{ tech.title | makeId }}">
         {{tech.title}}
+      </label>
+    </li>
+    <li>
+      <input type="checkbox" id="other"
+      ng-model="rootHide.OtherTech">
+      <label for="other">
+        {{:: 'EXPLORE.LABEL_OTHER' | translate }}
       </label>
     </li>
   </ul>
   </div>
 
   <div class="form-group key-value-group"
+  collapse="!rootHide.OtherTech"
   ng-init="col0 = 'visible-xs col-xs-12';
            col1 = 'col-xs-9 col-sm-4 col-md-3 form-block right-col';
            col2 = 'col-xs-9 col-sm-7 col-md-8 form-block right-col';
@@ -50,9 +58,9 @@
            delButton = 'btn glyphicon glyphicon-remove-sign'">
     <header ng-class="head" aria-hidden="true">
       <div ng-class="col1">
-        {{'EXPLORE.LABEL_TECH' | translate}}
+        {{:: 'EXPLORE.LABEL_TECH' | translate}}
       </div> <div ng-class="col2">
-        {{'EXPLORE.LABEL_TECH_SPEC' | translate}}
+        {{:: 'EXPLORE.LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
 
@@ -61,7 +69,7 @@
     </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"
-    ng-repeat="tech in exploreModel.reliedUponTechnology">
+    ng-repeat="tech in otherTech">
       <legend ng-class="col0">
         {{ 'EXPLORE.LABEL_TECH' | translate }} {{$index+1}}
       </legend>
@@ -70,8 +78,9 @@
         {{'EXPLORE.LABEL_TECH' | translate}}:
       </label> <div ng-class="col1">
         <input type="text" class="form-control"
-        id="tech_{{$index}}" list="data_tech_titles"
-        ng-model="tech.title" ng-change="updateSpec(tech)"
+        id="tech_{{$index}}"
+        ng-blur="updateOtherTech(tech)"
+        ng-model="tech.title"
         shy-placeholder="'EXPLORE.PLH_TECH' | translate">
       </div>
 
@@ -79,7 +88,8 @@
         {{'EXPLORE.LABEL_TECH_SPEC' | translate }}:
       </label> <div ng-class="col2">
         <input type="text" class="form-control"
-        id="tech_spec_{{$index}}" list="data_tech_specs"
+        id="tech_spec_{{$index}}"
+        ng-blur="updateOtherTech(tech)"
         ng-model="tech.id"
         shy-placeholder="'EXPLORE.PLH_TECH_SPEC' | translate">
       </div>
@@ -88,7 +98,7 @@
         <button ng-class="delButton"
         ng-click="removeTechnology($index, $event)"
         tooltips tooltip-side="top" tooltip-try="0"
-        tooltip-title="{{'BTN_REMOVE_TECH' | translate}}">
+        tooltip-title="{{'EXPLORE.BTN_REMOVE_TECH' | translate}}">
           <span class="sr-only">
             {{'EXPLORE.BTN_REMOVE_TECH' | translate}}
           </span>

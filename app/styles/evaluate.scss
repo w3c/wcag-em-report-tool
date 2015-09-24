@@ -31,7 +31,20 @@ table {
 .panel.panel-primary .panel-heading {
     color:white;
 }
-
+.known-tech {
+    column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    min-height: auto;
+    list-style:none;
+    label {
+        display:inline-block;
+        padding:3px;
+        font-weight:100;
+        margin-bottom:0;
+        &::after { margin-bottom:0;}
+    }
+}
 .to-top {
     text-align: right;
     margin-top: -18px;
