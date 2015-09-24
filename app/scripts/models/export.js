@@ -1,7 +1,6 @@
 'use strict';
 /**
- * Originally created by Justin Marsan
- * https://github.com/justinmarsan/wcag.json
+ * 
  */
 angular.module('wcagReporter')
 .factory('wcagReporterExport', function(evalModel, reportStorage) {
@@ -12,18 +11,18 @@ angular.module('wcagReporter')
 			type: 'evaluation',
 			'id': evalModel.id
 		};
-		
-		jsonLd.evaluationScope =  evalModel.scopeModel.exportData();
-		jsonLd.auditResult =  evalModel.testModel.exportData();
 
-		angular.extend(jsonLd, 
+		jsonLd.evaluationScope =  evalModel.scopeModel.exportData();
+		jsonLd.auditResult =  evalModel.auditModel.exportData();
+
+		angular.extend(jsonLd,
 			evalModel.reportModel.exportData(),
 			evalModel.sampleModel.exportData(),
 			evalModel.exploreModel.exportData());
-		
+
 		return jsonLd;
 	}
-	
+
 	var exportModel = {
 
 		storage: reportStorage,
@@ -33,7 +32,7 @@ angular.module('wcagReporter')
 		},
 
 		getJson: function () {
-			return { 
+			return {
 				'@graph': [getJsonLd()].concat(evalModel.otherData)
 			};
 		},
@@ -71,7 +70,7 @@ angular.module('wcagReporter')
 			' evaluation report');
 			ext = ext || 'json';
 			title = title.trim();
-			
+
 			return title.replace(/(^\-+|[^a-zA-Z0-9\/_| -]+|\-+$)/g, '')
             .toLowerCase()
             .replace(/[\/_| -]+/g, '-') + '.' + ext;

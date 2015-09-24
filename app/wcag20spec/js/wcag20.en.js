@@ -9,7 +9,7 @@ try {
  * https://github.com/justinmarsan/wcag.json
  */
 angular.module('wcag20spec')
-.factory('wcag20spec_en', function () {
+.factory('wcag20specEn', function () {
   return {
       "principles": [
           {

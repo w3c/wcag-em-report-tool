@@ -23,10 +23,14 @@ module.exports = function(config) {
       'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
+      'app/wcag20spec/**/*.js',
       'app/scripts/promise-1.0.0.js',
+      'app/scripts/jsonld.js',
       'app/scripts/**/{,*/}*.js',
-      // 'test/mock/**/*.js',
+      'app/scripts/app.js',
+      'test/dummyData.js',
       'test/spec/**/{,*/}*.js'
+      // 'test/mock/**/*.js',
     ],
 
     // list of files / patterns to exclude

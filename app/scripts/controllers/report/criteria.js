@@ -6,7 +6,7 @@ angular.module('wcagReporter')
     evalAuditModel.updateToConformance();
 
     $scope.principles = wcag20spec.getPrinciples();
-    $scope.testModel = evalAuditModel;
+    $scope.auditModel = evalAuditModel;
     $scope.critOpt = {
         editable: false,       collapsed: false,
         showallpages: false,   hideCollapseBtn: true

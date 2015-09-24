@@ -1,13 +1,12 @@
 'use strict';
 /**
- * Originally created by Justin Marsan
- * https://github.com/justinmarsan/wcag.json
+ *
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function(wcag20spec_en) {
+.factory('wcag20spec', function(wcag20specEn) {
     var guidelines, criteria,
         criteriaObj = {};
-    
+
     function pluck(prop) {
         return function (a, b) {
             if (!angular.isArray(a)) {
@@ -18,15 +17,17 @@ angular.module('wcagReporter')
     }
 
     // Concat all guidelines arrays of each principle
-    guidelines = wcag20spec_en.principles
+    guidelines = wcag20specEn.principles
     .reduce(pluck('guidelines'), []);
-    
+
     // Concat all criteria arrays of each guideline
     criteria   = guidelines.reduce(pluck('successcriteria'), []);
 
     // Make an object of the criteria array with uri as keys
+    console.log('fix "wcag2:" to "WCAG20:" issue');
     criteria.forEach(function (criterion) {
-        criteriaObj[criterion.uri] = criterion;
+        criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
+        criteriaObj[criterion.id] = criterion;
     });
 
     return {
@@ -36,11 +37,11 @@ angular.module('wcagReporter')
         getCriteria: function () {
             return criteria;
         },
-        getCriterion: function (uri) {
-            return criteriaObj[uri];
+        getCriterion: function (id) {
+            return criteriaObj[id];
         },
         getPrinciples: function () {
-            return wcag20spec_en.principles;
+            return wcag20specEn.principles;
         }
     };
 });
