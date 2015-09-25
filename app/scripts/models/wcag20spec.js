@@ -24,7 +24,6 @@ angular.module('wcagReporter')
     criteria   = guidelines.reduce(pluck('successcriteria'), []);
 
     // Make an object of the criteria array with uri as keys
-    console.log('fix "wcag2:" to "WCAG20:" issue');
     criteria.forEach(function (criterion) {
         criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
         criteriaObj[criterion.id] = criterion;
