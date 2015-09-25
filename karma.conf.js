@@ -23,6 +23,7 @@ module.exports = function(config) {
       'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
+      'app/bower_components/angular-tooltips/dist/angular-tooltips.min.js',
       'app/wcag20spec/**/*.js',
       'app/scripts/promise-1.0.0.js',
       'app/scripts/jsonld.js',
