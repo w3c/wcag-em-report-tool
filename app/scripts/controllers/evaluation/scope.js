@@ -3,8 +3,8 @@
 angular.module('wcagReporter')
 .controller('EvalScopeCtrl', function ($scope, appState,
 evalScopeModel, $location, $filter) {
-	$scope.state = appState.moveToState('scope');
-	$scope.evalScope = evalScopeModel;
+	$scope.state      = appState.moveToState('scope');
+	$scope.scopeModel = evalScopeModel;
 
 	$scope.conformanceOptions = evalScopeModel.conformanceOptions
 	.reduce(function (tgt, lvl) {
