@@ -1,22 +1,33 @@
 'use strict';
+var ctrlName  = 'EvalSampleCtrl';
+var modelName = 'sampleModel';
 
-describe('Controller: EvalSampleCtrl', function () {
+describe('Controller: ' + ctrlName, function () {
 
     // load the service's module
     beforeEach(module('wcagReporter'));
 
     var scope;
     var ctrl;
-    var sampleModel;
+    var model;
 
-    beforeEach(inject(function($controller, $rootScope, _evalModel_) {
+    beforeEach(inject(function($controller, $rootScope, evalModel) {
         scope = $rootScope.$new();
-        ctrl  = $controller('EvalSampleCtrl', { $scope: scope });
-        sampleModel    = _evalModel_.sampleModel;
+        ctrl  = $controller(ctrlName, { $scope: scope });
+        model = evalModel[modelName];
     }));
 
-    xit('Should be able to update the evalSampleModel', function () {
-        expect(scope.sampleModel).toBe(sampleModel);
+    it('Should be able to update the evalModel.' + modelName, function () {
+        expect(scope[modelName]).toBe(model);
     });
+
+    xit('should allow access to structured & random sample');
+
+
+    xit('should track number of random pages to use');
+
+    // getPageAdder, getPageRemover
+    xit('should add and remove pages to a sample');
+
 
 });
