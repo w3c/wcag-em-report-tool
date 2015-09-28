@@ -6,7 +6,6 @@ evalExploreModel, evalAuditModel, $location) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
-    $scope.knownTech = evalExploreModel.knownTech;
 
     $scope.updateSpec = function (tech) {
         if (techMap[tech.title]) {
@@ -14,11 +13,12 @@ evalExploreModel, evalAuditModel, $location) {
         }
     };
 
-    var knownTech    = angular.copy(evalExploreModel.knownTech);
+    $scope.knownTech = angular.copy(evalExploreModel.knownTech);
     $scope.otherTech = [];
+
     // set relied upon technologies in the right field
     evalExploreModel.reliedUponTechnology.forEach(function (tech) {
-        var index = knownTech
+        var index = $scope.knownTech
         .reduce(function(index, currTech, currIndex) {
             if (currTech.id === tech.id && currTech.title === tech.title) {
                 return currIndex;
@@ -28,7 +28,7 @@ evalExploreModel, evalAuditModel, $location) {
 
         // Set checkboxes for known fields
         if (index !== -1) {
-           knownTech[index].checked = true;
+           $scope.knownTech[index].checked = true;
         } else {
         // Push the tech to the other tech field
             $scope.otherTech.push(tech);
@@ -41,8 +41,6 @@ evalExploreModel, evalAuditModel, $location) {
     } else {
         $scope.rootHide.OtherTech = $scope.rootHide.OtherTech || true;
     }
-
-    $scope.techLists = knownTech;
 
     $scope.changeTech = function (tech) {
         if (tech.checked) {
@@ -61,13 +59,12 @@ evalExploreModel, evalAuditModel, $location) {
 
     $scope.updateOtherTech = function (tech) {
         var index   = evalExploreModel.reliedUponTechnology.indexOf(tech);
-        var isEmpty = !!tech.title || !!tech.id;
-        if (index === -1 && isEmpty) {
+        var isEmpty = !tech.title && !tech.id;
+        if (index === -1 && !isEmpty) {
             evalExploreModel.reliedUponTechnology.push(tech);
-        } else if (index !== -1 && !isEmpty) {
+        } else if (index !== -1 && isEmpty) {
             evalExploreModel.reliedUponTechnology.splice(index, 1);
         }
-        console.log(evalExploreModel.reliedUponTechnology);
     };
 
 
@@ -75,11 +72,13 @@ evalExploreModel, evalAuditModel, $location) {
         $scope.otherTech.push({});
 
         //evalExploreModel.addReliedUponTech();
-        var button = angular.element($event.delegateTarget);
-        $timeout(function () {
-            var inputs = button.prev().find('input');
-            inputs[inputs.length-2].select();
-        }, 100);
+        if ($event) {
+            var button = angular.element($event.delegateTarget);
+            $timeout(function () {
+                var inputs = button.prev().find('input');
+                inputs[inputs.length-2].select();
+            }, 100);
+        }
     };
 
 
@@ -89,22 +88,22 @@ evalExploreModel, evalAuditModel, $location) {
         evalExploreModel.reliedUponTechnology.splice(index, 1);
         $scope.otherTech.splice($index, 1);
 
-        console.log(evalExploreModel.reliedUponTechnology);
         // evalExploreModel.reliedUponTechnology.splice($index,1);
         // We need this timeout to prevent Angular UI from throwing an error
-        $timeout(function () {
-            angular.element($event.delegateTarget)
-            .closest('fieldset').parent()
-            .children().last()
-            .focus();
-        });
+        if ($event) {
+            $timeout(function () {
+                angular.element($event.delegateTarget)
+                .closest('fieldset').parent()
+                .children().last()
+                .focus();
+            });
+        }
     };
 
     var techMap = {};
-    evalExploreModel.knownTech.forEach(function (knownTech) {
+    $scope.knownTech.forEach(function (knownTech) {
         techMap[knownTech.title] = knownTech.id;
     });
-
 
     $scope.processInput = function () {
         var errors = evalExploreModel.validate();
