@@ -32,7 +32,6 @@ evalExploreModel, evalSampleModel, evalAuditModel) {
         return function (index) {
             var page = evalSampleModel.removePage(sample, index);
             evalAuditModel.removePageFromAsserts(page);
-            evalExploreModel.updatePages();
         };
     };
 

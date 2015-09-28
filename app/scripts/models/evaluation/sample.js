@@ -83,9 +83,9 @@ angular.module('wcagReporter')
 
     sampleModel.addNewPage = function (sample) {
         if (sample === sampleModel.randomSample) {
-            sampleModel.addNewRandomPage();
+            return sampleModel.addNewRandomPage();
         } else {
-            sampleModel.addNewStructuredPage();
+            return sampleModel.addNewStructuredPage();
         }
     };
 
