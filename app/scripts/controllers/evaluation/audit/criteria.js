@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditPrinciplesCtrl', function ($scope, evalAuditModel, evalScopeModel,
+.controller('AuditCriteriaCtrl', function ($scope, evalAuditModel, evalScopeModel,
 wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 
     evalAuditModel.updateToConformance();
