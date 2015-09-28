@@ -1,9 +1,6 @@
 'use strict';
-
-var ctrlName  = 'EvalReportCtrl';
-var modelName = 'reportModel';
-
-describe('Controller: ' + ctrlName, function () {
+describe('Controller: EvalReportCtrl', function () {
+    var modelName = 'reportModel';
 
     // load the service's module
     beforeEach(module('wcagReporter'));
@@ -14,7 +11,7 @@ describe('Controller: ' + ctrlName, function () {
 
     beforeEach(inject(function($controller, $rootScope, _evalModel_) {
         scope = $rootScope.$new();
-        ctrl  = $controller(ctrlName, { $scope: scope });
+        ctrl  = $controller('EvalReportCtrl', { $scope: scope });
         model = _evalModel_[modelName];
     }));
 

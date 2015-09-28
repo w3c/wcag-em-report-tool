@@ -1,7 +1,5 @@
 'use strict';
-var ctrlName  = 'AuditSamplePagesCtrl';
-
-describe('Controller: ' + ctrlName, function () {
+describe('Controller: AuditSamplePagesCtrl', function () {
 
     // load the service's module
     beforeEach(module('wcagReporter'));
@@ -11,7 +9,7 @@ describe('Controller: ' + ctrlName, function () {
 
     beforeEach(inject(function($controller, $rootScope, evalModel) {
         scope = $rootScope.$new();
-        ctrl  = $controller(ctrlName, { $scope: scope });
+        ctrl  = $controller('AuditSamplePagesCtrl', { $scope: scope });
     }));
 
     xit('allows access to structured and random sample');

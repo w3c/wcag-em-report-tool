@@ -39,7 +39,8 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
         'A': 'wcag20:level_a',
         'AA': 'wcag20:level_aa',
         'AAA': 'wcag20:level_aaa'
-    }
+    };
+
     $scope.isCriterionVisible = function (critSpec) {
 		var critAssert;
         var critLevel = levelMap[critSpec.level];

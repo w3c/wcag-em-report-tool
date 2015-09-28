@@ -1,7 +1,6 @@
 'use strict';
-var ctrlName  = 'AuditCriteriaCtrl';
 
-describe('Controller: ' + ctrlName, function () {
+describe('Controller: AuditCriteriaCtrl', function () {
 
     // load the service's module
     beforeEach(module('wcagReporter'));
@@ -11,7 +10,7 @@ describe('Controller: ' + ctrlName, function () {
 
     beforeEach(inject(function($controller, $rootScope, evalModel) {
         scope = $rootScope.$new();
-        ctrl  = $controller(ctrlName, { $scope: scope });
+        ctrl  = $controller('AuditCriteriaCtrl', { $scope: scope });
     }));
 
     xit('knows what criteria to show based on critFilter');
