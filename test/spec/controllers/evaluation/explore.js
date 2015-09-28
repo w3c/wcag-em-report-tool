@@ -1,22 +1,24 @@
 'use strict';
+var ctrlName  = 'EvalSampleCtrl';
+var modelName = 'sampleModel';
 
-describe('Controller: EvalExploreCtrl', function () {
+describe('Controller: ' + ctrlName, function () {
 
     // load the service's module
     beforeEach(module('wcagReporter'));
 
     var scope;
     var ctrl;
-    var exploreModel;
+    var model;
 
-    beforeEach(inject(function($controller, $rootScope, _evalModel_) {
+    beforeEach(inject(function($controller, $rootScope, evalModel) {
         scope = $rootScope.$new();
-        ctrl  = $controller('EvalExploreCtrl', { $scope: scope });
-        exploreModel    = _evalModel_.exploreModel;
+        ctrl  = $controller(ctrlName, { $scope: scope });
+        model = evalModel[modelName];
     }));
 
-    it('Should be able to update the evalScopeModel', function () {
-        expect(scope.exploreModel).toBe(exploreModel);
+    it('Should be able to update the evalModel.' + modelName, function () {
+        expect(scope[modelName]).toBe(model);
     });
 
     xit('should add known technologies by checking them');
