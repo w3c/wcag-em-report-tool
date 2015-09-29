@@ -32,7 +32,6 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 	    	}
 	    });
     	$rootScope.rootHide.criteria = $scope.critFilter;
-        console.log($scope.critFilter);
     }
 
     var levelMap = {

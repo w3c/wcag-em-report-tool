@@ -6,18 +6,21 @@ evalExploreModel, evalSampleModel, evalAuditModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
-    $scope.randomSample = evalSampleModel.randomSample;
+    $scope.randomSample     = evalSampleModel.randomSample;
 
-    $scope.exploreModel = evalExploreModel;
+    $scope.exploreModel     = evalExploreModel;
+
+    evalAuditModel.updateToConformance();
 
     if ($scope.structuredSample &&
     $scope.structuredSample.webpage.length === 0) {
-        evalSampleModel.addNewStructuredPage();
-    }
+        var strPage = evalSampleModel.addNewStructuredPage();
+        evalAuditModel.addPageForAsserts(strPage);
 
-    if ($scope.randomSample &&
-    $scope.randomSample.webpage.length === 0) {
-        evalSampleModel.addNewRandomPage();
+        if ($scope.randomSample &&
+        $scope.randomSample.webpage.length === 1) {
+            evalAuditModel.addPageForAsserts($scope.randomSample.webpage[0]);
+        }
     }
 
     $scope.getPageAdder = function (sample) {

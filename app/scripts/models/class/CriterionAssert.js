@@ -41,6 +41,9 @@ TestCaseAssert, wcag20spec, currentUser) {
 
         this.removePage = function (page) {
             var parts = this.hasPart;
+            var x = parts.map(function (assert) {
+                return assert.subject[0].id;
+            });
             parts.forEach(function (assert, partIndex) {
                 var subjIndex = assert.subject.indexOf(page);
                 if (subjIndex !== -1) {
@@ -51,6 +54,7 @@ TestCaseAssert, wcag20spec, currentUser) {
                     }
                 }
             });
+            // console.log(x, parts.length, page.id);
         };
     }
 

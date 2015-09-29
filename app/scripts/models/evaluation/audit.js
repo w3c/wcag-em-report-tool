@@ -96,9 +96,9 @@ evalScopeModel, wcag20spec, CriterionAssert) {
 
         updateToConformance: function () {
             wcag20spec.getCriteria().forEach(function (spec) {
-                if (typeof auditModel.criteria[spec.uri] === 'undefined') {
+                if (typeof auditModel.criteria[spec.id] === 'undefined') {
                     auditModel.addCritAssert({
-                        'testRequirement': spec.uri
+                        'testRequirement': spec.id
                     });
                 }
             });
