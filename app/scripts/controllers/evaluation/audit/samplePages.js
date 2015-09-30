@@ -63,7 +63,7 @@ angular.module('wcagReporter')
     	var selected = getSelected();
     	var pages = getPages();
     	// Find the index of the last selected page
-    	var lastIndex = pages.indexOf(selected[$scope.auditSize-1]);
+    	var lastIndex = pages.indexOf(selected[selected.length-1]);
 
     	// Remove current selection
     	selected.forEach(function (page) {
@@ -75,7 +75,6 @@ angular.module('wcagReporter')
     	if (lastIndex === pages.length-1) {
     		lastIndex = 0;
     	}
-
     	for (var i=1; i <= $scope.auditSize; i++) {
     		if (lastIndex + i < pages.length) {
     			pages[lastIndex + i].selected = true;
