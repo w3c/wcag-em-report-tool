@@ -26,9 +26,20 @@ evalExploreModel, evalSampleModel, evalAuditModel) {
 
     $scope.getPageAdder = function (sample) {
         return function () {
-            var page = evalSampleModel.addNewPage(sample);
-            evalAuditModel.addPageForAsserts(page);
-            return page;
+            var strPage = evalSampleModel.addNewPage(sample);
+            evalAuditModel.addPageForAsserts(strPage);
+            var strSize = $scope.structuredSample.webpage.length;
+
+            // Add a random page if it's one off
+            var randomSampleSize = Math.ceil(strSize / 10);
+            if ($scope.randomSample.webpage.length+1 === randomSampleSize &&
+                strSize % 10 === 1) {
+                var rndPage = evalSampleModel
+                .addNewPage($scope.randomSample);
+                evalAuditModel.addPageForAsserts(rndPage);
+            }
+
+            return strPage;
         };
     };
 

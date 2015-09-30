@@ -75,45 +75,54 @@ describe('Controller: EvalSampleCtrl', function () {
         expect(critIds.length).not.toBe(0);
 
         // Default pages
-        var page1    = model.structuredSample.webpage[0];
-        var page2    = model.randomSample.webpage[0];
+        var struct0 = model.structuredSample.webpage[0];
+        var rand0   = model.randomSample.webpage[0];
 
         critIds.forEach(function(critId) {
-            expect(criteria[critId].hasPart[0].subject[0]).toBe(page1);
-            expect(criteria[critId].hasPart[1].subject[0]).toBe(page2);
+            expect(criteria[critId].hasPart[0].subject[0]).toBe(struct0);
+            expect(criteria[critId].hasPart[1].subject[0]).toBe(rand0);
         });
 
 
-        var sample     = model.structuredSample;
-        var addPage    = scope.getPageAdder(sample);
-        var removePage = scope.getPageRemover(sample);
+        var sample        = model.structuredSample;
+        var addStrPage    = scope.getPageAdder(sample);
+        var removeStrPage = scope.getPageRemover(sample);
 
-        var page3      = addPage();
+        var struct1 = addStrPage();
         critIds.forEach(function(critId) {
             expect(criteria[critId].hasPart.length).toBe(3);
             var pageAssert = criteria[critId].hasPart[2];
-            expect(pageAssert.subject[0]).toBe(page3);
+            expect(pageAssert.subject[0]).toBe(struct1);
         });
 
-        var page4   = addPage();
+        var struct2 = addStrPage();
         critIds.forEach(function(critId) {
             expect(criteria[critId].hasPart.length).toBe(4);
             var pageAssert = criteria[critId].hasPart[3];
-            expect(pageAssert.subject[0]).toBe(page4);
+            expect(pageAssert.subject[0]).toBe(struct2);
         });
 
-        removePage(2);
+        removeStrPage(0); // removes struct0 from structuredSample
         critIds.forEach(function(critId) {
             expect(criteria[critId].hasPart.length).toBe(3);
             var pageAssert = criteria[critId].hasPart[2];
-            expect(pageAssert.subject[0]).toBe(page4);
+            expect(pageAssert.subject[0]).toBe(struct2);
         });
 
-        removePage(2);
+        removeStrPage(0); // remove struct1 from structuredSample
         critIds.forEach(function(critId) {
             expect(criteria[critId].hasPart.length).toBe(2);
         });
 
+    });
+
+    it('adds random pages as the structured sample grows', function () {
+        var addStrPage    = scope.getPageAdder(model.structuredSample);
+        for (var i=0; i < 40; i++) {
+            addStrPage();
+            expect(model.randomSample.webpage.length)
+            .toBe(Math.ceil(model.structuredSample.webpage.length / 10));
+        }
     });
 
 });
