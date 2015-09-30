@@ -51,23 +51,13 @@ angular.module('wcagReporter')
     };
 
     sampleModel.addNewStructuredPage = function () {
-        var minRndSmpl, i,
-        sample = sampleModel.structuredSample,
+        var sample = sampleModel.structuredSample,
         page = new Page(),
         num = getAvailablePageNum(sample);
 
         sample.webpage.push(page);
         page.id = '_:struct_' + num;
         page.handle = '';
-
-        minRndSmpl = Math
-        .ceil(sample.webpage.length / 10);
-        i = minRndSmpl - sampleModel.randomSample.webpage.length;
-
-        while (i > 0) {
-            sampleModel.addNewRandomPage();
-            i -= 1;
-        }
         return page;
     };
 

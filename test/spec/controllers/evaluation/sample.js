@@ -77,6 +77,7 @@ describe('Controller: EvalSampleCtrl', function () {
         // Default pages
         var page1    = model.structuredSample.webpage[0];
         var page2    = model.randomSample.webpage[0];
+
         critIds.forEach(function(critId) {
             expect(criteria[critId].hasPart[0].subject[0]).toBe(page1);
             expect(criteria[critId].hasPart[1].subject[0]).toBe(page2);

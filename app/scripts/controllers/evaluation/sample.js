@@ -18,8 +18,9 @@ evalExploreModel, evalSampleModel, evalAuditModel) {
         evalAuditModel.addPageForAsserts(strPage);
 
         if ($scope.randomSample &&
-        $scope.randomSample.webpage.length === 1) {
-            evalAuditModel.addPageForAsserts($scope.randomSample.webpage[0]);
+        $scope.randomSample.webpage.length === 0) {
+            var rndPage = evalSampleModel.addNewRandomPage();
+            evalAuditModel.addPageForAsserts(rndPage);
         }
     }
 
