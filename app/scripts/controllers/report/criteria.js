@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCriteriaCtrl', function ($scope, wcag20spec, evalAuditModel) {
+.controller('ReportCriteriaCtrl',
+function ($scope, wcag20spec, evalAuditModel, evalScopeModel, CriterionAssert) {
 
     evalAuditModel.updateToConformance();
 
@@ -13,5 +14,13 @@ angular.module('wcagReporter')
     };
 
     $scope.getCritAssert = evalAuditModel.getCritAssert;
+    $scope.shouldCritRender = function (critSpec) {
+        if (evalScopeModel.matchConformTarget(critSpec.level)) {
+            return true;
 
+        } else {
+            var critAssert = $scope.getCritAssert(critSpec.id);
+            return CriterionAssert.isDefined(critAssert);
+        }
+    };
 });

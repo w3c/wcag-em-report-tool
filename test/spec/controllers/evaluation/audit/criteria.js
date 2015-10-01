@@ -100,8 +100,8 @@ describe('Controller: AuditCriteriaCtrl', function () {
 
     it('finds assertions based on criteria IDs', function () {
         criteria.forEach(function (critSpec) {
-            var assert = scope.getCritAssert(critSpec.uri);
-            expect(assert).toBe(0);
+            var assert = scope.getCritAssert(critSpec.id);
+            expect(assert.testRequirement).toBe(critSpec.id);
         });
     });
 
