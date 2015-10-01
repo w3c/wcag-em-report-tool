@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('EvalExploreCtrl', function ($scope, appState, $timeout,
-evalExploreModel, evalAuditModel, $location) {
+.controller('EvalExploreCtrl',
+function ($scope, appState, $timeout, evalExploreModel) {
 
     $scope.state = appState.moveToState('explore');
     $scope.exploreModel = evalExploreModel;
@@ -105,27 +105,5 @@ evalExploreModel, evalAuditModel, $location) {
         techMap[knownTech.title] = knownTech.id;
     });
 
-    $scope.processInput = function () {
-        var errors = evalExploreModel.validate();
-
-        if (errors.length > 0) {
-            // display errors
-            // prevent default
-        } else {
-            evalExploreModel.updateSample();
-            // continue to next step
-        }
-    };
-
-    $scope.nextStep = function () {
-        $location.path('/evaluation/sample');
-    };
-
-    $scope.previousStep = function () {
-        $location.path('/evaluation/scope');
-    };
-
-    $scope.nextStepName = 'STEP_SAMPLE';
-    $scope.previousStepName = 'STEP_SCOPE';
 
 });

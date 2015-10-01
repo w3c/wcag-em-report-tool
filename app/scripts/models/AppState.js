@@ -11,15 +11,35 @@ angular.module('wcagReporter')
         empty: true,
         currentStateIndex: 0,
         maxStateIndex: 0,
-        stateList: [
-            {name: 'start',     route:'#/',   copmlete: false},
-            {name: 'scope',     route:'#/evaluation/scope',   copmlete: false},
-            {name: 'explore',   route:'#/evaluation/explore', copmlete: false},
-            {name: 'sample',    route:'#/evaluation/sample',  copmlete: false},
-            {name: 'audit',     route:'#/evaluation/audit',   copmlete: false},
-            {name: 'report',    route:'#/evaluation/report',  copmlete: false},
-            {name: 'export',      route:'#/report',    copmlete: false}
-        ]
+        stateList: [{
+            name: 'start',
+            route:'/',
+            copmlete: false
+        }, {
+            name: 'scope',
+            route:'/evaluation/scope',
+            copmlete: false
+        }, {
+            name: 'explore',
+            route:'/evaluation/explore',
+            copmlete: false
+        }, {
+            name: 'sample',
+            route:'/evaluation/sample',
+            copmlete: false
+        }, {
+            name: 'audit',
+            route:'/evaluation/audit',
+            copmlete: false
+        }, {
+            name: 'report',
+            route:'/evaluation/report',
+            copmlete: false
+        }, {
+            name: 'export',
+            route:'/report',
+            copmlete: false
+        }]
     };
 
     function warningFn (){
@@ -45,6 +65,14 @@ angular.module('wcagReporter')
 	  		appState.maxStateIndex = newIndex;
 	  	}
     	return appState;
+    };
+
+    appState.getPreviousState = function () {
+        return appState.stateList[appState.currentStateIndex-1];
+    };
+
+    appState.getNextState = function () {
+        return appState.stateList[appState.currentStateIndex+1];
     };
 
     appState.setPrestineState = function () {

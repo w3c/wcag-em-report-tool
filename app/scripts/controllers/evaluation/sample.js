@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('EvalSampleCtrl', function ($scope, appState, $location,
-evalExploreModel, evalSampleModel, evalAuditModel) {
+.controller('EvalSampleCtrl',
+function ($scope, appState, evalExploreModel,
+          evalSampleModel, evalAuditModel) {
     $scope.state = appState.moveToState('sample');
 
     $scope.structuredSample = evalSampleModel.structuredSample;
@@ -54,26 +55,5 @@ evalExploreModel, evalSampleModel, evalAuditModel) {
         return Math
         .ceil($scope.structuredSample.webpage.length / 10);
     };
-
-    $scope.processInput = function () {
-        var errors = evalSampleModel.validate();
-        if (errors.length > 0) {
-            // display errors
-            // prevent default
-        } else {
-            // continue to next step
-        }
-    };
-
-    $scope.nextStep = function () {
-        $location.path('/evaluation/audit');
-    };
-
-    $scope.previousStep = function () {
-        $location.path('/evaluation/explore');
-    };
-
-    $scope.nextStepName = 'STEP_AUDIT';
-    $scope.previousStepName = 'STEP_EXPLORE';
 
 });

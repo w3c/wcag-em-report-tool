@@ -22,9 +22,9 @@ angular.module('wcagReporter').directive('wreStepbar', function() {
                 scope.route = scope.step.route;
             }
         },
-        template: 
+        template:
             '<li ng-class="{active:active()}" class="wizard-step">' +
-            '<a ng-href="{{route}}">'+
+            '<a ng-href="{{\'#\' + route}}">'+
             '<span ng-transclude></span></a>' +
             '</li>'
     };
