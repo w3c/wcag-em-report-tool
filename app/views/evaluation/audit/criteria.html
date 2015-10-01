@@ -28,11 +28,10 @@
 
       <div collapse="g.showCritera">
         <success-criterion class="appear"
-        ng-init="opt = {editable: true, collapses: true};
-                 crit = getCritAssert(critSpec.uri)"
+        ng-init="opt = {editable: true, collapses: true}"
         ng-repeat="critSpec in g.successcriteria"
         ng-if="isCriterionVisible(critSpec)"
-        assertion="getCritAssert(critSpec.uri)"
+        assertion="getCritAssert(critSpec.id)"
         requirement="critSpec" options="opt">
         </success-criterion>
 
