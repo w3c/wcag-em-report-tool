@@ -21,7 +21,7 @@ angular.module('wcagReporter')
         link: function (scope) {
             // scope.outcomes = outcomes;
             scope.rootHide = $rootScope.rootHide;
-            scope.critHide = scope.spec.number + '-cb';
+            scope.critHide = scope.spec.id + '-cb';
             scope.getClassName = function (state) {
                 return className[state];
             };
