@@ -14,7 +14,7 @@ angular.module('wcagReporter')
 
     $scope.scores = wcag20spec.getPrinciples().map(function (p) {
         var result = {
-            name:  p.number + '. ' + p.title,
+            name:  p.num + '. ' + p.handle,
             'earl:passed': 0,
             'earl:failed': 0,
             'earl:inapplicable': 0,
