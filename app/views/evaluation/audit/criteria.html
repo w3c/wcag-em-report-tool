@@ -1,4 +1,4 @@
-<div ng-controller="AuditPrinciplesCtrl">
+<div ng-controller="AuditCriteriaCtrl">
   <h2>
     {{ 'AUDIT.HD_CRITERIA' | translate}}&nbsp;<info-button
     label="{{'COMMON.BTN_INFO' | translate}}" target="inf_audit_criteria"
@@ -15,24 +15,23 @@
   <div ng-repeat="p in principles"
   ng-if="isPrincipleVisible(p)" class="appear-tall">
     <h3><button-collapse target="p" property="showGuideline">
-        <!-- {{ 'AUDIT.PRINCIPLE' | translate}} {{p.num}} -->
-        {{p.title}}
+        {{ 'AUDIT.PRINCIPLE' | translate}}
+        {{p.num + ' ' + p.handle}}
     </button-collapse></h3>
 
     <div ng-repeat="g in p.guidelines"
     ng-if="isGuidelineVisible(g)"
     collapse="p.showGuideline" class="appear">
       <h4><button-collapse target="g" property="showCritera">
-          {{g.num}} {{g.title}}
+          {{g.num}} {{g.handle}}
       </button-collapse></h4>
 
       <div collapse="g.showCritera">
         <success-criterion class="appear"
-        ng-init="opt = {editable: true, collapses: true};
-                 crit = getCritAssert(critSpec.uri)"
+        ng-init="opt = {editable: true, collapses: true}"
         ng-repeat="critSpec in g.successcriteria"
         ng-if="isCriterionVisible(critSpec)"
-        assertion="getCritAssert(critSpec.uri)"
+        assertion="getCritAssert(critSpec.id)"
         requirement="critSpec" options="opt">
         </success-criterion>
 

@@ -41,6 +41,9 @@ TestCaseAssert, wcag20spec, currentUser) {
 
         this.removePage = function (page) {
             var parts = this.hasPart;
+            var x = parts.map(function (assert) {
+                return assert.subject[0].id;
+            });
             parts.forEach(function (assert, partIndex) {
                 var subjIndex = assert.subject.indexOf(page);
                 if (subjIndex !== -1) {
@@ -51,6 +54,7 @@ TestCaseAssert, wcag20spec, currentUser) {
                     }
                 }
             });
+            // console.log(x, parts.length, page.id);
         };
     }
 
@@ -136,6 +140,21 @@ TestCaseAssert, wcag20spec, currentUser) {
         getSpec: function () {
             return wcag20spec.getCriterion(this.testRequirement);
         }
+    };
+
+    // Checks if an assert is empty
+    CriterionAssert.isDefined = function (critAssert) {
+        var hasPart = critAssert.hasPart
+        .reduce(function (hasPart, tcAssert) {
+            if (hasPart || tcAssert.isDefined()) {
+                return true;
+            } else {
+                return false;
+            }
+        }, false);
+
+        return hasPart || !!critAssert.result.description ||
+               critAssert.result.outcome !== 'earl:untested';
     };
 
     return CriterionAssert;

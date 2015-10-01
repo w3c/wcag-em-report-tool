@@ -4,8 +4,8 @@ angular.module('wcagReporter')
 .controller('EvalReportCtrl', function ($scope, appState,
 $location, evalSampleModel, evalReportModel) {
 
-    $scope.state = appState.moveToState('report');
-    $scope.report = evalReportModel;
+    $scope.state       = appState.moveToState('report');
+    $scope.reportModel = evalReportModel;
 
     $scope.processInput = function () {
         var errors = evalReportModel.validate();

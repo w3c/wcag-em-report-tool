@@ -1,4 +1,12 @@
-WCAG-EM Report tool is a tool to help web accessibility evaluators to audit websites according to the W3C's WCAG Evaluation Methodology. This tool is developed as part of the WAI-ACT Project.
+WCAG-EM Report tool is an assistent that takes the user
+through the process of evaluating the accessibility of a
+website, using the WCAG-EM Evaluation Methodoloty. The Report
+Tool runs entirely on the client and so it can be used offline
+and in any server configuration available to you. 
+
+The Report Tool does not save files to a server or in local 
+storage. Rather, load and save functions are available for
+storing an evaluation to your local file system.
 
 Important references:
 
@@ -12,8 +20,19 @@ See [Change log](changelog.md) for details about the latest version of WeRT.
 
 # Install
 
-Before you can use the WCAG-EM report tool you'll need to install the following components: `NodeJS` (with NPM), `grunt-cli` (NPM module), and `Ruby`. If you have any of these already installed make sure they are updated.
-Run:
+Before you can install the WCAG-EM Report tool you will need
+to install a few components:
+- NodeJS https://nodejs.org/en/
+- Ruby   https://www.ruby-lang.org/en/documentation/installation/
+
+In addition to these, you will need to install grunt cli. To do
+so run the following command. This will install the grunt
+command line interface in a global space on your machine.
+    
+    npm install grunt-cli -g
+
+Now with all global dependencies installed, the following 
+commands will install the app and its dependencies
 
     git clone git://github.com/w3c/wcag-em-report-tool.git
     gem install compass
@@ -28,6 +47,10 @@ You can launch a development version by running:
 To create a build in the /dist folder run:
 
     grunt build
+
+The build version can be hosted in on any server that available
+on http(s). WCAG-EM Report Tool runs in your local browser, so
+it only loads static files from the server.
 
 ## Localisation
 Files for localisation are part of the `app/locale/` directory. By default

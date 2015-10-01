@@ -29,7 +29,7 @@ angular.module('wcagReporter')
 
         }, []).forEach(function (crit) {
         // For each, set the result
-            var critResult = evalAuditModel.getCritAssert(crit.uri);
+            var critResult = evalAuditModel.getCritAssert(crit.id);
             if (critResult) {
                 result[critResult.result.outcome] += 1;
                 $scope.totals[critResult.result.outcome] += 1;

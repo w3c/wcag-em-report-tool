@@ -13,7 +13,7 @@
     "TESTED": "Tested",
     "HD_CRITERIA": "Success Criteria to Evaluate",
     "INF_AUDIT_CRITERIA": "This section lists the WCAG 2.0 success criteria at the level (A, AA, or AAA) that you set in the 'Conformance target' in Step 1. You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
-    "FILTER_CRITERIA": "Filter success criteria",
+    "FILTER": "Filter",
     "PRINCIPLE": "Principle",
     "NOTE": "Note",
     "BTN_SHOW_TEXT": "Show criterion text",

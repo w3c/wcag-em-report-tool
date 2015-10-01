@@ -17,7 +17,7 @@
     </div>
 
     <div class="col-sm-9">
-      <input type="text" ng-model="report.title"
+      <input type="text" ng-model="reportModel.title"
       class="form-control" id="dct_title" />
     </div>
 
@@ -40,7 +40,7 @@
     </div>
 
     <div class="col-sm-9">
-      <input ng-model="report.commissioner"
+      <input ng-model="reportModel.commissioner"
       type="text" class="form-control" id="commissioner" />
     </div>
     <div class="col-sm-12">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="col-sm-9">
-      <input ng-model="report.creator.name"
+      <input ng-model="reportModel.creator.name"
           type="text" class="form-control" id="creator" />
     </div>
 
@@ -81,7 +81,7 @@
     </div>
 
     <div class="col-sm-9">
-      <input type="text" ng-model="report.date"
+      <input type="text" ng-model="reportModel.date"
       class="form-control date" id="dct_date" />
     </div>
 
@@ -104,7 +104,7 @@
       <p>{{ 'REPORT.INF_SUMMARY' | translate }}</p>
     </info-field>
 
-    <textarea id="summary" ng-model="report.summary" auto-resize
+    <textarea id="summary" ng-model="reportModel.summary" auto-resize
     cols="30" rows="10" class="form-control"></textarea>
   </div></div>
 
@@ -121,7 +121,7 @@
       : ['REPORT.INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
     </info-field>
 
-  	<textarea id="specifics" ng-model="report.specifics" auto-resize
+  	<textarea id="specifics" ng-model="reportModel.specifics" auto-resize
     cols="30" rows="4" class="form-control"></textarea>
   </div></div>
 </form>

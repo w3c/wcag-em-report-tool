@@ -21,5 +21,6 @@
     "LABEL_VARIETY_PAGE_TYPES": "Variety of web page types",
     "INF_VARIETY_PAGE_TYPES": "You can use this field to take notes about the types (as opposed to instances) of web pages that you find on the web site. This includes notes about different styles, layouts, structures, and functionality provided on the website. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
     "INF_VARIETY_PAGE_TYPES_0": "WCAG-EM Step 2.c: Identify the Variety of Web Page Types",
-    "INF_VARIETY_PAGE_TYPES_1": "web page states"
+    "INF_VARIETY_PAGE_TYPES_1": "web page states",
+    "LABEL_OTHER": "Others..."
 }

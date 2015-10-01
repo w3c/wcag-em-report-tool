@@ -1,10 +1,7 @@
 <span class="btn btn-default">
   <button ng-class="'glyphicon-' + icon"
-  class="glyphicon"
-  ng-click="click()"
-  tooltip="{{:: label }}"
-  tooltip-animation="false"
-  tooltip-trigger="focus blur mouseenter mouseleave">
+  class="glyphicon" ng-click="click()"
+  tooltips tooltip-title="{{:: label }}">
     <span class="sr-only">{{:: label }}</span>
   </button>
 </span>

@@ -19,7 +19,7 @@
       <p ng-bind-html="'SCOPE.INF_SITE_NAME' | translate | nlToBr"></p>
     </info-field>
 
-    <input ng-model="evalScope.website.title" type="text"
+    <input ng-model="scopeModel.website.title" type="text"
     class="form-control" id="site-title">
   </div>
 
@@ -42,7 +42,7 @@
       : ['SCOPE.INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
-    <textarea ng-model="evalScope.website.siteScope"
+    <textarea ng-model="scopeModel.website.siteScope"
     class="form-control" id="website_scope" auto-resize
     cols="40" rows="3"></textarea>
   </div>
@@ -62,7 +62,7 @@
 
     <select id="conformance_target" class="form-control"
     ng-options="key as value for (key,value) in conformanceOptions"
-    ng-model="evalScope.conformanceTarget">
+    ng-model="scopeModel.conformanceTarget">
     </select>
   </div>
 
@@ -81,7 +81,7 @@
       : ['SCOPE.INF_SUPPORT_BASE_2', 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef']">
     </p></info-field>
 
-    <textarea ng-model="evalScope.accessibilitySupportBaseline"
+    <textarea ng-model="scopeModel.accessibilitySupportBaseline"
     id="as_baseline" class="form-control" auto-resize
     cols="40" rows="5"></textarea>
   </div>
@@ -105,7 +105,7 @@
       : ['SCOPE.INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
     </info-field>
 
-    <textarea ng-model="evalScope.additionalEvalRequirement"
+    <textarea ng-model="scopeModel.additionalEvalRequirement"
     id="additional_requirements" class="form-control" auto-resize
     cols="40" rows="5"></textarea>
   </div>

@@ -1,6 +1,7 @@
 {
     "TITLE": "WCAG-EM Report Tool",
     "SUBTITLE": "Website Accessibility Evaluation Report Generator",
+    "INTRO_HD": "What this tool does",
     "INTRO_1": "This tool helps you generate a report according to the {0}. It does not perform any accessibility checks. It helps you follow the steps of WCAG-EM, to generate a {1} from the input that you provide. It is designed for experienced evaluators who know {2} and are somewhat familiar with WCAG-EM. For an introduction to WCAG-EM, see the {3}.",
     "INTRO_1_0": "Website Accessibility Conformance Evaluation Methodology (WCAG-EM)",
     "INTRO_1_1": "structured report",

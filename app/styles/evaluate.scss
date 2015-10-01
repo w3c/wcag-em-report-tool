@@ -31,7 +31,20 @@ table {
 .panel.panel-primary .panel-heading {
     color:white;
 }
-
+.known-tech {
+    column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    min-height: auto;
+    list-style:none;
+    label {
+        display:inline-block;
+        padding:3px;
+        font-weight:100;
+        margin-bottom:0;
+        &::after { margin-bottom:0;}
+    }
+}
 .to-top {
     text-align: right;
     margin-top: -18px;
@@ -227,3 +240,27 @@ a.info-icon {
     }
 }
 
+.sc-filters {
+    border:solid 1px $panel-default-border;
+    padding:5px 2px;
+    border-radius:3px;
+
+    > legend {
+        display:inline-block;
+        float:left;
+        margin:2px 10px;
+        border:0;
+        width:auto;
+    }
+    > label.btn {
+        padding: 2px 7px 0;
+        line-height: 15px;
+        @include transition(200ms linear background);
+        @include transition(200ms linear color);
+    }
+}
+
+.sample-tools {
+    margin-left:5px;
+    margin-bottom:2px;
+}
