@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('AuditSamplePagesCtrl', function ($scope, evalSampleModel, Page) {
+.controller('AuditSamplePagesCtrl',
+function ($scope, evalSampleModel, Page, $rootScope) {
 
 	var getSelected = evalSampleModel.getSelectedPages;
 	var getPages = evalSampleModel.getPages;
@@ -37,8 +38,8 @@ angular.module('wcagReporter')
     	var selected = getSelected().length;
     	$scope.auditSize = selected;
     	$scope.anySelect = selected > 0;
-    	console.log('!!This event does\'t get picked up anymore!!');
-        $scope.$broadcast('audit:sample-change');
+    	// console.log('!!This event does\'t get picked up anymore!!');
+        $rootScope.$broadcast('audit:sample-change');
     };
 
     $scope.completePages = function () {
