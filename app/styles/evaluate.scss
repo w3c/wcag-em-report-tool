@@ -248,7 +248,7 @@ a.info-icon {
     > legend {
         display:inline-block;
         float:left;
-        margin:2px 5px 0 0;
+        margin:2px 10px;
         border:0;
         width:auto;
     }
@@ -258,4 +258,9 @@ a.info-icon {
         @include transition(200ms linear background);
         @include transition(200ms linear color);
     }
+}
+
+.sample-tools {
+    margin-left:5px;
+    margin-bottom:2px;
 }
