@@ -23,9 +23,7 @@ angular.module('wcagReporter')
 		});
 	};
 
-    $scope.openPage = function (clickedPage) {
-        Page.openInWindow(clickedPage);
-    };
+    $scope.openPage = Page.openInWindow;
 
 	$scope.changeAll = function () {
 		var pages = getPages();
@@ -53,61 +51,6 @@ angular.module('wcagReporter')
     	getSelected().forEach(function (page) {
 			page.tested = false;
 		});
-    };
-
-    $scope.nextPages = function () {
-    	if ($scope.auditSize === 0) {
-    		return;
-    	}
-
-    	var selected = getSelected();
-    	var pages = getPages();
-    	// Find the index of the last selected page
-    	var lastIndex = pages.indexOf(selected[selected.length-1]);
-
-    	// Remove current selection
-    	selected.forEach(function (page) {
-    		page.selected = false;
-    	});
-
-		$scope.anySelect = true;
-
-    	if (lastIndex === pages.length-1) {
-    		lastIndex = 0;
-    	}
-    	for (var i=1; i <= $scope.auditSize; i++) {
-    		if (lastIndex + i < pages.length) {
-    			pages[lastIndex + i].selected = true;
-    		}
-    	}
-    };
-
-    $scope.prevPages = function () {
-    	if ($scope.auditSize === 0) {
-    		return;
-    	}
-
-    	var selected = getSelected();
-    	var pages = getPages();
-    	// Find the index of the first selected page
-    	var firstIndex = pages.indexOf(selected[0]);
-
-    	// Remove current selection
-    	selected.forEach(function (page) {
-    		page.selected = false;
-    	});
-
-    	$scope.anySelect = true;
-
-    	if (firstIndex === 0) {
-    		firstIndex = pages.length;
-    	}
-
-    	for (var i=1; i <= $scope.auditSize; i++) {
-    		if (firstIndex - i >= 0) {
-    			pages[firstIndex - i].selected = true;
-    		}
-    	}
     };
 
 });
