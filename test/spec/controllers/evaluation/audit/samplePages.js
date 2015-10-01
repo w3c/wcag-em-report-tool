@@ -93,46 +93,4 @@ describe('Controller: AuditSamplePagesCtrl', function () {
         expect(sampleModel.getSelectedPages().length).toBe(0);
     });
 
-    xit('should select previous/next X pages', function () {
-        var page0 = sampleModel.addNewPage();
-        var page1 = sampleModel.addNewPage();
-        var page2 = sampleModel.addNewPage();
-        var page3 = sampleModel.addNewPage();
-        var selected;
-
-        page0.selected = true;
-        page1.selected = true;
-        scope.sampleChange();
-        expect(scope.auditSize).toBe(2);
-
-        selected = sampleModel.getSelectedPages();
-        expect(selected[0]).toBe(page0);
-        expect(selected[1]).toBe(page1);
-        expect(selected.length).toBe(2);
-
-        scope.nextPages();
-        selected = sampleModel.getSelectedPages();
-        expect(selected[0]).toBe(page2);
-        expect(selected[1]).toBe(page3);
-        expect(selected.length).toBe(2);
-
-        scope.nextPages();
-        selected = sampleModel.getSelectedPages();
-        expect(selected[0]).toBe(page0);
-        expect(selected[1]).toBe(page1);
-        expect(selected.length).toBe(2);
-
-        scope.prevPages();
-        selected = sampleModel.getSelectedPages();
-        expect(selected[0]).toBe(page2);
-        expect(selected[1]).toBe(page3);
-        expect(selected.length).toBe(2);
-
-        scope.previousPages();
-        selected = sampleModel.getSelectedPages();
-        expect(selected[0]).toBe(page0);
-        expect(selected[1]).toBe(page1);
-        expect(selected.length).toBe(2);
-    });
-
 });
