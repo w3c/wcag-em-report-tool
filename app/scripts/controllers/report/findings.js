@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCriteriaCtrl',
+.controller('ReportFindingsCtrl',
 function ($scope, wcag20spec, evalAuditModel, evalScopeModel, CriterionAssert) {
 
     evalAuditModel.updateToConformance();
