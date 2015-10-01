@@ -142,5 +142,20 @@ TestCaseAssert, wcag20spec, currentUser) {
         }
     };
 
+    // Checks if an assert is empty
+    CriterionAssert.isDefined = function (critAssert) {
+        var hasPart = critAssert.hasPart
+        .reduce(function (hasPart, tcAssert) {
+            if (hasPart || tcAssert.isDefined()) {
+                return true;
+            } else {
+                return false;
+            }
+        }, false);
+
+        return hasPart || !!critAssert.result.description ||
+               critAssert.result.outcome !== 'earl:untested';
+    };
+
     return CriterionAssert;
 });
