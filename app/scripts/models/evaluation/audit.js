@@ -52,6 +52,9 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCritAssert: function (idref) {
+            if (typeof criteria[idref] !== 'object') {
+                throw 'Unknown criterion of id ' + idref;
+            }
             return criteria[idref];
         },
 
@@ -95,8 +98,9 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         updateToConformance: function () {
-            wcag20spec.getCriteria().forEach(function (spec) {
-                if (typeof auditModel.criteria[spec.id] === 'undefined') {
+            wcag20spec.getCriteria()
+            .forEach(function (spec) {
+                if (typeof criteria[spec.id] === 'undefined') {
                     auditModel.addCritAssert({
                         'testRequirement': spec.id
                     });
