@@ -25,7 +25,9 @@ angular.module('wcagReporter')
 
     // Make an object of the criteria array with uri as keys
     criteria.forEach(function (criterion) {
+        var level = 'wcag20:level_' + criterion.level;
         criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
+        criterion.level = level.toLowerCase();
         criteriaObj[criterion.id] = criterion;
     });
 

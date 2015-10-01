@@ -34,25 +34,19 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     	$rootScope.rootHide.criteria = $scope.critFilter;
     }
 
-    var levelMap = {
-        'A': 'wcag20:level_a',
-        'AA': 'wcag20:level_aa',
-        'AAA': 'wcag20:level_aaa'
-    };
-
     $scope.isCriterionVisible = function (critSpec) {
-		var critAssert;
-        var critLevel = levelMap[critSpec.level];
 		// Check if the level of this criterion should be shown
-    	if ($scope.critFilter.level[critLevel] !== true) {
+    	if ($scope.critFilter.level[critSpec.level] !== true) {
     		return false;
     	}
+
 		// Check if the assert has an outcome, if no, don't show the criterion
-		critAssert = evalAuditModel.getCritAssert(critSpec.uri);
+		var critAssert = evalAuditModel.getCritAssert(critSpec.id);
 		if (typeof critAssert !== 'object' ||
 		typeof critAssert.result !== 'object') {
 			return false;
 		}
+
 		// Check if the outcome is set to hidden
     	return ($scope.critFilter.outcome[critAssert.result.outcome] === true);
     };

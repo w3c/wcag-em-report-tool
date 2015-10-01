@@ -81,7 +81,8 @@ input, textarea, select {
         }
     }
     .branding img {
-        zoom: 0.8;
+        height:38px;
+        width:auto;
     }
 }
 @media (min-width: $screen-lg-min) {
