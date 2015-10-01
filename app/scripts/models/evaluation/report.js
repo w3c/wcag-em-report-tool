@@ -26,5 +26,11 @@ angular.module('wcagReporter')
         });
     };
 
+    reportModel.setDefaultTitle = function (title) {
+        if (!reportModel.title) {
+            reportModel.title = title;
+        }
+    };
+
     return reportModel;
 });
