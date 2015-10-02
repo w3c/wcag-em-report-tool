@@ -19,7 +19,6 @@ module.exports = function (grunt) {
 
   // load plugins
   grunt.loadNpmTasks('grunt-json-angular-translate');
-  grunt.loadNpmTasks('grunt-lineending');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-concat-json');
 
@@ -102,7 +101,7 @@ module.exports = function (grunt) {
       },
       jsonAngularTranslate: {
         files: ['locales/*.json'],
-        tasks: ['jsonAngularTranslate:createJs', 'lineending']
+        tasks: ['jsonAngularTranslate:createJs']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -209,7 +208,11 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath: '<%= yeoman.app %>/',
-        exclude: ['bootstrap-sass-official']
+        exclude: [
+          'bootstrap-sass-official',
+          'angular-scenario',
+          'angular-mocks'
+        ]
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -293,17 +296,6 @@ module.exports = function (grunt) {
       }
     },
 
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
     htmlmin: {
       options: {
         removeComments: true,
@@ -352,6 +344,14 @@ module.exports = function (grunt) {
         src:  '.tmp/scripts/locales/' + defaultLang + '.js',
         dest: '.tmp/scripts/locales/default.js'
       },
+      // We'll make the bootstrap fonts directly available
+      font: {
+          expand: true,
+          flatten: true,
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass/assets/fonts/',
+          dest: '<%= yeoman.app %>/styles/bootstrap',
+          src: ['bootstrap/*.*']
+      },
       dist: {
         files: [{
           expand: true,
@@ -397,7 +397,6 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin'
       ]
     },
 
@@ -447,6 +446,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'copy:font',
       'concurrent:server',
       'autoprefixer',
       'translationSetup',
@@ -473,6 +473,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'copy:font',
     'translationSetup',
     'useminPrepare',
     'concurrent:dist',
