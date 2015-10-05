@@ -105,4 +105,8 @@ describe('Controller: AuditCriteriaCtrl', function () {
         });
     });
 
+
+    // Update assert meta data when the assert changes #106
+    xit('updates assert metadata when an assert is edited');
+
 });
