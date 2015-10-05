@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wertDummy', [])
-.value('basicEvalOutput', {
+.value('basicEvalOutput10', {
   "@graph": [
     {
       "@context": {

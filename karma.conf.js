@@ -29,7 +29,7 @@ module.exports = function(config) {
       'app/scripts/jsonld.js',
       'app/scripts/**/{,*/}*.js',
       'app/scripts/app.js',
-      'test/dummyData.js',
+      'test/dummyData/*.js',
       'test/spec/**/{,*/}*.js'
       // 'test/mock/**/*.js',
     ],

@@ -20,10 +20,10 @@ describe('model: evalModel export', function () {
     var exportEval;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput) {
+    wcagReporterExport, basicEvalOutput10) {
         reportImport = wcagReporterImport;
         reportExport = wcagReporterExport;
-        dummyData    = basicEvalOutput;
+        dummyData    = basicEvalOutput10;
     }));
 
     beforeEach(function (done) {

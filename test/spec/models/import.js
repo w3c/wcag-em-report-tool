@@ -18,9 +18,9 @@ describe('model: evalModel import', function () {
     var importEval;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput, _evalModel_) {
+    wcagReporterExport, basicEvalOutput10, _evalModel_) {
         reportImport = wcagReporterImport;
-        dummyData    = basicEvalOutput;
+        dummyData    = basicEvalOutput10;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
     }));
@@ -48,7 +48,7 @@ describe('model: evalModel import', function () {
 	    	.toEqual(importEval.evaluationScope[prop]);
     	});
     });
-    
+
 
     it('stores explore properties on evalModel.exploreModel', function () {
     	var exploreModel = evalModel.exploreModel;
@@ -62,7 +62,7 @@ describe('model: evalModel import', function () {
 	    	.toEqual(importEval[prop]);
     	});
     });
-    
+
 
     it('stores sample properties on evalModel.sampleModel', function () {
     	var sampleModel = evalModel.sampleModel;
@@ -90,7 +90,7 @@ describe('model: evalModel import', function () {
     it('stores audit properties on evalModel.auditModel', function () {
     	var auditModel = evalModel.auditModel;
 
-        importEval.auditResult        
+        importEval.auditResult
         .forEach(function (assert) {
             var critAssert = auditModel
             .criteria[assert.testRequirement];
@@ -108,7 +108,7 @@ describe('model: evalModel import', function () {
 
     it('stores report properties on evalModel.reportModel', function () {
         var reportModel = evalModel.reportModel;
-    	
+
         ['title', 'summary', 'specifics',
          'commissioner']
     	.forEach(function (prop) {
