@@ -1,4 +1,7 @@
-{
+'use strict';
+
+angular.module('wertDummy', [])
+.value('basicEvalOutput1', {
   "@graph": [
     {
       "@context": {
@@ -439,4 +442,4 @@
       "name": "terminator"
     }
   ]
-}
+});

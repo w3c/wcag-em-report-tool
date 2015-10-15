@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Changes for 1.1 data format', function () {
+describe('Changes for 1.1+ data format', function () {
 
     // load the angular module
     beforeEach(module('wcagReporter'));
@@ -18,18 +18,32 @@ describe('Changes for 1.1 data format', function () {
     var importEval;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput10, _evalModel_) {
+    wcagReporterExport, basicEvalOutput1, _evalModel_) {
         reportImport = wcagReporterImport;
-        dummyData    = basicEvalOutput10;
+        dummyData    = basicEvalOutput1;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
     }));
 
+    beforeEach(function (done) {
+        reportImport.fromJson(dummyData, done);
+        setTimeout(done, 100);
+    });
+
     // Identify version of the data format #229
-    xit('Defines the Tool version in the output format')
+    xit('Defines the Tool version in the output format');
 
     // Capitalize assertion type #226
-    xit('gives type:Assertion to each assertion');
+    it('gives type:Assertion to each assertion', function () {
+        var critIds = Object.keys(evalModel.auditModel.criteria);
+
+        expect(critIds.length).not.toBe(0);
+        critIds.forEach(function (critId) {
+            var assertion = evalModel.auditModel.criteria[critId];
+            expect(assertion.type).toBe('earl:Assertion');
+        });
+    });
+
 
     // Change webpage properties to Dublin Core #222
     xit('Dublin Core variables for pages');
@@ -44,6 +58,16 @@ describe('Changes for 1.1 data format', function () {
     xit('uses an external context, which is known locally');
 
     describe('conversion from 1.0', function () {
+
+        beforeEach(function (done) {
+            reportImport.fromJson(dummyData, done);
+            setTimeout(function () {
+                exportData = reportExport.getJson();
+                importEval = getEval(dummyData);
+                exportEval = getEval(exportData);
+                done();
+            }, 200);
+        });
 
         // Capitalize assertion type #226
         xit('Capitalizes Assertion type');

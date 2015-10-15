@@ -18,12 +18,14 @@ describe('model: evalModel export', function () {
     var exportData;
     var importEval;
     var exportEval;
+    var context;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput10) {
+    wcagReporterExport, basicEvalOutput2, evalContext) {
         reportImport = wcagReporterImport;
         reportExport = wcagReporterExport;
-        dummyData    = basicEvalOutput10;
+        dummyData    = basicEvalOutput2;
+        context      = evalContext;
     }));
 
     beforeEach(function (done) {
@@ -38,7 +40,7 @@ describe('model: evalModel export', function () {
 
 
     it('shares properties with imported data', function () {
-        ['evaluationScope', '@context', 'type',
+        ['evaluationScope', 'type',
          'id', 'title', 'commissioner', 'summary',
          'creator', 'reliedUponTechnology',
          'essentialFunctionality', 'pageTypeVariety'
@@ -47,6 +49,11 @@ describe('model: evalModel export', function () {
             expect(exportEval[prop])
             .toEqual(importEval[prop]);
         });
+    });
+
+    it('has the latest context', function () {
+        expect(exportEval['@context'])
+        .toEqual(context);
     });
 
     it('has the same sample', function () {

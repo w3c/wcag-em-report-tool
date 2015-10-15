@@ -18,9 +18,9 @@ describe('model: evalModel import', function () {
     var importEval;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput10, _evalModel_) {
+    wcagReporterExport, basicEvalOutput2, _evalModel_) {
         reportImport = wcagReporterImport;
-        dummyData    = basicEvalOutput10;
+        dummyData    = basicEvalOutput2;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
     }));
@@ -34,7 +34,7 @@ describe('model: evalModel import', function () {
     it('shares the evaluation ID', function () {
     	expect(evalModel.id)
     	.toBe(importEval.id);
-    })
+    });
 
 
     it('stores scope properties on evalModel.scopeModel', function () {

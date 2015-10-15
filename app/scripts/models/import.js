@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * 
+ *
  */
 angular.module('wcagReporter')
 .factory('wcagReporterImport',
-function($rootScope, evalModel, currentUser, reportStorage) {
+function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 	var jsonld = window.jsonld;
 
 
@@ -142,6 +142,8 @@ function($rootScope, evalModel, currentUser, reportStorage) {
 					}
 					return otherData;
 				}, [currentUser]);
+
+				evaluation = importV2(evaluation);
 
 				// Put the evaluation as the first on the list
 				$rootScope.$apply(function () {
