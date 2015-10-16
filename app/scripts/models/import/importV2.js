@@ -1,63 +1,29 @@
 'use strict';
 
 angular.module('wcagReporter')
-.factory('importV2', function () {
-    var v1context = {
-        '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
-        'wcag20': 'http://www.w3.org/TR/WCAG20/#',
-        'earl': 'http://www.w3.org/ns/earl#',
-        'dct': 'http://purl.org/dc/terms/',
-        'reporter': 'https://github.com/w3c/wcag-em-report-tool/blob/master/dataformat.md#',
-        'conformanceTarget': {'id': 'step1b', 'type': 'id'},
-        'evaluationScope':              {'id':   'step1'},
-        'accessibilitySupportBaseline': {'id':   'step1c'},
-        'additionalEvalRequirement':    {'id':   'step1d'},
-        'siteScope':                    {'id':   'step1a'},
-        'commonPages':                  {'id':   'step2a'},
-        'essentialFunctionality':       {'id':   'step2b'},
-        'pageTypeVariety':              {'id':   'step2c'},
-        'otherRelevantPages':           {'id':   'step2e'},
-        'structuredSample':             {'id':   'step3a'},
-        'randomSample':                 {'id':   'step3b'},
-        'specifics':                    {'id':   'step5b'},
-        'auditResult':                  {'id':   'step4'},
-        'outcome':                 {'type': 'id'},
-        'subject':                 {'type': 'id'},
-        'assertedBy':              {'type': 'id'},
-        'testRequirement':         {'type': 'id'},
-        'creator':                 {'type': 'id'},
-        'handle': 'reporter:handle',
-        'description': 'reporter:description',
-        'tested': 'reporter:tested',
-        'id': '@id',
-        'type': '@type',
-        'title': 'dct:title',
-        'hasPart': 'dct:hasPart',
-        'specs': '@id',
-        'reliedUponTechnology': 'wcag20:reliedupondef'
-    };
+.factory('importV2', function (evalContextV1) {
 
     function isV1(data) {
         var dataContext = data['@context'];
-        var isV1 = true;
+        var checkv1 = true;
 
-        Object.keys(v1context)
+        Object.keys(evalContextV1)
         .forEach(function (prop) {
-            if (typeof v1context[prop] === 'string' &&
-                dataContext[prop] !== v1context[prop]) {
-                isV1 = false;
+            if (typeof evalContextV1[prop] === 'string' &&
+                dataContext[prop] !== evalContextV1[prop]) {
+                checkv1 = false;
             }
-            if (typeof v1context[prop] === 'object') {
-                Object.keys(v1context[prop])
+            if (typeof evalContextV1[prop] === 'object') {
+                Object.keys(evalContextV1[prop])
                 .forEach(function (subProp) {
-                    if (typeof v1context[prop][subProp] === 'string' &&
-                        dataContext[prop][subProp] !== v1context[prop][subProp]) {
-                        isV1 = false;
+                    if (typeof evalContextV1[prop][subProp] === 'string' &&
+                        dataContext[prop][subProp] !== evalContextV1[prop][subProp]) {
+                        checkv1 = false;
                     }
                 });
             }
         });
-        return isV1;
+        return checkv1;
     }
 
     function convertToV2(data) {
@@ -65,14 +31,35 @@ angular.module('wcagReporter')
             result.type = result.type.replace('earl:assertion', 'earl:Assertion');
         });
 
+        function fixPage(page) {
+            page.type  = page.type.replace('webpage', 'Webpage');
+            page.title = page.handle;
+            delete page.handle;
+        }
+
+        if (!angular.isArray(data.structuredSample.webpage)) {
+            data.structuredSample.webpage = [data.structuredSample.webpage];
+        }
+        data.structuredSample.webpage.forEach(fixPage);
+
+        if (!angular.isArray(data.randomSample.webpage)) {
+            data.randomSample.webpage = [data.randomSample.webpage];
+        }
+        data.randomSample.webpage.forEach(fixPage);
+
         return data;
     }
 
-    return function (data) {
+    function convertor (data) {
         if (isV1(data)) {
             data = convertToV2(data);
         }
         return data;
-    };
+    }
+
+    convertor.isV1 = isV1;
+    convertor.convertToV2 = convertToV2;
+
+    return convertor;
 
 });

@@ -29,9 +29,9 @@ angular.module('wcagReporter')
                 scope.removeAssert(macroAssert);
             };
 
-            scope.getAllHandles = function(assert) {
+            scope.getAllTitles = function(assert) {
                 return assert.subject.map(function (page) {
-                    return page.displayHandle();
+                    return page.displayTitle();
                 }).join(', ');
             };
 

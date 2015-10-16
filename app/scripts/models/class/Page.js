@@ -32,13 +32,13 @@ angular.module('wcagReporter')
         'type': 'webpage',
         'id': '',
         description: undefined,
-        handle: '',
+        title: '',
         tested: false,
         selected: false,
-        displayHandle: function () {
+        displayTitle: function () {
             var num = 0;
-            if (this.handle.trim()) {
-                return this.handle;
+            if (this.title.trim()) {
+                return this.title;
             } else if (this.id.substr(0, 9) === '_:struct_') {
                 num = +this.id.substr(9);
                 return translateFilter('SAMPLE.STRUCTURED_PAGE') + ' ' + (num + 1);

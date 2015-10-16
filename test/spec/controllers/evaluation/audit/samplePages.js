@@ -36,8 +36,8 @@ describe('Controller: AuditSamplePagesCtrl', function () {
         var page2 = sampleModel.addNewPage();
         var page3 = sampleModel.addNewPage();
 
-        page0.handle = 'foo';
-        page1.handle = 'bar';
+        page0.title = 'foo';
+        page1.title = 'bar';
 
         filledPages = scope.filledPages();
         expect(filledPages[0]).toBe(page0);
@@ -58,8 +58,8 @@ describe('Controller: AuditSamplePagesCtrl', function () {
         expect(filledPages[1]).toBe(page1);
         expect(filledPages.length).toBe(2);
 
-        page0.handle = '';
-        page1.handle = '';
+        page0.title = '';
+        page1.title = '';
         filledPages = scope.filledPages();
         expect(filledPages.length).toBe(0);
     });

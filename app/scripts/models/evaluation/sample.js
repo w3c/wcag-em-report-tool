@@ -57,7 +57,7 @@ angular.module('wcagReporter')
 
         sample.webpage.push(page);
         page.id = '_:struct_' + num;
-        page.handle = '';
+        page.title = '';
         return page;
     };
 
@@ -67,7 +67,7 @@ angular.module('wcagReporter')
 
         sampleModel.randomSample.webpage.push(page);
         page.id = '_:rand_' + num;
-        page.handle = '';
+        page.title = '';
         return page;
     };
 
@@ -79,10 +79,10 @@ angular.module('wcagReporter')
         }
     };
 
-    sampleModel.getPageByHandle = function (handle) {
+    sampleModel.getPageByTitle = function (title) {
         var res;
         sampleModel.getPages().forEach(function(page) {
-            if (page.handle === handle) {
+            if (page.title === title) {
                 res = page;
             }
         });
@@ -96,7 +96,7 @@ angular.module('wcagReporter')
 
     sampleModel.getFilledPages = function () {
         return sampleModel.getPages().filter(function (page) {
-            return (page.description || page.handle);
+            return (page.description || page.title);
         });
     };
 
@@ -123,7 +123,7 @@ angular.module('wcagReporter')
         var samples,
             // Only export the following properties
             props =['type', 'id', 'description',
-        'handle', 'tested'];
+        'title', 'tested'];
         // For both samples
         samples = [sampleModel.structuredSample.webpage, sampleModel.randomSample.webpage]
         .map(function (webpages) {
@@ -157,7 +157,7 @@ angular.module('wcagReporter')
                 sampleModel[prop].webpage = [sampleModel[prop].webpage];
             }
             sampleModel[prop].webpage.forEach(function (pageData) {
-                pageData.displayHandle = Page.prototype.displayHandle;
+                pageData.displayTitle = Page.prototype.displayTitle;
             });
         });
     };

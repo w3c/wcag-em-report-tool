@@ -6,7 +6,7 @@ angular.module('wcagReporter')
     function critHasSelectedPages(criterion) {
         for (var i = 0; i < criterion.subject.length; i++) {
             var page = criterion.subject[i];
-            if (page.selected && (page.handle || page.description)) {
+            if (page.selected && (page.title || page.description)) {
                 return true;
             }
         }

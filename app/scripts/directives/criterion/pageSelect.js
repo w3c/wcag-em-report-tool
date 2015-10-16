@@ -24,8 +24,8 @@ angular.module('wcagReporter')
             };
 
             $scope.addPageToAssert = function () {
-                var page = evalSampleModel.getPageByHandle($scope.newPage);
-                
+                var page = evalSampleModel.getPageByTitle($scope.newPage);
+
                 if (page && $scope.pages.indexOf(page) === -1) {
                     $scope.unselectedPages.splice($scope.unselectedPages.indexOf(page), 1);
                     $scope.pages.push(page);
