@@ -16,13 +16,16 @@ describe('Changes for 1.1+ data format', function () {
     var dummyData;
     var evalModel;
     var importEval;
+    var importV2;
 
-    beforeEach(inject(function (wcagReporterImport,
+    beforeEach(inject(function (wcagReporterImport, _importV2_,
     wcagReporterExport, basicEvalOutput1, _evalModel_) {
         reportImport = wcagReporterImport;
         dummyData    = basicEvalOutput1;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
+        importV2     = _importV2_;
+        expect(importV2.isV1(importEval)).toBe(true);
     }));
 
     beforeEach(function (done) {
@@ -44,9 +47,19 @@ describe('Changes for 1.1+ data format', function () {
         });
     });
 
-
     // Change webpage properties to Dublin Core #222
-    xit('Dublin Core variables for pages');
+    it('Dublin Core variables for pages', function () {
+        var pages = evalModel.sampleModel.getPages();
+
+        expect(pages.length).not.toBe(0);
+        pages.forEach(function (page) {
+            expect(page.type).toBe('Webpage');
+            expect(page.description).toBeDefined();
+            expect(page.title).toBeDefined();
+            expect(page.handle).not.toBeDefined();
+        });
+
+    });
 
     // Save the page URI separate from the page #223
     xit('puts URLs of the description in dct:source');
