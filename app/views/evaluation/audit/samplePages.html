@@ -36,7 +36,7 @@
       <label for="sample_select_{{$id}}">
         <input id="sample_select_{{$id}}" ng-change="sampleChange()"
         type="checkbox" ng-model="page.selected">&nbsp;<span
-        ng-class="{'page-tested' : page.tested}">{{page.displayHandle()}}</span>&nbsp;
+        ng-class="{'page-tested' : page.tested}">{{page.displayTitle()}}</span>&nbsp;
         <span ng-if="page.tested" class="sr-only">{{ 'AUDIT.TESTED'| translate}}</span>
       </label>
       <a href="" ng-click="openPage(page)"

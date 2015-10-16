@@ -10,7 +10,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
     <div ng-class="col1">
       {{:: 'SAMPLE.LABEL_PAGE' | translate}}</div>
     <div ng-class="col2">
-      {{:: 'SAMPLE.LABEL_HANDLE' | translate}}</div>
+      {{:: 'SAMPLE.LABEL_TITLE' | translate}}</div>
   </header>
 
   <p ng-if="pages.length === 0" class="appear no-selection"><em>
@@ -33,13 +33,13 @@ ng-init="col0 = 'visible-xs col-xs-12';
       shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
     </div>
     <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{::'SAMPLE.LABEL_HANDLE' | translate}}:
+      {{::'SAMPLE.LABEL_TITLE' | translate}}:
     </label>
     <div ng-class="col2">
       <input type="text" class="form-control"
              id="struct_{{$index}}"
-             ng-model="page.handle"
-             shy-placeholder="'SAMPLE.PLH_HANDLE' | translate">
+             ng-model="page.title"
+             shy-placeholder="'SAMPLE.PLH_TITLE' | translate">
     </div>
 
     <div ng-class="col3">

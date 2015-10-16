@@ -1,20 +1,20 @@
 <div>
-  <datalist id="pagehandles_{{$id}}">
+  <datalist id="pagetitles_{{$id}}">
     <option ng-repeat="samplePage in unselectedPages"
-    value="{{samplePage.displayHandle()}}">{{samplePage.displayHandle()}}</option>
+    value="{{samplePage.displayTitle()}}">{{samplePage.displayTitle()}}</option>
   </datalist>
 
   <button ng-repeat="page in pages"
   type="button" class="tag label"
   tooltips tooltip-title="{{page.description}}"
   ng-click="removePage(page)">
-    {{page.handle}}&nbsp;<span class="glyphicon glyphicon-remove"></span>
+    {{page.title}}&nbsp;<span class="glyphicon glyphicon-remove"></span>
     <span class="sr-only">, {{:: 'AUDIT.CLICK_TO_DELETE' | translate }}</span>
   </button>
 
   <input type="text" ng-model="newPage" class="taginput"
-  shy-placeholder="'AUDIT.LABEL_PAGE_HANDLE' | translate"
-  title="{{ 'AUDIT.LABEL_PAGE_HANDLE' | translate }}"
-  list="pagehandles_{{$id}}" ng-change="addPageToAssert()" />
+  shy-placeholder="'AUDIT.LABEL_PAGE_TITLE' | translate"
+  title="{{ 'AUDIT.LABEL_PAGE_TITLE' | translate }}"
+  list="pagetitles_{{$id}}" ng-change="addPageToAssert()" />
 
 </div>
