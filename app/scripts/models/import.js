@@ -95,6 +95,14 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 		},
 
 		fromObject: function (evalData) {
+			// Check if an old format needs to be converted:
+			if (angular.isArray(evalData['@graph']) &&
+			    typeof evalData['@graph'][0] === 'object' &&
+			    evalData['@graph'][0].type.toLowerCase() === 'evaluation') {
+				// Fix an older import format
+				evalData['@graph'][0] = importV2(evalData['@graph'][0]);
+			}
+
 			jsonld.expand(evalData, function(err, expanded) {
 				importModel.fromExpanded(expanded);
 			});
@@ -142,8 +150,6 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 					}
 					return otherData;
 				}, [currentUser]);
-
-				evaluation = importV2(evaluation);
 
 				// Put the evaluation as the first on the list
 				$rootScope.$apply(function () {
