@@ -4,26 +4,43 @@ angular.module('wcagReporter')
 .factory('importV2', function (evalContextV1) {
 
     function isV1(data) {
-        var dataContext = data['@context'];
-        var checkv1 = true;
+        var dataContext  = data['@context'];
+        var contextProps = Object.keys(evalContextV1);
+        // Skip if the context isn't there
+        if (typeof dataContext !== 'object') {
+            return false;
+        }
 
-        Object.keys(evalContextV1)
-        .forEach(function (prop) {
-            if (typeof evalContextV1[prop] === 'string' &&
+        return contextProps.reduce(function (result, prop) {
+            if (!result) { // false is false
+                return result;
+
+            // Context prop doesn't exist
+            } else if (typeof dataContext[prop] === 'undefined') {
+                return false;
+
+            // Context prop is different value
+            } else if (typeof dataContext[prop] === 'string' &&
                 dataContext[prop] !== evalContextV1[prop]) {
-                checkv1 = false;
-            }
-            if (typeof evalContextV1[prop] === 'object') {
+                return false;
+
+            // Context prop is an object, compare it's content
+            } else if (typeof dataContext[prop] === 'object') {
                 Object.keys(evalContextV1[prop])
                 .forEach(function (subProp) {
-                    if (typeof evalContextV1[prop][subProp] === 'string' &&
+                    if (typeof dataContext[prop][subProp] === 'undefined') {
+                        return false;
+
+                    } else if (typeof dataContext[prop][subProp] === 'string' &&
                         dataContext[prop][subProp] !== evalContextV1[prop][subProp]) {
-                        checkv1 = false;
+                        return false;
                     }
                 });
+
+            } else {
+                return true;
             }
-        });
-        return checkv1;
+        }, true);
     }
 
     function convertToV2(data) {

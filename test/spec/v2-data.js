@@ -33,8 +33,12 @@ describe('Changes for 1.1+ data format', function () {
         setTimeout(done, 100);
     });
 
+
     // Identify version of the data format #229
-    xit('Defines the Tool version in the output format');
+    xit('Defines the Tool version as (dct:)publisher', function () {
+        'reporttool:releases/tag/1.0.3';
+    });
+
 
     // Capitalize assertion type #226
     it('gives type:Assertion to each assertion', function () {
@@ -46,6 +50,7 @@ describe('Changes for 1.1+ data format', function () {
             expect(assertion.type).toBe('earl:Assertion');
         });
     });
+
 
     // Change webpage properties to Dublin Core #222
     it('Dublin Core variables for pages', function () {
@@ -61,6 +66,7 @@ describe('Changes for 1.1+ data format', function () {
 
     });
 
+
     // Save the page URI separate from the page #223
     xit('puts URLs of the description in dct:source');
 
@@ -69,6 +75,13 @@ describe('Changes for 1.1+ data format', function () {
 
     // Make the @context external #219
     xit('uses an external context, which is known locally');
+
+
+    xit('Switches context "id" and "type" properties to "@id" and "@type"', function () {
+
+    });
+
+    xit('Uses the correct FOAF namespace', function () {});
 
     describe('conversion from 1.0', function () {
 
