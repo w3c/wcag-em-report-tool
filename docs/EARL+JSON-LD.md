@@ -27,3 +27,87 @@ document. So, 'scope' is mapped to http://www.w3.org/TR/WCAG-EM/#step1
 
 Details about the format can be found at:
 https://github.com/w3c/wcag-em-report-tool/blob/master/dataformat.md
+
+
+
+# Classes
+
+Namcepaces:
+- @vocab: (wcagem) 
+- wcag2: 
+- dct: 
+- schema: 
+- earl: 
+
+Classes:
+- Evaluation
+- EvaluationScope
+- Sample
+- WCAG:WebTechnology
+- Schema:WebSite
+- Schema:WebPage
+
+
+## Evaluation
+
+| Properties          | Type            | Description               |
+|---------------------|-----------------|---------------------------|
+| dct:title           | Text            |                           |
+| dct:summary         | Text            |                           |
+| dct:creator         | Text            |                           |
+| dct:date            | ??              |                           |
+| wcagem:commissioner | Text            |                           |
+| wcag2:reliedupondef | ??              |                           |
+| wcagem:step1        | EvaluationScope | scope                     |
+| wcagem:step2a       | Text            | commonPages               |
+| wcagem:step2b       | Text            | essential functionality   |
+| wcagem:step2c       | Text            | Variety of page types     |
+| wcagem:step2e       | Text            | Other relevant pages      |
+| wcagem:step3a       | Sample          | Structured sample pages   |
+| wcagem:step3b       | Sample          | Ramdom sample pages       |
+| wcagem:step4        | earl:Assertion  | Audit results             |
+| wcagem:step5b       | Text            | Evaluation specifics      |
+
+
+## EvaluationScope
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| wcagem:step1a       | Text    | Scope of the website              |
+| wcagem:step1b       | URL     | conformance target                |
+| wcagem:step1c       | Text    | Accessibility support baseline    |
+| wcagem:step1d       | Text    | Additional evaluation requirement |
+| ??:website          | WebSite |                                   |
+
+
+## Sample
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| ??:webpage          | WebPage |                                   |
+
+
+## wcag2:WebTechnology
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| dct:title           | Text    |                                   |
+| @id                 | URL     |                                   |
+
+
+## Schema:WebSite
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| ??siteScope         | Text    |                                   |
+| ??dct:title         | Text    |                                   |
+
+
+## Schema:WebPage
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| ??dct:title         | Text    |                                   |
+| ??dct:description   | Text    |                                   |
+| ??dct:source        | URL     |                                   |
+
