@@ -10,7 +10,7 @@ angular.module('wcagReporter', [
     'ui.bootstrap',
     'wert-templates',
     'wcag20spec'
-]).config(function ($routeProvider, $compileProvider) {
+]).config(function ($routeProvider, $compileProvider, $translateProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
 
     $routeProvider.when('/', {
@@ -43,6 +43,8 @@ angular.module('wcagReporter', [
     }).otherwise({
         redirectTo: '/'
     });
+
+    $translateProvider.useSanitizeValueStrategy('sanitize');
 
 
 }).run(function (translateFilter, $rootScope, $document, appState, wcagReporterExport,
@@ -96,7 +98,6 @@ $location, $rootElement, evalScopeModel, showSave) {
 
         return title;
     };
-
 
     $rootScope.translate = translateFilter;
     $rootScope.rootHide = {};

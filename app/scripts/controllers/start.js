@@ -4,8 +4,8 @@ angular.module('wcagReporter')
 .controller('StartCtrl',
 function ($scope, $location, appState, $timeout, $rootScope) {
   	$scope.state = appState.moveToState('start');
-
-    if (typeof $rootScope.rootHide.start1 !== 'undefined') {
+    
+    if (typeof $rootScope.rootHide.start1 === 'undefined') {
         $scope.initial = 'hidden';
         $timeout(function () {
             $scope.initial = '';
