@@ -66,10 +66,6 @@ describe('Changes for 1.1+ data format', function () {
 
     });
 
-
-    // Save the page URI separate from the page #223
-    xit('puts URLs of the description in dct:source');
-
     // Add @type to all properties of the output #221
     xit('has a @type on each object');
 
