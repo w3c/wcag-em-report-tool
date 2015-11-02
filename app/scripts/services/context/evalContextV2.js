@@ -25,12 +25,16 @@ angular.module('wcagReporter')
     'assertedBy':                   {'@type': '@id'},
     'test':                         {'@type': '@id'},
     'creator':                      {'@type': '@id'},
-    'description': 'reporter:description',
+    'description': 'dct:description',
     'tested': 'reporter:tested',
     'id': '@id',
     'type': '@type',
     'title': 'dct:title',
     'hasPart': 'dct:hasPart',
     'specs': '@id',
+    'WebSite': 'https://schema.org/WebSite',
+    'WebPage': 'https://schema.org/WebPage',
+    'TestResult': 'earl:TestResult',
+    'Assertion': 'earl:Assertion',
     'reliedUponTechnology': 'wcag20:reliedupondef'
 });

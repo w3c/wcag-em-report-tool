@@ -3,9 +3,11 @@
 angular.module('wcagReporter')
 .service('evalScopeModel', function() {
     var scopeModel = {
+        type: 'Scope',
     	conformanceTarget: 'wcag20:level_aa',
         additionalEvalRequirement: '',
         website: {
+            type: 'WebSite',
             'id': '_:website',
             title: '',
             siteScope: '' },
@@ -14,9 +16,11 @@ angular.module('wcagReporter')
 
     scopeModel.exportData = function () {
         return {
+            type: scopeModel.type,
             conformanceTarget: scopeModel.conformanceTarget,
             additionalEvalRequirement: scopeModel.additionalEvalRequirement,
             website: {
+                type:      scopeModel.website.type,
                 id:        scopeModel.website.id,
                 title:     scopeModel.website.title,
                 siteScope: scopeModel.website.siteScope
