@@ -82,7 +82,7 @@ describe('model: evalModel export', function () {
             var asserts = [];
             exportEval.auditResult.forEach(function (assertIn) {
                 if (assertIn.subject === assertOut.subject &&
-                assertIn.testRequirement === assertOut.testRequirement) {
+                assertIn.test === assertOut.test) {
                     asserts.push(assertIn);
                 }
             });

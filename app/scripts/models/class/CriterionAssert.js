@@ -14,7 +14,7 @@ TestCaseAssert, wcag20spec, currentUser) {
             }
         }
 
-        this.testRequirement = idref;
+        this.test = idref;
         this.hasPart = [];
         this.result = {
             outcome: 'earl:untested',
@@ -60,7 +60,7 @@ TestCaseAssert, wcag20spec, currentUser) {
 
     CriterionAssert.prototype = {
         type: 'earl:assertion',
-        testRequirement: undefined,
+        test: undefined,
         assertedBy: currentUser.id,
         subject: '_:website',
         result: undefined,
@@ -72,7 +72,7 @@ TestCaseAssert, wcag20spec, currentUser) {
         addTestCaseAssertion: function (obj) {
             var key,
                 tc = new TestCaseAssert();
-            tc.testcase = this.testRequirement;
+            tc.testcase = this.test;
             this.hasPart.push(tc);
             if (!obj) {
                 return;
@@ -138,7 +138,7 @@ TestCaseAssert, wcag20spec, currentUser) {
         },
 
         getSpec: function () {
-            return wcag20spec.getCriterion(this.testRequirement);
+            return wcag20spec.getCriterion(this.test);
         }
     };
 

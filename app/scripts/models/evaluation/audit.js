@@ -47,6 +47,9 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                 if (!angular.isArray(evalData.auditResult)) {
                     evalData.auditResult = [evalData.auditResult];
                 }
+                criteria = {};
+                auditModel.criteria = criteria;
+
                 evalData.auditResult.forEach(auditModel.addCritAssert);
             }
         },
@@ -82,7 +85,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                     newCrit[prop] = result[prop];
                 }
             }
-            criteria[newCrit.testRequirement] = newCrit;
+            criteria[newCrit.test] = newCrit;
         },
 
         addPageForAsserts: function (page) {
@@ -102,7 +105,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
             .forEach(function (spec) {
                 if (typeof criteria[spec.id] === 'undefined') {
                     auditModel.addCritAssert({
-                        'testRequirement': spec.id
+                        'test': spec.id
                     });
                 }
             });

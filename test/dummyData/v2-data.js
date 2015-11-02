@@ -21,7 +21,7 @@ angular.module('wertDummy')
         'auditResult': [
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:text-equiv-all',
+            'test': 'wcag20:text-equiv-all',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -33,7 +33,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:media-equiv-av-only-alt',
+            'test': 'wcag20:media-equiv-av-only-alt',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -45,7 +45,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:media-equiv-captions',
+            'test': 'wcag20:media-equiv-captions',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -57,7 +57,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:media-equiv-audio-desc',
+            'test': 'wcag20:media-equiv-audio-desc',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -69,7 +69,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:content-structure-separation-programmatic',
+            'test': 'wcag20:content-structure-separation-programmatic',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -81,7 +81,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:content-structure-separation-sequence',
+            'test': 'wcag20:content-structure-separation-sequence',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -93,7 +93,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:content-structure-separation-understanding',
+            'test': 'wcag20:content-structure-separation-understanding',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -105,7 +105,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:visual-audio-contrast-without-color',
+            'test': 'wcag20:visual-audio-contrast-without-color',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -117,7 +117,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:visual-audio-contrast-dis-audio',
+            'test': 'wcag20:visual-audio-contrast-dis-audio',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -129,7 +129,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:keyboard-operation-keyboard-operable',
+            'test': 'wcag20:keyboard-operation-keyboard-operable',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -141,7 +141,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:keyboard-operation-trapping',
+            'test': 'wcag20:keyboard-operation-trapping',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -153,7 +153,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:time-limits-required-behaviors',
+            'test': 'wcag20:time-limits-required-behaviors',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -165,7 +165,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:time-limits-pause',
+            'test': 'wcag20:time-limits-pause',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -177,7 +177,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:seizure-does-not-violate',
+            'test': 'wcag20:seizure-does-not-violate',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -189,7 +189,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:navigation-mechanisms-skip',
+            'test': 'wcag20:navigation-mechanisms-skip',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -201,7 +201,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:navigation-mechanisms-title',
+            'test': 'wcag20:navigation-mechanisms-title',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -213,7 +213,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:navigation-mechanisms-focus-order',
+            'test': 'wcag20:navigation-mechanisms-focus-order',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -225,7 +225,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:navigation-mechanisms-refs',
+            'test': 'wcag20:navigation-mechanisms-refs',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -237,7 +237,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:meaning-doc-lang-id',
+            'test': 'wcag20:meaning-doc-lang-id',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -249,7 +249,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:consistent-behavior-receive-focus',
+            'test': 'wcag20:consistent-behavior-receive-focus',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -261,7 +261,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:consistent-behavior-unpredictable-change',
+            'test': 'wcag20:consistent-behavior-unpredictable-change',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -273,7 +273,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:minimize-error-identified',
+            'test': 'wcag20:minimize-error-identified',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -285,7 +285,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:minimize-error-cues',
+            'test': 'wcag20:minimize-error-cues',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -297,7 +297,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:ensure-compat-parses',
+            'test': 'wcag20:ensure-compat-parses',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -309,7 +309,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'earl:Assertion',
-            'testRequirement': 'wcag20:ensure-compat-rsv',
+            'test': 'wcag20:ensure-compat-rsv',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {

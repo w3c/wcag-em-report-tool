@@ -96,10 +96,10 @@ describe('model: evalModel import', function () {
         importEval.auditResult
         .forEach(function (assert) {
             var critAssert = auditModel
-            .criteria[assert.testRequirement];
+            .criteria[assert.test];
 
             ['type', 'assertedBy', 'mode', 'subject',
-             'result', 'testRequirement']
+             'result', 'test']
             .forEach(function (prop) {
                 expect(critAssert[prop])
                 .toEqual(assert[prop]);
