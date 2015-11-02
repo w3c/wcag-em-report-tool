@@ -47,7 +47,7 @@ describe('Changes for 1.1+ data format', function () {
         expect(critIds.length).not.toBe(0);
         critIds.forEach(function (critId) {
             var assertion = evalModel.auditModel.criteria[critId];
-            expect(assertion.type).toBe('earl:Assertion');
+            expect(assertion.type).toBe('Assertion');
         });
     });
 
@@ -57,8 +57,8 @@ describe('Changes for 1.1+ data format', function () {
         var pages = evalModel.sampleModel.getPages();
 
         expect(pages.length).not.toBe(0);
+
         pages.forEach(function (page) {
-            expect(page.type).toBe('Webpage');
             expect(page.description).toBeDefined();
             expect(page.title).toBeDefined();
             expect(page.handle).not.toBeDefined();
@@ -70,6 +70,31 @@ describe('Changes for 1.1+ data format', function () {
     it('has a @type on each object', function () {
 
         expect(evalModel.type).toBe('Evaluation');
+
+        expect(evalModel.scopeModel.type).toBe('Scope');
+
+        expect(evalModel.exploreModel.knownTech.length).not.toBe(0);
+        evalModel.exploreModel.reliedUponTechnology.forEach(function (tech) {
+            expect(tech.type).toBe('Technology');
+        });
+
+        expect(evalModel.scopeModel.website.type).toBe('WebSite');
+
+        expect(evalModel.sampleModel.structuredSample.type).toBe('Sample');
+        expect(evalModel.sampleModel.randomSample.type).toBe('Sample');
+
+        var pages = evalModel.sampleModel.getPages();
+        expect(pages.length).not.toBe(0);
+        pages.forEach(function (page) {
+            expect(page.type).toBe('WebPage');
+        });
+
+        var critIds = Object.keys(evalModel.auditModel.criteria);
+        expect(critIds.length).not.toBe(0);
+        critIds.forEach(function (critId) {
+            var assertion = evalModel.auditModel.criteria[critId];
+            expect(assertion.result.type).toBe('TestResult');
+        });
 
     });
 
