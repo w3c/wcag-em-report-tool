@@ -8,7 +8,7 @@ angular.module('wcagReporter')
 	function getJsonLd () {
 		var jsonLd = {
 			'@context': evalModel.context,
-			type: 'Evaluation',
+			type: evalModel.type,
 			'id': evalModel.id
 		};
 

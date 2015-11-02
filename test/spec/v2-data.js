@@ -67,45 +67,17 @@ describe('Changes for 1.1+ data format', function () {
     });
 
     // Add @type to all properties of the output #221
-    xit('has a @type on each object');
+    it('has a @type on each object', function () {
+
+        expect(evalModel.type).toBe('Evaluation');
+
+    });
 
     // Make the @context external #219
     xit('uses an external context, which is known locally');
 
 
-    xit('Switches context "id" and "type" properties to "@id" and "@type"', function () {
-
-    });
-
     xit('Uses the correct FOAF namespace', function () {});
-
-    describe('conversion from 1.0', function () {
-
-        beforeEach(function (done) {
-            reportImport.fromJson(dummyData, done);
-            setTimeout(function () {
-                exportData = reportExport.getJson();
-                importEval = getEval(dummyData);
-                exportEval = getEval(exportData);
-                done();
-            }, 200);
-        });
-
-        // Capitalize assertion type #226
-        xit('Capitalizes Assertion type');
-
-        // Change webpage properties to Dublin Core #222
-        xit('converts WCAG-EM page types to dublin core types');
-
-        // Save the page URI separate from the page #223
-        xit('extracts URLs from page description for dct:source');
-
-        // Add @type to all properties of the output #221
-        xit('adds @type to each object');
-
-        // Replace testRequirement with "test" #220
-        xit('renames testRequirement to "test"');
-    });
 
 
 });

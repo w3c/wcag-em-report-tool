@@ -9,6 +9,7 @@ angular.module('wcagReporter').factory('evalModel', function(
 
 	var evalModel = {
 		id: undefined,
+		type: 'Evaluation',
 		context: evalContextV2,
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,

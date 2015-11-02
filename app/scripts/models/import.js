@@ -64,6 +64,7 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 		}
 
 		evalModel.id = evalData.id;
+		evalModel.type = evalData.type;
 
 		evalModel.sampleModel.importData(evalData);
 
