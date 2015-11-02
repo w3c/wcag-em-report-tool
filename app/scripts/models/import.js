@@ -23,7 +23,7 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 		var testCallback,
 			results = [],
 			calls = 0,
-			evalType = 'http://www.w3.org/TR/WCAG-EM/#evaluation',
+			evalType = 'http://www.w3.org/TR/WCAG-EM/#Evaluation',
 			personType = 'http://xmlns.com/foaf/spec/#Person';
 
 		testCallback = function (err, compacted) {
@@ -111,7 +111,7 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 		fromExpanded: function (evalData) {
 			evalData.forEach(compactEach(function(results) {
 				var evaluation = results.reduce(function (result, data) {
-					if (data.type === 'evaluation') {
+					if (data.type === 'Evaluation') {
 						if (typeof result !== 'undefined') {
 							throw new Error('Only one evaluation object allowed in JSON data');
 						}

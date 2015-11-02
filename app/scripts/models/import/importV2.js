@@ -4,6 +4,9 @@ angular.module('wcagReporter')
 .factory('importV2', function (evalContextV1, evalContextV2) {
 
     function isV1(data) {
+        if (typeof data !== 'object') {
+            throw new TypeError('Expected object for ' + data);
+        }
         var dataContext  = data['@context'];
         var contextProps = Object.keys(evalContextV1);
         // Skip if the context isn't there
@@ -54,6 +57,7 @@ angular.module('wcagReporter')
     }
 
     function convertToV2(data) {
+        data.type = data.type.replace('evaluation', 'Evaluation');
         data.auditResult.forEach(function (result) {
             result.type = result.type.replace('earl:assertion', 'earl:Assertion');
         });

@@ -8,7 +8,7 @@ describe('model: evalModel export', function () {
 
     function getEval(linkedData) {
         return linkedData['@graph'].filter(function (obj) {
-            return obj.type === 'evaluation';
+            return obj.type === 'Evaluation';
         })[0];
     }
 

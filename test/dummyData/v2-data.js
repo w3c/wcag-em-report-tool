@@ -6,7 +6,7 @@ angular.module('wertDummy')
     '@graph': [
       {
         '@context': evalContextV2,
-        'type': 'evaluation',
+        'type': 'Evaluation',
         'id': '_:123',
         'evaluationScope': {
           'conformanceTarget': 'wcag20:level_aaa',

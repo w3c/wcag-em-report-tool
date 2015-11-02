@@ -1,6 +1,6 @@
 'use strict';
 /**
- * 
+ *
  */
 angular.module('wcagReporter')
 .factory('wcagReporterExport', function(evalModel, reportStorage) {
@@ -8,7 +8,7 @@ angular.module('wcagReporter')
 	function getJsonLd () {
 		var jsonLd = {
 			'@context': evalModel.context,
-			type: 'evaluation',
+			type: 'Evaluation',
 			'id': evalModel.id
 		};
 
