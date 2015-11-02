@@ -58,12 +58,13 @@ angular.module('wcagReporter')
 
     function convertToV2(data) {
         data.type = data.type.replace('evaluation', 'Evaluation');
-        data.auditResult.forEach(function (result) {
-            result.type = result.type.replace('earl:assertion', 'earl:Assertion');
+        data.auditResult.forEach(function (assertion) {
+            assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
+            assertion.result.type = assertion.result.type || 'TestResult'
         });
 
         function fixPage(page) {
-            page.type  = page.type.replace('webpage', 'Webpage');
+            page.type  = page.type.replace('webpage', 'WebPage');
             page.title = page.handle;
             delete page.handle;
         }
@@ -71,12 +72,23 @@ angular.module('wcagReporter')
         if (!angular.isArray(data.structuredSample.webpage)) {
             data.structuredSample.webpage = [data.structuredSample.webpage];
         }
+        data.structuredSample.type = data.structuredSample.type || 'Sample';
         data.structuredSample.webpage.forEach(fixPage);
 
         if (!angular.isArray(data.randomSample.webpage)) {
             data.randomSample.webpage = [data.randomSample.webpage];
         }
+        data.randomSample.type = data.randomSample.type || 'Sample';
         data.randomSample.webpage.forEach(fixPage);
+
+
+        var evalScope = data.evaluationScope;
+        evalScope.type = evalScope.type || 'Scope';
+        evalScope.website.type = evalScope.website.type || 'WebSite';
+        
+        data.reliedUponTechnology.forEach(function (tech) {
+            tech.type = tech.type || 'Technology';
+        });
 
         data['@context'] = evalContextV2;
 

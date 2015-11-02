@@ -8,7 +8,6 @@ angular.module('wcagReporter')
 function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 	var jsonld = window.jsonld;
 
-
 	function objectCollide(obj1, obj2) {
 		Object.keys(obj1).forEach(function (prop) {
 			if (typeof obj1[prop] !== 'function' &&

@@ -29,7 +29,7 @@ angular.module('wcagReporter')
     };
 
     TestCaseAssert.prototype = {
-        type: 'earl:assertion',
+        type: 'Assertion',
         assertedBy: currentUser.id,
         subject: undefined,
         testCase: undefined,
