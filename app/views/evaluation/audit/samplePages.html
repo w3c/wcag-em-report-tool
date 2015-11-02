@@ -33,7 +33,8 @@
   	<li ng-repeat="page in filledPages()"
     ng-class="{active: page.selected}">
 
-      <label for="sample_select_{{$id}}">
+      <label for="sample_select_{{$id}}"
+      ng-click="multiSelect($index, $event)">
         <input id="sample_select_{{$id}}" ng-change="sampleChange()"
         type="checkbox" ng-model="page.selected">&nbsp;<span
         ng-class="{'page-tested' : page.tested}">{{page.displayHandle()}}</span>&nbsp;

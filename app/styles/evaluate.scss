@@ -101,6 +101,8 @@ table {
     padding:0;
     margin:0;
     list-style:none;
+
+
     .page-tested {
         text-decoration: line-through;
         color:#666666;
@@ -113,6 +115,7 @@ table {
         @include transition(100ms linear background);
         position:relative;
 
+
         a {
             position: absolute;
             top: 8px;
@@ -124,6 +127,15 @@ table {
             padding: 5px 10px 5px 20px;
             margin-bottom: 0;
             text-indent:-10px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input, label {
+            cursor: pointer;
         }
         .tested {
             text-decoration: line-through;
