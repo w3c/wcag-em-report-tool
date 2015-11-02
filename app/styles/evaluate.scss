@@ -199,26 +199,29 @@ h3 .collapse-button {
     font-weight:bold;
 }
 
+textarea {
+    min-height:125px;
+}
+
+textarea#summary {
+    min-height:225px;
+}
 
 select.result-select,
-textarea.expanding {
+textarea.assert_description {
     width:100%;
     @include transition(200ms linear max-height);
 }
 select.result-select,
 input.taginput,
-textarea.expanding {
+textarea.assert_description {
     height:1.7em;
-    max-height:1.7em;
+    min-height:1.7em;
+    max-height:40em;
     padding:.1em .5em;
     border:solid 1px gray;
     @include border-right-radius(3px);
     @include border-left-radius(3px);
-
-    &.focused {
-        height:6em;
-        max-height:300px;
-    }
 }
 
 .stretch-control {

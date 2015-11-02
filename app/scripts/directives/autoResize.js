@@ -4,7 +4,9 @@ angular.module('wcagReporter')
     return directivePlugin({
         restrict: 'A',
         link: function (scope, element) {
-            angular.element(element).textareaAutoSize();
+            scope.$evalAsync(function () {
+            	angular.element(element).textareaAutoSize();
+            })
         }
 	});
 });
