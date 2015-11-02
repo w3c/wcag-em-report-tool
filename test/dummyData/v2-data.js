@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wertDummy')
-.service('basicEvalOutput2', function (evalContext) {
+.service('basicEvalOutput2', function (evalContextV2) {
   return {
     '@graph': [
       {

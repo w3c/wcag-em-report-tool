@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.value('evalContext', {
+.value('evalContextV2', {
     '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
     'wcag20': 'http://www.w3.org/TR/WCAG20/#',
     'earl': 'http://www.w3.org/ns/earl#',

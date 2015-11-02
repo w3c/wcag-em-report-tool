@@ -5,11 +5,11 @@
  */
 angular.module('wcagReporter').factory('evalModel', function(
 		evalScopeModel, evalExploreModel, evalSampleModel,
-		evalAuditModel, evalReportModel, evalContext, currentUser) {
+		evalAuditModel, evalReportModel, evalContextV2, currentUser) {
 
 	var evalModel = {
 		id: undefined,
-		context: evalContext,
+		context: evalContextV2,
 		scopeModel:   evalScopeModel,
 		exploreModel: evalExploreModel,
 		sampleModel:  evalSampleModel,
