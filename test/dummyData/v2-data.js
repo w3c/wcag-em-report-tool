@@ -5,7 +5,7 @@ angular.module('wertDummy')
   return {
     '@graph': [
       {
-        '@context': evalContext,
+        '@context': evalContextV2,
         'type': 'evaluation',
         'id': '_:123',
         'evaluationScope': {

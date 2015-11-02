@@ -21,11 +21,11 @@ describe('model: evalModel export', function () {
     var context;
 
     beforeEach(inject(function (wcagReporterImport,
-    wcagReporterExport, basicEvalOutput2, evalContext) {
+    wcagReporterExport, basicEvalOutput2, evalContextV2) {
         reportImport = wcagReporterImport;
         reportExport = wcagReporterExport;
         dummyData    = basicEvalOutput2;
-        context      = evalContext;
+        context      = evalContextV2;
     }));
 
     beforeEach(function (done) {

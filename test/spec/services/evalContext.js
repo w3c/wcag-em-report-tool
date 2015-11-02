@@ -7,8 +7,8 @@ describe('Service: evalContext', function () {
 
     // instantiate service
     var evalContext;
-    beforeEach(inject(function (_evalContext_) {
-        evalContext = _evalContext_;
+    beforeEach(inject(function (evalContextV2) {
+        evalContext = evalContextV2;
     }));
 
     it('should be an object', function () {
