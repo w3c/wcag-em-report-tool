@@ -36,7 +36,7 @@ Namcepaces:
 - @vocab: (wcagem) 
 - wcag2: 
 - dct: 
-- schema: 
+- sch: schema.org
 - earl: 
 
 Classes:
@@ -57,7 +57,7 @@ Classes:
 | dct:creator         | Text            |                           |
 | dct:date            | ??              |                           |
 | wcagem:commissioner | Text            |                           |
-| wcag2:reliedupondef | ??              |                           |
+| wcag2:reliedupondef | Technology      |                           |
 | wcagem:step1        | EvaluationScope | scope                     |
 | wcagem:step2a       | Text            | commonPages               |
 | wcagem:step2b       | Text            | essential functionality   |
@@ -71,23 +71,23 @@ Classes:
 
 ## EvaluationScope
 
-| Properties          | Type    | Description                       |
-|---------------------|---------|-----------------------------------|
-| wcagem:step1a       | Text    | Scope of the website              |
-| wcagem:step1b       | URL     | conformance target                |
-| wcagem:step1c       | Text    | Accessibility support baseline    |
-| wcagem:step1d       | Text    | Additional evaluation requirement |
-| ??:website          | WebSite |                                   |
+| Properties          | Type        | Description                       |
+|---------------------|-------------|-----------------------------------|
+| wcagem:step1a       | Text        | Scope of the website              |
+| wcagem:step1b       | URL         | conformance target                |
+| wcagem:step1c       | Text        | Accessibility support baseline    |
+| wcagem:step1d       | Text        | Additional evaluation requirement |
+| ??:website          | sch:WebSite |                                   |
 
 
 ## Sample
 
-| Properties          | Type    | Description                       |
-|---------------------|---------|-----------------------------------|
-| ??:webpage          | WebPage |                                   |
+| Properties          | Type        | Description                       |
+|---------------------|-------------|-----------------------------------|
+| webpage             | sch:WebPage |                                   |
 
 
-## wcag2:WebTechnology
+## Technology
 
 | Properties          | Type    | Description                       |
 |---------------------|---------|-----------------------------------|
@@ -97,17 +97,23 @@ Classes:
 
 ## Schema:WebSite
 
+A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.
+
+
 | Properties          | Type    | Description                       |
 |---------------------|---------|-----------------------------------|
-| ??siteScope         | Text    |                                   |
-| ??dct:title         | Text    |                                   |
+| siteScope           | Text    |                                   |
+| sch:name            | Text    |                                   |
 
 
 ## Schema:WebPage
 
+A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
+
+
 | Properties          | Type    | Description                       |
 |---------------------|---------|-----------------------------------|
-| ??dct:title         | Text    |                                   |
-| ??dct:description   | Text    |                                   |
-| ??dct:source        | URL     |                                   |
+| dct:title           | Text    |                                   |
+| dct:description     | Text    |                                   |
+| dct:source          | URL     |                                   |
 
