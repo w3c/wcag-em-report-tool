@@ -1,13 +1,18 @@
 'use strict';
 
 angular.module('wcagReporter')
-.factory('importV2', function (evalContextV1) {
+.factory('importV2', function (evalContextV1, evalContextV2) {
 
     function isV1(data) {
         var dataContext  = data['@context'];
         var contextProps = Object.keys(evalContextV1);
         // Skip if the context isn't there
         if (typeof dataContext !== 'object') {
+            return false;
+        }
+
+        // Dirty check if they have the same keys
+        if (contextProps.sort().join(',') !== Object.keys(dataContext).sort().join(',')) {
             return false;
         }
 
@@ -26,16 +31,21 @@ angular.module('wcagReporter')
 
             // Context prop is an object, compare it's content
             } else if (typeof dataContext[prop] === 'object') {
-                Object.keys(evalContextV1[prop])
-                .forEach(function (subProp) {
-                    if (typeof dataContext[prop][subProp] === 'undefined') {
+                return Object.keys(evalContextV1[prop])
+                .reduce(function (result, subProp) {
+                    if (!result) {
+                        return result;
+
+                    } else if (typeof dataContext[prop][subProp] === 'undefined') {
                         return false;
 
                     } else if (typeof dataContext[prop][subProp] === 'string' &&
                         dataContext[prop][subProp] !== evalContextV1[prop][subProp]) {
                         return false;
+                    } else {
+                        return true;
                     }
-                });
+                }, true);
 
             } else {
                 return true;
@@ -63,6 +73,8 @@ angular.module('wcagReporter')
             data.randomSample.webpage = [data.randomSample.webpage];
         }
         data.randomSample.webpage.forEach(fixPage);
+
+        data['@context'] = evalContextV2;
 
         return data;
     }

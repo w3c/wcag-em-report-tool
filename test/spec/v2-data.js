@@ -29,7 +29,7 @@ describe('Changes for 1.1+ data format', function () {
     }));
 
     beforeEach(function (done) {
-        reportImport.fromJson(dummyData, done);
+        reportImport.fromObject(dummyData, done);
         setTimeout(done, 100);
     });
 
