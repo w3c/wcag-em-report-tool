@@ -52,6 +52,7 @@ function ($scope, evalSampleModel, Page, $rootScope) {
 			for (var i = start; i <= end; i++) {
 				pages[i].selected = state;
 			}
+			$scope.sampleChange();
 		}
 		previousSelection = index;
 	}
