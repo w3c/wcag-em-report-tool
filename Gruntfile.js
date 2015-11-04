@@ -100,8 +100,8 @@ module.exports = function (grunt) {
         tasks: ['compass:server', 'autoprefixer']
       },
       jsonAngularTranslate: {
-        files: ['locales/*.json'],
-        tasks: ['jsonAngularTranslate:createJs']
+        files: ['app/locale/**/*.json'],
+        tasks: ['translationSetup']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -112,7 +112,6 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '<%= yeoman.app %>/locale/*.json',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
