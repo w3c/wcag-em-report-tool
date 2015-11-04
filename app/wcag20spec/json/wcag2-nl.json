@@ -59,7 +59,7 @@
                     "text": "Lever alternatieven voor op tijd gebaseerde media.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:media-equiv-sign",
+                            "id": "WCAG2:media-equiv-av-only-alt",
                             "num": "1.2.1",
                             "handle": "Louter-geluid en louter-videobeeld (vooraf opgenomen)",
                             "text": "Voor media met vooraf opgenomen louter-geluid en vooraf opgenomen louter-videobeeld is het volgende waar, behalve als de audio of video een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld:",
@@ -81,51 +81,56 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:media-equiv-extended-ad",
+                            "id": "WCAG2:media-equiv-captions",
                             "num": "1.2.2",
                             "handle": "Ondertiteling voor doven en slechthorenden (vooraf opgenomen)",
                             "text": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media, behalve als het mediabestand een media-alternatief is voor tekst en duidelijk als zodanig is gelabeld.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:media-equiv-text-doc",
+                            "id": "WCAG2:media-equiv-audio-desc",
                             "num": "1.2.3",
                             "handle": "Audiodescriptie of media-alternatief (vooraf opgenomen)",
                             "text": "Er wordt een alternatief voor op tijd gebaseerde media of audiodescriptie van de vooraf opgenomen videocontent geleverd voor gesynchroniseerde media, behalve als het mediabestand een media-alternatief is voor tekst en duidelijk als zodanig is gelabeld.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:media-equiv-live-audio-only",
+                            "id": "WCAG2:media-equiv-real-time-captions",
                             "num": "1.2.4",
                             "handle": "Ondertitels voor doven en slechthorenden (live)",
                             "text": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle live audiocontent in gesynchroniseerde media.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:media-equiv-audio-desc-only",
                             "num": "1.2.5",
                             "handle": "Audiodescriptie (vooraf opgenomen)",
                             "text": "Er wordt een audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:media-equiv-sign",
                             "num": "1.2.6",
                             "handle": "Gebarentaal (vooraf opgenomen)",
                             "text": "Er wordt een gebarentaalvertolking geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:media-equiv-extended-ad",
                             "num": "1.2.7",
                             "handle": "Verlengde audiodescriptie (vooraf opgenomen)",
                             "text": "Waar pauzes in voorgrondgeluid onvoldoende zijn om audiodescripties toe te passen om de boodschap van de video over te brengen, wordt een verlengde audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:media-equiv-text-doc",
                             "num": "1.2.8",
                             "handle": "Mediumalternatief (vooraf opgenomen)",
                             "text": "Er wordt een alternatief voor op tijd gebaseerde media geleverd voor alle vooraf opgenomen gesynchroniseerde media en voor alle vooraf opgenomen louter-videobeeld media.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:media-equiv-live-audio-only",
                             "num": "1.2.9",
                             "handle": "Louter-geluid (live)",
                             "text": "Er wordt een alternatief voor op tijd gebaseerde media geleverd dat equivalente informatie presenteert voor live louter-geluid content .",
@@ -176,7 +181,7 @@
                     "text": "Maak het voor gebruikers gemakkelijker om content te horen en te zien, waaronder scheiding van voorgrond en achtergrond.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:visual-audio-contrast7",
+                            "id": "WCAG2:visual-audio-contrast-without-color",
                             "num": "1.4.1",
                             "handle": "Gebruik van kleur",
                             "text": "Kleur wordt niet als het enige visuele middel gebruikt om informatie over te brengen, een actie aan te geven, tot een reactie op te roepen of een visueel element te onderscheiden.",
@@ -190,7 +195,7 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:visual-audio-contrast-noaudio",
+                            "id": "WCAG2:visual-audio-contrast-dis-audio",
                             "num": "1.4.2",
                             "handle": "Geluidsbediening",
                             "text": "Als een geluidsweergave op een webpagina automatisch meer dan 3 seconden speelt, is er of een mechanisme beschikbaar om de geluidsweergave te pauzeren of te stoppen, of er is een mechanisme beschikbaar om het geluidsvolume onafhankelijk van het overall systeemvolume te regelen.",
@@ -204,7 +209,7 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:visual-audio-contrast-visual-presentation",
+                            "id": "WCAG2:visual-audio-contrast-contrast",
                             "num": "1.4.3",
                             "handle": "Contrast (minimum)",
                             "text": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 4,5:1, behalve in de volgende gevallen:",
@@ -230,13 +235,14 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:visual-audio-contrast-text-images",
+                            "id": "WCAG2:visual-audio-contrast-scale",
                             "num": "1.4.4",
                             "handle": "Herschalen van tekst",
                             "text": "Behalve voor ondertitels voor doven en slechthorenden en afbeeldingen van tekst, kan tekst zonder hulptechnologie tot 200 procent schalen zonder verlies van content of functionaliteit.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:visual-audio-contrast-text-presentation",
                             "num": "1.4.5",
                             "handle": "Afbeeldingen van tekst",
                             "text": "Als de gebruikte technologieën de visuele weergave tot stand kunnen brengen, wordt tekst gebruikt in plaats van afbeeldingen van tekst om informatie over te brengen, behalve in de volgende gevallen:",
@@ -263,6 +269,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:visual-audio-contrast7",
                             "num": "1.4.6",
                             "handle": "Contrast (versterkt)",
                             "text": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 7:1, behalve in de volgende gevallen:",
@@ -288,6 +295,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:visual-audio-contrast-noaudio",
                             "num": "1.4.7",
                             "handle": "Weinig of geen achtergrondgeluid",
                             "text": "Voor vooraf opgenomen louter-geluidcontent die (1) voornamelijk spraak op de voorgrond bevat, (2) geen geluids-CAPTCHA of audiologo is, en (3) geen vocalisatie is die primair bedoeld is als muzikale expressie zoals zingen of rappen, is ten minste een van de volgende zaken waar:",
@@ -318,6 +326,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:visual-audio-contrast-visual-presentation",
                             "num": "1.4.8",
                             "handle": "Visuele weergave",
                             "text": "Voor de visuele weergave van tekstblokken is een mechanisme beschikbaar om het volgende te realiseren:",
@@ -351,6 +360,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:visual-audio-contrast-text-images",
                             "num": "1.4.9",
                             "handle": "Afbeeldingen van tekst (geen uitzondering)",
                             "text": "Afbeeldingen van tekst worden alleen puur decoratief gebruikt, of daar waar een specifieke weergave van tekst essentieel is voor de informatie die wordt overgebracht.",
@@ -380,7 +390,7 @@
                     "text": "Maak alle functionaliteit beschikbaar vanaf een toetsenbord.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:keyboard-operation-all-funcs",
+                            "id": "WCAG2:keyboard-operation-keyboard-operable",
                             "num": "2.1.1",
                             "handle": "Toetsenbord",
                             "text": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder dat afzonderlijke toetsaanslagen aan tijd gebonden zijn, behalve als de onderliggende functie een invoer vereist die afhangt van het pad dat de gebruiker aflegt en niet alleen van de eindpunten.",
@@ -413,6 +423,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:keyboard-operation-all-funcs",
                             "num": "2.1.3",
                             "handle": "Toetsenbord (geen uitzondering)",
                             "text": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder specifieke timing te vereisen voor de individuele toetsaanslagen.",
@@ -427,7 +438,7 @@
                     "text": "Geef gebruikers genoeg tijd om content te lezen en te gebruiken.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:time-limits-no-exceptions",
+                            "id": "WCAG2:time-limits-required-behaviors",
                             "num": "2.2.1",
                             "handle": "Timing aanpasbaar",
                             "text": "Voor elke tijdslimiet die door de content wordt ingesteld geldt ten minste een van de volgende zaken:",
@@ -470,7 +481,7 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:time-limits-postponed",
+                            "id": "WCAG2:time-limits-pause",
                             "num": "2.2.2",
                             "handle": "Pauzeren, stoppen, verbergen",
                             "text": "Voor alle bewegende, knipperende, scrollende of automatisch actualiserende informatie gelden alle volgende zaken:",
@@ -512,19 +523,21 @@
                             ]
                         },
                         {
-                            "id": "WCAG2:time-limits-server-timeout",
+                            "id": "WCAG2:time-limits-no-exceptions",
                             "num": "2.2.3",
                             "handle": "Geen timing",
                             "text": "Timing is geen essentieel onderdeel van de gebeurtenis of activiteit die door de content wordt weergegeven, behalve voor niet-interactieve gesynchroniseerde media en real-time gebeurtenissen.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:time-limits-postponed",
                             "num": "2.2.4",
                             "handle": "Onderbrekingen",
                             "text": "Onderbrekingen kunnen uitgesteld of uitgezet worden door de gebruiker, behalve onderbrekingen die met een noodsituatie samenhangen.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:time-limits-server-timeout",
                             "num": "2.2.5",
                             "handle": "Herauthentisering",
                             "text": "Als een geauthentiseerde sessie verloopt, kan de gebruiker na herauthentisering de activiteit zonder gegevensverlies voortzetten.",
@@ -539,7 +552,7 @@
                     "text": "Ontwerp content niet op een manier waarvan bekend is dat die toevallen veroorzaakt.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:seizure-three-times",
+                            "id": "WCAG2:seizure-does-not-violate",
                             "num": "2.3.1",
                             "handle": "Drie flitsen of beneden drempelwaarde",
                             "text": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde of de flits is beneden de algemene flits- en rodeflitsdrempelwaarden.",
@@ -553,6 +566,7 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:seizure-three-times",
                             "num": "2.3.2",
                             "handle": "Drie flitsen",
                             "text": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde.",
@@ -567,21 +581,21 @@
                     "text": "Lever manieren om gebruikers te helpen navigeren, content te vinden en te bepalen waar ze zijn.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:navigation-mechanisms-location",
+                            "id": "WCAG2:navigation-mechanisms-skip",
                             "num": "2.4.1",
                             "handle": "Blokken omzeilen",
                             "text": "Er is een mechanisme beschikbaar om blokken content die op meerdere webpagina's worden herhaald te omzeilen.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:navigation-mechanisms-link",
+                            "id": "WCAG2:navigation-mechanisms-title",
                             "num": "2.4.2",
                             "handle": "Paginatitel",
                             "text": "Webpagina's hebben titels die het onderwerp of doel beschrijven.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:navigation-mechanisms-headings",
+                            "id": "WCAG2:navigation-mechanisms-focus-order",
                             "num": "2.4.3",
                             "handle": "Focus volgorde",
                             "text": "Als een webpagina sequentieel genavigeerd kan worden en de navigatiesequenties hebben invloed op de betekenis of het gebruik, dan krijgen focusbare componenten de focus in de juiste volgorde waardoor betekenis en bedienbaarheid behouden blijft.",
@@ -595,36 +609,42 @@
                             "level": "A"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-mult-loc",
                             "num": "2.4.5",
                             "handle": "Meerdere manieren",
                             "text": "Er is meer dan één manier beschikbaar om een webpagina binnen een verzameling webpagina's te vinden, behalve wanneer de webpagina het resultaat is van, of een stap in, een proces.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-descriptive",
                             "num": "2.4.6",
                             "handle": "Koppen en labels",
                             "text": "Koppen en labels beschrijven het onderwerp of doel.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-focus-visible",
                             "num": "2.4.7",
                             "handle": "Focus zichtbaar",
                             "text": "Elke gebruikersinterface die met een toetsenbord te bedienen is, heeft een bedieningswijze waarbij de indicator van de toetsenbordfocus zichtbaar is.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-location",
                             "num": "2.4.8",
                             "handle": "Locatie",
                             "text": "Informatie over de locatie van de gebruiker binnen een verzameling webpagina's is beschikbaar.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-link",
                             "num": "2.4.9",
                             "handle": "Linkdoel (alleen link)",
                             "text": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:navigation-mechanisms-headings",
                             "num": "2.4.10",
                             "handle": "Paragraafkoppen",
                             "text": "Paragraafkoppen worden gebruikt om de content te structureren.",
@@ -659,40 +679,42 @@
                     "text": "Maak tekstcontent leesbaar en begrijpelijk.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:meaning-idioms",
+                            "id": "WCAG2:meaning-doc-lang-id",
                             "num": "3.1.1",
                             "handle": "Taal van de pagina",
                             "text": "De standaard menselijke taal van elke webpagina kan door software bepaald worden.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:meaning-located",
+                            "id": "WCAG2:meaning-other-lang-id",
                             "num": "3.1.2",
                             "handle": "Taal van onderdelen",
                             "text": "De menselijke taal van elke passage of zin in de content kan door software bepaald worden, behalve waar het gaat om eigennamen, technische termen, woorden van onbepaalde taal en woorden of zinsdelen die deel zijn gaan uitmaken van het jargon van de onmiddellijk omringende tekst.",
                             "level": "AA"
                         },
                         {
-                            "id": "WCAG2:meaning-supplements",
+                            "id": "WCAG2:meaning-idioms",
                             "num": "3.1.3",
                             "handle": "Ongebruikelijke woorden",
                             "text": "Er is een mechanisme beschikbaar voor de identificatie van specifieke definities van woorden of zinsdelen die op een ongebruikelijke of beperkte manier gebruikt worden, inclusief idiomatische uitdrukkingen en jargon.",
                             "level": "AAA"
                         },
                         {
-                            "id": "WCAG2:meaning-pronunciation",
+                            "id": "WCAG2:meaning-located",
                             "num": "3.1.4",
                             "handle": "Afkortingen",
                             "text": "Er is een mechanisme beschikbaar voor de identificatie van de voluit geschreven vorm of betekenis van afkortingen.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:meaning-supplements",
                             "num": "3.1.5",
                             "handle": "Leesniveau",
                             "text": "Als tekst, nadat eigennamen en titels verwijderd zijn, een leesvaardigheid vereist die hoger is dan het niveau van drie jaar middelbaar onderwijs, dan is aanvullende content beschikbaar, of er is een versie beschikbaar die geen leesvaardigheid vereist die hoger is dan van drie jaar middelbaar onderwijs.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:meaning-pronunciation",
                             "num": "3.1.6",
                             "handle": "Uitspraak",
                             "text": "Een mechanisme is beschikbaar voor het vaststellen van de specifieke uitspraak van woorden indien de betekenis van de woorden in de context dubbelzinnig is zonder kennis van de uitspraak.",
@@ -707,32 +729,35 @@
                     "text": "Maak het uiterlijk en de bediening van webpagina's voorspelbaar.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:consistent-behavior-no-extreme-changes-context",
+                            "id": "WCAG2:consistent-behavior-receive-focus",
                             "num": "3.2.1",
                             "handle": "Bij focus",
                             "text": "Als een component de focus krijgt, dan veroorzaakt dat geen contextwijziging.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:consistent-behavior-consistent-functionality",
+                            "id": "WCAG2:consistent-behavior-unpredictable-change",
                             "num": "3.2.2",
                             "handle": "Bij input",
                             "text": "Verandering van de instelling van een component van de gebruikersinterface veroorzaakt niet automatisch een contextwijziging tenzij de gebruiker geïnformeerd is over het gedrag vóór het gebruik van dit component.",
                             "level": "A"
                         },
                         {
+                            "id": "WCAG2:consistent-behavior-consistent-locations",
                             "num": "3.2.3",
                             "handle": "Consistente navigatie",
                             "text": "Navigatiemechanismen, die op meerdere webpagina's binnen een verzameling webpagina's herhaald worden, komen elke keer dat ze worden herhaald in dezelfde relatieve volgorde voor, tenzij een verandering wordt geïnitieerd door de gebruiker.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:consistent-behavior-consistent-functionality",
                             "num": "3.2.4",
                             "handle": "Consistente identificatie",
                             "text": "Componenten die dezelfde functionaliteit hebben binnen een verzameling webpagina's worden consistent geïdentificeerd.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:consistent-behavior-no-extreme-changes-context",
                             "num": "3.2.5",
                             "handle": "Verandering op verzoek",
                             "text": "Contextwijzigingen worden alleen geïnitieerd op verzoek van de gebruiker of er is een mechanisme beschikbaar om zulke veranderingen uit te zetten.",
@@ -747,26 +772,28 @@
                     "text": "Help gebruikers om fouten te vermijden en ze te verbeteren.",
                     "successcriteria": [
                         {
-                            "id": "WCAG2:minimize-error-context-help",
+                            "id": "WCAG2:minimize-error-identified",
                             "num": "3.3.1",
                             "handle": "Fout identificatie",
                             "text": "Als een invoerfout automatisch ontdekt wordt, dan wordt het onderdeel waar de fout zit geïdentificeerd en de fout wordt tekstueel aan de gebruiker meegedeeld.",
                             "level": "A"
                         },
                         {
-                            "id": "WCAG2:minimize-error-reversible-all",
+                            "id": "WCAG2:minimize-error-cues",
                             "num": "3.3.2",
                             "handle": "Labels of instructies",
                             "text": "Als de content gebruikersinvoer vereist, dan worden labels of instructies geleverd.",
                             "level": "A"
                         },
                         {
+                            "id": "WCAG2:minimize-error-suggestions",
                             "num": "3.3.3",
                             "handle": "Foutsuggestie",
                             "text": "Als een invoerfout automatisch ontdekt wordt en suggesties voor verbetering bekend zijn, dan worden de suggesties aan de gebruiker geleverd, tenzij dit de beveiliging of het doel van de content in gevaar zou brengen.",
                             "level": "AA"
                         },
                         {
+                            "id": "WCAG2:minimize-error-reversible",
                             "num": "3.3.4",
                             "handle": "Foutpreventie (wettelijk, financieel, gegevens)",
                             "text": "Voor webpagina's die wettelijke verplichtingen of financiële transacties voor de gebruiker uitvoeren, die, door de gebruiker te beheren gegevens in gegevensopslagplaatsen verwijderen of wijzigen, of die antwoorden van de gebruiker verzenden, geldt ten minste één van de volgende zaken:",
@@ -792,12 +819,14 @@
                             ]
                         },
                         {
+                            "id": "WCAG2:minimize-error-context-help",
                             "num": "3.3.5",
                             "handle": "Hulp",
                             "text": "contextgevoelige hulp is beschikbaar.",
                             "level": "AAA"
                         },
                         {
+                            "id": "WCAG2:minimize-error-reversible-all",
                             "num": "3.3.6",
                             "handle": "Foutpreventie (alle)",
                             "text": "Voor webpagina's die vereisen dat de gebruiker informatie invoert en verzendt, geldt ten minste een van de volgende zaken:",
