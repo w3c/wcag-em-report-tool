@@ -45,7 +45,7 @@ angular.module('wcagReporter', [
     });
 
     $translateProvider.useSanitizeValueStrategy('sanitize');
-
+    $translateProvider.preferredLanguage('EN');
 
 }).run(function (translateFilter, $rootScope, $document, appState, wcagReporterExport,
 $location, $rootElement, evalScopeModel, showSave) {
