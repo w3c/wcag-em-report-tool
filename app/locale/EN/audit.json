@@ -1,5 +1,5 @@
 {
-    "TITLE": "Stap 4: Onderzoek de steekproef",
+    "TITLE": "Step 4: Audit the Selected Sample",
     "INTRO": "Record the outcome from evaluating the web pages selected in the previous step. Compare the results between the structured page and randomly selected pages, and if needed, adjust the selected sample in the previous step. More guidance on this step is provided in {0}. \n Note: For each WCAG 2.0 success criteria, you can enter 'Results for the entire sample' and you can enter results for individual web pages. You can choose to enter either or both. To enter individual results, select the web page(s) under 'Sample to Evaluate' (in the left column); then under the specific success criteria, select 'Show web pages to enter individual results'",
     "INTRO_0": "WCAG-EM Step 4: Audit the Selected Sample",
     "HD_SAMPLE_SELECT": "Sample to Evaluate",

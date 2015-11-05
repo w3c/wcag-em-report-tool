@@ -48,9 +48,9 @@ module.exports = function (grunt) {
     'concat-json': (function () {
         return langs.reduce(function (tasks, lang) {
           tasks[lang] = {
-            cwd: 'app/locale/' + lang,
+            cwd: '.tmp/locale/' + lang,
             src: '*.json',
-            dest: '.tmp/locales/' + lang + '.json'
+            dest: '.tmp/locale/' + lang + '.json'
           };
           return tasks;
         }, {});
@@ -63,9 +63,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '.tmp/locales',
+          cwd: '.tmp/locale',
           src: '*.json',
-          dest: '.tmp/scripts/locales',
+          dest: '.tmp/scripts/locale',
           ext: '.js'
         }]
       }
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
         tasks: ['compass:server', 'autoprefixer']
       },
       jsonAngularTranslate: {
-        files: ['app/locale/**/*.json'],
+        files: ['app/local/**/*.json'],
         tasks: ['translationSetup']
       },
       gruntfile: {
@@ -340,8 +340,19 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       defaultLang: {
-        src:  '.tmp/scripts/locales/' + defaultLang + '.js',
-        dest: '.tmp/scripts/locales/default.js'
+        src:  '.tmp/scripts/locale/' + defaultLang + '.js',
+        dest: '.tmp/scripts/locale/default.js'
+      },
+      localeCapitalized: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/locale/', 
+          dest: '.tmp/locale/', 
+          src: ['**/*.json'],
+          rename: function(dest, src) {
+            return dest + (src.toUpperCase().substr(0, src.length-4)) + 'json';
+          }
+        }]
       },
       // We'll make the bootstrap fonts directly available
       font: {
@@ -455,6 +466,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('translationSetup', [
+    'copy:localeCapitalized',
     'concat-json',
     'jsonAngularTranslate',
     'copy:defaultLang',
