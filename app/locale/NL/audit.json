@@ -1,5 +1,5 @@
 {
-    "TITLE": "Stap 4: Onderzoek de steekproef",
+    "TITLE": "Stap 4: Onderzoek de sample",
     "INTRO": "Beschrijf de resultaten uit de evaluatie van de webpagina's geselecteerd in de vorige stap. Vergelijkd e resultaten tussen de structuurpagina's en de willekeurig gekozen pagina's, en waar nodig pas de geselecteerde sample in de vorige stap aan. Meer informatie over deze stap is te vinden in {0}. \n Opmerking: Voor elk WCAG 2.0 succescriterium,kunt u resultaten voor de volledige sample invullen, evenals resultaten voor individuele pagina's. Om individuele resultaten in te vullen, selecteer pagina's onder 'Te evalueren sample' (in de linker kolom); vervolgens onder de succescriteria, kies 'Webpagina's om individuele resultaten in te vullen weergeven'",
     "INTRO_0": "WCAG-EM Stap 4: Onderzoek de sample",
     "HD_SAMPLE_SELECT": "Te evalueren sample",

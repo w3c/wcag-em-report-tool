@@ -1,7 +1,7 @@
 {
-    "TITLE": "Stap 1: Bepaal de scope van de evaluation",
-    "INTRO": "Bepaal de basisprincipes en scope van de evaluatie. Idealister wordt dit gedaan door de opdrachtgever van de evaluatie (dit kan, maar hoeft niet de eigenaar van de website te zijn), om ervoor te zorgen dat de verwachtingen op de opdracht aansluiten. Meer informatie over deze stap vindt u in {0}.",
-    "INTRO_0": "WCAG-EM Stap 1: Bepaal de scope van de evaluation",
+    "TITLE": "Stap 1: Bepaal de scope van de evaluatie",
+    "INTRO": "Bepaal de basispeisen en scope van de evaluatie. Idealister wordt dit gedaan door de opdrachtgever van de evaluatie (dit kan, maar hoeft niet de eigenaar van de website te zijn), om ervoor te zorgen dat de verwachtingen op de opdracht aansluiten. Meer informatie over deze stap vindt u in {0}.",
+    "INTRO_0": "WCAG-EM Stap 1: Bepaal de scope van de evaluatie",
     "LABEL_SITE_NAME": "Website naam",
     "INF_SITE_NAME": "Vul een naam in van de te evalueren website. Bijvoorbeeld:\n 'Publieke website van Voorbeeld Organisatie'\n'Webshop van Voorbeeld Bedrijf'\n'Intranet van Voorbeeld Universiteit'",
     "LABEL_SITE_SCOPE": "Scope van de website",
