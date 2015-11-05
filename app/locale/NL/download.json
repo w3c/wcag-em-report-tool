@@ -1,8 +1,8 @@
 {
-    "TITLE": "Website Accessibility Evaluation Report",
-    "INTRO": "Below is the evaluation report based on the input that you provided in previous steps. You can go back to previous steps now and change any of this information. You can download the evaluation data so that you can work on it later. (This is the same as the 'Save' functionality.) \n This report is intended to be downloaded. You can download the Evaluation Report HTML and CSS files below. You can then change the report content and visual design to meet your needs.",
-    "DOWNLOAD_REPORT": "Download and customize this report",
-    "BTN_SAVE_HTML": "Download the evaluation report (HTML)",
-    "BTN_SAVE_CSS": "Download the report stylesheet (CSS)",
-    "BTN_SAVE_JSON": "Save the evaluation data (JSON)"
+    "TITLE": "Website Toegankelijkheid Evaluatie Rapport",
+    "INTRO": "Hieronder vindt u het evaluatierapport gebaseerd op de gegevens die u in vorige stappen heeft ingevuld. U kunt teruggaan naar vorige stappen voor derdere aanpassingen. U kunt de evaluatiedata downloaden zodat u hier later aan door kunt werken. (Hetzelfde als bij 'Opslaan'.) \n Dit rapport is bedoeld als download. U kunt de HTML en CSS bestanden van het rapport hieronder downloaden. U kunt de presentatie en content van het rapport daarna verder aanpassen.",
+    "DOWNLOAD_REPORT": "Download het rapport",
+    "BTN_SAVE_HTML": "Download het evaluatierapport (HTML)",
+    "BTN_SAVE_CSS": "Download de stylesheet van het rapport (CSS)",
+    "BTN_SAVE_JSON": "Bewaar de evaluatiedata (JSON)"
 }

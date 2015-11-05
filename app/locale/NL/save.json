@@ -1,17 +1,7 @@
 {
-    "TITLE": "Save Evaluation Report",
-    "INTRO": "Use the link below to save the evaluation report information that you have entered in a JSON data file locally on your computer.",
-    "BTN_DOWNLOAD_DATA_FILE": "Save data file locally to your computer",
-    "TIPS": "You can save partially-complete reports (and notes) and work on them later. You can open them from any web browser and you can transfer the data file to another computer. \n You can Save periodically as you work to avoid losing data if your web browser closes. You can use Windows shortcut keys Ctrl+S or Mac shortcut keys ⌘S to open the Save dialog (or automatically save it in your downloads folder depending on your web browser settings). \n When you are done entering your evaluation report information, you can download an HTML file of the completed report from the {0} page.",
-    "TIPS_0": "View Report",
-    "HD_POST_TO_URL": "Save Evaluation To A URL",
-    "INTRO_POST_TO_URL": "The evaluation can be posted to w RESTful API such as those used with MongoDB. Please make sure the access-control-allow-origin header is set, to accept requests from this server.",
-    "LABEL_POST_TO_URL": "URL of the evaluation",
-    "ENABLE_AUTOSAVE": "Enable autosave (every 3 seconds)",
-    "MSG_SAVING": "Saving the evaluation, please wait...",
-    "MSG_SAVED_SUCCESS": "The evaluation was saved successfully",
-    "MSG_SERVER_ERROR": "Error received from the server.",
-    "MSG_PROBLEM_CONNECTING": "Problem connecting to the server. Please check the console for details.",
-    "MSG_BAD_RESPONSE": "Response message",
-    "BTN_POST_TO_URL": "Post to URL"
+    "TITLE": "Evaluatierapport opslaan",
+    "INTRO": "Gebruik onderstaande link om de door u ingevoerde gegevens van het evaluatierapport als JSON databestand lokaal op uw computer te bewaren.",
+    "BTN_DOWNLOAD_DATA_FILE": "Bewaar databestand lokaal op uw computer",
+    "TIPS": "U kunt onvoltooide rapporten (en aantekeningen) bewaren en hier later aan verder werken. U kunt deze openen in iedere webbrowser en het databestand naar een andere computer sturen.\n U dient uw werk regelmatig op te slaan om te voorkomen dat u werk verliest mocht de web browser sluiten. U kunt de sneltoets Ctrl+S voor windows of ⌘S voor Mac gebruiken om het opslaan-scherm te starten (of om automatisch naar uw downloads folder te plaatsen, afhankelijk van uw browser instellingen). \n Wanneer u het evaluatierapport heeft afgerond, kunt u een HTML-bestand met het volledige rapport downloaden de {0}.",
+    "TIPS_0": "'Bekijk rapport'-pagina"
 }

@@ -1,5 +1,6 @@
 {
-    "TITLE": "Step 3: Select a Representative Sample",
+    "TITLE": "Stap 3: Selecteer een representatieve sample",
+    
     "INTRO": "Select web pages for evaluation. The notes that you took during exploration in the previous step are provided here, to help you select the web pages. Ensure that the web pages selected are representative of the target website. More guidance on this step is provided in {0}.",
     "INTRO_0": "WCAG-EM Step 3: Select a Representative Sample",
     "HD_STRUCT_SAMPLE": "Structured Sample",
@@ -14,15 +15,17 @@
     "INF_RAND_SAMPLE_0": "WCAG-EM Step 3.b: Include a Randomly Selected Sample",
     "INF_RAND_SAMPLE_1": "web page states",
     "RAND_SAMPLE_LENGTH": "Based on your structured sample of {0} web pages, chose at least {1} randomly selected web pages (to meet the 10% requirement in WCAG-EM).",
-    "LABEL_HANDLE": "Short name",
+    "LABEL_HANDLE": "korte titel",
     "LABEL_PAGE": "Address (URL) or description",
     "NO_PAGES_DEFINED": "No pages defined for this list",
-    "ITEM": "Web page",
+    "ITEM": "Webpagina",
     "PLH_HANDLE": "Identifier for the web page",
     "PLH_PAGE_URL": "Address (URL) or description of how to get there",
-    "BTN_ADD_PAGE": "Add web page",
-    "BTN_REMOVE_PAGE": "Remove page",
+    "BTN_ADD_PAGE": "Pagina toevoegen",
+    "BTN_REMOVE_PAGE": "Pagina verwijderen",
+
     "STRUCTURED_PAGE": "Structured page",
-    "RANDOM_PAGE": "Random page",
-    "SAMPLE_PAGE": "Sample page"
+
+    "RANDOM_PAGE": "Willekeurige pagina",
+    "SAMPLE_PAGE": "Samplepagina"
 }

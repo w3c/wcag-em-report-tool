@@ -2,10 +2,9 @@
     "TITLE": "WCAG-EM Report Tool",
     "SUBTITLE": "Website Toegankelijkheid Evaluatie Rapport Generator",
     "INTRO_HD": "Wat de tool doet",
-    "INTRO_1": "Deze tool helpt u bij het maken van rapporten volgens de {0}. Het voert geen toegankelijkheidstests voor u uit. Het begeleid je door de stappen van WCAG-EM, om een {1} te generreen op basis van de gegevens die u invuld. De tool is ontworpen voor ervaren inspecteurs bekend met {2} en met enige kennis van WCAG-EM. U kunt een WCAG-EM introductie vinden op {3}.",
+    "INTRO_1": "Deze tool helpt u bij het maken van rapporten volgens de {0}. Het voert geen toegankelijkheidstests voor u uit. Het begeleid je door de stappen van WCAG-EM, om een {1} te genereren op basis van de gegevens die u invult. De tool is ontworpen voor ervaren inspecteurs bekend met {2} en met enige kennis van WCAG-EM. U kunt een WCAG-EM introductie vinden op {3}.",
     "INTRO_1_0": "Website Accessibility Conformance Evaluation Methodology (WCAG-EM)",
     "INTRO_1_1": "gestructureerd report",
-    "INTRO_1_1": "structured report",
     "INTRO_1_2": "Richtlijnen voor Toegankelijkheid van Webcontent (WCAG) 2.0",
     "INTRO_1_3": "WCAG-EM Overzicht",
     "INTRO_2A": "Let op:",
@@ -13,13 +12,12 @@
     "USAGE_HD": "Hoe deze tool werkt",
     "USAGE_LI1": "Alle functionaliteit is direct in uw webbrowser beschikbaar. U heeft geen internetverbinding nodig vanaf dit punt. Wanneer u het venster van de webbrowser sluit, raken gegevens die u niet heeft bewaard verloren.",
     "USAGE_LI2": "Alle gegevens die u invult worden als JSON data op de achtergrond bewaard (in uw webbrowser, niet op een server). U kunt periodiek opslaan terwijl u werkt om te voorkomen dat u data verliest mocht uw webbrowser sluiten.",
-
-    "USAGE_LI3": "You can save partially-complete reports and work on them later. To reload a saved file, use the 'Open' link at the top and find the file that you previously saved.",
-    "USAGE_LI4": "Links that are not part of the navigation or functionality (links to external resources) open in a new web browser windows.",
-    "TIPS_HD": "Tips for using this tool",
-    "TIPS_LI1": "You can go back and forth between the steps in any order. None of the fields are required.",
-    "TIPS_LI2A": "To get more information about a field, select the ",
-    "TIPS_LI2B": " icon next to the field label.",
-    "TIPS_LI3": "The tool provides your report as HTML and CSS files. You can download these files from the 'View Report' page. You can then change the report content and visual design.",
-    "TIPS_LI4": "You can include in your report WCAG 2.0 success criteria beyond the conformance target. For example, the website is only required to meet Level AA, yet you want to also include Level AAA success criteria in the report. In Step 1, select the 'Conformance target' as 'Level AAA'. Then after you download the report, manually change the Conformance target to Level AA in the downloaded HTML file."
+    "USAGE_LI3": "Je kunt tussentijdse rapporten bewaren en er later aan verder werken. Klik op de 'Open' link bovenin de pagina en laad daar het bestand wat je eerder hebt opgeslagen.",
+    "USAGE_LI4": "Links die die de tool verlaten (naar externe pagina's) openen in een nieuw browser venster.",
+    "TIPS_HD": "Tips om de tool te gebruiken",
+    "TIPS_LI1": "Je kunt heen en weer tussen de stappen schakelen. Geen van de velden zijn verplicht.",
+    "TIPS_LI2A": "Voor meer informatie over een veld, klik op het ",
+    "TIPS_LI2B": " icoon naast het veld.",
+    "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de 'Bekijk rapport'-pagina. Daarna kun je het ontwerp en de content van het rapport bijwerken.",
+    "TIPS_LI4": "U kunt succescriteria aan uw WCAG 2.0 rapport toevoegen die hoger zijn dan de conformance target. Bijvoorbeeld, de website dient aan niveau AA te voldoen, maar u wilt ook enkele AAA criteria in het rapport benoemen. In stap 4 kunt u het niveau filter gebruiken om succescriteria van een hoger niveau te tonen. Criteria met een ingevuld resultaat zullen altijd in het rapport komen"
 }
