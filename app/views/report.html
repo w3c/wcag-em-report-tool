@@ -1,28 +1,28 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
-<h1>{{:: setTitle( translate('DOWNLOAD.TITLE') ) }}</h1>
+<h1>{{ setTitle( translate('DOWNLOAD.TITLE') ) }}</h1>
 
 <p ng-bind-html="'DOWNLOAD.INTRO' | translate  | nlToBr"></p>
 
 <div class="container save-panel">
   <div class="panel panel-default">
     <div class="panel-heading">
-     {{:: 'DOWNLOAD.DOWNLOAD_REPORT' | translate}}
+     {{ 'DOWNLOAD.DOWNLOAD_REPORT' | translate}}
     </div>
     <ul class="list-group">
       <li class="list-group-item"><a download="{{exportHtmlFile}}"
       ng-click="saveHtmlBlobIE()" target="_blank" id="html_download_link">
-          {{:: 'DOWNLOAD.BTN_SAVE_HTML' | translate}}
+          {{ 'DOWNLOAD.BTN_SAVE_HTML' | translate}}
       </a></li>
       <li class="list-group-item"><a download="report.css"
       href="styles/report.css" target="_blank">
-          {{:: 'DOWNLOAD.BTN_SAVE_CSS' | translate}}
+          {{ 'DOWNLOAD.BTN_SAVE_CSS' | translate}}
       </a></li>
       <li class="list-group-item"><a download="{{exportJsonFile}}"
       ng-click="downloadJsonStart()"
       target="_blank" href="{{exportJsonUrl}}">
-          {{:: 'DOWNLOAD.BTN_SAVE_JSON' | translate}}
+          {{ 'DOWNLOAD.BTN_SAVE_JSON' | translate}}
       </a></li>
     </ul>
   </div>

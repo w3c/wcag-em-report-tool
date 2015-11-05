@@ -40,7 +40,7 @@
       <input type="checkbox" id="other"
       ng-model="rootHide.OtherTech">
       <label for="other">
-        {{:: 'EXPLORE.LABEL_OTHER' | translate }}
+        {{ 'EXPLORE.LABEL_OTHER' | translate }}
       </label>
     </li>
   </ul>
@@ -58,14 +58,14 @@
            delButton = 'btn glyphicon glyphicon-remove-sign'">
     <header ng-class="head" aria-hidden="true">
       <div ng-class="col1">
-        {{:: 'EXPLORE.LABEL_TECH' | translate}}
+        {{ 'EXPLORE.LABEL_TECH' | translate}}
       </div> <div ng-class="col2">
-        {{:: 'EXPLORE.LABEL_TECH_SPEC' | translate}}
+        {{ 'EXPLORE.LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
 
     <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
-      {{:: 'EXPLORE.NO_TECH_DEFINED' | translate}}
+      {{ 'EXPLORE.NO_TECH_DEFINED' | translate}}
     </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"

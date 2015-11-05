@@ -4,49 +4,49 @@ ng-class="getClassName(assert.result.outcome)">
   <earl-assert class="panel-heading" value="assert.result" options="opt">
 
     <div class="col-xs-12 criterion-title">
-      <strong>{{:: spec.num}} {{:: spec.handle}}</strong>: ({{::spec.level | rdfToLabel}})
+      <strong>{{ spec.num}} {{ spec.handle}}</strong>: ({{spec.level | rdfToLabel}})
       <icon-button class="pull-right"
       icon="'book'" label="'AUDIT.BTN_SHOW_TEXT' | translate"
       click="spec.show_text = !spec.show_text">
       </icon-button>
     </div>
     <div class="col-xs-12" collapse="!spec.show_text">
-      <p>{{::spec.text}}<p>
+      <p>{{spec.text}}<p>
       <div ng-repeat="detail in spec.details">
         <ul ng-if="detail.type === 'ulist'">
           <li ng-repeat="item in detail.items">
             <strong ng-if="item.handle">
-              {{::item.handle}}
+              {{item.handle}}
             </strong>
-            {{:: item.text}}
+            {{ item.text}}
           </li>
         </ul>
         <ol ng-if="detail.type === 'olist'">
           <li ng-repeat="item in detail.items">
             <strong ng-if="item.handle">
-              {{::item.handle}}
+              {{item.handle}}
             </strong>
-            {{:: item.text}}
+            {{ item.text}}
           </li>
         </ol>
         <p ng-if="details.type === 'note'">
-          <em>{{ "AUDIT.NOTE" | translate }}:</em> {{:: details.text}}
+          <em>{{ "AUDIT.NOTE" | translate }}:</em> {{ details.text}}
         </p>
       </div>
       <p>
-        <a target="_blank" href="{{::
+        <a target="_blank" href="{{
           'http://www.w3.org/TR/UNDERSTANDING-WCAG20/' +
           spec.id.substr(6) +
-          '.html'}}">{{ "AUDIT.UNDERSTAND" | translate }} {{::spec.number}}
+          '.html'}}">{{ "AUDIT.UNDERSTAND" | translate }} {{spec.number}}
           <span class="glyphicon glyphicon-new-window"></span></a>
-        <a target="_blank" href="{{::
+        <a target="_blank" href="{{
           'http://www.w3.org/WAI/WCAG20/quickref/#qr-' +
           spec.id.substr(6)
-          }}">{{ "AUDIT.HOW_TO" | translate }} {{::spec.number}}
+          }}">{{ "AUDIT.HOW_TO" | translate }} {{spec.number}}
           <span class="glyphicon glyphicon-new-window"></span></a>
       </p>
     </div>
-    <div class="col-xs-12">{{:: 'AUDIT.SAMPLE_FINDINGS' | translate }}:</div>
+    <div class="col-xs-12">{{ 'AUDIT.SAMPLE_FINDINGS' | translate }}:</div>
 
   </earl-assert>
 

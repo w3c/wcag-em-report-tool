@@ -3,7 +3,7 @@
   value="assert.result" options="opt" class="appear">
 
     <div class="col-xs-12">
-      {{:: 'AUDIT.RESULTS_FOR' | translate}}:
+      {{ 'AUDIT.RESULTS_FOR' | translate}}:
       <em ng-bind="assert.subject[0].displayHandle()"></em>
       <span ng-if="assert.subject[0].description">
         ({{assert.subject[0].description}})

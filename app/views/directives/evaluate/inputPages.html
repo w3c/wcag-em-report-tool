@@ -8,22 +8,22 @@ ng-init="col0 = 'visible-xs col-xs-12';
   <header class="row hidden-xs form-block-head"
   aria-hidden="true">
     <div ng-class="col1">
-      {{:: 'SAMPLE.LABEL_PAGE' | translate}}</div>
+      {{ 'SAMPLE.LABEL_PAGE' | translate}}</div>
     <div ng-class="col2">
-      {{:: 'SAMPLE.LABEL_HANDLE' | translate}}</div>
+      {{ 'SAMPLE.LABEL_HANDLE' | translate}}</div>
   </header>
 
   <p ng-if="pages.length === 0" class="appear no-selection"><em>
-    {{:: 'SAMPLE.NO_PAGES_DEFINED' | translate}}
+    {{ 'SAMPLE.NO_PAGES_DEFINED' | translate}}
   </em></p>
 
   <fieldset class="row form-group-inline appear" ng-repeat="page in pages">
     <legend ng-class="col0">
-      {{:: 'SAMPLE.ITEM' | translate }} {{$index+1}}
+      {{ 'SAMPLE.ITEM' | translate }} {{$index+1}}
     </legend>
 
     <label ng-class="colHide" for="struct_{{$index}}">
-      {{:: 'LABEL_PAGE' | translate }}:
+      {{ 'LABEL_PAGE' | translate }}:
     </label>
     <div ng-class="col1">
       <input type="text" class="form-control"
@@ -33,7 +33,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
       shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
     </div>
     <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{::'SAMPLE.LABEL_HANDLE' | translate}}:
+      {{'SAMPLE.LABEL_HANDLE' | translate}}:
     </label>
     <div ng-class="col2">
       <input type="text" class="form-control"
@@ -47,7 +47,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
       tooltips tooltip-side="top" tooltip-try="0"
       tooltip-title="{{'SAMPLE.BTN_REMOVE_PAGE' | translate}}">
         <span class="sr-only">
-          {{:: 'SAMPLE.BTN_REMOVE_PAGE' | translate}}
+          {{ 'SAMPLE.BTN_REMOVE_PAGE' | translate}}
         </span>
       </button>
     </div>
@@ -55,6 +55,6 @@ ng-init="col0 = 'visible-xs col-xs-12';
 
   <button ng-click="addPage($event)" class="btn btn-default">
     <span class="glyphicon glyphicon-plus-sign"></span>
-    {{:: 'SAMPLE.BTN_ADD_PAGE' | translate }}
+    {{ 'SAMPLE.BTN_ADD_PAGE' | translate }}
   </button>
 </div>

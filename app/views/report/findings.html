@@ -1,6 +1,6 @@
 <div data-ng-controller="ReportFindingsCtrl">
   <div data-ng-repeat="p in principles">
-    <h3>{{:: 'HTML_REPORT.PRINCIPLE'| translate }}
+    <h3>{{ 'HTML_REPORT.PRINCIPLE'| translate }}
     {{p.num + ' ' + p.handle}}</h3>
 
     <div data-ng-repeat="g in p.guidelines">
