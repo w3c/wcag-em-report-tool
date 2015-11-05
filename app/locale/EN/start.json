@@ -8,7 +8,7 @@
     "INTRO_1_2": "Web Content Accessibility Guidelines (WCAG) 2.0",
     "INTRO_1_3": "WCAG-EM Overview",
     "INTRO_2A": "Note:",
-    "INTRO_2B": "This tool does not automatically save the information that you enter. To save your data in a file locally on your computer, use Windows shortcut keys Ctrl+S or Mac shortcut keys ⌘S to open the Save dialog. (Or the 'Save' link at the top of the page will open the Save Evaluation Report page and from there the 'Save data file locally to your computer' link will open the Save dialog.)",
+    "INTRO_2B": "This tool does not automatically save the information that you enter. To save your data in a file locally on your computer, use Windows shortcut keys Ctrl+S or Mac shortcut keys {{mac}} to open the Save dialog. (Or the 'Save' link at the top of the page will open the Save Evaluation Report page and from there the 'Save data file locally to your computer' link will open the Save dialog.)",
     "USAGE_HD": "How this tool works",
     "USAGE_LI1": "All functionality provided by this tool is now loaded and running locally in your web browser. You don't need an Internet connection beyond this point. When you close your web browser window, any unsaved data is lost.",
     "USAGE_LI2": "All input that you provide through this tool is recorded as JSON data in the background (in your web browser, not on any server). You can Save periodically as you work to avoid losing data if your web browser closes.",
