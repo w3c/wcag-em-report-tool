@@ -6,8 +6,6 @@
     "INF_AUDIT_SAMPLE": "This section lists the web pages you selected in the previous step. The web pages that are checked in this section are listed when 'Show web pages to enter individual results' is activated in the 'Success Criteria to Evaluate' section. You can show an individual web page that you are evaluating, or show several web pages at the same time. \n The chainlink icon opens the web page in a separate browser window.",
     "BTN_COMPLETE_SELECTED": "Set selected to complete",
     "BTN_UNCOMPLETE_SELECTED": "Set selected to incomplete",
-    "BTN_SELECT_PREVIOUS": "select previous pages",
-    "BTN_SELECT_NEXT": "Select next pages",
     "BTN_OPEN_SELECTED": "Open selected pages",
     "NO_SAMPLE": "No sample available. Create a sample in step 2 and step 3.",
     "TESTED": "Tested",
@@ -23,16 +21,9 @@
     "BTN_EXPAND_PAGES": "Show web pages to enter individual results",
     "BTN_COLLAPSE_PAGES": "Hide web pages to enter individual results",
     "LABEL_OUTCOME": "Outcome",
-    "BTN_ADD_MACRO_ASSERT": "Add  multi-page result",
     "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
-
     "PLH_ASSERT_DESC": "Observations made during evaluation",
     "CLICK_TO_DELETE": "Click to delete",
     "LABEL_PAGE_HANDLE": "Short page name",
-    "RESULTS_FOR": "Results for",
-    "BTN_RESULT_COPY": "Copy this result",
-    "BTN_TRANSFER_MACRO_ASSERT": "Merge multi-page result into page results",
-    "CONFIRM_TRANSFER_MACRO_RESULT": "Merging multi-page results into pages can not be undone. Continue?",
-    "BTN_REMOVE_MACRO_ASSERT": "Remove multi-page result",
-    "CONFIRM_REMOVE_RESULT": "Are you sure you want to remove this result?"
+    "RESULTS_FOR": "Results for"
 }
