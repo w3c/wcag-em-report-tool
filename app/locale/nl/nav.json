@@ -9,7 +9,7 @@
     "WZRD_SCOPE": "1. Bepaal Scope",
     "WZRD_EXPLORE": "2. Verken Website",
     "WZRD_SAMPLE": "3. Selecteer Sample",
-    "WZRD_AUDIT": "4. Audit Sample",
+    "WZRD_AUDIT": "4. Toets Sample",
     "WZRD_REPORT": "5. Raporteer Resultaten",
     "WZRD_ACTIVE": "Actief",
     "WZRD_EXPORT": "Bekijk Report",
@@ -19,7 +19,7 @@
     "STEP_SCOPE": "Bepaal scope",
     "STEP_EXPLORE": "Verken website",
     "STEP_SAMPLE": "Selecteer Sample",
-    "STEP_AUDIT": "Audit Sample",
+    "STEP_AUDIT": "Toets Sample",
     "STEP_REPORT": "Reporteer Resultaten",
     "STEP_VIEW": "Bekijk Report",
     "BTN_BACK_TO_EVAL": "Terug"

@@ -1,12 +1,12 @@
 {
-    "BROWSER_NOT_SUPPORTED": "The web browser you are using does not support some functionality, such as saving and loading reports. You can continue to use this report tool with limited functionality. Update or use a different web browser to make use of all functionality of this report tool.",
-    "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
-    "HIDE_MESSAGE": "Hide message",
-    "BTN_INFO": "Info expand",
-    "BTN_CLOSE_INFO": "Close info",
-    "YES": "Yes",
-    "NO": "No",
-    "CLICK_EXPAND": "Click to show section",
-    "CLICK_COLLAPSE": "Click to hide section",
-    "TO_TOP": "Back to top"
+    "BROWSER_NOT_SUPPORTED": "Enkele functionaliteiten zijn niet door uw webbrowser ondersteund, zoals het opslaan en openen van rapporten. Je kunt de rapport tool met beperkte functionaliteit gebruiken. Update of gebruik een andere webbrowser om van alle functionaliteiten in de report tool gebruik te kunnen maken.",
+    "WARNING_BEFORE_UNLOAD": "Uw data worden niet automatisch opgeslagen. Wanneer het venster van uw web browser sluit is de data verloren. Gebruik de 'Opslaan' link (Ctrl + S of ⌘ S) bovenaan iedere pagina om uw data in een bestand op uw locale computer te bewaren en open deze later om door te werken.",
+    "HIDE_MESSAGE": "Verberg bericht",
+    "BTN_INFO": "Info uitklappen",
+    "BTN_CLOSE_INFO": "Sluit info",
+    "YES": "Ja",
+    "NO": "Nee",
+    "CLICK_EXPAND": "Klik om sectie te tonen",
+    "CLICK_COLLAPSE": "Klik om sectie te verbergen",
+    "TO_TOP": "Naar boven"
 }
