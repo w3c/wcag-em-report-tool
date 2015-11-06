@@ -3,16 +3,12 @@
  *
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function(wcag20specEn, wcag20specNl) {
+.factory('wcag20spec', function() {
     var guidelines;
     var criteria;
     var currentSpec;
     var criteriaObj = {};
-
-    var specs = {
-        'EN': wcag20specEn,
-        'NL': wcag20specNl,
-    };
+    var specs = {};
 
     function pluck(prop) {
         return function (a, b) {
@@ -24,7 +20,18 @@ angular.module('wcagReporter')
     }
 
     var wcag2 = {
+        addSpec: function (lang, spec) {
+            specs[lang] = spec;
+            if (!currentSpec) {
+                wcag2.useLanguage(lang);
+            }
+        },
+
         useLanguage: function (lang) {
+            lang = lang.toLowerCase();
+            if (!specs[lang]) {
+                throw new Error('Spec for lang ' + lang + ' not defined.');
+            }
             currentSpec = specs[lang];
             // Concat all guidelines arrays of each principle
             guidelines = currentSpec.principles
@@ -58,7 +65,7 @@ angular.module('wcagReporter')
         }
     };
 
-    wcag2.useLanguage('EN');
+
 
     return wcag2;
 });

@@ -1,16 +1,9 @@
 'use strict';
-try {
-    angular.module('wcag20spec');
-} catch (e) {
-   angular.module('wcag20spec', []);
-}
-/**
- * Originally created by Justin Marsan
- * https://github.com/justinmarsan/wcag.json
- */
-angular.module('wcag20spec')
-.factory('wcag20specNl', function () {
-  return {
+
+angular.module('wcagReporter')
+.run(function (wcag20spec) {
+
+    wcag20spec.addSpec('nl', {
         "principles": [
             {
                 "id": "WCAG2:perceivable",
@@ -912,5 +905,5 @@ angular.module('wcag20spec')
                 ]
             }
         ]
-    };
+    });
 });
