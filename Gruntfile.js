@@ -346,8 +346,8 @@ module.exports = function (grunt) {
       localeCapitalized: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/locale/', 
-          dest: '.tmp/locale/', 
+          cwd: '<%= yeoman.app %>/locale/',
+          dest: '.tmp/locale/',
           src: ['**/*.json'],
           rename: function(dest, src) {
             return dest + (src.toUpperCase().substr(0, src.length-4)) + 'json';
@@ -358,9 +358,9 @@ module.exports = function (grunt) {
       font: {
           expand: true,
           flatten: true,
-          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass/assets/fonts/',
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
           dest: '<%= yeoman.app %>/styles/bootstrap',
-          src: ['bootstrap/*.*']
+          src: ['glyphicons-halflings-regular.*']
       },
       dist: {
         files: [{
@@ -374,7 +374,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/**/*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'glyphicons-halflings-regular.*'
           ]
         }, {
           expand: true,
