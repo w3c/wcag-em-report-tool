@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/report.css" />
   <!-- endbuild -->
 </head>
-<body ng-app="wcagReporter">
+<body id="report-tool">
   <!-- Add your site or application content here -->
   <div class="page-view">
     <div ng-include src="'views/navigation.html'"></div>
@@ -25,7 +25,6 @@
   <script src="bower_components/es5-shim/es5-shim.js"></script>
   <script src="bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
-
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <!-- build:js scripts/vendor.js -->
@@ -49,8 +48,6 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/app.setup.js"></script>
-  <script src="scripts/locale/EN.js"></script>
-  <script src="scripts/locale/NL.js"></script>
 
   <script src="scripts/services/localeLoader.js"></script>
   <script src="scripts/services/directivePlugin.js"></script>
@@ -91,8 +88,6 @@
 
   <script src="scripts/models/AppState.js"></script>
   <script src="scripts/models/wcag20spec.js"></script>
-  <script src="wcag20spec/js/wcag2.en.js"></script>
-  <script src="wcag20spec/js/wcag2.nl.js"></script>
   <script src="scripts/models/class/CriterionAssert.js"></script>
   <script src="scripts/models/class/TestCaseAssert.js"></script>
   <script src="scripts/models/class/Page.js"></script>
