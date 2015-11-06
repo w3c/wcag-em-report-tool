@@ -1,12 +1,9 @@
 {
     "TITLE": "Stap 4: Onderzoek de sample",
-    "INTRO": "Beschrijf de resultaten uit de evaluatie van de webpagina's geselecteerd in de vorige stap. Vergelijkd e resultaten tussen de structuurpagina's en de willekeurig gekozen pagina's, en waar nodig pas de geselecteerde sample in de vorige stap aan. Meer informatie over deze stap is te vinden in {0}. \n Opmerking: Voor elk WCAG 2.0 succescriterium,kunt u resultaten voor de volledige sample invullen, evenals resultaten voor individuele pagina's. Om individuele resultaten in te vullen, selecteer pagina's onder 'Te evalueren sample' (in de linker kolom); vervolgens onder de succescriteria, kies 'Webpagina's om individuele resultaten in te vullen weergeven'",
+    "INTRO": "Beschrijf de resultaten uit de evaluatie van de webpagina's geselecteerd in de vorige stap. Vergelijkd e resultaten tussen de structuurpagina's en de willekeurig gekozen pagina's, en waar nodig pas de geselecteerde sample in de vorige stap aan. Meer informatie over deze stap is te vinden in {0}. \n Opmerking: Voor elk WCAG 2.0 succescriterium,kunt u resultaten voor de volledige sample invullen, evenals resultaten voor individuele pagina's. Om individuele resultaten in te vullen, selecteer pagina's onder 'Te evalueren sample' (in de linker kolom); vervolgens onder de succescriteria, kies 'Invoer voor per-paginaresultaten weergeven'",
     "INTRO_0": "WCAG-EM Stap 4: Onderzoek de sample",
     "HD_SAMPLE_SELECT": "Te evalueren sample",
-    "INF_AUDIT_SAMPLE": "",
-
-    "INF_AUDIT_SAMPLE": "This section lists the web pages you selected in the previous step. The web pages that are checked in this section are listed when 'Show web pages to enter individual results' is activated in the 'Success Criteria to Evaluate' section. You can show an individual web page that you are evaluating, or show several web pages at the same time. \n The chainlink icon opens the web page in a separate browser window.",
-
+    "INF_AUDIT_SAMPLE": "In dit onderdeel vindt u de webpagina's uit de vorige stap. De webpagina's die in dit onderdeel geselecteerd worden zullen onder 'Invoer voor per-paginaresultaten weergeven' worden weergegeven wanneer deze uitgeklapt is in het onderdeel 'Te evalueren succescriteria'. U kunt per pagina weergeven, of meerdere webpagina's tegelijk. Met het linkicoon kunt u pagina's in een nieuw venster openen.",
     "BTN_COMPLETE_SELECTED": "Markeer selectie als voltooid",
     "BTN_UNCOMPLETE_SELECTED": "Markeer selectie als onvoltooid",
     "BTN_OPEN_SELECTED": "Open geselecteerde pagina's",
@@ -14,9 +11,7 @@
     "TESTED": "Getest",
     "HD_CRITERIA": "Successcriteria om te evalueren",
 
-    "INF_AUDIT_CRITERIA": "",
-    "INF_AUDIT_CRITERIA": "This section lists the WCAG 2.0 success criteria at the level (A, AA, or AAA) that you set in the 'Conformance target' in Step 1. You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
-
+    "INF_AUDIT_CRITERIA": "In dit onderdeel vindt u de WCAG 2.0 succescriteria. Gebruik de filter om succescriteria van andere niveau's (A, AA en AAA) te toneen of verberen. Kies 'Voldoende', 'Onvoldoende', 'Niet van toepassing', en 'Onduidelijk' als resultaat. U kunt bevindingen en andere opmerkingen uit de evaluatie in het tekstveld invullen.",
     "FILTER": "Filter",
     "PRINCIPLE": "Principe",
     "NOTE": "Opmerking",
@@ -24,8 +19,8 @@
     "UNDERSTAND": "Toelichting",
     "HOW_TO": "Hoe te voldoen",
     "SAMPLE_FINDINGS": "Resultaat van de hele sample",
-    "BTN_EXPAND_PAGES": "Webpagina's om individuele resultaten in te vullen weergeven",
-    "BTN_COLLAPSE_PAGES": "Webpagina's om individuele resultaten in te vullen verbergen",
+    "BTN_EXPAND_PAGES": "Invoer voor per-paginaresultaten weergeven",
+    "BTN_COLLAPSE_PAGES": "Invoer voor per-paginaresultaten verbergen",
     "LABEL_OUTCOME": "Uitkomst",
     "NO_PAGE_SELECTED": "Geen pagina geselecteerd onder 'Te evalueren sample'",
     "PLH_ASSERT_DESC": "Bevindingen uit de evaluatie",
