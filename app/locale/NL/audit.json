@@ -1,7 +1,7 @@
 {
-    "TITLE": "Stap 4: Onderzoek de sample",
+    "TITLE": "Stap 4: Toets de sample",
     "INTRO": "Beschrijf de resultaten uit de evaluatie van de webpagina's geselecteerd in de vorige stap. Vergelijkd e resultaten tussen de structuurpagina's en de willekeurig gekozen pagina's, en waar nodig pas de geselecteerde sample in de vorige stap aan. Meer informatie over deze stap is te vinden in {0}. \n Opmerking: Voor elk WCAG 2.0 succescriterium,kunt u resultaten voor de volledige sample invullen, evenals resultaten voor individuele pagina's. Om individuele resultaten in te vullen, selecteer pagina's onder 'Te evalueren sample' (in de linker kolom); vervolgens onder de succescriteria, kies 'Invoer voor per-paginaresultaten weergeven'",
-    "INTRO_0": "WCAG-EM Stap 4: Onderzoek de sample",
+    "INTRO_0": "WCAG-EM Stap 4: Toets de sample",
     "HD_SAMPLE_SELECT": "Te evalueren sample",
     "INF_AUDIT_SAMPLE": "In dit onderdeel vindt u de webpagina's uit de vorige stap. De webpagina's die in dit onderdeel geselecteerd worden zullen onder 'Invoer voor per-paginaresultaten weergeven' worden weergegeven wanneer deze uitgeklapt is in het onderdeel 'Te evalueren succescriteria'. U kunt per pagina weergeven, of meerdere webpagina's tegelijk. Met het linkicoon kunt u pagina's in een nieuw venster openen.",
     "BTN_COMPLETE_SELECTED": "Markeer selectie als voltooid",
