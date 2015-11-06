@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.run(function (translateFilter, $rootScope, $document, appState, wcagReporterExport,
-$location, $rootElement, evalScopeModel, showSave) {
+.run(function ($rootScope, $document, $rootElement, evalScopeModel) {
     var titleElm = $document.find('title');
     var prefix = titleElm.text().trim();
     var moveFocusToH1;
@@ -49,18 +48,7 @@ $location, $rootElement, evalScopeModel, showSave) {
             // Wait for the template to compile, then focus to h1
             setTimeout($rootScope.focusH1, 750);
         }
-
         return title;
-    };
-
-    $rootScope.translate = translateFilter;
-    $rootScope.rootHide = {};
-
-    appState.init();
-
-    $rootScope.setEvalLocation = function () {
-        appState.setDirtyState();
-        $location.path('/evaluation/scope');
     };
 
     /*
@@ -76,14 +64,29 @@ $location, $rootElement, evalScopeModel, showSave) {
         }
     });
 
+
+// Setup root scope
+}).run(function ($rootScope, translateFilter, appState, $location) {
+
+    $rootScope.translate = translateFilter;
+    $rootScope.rootHide = {};
+
+    appState.init();
+
+    $rootScope.setEvalLocation = function () {
+        appState.setDirtyState();
+        $location.path('/evaluation/scope');
+    };
     $rootScope.support = {
         hasSupport: appState.hasBrowserSupport(),
         hideMessage: false
     };
 
+
+// ctrl+s || cmd+s
+}).run(function ($rootElement, wcagReporterExport, showSave, appState) {
     if (showSave) {
         $rootElement.on('keydown', function (e) {
-            // ctrl+s || cmd+s
             if (e.keyCode === 83 && (e.ctrlKey || e.metaKey)) {
                 showSave(wcagReporterExport.getString(),
                          wcagReporterExport.getFileName(),
@@ -95,18 +98,9 @@ $location, $rootElement, evalScopeModel, showSave) {
         });
     }
 
-// Setup the tooltips default
-}).config(function(tooltipsConfigProvider) {
-    tooltipsConfigProvider.options({
-        speed: 'fast',
-        lazy: false,
-        showTrigger: 'mouseover focus',
-        hideTrigger: 'mouseout blur'
-    });
 
 // Setup automatic import/export based on attributes of the root element
 }).run(function (wcagReporterImport, wcagReporterExport, $rootElement) {
-
     wcagReporterExport.storage.init({
         autosave: (typeof $rootElement.attr('autosave') === 'string'),
         url: $rootElement.attr('url'),
@@ -116,4 +110,4 @@ $location, $rootElement, evalScopeModel, showSave) {
     if ($rootElement.attr('url')) {
         wcagReporterImport.getFromUrl();
     }
-})
+});
