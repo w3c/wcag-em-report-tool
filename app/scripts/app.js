@@ -1,4 +1,23 @@
 'use strict';
+// Launch the app once the locale is loaded
+angular.element(document).ready(function() {
+    var elm = angular.element('#report-tool');
+    if (elm) {
+
+        var lang = (elm.attr('lang') || 'en')
+                    .substr(0,2).toLowerCase();
+        window.wcagReporterLoadLocale(lang, function (e) {
+            if (e) {
+                throw new Error(e);
+            }
+            angular.bootstrap(elm, ['wcagReporter']);
+        });
+
+    } else {
+        throw new Error('Could not find element #report-tool');
+    }
+});
+
 
 angular.module('wcagReporter', [
     'ngResource',
@@ -8,8 +27,7 @@ angular.module('wcagReporter', [
     'pascalprecht.translate',
     '720kb.tooltips',
     'ui.bootstrap',
-    'wert-templates',
-    'wcag20spec'
+    'wert-templates'
 ]).config(function ($routeProvider, $compileProvider, $translateProvider) {
 
     $compileProvider
@@ -58,3 +76,5 @@ angular.module('wcagReporter', [
         hideTrigger: 'mouseout blur'
     });
 });
+
+
