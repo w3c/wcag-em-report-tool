@@ -2,13 +2,22 @@
 
 angular.module('wcagReporter')
 .controller('NavigationCtrl',
-function ($scope, $rootScope, $translate, wcag20spec) {
+function ($scope, $rootScope, $translate, wcag20spec, localeLoader) {
 
-  	$scope.changeLanguage = function (key) {
-	    $translate.use(key);
-        wcag20spec.useLanguage(key);
+  	$scope.changeLanguage = function (lang) {
 
-        $rootScope.$broadcast('langChange');
+        localeLoader.loadLang(lang, function (err) {
+            if (!err) {
+                $scope.$apply(function () {
+                    $translate.use(lang);
+                    wcag20spec.useLanguage(lang);
+                    $rootScope.$broadcast('langChange', lang);
+                });
+            } else {
+                console.log(err);
+            }
+        });
+
   	};
 
 });
