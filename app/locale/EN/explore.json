@@ -3,7 +3,7 @@
     "INTRO": "Explore the website to understand its purpose, functionality, and use. This step helps you determine which web pages to use for the evaluation in the next steps. Identify the web technologies used to provide the website and, if you want, take notes on other aspects of the website. Usually it is best to get input from the website owners and developers for this step. More guidance on this step is provided in {0}.",
     "INTRO_0": "WCAG-EM Step 2: Explore the Target Website",
     "HD_RELIEDUP_TECH": "Web Technologies Relied Upon",
-    "INF_RELIEDUP_TECH": "Identify the web technologies {1} to provide the website. For more information, see {0}.\n Note: The 'Web Technology' and 'Specification Address (URL)' input fields provide drop-down lists that you can pick from. You can also type different text into these fields to add to the list. Use the 'Specification Address (URL)' field to identify the web technology specification.",
+    "INF_RELIEDUP_TECH": "Identify the web technologies {1} to provide the website. For more information, see {0}.\n Note: To add other technologies, select 'Others' and use the 'Web Technology' and 'Specification Address (URL)' field. The 'Specification Address (URL)' field should identify the web technology specification.",
     "INF_RELIEDUP_TECH_0": "WCAG-EM Step 2.d: Identify Web Technologies Relied Upon",
     "INF_RELIEDUP_TECH_1": "relied upon according to WCAG 2.0",
     "LABEL_TECH": "Web Technology",
