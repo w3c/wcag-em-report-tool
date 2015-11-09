@@ -10,7 +10,6 @@
     "NO_SAMPLE": "Geen sample beschikbaar. Maak een sample in stap 2 en stap 3.",
     "TESTED": "Getest",
     "HD_CRITERIA": "Successcriteria om te evalueren",
-
     "INF_AUDIT_CRITERIA": "In dit onderdeel vindt u de WCAG 2.0 succescriteria. Gebruik de filter om succescriteria van andere niveau's (A, AA en AAA) te toneen of verberen. Kies 'Voldoende', 'Onvoldoende', 'Niet van toepassing', en 'Onduidelijk' als resultaat. U kunt bevindingen en andere opmerkingen uit de evaluatie in het tekstveld invullen.",
     "FILTER": "Filter",
     "PRINCIPLE": "Principe",

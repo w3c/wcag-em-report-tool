@@ -12,7 +12,6 @@
     "PLH_TECH_SPEC": "Address (URL) or description for the web technology specification",
     "BTN_REMOVE_TECH": "Remove technology",
     "BTN_ADD_TECH": "Add web technology",
-    "NO_TECH_DEFINED": "No relied upon technologies defined for this list",
     "HD_NOTE_TAKING": "Optional Exploration Notes",
     "INF_NOTE_TAKING": "This section lets you record information during your website exploration. These notes are provided in the next step, to help you select a sample of web pages for evaluation. <strong>These notes are not included in the final report.</strong> They are saved when you save the file, and available when you later reload the file",
     "LABEL_ESSENT_FUNC": "Essential functionality of the website",
