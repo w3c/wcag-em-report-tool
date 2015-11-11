@@ -10,9 +10,9 @@
     "WZRD_EXPLORE": "2. Verken Website",
     "WZRD_SAMPLE": "3. Selecteer Sample",
     "WZRD_AUDIT": "4. Toets Sample",
-    "WZRD_REPORT": "5. Raporteer Resultaten",
+    "WZRD_REPORT": "5. Rapporteer Resultaat",
     "WZRD_ACTIVE": "Actief",
-    "WZRD_EXPORT": "Bekijk Report",
+    "WZRD_EXPORT": "Bekijk Raport",
     "PREV_STEP": "Vorige stap",
     "NEXT_STEP": "Volgende stap",
     "STEP_START": "Start",
@@ -20,7 +20,7 @@
     "STEP_EXPLORE": "Verken website",
     "STEP_SAMPLE": "Selecteer Sample",
     "STEP_AUDIT": "Toets Sample",
-    "STEP_REPORT": "Reporteer Resultaten",
+    "STEP_REPORT": "Rapporteer Resultaat",
     "STEP_VIEW": "Bekijk Report",
     "BTN_BACK_TO_EVAL": "Terug"
 }

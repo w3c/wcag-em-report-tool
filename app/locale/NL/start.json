@@ -19,5 +19,5 @@
     "TIPS_LI2A": "Voor meer informatie over een veld, klik op het ",
     "TIPS_LI2B": " icoon naast het veld.",
     "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de 'Bekijk rapport'-pagina. Daarna kun je het ontwerp en de content van het rapport bijwerken.",
-    "TIPS_LI4": "U kunt succescriteria aan uw WCAG 2.0 rapport toevoegen die hoger zijn dan de conformance target. Bijvoorbeeld, de website dient aan niveau AA te voldoen, maar u wilt ook enkele AAA criteria in het rapport benoemen. In stap 4 kunt u het niveau filter gebruiken om succescriteria van een hoger niveau te tonen. Criteria met een ingevuld resultaat zullen altijd in het rapport komen"
+    "TIPS_LI4": "U kunt succescriteria aan uw WCAG 2.0 rapport toevoegen die hoger zijn dan het conformiteitsdoel. Bijvoorbeeld, de website dient aan niveau AA te voldoen, maar u wilt ook enkele AAA criteria in het rapport benoemen. In stap 4 kunt u het niveau filter gebruiken om succescriteria van een hoger niveau te tonen. Criteria met een ingevuld resultaat zullen altijd in het rapport komen"
 }
