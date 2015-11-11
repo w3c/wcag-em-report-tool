@@ -6,7 +6,7 @@
     "HD_ESSENT_FUNC": "Essential functionality (optional notes from previous step)",
     "HD_VARIETY_PAGE_TYPES": "Variety of web page types (optional notes from previous step)",
     "HD_STRUCT_SAMPLE_SUB": "Selected Web Page Sample",
-    "INF_STRUCT_SAMPLE": "Select web pages that reflect all identified (1) common web pages, (2) essential functionality, (3) types of web pages, (4) web technologies relied upon, and (5) other relevant web pages. The common web pages and other relevant web pages from the previous step are automatically included below. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
+    "INF_STRUCT_SAMPLE": "Select web pages that reflect all identified (1) common web pages, (2) essential functionality, (3) types of web pages, (4) web technologies relied upon, and (5) other relevant web pages. For more information, see {0}.\n Note: 'Web pages' include different 'web page states'; see definition of {1}.",
     "INF_STRUCT_SAMPLE_0": "WCAG-EM Step 3.a: Include a Structured Sample",
     "INF_STRUCT_SAMPLE_1": "web page states",
     "HD_RANDOM_SAMPLE": "Randomly Selected Sample",
