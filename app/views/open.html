@@ -4,30 +4,27 @@
 
 <p>{{:: 'OPEN.INTRO' | translate }}</p>
 
-<div class="container form-group">
-  <label for="load_json">
-    {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
-  </label>
-  <!-- <div class="drop_zone">
-    {{:: 'DROP_FILE_HERE' | translate }}
-  </div> -->
-  <div class="alert alert-info appear" ng-if="fileFeedback.posted">
-    <p>{{:: 'OPEN.MSG_LOADING' | translate }}</p>
-  </div>
-  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
-    <p>{{fileFeedback.failure}}</p>
-  </div>
 
-  <input type="file" class="form-control" id="load_json" />
+<div class="alert alert-info appear" ng-if="fileFeedback.posted">
+  <p>{{:: 'OPEN.MSG_LOADING' | translate }}</p>
 </div>
+<div class="alert alert-danger appear" ng-if="fileFeedback.failure">
+  <p>{{fileFeedback.failure}}</p>
+</div>
+
+<label for="load_json" class="btn btn-primary"
+  ng-class="{'focus': fileHasFocus }" id="file_label">
+  {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
+</label>
+
+<input type="file" class="sr-only" id="load_json"
+  ng-focus="fileHasFocus = true" ng-blur="fileHasFocus = false"
+  onchange="var elm = angular.element(this);
+            elm.scope().loadFile(elm.val())" />
 
 <div class="alert alert-danger" ng-if="showError">
   <p>{{ 'OPEN.' + showError | translate }}
 </div>
-
-<p><button class="btn btn-primary" ng-click="loadFile()">
-	{{:: 'OPEN.BTN_LOAD_FILE' | translate}}
-</button></p>
 
 <h2>{{:: 'OPEN.HD_GET_FROM_URL' | translate }}</h2>
 
