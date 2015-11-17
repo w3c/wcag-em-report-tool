@@ -373,20 +373,27 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/**/*.html',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             'glyphicons-halflings-regular.*'
           ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
         }, {
           expand: true,
           flatten: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/styles/bootstrap',
           src: ['styles/bootstrap/*.*']
+        }, {
+          expand: true,
+          cwd: '.tmp/scripts/locale/',
+          src: '*.js',
+          dest: '<%= yeoman.dist %>/scripts/locale/'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/wcag20spec/js/',
+          src: '*.js',
+          dest: '<%= yeoman.dist %>/wcag20spec/js/'
+        }, {
+          // images
         }]
       },
       styles: {
