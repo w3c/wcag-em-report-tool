@@ -4,68 +4,25 @@
 
 <p>{{ 'OPEN.INTRO' | translate }}</p>
 
-<div class="container form-group">
-  <label for="load_json">
-    {{ 'OPEN.LABEL_SELECT_FILE' | translate }}
-  </label>
-  <div class="alert alert-info appear" ng-if="fileFeedback.posted">
-    <p>{{ 'OPEN.MSG_LOADING' | translate }}</p>
-  </div>
-  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
-    <p>{{fileFeedback.failure}}</p>
-  </div>
-
-  <input type="file" class="form-control" id="load_json" />
+<div class="alert alert-info appear" ng-if="fileFeedback.posted">
+  <p>{{:: 'OPEN.MSG_LOADING' | translate }}</p>
 </div>
+<div class="alert alert-danger appear" ng-if="fileFeedback.failure">
+  <p>{{fileFeedback.failure}}</p>
+</div>
+
+<label for="load_json" class="btn btn-primary"
+  ng-class="{'focus': fileHasFocus }" id="file_label">
+  {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
+</label>
+
+<input type="file" class="sr-only" id="load_json"
+  ng-focus="fileHasFocus = true" ng-blur="fileHasFocus = false"
+  onchange="var elm = angular.element(this);
+            elm.scope().loadFile(elm.val())" />
 
 <div class="alert alert-danger" ng-if="showError">
   <p>{{ 'OPEN.' + showError | translate }}
 </div>
-
-<p><button class="btn btn-primary" ng-click="loadFile()">
-	{{ 'OPEN.BTN_LOAD_FILE' | translate}}
-</button></p>
-
-<h2>{{ 'OPEN.HD_GET_FROM_URL' | translate }}</h2>
-
-<form class="form-horizontal">
-
-  <p>{{ 'OPEN.INTRO_GET_FROM_URL' | translate}}</p>
-
-  <div class="form-group">
-    <div class="col-sm-2 control-label"><label for="url_{{$id}}">
-        {{ 'OPEN.LABEL_GET_FROM_URL' | translate}}
-    </label></div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" ng-model="postSettings.url" id="url_{{$id}}" />
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
-      <label>
-        <input type="checkbox" ng-model="postSettings.autosave"
-        ng-change="updateSettings()" />
-        {{ 'OPEN.ENABLE_AUTOSAVE' | translate }}
-      </label>
-    </div>
-  </div>
-
-  <div class="alert alert-info appear" ng-if="urlFeedback.posted">
-    <p>{{ 'MSG_LOADING' | translate }}</p>
-  </div>
-  <div class="alert alert-danger appear" ng-if="urlFeedback.failure">
-    <p>{{urlFeedback.failure}}</p>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
-      <button class="btn btn-primary" ng-click="loadUrl()">
-        {{ 'BTN_GET_FROM_URL' | translate }}
-      </button>
-    </div>
-  </div>
-</form>
 
 <p><a href="javascript:window.history.back()">{{'NAV.BTN_BACK_TO_EVAL' | translate}}</a></p>

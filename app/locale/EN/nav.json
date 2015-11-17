@@ -1,9 +1,9 @@
-{
-    "MENU_RESOURCES": "Key Resources",
+﻿{
     "MENU_NEW": "New Report",
     "MENU_OPEN": "Open",
     "MENU_SAVE": "Save",
     "MENU_SAVE_TITLE": "Ctrl + S or ⌘ S",
+    "MENU_RESOURCES": "Key Resources",
     "MENU_LANGUAGE": "Language",
     "WZRD_START": "Start",
     "WZRD_SCOPE": "1. Define Scope",
