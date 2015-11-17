@@ -3,12 +3,20 @@ angular.module('wcagReporter')
 .directive('criterionBody', function(directivePlugin, evalSampleModel, selectedCasesOnlyFilter) {
 
     function singlePageAssert(scope) {
+        var pages = evalSampleModel.getFilledPages();
         var asserts = scope.criterion.getSinglePageAsserts();
+
         if (scope.opt.editable) {
-            return selectedCasesOnlyFilter(asserts);
+            return selectedCasesOnlyFilter(asserts)
+            .sort(function (assertA, assertB) {
+                return pages.indexOf(assertA.subject[0]) - pages.indexOf(assertB.subject[0]);
+            });
+
         } else {
-            return  asserts.filter(function (assert) {
+            return asserts.filter(function (assert) {
                 return assert.isDefined();
+            }).sort(function (assertA, assertB) {
+                return pages.indexOf(assertA.subject[0]) - pages.indexOf(assertB.subject[0]);
             });
         }
     }
@@ -29,6 +37,8 @@ angular.module('wcagReporter')
 
             $scope.$on('audit:sample-change', function () {
                 $scope.multiPageAsserts = $scope.criterion.getMultiPageAsserts();
+
+                console.log('sort');
                 $scope.singlePageAsserts = singlePageAssert($scope);
             });
         }],

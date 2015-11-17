@@ -7,6 +7,7 @@ angular.module('wcagReporter')
     $scope.fileFeedback = {
         posted: false, failures: false
     };
+    $scope.evalFile = '';
 
     $scope.urlFeedback = {
         posted: false, failures: false
@@ -30,9 +31,9 @@ angular.module('wcagReporter')
         });
     }
 
-    $scope.loadFile = function () {
-        var file = window.jQuery('#load_json')[0].files[0];
-        handleLoad( evalLoader.openFromFile(file), $scope.fileFeedback);
+    $scope.loadFile = function (filePath) {
+        var uploadResponse = evalLoader.openFromFile(filePath)
+        handleLoad(uploadResponse , $scope.fileFeedback);
     };
 
     $scope.loadUrl = function () {

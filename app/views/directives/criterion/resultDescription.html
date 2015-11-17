@@ -1,9 +1,7 @@
 <div ng-init='focused = false'>
   <label class="sr-only" for="assert_desc_{{$id}}" ng-bind="'AUDIT.LABEL_DESCR' | translate "></label>
-  <textarea ng-model="value" class="expanding"
+  <textarea ng-model="value" class="assert_description"
   id="assert_desc_{{$id}}" auto-resize
-  ng-focus="focused = true" ng-blur="focused = false"
-  ng-class="{'focused': focused}"
   shy-placeholder="'AUDIT.PLH_ASSERT_DESC' | translate"
   cols="20" rows="4" id="id"></textarea>
 </div>
