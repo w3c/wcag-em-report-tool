@@ -73,14 +73,14 @@ dct:summary         | text               | Executive summary
 dct:creator         | text               | Author and creator of the evaluation
 dct:date            | text               | Completion date of the evaluation
 commissioner        | text               | Person/organisation who commissioned the evaluation
-WCAG2:reliedupondef | WCAG2:technologydef| Web technoloties the website relies upon for providing it's content
+WCAG2:reliedupondef | WCAG2:technologydef| Web technologies the website relies upon for providing it's content
 step1               | EvaluationScope    | Scope of the evaluation
 step2a              | text               | Common pages of the website
 step2b              | text               | Essential functionality of the website
 step2c              | text               | Variety of page types of the website
 step2e              | text               | Other relevant pages  of the website
 step3a              | Sample             | Structured sample pages
-step3b              | Sample             | Ramdom sample pages
+step3b              | Sample             | Random sample pages
 step4               | earl:Assertion     | Audit results of the evaluation
 step5b              | text               | Evaluation specifics
 
@@ -99,7 +99,7 @@ step5b              | text               | Evaluation specifics
         ],
         "step1":        { /* EvaluationScope */ },
         "step2a":       "Home, contact",
-        "step2b":       "The webshop",
+        "step2b":       "The web shop",
         "step2c":       "PDF, tables, video's",
         "step2e":       "Copyright page, Accessibility statement",
         "step3a":       { /* Sample (structured) */ },
@@ -162,7 +162,7 @@ A subset of web pages within the scope of the website that is to be audited.
 ### Sample properties
 Properties          | Type        | Description
 --------------------|-------------|-----------------------------------------
-WCAG2:webpagedef    | sch:WebPage | Resourced to be renderd in a user agent
+WCAG2:webpagedef    | sch:WebPage | Resourced to be rendered in a user agent
 
 ### Example
 ```javascript
