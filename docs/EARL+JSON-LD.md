@@ -27,3 +27,93 @@ document. So, 'scope' is mapped to http://www.w3.org/TR/WCAG-EM/#step1
 
 Details about the format can be found at:
 https://github.com/w3c/wcag-em-report-tool/blob/master/dataformat.md
+
+
+
+# Classes
+
+Namcepaces:
+- @vocab: (wcagem) 
+- wcag2: 
+- dct: 
+- sch: schema.org
+- earl: 
+
+Classes:
+- Evaluation
+- EvaluationScope
+- Sample
+- WCAG:WebTechnology
+- Schema:WebSite
+- Schema:WebPage
+
+
+## Evaluation
+
+| Properties          | Type            | Description               |
+|---------------------|-----------------|---------------------------|
+| dct:title           | Text            |                           |
+| dct:summary         | Text            |                           |
+| dct:creator         | Text            |                           |
+| dct:date            | ??              |                           |
+| wcagem:commissioner | Text            |                           |
+| wcag2:reliedupondef | Technology      |                           |
+| wcagem:step1        | EvaluationScope | scope                     |
+| wcagem:step2a       | Text            | commonPages               |
+| wcagem:step2b       | Text            | essential functionality   |
+| wcagem:step2c       | Text            | Variety of page types     |
+| wcagem:step2e       | Text            | Other relevant pages      |
+| wcagem:step3a       | Sample          | Structured sample pages   |
+| wcagem:step3b       | Sample          | Ramdom sample pages       |
+| wcagem:step4        | earl:Assertion  | Audit results             |
+| wcagem:step5b       | Text            | Evaluation specifics      |
+
+
+## EvaluationScope
+
+| Properties          | Type        | Description                       |
+|---------------------|-------------|-----------------------------------|
+| wcagem:step1a       | Text        | Scope of the website              |
+| wcagem:step1b       | URL         | conformance target                |
+| wcagem:step1c       | Text        | Accessibility support baseline    |
+| wcagem:step1d       | Text        | Additional evaluation requirement |
+| ??:website          | sch:WebSite |                                   |
+
+
+## Sample
+
+| Properties          | Type        | Description                       |
+|---------------------|-------------|-----------------------------------|
+| webpage             | sch:WebPage |                                   |
+
+
+## Technology
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| dct:title           | Text    |                                   |
+| @id                 | URL     |                                   |
+
+
+## Schema:WebSite
+
+A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.
+
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| siteScope           | Text    |                                   |
+| sch:name            | Text    |                                   |
+
+
+## Schema:WebPage
+
+A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
+
+
+| Properties          | Type    | Description                       |
+|---------------------|---------|-----------------------------------|
+| dct:title           | Text    |                                   |
+| dct:description     | Text    |                                   |
+| dct:source          | URL     |                                   |
+
