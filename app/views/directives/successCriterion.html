@@ -5,10 +5,11 @@ ng-class="getClassName(assert.result.outcome)">
 
     <div class="col-xs-12 criterion-title">
       <strong>{{:: spec.num}} {{:: spec.handle}}</strong>: ({{::spec.level | rdfToLabel}})
-      <icon-button class="pull-right"
-      icon="'book'" label="'AUDIT.BTN_SHOW_TEXT' | translate"
-      click="spec.show_text = !spec.show_text">
-      </icon-button>
+      <button ng-click="spec.show_text = !spec.show_text"
+        class="btn btn-default glyphicon glyphicon-education pull-right" 
+        tooltips tooltip-title="{{'AUDIT.BTN_SHOW_TEXT' | translate}}">
+          <span class="sr-only">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
+      </button>
     </div>
     <div class="col-xs-12" collapse="!spec.show_text">
       <p>{{::spec.text}}<p>

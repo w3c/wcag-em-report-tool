@@ -63,4 +63,4 @@ Data in the WCAG-EM Report Tool is saved and can again be loaded in a JSON
 format. The data format is [JSON Linked Data](http://json-ld.org/), and
 uses [EARL](http://www.w3.org/TR/EARL10-Schema/) to store the test results.
 
-Custom fields are based on WCAG-EM and are documented in [dataformat.md].
+Custom fields are based on WCAG-EM and are documented in [docs/EARL+JSON-LD.md].
