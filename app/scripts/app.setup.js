@@ -66,10 +66,15 @@ angular.module('wcagReporter')
 
 
 // Setup root scope
-}).run(function ($rootScope, translateFilter, appState, $location) {
+}).run(function ($rootScope, translateFilter, appState,
+                 $location, $rootElement) {
 
     $rootScope.translate = translateFilter;
     $rootScope.rootHide = {};
+
+    $rootScope.$on('$translateChangeSuccess', function (e, change) {
+        $rootElement.attr('lang', change.language);
+    });
 
     appState.init();
 

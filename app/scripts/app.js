@@ -48,7 +48,8 @@ angular.module('wcagReporter', [
 
 
 }).config(function ($translateProvider, wcag20specProvider) {
-    var lang = 'en';
+    var lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
+    lang = lang.substr(0, 2);
 
     $translateProvider.useSanitizeValueStrategy(null);
     $translateProvider.useStaticFilesLoader({
