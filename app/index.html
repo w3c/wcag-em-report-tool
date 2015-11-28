@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles/report.css" />
   <!-- endbuild -->
 </head>
-<body id="report-tool">
+<body ng-app="wcagReporter">
   <!-- Add your site or application content here -->
   <div class="page-view">
     <div ng-include src="'views/navigation.html'"></div>
@@ -39,6 +39,7 @@
   <script src="bower_components/angular-translate/angular-translate.js"></script>
   <script src="bower_components/json3/lib/json3.js"></script>
   <script src="bower_components/textarea-autosize/dist/jquery.textarea_autosize.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
   <!-- endbower -->
   <script src="scripts/ui-bootstrap-tpls.js"></script>
   <script src="scripts/promise-1.0.0.js"></script>
@@ -49,7 +50,6 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/app.setup.js"></script>
 
-  <script src="scripts/services/localeLoader.js"></script>
   <script src="scripts/services/directivePlugin.js"></script>
   <script src="scripts/services/evalContext.js"></script>
   <script src="scripts/services/knownTechnologies.js"></script>
@@ -118,10 +118,6 @@
   <script src="scripts/controllers/report/findings.js"></script>
   <!-- endbuild -->
 
-  <script src="scripts/locale/EN.js"></script>
-  <script src="scripts/locale/NL.js"></script>
-  <script src="wcag20spec/js/wcag2.en.js"></script>
-  <script src="wcag20spec/js/wcag2.nl.js"></script>
   <script src="scripts/templates.js"></script>
 
 </body>

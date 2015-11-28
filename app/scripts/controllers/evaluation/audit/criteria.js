@@ -11,7 +11,7 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     $scope.principles = wcag20spec.getPrinciples();
     $scope.getCritAssert = evalAuditModel.getCritAssert;
 
-    $scope.$on('langChange', function () {
+    $scope.$on('wcag20spec:langChange', function () {
         $scope.principles = wcag20spec.getPrinciples();
     });
 

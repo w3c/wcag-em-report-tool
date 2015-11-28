@@ -1,23 +1,4 @@
 'use strict';
-// Launch the app once the locale is loaded
-angular.element(document).ready(function() {
-    var elm = angular.element('#report-tool');
-    if (elm) {
-
-        var lang = (elm.attr('lang') || 'en')
-                    .substr(0,2).toLowerCase();
-        window.wcagReporterLoadLocale(lang, function (e) {
-            if (e) {
-                throw new Error(e);
-            }
-            angular.bootstrap(elm, ['wcagReporter']);
-        });
-
-    } else {
-        throw new Error('Could not find element #report-tool');
-    }
-});
-
 
 angular.module('wcagReporter', [
     'ngResource',
@@ -28,7 +9,8 @@ angular.module('wcagReporter', [
     '720kb.tooltips',
     'ui.bootstrap',
     'wert-templates'
-]).config(function ($routeProvider, $compileProvider, $translateProvider) {
+
+]).config(function ($routeProvider, $compileProvider) {
 
     $compileProvider
     .aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
@@ -64,8 +46,19 @@ angular.module('wcagReporter', [
         redirectTo: '/'
     });
 
-    $translateProvider.useSanitizeValueStrategy('sanitize');
-    $translateProvider.preferredLanguage('EN');
+
+}).config(function ($translateProvider, wcag20specProvider) {
+    var lang = 'en';
+
+    $translateProvider.useSanitizeValueStrategy(null);
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'locale/',
+        suffix: '.json'
+    });
+
+    wcag20specProvider.setSpecPath('wcag20spec/json/wcag2-${lang}.json');
+    wcag20specProvider.loadLanguage(lang);
+    $translateProvider.preferredLanguage(lang);
 
 // Setup the tooltips default
 }).config(function(tooltipsConfigProvider) {
