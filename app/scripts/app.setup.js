@@ -74,6 +74,7 @@ angular.module('wcagReporter')
 
     $rootScope.$on('$translateChangeSuccess', function (e, change) {
         $rootElement.attr('lang', change.language);
+        $rootScope.lang = change.language;
     });
 
     appState.init();

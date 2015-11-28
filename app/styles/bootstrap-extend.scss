@@ -8,6 +8,10 @@ button.glyphicon-copy {
     width:30px;
     height:23px;
 }
+.glyphicon-none:before {
+    content: "\2122";
+    color: transparent !important;
+}
 
 body {
     .form-horizontal .control-label {

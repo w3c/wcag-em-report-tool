@@ -58,12 +58,19 @@
         </a>
 
         <ul class="dropdown-menu">
-          <li lang="en"><a href="" ng-click="changeLanguage('EN')">
-            <span class="glyphicon glyphicon-chevron-right"></span>English
-          </a></li>
-          <li lang="nl"><a href="" ng-click="changeLanguage('NL')">
-            <span class="glyphicon glyphicon-"></span>Nederlands
-          </a></li>
+          <li ng-repeat="language in languages" lang="{{language.code}}">
+            <a ng-if="language.code === currentLang">
+              <span class="glyphicon glyphicon-ok"></span>
+              <!-- show current?? -->
+              {{language.localName}}
+            </a>
+
+            <a ng-if="language.code !== currentLang"
+            href="" ng-click="changeLanguage(language.code)">
+              <span class="glyphicon glyphicon-none"></span>
+              {{language.localName}}
+            </a>
+          </li>
       </ul>  </li>
     </ul>
   </nav>
