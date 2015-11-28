@@ -6,7 +6,7 @@ angular.module('wcagReporter')
     var translate = $filter('translate'),
         format    = $filter('format');
 
-    return function (str) {
+     function translateAndLink(str) {
         var args = Array.prototype.slice.call(arguments, 1);
         
         args = args.map(function (link) {
@@ -16,5 +16,9 @@ angular.module('wcagReporter')
         
         args.unshift(translate(str));
         return format.apply(null, args);
-    };
+    }
+
+    translateAndLink.$stateful = true;
+
+    return translateAndLink;
 });
