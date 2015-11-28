@@ -9,15 +9,14 @@
 </button-collapse></h2>
 
 <div collapse="rootHide.start1" class="{{initial}}">
-  <p ng-bind-html="'START.INTRO_1' | translateAndLink
-  : ['START.INTRO_1_0', 'http://www.w3.org/TR/WCAG-EM/']
-  : ['START.INTRO_1_1', '#/report']
-  : ['START.INTRO_1_2', 'http://www.w3.org/WAI/intro/wcag']
-  : ['START.INTRO_1_3', 'http://www.w3.org/WAI/eval/conformance']"></p>
+  <p ng-bind-html="'START.INTRO_1' | translate: {
+    link_wcagem: 'http://www.w3.org/TR/WCAG-EM/ target=_blanc',
+    link_report: '#/report',
+    link_wcag: 'http://www.w3.org/WAI/intro/wcag target=_blanc',
+    link_conformance: 'http://www.w3.org/WAI/eval/conformance target=_blanc'
+  }"></p>
 
-  <p><strong>{{ 'START.INTRO_2A' | translate }}</strong>
-    {{ 'START.INTRO_2B' | translate:'{mac:"S⌘S"}'}}
-  </p>
+  <p ng-bind-html="'START.INTRO_2' | translate: { mac: '⌘S' }"></p>
 </div>
 
 <h2><button-collapse target="rootHide" property="start2" collapsed>
@@ -36,13 +35,13 @@
 <h2><button-collapse target="rootHide" property="start3" collapsed>
     {{ 'START.TIPS_HD' | translate }}
 </button-collapse></h2>
-<div collapse="rootHide.start3" class="{{initial}}"> <ul>
+<div collapse="rootHide.start3" class="{{initial}}">
+  <ul>
     <li>{{ 'START.TIPS_LI1' | translate }}</li>
-    <li>
-      {{ 'START.TIPS_LI2A' | translate }}
-      <span class="glyphicon glyphicon-info-sign primary-color"></span>
-      <span class="sr-only">{{ 'COMMON.BTN_INFO' | translate }}</span>
-      {{ 'START.TIPS_LI2B' | translate }}
+    <li ng-bind-html="'START.TIPS_LI2' | translate: { info : 
+      '<span class=\'glyphicon glyphicon-info-sign primary-color\'></span>' +
+      '<span class=\'sr-only\'>' + translate('COMMON.BTN_INFO') + '</span>'
+    }">
     </li>
     <li>{{ 'START.TIPS_LI3' | translate }}</li>
     <li>{{ 'START.TIPS_LI4' | translate }}</li>

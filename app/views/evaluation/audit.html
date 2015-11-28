@@ -2,9 +2,9 @@
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
 <h1>{{ setTitle( translate('AUDIT.TITLE') ) }}</h1>
-
-<p ng-bind-html="'AUDIT.INTRO' | translateAndLink
-: ['AUDIT.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step4'] | nlToBr"></p>
+<p ng-bind-html="'AUDIT.INTRO' | translate: {
+	link1: 'http://www.w3.org/TR/WCAG-EM/#step4'
+}"></p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-4 col-md-3"

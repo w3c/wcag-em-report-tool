@@ -4,7 +4,7 @@
     "INTRO_0": "WCAG-EM Stap 5: Evaluatiebevindingen rapporteren",
     "LABEL_TITLE": "Rapporttitel",
     "TITLE_PREFIX": "Rapportage van",
-    "INF_TITLE": "Vul hier de titel van het evaluatierapport van de website toegankelijkheid in. Bijvoorbeeld: \n 'Evaluatierapport voor Voorbeeldorganisatie' \n 'Webshop Toegankelijkheidsanalyse en verbetersuggesties'",
+    "INF_TITLE": "Vul hier de titel van het evaluatierapport van de website toegankelijkheid in. Bijvoorbeeld: <br> 'Evaluatierapport voor Voorbeeldorganisatie' <br> 'Webshop Toegankelijkheidsanalyse en verbetersuggesties'",
     "LABEL_COMMISSIONER": "Evaluatie opdrachtgever",
     "INF_COMMISSIONER": "De persoon, het team, de organisatie, het departement of andere entiteit die opdracht voor de evaluatie gaf.",
     "LABEL_CREATOR": "Evaluator",

@@ -16,7 +16,7 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="site-title" ref="inf_site_name">
-      <p ng-bind-html="'SCOPE.INF_SITE_NAME' | translate | nlToBr"></p>
+      <p ng-bind-html="'SCOPE.INF_SITE_NAME' | translate"></p>
     </info-field>
 
     <input ng-model="scopeModel.website.title" type="text"
@@ -57,7 +57,7 @@
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="conformance_target" ref="inf_conf_tgt">
       <p ng-bind-html="'SCOPE.INF_CONF_TGT' | translateAndLink
-      : ['SCOPE.INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b'] | nlToBr"></p>
+      : ['SCOPE.INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
     </info-field>
 
     <select id="conformance_target" class="form-control"

@@ -16,8 +16,7 @@
   <info-field ref="inf_reliedup_tech" button="Close info">
     <p ng-bind-html="'EXPLORE.INF_RELIEDUP_TECH' | translateAndLink
     : ['EXPLORE.INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['EXPLORE.INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
-    | nlToBr"></p>
+    : ['EXPLORE.INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']"></p>
   </info-field>
 
 <!--   <ul ng-repeat="tech in allTech">
@@ -127,7 +126,7 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_essent_func">
       <p ng-bind-html="'EXPLORE.INF_ESSENT_FUNC' | translateAndLink
-      : ['EXPLORE.INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
+      : ['EXPLORE.INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b']"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.essentialFunctionality"
@@ -145,9 +144,10 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_page_type">
       <p ng-bind-html="'EXPLORE.INF_VARIETY_PAGE_TYPES' | translateAndLink
-      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
-      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
-      | nlToBr"></p>
+      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_0',
+         'http://www.w3.org/TR/WCAG-EM/#step2c']
+      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_1',
+         'http://www.w3.org/TR/WCAG-EM/#states']"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.pageTypeVariety"
