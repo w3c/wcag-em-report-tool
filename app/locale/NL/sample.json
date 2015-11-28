@@ -10,7 +10,7 @@
     "INF_STRUCT_SAMPLE_0": "WCAG-EM Stap 3.a: Gebruik een geordende sample",
     "INF_STRUCT_SAMPLE_1": "webpagina toestand",
     "HD_RANDOM_SAMPLE": "Willekeurige Sample",
-    "INF_RAND_SAMPLE": "Willekeurig geselecteerde samplepagina's: Gebruik 10% van de grootte van de geordende sample. Meer informatie vindt u in {0}.\n Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van {1}",
+    "INF_RAND_SAMPLE": "Selecteer willekeurig samplepagina's; gebruik 10% van de grootte van de geordende sample. Meer informatie vindt u in {0}.\n Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van {1}",
     "INF_RAND_SAMPLE_0": "WCAG-EM Stap 3.b: Gebruik een willekeurige sample",
     "INF_RAND_SAMPLE_1": "webpagina toestand",
     "RAND_SAMPLE_LENGTH": "Op basis van de geordende sample van {0} webpagina's, selecteer tenminste {1} willekeurige webpagina's (om te voldoen aan de 10% eis uit WCAG-EM).",

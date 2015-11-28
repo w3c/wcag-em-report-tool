@@ -12,7 +12,7 @@
     "INF_SITE_SCOPE_1": "Voor meer informatie, zie {0}.",
     "INF_SITE_SCOPE_1A": "WCAG-EM Stap 1.a: Definieer de scope van de website",
     "LABEL_CONFORMANCE_TGT": "Conformiteitsdoel",
-    "INF_CONF_TGT": "Bepaal het doel van de WCAG 2.0 conformiteitsniveau ('A', 'AA' of 'AAA') voor de evaluatie. Voor meer informatie, zie {0}. \n Dit onderdeel bepaald welke niveaufilters in stap 4 standaard aan zullen staan.",
+    "INF_CONF_TGT": "Bepaal het doel van de WCAG 2.0 conformiteitsniveau ('A', 'AA' of 'AAA') voor de evaluatie. Voor meer informatie, zie {0}. \n Deze keuze bepaald welke niveaufilters in stap 4 standaard aan zullen staan.",
     "INF_CONF_TGT_0": "WCAG-EM Step 1.b: Bepaal het conformiteitsdoel",
     "LABEL_SUPPORT_BASE": "Basisniveau van toegankelijkheid ondersteund",
     "INF_SUPPORT_BASE": "Bepaal welke webbrowser, hulptechnologieën en andere {1} door {2} worden door de website. Bijvoorbeeld: 'Internet Explorer (IE) met JAWS', 'Firefox met NVDA', en 'iOS met VoiceOver' zou het basisniveau kunnen zijn. Voor meer informatie, zie {0}.",

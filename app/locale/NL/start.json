@@ -4,7 +4,7 @@
     "INTRO_HD": "Wat de tool doet",
     "INTRO_1": "Deze tool helpt u bij het maken van rapporten volgens de {0}. Het voert geen toegankelijkheidstests voor u uit. Het begeleid je door de stappen van WCAG-EM, om een {1} te genereren op basis van de gegevens die u invult. De tool is ontworpen voor ervaren inspecteurs bekend met {2} en met enige kennis van WCAG-EM. U kunt een WCAG-EM introductie vinden op {3}.",
     "INTRO_1_0": "Website Accessibility Conformance Evaluation Methodology (WCAG-EM)",
-    "INTRO_1_1": "gestructureerd report",
+    "INTRO_1_1": "gestructureerd rapport",
     "INTRO_1_2": "Richtlijnen voor Toegankelijkheid van Webcontent (WCAG) 2.0",
     "INTRO_1_3": "WCAG-EM Overzicht",
     "INTRO_2A": "Let op:",
@@ -18,6 +18,6 @@
     "TIPS_LI1": "Je kunt heen en weer tussen de stappen schakelen. Geen van de velden zijn verplicht.",
     "TIPS_LI2A": "Voor meer informatie over een veld, klik op het ",
     "TIPS_LI2B": " icoon naast het veld.",
-    "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de 'Bekijk rapport'-pagina. Daarna kun je het ontwerp en de content van het rapport bijwerken.",
+    "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de 'Bekijk rapport'-pagina. Daarna kun je de presentatie en de inhoud van het rapport bijwerken.",
     "TIPS_LI4": "U kunt succescriteria aan uw WCAG 2.0 rapport toevoegen die hoger zijn dan het conformiteitsdoel. Bijvoorbeeld, de website dient aan niveau AA te voldoen, maar u wilt ook enkele AAA criteria in het rapport benoemen. In stap 4 kunt u het niveau filter gebruiken om succescriteria van een hoger niveau te tonen. Criteria met een ingevuld resultaat zullen altijd in het rapport komen"
 }
