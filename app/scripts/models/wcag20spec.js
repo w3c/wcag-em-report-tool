@@ -1,12 +1,16 @@
 'use strict';
+
+
 /**
  *
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function() {
+.provider('wcag20spec', function() {
+    var specPath;
     var guidelines;
     var criteria;
     var currentSpec;
+    var broadcast = angular.noop;
     var criteriaObj = {};
     var specs = {};
 
@@ -19,12 +23,32 @@ angular.module('wcagReporter')
         };
     }
 
+
     var wcag2 = {
         addSpec: function (lang, spec) {
+            lang = lang.toLowerCase();
             specs[lang] = spec;
             if (!currentSpec) {
                 wcag2.useLanguage(lang);
             }
+        },
+
+        loadLanguage: function (lang) {
+            lang = lang.toLowerCase();
+            if (typeof specPath !== 'string') {
+                throw new Error('specPath must be defined first');
+            }
+            if (specs[lang]) {
+                return wcag2.useLanguage(lang);
+            }
+
+            var path = specPath.replace('${lang}', lang.toLowerCase());
+            $.getJSON(path)
+            .done(function (data) {
+                specs[lang] = data;
+                wcag2.useLanguage(lang);
+                broadcast('wcag20spec:load', lang);
+            }).fail(console.error.bind(console));
         },
 
         useLanguage: function (lang) {
@@ -49,6 +73,8 @@ angular.module('wcagReporter')
                     criteriaObj[criterion.id] = criterion;
                 }
             });
+            
+            broadcast('wcag20spec:langChange', lang);
         },
 
         getGuidelines: function () {
@@ -66,6 +92,16 @@ angular.module('wcagReporter')
     };
 
 
+    this.setSpecPath  = function (path) {
+        specPath = path;
+    };
 
-    return wcag2;
+    this.loadLanguage = wcag2.loadLanguage;
+
+    this.$get = ['$rootScope', function ($rootScope) {
+        broadcast = $rootScope.$broadcast.bind($rootScope);
+        return angular.extend({}, wcag2);
+    }];
+
+
 });
