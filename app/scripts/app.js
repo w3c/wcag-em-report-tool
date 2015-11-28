@@ -56,7 +56,7 @@ angular.module('wcagReporter', [
         suffix: '.json'
     });
 
-    wcag20specProvider.setSpecPath('wcag20spec/json/wcag2-${lang}.json');
+    wcag20specProvider.setSpecPath('wcag20spec/wcag2-${lang}.json');
     wcag20specProvider.loadLanguage(lang);
     $translateProvider.preferredLanguage(lang);
 
