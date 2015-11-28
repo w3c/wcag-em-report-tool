@@ -9,8 +9,11 @@ button.glyphicon-copy {
     height:23px;
 }
 .glyphicon-none:before {
-    content: "\2122";
+    content: "\e013";
     color: transparent !important;
+}
+.dropdown-menu.lang-menu > li > a {
+    padding-left:10px;
 }
 
 body {
