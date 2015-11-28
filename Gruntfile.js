@@ -74,6 +74,10 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
+      tranlsations: {
+        files: ['<%= yeoman.app %>/locale/**/*.json'],
+        tasks: ['translationSetup']
+      },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']

@@ -3,8 +3,9 @@
 
 <h1>{{ setTitle( translate('SCOPE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'SCOPE.INTRO' | translateAndLink
-: ['SCOPE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step1']"></p>
+<p ng-bind-html="'SCOPE.INTRO' | translate: {
+  link_step1: 'http://www.w3.org/TR/WCAG-EM/#step1'
+}"></p>
 
 <form>
   <div class="form-group">
@@ -38,8 +39,10 @@
         <li>{{ 'SCOPE.INF_SITE_SCOPE_LI1' | translate }}</li>
         <li>{{ 'SCOPE.INF_SITE_SCOPE_LI2' | translate }}</li>
       </ul>
-      <p ng-bind-html="'SCOPE.INF_SITE_SCOPE_1' | translateAndLink
-      : ['SCOPE.INF_SITE_SCOPE_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p ng-bind-html="'COMMON.MORE_INFO' | translate: {
+        url: 'http://www.w3.org/TR/WCAG-EM/#step1a target=_blank',
+        name: translate('SCOPE.INF_SITE_SCOPE_1')
+      }"></p>
     </info-field>
 
     <textarea ng-model="scopeModel.website.siteScope"
@@ -56,8 +59,9 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="conformance_target" ref="inf_conf_tgt">
-      <p ng-bind-html="'SCOPE.INF_CONF_TGT' | translateAndLink
-      : ['SCOPE.INF_CONF_TGT_0', 'http://www.w3.org/TR/WCAG-EM/#step1b']"></p>
+      <p ng-bind-html="'SCOPE.INF_CONF_TGT' | translate: {
+        'link_em_1b': 'http://www.w3.org/TR/WCAG-EM/#step1b target=_blank'
+      }"></p>
     </info-field>
 
     <select id="conformance_target" class="form-control"
@@ -75,11 +79,12 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="as_baseline" ref="inf_support_base">
-      <p ng-bind-html="'SCOPE.INF_SUPPORT_BASE' | translateAndLink
-      : ['SCOPE.INF_SUPPORT_BASE_0', 'http://www.w3.org/TR/WCAG-EM/#step1c']
-      : ['SCOPE.INF_SUPPORT_BASE_1', 'http://www.w3.org/TR/WCAG20/#useragentdef']
-      : ['SCOPE.INF_SUPPORT_BASE_2', 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef']">
-    </p></info-field>
+      <p ng-bind-html="'SCOPE.INF_SUPPORT_BASE' | translate: {
+        link_user_agent: 'http://www.w3.org/TR/WCAG20/#useragentdef target=_blank',
+        link_access_supp: 'http://www.w3.org/TR/WCAG20/#accessibility-supporteddef target=_blank',
+        link_em_step2: 'http://www.w3.org/TR/WCAG-EM/#step1c target=_blank'
+      }"></p>
+    </info-field>
 
     <textarea ng-model="scopeModel.accessibilitySupportBaseline"
     id="as_baseline" class="form-control" auto-resize
@@ -101,8 +106,10 @@
         <li>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_LI1' | translate }}</li>
         <li>{{ 'SCOPE.INF_EXTRA_REQUIREMENTS_LI2' | translate }}</li>
       </ul>
-      <p ng-bind-html="'SCOPE.INF_EXTRA_REQUIREMENTS_1' | translateAndLink
-      : ['SCOPE.INF_EXTRA_REQUIREMENTS_1A', 'http://www.w3.org/TR/WCAG-EM/#step1a']"></p>
+      <p ng-bind-html="'COMMON.MORE_INFO' | translate: {
+        url: 'http://www.w3.org/TR/WCAG-EM/#step1d target=_blank',
+        name: translate('SCOPE.INF_EXTRA_REQUIREMENTS_1')
+      }"></p>
     </info-field>
 
     <textarea ng-model="scopeModel.additionalEvalRequirement"
