@@ -3,8 +3,9 @@
 
 <h1>{{ setTitle( translate('SAMPLE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'SAMPLE.INTRO' | translateAndLink
-: ['SAMPLE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step3']"></p>
+<p ng-bind-html="'SAMPLE.INTRO' | translate: {
+  link_em_3: 'http://www.w3.org/TR/WCAG-EM/#step3'
+}"></p>
 
 <form>
   <h2>{{'SAMPLE.HD_STRUCT_SAMPLE' | translate }}</h2>
@@ -35,10 +36,10 @@
   title="{{ 'SAMPLE.HD_STRUCT_SAMPLE_SUB' | translate }}"></info-button></h3>
 
   <info-field ref="inf_str_sample" button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
-    <p ng-bind-html="'SAMPLE.INF_STRUCT_SAMPLE' | translateAndLink
-    : ['SAMPLE.INF_STRUCT_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3a']
-    : ['SAMPLE.INF_STRUCT_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states']">
-    </p>
+    <p ng-bind-html="'SAMPLE.INF_STRUCT_SAMPLE' | translate: {
+      link_em_3a: 'http://www.w3.org/TR/WCAG-EM/#step3a',
+      link_em_state: 'http://www.w3.org/TR/WCAG-EM/#states'
+    }"></p>
   </info-field>
 
   <input-pages pages="structuredSample.webpage" add-page="getPageAdder(structuredSample)"
@@ -51,15 +52,17 @@
   </h2>
 
   <info-field ref="inf_rand_sample" button="{{'COMMON.BTN_CLOSE_INFO' | translate}}">
-    <p ng-bind-html="'SAMPLE.INF_RAND_SAMPLE' | translateAndLink
-    : ['SAMPLE.INF_RAND_SAMPLE_0', 'http://www.w3.org/TR/WCAG-EM/#step3b']
-    : ['SAMPLE.INF_RAND_SAMPLE_1', 'http://www.w3.org/TR/WCAG-EM/#states']"></p>
+    <p ng-bind-html="'SAMPLE.INF_RAND_SAMPLE' | translate: {
+      link_em_3b: 'http://www.w3.org/TR/WCAG-EM/#step3b',
+      link_em_state: 'http://www.w3.org/TR/WCAG-EM/#states'
+    }"></p>
   </info-field>
 
   <div class="alert alert-warning">
-    {{ "SAMPLE.RAND_SAMPLE_LENGTH" | translate | format
-          : structuredSample.webpage.length
-          : randPageCount() }}
+    {{ "SAMPLE.RAND_SAMPLE_LENGTH" | translate: {
+      total: structuredSample.webpage.length,
+      count: randPageCount()}
+    }}
   </div>
 
   <input-pages pages="randomSample.webpage"
