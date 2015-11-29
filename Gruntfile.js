@@ -48,7 +48,7 @@ module.exports = function (grunt) {
           tasks[lang] = {
             cwd: '.tmp/locale/' + lang,
             src: '*.json',
-            dest: '.tmp/locale/' + lang + '.json'
+            dest: '.tmp/locale/' + (lang.toLowerCase()) + '.json'
           };
           return tasks;
         }, {});
@@ -430,6 +430,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'translationSetup',
     'clean:server',
+    'translationSetup',
     'concurrent:test',
     'autoprefixer',
     'connect:test',

@@ -30,6 +30,7 @@ module.exports = function(config) {
       'app/scripts/jsonld.js',
       'app/scripts/**/{,*/}*.js',
       'app/scripts/app.js',
+      {pattern: 'locale/*.json', included: false, served: true},
       'test/dummyData.js',
       'test/spec/**/{,*/}*.js'
       // 'test/mock/**/*.js',
