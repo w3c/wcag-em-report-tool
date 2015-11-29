@@ -99,7 +99,9 @@ angular.module('wcagReporter')
     this.loadLanguage = wcag2.loadLanguage;
 
     this.$get = ['$rootScope', function ($rootScope) {
-        broadcast = $rootScope.$broadcast.bind($rootScope);
+        broadcast = function (a,b,c) {
+            $rootScope.$broadcast(a,b,c);
+        };
         return angular.extend({}, wcag2);
     }];
 
