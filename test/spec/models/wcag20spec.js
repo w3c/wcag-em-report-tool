@@ -11,6 +11,12 @@ describe('model: wcag20spec', function () {
         wcag20spec = _wcag20spec_;
     }));
 
+    beforeEach(function (done) {
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:langChange', done);
+        });
+    });
+
     describe('getPrinciples', function () {
         var principles;
         beforeEach(function () {

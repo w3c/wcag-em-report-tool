@@ -26,10 +26,15 @@ describe('model: evalModel import', function () {
     }));
 
     beforeEach(function (done) {
-		reportImport.fromJson(dummyData, done);
-		setTimeout(done, 100);
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:langChange', done);
+        });
     });
 
+    beforeEach(function (done) {
+        reportImport.fromJson(dummyData, done);
+        setTimeout(done, 100);
+    });
 
     it('shares the evaluation ID', function () {
     	expect(evalModel.id)

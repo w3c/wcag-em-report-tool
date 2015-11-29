@@ -27,6 +27,12 @@ describe('model: evalModel export', function () {
     }));
 
     beforeEach(function (done) {
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:langChange', done);
+        });
+    });
+
+    beforeEach(function (done) {
         reportImport.fromJson(dummyData, done);
         setTimeout(function () {
             exportData = reportExport.getJson();
@@ -35,7 +41,6 @@ describe('model: evalModel export', function () {
             done();
         }, 200);
     });
-
 
     it('shares properties with imported data', function () {
         ['evaluationScope', '@context', 'type',
