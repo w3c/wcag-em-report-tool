@@ -354,7 +354,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/**/*.html',
             'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            'glyphicons-halflings-regular.*'
+            'glyphicons-halflings-regular.*',
+            'wcag20spec/*.json'
           ]
         }, {
           expand: true,
@@ -373,7 +374,10 @@ module.exports = function (grunt) {
           src: '*.js',
           dest: '<%= yeoman.dist %>/wcag20spec/js/'
         }, {
-          // images
+          expand: true,
+          cwd: '.tmp/locale/',
+          src: '*.json',
+          dest: '<%= yeoman.dist %>/locale/'
         }]
       },
       styles: {
