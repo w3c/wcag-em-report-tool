@@ -107,7 +107,7 @@ angular.module('wcagReporter')
     // Ensure all external links open in a new window
     var reg = new RegExp('/' + window.location.host + '/');
     $rootElement.on('click', 'a[href]:not(.local)', function (e) {
-        if (!reg.test(this.href)) {
+        if (!reg.test(this.href) || this.href.substr(0, 11) === 'javascript:') {
            e.preventDefault();
            e.stopPropagation();
            window.open(this.href, '_blank');
