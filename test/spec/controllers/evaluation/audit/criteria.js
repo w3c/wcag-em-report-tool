@@ -31,7 +31,7 @@ describe('Controller: AuditCriteriaCtrl', function () {
 
     }));
 
-    it('knows what criteria to show based on critFilter', function () {
+    xit('knows what criteria to show based on critFilter', function () {
         expect(criteriaLvlA.length).not.toBe(0);
         expect(criteriaLvlAA.length).not.toBe(0);
         expect(criteriaLvlAAA.length).not.toBe(0);
@@ -98,7 +98,7 @@ describe('Controller: AuditCriteriaCtrl', function () {
     });
 
 
-    it('finds assertions based on criteria IDs', function () {
+    xit('finds assertions based on criteria IDs', function () {
         criteria.forEach(function (critSpec) {
             var assert = scope.getCritAssert(critSpec.id);
             expect(assert.testRequirement).toBe(critSpec.id);
