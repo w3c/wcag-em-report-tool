@@ -3,7 +3,7 @@
 describe('model: evalModel import', function () {
 
     // load the angular module
-    beforeEach(module('wcagReporter'));
+    beforeEach(setupwcagReporterTest());
     beforeEach(module('wertDummy'));
 
     function getEval(linkedData) {

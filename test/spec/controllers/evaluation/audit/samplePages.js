@@ -2,7 +2,7 @@
 describe('Controller: AuditSamplePagesCtrl', function () {
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    beforeEach(setupwcagReporterTest());
 
     var scope;
     var ctrl;

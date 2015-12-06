@@ -3,7 +3,7 @@
 describe('Controller: AuditCriteriaCtrl', function () {
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    beforeEach(setupwcagReporterTest());
 
     var scope;
     var ctrl;

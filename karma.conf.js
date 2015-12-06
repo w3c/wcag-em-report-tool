@@ -31,15 +31,16 @@ module.exports = function(config) {
       'app/scripts/app.js',
       {pattern: '.tmp/locale/*.json', included: false, served: true},
       {pattern: 'app/wcag20spec/*.json', included: false, served: true},
+      'test/setup.js',
       'test/dummyData.js',
       'test/spec/services/*.js',
-      'test/spec/models/wcag20spec.js',
-      // 'test/spec/models/*.js',
+      'test/spec/models/*.js',
       'test/spec/controllers/evaluation/scope.js',
       'test/spec/controllers/evaluation/report.js',
-      'test/spec/controllers/evaluation/explore.js'
-      // 'test/spec/controllers/evaluation/*.js',
-      // 'test/spec/controllers/evaluation/audit/*.js',
+      'test/spec/controllers/evaluation/explore.js',
+      'test/spec/controllers/evaluation/audit/samplePages.js',
+      // 'test/spec/controllers/evaluation/audit/criteria.js'
+      // 'test/spec/controllers/evaluation/sample.js'
       // 'test/spec/**/{,*/}*.js'
     ],
 
