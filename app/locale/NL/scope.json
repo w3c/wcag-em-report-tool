@@ -12,11 +12,11 @@
     "LABEL_CONFORMANCE_TGT": "Conformiteitsdoel",
     "INF_CONF_TGT": "Bepaal het doel van de WCAG 2.0 conformiteitsniveau ('A', 'AA' of 'AAA') voor de evaluatie. Voor meer informatie, zie <a href={{link_em_1b}}>WCAG-EM Stap 1.b: Bepaal het conformiteitsdoel</a>. Deze keuze bepaald welke niveaufilters in stap 4 standaard aan zullen staan.",
     "LABEL_SUPPORT_BASE": "Basisniveau van toegankelijkheid ondersteund",
-    "INF_SUPPORT_BASE": "Bepaal welke webbrowser, hulptechnologieën en andere <a href={{link_user_agent}}>user agents</a> door <a href={{link_access_supp}}>toegankelijkheid ondersteund</a> worden door de website. Bijvoorbeeld: 'Internet Explorer (IE) met JAWS', 'Firefox met NVDA', en 'iOS met VoiceOver' zou het basisniveau kunnen zijn. Voor meer informatie, zie <a href={{link_em_step2}}>WCAG-EM Stap 1.c: Bepaal het Basisniveau van toegankelijkheid ondersteund</a>.",
+    "INF_SUPPORT_BASE": "Bepaal welke webbrowser, hulptechnologieën en andere <a href={{link_user_agent}}>user agents</a> door <a href={{link_access_supp}}>toegankelijkheid ondersteund</a> worden door de website. Bijvoorbeeld: 'Internet Explorer (IE) met JAWS', 'Firefox met NVDA', en 'iOS met VoiceOver' zou het basisniveau kunnen zijn. Voor meer informatie, zie <a href={{link_em_step1c}}>WCAG-EM Stap 1.c: Bepaal het Basisniveau van toegankelijkheid ondersteund</a>.",
     "LABEL_EXTRA_REQUIREMENTS": "Verdere evaluatievereisten",
     "INF_EXTRA_REQUIREMENTS_0": "Bepaal overige evaluatievereisten. Bijvoorbeeld:",
     "INF_EXTRA_REQUIREMENTS_LI0": "'In het rapport wordt een volledige lijst van de gevonden problemen opgenomen, in plaats van slechts enkele voorbeelden'",
     "INF_EXTRA_REQUIREMENTS_LI1": "'In het rapport zal een omschrijving van de problemen gegeven worden, samen met suggesties voor het oplossen van de problemen'",
     "INF_EXTRA_REQUIREMENTS_LI2": "'Alle webpagina's en webcontent van de website zullen in de evaluatie getest worden, in plaats van enkel de steekproef",
-    "INF_EXTRA_REQUIREMENTS_1": "Voor meer informatie, zie <a href={{link_em_1d}}>WCAG-EM Stap 1.d: Bepaal overige evaluatievereisten</a>."
+    "INF_EXTRA_REQUIREMENTS_1": "WCAG-EM Stap 1.d: Bepaal overige evaluatievereisten."
 }
