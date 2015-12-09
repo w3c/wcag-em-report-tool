@@ -17,10 +17,6 @@ module.exports = function (grunt) {
 
   var fs = require('fs');
 
-  // load plugins
-  grunt.loadNpmTasks('grunt-html2js');
-  grunt.loadNpmTasks('grunt-concat-json');
-
   var langPath    = 'app/locale/';
   var langs = fs.readdirSync(langPath)
   .reduce(function (langs, file) {
@@ -432,12 +428,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'translationSetup',
-    'clean:server',
-    'translationSetup',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test',
     'karma'
   ]);
 
