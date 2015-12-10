@@ -3,8 +3,7 @@
 describe('model: evalModel export', function () {
 
     // load the angular module
-    beforeEach(setupwcagReporterTest());
-    beforeEach(module('wertDummy'));
+    setupwcagReporterTest();
 
     function getEval(linkedData) {
         return linkedData['@graph'].filter(function (obj) {

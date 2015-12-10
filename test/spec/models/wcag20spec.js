@@ -3,7 +3,7 @@
 describe('model: wcag20spec', function () {
 
     // load the service's module
-    beforeEach(setupwcagReporterTest());
+    setupwcagReporterTest();
 
     // instantiate service
     var wcag20spec;

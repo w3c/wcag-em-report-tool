@@ -3,7 +3,13 @@ describe('Controller: EvalSampleCtrl', function () {
     var modelName = 'sampleModel';
 
     // load the service's module
-    beforeEach(setupwcagReporterTest());
+    setupwcagReporterTest();
+
+    beforeEach(function (done) {
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:load', done);
+        });
+    });
 
     var scope;
     var ctrl;
@@ -22,7 +28,7 @@ describe('Controller: EvalSampleCtrl', function () {
         model.randomSample.webpage     = [];
     });
 
-    xit('provides access to structured & random sample', function () {
+    it('provides access to structured & random sample', function () {
         expect(scope.structuredSample)
         .toBe(model.structuredSample);
 
@@ -31,7 +37,7 @@ describe('Controller: EvalSampleCtrl', function () {
     });
 
     // getPageAdder, getPageRemover
-    xit('adds and removes pages to a sample', function () {
+    it('adds and removes pages to a sample', function () {
         var sample = model.structuredSample;
         // Check that an empty first page is present
         expect(sample.webpage.length)
@@ -57,7 +63,7 @@ describe('Controller: EvalSampleCtrl', function () {
     });
 
 
-    xit('tracks the number of random pages to use', function () {
+    it('tracks the number of random pages to use', function () {
         expect(scope.randPageCount()).toBe(1);
 
         for (var i=0; i < 25; i++) {
@@ -67,7 +73,7 @@ describe('Controller: EvalSampleCtrl', function () {
     });
 
 
-    xit('adds/removes assertions for each page added/removed', function () {
+    it('adds/removes assertions for each page added/removed', function () {
         evalModel.auditModel.updateToConformance();
         var criteria = evalModel.auditModel.criteria;
         var critIds  = Object.keys(criteria).splice(0, 3);
@@ -116,7 +122,7 @@ describe('Controller: EvalSampleCtrl', function () {
 
     });
 
-    xit('adds random pages as the structured sample grows', function () {
+    it('adds random pages as the structured sample grows', function () {
         var addStrPage    = scope.getPageAdder(model.structuredSample);
         for (var i=0; i < 40; i++) {
             addStrPage();

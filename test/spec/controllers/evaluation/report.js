@@ -3,7 +3,7 @@ describe('Controller: EvalReportCtrl', function () {
     var modelName = 'reportModel';
 
     // load the service's module
-    beforeEach(setupwcagReporterTest());
+    setupwcagReporterTest();
 
     var scope;
     var ctrl;
