@@ -13,5 +13,5 @@
     "TIPS_LI1": "You can go back and forth between the steps in any order. None of the fields are required.",
     "TIPS_LI2": "To get more information about a field, select the {{info}} icon next to the field label.",
     "TIPS_LI3": "The tool provides your report as HTML and CSS files. You can download these files from the 'View Report' page. You can then change the report content and visual design.",
-    "TIPS_LI4": "You can include in your report WCAG 2.0 success criteria beyond the conformance target. For example, the website is only required to meet Level AA, yet you want to also include Level AAA success criteria in the report. In step 4, use the level filter to show show higher level criteria. Any criteria with a result will always be included in the report."
+    "TIPS_LI4": "You can include in your report WCAG 2.0 success criteria beyond the conformance target. For example, the website is only required to meet Level AA, yet you want to also include Level AAA success criteria in the report. In step 4, use the level filter to show higher level criteria. Any criteria with a result will always be included in the report."
 }
