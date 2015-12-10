@@ -8,6 +8,13 @@ button.glyphicon-copy {
     width:30px;
     height:23px;
 }
+.glyphicon-none:before {
+    content: "\e013";
+    color: transparent !important;
+}
+.dropdown-menu.lang-menu > li > a {
+    padding-left:10px;
+}
 
 body {
     .form-horizontal .control-label {

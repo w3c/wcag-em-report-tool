@@ -3,7 +3,7 @@
 
   <div class="row outcome" ng-if="opt.editable">
     <div class="col-sm-4 col-md-3">
-      <label for="result_outcome_{{$id}}" class="sr-only">{{:: 'AUDIT.LABEL_OUTCOME' | translate}}</label>
+      <label for="result_outcome_{{$id}}" class="sr-only">{{ 'AUDIT.LABEL_OUTCOME' | translate}}</label>
       <select class="stretch-control result-select" id="result_outcome_{{$id}}" ng-model="result.outcome"
       ng-options="outcome.id as outcome.name for outcome in outcomes"></select>
     </div>
@@ -16,7 +16,7 @@
 
   <div class="row outcome" ng-if="!opt.editable">
     <div class="col-sm-4 col-md-3">
-      <strong>{{:: 'AUDIT.LABEL_OUTCOME' | translate}}</strong>:&nbsp;{{ result.outcome | rdfToLabel }}
+      <strong>{{ 'AUDIT.LABEL_OUTCOME' | translate}}</strong>:&nbsp;{{ result.outcome | rdfToLabel }}
     </div>
 
     <div class="col-sm-8 col-md-9" ng-init=""

@@ -1,10 +1,17 @@
-<wre:stepbar>
-  	<wre:step ng-repeat="stateItem in state.stateList"
-  			step="stateItem"
-  			active="state.currentStateIndex == $index">
-		{{ 'NAV.WZRD_' + stateItem.name | uppercase | translate}}
-        <span class="sr-only"
-            ng-if="state.currentStateIndex == $index">
-          &nbsp;({{'NAV.WZRD_ACTIVE' | translate}})</span>
-	</wre:step>
-</wre:stepbar>
+<ul class="wizard">
+  <li ng-repeat="stateItem in state.stateList"
+  ng-init="active = state.currentStateIndex == $index"
+  ng-class="{active: active, 'wizard-step': 1}">
+
+ 	  <a ng-if="!active" ng-href="{{'#' + stateItem.route}}">
+      {{ 'NAV.WZRD_' + stateItem.name | uppercase | translate}}
+    </a>
+
+    <a ng-if="active">
+      {{ 'NAV.WZRD_' + stateItem.name | uppercase | translate}}
+      <span ng-if="active" class="sr-only">
+        ({{'NAV.WZRD_ACTIVE' | translate}})
+      </span>
+    </a>
+  </li>
+</ul>

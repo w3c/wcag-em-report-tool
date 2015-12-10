@@ -1,11 +1,18 @@
 'use strict';
+
+
 /**
  *
  */
 angular.module('wcagReporter')
-.factory('wcag20spec', function(wcag20specEn) {
-    var guidelines, criteria,
-        criteriaObj = {};
+.provider('wcag20spec', function() {
+    var specPath;
+    var guidelines;
+    var criteria;
+    var currentSpec;
+    var broadcast = angular.noop;
+    var criteriaObj = {};
+    var specs = {};
 
     function pluck(prop) {
         return function (a, b) {
@@ -16,22 +23,60 @@ angular.module('wcagReporter')
         };
     }
 
-    // Concat all guidelines arrays of each principle
-    guidelines = wcag20specEn.principles
-    .reduce(pluck('guidelines'), []);
 
-    // Concat all criteria arrays of each guideline
-    criteria   = guidelines.reduce(pluck('successcriteria'), []);
+    var wcag2 = {
+        addSpec: function (lang, spec) {
+            lang = lang.toLowerCase();
+            specs[lang] = spec;
+            if (!currentSpec) {
+                wcag2.useLanguage(lang);
+            }
+        },
 
-    // Make an object of the criteria array with uri as keys
-    criteria.forEach(function (criterion) {
-        var level = 'wcag20:level_' + criterion.level;
-        criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
-        criterion.level = level.toLowerCase();
-        criteriaObj[criterion.id] = criterion;
-    });
+        loadLanguage: function (lang) {
+            lang = lang.toLowerCase();
+            if (typeof specPath !== 'string') {
+                throw new Error('specPath must be defined first');
+            }
+            if (specs[lang]) {
+                return wcag2.useLanguage(lang);
+            }
 
-    return {
+            var path = specPath.replace('${lang}', lang.toLowerCase());
+            $.getJSON(path)
+            .done(function (data) {
+                specs[lang] = data;
+                wcag2.useLanguage(lang);
+                broadcast('wcag20spec:load', lang);
+            }).fail(console.error.bind(console));
+        },
+
+        useLanguage: function (lang) {
+            lang = lang.toLowerCase();
+            if (!specs[lang]) {
+                throw new Error('Spec for lang ' + lang + ' not defined.');
+            }
+            currentSpec = specs[lang];
+            // Concat all guidelines arrays of each principle
+            guidelines = currentSpec.principles
+            .reduce(pluck('guidelines'), []);
+
+            // Concat all criteria arrays of each guideline
+            criteria = guidelines.reduce(pluck('successcriteria'), []);
+
+            // Make an object of the criteria array with uri as keys
+            criteria.forEach(function (criterion) {
+                if (['A', 'AA', 'AAA'].indexOf(criterion.level) !== -1) {
+                    var level = 'wcag20:level_' + criterion.level;
+                    criterion.id = criterion.id.replace('WCAG2:', 'wcag20:');
+                    criterion.level = level.toLowerCase();
+                    criteriaObj[criterion.id] = criterion;
+                }
+            });
+            
+            broadcast('wcag20spec:langChange', lang);
+        },
+
         getGuidelines: function () {
             return guidelines;
         },
@@ -42,7 +87,23 @@ angular.module('wcagReporter')
             return criteriaObj[id];
         },
         getPrinciples: function () {
-            return wcag20specEn.principles;
+            return currentSpec.principles;
         }
     };
+
+
+    this.setSpecPath  = function (path) {
+        specPath = path;
+    };
+
+    this.loadLanguage = wcag2.loadLanguage;
+
+    this.$get = ['$rootScope', function ($rootScope) {
+        broadcast = function (a,b,c) {
+            $rootScope.$broadcast(a,b,c);
+        };
+        return angular.extend({}, wcag2);
+    }];
+
+
 });

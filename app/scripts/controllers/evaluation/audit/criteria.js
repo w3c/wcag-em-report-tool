@@ -7,8 +7,13 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     evalAuditModel.updateToConformance();
 
     $scope.criteria = evalAuditModel.getCriteriaSorted();
+
     $scope.principles = wcag20spec.getPrinciples();
     $scope.getCritAssert = evalAuditModel.getCritAssert;
+
+    $scope.$on('wcag20spec:langChange', function () {
+        $scope.principles = wcag20spec.getPrinciples();
+    });
 
 
     if ($rootScope.rootHide.criteria) {
@@ -40,12 +45,12 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     		return false;
     	}
 
-		// Check if the assert has an outcome, if no, don't show the criterion
-		var critAssert = evalAuditModel.getCritAssert(critSpec.id);
-		if (typeof critAssert !== 'object' ||
-		typeof critAssert.result !== 'object') {
-			return false;
-		}
+        // Check if the assert has an outcome, if no, don't show the criterion
+        var critAssert = evalAuditModel.getCritAssert(critSpec.id);
+        if (typeof critAssert !== 'object' ||
+        typeof critAssert.result !== 'object') {
+            return false;
+        }
 
 		// Check if the outcome is set to hidden
     	return ($scope.critFilter.outcome[critAssert.result.outcome] === true);
@@ -59,17 +64,17 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
     			visible = true;
     		}
     	});
-    	return visible;
+        return visible;
     };
 
     $scope.isPrincipleVisible = function (principle) {
-    	var visible = false;
-    	principle.guidelines.forEach(function (guideline) {
-    		// Only check the criterion if a previous check hasn't already returned true
-    		if (visible || $scope.isGuidelineVisible(guideline)) {
-    			visible = true;
-    		}
-    	});
+        var visible = false;
+        principle.guidelines.forEach(function (guideline) {
+            // Only check the criterion if a previous check hasn't already returned true
+            if (visible || $scope.isGuidelineVisible(guideline)) {
+                visible = true;
+            }
+        });
     	return visible;
     };
 

@@ -3,8 +3,9 @@
 
 <h1>{{ setTitle( translate('EXPLORE.TITLE') ) }}</h1>
 
-<p ng-bind-html="'EXPLORE.INTRO' | translateAndLink
-: ['EXPLORE.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step2']"></p>
+<p ng-bind-html="'EXPLORE.INTRO' | translate: {
+  link_em_2: 'http://www.w3.org/TR/WCAG-EM/#step2'
+}"></p>
 
 <form>
   <h2>
@@ -14,18 +15,12 @@
   </h2>
 
   <info-field ref="inf_reliedup_tech" button="Close info">
-    <p ng-bind-html="'EXPLORE.INF_RELIEDUP_TECH' | translateAndLink
-    : ['EXPLORE.INF_RELIEDUP_TECH_0', 'http://www.w3.org/TR/WCAG-EM/#step2d']
-    : ['EXPLORE.INF_RELIEDUP_TECH_1', 'http://www.w3.org/TR/WCAG20/#reliedupondef']
-    | nlToBr"></p>
+    <p ng-bind-html="'EXPLORE.INF_RELIEDUP_TECH' | translate: {
+      link_em_2d: 'http://www.w3.org/TR/WCAG-EM/#step2d',
+      link_relied_upon: 'http://www.w3.org/TR/WCAG20/#reliedupondef'
+    }"></p>
   </info-field>
 
-<!--   <ul ng-repeat="tech in allTech">
-    <input type="checkbox" id="{{tech.title}}"
-    ng-model="tech.checked" ng-change="changeTech()">
-    <label for="{{tech.title}}">{{tech.title}}</label>
-</label>
-  </ul> -->
   <div class="row">
   <ul class="col-sm-9 known-tech">
     <li ng-repeat="tech in knownTech">
@@ -40,7 +35,7 @@
       <input type="checkbox" id="other"
       ng-model="rootHide.OtherTech">
       <label for="other">
-        {{:: 'EXPLORE.LABEL_OTHER' | translate }}
+        {{ 'EXPLORE.LABEL_OTHER' | translate }}
       </label>
     </li>
   </ul>
@@ -58,15 +53,11 @@
            delButton = 'btn glyphicon glyphicon-remove-sign'">
     <header ng-class="head" aria-hidden="true">
       <div ng-class="col1">
-        {{:: 'EXPLORE.LABEL_TECH' | translate}}
+        {{ 'EXPLORE.LABEL_TECH' | translate}}
       </div> <div ng-class="col2">
-        {{:: 'EXPLORE.LABEL_TECH_SPEC' | translate}}
+        {{ 'EXPLORE.LABEL_TECH_SPEC' | translate}}
       </div>
     </header>
-
-    <p ng-if="knownTech.length === 0" class="appear no-selection"><em>
-      {{:: 'EXPLORE.NO_TECH_DEFINED' | translate}}
-    </em></p>
 
     <fieldset class="row form-group-inline appear" id="technologies"
     ng-repeat="tech in otherTech">
@@ -130,8 +121,9 @@
     </label>
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_essent_func">
-      <p ng-bind-html="'EXPLORE.INF_ESSENT_FUNC' | translateAndLink
-      : ['EXPLORE.INF_ESSENT_FUNC_0', 'http://www.w3.org/TR/WCAG-EM/#step2b'] | nlToBr"></p>
+      <p ng-bind-html="'EXPLORE.INF_ESSENT_FUNC' | translate: {
+        link_em_2b: 'http://www.w3.org/TR/WCAG-EM/#step2b'
+      }"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.essentialFunctionality"
@@ -148,10 +140,10 @@
     </label>
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}" ref="inf_page_type">
-      <p ng-bind-html="'EXPLORE.INF_VARIETY_PAGE_TYPES' | translateAndLink
-      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_0', 'http://www.w3.org/TR/WCAG-EM/#step2c']
-      : ['EXPLORE.INF_VARIETY_PAGE_TYPES_1', 'http://www.w3.org/TR/WCAG-EM/#states']
-      | nlToBr"></p>
+      <p ng-bind-html="'EXPLORE.INF_VARIETY_PAGE_TYPES' | translate: {
+        link_em_2c: 'http://www.w3.org/TR/WCAG-EM/#step2c',
+        link_page_state: 'http://www.w3.org/TR/WCAG-EM/#states'
+      }"></p>
     </info-field>
 
     <textarea ng-model="exploreModel.pageTypeVariety"

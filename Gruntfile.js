@@ -17,13 +17,7 @@ module.exports = function (grunt) {
 
   var fs = require('fs');
 
-  // load plugins
-  grunt.loadNpmTasks('grunt-json-angular-translate');
-  grunt.loadNpmTasks('grunt-html2js');
-  grunt.loadNpmTasks('grunt-concat-json');
-
   var langPath    = 'app/locale/';
-  var defaultLang = grunt.option('lang') || 'en';
   var langs = fs.readdirSync(langPath)
   .reduce(function (langs, file) {
     var stat = fs.statSync(langPath + file);
@@ -48,28 +42,13 @@ module.exports = function (grunt) {
     'concat-json': (function () {
         return langs.reduce(function (tasks, lang) {
           tasks[lang] = {
-            cwd: 'app/locale/' + lang,
+            cwd: '.tmp/locale/' + lang,
             src: '*.json',
-            dest: '.tmp/locales/' + lang + '.json'
+            dest: '.tmp/locale/' + (lang.toLowerCase()) + '.json'
           };
           return tasks;
         }, {});
     }()),
-
-    jsonAngularTranslate: {
-      createJs: {
-        options: {
-          moduleName: 'wcagReporter',
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/locales',
-          src: '*.json',
-          dest: '.tmp/scripts/locales',
-          ext: '.js'
-        }]
-      }
-    },
 
     html2js: {
       options: {
@@ -91,6 +70,10 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
+      tranlsations: {
+        files: ['<%= yeoman.app %>/locale/**/*.json'],
+        tasks: ['translationSetup']
+      },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
@@ -98,10 +81,6 @@ module.exports = function (grunt) {
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
-      },
-      jsonAngularTranslate: {
-        files: ['locales/*.json'],
-        tasks: ['jsonAngularTranslate:createJs']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -112,8 +91,8 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '<%= yeoman.app %>/scripts/locales/*.js',
           '.tmp/styles/{,*/}*.css',
+          '.tmp/locale/*.json',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -340,17 +319,24 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
-      defaultLang: {
-        src:  '.tmp/scripts/locales/' + defaultLang + '.js',
-        dest: '.tmp/scripts/locales/default.js'
+      localeCapitalized: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/locale/',
+          dest: '.tmp/locale/',
+          src: ['**/*.json'],
+          rename: function(dest, src) {
+            return dest + (src.toUpperCase().substr(0, src.length-4)) + 'json';
+          }
+        }]
       },
       // We'll make the bootstrap fonts directly available
       font: {
           expand: true,
           flatten: true,
-          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass/assets/fonts/',
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
           dest: '<%= yeoman.app %>/styles/bootstrap',
-          src: ['bootstrap/*.*']
+          src: ['glyphicons-halflings-regular.*']
       },
       dist: {
         files: [{
@@ -363,20 +349,31 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/**/*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/*'
+            'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            'glyphicons-halflings-regular.*',
+            'wcag20spec/*.json'
           ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
         }, {
           expand: true,
           flatten: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/styles/bootstrap',
           src: ['styles/bootstrap/*.*']
+        }, {
+          expand: true,
+          cwd: '.tmp/scripts/locale/',
+          src: '*.js',
+          dest: '<%= yeoman.dist %>/scripts/locale/'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/wcag20spec/js/',
+          src: '*.js',
+          dest: '<%= yeoman.dist %>/wcag20spec/js/'
+        }, {
+          expand: true,
+          cwd: '.tmp/locale/',
+          src: '*.json',
+          dest: '<%= yeoman.dist %>/locale/'
         }]
       },
       styles: {
@@ -400,36 +397,6 @@ module.exports = function (grunt) {
       ]
     },
 
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    uglify: {
-      options: {
-        //sourceMap: true,
-      },
-      // dist: {
-      //   files: {
-      //     '<%= yeoman.dist %>/scripts/scripts.js': ['<%= yeoman.dist %>/scripts/scripts.js'],
-      //     '<%= yeoman.dist %>/scripts/templates.js': ['<%= yeoman.dist %>/scripts/templates.js'],
-      //     '<%= yeoman.dist %>/scripts/vendor.js': ['<%= yeoman.dist %>/scripts/vendor.js']
-      //   }
-      // }
-    },
-    // concat: {
-    //   dist: {}
-    // },
-
-    // Test settings
     karma: {
       unit: {
         configFile: 'karma.conf.js',
@@ -456,17 +423,11 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('translationSetup', [
+    'copy:localeCapitalized',
     'concat-json',
-    'jsonAngularTranslate',
-    'copy:defaultLang',
   ]);
 
   grunt.registerTask('test', [
-    'translationSetup',
-    'clean:server',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test',
     'karma'
   ]);
 

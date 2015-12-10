@@ -3,13 +3,19 @@
 describe('model: wcag20spec', function () {
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    setupwcagReporterTest();
 
     // instantiate service
     var wcag20spec;
     beforeEach(inject(function (_wcag20spec_) {
         wcag20spec = _wcag20spec_;
     }));
+
+    beforeEach(function (done) {
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:langChange', done);
+        });
+    });
 
     describe('getPrinciples', function () {
         var principles;

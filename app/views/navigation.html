@@ -1,4 +1,4 @@
-<div class="wert-head">
+<div class="wert-head" ng-controller="NavigationCtrl">
   <nav class="navbar navbar-default">
     <div class="branding">
       <div class="nav navbar-nav navbar-right">
@@ -16,23 +16,23 @@
     <ul class="nav navbar-nav navbar-left">
       <li><a href="#/" target="_blank">
           <span class="glyphicon glyphicon-file"></span>&nbsp;
-          {{:: 'NAV.MENU_NEW' | translate }}
+          {{ 'NAV.MENU_NEW' | translate }}
       </a></li>
 
       <li><a href="#/open">
           <span class="glyphicon glyphicon-folder-open"></span>&nbsp;
-          {{:: 'NAV.MENU_OPEN' | translate }}
+          {{ 'NAV.MENU_OPEN' | translate }}
       </a></li>
 
-      <li><a href="#/save" title="{{:: 'NAV.MENU_SAVE_TITLE' | translate}}">
+      <li><a href="#/save" title="{{ 'NAV.MENU_SAVE_TITLE' | translate}}">
           <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;
-          {{:: 'NAV.MENU_SAVE' | translate }}
+          {{ 'NAV.MENU_SAVE' | translate }}
       </a></li>
 
       <li class="dropdown" dropdown>
         <a href="#" class="dropdown-toggle" dropdown-toggle>
           <span class="glyphicon glyphicon-link"></span>&nbsp;
-          {{:: 'NAV.MENU_RESOURCES' | translate }}
+          {{ 'NAV.MENU_RESOURCES' | translate }}
           <b class="caret"></b>
         </a>
 
@@ -50,28 +50,27 @@
               WCAG 2.0 Evaluation Methodology (WCAG-EM)
           </a></li>
       </ul>  </li>
-
       <li class="dropdown" dropdown>
         <a href="#" class="dropdown-toggle" dropdown-toggle>
           <span class="glyphicon glyphicon-book"></span>&nbsp;
-          {{:: 'NAV.MENU_LANGUAGE' | translate }}
+          {{ 'NAV.MENU_LANGUAGE' | translate }}
           <b class="caret"></b>
         </a>
 
-        <ul class="dropdown-menu" lang="en">
-          <li><a>
-            <span class="glyphicon glyphicon-ok"></span>
-            <span class="sr-only">{{::
-              'COMMON.ACTIVE' | translate
-            }}</span>
-              English
-          </a></li>
-          <li><a>
-              Deutsch
-          </a></li>
-          <li><a>
-              Français
-          </a></li>
+        <ul class="dropdown-menu lang-menu">
+          <li ng-repeat="language in languages" lang="{{language.code}}">
+            <a ng-if="language.code === currentLang">
+              <span class="glyphicon glyphicon-ok"></span>
+              <!-- show current?? -->
+              {{language.localName}}
+            </a>
+
+            <a ng-if="language.code !== currentLang"
+            href="" ng-click="changeLanguage(language.code)">
+              <span class="glyphicon glyphicon-none"></span>
+              {{language.localName}}
+            </a>
+          </li>
       </ul>  </li>
     </ul>
   </nav>

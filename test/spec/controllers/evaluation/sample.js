@@ -3,7 +3,13 @@ describe('Controller: EvalSampleCtrl', function () {
     var modelName = 'sampleModel';
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    setupwcagReporterTest();
+
+    beforeEach(function (done) {
+        inject(function ($rootScope) {
+            $rootScope.$on('wcag20spec:load', done);
+        });
+    });
 
     var scope;
     var ctrl;

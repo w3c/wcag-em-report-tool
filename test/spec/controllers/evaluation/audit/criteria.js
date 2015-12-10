@@ -3,7 +3,13 @@
 describe('Controller: AuditCriteriaCtrl', function () {
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    setupwcagReporterTest();
+
+    beforeEach(function (done) {
+       inject(function ($rootScope) {
+           $rootScope.$on('wcag20spec:load', done);
+        });
+    });
 
     var scope;
     var ctrl;
@@ -11,6 +17,8 @@ describe('Controller: AuditCriteriaCtrl', function () {
     var criteriaLvlA;
     var criteriaLvlAA;
     var criteriaLvlAAA;
+
+
 
     beforeEach(inject(function($controller, $rootScope, wcag20spec) {
         scope = $rootScope.$new();
@@ -28,7 +36,6 @@ describe('Controller: AuditCriteriaCtrl', function () {
         criteriaLvlAAA = criteria.filter(function (crit) {
             return crit.level === 'wcag20:level_aaa';
         });
-
     }));
 
     it('knows what criteria to show based on critFilter', function () {

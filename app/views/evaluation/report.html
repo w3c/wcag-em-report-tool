@@ -3,8 +3,9 @@
 
 <h1>{{ setTitle( translate('REPORT.TITLE') ) }}</h1>
 
-<p ng-bind-html="'REPORT.INTRO' | translateAndLink
-: ['REPORT.INTRO_0', 'http://www.w3.org/TR/WCAG-EM/#step5']"></p>
+<p ng-bind-html="'REPORT.INTRO' | translate: {
+  link_em_5: 'http://www.w3.org/TR/WCAG-EM/#step5'
+}"></p>
 
 <form class="form-horizontal">
   <div class="form-group">
@@ -24,7 +25,7 @@
     <div class="col-sm-12">
       <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
       ref="inf_dct_title" exitto="dct_title">
-        <p ng-bind-html="'REPORT.INF_TITLE' | translate | nlToBr"></p>
+        <p ng-bind-html="'REPORT.INF_TITLE' | translate"></p>
     </info-field></div>
   </div>
 
@@ -117,8 +118,9 @@
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
     exitto="specifics" ref="inf_specifics">
-      <p ng-bind-html="'REPORT.INF_SPECIFICS' | translateAndLink
-      : ['REPORT.INF_SPECIFICS_0', 'http://www.w3.org/TR/WCAG-EM/#step5b']"></p>
+      <p ng-bind-html="'REPORT.INF_SPECIFICS' | translate: {
+        link_em_5b: 'http://www.w3.org/TR/WCAG-EM/#step5b'
+      }"></p>
     </info-field>
 
   	<textarea id="specifics" ng-model="reportModel.specifics" auto-resize

@@ -3,7 +3,7 @@ describe('Controller: EvalExploreCtrl', function () {
     var modelName = 'exploreModel';
 
     // load the service's module
-    beforeEach(module('wcagReporter'));
+    setupwcagReporterTest();
 
     var scope;
     var ctrl;
@@ -16,7 +16,6 @@ describe('Controller: EvalExploreCtrl', function () {
 
         model.reliedUponTechnology = [];
     }));
-
 
     it('Should be able to update the evalModel.' + modelName, function () {
         expect(scope[modelName]).toBe(model);
@@ -37,7 +36,7 @@ describe('Controller: EvalExploreCtrl', function () {
         for (i = 0; i < runs; i++) {
             scope.knownTech[i].checked = true;
             scope.changeTech(scope.knownTech[i]);
-            scope.$digest();
+                scope.$digest();
 
             expect(scope.knownTech[i].title)
             .toBe(model.reliedUponTechnology[i].title);

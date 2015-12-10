@@ -3,7 +3,7 @@
 
 module.exports = function(config) {
   'use strict';
-  config.set({
+    config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
@@ -20,22 +20,30 @@ module.exports = function(config) {
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-translate/angular-translate.js',
+      'app/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'app/bower_components/angular-animate/angular-animate.js',
-      'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
       'app/bower_components/angular-tooltips/dist/angular-tooltips.min.js',
-      'app/wcag20spec/**/*.js',
       'app/scripts/promise-1.0.0.js',
       'app/scripts/jsonld.js',
       'app/scripts/**/{,*/}*.js',
+      'app/scripts/app.setup.js',
       'app/scripts/app.js',
-      'test/dummyData/*.js',
+      {pattern: '.tmp/locale/*.json', included: false, served: true},
+      {pattern: 'app/wcag20spec/*.json', included: false, served: true},
+      'test/setup.js',
+      'test/dummyData.js',
       'test/spec/**/{,*/}*.js'
-      // 'test/mock/**/*.js',
     ],
 
     // list of files / patterns to exclude
     exclude: [],
+
+
+    proxies: {
+      "/wcag20spec/": "http://localhost:8080/base/app/wcag20spec/",
+      "/locale/": "http://localhost:8080/base/.tmp/locale/"
+    },
 
     // web server port
     port: 8080,
@@ -44,10 +52,8 @@ module.exports = function(config) {
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
-
 
     // Start these browsers, currently available:
     // - Chrome
