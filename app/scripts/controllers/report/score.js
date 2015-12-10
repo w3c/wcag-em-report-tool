@@ -35,7 +35,6 @@ angular.module('wcagReporter')
             return list;
 
         }, []).forEach(function (crit) {
-            console.log(crit.level);
         // For each, set the result
             var critResult = evalAuditModel.getCritAssert(crit.id);
             if (critResult) {
@@ -44,7 +43,6 @@ angular.module('wcagReporter')
 
                 result[outcome] += 1;
                 $scope.totals[outcome] += 1;
-                console.log(crit.level, 'level_' + level, result['level_' + level]);
                 if (outcome === 'earl:passed' ||
                     outcome === 'earl:inapplicable') {
                     result['level_' + level].pass += 1; 
@@ -59,5 +57,4 @@ angular.module('wcagReporter')
         });
         return result;
     });
-    console.log($scope.totals);
 });
