@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular.module('wcagReporter', [
     'ngResource',
     'ngSanitize',
@@ -48,8 +50,32 @@ angular.module('wcagReporter', [
 
 
 }).config(function ($translateProvider, wcag20specProvider) {
-    var lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
-    lang = lang.substr(0, 2);
+    var lang;
+    function createCookie(name,value) {
+        document.cookie = name+"="+value+"; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    try {
+        lang = readCookie('wcagReporter-lang');
+        if (!lang) {
+            lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
+            lang = lang.substr(0, 2);
+            createCookie('wcagReporter-lang', lang);
+        }
+    } catch (e) {
+        lang = 'en';
+    }
 
     $translateProvider.useSanitizeValueStrategy(null);
     $translateProvider.useStaticFilesLoader({
