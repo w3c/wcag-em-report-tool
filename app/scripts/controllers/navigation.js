@@ -2,16 +2,12 @@
 
 angular.module('wcagReporter')
 .controller('NavigationCtrl',
-function ($scope, $translate, wcag20spec, $rootScope) {
+function ($scope, $translate, wcag20spec, $rootScope, supportedLanguages) {
     function createCookie(name,value) {
         document.cookie = name+"="+value+"; path=/";
     }
 
-    $scope.languages = [
-        {'code': 'en', 'localName': 'English'},
-        {'code': 'nl', 'localName': 'Nederlands'}
-    ];
-
+    $scope.languages = supportedLanguages;
     $scope.currentLang = $rootScope.lang;
     
     $rootScope.$on('$translateChangeSuccess', function (e, change) {

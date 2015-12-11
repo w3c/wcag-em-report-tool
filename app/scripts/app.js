@@ -48,45 +48,6 @@ angular.module('wcagReporter', [
         redirectTo: '/'
     });
 
-
-}).config(function ($translateProvider, wcag20specProvider) {
-    var lang;
-    function createCookie(name,value) {
-        document.cookie = name+"="+value+"; path=/";
-    }
-
-    function readCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-        }
-        return null;
-    }
-
-    try {
-        lang = readCookie('wcagReporter-lang');
-        if (!lang) {
-            lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
-            lang = lang.substr(0, 2);
-            createCookie('wcagReporter-lang', lang);
-        }
-    } catch (e) {
-        lang = 'en';
-    }
-
-    $translateProvider.useSanitizeValueStrategy(null);
-    $translateProvider.useStaticFilesLoader({
-        prefix: 'locale/',
-        suffix: '.json'
-    });
-
-    wcag20specProvider.setSpecPath('wcag20spec/wcag2-${lang}.json');
-    wcag20specProvider.loadLanguage(lang);
-    $translateProvider.preferredLanguage(lang);
-
 // Setup the tooltips default
 }).config(function(tooltipsConfigProvider) {
     tooltipsConfigProvider.options({
