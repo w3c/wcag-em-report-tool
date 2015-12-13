@@ -44,12 +44,14 @@ The .json files in the locale/**/ directory can now be translated. For these fil
 
 To review the translations as you work, run `grunt serve` in your command prompt at the root of the project. Then go to http://localhost:9000 to see the tool.
 
-TODO: Build, where does that go?
+When the translation is ready, the tool can be build as usual with the 
+`grunt build` command. This build the app in the dist directory.
 
 
-# Contribute a translation
+## 5. Contribute a translation
 
-TODO
+We would love to be able to support many more languages, but to do so we
+will need dedicated translators. Please share your translations with the project by creating a pull request.
 
-
-
+If you have any questions or issues creating a translation for the Report
+tool, feel free to contact us.
