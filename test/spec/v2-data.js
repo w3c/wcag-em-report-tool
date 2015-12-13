@@ -3,8 +3,7 @@
 describe('Changes for 1.1+ data format', function () {
 
     // load the angular module
-    beforeEach(module('wcagReporter'));
-    beforeEach(module('wertDummy'));
+    setupwcagReporterTest();
 
     function getEval(linkedData) {
         return linkedData['@graph'].filter(function (obj) {

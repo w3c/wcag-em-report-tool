@@ -27,12 +27,13 @@ module.exports = function(config) {
       'app/scripts/libs/promise-1.0.0.js',
       'app/scripts/libs/jsonld.js',
       'app/scripts/**/{,*/}*.js',
-      'app/scripts/app.setup.js',
+      'app/scripts/app.language.js',
+      'app/scripts/app.run.js',
       'app/scripts/app.js',
       {pattern: '.tmp/locale/*.json', included: false, served: true},
       {pattern: 'app/wcag20spec/*.json', included: false, served: true},
       'test/setup.js',
-      'test/dummyData.js',
+      'test/dummyData/*.js',
       'test/spec/**/{,*/}*.js'
     ],
 
