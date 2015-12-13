@@ -21,6 +21,7 @@ angular.module('wcagReporter')
 		return $filter('translate')('EARL.' + keymap[earl]);
 	};
 	rdfToLabel.keymap = keymap;
+	rdfToLabel.$stateful = true;
 
 	return rdfToLabel;
 });

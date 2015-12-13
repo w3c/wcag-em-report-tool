@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular.module('wcagReporter', [
     'ngResource',
     'ngSanitize',
@@ -45,21 +47,6 @@ angular.module('wcagReporter', [
     }).otherwise({
         redirectTo: '/'
     });
-
-
-}).config(function ($translateProvider, wcag20specProvider) {
-    var lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
-    lang = lang.substr(0, 2);
-
-    $translateProvider.useSanitizeValueStrategy(null);
-    $translateProvider.useStaticFilesLoader({
-        prefix: 'locale/',
-        suffix: '.json'
-    });
-
-    wcag20specProvider.setSpecPath('wcag20spec/wcag2-${lang}.json');
-    wcag20specProvider.loadLanguage(lang);
-    $translateProvider.preferredLanguage(lang);
 
 // Setup the tooltips default
 }).config(function(tooltipsConfigProvider) {
