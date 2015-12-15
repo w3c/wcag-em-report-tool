@@ -65,6 +65,9 @@ An evaluation is the process of testing the accessibility of a website
 according to WCAG-EM. Objects of type Evaluation contains the
 data generated as part of the evaluation.
 
+Special: The @language property of JSON-LD will be used by the Report
+Tool to identify the language used in the evaluation.
+
 ### Evaluation properties
 Property            | Type               | Description
 --------------------|--------------------|----------------------------------
@@ -88,6 +91,7 @@ step5b              | text               | Evaluation specifics
 ```javascript
     {
         "@type":        "Evaluation",
+        "@language":    "en",
         "dct:title":    "Evaluation of example.org",
         "dct:summary":  "This website is very accessible.",
         "dct:creator":  "John Doe",
