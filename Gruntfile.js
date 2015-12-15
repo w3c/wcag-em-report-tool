@@ -190,7 +190,8 @@ module.exports = function (grunt) {
         exclude: [
           'bootstrap-sass-official',
           'angular-scenario',
-          'angular-mocks'
+          'angular-mocks',
+          'axe-core'
         ]
       },
       sass: {
