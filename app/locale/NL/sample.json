@@ -13,7 +13,7 @@
     "LABEL_PAGE": "Locatie (URL) of instructie",
     "NO_PAGES_DEFINED": "Er is geen pagina in deze lijst",
     "ITEM": "Webpagina",
-    "PLH_HANDLE": "Identificerende naam voor de webpagina",
+    "PLH_TITLE": "Identificerende naam voor de webpagina",
     "PLH_PAGE_URL": "Locatie (URL) of instructie van het te volgen pad",
     "BTN_ADD_PAGE": "Pagina toevoegen",
     "BTN_REMOVE_PAGE": "Pagina verwijderen",

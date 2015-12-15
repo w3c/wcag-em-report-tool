@@ -22,24 +22,24 @@ ng-init="col0 = 'visible-xs col-xs-12';
       {{ 'SAMPLE.ITEM' | translate }} {{$index+1}}
     </legend>
 
-    <label ng-class="colHide" for="struct_{{$index}}">
-      {{ 'LABEL_PAGE' | translate }}:
+    <label ng-class="colHide" for="rand_page_desc_{{$index}}_{{$id}}">
+      {{'SAMPLE.LABEL_HANDLE' | translate}}:
     </label>
     <div ng-class="col1">
       <input type="text" class="form-control"
-      id="rand_page_desc_{{$index}}"
-      ng-model="page.description"
-      ng-blur="prependProtocol(page)"
-      shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
+       id="rand_page_desc_{{$index}}_{{$id}}"
+       ng-model="page.description"
+       ng-blur="prependProtocol(page)"
+       shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
     </div>
-    <label ng-class="colHide" for="rand_page_desc_{{$index}}">
-      {{'SAMPLE.LABEL_HANDLE' | translate}}:
+    <label ng-class="colHide" for="struct_{{$index}}_{{$id}}">
+      {{ 'SAMPLE.LABEL_PAGE' | translate }}:
     </label>
     <div ng-class="col2">
       <input type="text" class="form-control"
-             id="struct_{{$index}}"
-             ng-model="page.title"
-             shy-placeholder="'SAMPLE.PLH_TITLE' | translate">
+       id="struct_{{$index}}_{{$id}}"
+       ng-model="page.title"
+       shy-placeholder="'SAMPLE.PLH_TITLE' | translate">
     </div>
 
     <div ng-class="col3">

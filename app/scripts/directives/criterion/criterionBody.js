@@ -37,8 +37,6 @@ angular.module('wcagReporter')
 
             $scope.$on('audit:sample-change', function () {
                 $scope.multiPageAsserts = $scope.criterion.getMultiPageAsserts();
-
-                console.log('sort');
                 $scope.singlePageAsserts = singlePageAssert($scope);
             });
         }],

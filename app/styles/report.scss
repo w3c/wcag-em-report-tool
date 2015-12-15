@@ -5,6 +5,7 @@
     table {
         border-collapse:collapse;
         min-width:65%;
+        caption { color: $text-color; }
         
         thead th { text-align:center }
         tbody th { text-align:left } 
