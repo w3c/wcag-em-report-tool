@@ -11,10 +11,10 @@
   <p>{{fileFeedback.failure}}</p>
 </div>
 
-<label for="load_json" class="btn btn-primary"
+<p><label for="load_json" class="btn btn-primary"
   ng-class="{'focus': fileHasFocus }" id="file_label">
   {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
-</label>
+</label></p>
 
 <input type="file" class="sr-only" id="load_json"
   ng-focus="fileHasFocus = true" ng-blur="fileHasFocus = false"
