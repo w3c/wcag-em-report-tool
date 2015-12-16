@@ -73,7 +73,7 @@ Property            | Type               | Description
 --------------------|--------------------|----------------------------------
 dct:title           | text               | Title of the evaluation report
 dct:summary         | text               | Executive summary
-dct:creator         | text               | Author and creator of the evaluation
+dct:creator         | earl:Assertor      | Author and creator of the evaluation
 dct:date            | text               | Completion date of the evaluation
 commissioner        | text               | Person/organisation who commissioned the evaluation
 WCAG2:reliedupondef | WCAG2:technologydef| Web technologies the website relies upon for providing it's content
@@ -222,6 +222,15 @@ dct:title     | text    | Title by which the technology is known
         "dct:title": "HTML 5"
     }
 ```
+
+## earl:Assertor
+Assertor - an entity such as a person, a software tool, an organization,
+or any other grouping that carries out a test collectively.
+For more details see: http://www.w3.org/TR/EARL10-Schema/#Assertor
+
+The WCAG-EM Report Tool fills in the `foaf:name` property of whichever
+type was used. When creating an evaluation, the 'foaf:Person' class is used.
+
 
 ## earl:Assertion
 Assertions are decribed according to EARL and will also include a TestResult.
