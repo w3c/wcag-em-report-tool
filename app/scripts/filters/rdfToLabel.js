@@ -12,9 +12,9 @@ angular.module('wcagReporter')
 		'A': 'LEVEL_A',
 		'AA': 'LEVEL_AA',
 		'AAA': 'LEVEL_AAA',
-		'wcag20:level_a': 'LEVEL_A',
-		'wcag20:level_aa': 'LEVEL_AA',
-		'wcag20:level_aaa': 'LEVEL_AAA'
+		'wai:WCAG2A-Conformance': 'LEVEL_A',
+		'wai:WCAG2AA-Conformance': 'LEVEL_AA',
+		'wai:WCAG2AAA-Conformance': 'LEVEL_AAA'
 	};
 
 	rdfToLabel = function(earl) {

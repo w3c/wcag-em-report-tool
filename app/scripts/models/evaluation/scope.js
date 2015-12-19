@@ -9,7 +9,7 @@ angular.module('wcagReporter')
         website: {
             type: ['TestSubject', 'WebSite'],
             'id': '_:website',
-            title: '',
+            siteName: '',
             siteScope: '' },
         accessibilitySupportBaseline: ''
     };
@@ -22,7 +22,7 @@ angular.module('wcagReporter')
             website: {
                 type:      scopeModel.website.type,
                 id:        scopeModel.website.id,
-                title:     scopeModel.website.title,
+                siteName:  scopeModel.website.siteName,
                 siteScope: scopeModel.website.siteScope
             },
             accessibilitySupportBaseline: scopeModel.accessibilitySupportBaseline

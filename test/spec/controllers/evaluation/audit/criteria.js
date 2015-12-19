@@ -26,15 +26,15 @@ describe('Controller: AuditCriteriaCtrl', function () {
         criteria = wcag20spec.getCriteria();
 
         criteriaLvlA    = criteria.filter(function (crit) {
-            return crit.level === 'wcag20:level_a';
+            return crit.level === 'wai:WCAG2A-Conformance';
         });
 
         criteriaLvlAA   = criteria.filter(function (crit) {
-            return crit.level === 'wcag20:level_aa';
+            return crit.level === 'wai:WCAG2AA-Conformance';
         });
 
         criteriaLvlAAA = criteria.filter(function (crit) {
-            return crit.level === 'wcag20:level_aaa';
+            return crit.level === 'wai:WCAG2AAA-Conformance';
         });
     }));
 
@@ -43,9 +43,9 @@ describe('Controller: AuditCriteriaCtrl', function () {
         expect(criteriaLvlAA.length).not.toBe(0);
         expect(criteriaLvlAAA.length).not.toBe(0);
 
-        scope.critFilter.level['wcag20:level_a'] = true;
-        scope.critFilter.level['wcag20:level_aa'] = true;
-        scope.critFilter.level['wcag20:level_aaa'] = true;
+        scope.critFilter.level['wai:WCAG2A-Conformance'] = true;
+        scope.critFilter.level['wai:WCAG2AA-Conformance'] = true;
+        scope.critFilter.level['wai:WCAG2AAA-Conformance'] = true;
         criteriaLvlA.forEach(function (critId) {
             expect(scope.isCriterionVisible(critId)).toBe(true);
         });
@@ -58,9 +58,9 @@ describe('Controller: AuditCriteriaCtrl', function () {
             expect(scope.isCriterionVisible(critId)).toBe(true);
         });
 
-        scope.critFilter.level['wcag20:level_a'] = false;
-        scope.critFilter.level['wcag20:level_aa'] = true;
-        scope.critFilter.level['wcag20:level_aaa'] = true;
+        scope.critFilter.level['wai:WCAG2A-Conformance'] = false;
+        scope.critFilter.level['wai:WCAG2AA-Conformance'] = true;
+        scope.critFilter.level['wai:WCAG2AAA-Conformance'] = true;
         criteriaLvlA.forEach(function (critId) {
             expect(scope.isCriterionVisible(critId)).toBe(false);
         });
@@ -73,9 +73,9 @@ describe('Controller: AuditCriteriaCtrl', function () {
             expect(scope.isCriterionVisible(critId)).toBe(true);
         });
 
-        scope.critFilter.level['wcag20:level_a'] = false;
-        scope.critFilter.level['wcag20:level_aa'] = false;
-        scope.critFilter.level['wcag20:level_aaa'] = true;
+        scope.critFilter.level['wai:WCAG2A-Conformance'] = false;
+        scope.critFilter.level['wai:WCAG2AA-Conformance'] = false;
+        scope.critFilter.level['wai:WCAG2AAA-Conformance'] = true;
         criteriaLvlA.forEach(function (critId) {
             expect(scope.isCriterionVisible(critId)).toBe(false);
         });
@@ -88,9 +88,9 @@ describe('Controller: AuditCriteriaCtrl', function () {
             expect(scope.isCriterionVisible(critId)).toBe(true);
         });
 
-        scope.critFilter.level['wcag20:level_a'] = false;
-        scope.critFilter.level['wcag20:level_aa'] = false;
-        scope.critFilter.level['wcag20:level_aaa'] = false;
+        scope.critFilter.level['wai:WCAG2A-Conformance'] = false;
+        scope.critFilter.level['wai:WCAG2AA-Conformance'] = false;
+        scope.critFilter.level['wai:WCAG2AAA-Conformance'] = false;
         criteriaLvlA.forEach(function (critId) {
             expect(scope.isCriterionVisible(critId)).toBe(false);
         });

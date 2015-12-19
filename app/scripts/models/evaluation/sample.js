@@ -120,10 +120,12 @@ angular.module('wcagReporter')
      * Clean up the data so it can be exported
      */
     sampleModel.exportData = function () {
-        var samples,
-            // Only export the following properties
-            props =['type', 'id', 'description',
-        'title', 'tested'];
+        var samples;
+        
+        // Only export the following properties
+        var props =['type', 'id', 'description',
+                    'source', 'title', 'tested'];
+
         // For both samples
         samples = [sampleModel.structuredSample.webpage, sampleModel.randomSample.webpage]
         .map(function (webpages) {

@@ -2,24 +2,30 @@
   <legend>{{ 'AUDIT.FILTER' | translate }}:</legend>
 
   <label for="show_level-a" class="btn"
-  ng-class="{'btn-primary': critFilter.level['wcag20:level_a'],
-             'btn-primary-invert': !critFilter.level['wcag20:level_a']}">
+  ng-class="{
+    'btn-primary': critFilter.level['wai:WCAG2A-Conformance'],
+    'btn-primary-invert': !critFilter.level['wai:WCAG2A-Conformance']
+  }">
     <input id="show_level-a" type="checkbox"
-    ng-model="critFilter.level['wcag20:level_a']">
+    ng-model="critFilter.level['wai:WCAG2A-Conformance']">
     {{ 'EARL.LEVEL_A' | translate}}
   </label>
   <label for="show_level-aa" class="btn"
-  ng-class="{'btn-primary': critFilter.level['wcag20:level_aa'],
-             'btn-primary-invert': !critFilter.level['wcag20:level_aa']}">
+  ng-class="{
+    'btn-primary': critFilter.level['wai:WCAG2AA-Conformance'],
+    'btn-primary-invert': !critFilter.level['wai:WCAG2AA-Conformance']
+  }">
     <input id="show_level-aa" type="checkbox"
     ng-model="critFilter.level['wcag20:level_aa']">
     {{ 'EARL.LEVEL_AA' | translate}}
   </label>
   <label for="show_level-aaa" class="btn"
-  ng-class="{'btn-primary': critFilter.level['wcag20:level_aaa'],
-             'btn-primary-invert': !critFilter.level['wcag20:level_aaa']}">
+  ng-class="{
+    'btn-primary': critFilter.level['wai:WCAG2AAA-Conformance'],
+    'btn-primary-invert': !critFilter.level['wai:WCAG2AAA-Conformance']
+  }">
     <input id="show_level-aaa" type="checkbox"
-    ng-model="critFilter.level['wcag20:level_aaa']">
+    ng-model="critFilter.level['wai:WCAG2AAA-Conformance']">
     {{ 'EARL.LEVEL_AAA' | translate}}
   </label>
 </fieldset>

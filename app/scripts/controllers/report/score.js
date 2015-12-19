@@ -41,7 +41,8 @@ angular.module('wcagReporter')
                 var critResult = evalAuditModel.getCritAssert(crit.id);
                 if (critResult) {
                     var outcome = critResult.result.outcome;
-                    var level = crit.level.replace('wcag20:level_', '');
+                    var level = crit.level.replace('wai:WCAG2', '')
+                                    .replace('-Conformance', '');
 
                     result[outcome] += 1;
                     $scope.totals[outcome] += 1;

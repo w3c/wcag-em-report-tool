@@ -12,8 +12,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
 
         exportData: function () {
             // Deep copy:
-            var criteria = angular.copy(this.getCriteriaSorted());
-
+            var criteria = angular.copy(auditModel.getCriteriaSorted());
             criteria.reduce(function (list, criterion) {
                 // Remove all empty test case asserts
                 criterion.hasPart = criterion.hasPart
@@ -39,6 +38,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
                     return page.id;
                 });
             });
+
             return criteria;
         },
 
@@ -62,15 +62,15 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCriteriaSorted: function () {
-            return wcag20spec.getCriteria()
-            .map(function (criterion) {
+            var critSpec = wcag20spec.getCriteria();
+            return critSpec.map(function (criterion) {
                     return criteria[criterion.id];
             }).filter(angular.isDefined);
         },
 
         addCritAssert: function (result) {
-            var prop,
-                newCrit = Object.create(CriterionAssert.prototype);
+            var prop;
+            var newCrit = Object.create(CriterionAssert.prototype);
             CriterionAssert.apply(newCrit);
 
             for (prop in result) {
