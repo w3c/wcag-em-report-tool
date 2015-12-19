@@ -87,7 +87,7 @@ describe('model: evalModel import', function () {
     			["type", "id", "description", "handle", "tested"]
     			.forEach(function (prop) {
     				expect(modelPage[prop])
-    				.toBe(importPage[prop]);
+    				.toEqual(importPage[prop]);
     			});
     		});
        	});

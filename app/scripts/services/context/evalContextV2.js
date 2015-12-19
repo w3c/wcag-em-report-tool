@@ -17,7 +17,7 @@ angular.module('wcagReporter')
     // Classes
     'Evaluation': 'wcagem:Evaluation',
     'EvaluationScope': 'wcagem:EvaluationScope',
-    'WebSite': ['TestSubject', 'sch:WebSite'],
+    'WebSite': 'sch:WebSite',
     'Sample': 'wcagem:Sample',
     'WebPage': 'sch:WebPage',
     'Technology': 'wcag2:technologydef',
@@ -30,34 +30,19 @@ angular.module('wcagReporter')
     'summary': 'dct:summary',
     'creator': {
         '@id':'dct:creator',
-        '@type': ['@id', 'earl:Assertor']
+        '@type': '@id'
     },
     'date': 'dct:date',
     'commissioner': 'wcagem:commissioner',
-    'reliedUponTechnology': {
-        '@id':'wcag2:reliedupondef',
-        '@type': 'wcag2:technologydef'
-    },
-    'evaluationScope': {
-        '@id':   'step1',
-        '@type': 'EvaluationScope'
-    },
+    'reliedUponTechnology': 'wcag2:reliedupondef',
+    'evaluationScope': 'step1',
     'commonPages': 'step2a',
     'essentialFunctionality': 'step2b',
     'pageTypeVariety': 'step2c',
     'otherRelevantPages': 'step2e',
-    'structuredSample': {
-        '@id': 'step3a',
-        '@type': 'Sample'
-    },
-    'randomSample': {
-        '@id': 'step3b',
-        '@type': 'Sample'
-    },
-    'auditResult': {
-        '@id': 'step4',
-        '@type': 'earl:Assertion'
-    },
+    'structuredSample': 'step3a',
+    'randomSample': 'step3b',
+    'auditResult': 'step4',
     'specifics': 'step5b',
 
     // EvaluationScope class properties
@@ -66,21 +51,15 @@ angular.module('wcagReporter')
         '@type': '@id'
     },
     'accessibilitySupportBaseline': 'step1c',
-    'additionalEvalRequirement': '@id': 'step1d',
-    'website': {
-        '@id': 'wcag2:set-of-web-pagesdef',
-        '@type': 'WebSite'
-    },
+    'additionalEvalRequirement': 'step1d',
+    'website': 'wcag2:set-of-web-pagesdef',
 
     // sch:WebSite class properties
     'siteScope': 'step1a',
     'siteName': 'sch:name',
 
     // Sample class properties
-    'webpage': {
-        '@id': 'wcag2:webpagedef',
-        '@type': ['TestSubject', 'sch:WebPage']
-    },
+    'webpage': 'wcag2:webpagedef',
         
     // sch:WebPage class properties
     'description': 'dct:description',
@@ -98,24 +77,21 @@ angular.module('wcagReporter')
     'test': {
         '@id': 'earl:test',
         '@type': '@id'
-    }
+    },
     'assertedBy': {
         '@id': 'earl:assertedBy',
-        '@type': ['@id', 'Assertor']
+        '@type': '@id'
     },
     'subject': {
         '@id': 'earl:subject',
         '@type': '@id'
     },
-    'result': {
-        '@id': 'earl:result',
-        '@type': 'TestResult'
-    },
+    'result': 'earl:result',
     'mode': {
         '@id': 'earl:mode',
         '@type': '@id'
     },
-    'hasPart', 'dct:hasPart',
+    'hasPart': 'dct:hasPart',
 
     // earl:TestResult class properties
     // 'description': 'dct:description',  -- As in the sch:WebPage class

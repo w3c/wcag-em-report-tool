@@ -3,11 +3,11 @@
 angular.module('wcagReporter')
 .service('evalScopeModel', function() {
     var scopeModel = {
-        type: 'Scope',
-    	conformanceTarget: 'wcag20:level_aa',
+        type: 'EvaluationScope',
+    	conformanceTarget: 'wai:WCAG2AA-Conformance',
         additionalEvalRequirement: '',
         website: {
-            type: 'WebSite',
+            type: ['TestSubject', 'WebSite'],
             'id': '_:website',
             title: '',
             siteScope: '' },
@@ -30,7 +30,9 @@ angular.module('wcagReporter')
     };
 
     scopeModel.conformanceOptions = [
-        'wcag20:level_a', 'wcag20:level_aa', 'wcag20:level_aaa'
+        'wai:WCAG2A-Conformance',
+        'wai:WCAG2AA-Conformance',
+        'wai:WCAG2AAA-Conformance'
     ];
 
     /**

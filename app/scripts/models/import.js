@@ -102,8 +102,10 @@ function($rootScope, evalModel, currentUser, reportStorage, importV2) {
 				// Fix an older import format
 				evalData['@graph'][0] = importV2(evalData['@graph'][0]);
 			}
-
 			jsonld.expand(evalData, function(err, expanded) {
+				if (err) {
+					console.error(err);
+				}
 				importModel.fromExpanded(expanded);
 			});
 		},
