@@ -154,7 +154,7 @@ sch:name            | text    | The name of the item
 ### Example
 ```javascript
     {
-        "@type": "sch:WebSite",
+        "@type": ['earl:TestSubject', "sch:WebSite"],
         "step1a": "All pages located at www.example.com",
         "sch:name": "Example.com corporate"
     }
@@ -197,7 +197,7 @@ dct:source          | URL     | Source (url) of the web page
 ### Example
 ```javascript
 {
-    "@type": "sch:WebPage",
+    "@type": ['earl:TestSubject', "sch:WebPage"],
     "dct:title": "Example Home",
     "dct:description": "http://example.com/ (mobile version)",
     "dct:source": "http://example.com/"
