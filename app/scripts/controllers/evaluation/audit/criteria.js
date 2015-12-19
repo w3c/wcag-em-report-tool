@@ -21,27 +21,16 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 
     } else {
     	$scope.critFilter = {
-	    	level: {},
-	    	outcome: {}
+            'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
+            'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
+            'wai:WCAG2AAA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AAA-Conformance'),
 		};
-	    // Create filters based known RDF values
-	    Object.keys($filter('rdfToLabel').keymap)
-	    .forEach(function (key) {
-	    	// WCAG 2 stuff is all about levels
-	    	if (key.substr(0, 7) === 'wcag20:') {
-	    		$scope.critFilter.level[key] = evalScopeModel.matchConformTarget(key);
-
-			// EARL stuff is about outcomes
-	    	} else if (key.substr(0, 5) === 'earl:') {
-	    		$scope.critFilter.outcome[key] = true;
-	    	}
-	    });
     	$rootScope.rootHide.criteria = $scope.critFilter;
     }
 
     $scope.isCriterionVisible = function (critSpec) {
 		// Check if the level of this criterion should be shown
-    	if ($scope.critFilter.level[critSpec.level] !== true) {
+    	if ($scope.critFilter[critSpec.level] !== true) {
     		return false;
     	}
 
@@ -53,7 +42,7 @@ wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
         }
 
 		// Check if the outcome is set to hidden
-    	return ($scope.critFilter.outcome[critAssert.result.outcome] === true);
+    	return true;
     };
 
     $scope.isGuidelineVisible = function (guideline) {
