@@ -97,4 +97,10 @@ describe('model: evalModel export', function () {
         .toBe(importEval.auditResult.length);
     });
 
+    // Identify version of the tool used to generate the format #229
+    it('Defines the Tool version as (dct:)publisher', function () {
+        expect(exportEval.publisher)
+        .toBe('reporter:releases/tag/' + '<%= pkg.version =%>');
+    });
+
 });

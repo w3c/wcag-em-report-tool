@@ -6,7 +6,7 @@ angular.module('wcagReporter')
     '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
 
     // Namespaces
-    'reporter': 'https://github.com/w3c/wcag-em-report-tool/blob/master/dataformat.md#',
+    'reporter': 'https://github.com/w3c/wcag-em-report-tool/',
     'wcagem': 'http://www.w3.org/TR/WCAG-EM/#',
     'wcag20': 'http://www.w3.org/TR/WCAG20/#',
     'earl': 'http://www.w3.org/ns/earl#',
@@ -68,7 +68,7 @@ angular.module('wcagReporter')
         '@id': 'dct:source',
         '@type': '@id'
     },
-    'tested': 'reporter:tested',
+    'tested': 'reporter:blob/master/docs/EARL%2BJSON-LD.md#tested',
 
     // wcag2:technologydef class properties
     // 'title': 'dct:title',  -- As in the Evaluation class

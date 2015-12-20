@@ -15,6 +15,7 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  var pkg = require('./package.json');
   var fs = require('fs');
 
   var langPath    = 'app/locale/';
@@ -385,6 +386,26 @@ module.exports = function (grunt) {
       }
     },
 
+    replace: {
+      'pkgData': {
+        options: {
+          patterns: [{
+            match: /<%= pkg\.name =%>/g,
+            replacement: pkg.name
+          }, {
+            match: /<%= pkg\.version =%>/g,
+            replacement: pkg.version
+          }]
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>/scripts',
+          src: '*.js',
+          dest: '<%= yeoman.dist %>/scripts'
+        }]
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
@@ -448,6 +469,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
+    'replace:pkgData',
     'clean:distView',
     'htmlmin:dist'
   ]);

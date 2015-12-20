@@ -3,13 +3,14 @@
  *
  */
 angular.module('wcagReporter')
-.factory('wcagReporterExport', function(evalModel, reportStorage) {
+.factory('wcagReporterExport', function(evalModel, reportStorage, pkgData) {
 
 	function getJsonLd () {
 		var jsonLd = {
 			'@context': evalModel.context,
 			type: evalModel.type,
-			'id': evalModel.id
+			'id': evalModel.id,
+			'publisher': 'reporter:releases/tag/' + pkgData.version
 		};
 
 		jsonLd.evaluationScope =  evalModel.scopeModel.exportData();
