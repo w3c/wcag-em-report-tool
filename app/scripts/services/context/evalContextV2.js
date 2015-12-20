@@ -8,7 +8,7 @@ angular.module('wcagReporter')
     // Namespaces
     'reporter': 'https://github.com/w3c/wcag-em-report-tool/blob/master/dataformat.md#',
     'wcagem': 'http://www.w3.org/TR/WCAG-EM/#',
-    'wcag2': 'http://www.w3.org/TR/WCAG20/#',
+    'wcag20': 'http://www.w3.org/TR/WCAG20/#',
     'earl': 'http://www.w3.org/ns/earl#',
     'dct': 'http://purl.org/dc/terms/',
     'wai': 'http://www.w3.org/WAI/',

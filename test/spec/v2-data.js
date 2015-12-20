@@ -77,7 +77,8 @@ describe('Changes for 1.1+ data format', function () {
             expect(tech.type).toBe('Technology');
         });
 
-        expect(evalModel.scopeModel.website.type).toBe('WebSite');
+        expect(evalModel.scopeModel.website.type)
+        .toEqual(['TestSubject', 'WebSite']);
 
         expect(evalModel.sampleModel.structuredSample.type).toBe('Sample');
         expect(evalModel.sampleModel.randomSample.type).toBe('Sample');
@@ -85,7 +86,8 @@ describe('Changes for 1.1+ data format', function () {
         var pages = evalModel.sampleModel.getPages();
         expect(pages.length).not.toBe(0);
         pages.forEach(function (page) {
-            expect(page.type).toBe('WebPage');
+            expect(page.type)
+            .toEqual(['TestSubject', 'WebPage']);
         });
 
         var critIds = Object.keys(evalModel.auditModel.criteria);
@@ -96,10 +98,6 @@ describe('Changes for 1.1+ data format', function () {
         });
 
     });
-
-    // Make the @context external #219
-    xit('uses an external context, which is known locally');
-
 
     xit('Uses the correct FOAF namespace', function () {});
 

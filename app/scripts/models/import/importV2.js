@@ -64,7 +64,9 @@ angular.module('wcagReporter')
         });
 
         function fixPage(page) {
-            page.type  = page.type.replace('webpage', 'WebPage');
+            if (page.type === 'webpage') {
+                page.type = ['TestSubject', 'WebPage'];
+            }
             page.title = page.handle;
             delete page.handle;
         }
@@ -84,7 +86,7 @@ angular.module('wcagReporter')
 
         var evalScope = data.evaluationScope;
         evalScope.type = evalScope.type || 'Scope';
-        evalScope.website.type = evalScope.website.type || 'WebSite';
+        evalScope.website.type = evalScope.website.type || ['TestSubject', 'WebSite'];
         
         data.reliedUponTechnology.forEach(function (tech) {
             tech.type = tech.type || 'Technology';
