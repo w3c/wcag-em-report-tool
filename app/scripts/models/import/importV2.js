@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.factory('importV2', function (evalContextV1, evalContextV2) {
+.factory('importV2', function (evalContextV1, evalContextV2, $filter) {
+    var getUrl = $filter('getUrl');
 
     function isV1(data) {
         if (typeof data !== 'object') {
@@ -57,6 +58,7 @@ angular.module('wcagReporter')
     }
 
     function convertToV2(data) {
+        // Capitalize Evaluation
         data.type = data.type.replace('evaluation', 'Evaluation');
         data.auditResult.forEach(function (assertion) {
             assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
@@ -69,6 +71,7 @@ angular.module('wcagReporter')
             }
             page.title = page.handle;
             delete page.handle;
+            page.source = getUrl(page.description);
         }
 
         if (!angular.isArray(data.structuredSample.webpage)) {
@@ -83,9 +86,8 @@ angular.module('wcagReporter')
         data.randomSample.type = data.randomSample.type || 'Sample';
         data.randomSample.webpage.forEach(fixPage);
 
-
         var evalScope = data.evaluationScope;
-        evalScope.type = evalScope.type || 'Scope';
+        evalScope.type = evalScope.type || 'EvaluationScope';
         evalScope.website.type = evalScope.website.type || ['TestSubject', 'WebSite'];
         
         data.reliedUponTechnology.forEach(function (tech) {

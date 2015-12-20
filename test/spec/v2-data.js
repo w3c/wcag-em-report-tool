@@ -16,26 +16,22 @@ describe('Changes for 1.1+ data format', function () {
     var evalModel;
     var importEval;
     var importV2;
+    var getUrl;
 
     beforeEach(inject(function (wcagReporterImport, _importV2_,
-    wcagReporterExport, basicEvalOutput1, _evalModel_) {
+    wcagReporterExport, basicEvalOutput1, _evalModel_, $filter) {
         reportImport = wcagReporterImport;
         dummyData    = basicEvalOutput1;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
         importV2     = _importV2_;
         expect(importV2.isV1(importEval)).toBe(true);
+        getUrl = $filter('getUrl');
     }));
 
     beforeEach(function (done) {
         reportImport.fromObject(dummyData, done);
         setTimeout(done, 100);
-    });
-
-
-    // Identify version of the data format #229
-    xit('Defines the Tool version as (dct:)publisher', function () {
-        'reporttool:releases/tag/1.0.3';
     });
 
 
@@ -60,6 +56,8 @@ describe('Changes for 1.1+ data format', function () {
         pages.forEach(function (page) {
             expect(page.description).toBeDefined();
             expect(page.title).toBeDefined();
+            expect(page.source).toBe(getUrl(page.description));
+
             expect(page.handle).not.toBeDefined();
         });
 
@@ -67,10 +65,8 @@ describe('Changes for 1.1+ data format', function () {
 
     // Add @type to all properties of the output #221
     it('has a @type on each object', function () {
-
         expect(evalModel.type).toBe('Evaluation');
-
-        expect(evalModel.scopeModel.type).toBe('Scope');
+        expect(evalModel.scopeModel.type).toBe('EvaluationScope');
 
         expect(evalModel.exploreModel.knownTech.length).not.toBe(0);
         evalModel.exploreModel.reliedUponTechnology.forEach(function (tech) {
@@ -96,8 +92,9 @@ describe('Changes for 1.1+ data format', function () {
             var assertion = evalModel.auditModel.criteria[critId];
             expect(assertion.result.type).toBe('TestResult');
         });
-
     });
+
+    
 
     xit('Uses the correct FOAF namespace', function () {});
 

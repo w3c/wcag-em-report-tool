@@ -7,11 +7,10 @@ angular.module('wcagReporter')
 	}
 
 	Page.getUrl = function (page) {
-        var linkReg = /((https?):\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\-\w\d@:%_\+.~#?,&\/\/=]+)/g,
-            match = page.description.match(linkReg);
-        if (match) {
-            return match[0];
+        if (!page.source) {
+            page.source = translateFilter('getUrl')(page.description);
         }
+        return page.source;
     };
 
     Page.prependProtocol = function (page) {
