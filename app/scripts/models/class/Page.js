@@ -4,6 +4,7 @@ angular.module('wcagReporter')
 .service('Page', function (translateFilter) {
 
 	function Page() {
+        this.type = ['TestSubject', 'WebPage'];
 	}
 
 	Page.getUrl = function (page) {
@@ -28,7 +29,7 @@ angular.module('wcagReporter')
     };
 
     Page.prototype = {
-        'type': 'webpage',
+        'type': ['TestSubject', 'WebPage'],
         'id': '',
         description: undefined,
         title: '',

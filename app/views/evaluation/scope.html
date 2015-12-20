@@ -9,19 +9,19 @@
 
 <form>
   <div class="form-group">
-    <label for="site-title">
+    <label for="site-name">
       {{ 'SCOPE.LABEL_SITE_NAME' | translate }}&nbsp;<info-button
       label="{{'COMMON.BTN_INFO' | translate}}" target="inf_site_name"
       title="{{ 'SCOPE.LABEL_SITE_NAME' | translate }}"></info-button>
     </label>
 
     <info-field button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
-    exitto="site-title" ref="inf_site_name">
+    exitto="site-name" ref="inf_site_name">
       <p ng-bind-html="'SCOPE.INF_SITE_NAME' | translate"></p>
     </info-field>
 
-    <input ng-model="scopeModel.website.title" type="text"
-    class="form-control" id="site-title">
+    <input ng-model="scopeModel.website.siteName" type="text"
+    class="form-control" id="site-name">
   </div>
 
   <div class="form-group">

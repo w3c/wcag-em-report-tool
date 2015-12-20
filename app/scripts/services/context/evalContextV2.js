@@ -17,10 +17,11 @@ angular.module('wcagReporter')
     // Classes
     'Evaluation': 'wcagem:Evaluation',
     'EvaluationScope': 'wcagem:EvaluationScope',
+    'TestSubject': 'earl:TestSubject',
     'WebSite': 'sch:WebSite',
     'Sample': 'wcagem:Sample',
     'WebPage': 'sch:WebPage',
-    'Technology': 'wcag2:technologydef',
+    'Technology': 'wcag20:technologydef',
     'Assertion': 'earl:Assertion',
     'Assertor': 'earl:Assertor',
     'TestResult': 'earl:TestResult',
@@ -34,7 +35,7 @@ angular.module('wcagReporter')
     },
     'date': 'dct:date',
     'commissioner': 'wcagem:commissioner',
-    'reliedUponTechnology': 'wcag2:reliedupondef',
+    'reliedUponTechnology': 'wcag20:reliedupondef',
     'evaluationScope': 'step1',
     'commonPages': 'step2a',
     'essentialFunctionality': 'step2b',
@@ -44,6 +45,10 @@ angular.module('wcagReporter')
     'randomSample': 'step3b',
     'auditResult': 'step4',
     'specifics': 'step5b',
+    'publisher': {
+        '@id': 'dct:publisher',
+        '@type': '@id'
+    },
 
     // EvaluationScope class properties
     'conformanceTarget': {
@@ -52,14 +57,14 @@ angular.module('wcagReporter')
     },
     'accessibilitySupportBaseline': 'step1c',
     'additionalEvalRequirement': 'step1d',
-    'website': 'wcag2:set-of-web-pagesdef',
+    'website': 'wcag20:set-of-web-pagesdef',
 
     // sch:WebSite class properties
     'siteScope': 'step1a',
     'siteName': 'sch:name',
 
     // Sample class properties
-    'webpage': 'wcag2:webpagedef',
+    'webpage': 'wcag20:webpagedef',
         
     // sch:WebPage class properties
     'description': 'dct:description',
@@ -70,7 +75,7 @@ angular.module('wcagReporter')
     },
     'tested': 'reporter:blob/master/docs/EARL%2BJSON-LD.md#tested',
 
-    // wcag2:technologydef class properties
+    // wcag20:technologydef class properties
     // 'title': 'dct:title',  -- As in the Evaluation class
     
     // earl:Assertion class properties

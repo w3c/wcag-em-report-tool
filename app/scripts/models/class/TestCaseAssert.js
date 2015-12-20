@@ -35,7 +35,7 @@ angular.module('wcagReporter')
         testCase: undefined,
         result: undefined,
         multiPage: false,
-        mode: 'manual',
+        mode: 'earl:manual',
         isDefined: function () {
             return TestCaseAssert.isDefined(this);
         },

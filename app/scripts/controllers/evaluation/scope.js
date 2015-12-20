@@ -17,11 +17,11 @@ function ($scope, appState, evalScopeModel,
     // Give the report a default title
     // (won't if one is already set)
     $scope.$on('$routeChangeStart', function() {
-        if (evalScopeModel.website.title) {
+        if (evalScopeModel.website.siteName) {
             var translate     = $filter('translate');
-            var title = translate('REPORT.TITLE_PREFIX') + ' ' +
-                        evalScopeModel.website.title;
-            evalReportModel.setDefaultTitle(title);
+            var siteName = translate('REPORT.TITLE_PREFIX') + ' ' +
+                        evalScopeModel.website.siteName;
+            evalReportModel.setDefaultTitle(siteName);
         }
     });
 
