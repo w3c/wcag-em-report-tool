@@ -25,16 +25,16 @@
   <ul class="col-sm-9 known-tech">
     <li ng-repeat="tech in knownTech">
       <input type="checkbox"
-      id="{{ tech.title | makeId }}"
+      id="{{ 'tech_' + $index }}"
       ng-model="tech.checked" ng-change="changeTech(tech)">
-      <label for="{{ tech.title | makeId }}">
+      <label for="{{ 'tech_' + $index }}">
         {{tech.title}}
       </label>
     </li>
     <li>
-      <input type="checkbox" id="other"
+      <input type="checkbox" id="tech_other"
       ng-model="rootHide.OtherTech">
-      <label for="other">
+      <label for="tech_other">
         {{ 'EXPLORE.LABEL_OTHER' | translate }}
       </label>
     </li>
