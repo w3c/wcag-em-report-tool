@@ -15,17 +15,17 @@ describe('Changes for 1.1+ data format', function () {
     var dummyData;
     var evalModel;
     var importEval;
-    var importV2;
+    var importV1;
     var getUrl;
 
-    beforeEach(inject(function (wcagReporterImport, _importV2_,
+    beforeEach(inject(function (wcagReporterImport, _importV1_,
     wcagReporterExport, basicEvalOutput1, _evalModel_, $filter) {
         reportImport = wcagReporterImport;
         dummyData    = basicEvalOutput1;
         evalModel    = _evalModel_;
         importEval   = getEval(dummyData);
-        importV2     = _importV2_;
-        expect(importV2.isV1(importEval)).toBe(true);
+        importV1     = _importV1_;
+        expect(importV1.isV1Evaluation(importEval)).toBe(true);
         getUrl = $filter('getUrl');
     }));
 
@@ -96,7 +96,13 @@ describe('Changes for 1.1+ data format', function () {
 
     
 
-    xit('Uses the correct FOAF namespace', function () {});
+    it('Uses the correct FOAF namespace', function () {
+        expect(evalModel.otherData.length).toBe(1);
+        var user = evalModel.otherData[0]
+        expect(user.type).toBe('Person');
+        expect(user['@context']['@vocab'])
+        .toBe('http://xmlns.com/foaf/0.1/');
+    });
 
 
 });

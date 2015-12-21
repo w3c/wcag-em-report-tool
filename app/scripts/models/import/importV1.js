@@ -1,10 +1,31 @@
 'use strict';
 
 angular.module('wcagReporter')
-.factory('importV2', function (evalContextV1, evalContextV2, $filter) {
+.factory('importV1', function (evalContextV1, evalContextV2, $filter) {
     var getUrl = $filter('getUrl');
 
-    function isV1(data) {
+
+
+    function convertor (importArray) {
+        return importArray.map(function (importObj) {
+            // upgrade from v1 to v2
+            if (isV1Evaluation(importObj)) {
+                importObj = upgradeToV2(importObj);
+
+            // Correct the foaf namespace
+            } else if (typeof importObj === 'object' &&
+                typeof importObj['@context'] === 'object' &&
+                importObj['@context']['@vocab'] === 'http://xmlns.com/foaf/spec/#') {
+                importObj['@context']['@vocab'] = 'http://xmlns.com/foaf/0.1/';
+            }
+            return importObj;
+        });
+    }
+
+    /**
+     * Check if an Evaluation object is of v1
+     */
+    function isV1Evaluation(data) {
         if (typeof data !== 'object') {
             throw new TypeError('Expected object for ' + data);
         }
@@ -57,7 +78,10 @@ angular.module('wcagReporter')
         }, true);
     }
 
-    function convertToV2(data) {
+    /**
+     * Evaluation object from v1 to v2
+     */
+    function upgradeToV2(data) {
         // Capitalize Evaluation
         data.type = data.type.replace('evaluation', 'Evaluation');
         data.auditResult.forEach(function (assertion) {
@@ -98,16 +122,10 @@ angular.module('wcagReporter')
 
         return data;
     }
-
-    function convertor (data) {
-        if (isV1(data)) {
-            data = convertToV2(data);
-        }
-        return data;
-    }
-
-    convertor.isV1 = isV1;
-    convertor.convertToV2 = convertToV2;
+    
+    // Expose methods for testing
+    convertor.isV1Evaluation = isV1Evaluation;
+    convertor.upgradeToV2 = upgradeToV2;
 
     return convertor;
 

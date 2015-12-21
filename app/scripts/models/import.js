@@ -5,161 +5,160 @@
  */
 angular.module('wcagReporter')
 .factory('wcagReporterImport',
-function($rootScope, evalModel, currentUser, reportStorage, importV2) {
-	var jsonld = window.jsonld;
+function($rootScope, evalModel, currentUser, reportStorage, importV1) {
+    var jsonld = window.jsonld;
 
-	function objectCollide(obj1, obj2) {
-		Object.keys(obj1).forEach(function (prop) {
-			if (typeof obj1[prop] !== 'function' &&
-				typeof obj2[prop] !== 'undefined') {
-				obj1[prop] = obj2[prop];
-			}
-		});
-	}
-
-
-	function compactEach(callback) {
-		var testCallback,
-			results = [],
-			calls = 0,
-			evalType = 'http://www.w3.org/TR/WCAG-EM/#Evaluation',
-			personType = 'http://xmlns.com/foaf/spec/#Person';
-
-		testCallback = function (err, compacted) {
-			results.push(compacted);
-			if (results.length === calls) {
-				callback(results);
-			}
-		};
-
-		return function (evalObj) {
-			calls += 1;
-
-			if (evalObj['@type'] &&
-					evalObj['@type'].indexOf(evalType) !== -1) {
-				// Compact with the evaluation context
-				jsonld.compact(evalObj,
-						evalModel.context, testCallback);
-
-			} else if (evalObj['@type'] &&
-					evalObj['@type'].indexOf(personType) !== -1) {
-				// Compact with the FOAF context
-				jsonld.compact(evalObj,
-						currentUser['@context'], testCallback);
-			} else {
-				results.push(evalObj);
-			}
-		};
-	}
+    function objectCollide(obj1, obj2) {
+        Object.keys(obj1).forEach(function (prop) {
+            if (typeof obj1[prop] !== 'function' &&
+                typeof obj2[prop] !== 'undefined') {
+                obj1[prop] = obj2[prop];
+            }
+        });
+    }
 
 
-	/**
-	 * Inject evaluation data into the reporter
-	 * @param {[Object]} evalData
-	 */
-	function updateEvalModel(evalData) {
-		if (evalData.evaluationScope) {
-			objectCollide(evalModel.scopeModel, evalData.evaluationScope);
-		}
+    function compactEach(callback) {
+        var testCallback;
+        var results = [];
+        var calls = 0;
+        var evalType = evalModel.context['@vocab'] + evalModel.type;
+        var personType = currentUser['@context']['@vocab'] + currentUser.type;
 
-		evalModel.id = evalData.id;
-		evalModel.type = evalData.type;
+        testCallback = function (err, compacted) {
+            results.push(compacted);
+            if (results.length === calls) {
+                callback(results);
+            }
+        };
 
-		evalModel.sampleModel.importData(evalData);
+        return function (evalObj) {
+            calls += 1;
 
-		evalModel.reportModel.importData(evalData);
+            if (evalObj['@type'] &&
+                    evalObj['@type'].indexOf(evalType) !== -1) {
+                // Compact with the evaluation context
+                jsonld.compact(evalObj,
+                        evalModel.context, testCallback);
 
-		evalModel.auditModel.importData(evalData);
-		evalModel.exploreModel.importData(evalData);
-		evalModel.otherData = evalData.otherData;
-	}
+            } else if (evalObj['@type'] &&
+                    evalObj['@type'].indexOf(personType) !== -1) {
+                // Compact with the FOAF context
+                jsonld.compact(evalObj,
+                        currentUser['@context'], testCallback);
+            } else {
+                results.push(evalObj);
+            }
+        };
+    }
 
-	var importModel = {
 
-		storage: reportStorage,
+    /**
+     * Inject evaluation data into the reporter
+     * @param {[Object]} evalData
+     */
+    function updateEvalModel(evalData) {
+        if (evalData.evaluationScope) {
+            objectCollide(evalModel.scopeModel, evalData.evaluationScope);
+        }
 
-		/**
-		 * Import an evaluation from a JSON string
-		 * @param  {string} json Evaluation
-		 */
-		fromJson: function (json) {
-			importModel.fromObject(angular.fromJson(json));
-		},
+        evalModel.id = evalData.id;
+        evalModel.type = evalData.type;
 
-		getFromUrl: function () {
-			return reportStorage.get()
-			.then(function (data) {
-				importModel.fromJson(data);
-				return data;
-			});
-		},
+        evalModel.sampleModel.importData(evalData);
 
-		fromObject: function (evalData) {
-			// Check if an old format needs to be converted:
-			if (angular.isArray(evalData['@graph']) &&
-			    typeof evalData['@graph'][0] === 'object' &&
-			    evalData['@graph'][0].type.toLowerCase() === 'evaluation') {
-				// Fix an older import format
-				evalData['@graph'][0] = importV2(evalData['@graph'][0]);
-			}
-			jsonld.expand(evalData, function(err, expanded) {
-				if (err) {
-					console.error(err);
-				}
-				importModel.fromExpanded(expanded);
-			});
-		},
+        evalModel.reportModel.importData(evalData);
 
-		fromExpanded: function (evalData) {
-			evalData.forEach(compactEach(function(results) {
-				var evaluation = results.reduce(function (result, data) {
-					if (data.type === 'Evaluation') {
-						if (typeof result !== 'undefined') {
-							throw new Error('Only one evaluation object allowed in JSON data');
-						}
-						return data;
-					}
-					return result;
-				}, undefined);
+        evalModel.auditModel.importData(evalData);
+        evalModel.exploreModel.importData(evalData);
+        evalModel.otherData = evalData.otherData;
+    }
 
-				if (!evaluation) {
-					throw new Error('No evaluation found in data');
-				}
+    var importModel = {
 
-				// If the creator has an id, give that id to the current user
-				if (typeof evaluation.creator === 'string' &&
-				evaluation.creator.indexOf('_:') === 0) {
-					currentUser.id = evaluation.creator;
-				}
-				evaluation.creator = currentUser;
+        storage: reportStorage,
 
-				var foundUser = false;
-				// Find the first Person that matches the ID of the current user
-				results.forEach(function (data) {
-					if (!foundUser && data.type === 'Person' &&
-					data.id === currentUser.id) {
+        /**
+         * Import an evaluation from a JSON string
+         * @param  {string} json Evaluation
+         */
+        fromJson: function (json) {
+            importModel.fromObject(angular.fromJson(json));
+        },
 
-						// overwrite the current user with the new data
-						angular.extend(currentUser, data);
-						foundUser = true;
-					}
-				});
+        getFromUrl: function () {
+            return reportStorage.get()
+            .then(function (data) {
+                importModel.fromJson(data);
+                return data;
+            });
+        },
 
-				// Take all data that isn't the evaluation or the current user
-				evaluation.otherData = results.reduce(function (otherData, data) {
-					if (data !== evaluation && data.id !== currentUser.id) {
-						otherData.push(data);
-					}
-					return otherData;
-				}, [currentUser]);
+        fromObject: function (evalData) {
+            // Check if an old format needs to be converted:
+            if (angular.isArray(evalData['@graph']) &&
+                typeof evalData['@graph'][0] === 'object' &&
+                evalData['@graph'][0].type.toLowerCase() === 'evaluation') {
+                // Fix an older import format
+                evalData['@graph'] = importV1(evalData['@graph']);
+            }
+            jsonld.expand(evalData, function(err, expanded) {
+                if (err) {
+                    console.error(err);
+                }
+                importModel.fromExpanded(expanded);
+            });
+        },
 
-				// Put the evaluation as the first on the list
-				$rootScope.$apply(function () {
-					updateEvalModel(evaluation);
-				});
-			}));
-		}
-	};
+        fromExpanded: function (evalData) {
+            evalData.forEach(compactEach(function(results) {
+                var evaluation = results.reduce(function (result, data) {
+                    if (data.type === 'Evaluation') {
+                        if (typeof result !== 'undefined') {
+                            throw new Error('Only one evaluation object allowed in JSON data');
+                        }
+                        return data;
+                    }
+                    return result;
+                }, undefined);
 
-	return importModel;
+                if (!evaluation) {
+                    throw new Error('No evaluation found in data');
+                }
+
+                // If the creator has an id, give that id to the current user
+                if (typeof evaluation.creator === 'string' &&
+                evaluation.creator.indexOf('_:') === 0) {
+                    currentUser.id = evaluation.creator;
+                }
+                evaluation.creator = currentUser;
+                var foundUser = false;
+                // Find the first Person that matches the ID of the current user
+                results.forEach(function (data) {
+                    if (!foundUser && data.type === 'Person' &&
+                    data.id === currentUser.id) {
+
+                        // overwrite the current user with the new data
+                        angular.extend(currentUser, data);
+                        foundUser = true;
+                    }
+                });
+
+                // Take all data that isn't the evaluation or the current user
+                evaluation.otherData = results.reduce(function (otherData, data) {
+                    if (data !== evaluation && data.id !== currentUser.id) {
+                        otherData.push(data);
+                    }
+                    return otherData;
+                }, [currentUser]);
+
+                // Put the evaluation as the first on the list
+                $rootScope.$apply(function () {
+                    updateEvalModel(evaluation);
+                });
+            }));
+        }
+    };
+
+    return importModel;
 });
