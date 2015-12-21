@@ -44,10 +44,9 @@ function ($scope, appState, $timeout, evalExploreModel) {
 
     $scope.changeTech = function (tech) {
         if (tech.checked) {
-            evalExploreModel.reliedUponTechnology.push({
-                title: tech.title,
-                id: tech.id
-            });
+
+            evalExploreModel.reliedUponTechnology
+            .push(angular.extend({}, tech));
         } else {
             evalExploreModel.reliedUponTechnology = evalExploreModel.reliedUponTechnology
             .filter(function (item) {

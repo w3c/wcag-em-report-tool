@@ -193,6 +193,7 @@ Properties          | Type    | Description
 dct:title           | text    | Title for the webpabe
 dct:description     | text    | Description of how to show the page
 dct:source          | URL     | Source (url) of the web page
+reporter:tested     | boolean | If the page is fully tested yet
 
 ### Example
 ```javascript
@@ -200,7 +201,8 @@ dct:source          | URL     | Source (url) of the web page
     "@type": ['earl:TestSubject', "sch:WebPage"],
     "dct:title": "Example Home",
     "dct:description": "http://example.com/ (mobile version)",
-    "dct:source": "http://example.com/"
+    "dct:source": "http://example.com/",
+    "reporter:tested": false,
 }
 ```
 
@@ -272,3 +274,7 @@ in a future version of the WCAG-EM Report Tool.
         ]
     }
 ```
+
+## Tested
+
+This boolean value is used by the Report Tool to track if a WebPage is tested.

@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('Page', function (translateFilter) {
+.service('Page', function ($filter) {
 
 	function Page() {
         this.type = ['TestSubject', 'WebPage'];
 	}
 
     Page.updateSource = function (page) {
-        page.source = translateFilter('getUrl')(page.description);
+        page.source = $filter('getUrl')(page.description);
         return page.source;
     }
 

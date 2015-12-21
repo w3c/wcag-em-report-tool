@@ -2,10 +2,6 @@
 
 angular.module('wcagReporter')
 .service('evalExploreModel', function(knownTech, evalSampleModel) {
-    knownTech.forEach(function (tech) {
-        tech.type = 'Technology';
-    });
-
     var exploreModel = {
         commonPages: [],
         otherRelevantPages: [],

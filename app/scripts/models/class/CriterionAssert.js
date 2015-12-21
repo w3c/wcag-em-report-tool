@@ -59,12 +59,12 @@ TestCaseAssert, wcag20spec, currentUser) {
     }
 
     CriterionAssert.prototype = {
-        type: 'earl:assertion',
+        type: 'Assertion',
         test: undefined,
         assertedBy: currentUser.id,
         subject: '_:website',
         result: undefined,
-        mode: 'manual',
+        mode: 'earl:manual',
         hasPart: undefined,
         getSinglePageAsserts: undefined,
         getMultiPageAsserts: undefined,
