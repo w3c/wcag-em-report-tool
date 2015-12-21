@@ -94,8 +94,6 @@ describe('Changes for 1.1+ data format', function () {
         });
     });
 
-    
-
     it('Uses the correct FOAF namespace', function () {
         expect(evalModel.otherData.length).toBe(1);
         var user = evalModel.otherData[0]

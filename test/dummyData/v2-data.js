@@ -399,7 +399,7 @@ angular.module('wertDummy')
       },
       {
         '@context': {
-          '@vocab': 'http://xmlns.com/foaf/spec/#',
+          '@vocab': 'http://xmlns.com/foaf/0.1/',
           'id': '@id',
           'type': '@type'
         },
