@@ -53,10 +53,6 @@ describe('model: evalModel import', function () {
     	});
     });
 
-    // Save the page URI separate from the page #223
-    xit('puts URLs of the description in dct:source');
-
-
     it('stores explore properties on evalModel.exploreModel', function () {
     	var exploreModel = evalModel.exploreModel;
     	[	'reliedUponTechnology',
