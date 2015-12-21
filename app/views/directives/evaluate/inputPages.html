@@ -29,7 +29,7 @@ ng-init="col0 = 'visible-xs col-xs-12';
       <input type="text" class="form-control"
        id="rand_page_desc_{{$index}}_{{$id}}"
        ng-model="page.description"
-       ng-blur="prependProtocol(page)"
+       ng-blur="processPage(page)"
        shy-placeholder="'SAMPLE.PLH_PAGE_URL' | translate">
     </div>
     <label ng-class="colHide" for="struct_{{$index}}_{{$id}}">

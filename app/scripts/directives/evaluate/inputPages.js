@@ -23,7 +23,10 @@ angular.module('wcagReporter')
                 }, 100);
             };
 
-            scope.prependProtocol = Page.prependProtocol;
+            scope.processPage = function (page) {
+                Page.prependProtocol(page);
+                Page.updateSource(page);
+            };
 
             scope.removePage = function ($index, $event) {
                 removePageFunc($index);

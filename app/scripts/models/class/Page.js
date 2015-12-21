@@ -7,12 +7,10 @@ angular.module('wcagReporter')
         this.type = ['TestSubject', 'WebPage'];
 	}
 
-	Page.getUrl = function (page) {
-        if (!page.source) {
-            page.source = translateFilter('getUrl')(page.description);
-        }
+    Page.updateSource = function (page) {
+        page.source = translateFilter('getUrl')(page.description);
         return page.source;
-    };
+    }
 
     Page.prependProtocol = function (page) {
         if (page.description && page.description.match(/^([\da-z\.-]+)\.([a-z\.]{2,6})/)) {
@@ -22,9 +20,8 @@ angular.module('wcagReporter')
 
     Page.openInWindow = function (page, target) {
         target = target || '_blank';
-        var url = Page.getUrl(page);
-        if (url) {
-            window.open(url, target);
+        if (page.source) {
+            window.open(page.source, target);
         }
     };
 
