@@ -81,7 +81,22 @@ angular.module('wertDummy')
               'date': '2015-12-22 16:36:38 +0100'
             },
             'mode': 'earl:manual',
-            'hasPart': []
+            'hasPart': [
+              {
+                "type": "Assertion",
+                "assertedBy": "_:evaluator",
+                "subject": [
+                  "_:struct_0"
+                ],
+                "result": {
+                  "outcome": "earl:failed",
+                  "date": "2015-12-22 16:36:42 +0100"
+                },
+                "multiPage": false,
+                "mode": "earl:manual",
+                "test": "WCAG2:text-equiv-all"
+              }
+            ]
           },
           {
             'type': 'Assertion',

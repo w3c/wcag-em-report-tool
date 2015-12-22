@@ -82,17 +82,25 @@ describe('model: evalModel export', function () {
             return (result.outcome !== 'earl:untested' ||
                     !!result.description);
 
+        // Check if there is 1 none-empty assertion in the output
         }).forEach(function (assertOut) {
             var asserts = [];
+            // Find all asserts with the same subject & test
             exportEval.auditResult.forEach(function (assertIn) {
-                if (assertIn.subject === assertOut.subject &&
-                assertIn.test === assertOut.test) {
+                if (assertIn.test === assertOut.test &&
+                assertIn.subject === assertOut.subject) {
+                    // Remove methods & inherited properties
+                    assertIn = JSON.parse(JSON.stringify(assertIn));
                     asserts.push(assertIn);
                 }
             });
+
+            // Check there is only 1, and it has all the same properties
             expect(asserts.length).toBe(1);
             expect(asserts[0]).toEqual(assertOut);
         });
+
+        // Check the sane number of results came out as went in
         expect(exportEval.auditResult.length)
         .toBe(importEval.auditResult.length);
     });

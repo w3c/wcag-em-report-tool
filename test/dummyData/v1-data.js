@@ -29,7 +29,21 @@ angular.module('wertDummy', ['wcagReporter'])
               "description": "I passed"
             },
             "mode": "manual",
-            "hasPart": []
+            "hasPart": [
+              {
+                "type": "earl:assertion",
+                "assertedBy": "_:evaluator",
+                "subject": [
+                  "_:struct_0"
+                ],
+                "result": {
+                  "outcome": "earl:failed"
+                },
+                "multiPage": false,
+                "mode": "manual",
+                "testCase": "wcag20:text-equiv-all"
+              }
+            ]
           },
           {
             "type": "earl:assertion",
