@@ -6,7 +6,8 @@ angular.module('wcagReporter')
         restrict: 'E',
         replace: true,
         scope: {
-            value: '='
+            value: '=',
+            updateMetadata: '='
         },
         templateUrl: 'views/directives/criterion/resultDescription.html'
 	});

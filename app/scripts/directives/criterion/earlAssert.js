@@ -1,6 +1,7 @@
 'use strict';
 angular.module('wcagReporter')
-.directive('earlAssert', function($filter, directivePlugin) {
+.directive('earlAssert', 
+function($filter, directivePlugin, CriterionAssert) {
 
 	var outcomes = ['earl:untested', 'earl:passed',
                     'earl:failed', 'earl:inapplicable',
@@ -17,11 +18,15 @@ angular.module('wcagReporter')
         replace: true,
         transclude: true,
         scope: {
-            result: '=value',
-            opt: '=options'
+            opt: '=options',
+            assert: '='
         },
         link: function (scope) {
+            scope.result = scope.assert.result;
             scope.outcomes = outcomes;
+            scope.updateMetadata = function () {
+                CriterionAssert.updateMetadata(scope.assert);
+            }
 
             scope.getStaticHtmlResult = function (text) {
                 text = ('' + text).trim() || '–';

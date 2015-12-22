@@ -1,7 +1,7 @@
 <div class="panel criterion panel-default"
 ng-class="getClassName(assert.result.outcome)">
 
-  <earl-assert class="panel-heading" value="assert.result" options="opt">
+  <earl-assert class="panel-heading" assert="assert" options="opt">
 
     <div class="col-xs-12 criterion-title">
       <strong>{{ spec.num}} {{ spec.handle}}</strong>: ({{spec.level | rdfToLabel}})

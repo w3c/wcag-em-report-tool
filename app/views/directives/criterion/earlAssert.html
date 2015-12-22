@@ -4,15 +4,19 @@
   <div class="row outcome" ng-if="opt.editable">
     <div class="col-sm-4 col-md-3">
       <label for="result_outcome_{{$id}}" class="sr-only">{{ 'AUDIT.LABEL_OUTCOME' | translate}}</label>
-      <select class="stretch-control result-select" id="result_outcome_{{$id}}" ng-model="result.outcome"
-      ng-options="outcome.id as outcome.name for outcome in outcomes"></select>
+      <select class="stretch-control result-select" 
+      id="result_outcome_{{$id}}" 
+      ng-options="outcome.id as outcome.name for outcome in outcomes"
+      ng-model="result.outcome" ng-change="updateMetadata()"></select>
     </div>
 
     <div class="col-sm-8 col-md-9" ng-if="opt.editable">
-      <result-description value="result.description"></result-description>
+      <result-description value="result.description"
+      updateMetadata="updateMetadata"></result-description>
     </div>
   </div>
-
+  
+  <!-- else -->
   <div class="row outcome" ng-if="!opt.editable">
     <div class="col-sm-4 col-md-3">
       <strong>{{ 'AUDIT.LABEL_OUTCOME' | translate}}</strong>:&nbsp;{{ result.outcome | rdfToLabel }}

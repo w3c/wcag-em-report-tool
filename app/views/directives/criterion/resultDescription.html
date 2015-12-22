@@ -1,6 +1,8 @@
 <div ng-init='focused = false'>
-  <label class="sr-only" for="assert_desc_{{$id}}" ng-bind="'AUDIT.LABEL_DESCR' | translate "></label>
+  <label class="sr-only" for="assert_desc_{{$id}}" 
+  ng-bind="'AUDIT.LABEL_DESCR' | translate "></label>
   <textarea ng-model="value" class="assert_description"
+  ng-change="updateMetadata()" ng-change="updateMetadata"
   id="assert_desc_{{$id}}" auto-resize
   shy-placeholder="'AUDIT.PLH_ASSERT_DESC' | translate"
   cols="20" rows="4" id="id"></textarea>

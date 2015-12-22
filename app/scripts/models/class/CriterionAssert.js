@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('CriterionAssert', function(evalSampleModel,
+.service('CriterionAssert', function(evalSampleModel, $filter,
 TestCaseAssert, wcag2spec, currentUser) {
 
 	function CriterionAssert(idref) {
@@ -61,10 +61,10 @@ TestCaseAssert, wcag2spec, currentUser) {
     CriterionAssert.prototype = {
         type: 'Assertion',
         test: undefined,
-        assertedBy: currentUser.id,
+        assertedBy: undefined,
         subject: '_:website',
         result: undefined,
-        mode: 'earl:manual',
+        mode: undefined,
         hasPart: undefined,
         getSinglePageAsserts: undefined,
         getMultiPageAsserts: undefined,
@@ -156,6 +156,13 @@ TestCaseAssert, wcag2spec, currentUser) {
         return hasPart || !!critAssert.result.description ||
                critAssert.result.outcome !== 'earl:untested';
     };
+
+    CriterionAssert.updateMetadata = function (critAssert) {
+        critAssert.assertedBy = currentUser.id;
+        critAssert.mode = 'earl:manual';
+        critAssert.result.date = $filter('date')(Date.now(), 'yyyy-MM-dd HH:mm:ss Z');
+        console.log(critAssert);
+    }
 
     return CriterionAssert;
 });
