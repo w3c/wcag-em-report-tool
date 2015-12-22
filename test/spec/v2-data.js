@@ -17,6 +17,7 @@ describe('Changes for 1.1+ data format', function () {
     var importEval;
     var importV1;
     var getUrl;
+    var assertions;
 
     beforeEach(inject(function (wcagReporterImport, _importV1_,
     wcagReporterExport, basicEvalOutput1, _evalModel_, $filter) {
@@ -31,18 +32,34 @@ describe('Changes for 1.1+ data format', function () {
 
     beforeEach(function (done) {
         reportImport.fromObject(dummyData, done);
-        setTimeout(done, 100);
+        setTimeout(function () {
+            assertions = Object.keys(evalModel.auditModel.criteria)
+            .map(function (critId) {
+                return evalModel.auditModel.criteria[critId];
+            });
+            expect(assertions.length).not.toBe(0);
+            done();
+        }, 100);
     });
 
 
     // Capitalize assertion type #226
     it('gives type:Assertion to each assertion', function () {
-        var critIds = Object.keys(evalModel.auditModel.criteria);
-
-        expect(critIds.length).not.toBe(0);
-        critIds.forEach(function (critId) {
-            var assertion = evalModel.auditModel.criteria[critId];
+        assertions.forEach(function (assertion) {
             expect(assertion.type).toBe('Assertion');
+        });
+    });
+
+    it('renames testRequirement to test', function () {
+        assertions.forEach(function (assertion) {
+            expect(assertion.test).toBeDefined();
+            expect(assertion.testRequirement).toBeUndefined();
+        });
+    });
+
+    it('changes the wcag20 namespace to WCAG2', function () {
+        assertions.forEach(function (assertion) {
+            expect(assertion.test.substr(0, 6)).toBe('WCAG2:');
         });
     });
 

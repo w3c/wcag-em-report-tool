@@ -69,7 +69,7 @@ describe('model: wcag2spec', function () {
 
     describe('getCriterion', function () {
         it('should return a criterion with the given URI', function () {
-            var crit = wcag2spec.getCriterion('wcag20:text-equiv-all');
+            var crit = wcag2spec.getCriterion('WCAG2:text-equiv-all');
             expect(typeof crit).toBe('object');
         });
 

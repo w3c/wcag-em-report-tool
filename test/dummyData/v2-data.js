@@ -71,7 +71,7 @@ angular.module('wertDummy')
         'auditResult': [
           {
             'type': 'Assertion',
-            'test': 'wcag20:text-equiv-all',
+            'test': 'WCAG2:text-equiv-all',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -84,7 +84,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:media-equiv-av-only-alt',
+            'test': 'WCAG2:media-equiv-av-only-alt',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -97,7 +97,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:media-equiv-captions',
+            'test': 'WCAG2:media-equiv-captions',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -110,7 +110,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:media-equiv-audio-desc',
+            'test': 'WCAG2:media-equiv-audio-desc',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -123,7 +123,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:content-structure-separation-programmatic',
+            'test': 'WCAG2:content-structure-separation-programmatic',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -136,7 +136,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:content-structure-separation-sequence',
+            'test': 'WCAG2:content-structure-separation-sequence',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -149,7 +149,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:content-structure-separation-understanding',
+            'test': 'WCAG2:content-structure-separation-understanding',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -162,7 +162,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:visual-audio-contrast-without-color',
+            'test': 'WCAG2:visual-audio-contrast-without-color',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -175,7 +175,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:visual-audio-contrast-dis-audio',
+            'test': 'WCAG2:visual-audio-contrast-dis-audio',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -188,7 +188,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:keyboard-operation-keyboard-operable',
+            'test': 'WCAG2:keyboard-operation-keyboard-operable',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -201,7 +201,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:keyboard-operation-trapping',
+            'test': 'WCAG2:keyboard-operation-trapping',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -214,7 +214,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:time-limits-required-behaviors',
+            'test': 'WCAG2:time-limits-required-behaviors',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -227,7 +227,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:time-limits-pause',
+            'test': 'WCAG2:time-limits-pause',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -240,7 +240,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:seizure-does-not-violate',
+            'test': 'WCAG2:seizure-does-not-violate',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -253,7 +253,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:navigation-mechanisms-skip',
+            'test': 'WCAG2:navigation-mechanisms-skip',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -266,7 +266,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:navigation-mechanisms-title',
+            'test': 'WCAG2:navigation-mechanisms-title',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -279,7 +279,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:navigation-mechanisms-focus-order',
+            'test': 'WCAG2:navigation-mechanisms-focus-order',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -292,7 +292,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:navigation-mechanisms-refs',
+            'test': 'WCAG2:navigation-mechanisms-refs',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -305,7 +305,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:meaning-doc-lang-id',
+            'test': 'WCAG2:meaning-doc-lang-id',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -318,7 +318,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:consistent-behavior-receive-focus',
+            'test': 'WCAG2:consistent-behavior-receive-focus',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -331,7 +331,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:consistent-behavior-unpredictable-change',
+            'test': 'WCAG2:consistent-behavior-unpredictable-change',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -344,7 +344,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:minimize-error-identified',
+            'test': 'WCAG2:minimize-error-identified',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -357,7 +357,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:minimize-error-cues',
+            'test': 'WCAG2:minimize-error-cues',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -370,7 +370,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:ensure-compat-parses',
+            'test': 'WCAG2:ensure-compat-parses',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {
@@ -383,7 +383,7 @@ angular.module('wertDummy')
           },
           {
             'type': 'Assertion',
-            'test': 'wcag20:ensure-compat-rsv',
+            'test': 'WCAG2:ensure-compat-rsv',
             'assertedBy': '_:evaluator',
             'subject': '_:website',
             'result': {

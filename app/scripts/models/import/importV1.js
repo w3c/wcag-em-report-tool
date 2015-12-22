@@ -86,6 +86,9 @@ angular.module('wcagReporter')
         data.type = data.type.replace('evaluation', 'Evaluation');
         data.auditResult.forEach(function (assertion) {
             assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
+            assertion.test = assertion.testRequirement.replace('wcag20:', 'WCAG2:');
+            delete assertion.testRequirement;
+
             assertion.result.type = assertion.result.type || 'TestResult'
         });
 
