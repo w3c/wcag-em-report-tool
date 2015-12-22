@@ -2,7 +2,8 @@
 
 angular.module('wcagReporter')
 .service('Page', function ($filter) {
-
+    var translateFilter = $filter('translate');
+    
 	function Page() {
         this.type = ['TestSubject', 'WebPage'];
 	}
