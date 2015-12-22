@@ -52,8 +52,12 @@ describe('Changes for 1.1+ data format', function () {
 
     // Capitalize assertion type #226
     it('gives type:Assertion to each assertion', function () {
-        assertions.forEach(function (assertion) {
+        assertions.forEach(function testAssert(assertion) {
             expect(assertion.type).toBe('Assertion');
+
+            if (assertion.hasPart) {
+                assertion.hasPart.forEach(testAssert);
+            }
         });
     });
 
@@ -126,25 +130,52 @@ describe('Changes for 1.1+ data format', function () {
     });
 
 
-    it('renames testRequirement to test', function () {
-        assertions.forEach(function (assertion) {
+    it('renames testRequirement / testCase to test', function () {
+        assertions.forEach(function testAssert (assertion) {
             expect(assertion.test).toBeDefined();
             expect(assertion.testRequirement).toBeUndefined();
+            expect(assertion.testCase).toBeUndefined();
+
+            if (assertion.hasPart) {
+                assertion.hasPart.forEach(testAssert);
+            }
         });
     });
 
     it('changes the wcag20 namespace to WCAG2', function () {
-        assertions.forEach(function (assertion) {
+        assertions.forEach(function testAssert(assertion) {
             expect(assertion.test.substr(0, 6)).toBe('WCAG2:');
+
+            if (assertion.hasPart) {
+                assertion.hasPart.forEach(testAssert);
+            }
         });
     });
 
     it('has mode:earl:manual', function () {
-        assertions.forEach(function (assertion) {
+        assertions.forEach(function testAssert(assertion) {
             expect(assertion.mode)
             .toBe('earl:manual');
+            
+            if (assertion.hasPart) {
+                assertion.hasPart.forEach(testAssert);
+            }
         });
     });
 
+    it('updates testcase to test property of page asserts', function () {
+        var pageAsserts = [];
+        assertions.forEach(function testAssert(siteAssert) {
+            if (siteAssert.hasPart && siteAssert.hasPart.length > 0) {
+                Array.prototype.push.apply(pageAsserts, siteAssert.hasPart)
+            }
+            
+            if (siteAssert.hasPart) {
+                siteAssert.hasPart.forEach(testAssert);
+            }
+        });
+
+        expect(pageAsserts.length).not.toBe(-1);
+    });
 
 });

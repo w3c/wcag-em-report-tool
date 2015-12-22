@@ -136,14 +136,23 @@ angular.module('wcagReporter')
 
 
         // Update assertions
-        evaluation.auditResult.forEach(function (assertion) {
+        evaluation.auditResult.forEach(function updateAsserts (assertion) {
             assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
-            assertion.test = assertion.testRequirement.replace('wcag20:', 'WCAG2:');
-            delete assertion.testRequirement;
+
+            if (assertion.testRequirement) {
+                assertion.test = assertion.testRequirement.replace('wcag20:', 'WCAG2:');
+                delete assertion.testRequirement;
+            } else if (assertion.testCase) {
+                assertion.test = assertion.testCase.replace('wcag20:', 'WCAG2:');
+                delete assertion.testCase;
+            }
 
             assertion.result.type = assertion.result.type || 'TestResult'
             if (assertion.mode === 'manual') {
                 assertion.mode = 'earl:manual';
+            }
+            if (assertion.hasPart) {
+                assertion.hasPart.forEach(updateAsserts);
             }
         });
 

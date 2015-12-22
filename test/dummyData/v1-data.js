@@ -42,6 +42,18 @@ angular.module('wertDummy', ['wcagReporter'])
                 "multiPage": false,
                 "mode": "manual",
                 "testCase": "wcag20:text-equiv-all"
+              }, {
+                "type": "earl:assertion",
+                "assertedBy": "_:evaluator",
+                "subject": [
+                  "_:rand_0"
+                ],
+                "result": {
+                  "outcome": "earl:failed"
+                },
+                "multiPage": false,
+                "mode": "manual",
+                "testCase": "wcag20:text-equiv-all"
               }
             ]
           },
