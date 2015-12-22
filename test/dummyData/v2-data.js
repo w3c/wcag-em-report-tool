@@ -77,7 +77,8 @@ angular.module('wertDummy')
             'result': {
               'type' : 'TestResult',
               'outcome': 'earl:passed',
-              'description': 'I passed'
+              'description': 'I passed',
+              'date': '2015-12-22 16:36:38 +0100'
             },
             'mode': 'earl:manual',
             'hasPart': []
