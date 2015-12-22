@@ -53,14 +53,25 @@ on http(s). WCAG-EM Report Tool runs in your local browser, so
 it only loads static files from the server.
 
 ## Localisation
-Files for localisation are part of the `app/locale/` directory. By default
-the 'en' folder will be used. To serve or build the app using the `--lang`
-flag, and give it what directory to use as the default language, i.e.
-`--lang nl` will build with `app/locale/nl` as the default language.
+Files for localisation are part of the `app/locale/` directory. 
+By default the 'en' folder will be used. To serve or build the app
+using the `--lang` flag, and give it what directory to use as the
+default language, i.e. `--lang nl` will build with `app/locale/nl`
+as the default language.
+
+# Translations
+
+The WCAG-EM Report Tool aims to be available for a wide audience.
+ Much effort has been put into making translations as easy as 
+ possible. To learn about how to create your own translations 
+ read the [translation documentation](docs/translation.md)
 
 # Data format
-Data in the WCAG-EM Report Tool is saved and can again be loaded in a JSON
-format. The data format is [JSON Linked Data](http://json-ld.org/), and
-uses [EARL](http://www.w3.org/TR/EARL10-Schema/) to store the test results.
+Data in the WCAG-EM Report Tool is saved and can again be loaded
+in a JSON format. The data format is 
+[JSON Linked Data](http://json-ld.org/), and uses 
+[EARL](http://www.w3.org/TR/EARL10-Schema/) to store the test 
+results.
 
-Custom fields are based on WCAG-EM and are documented in [docs/EARL+JSON-LD.md].
+Custom fields are based on WCAG-EM and are documented in 
+[EARL+JSON-LD format definition](docs/EARL+JSON-LD.md).
