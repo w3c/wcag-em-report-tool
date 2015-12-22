@@ -7,7 +7,7 @@ describe('Controller: EvalSampleCtrl', function () {
 
     beforeEach(function (done) {
         inject(function ($rootScope) {
-            $rootScope.$on('wcag20spec:load', done);
+            $rootScope.$on('wcag2spec:load', done);
         });
     });
 

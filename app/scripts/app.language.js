@@ -10,7 +10,7 @@ angular.module('wcagReporter')
 		'localName': 'Nederlands'
 	}
 ])
-.config(function ($translateProvider, wcag20specProvider) {
+.config(function ($translateProvider, wcag2specProvider) {
     var lang;
     function createCookie(name,value) {
         document.cookie = name+"="+value+"; path=/";
@@ -44,7 +44,7 @@ angular.module('wcagReporter')
         suffix: '.json'
     });
 
-    wcag20specProvider.setSpecPath('wcag20spec/wcag2-${lang}.json');
-    wcag20specProvider.loadLanguage(lang);
+    wcag2specProvider.setSpecPath('wcag2spec/wcag2-${lang}.json');
+    wcag2specProvider.loadLanguage(lang);
     $translateProvider.preferredLanguage(lang);
 });

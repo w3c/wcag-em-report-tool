@@ -2,11 +2,11 @@
 
 angular.module('wcagReporter')
 .controller('ReportFindingsCtrl',
-function ($scope, wcag20spec, evalAuditModel, evalScopeModel, CriterionAssert) {
+function ($scope, wcag2spec, evalAuditModel, evalScopeModel, CriterionAssert) {
 
     evalAuditModel.updateToConformance();
 
-    $scope.principles = wcag20spec.getPrinciples();
+    $scope.principles = wcag2spec.getPrinciples();
     $scope.auditModel = evalAuditModel;
     $scope.critOpt = {
         editable: false,       collapsed: false,

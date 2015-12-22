@@ -1,26 +1,26 @@
 'use strict';
 
-describe('model: wcag20spec', function () {
+describe('model: wcag2spec', function () {
 
     // load the service's module
     setupwcagReporterTest();
 
     // instantiate service
-    var wcag20spec;
-    beforeEach(inject(function (_wcag20spec_) {
-        wcag20spec = _wcag20spec_;
+    var wcag2spec;
+    beforeEach(inject(function (_wcag2spec_) {
+        wcag2spec = _wcag2spec_;
     }));
 
     beforeEach(function (done) {
         inject(function ($rootScope) {
-            $rootScope.$on('wcag20spec:langChange', done);
+            $rootScope.$on('wcag2spec:langChange', done);
         });
     });
 
     describe('getPrinciples', function () {
         var principles;
         beforeEach(function () {
-            principles = wcag20spec.getPrinciples();
+            principles = wcag2spec.getPrinciples();
         });
 
         it('should return an array', function () {
@@ -39,7 +39,7 @@ describe('model: wcag20spec', function () {
     describe('getGuidelines', function () {
         var guidelines;
         beforeEach(function () {
-            guidelines = wcag20spec.getGuidelines();
+            guidelines = wcag2spec.getGuidelines();
         });
 
         it('should return an array', function () {
@@ -58,7 +58,7 @@ describe('model: wcag20spec', function () {
     describe('getCriteria', function () {
         var criteria;
         beforeEach(function () {
-            criteria = wcag20spec.getCriteria();
+            criteria = wcag2spec.getCriteria();
         });
 
         it('should return an array', function () {
@@ -69,18 +69,18 @@ describe('model: wcag20spec', function () {
 
     describe('getCriterion', function () {
         it('should return a criterion with the given URI', function () {
-            var crit = wcag20spec.getCriterion('wcag20:text-equiv-all');
+            var crit = wcag2spec.getCriterion('wcag20:text-equiv-all');
             expect(typeof crit).toBe('object');
         });
 
         it('should return undefined if the URI is unknown', function() {
-            var crit = wcag20spec.getCriterion();
+            var crit = wcag2spec.getCriterion();
 
             expect(typeof crit).toBe('undefined');
-            crit = wcag20spec.getCriterion('');
+            crit = wcag2spec.getCriterion('');
             expect(typeof crit).toBe('undefined');
 
-            crit = wcag20spec.getCriterion('someRandomThing');
+            crit = wcag2spec.getCriterion('someRandomThing');
             expect(typeof crit).toBe('undefined');
         });
     });

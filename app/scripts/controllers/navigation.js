@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .controller('NavigationCtrl',
-function ($scope, $translate, wcag20spec, $rootScope, supportedLanguages) {
+function ($scope, $translate, wcag2spec, $rootScope, supportedLanguages) {
     function createCookie(name,value) {
         document.cookie = name+"="+value+"; path=/";
     }
@@ -20,7 +20,7 @@ function ($scope, $translate, wcag20spec, $rootScope, supportedLanguages) {
         }
         
         $translate.use(lang);
-        wcag20spec.loadLanguage(lang);
+        wcag2spec.loadLanguage(lang);
     };
 
 });

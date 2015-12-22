@@ -7,7 +7,7 @@ describe('Controller: AuditCriteriaCtrl', function () {
 
     beforeEach(function (done) {
        inject(function ($rootScope) {
-           $rootScope.$on('wcag20spec:load', done);
+           $rootScope.$on('wcag2spec:load', done);
         });
     });
 
@@ -20,10 +20,10 @@ describe('Controller: AuditCriteriaCtrl', function () {
 
 
 
-    beforeEach(inject(function($controller, $rootScope, wcag20spec) {
+    beforeEach(inject(function($controller, $rootScope, wcag2spec) {
         scope = $rootScope.$new();
         ctrl  = $controller('AuditCriteriaCtrl', { $scope: scope });
-        criteria = wcag20spec.getCriteria();
+        criteria = wcag2spec.getCriteria();
 
         criteriaLvlA    = criteria.filter(function (crit) {
             return crit.level === 'wai:WCAG2A-Conformance';

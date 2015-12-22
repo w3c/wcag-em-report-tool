@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportScoreCtrl', function ($scope, wcag20spec, evalAuditModel) {
+.controller('ReportScoreCtrl', function ($scope, wcag2spec, evalAuditModel) {
 
-    $scope.principles = wcag20spec.getPrinciples();
+    $scope.principles = wcag2spec.getPrinciples();
     var totals = {
         'earl:passed': 0,
         'earl:failed': 0,
@@ -17,7 +17,7 @@ angular.module('wcagReporter')
     $scope.totals = totals;
 
     $scope.getScores = function () {
-        return wcag20spec.getPrinciples().map(function (p) {
+        return wcag2spec.getPrinciples().map(function (p) {
             var result = {
                 name:  p.num + '. ' + p.handle,
                 'earl:passed': 0,
@@ -64,7 +64,7 @@ angular.module('wcagReporter')
 
     $scope.scores = $scope.getScores(); 
     // Update the score name when the language changes
-    $scope.$on('wcag20spec:langChange', function () {
+    $scope.$on('wcag2spec:langChange', function () {
         $scope.scores = $scope.getScores(); 
     });
     

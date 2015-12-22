@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .service('evalAuditModel', function(TestCaseAssert,
-evalScopeModel, wcag20spec, CriterionAssert) {
+evalScopeModel, wcag2spec, CriterionAssert) {
 
     var auditModel,
         criteria = {};
@@ -62,7 +62,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         getCriteriaSorted: function () {
-            var critSpec = wcag20spec.getCriteria();
+            var critSpec = wcag2spec.getCriteria();
             return critSpec.map(function (criterion) {
                     return criteria[criterion.id];
             }).filter(angular.isDefined);
@@ -101,7 +101,7 @@ evalScopeModel, wcag20spec, CriterionAssert) {
         },
 
         updateToConformance: function () {
-            wcag20spec.getCriteria()
+            wcag2spec.getCriteria()
             .forEach(function (spec) {
                 if (typeof criteria[spec.id] === 'undefined') {
                     auditModel.addCritAssert({

@@ -5,7 +5,7 @@
  *
  */
 angular.module('wcagReporter')
-.provider('wcag20spec', function() {
+.provider('wcag2spec', function() {
     var specPath;
     var guidelines;
     var criteria;
@@ -47,7 +47,7 @@ angular.module('wcagReporter')
             .done(function (data) {
                 specs[lang] = data;
                 wcag2.useLanguage(lang);
-                broadcast('wcag20spec:load', lang);
+                broadcast('wcag2spec:load', lang);
             }).fail(console.error.bind(console));
         },
 
@@ -73,7 +73,7 @@ angular.module('wcagReporter')
                 }
             });
             
-            broadcast('wcag20spec:langChange', lang);
+            broadcast('wcag2spec:langChange', lang);
         },
 
         getGuidelines: function () {

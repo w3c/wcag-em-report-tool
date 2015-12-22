@@ -2,7 +2,7 @@
 
 angular.module('wcagReporter')
 .service('CriterionAssert', function(evalSampleModel,
-TestCaseAssert, wcag20spec, currentUser) {
+TestCaseAssert, wcag2spec, currentUser) {
 
 	function CriterionAssert(idref) {
         var self = this;
@@ -138,7 +138,7 @@ TestCaseAssert, wcag20spec, currentUser) {
         },
 
         getSpec: function () {
-            return wcag20spec.getCriterion(this.test);
+            return wcag2spec.getCriterion(this.test);
         }
     };
 

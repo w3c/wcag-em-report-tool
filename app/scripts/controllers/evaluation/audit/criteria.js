@@ -2,17 +2,17 @@
 
 angular.module('wcagReporter')
 .controller('AuditCriteriaCtrl', function ($scope, evalAuditModel, evalScopeModel,
-wcag20spec, $rootElement, $anchorScroll, $filter, $rootScope) {
+wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope) {
 
     evalAuditModel.updateToConformance();
 
     $scope.criteria = evalAuditModel.getCriteriaSorted();
 
-    $scope.principles = wcag20spec.getPrinciples();
+    $scope.principles = wcag2spec.getPrinciples();
     $scope.getCritAssert = evalAuditModel.getCritAssert;
 
-    $scope.$on('wcag20spec:langChange', function () {
-        $scope.principles = wcag20spec.getPrinciples();
+    $scope.$on('wcag2spec:langChange', function () {
+        $scope.principles = wcag2spec.getPrinciples();
     });
 
 

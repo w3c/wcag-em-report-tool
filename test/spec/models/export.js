@@ -29,7 +29,7 @@ describe('model: evalModel export', function () {
 
     beforeEach(function (done) {
         inject(function ($rootScope) {
-            $rootScope.$on('wcag20spec:langChange', done);
+            $rootScope.$on('wcag2spec:langChange', done);
         });
     });
 

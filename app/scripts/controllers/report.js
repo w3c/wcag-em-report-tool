@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCtrl', function ($scope, $document, $interval, $timeout,
-		evalModel, wcag20spec, appState, wcagReporterExport) {
+.controller('ReportCtrl', function ($scope, $document,
+		evalModel, appState, wcagReporterExport) {
 	var htmlBlob;
 
 	$scope.state = appState.moveToState('export');
