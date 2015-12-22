@@ -18,9 +18,11 @@ describe('Changes for 1.1+ data format', function () {
     var importV1;
     var getUrl;
     var assertions;
+    var contextV2;
 
     beforeEach(inject(function (wcagReporterImport, _importV1_,
-    wcagReporterExport, basicEvalOutput1, _evalModel_, $filter) {
+            wcagReporterExport, basicEvalOutput1, _evalModel_, 
+            $filter, evalContextV2) {
         reportImport = wcagReporterImport;
         dummyData    = basicEvalOutput1;
         evalModel    = _evalModel_;
@@ -28,6 +30,7 @@ describe('Changes for 1.1+ data format', function () {
         importV1     = _importV1_;
         expect(importV1.isV1Evaluation(importEval)).toBe(true);
         getUrl = $filter('getUrl');
+        contextV2 = evalContextV2;
     }));
 
     beforeEach(function (done) {
@@ -42,6 +45,10 @@ describe('Changes for 1.1+ data format', function () {
         }, 100);
     });
 
+    it('changes the context to v2', function () {
+        expect(evalModel.context)
+        .toEqual(contextV2);
+    });
 
     // Capitalize assertion type #226
     it('gives type:Assertion to each assertion', function () {
@@ -49,20 +56,6 @@ describe('Changes for 1.1+ data format', function () {
             expect(assertion.type).toBe('Assertion');
         });
     });
-
-    it('renames testRequirement to test', function () {
-        assertions.forEach(function (assertion) {
-            expect(assertion.test).toBeDefined();
-            expect(assertion.testRequirement).toBeUndefined();
-        });
-    });
-
-    it('changes the wcag20 namespace to WCAG2', function () {
-        assertions.forEach(function (assertion) {
-            expect(assertion.test.substr(0, 6)).toBe('WCAG2:');
-        });
-    });
-
 
     // Change webpage properties to Dublin Core #222
     it('Dublin Core variables for pages', function () {
@@ -117,6 +110,40 @@ describe('Changes for 1.1+ data format', function () {
         expect(user.type).toBe('Person');
         expect(user['@context']['@vocab'])
         .toBe('http://xmlns.com/foaf/0.1/');
+    });
+
+    it('wcag20:level_aa becomes wai:WCAG2AA-Conformance', function () {
+        var confTgt = evalModel.scopeModel.conformanceTarget;
+        expect(confTgt.substr(0, 9)).toBe('wai:WCAG2');
+        expect(confTgt.substr(-12, 12)).toBe('-Conformance');
+    });
+
+
+    it('website.title becomes website.siteName', function () {
+        var website = evalModel.scopeModel.website;
+        expect(website.title).toBeUndefined();
+        expect(website.siteName).toBeDefined();
+    });
+
+
+    it('renames testRequirement to test', function () {
+        assertions.forEach(function (assertion) {
+            expect(assertion.test).toBeDefined();
+            expect(assertion.testRequirement).toBeUndefined();
+        });
+    });
+
+    it('changes the wcag20 namespace to WCAG2', function () {
+        assertions.forEach(function (assertion) {
+            expect(assertion.test.substr(0, 6)).toBe('WCAG2:');
+        });
+    });
+
+    it('has mode:earl:manual', function () {
+        assertions.forEach(function (assertion) {
+            expect(assertion.mode)
+            .toBe('earl:manual');
+        });
     });
 
 

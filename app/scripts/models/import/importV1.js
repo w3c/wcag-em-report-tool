@@ -78,52 +78,76 @@ angular.module('wcagReporter')
         }, true);
     }
 
+    /** Upgrade Page to v2 */
+    function fixPage(page) {
+        if (page.type === 'webpage') {
+            page.type = ['TestSubject', 'WebPage'];
+        }
+        page.title = page.handle;
+        delete page.handle;
+        page.source = getUrl(page.description);
+    }
+
     /**
      * Evaluation object from v1 to v2
      */
-    function upgradeToV2(data) {
+    function upgradeToV2(evaluation) {
+        // Replace with the v2 context
+        evaluation['@context'] = evalContextV2;
+
         // Capitalize Evaluation
-        data.type = data.type.replace('evaluation', 'Evaluation');
-        data.auditResult.forEach(function (assertion) {
+        evaluation.type = evaluation.type.replace('evaluation', 'Evaluation');
+
+
+        // Update the EvaluationScope object
+        var evalScope = evaluation.evaluationScope;
+        evalScope.type = evalScope.type || 'EvaluationScope';
+        evalScope.website.type = evalScope.website.type || ['TestSubject', 'WebSite'];
+        
+        evaluation.reliedUponTechnology.forEach(function (tech) {
+            tech.type = tech.type || 'Technology';
+        });
+
+        var evalScope = evaluation.evaluationScope;
+        if (evalScope.conformanceTarget.substr(0, 13) === 'wcag20:level_') {
+            evalScope.conformanceTarget = 'wai:WCAG2' + (
+                evalScope.conformanceTarget.replace('wcag20:level_', '')
+                .toUpperCase()
+            ) + '-Conformance';
+        }
+        if (evalScope.website.title) {
+            evalScope.website.siteName = evalScope.website.title;
+            delete evalScope.website.title;
+        }
+
+
+        // Update the sample
+        if (!angular.isArray(evaluation.structuredSample.webpage)) {
+            evaluation.structuredSample.webpage = [evaluation.structuredSample.webpage];
+        }
+        evaluation.structuredSample.type = evaluation.structuredSample.type || 'Sample';
+        evaluation.structuredSample.webpage.forEach(fixPage);
+
+        if (!angular.isArray(evaluation.randomSample.webpage)) {
+            evaluation.randomSample.webpage = [evaluation.randomSample.webpage];
+        }
+        evaluation.randomSample.type = evaluation.randomSample.type || 'Sample';
+        evaluation.randomSample.webpage.forEach(fixPage);
+
+
+        // Update assertions
+        evaluation.auditResult.forEach(function (assertion) {
             assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
             assertion.test = assertion.testRequirement.replace('wcag20:', 'WCAG2:');
             delete assertion.testRequirement;
 
             assertion.result.type = assertion.result.type || 'TestResult'
-        });
-
-        function fixPage(page) {
-            if (page.type === 'webpage') {
-                page.type = ['TestSubject', 'WebPage'];
+            if (assertion.mode === 'manual') {
+                assertion.mode = 'earl:manual';
             }
-            page.title = page.handle;
-            delete page.handle;
-            page.source = getUrl(page.description);
-        }
-
-        if (!angular.isArray(data.structuredSample.webpage)) {
-            data.structuredSample.webpage = [data.structuredSample.webpage];
-        }
-        data.structuredSample.type = data.structuredSample.type || 'Sample';
-        data.structuredSample.webpage.forEach(fixPage);
-
-        if (!angular.isArray(data.randomSample.webpage)) {
-            data.randomSample.webpage = [data.randomSample.webpage];
-        }
-        data.randomSample.type = data.randomSample.type || 'Sample';
-        data.randomSample.webpage.forEach(fixPage);
-
-        var evalScope = data.evaluationScope;
-        evalScope.type = evalScope.type || 'EvaluationScope';
-        evalScope.website.type = evalScope.website.type || ['TestSubject', 'WebSite'];
-        
-        data.reliedUponTechnology.forEach(function (tech) {
-            tech.type = tech.type || 'Technology';
         });
 
-        data['@context'] = evalContextV2;
-
-        return data;
+        return evaluation;
     }
     
     // Expose methods for testing
