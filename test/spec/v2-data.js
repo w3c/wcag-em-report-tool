@@ -130,11 +130,11 @@ describe('Changes for 1.1+ data format', function () {
     });
 
 
-    it('renames testRequirement / testCase to test', function () {
+    it('renames testRequirement / testcase to test', function () {
         assertions.forEach(function testAssert (assertion) {
             expect(assertion.test).toBeDefined();
             expect(assertion.testRequirement).toBeUndefined();
-            expect(assertion.testCase).toBeUndefined();
+            expect(assertion.testcase).toBeUndefined();
 
             if (assertion.hasPart) {
                 assertion.hasPart.forEach(testAssert);

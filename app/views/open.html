@@ -19,7 +19,7 @@
 <input type="file" class="sr-only" id="load_json"
   ng-focus="fileHasFocus = true" ng-blur="fileHasFocus = false"
   onchange="var elm = angular.element(this);
-            elm.scope().loadFile(elm.val())" />
+            elm.scope().loadFile(this.files[0])" />
 
 <div class="alert alert-danger" ng-if="showError">
   <p>{{ 'OPEN.' + showError | translate }}

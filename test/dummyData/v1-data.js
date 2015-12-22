@@ -41,7 +41,7 @@ angular.module('wertDummy', ['wcagReporter'])
                 },
                 "multiPage": false,
                 "mode": "manual",
-                "testCase": "wcag20:text-equiv-all"
+                "testcase": "wcag20:text-equiv-all"
               }, {
                 "type": "earl:assertion",
                 "assertedBy": "_:evaluator",
@@ -53,7 +53,7 @@ angular.module('wertDummy', ['wcagReporter'])
                 },
                 "multiPage": false,
                 "mode": "manual",
-                "testCase": "wcag20:text-equiv-all"
+                "testcase": "wcag20:text-equiv-all"
               }
             ]
           },

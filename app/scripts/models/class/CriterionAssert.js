@@ -161,7 +161,6 @@ TestCaseAssert, wcag2spec, currentUser) {
         critAssert.assertedBy = currentUser.id;
         critAssert.mode = 'earl:manual';
         critAssert.result.date = $filter('date')(Date.now(), 'yyyy-MM-dd HH:mm:ss Z');
-        console.log(critAssert);
     }
 
     return CriterionAssert;

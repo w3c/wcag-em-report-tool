@@ -142,9 +142,9 @@ angular.module('wcagReporter')
             if (assertion.testRequirement) {
                 assertion.test = assertion.testRequirement.replace('wcag20:', 'WCAG2:');
                 delete assertion.testRequirement;
-            } else if (assertion.testCase) {
-                assertion.test = assertion.testCase.replace('wcag20:', 'WCAG2:');
-                delete assertion.testCase;
+            } else {
+                assertion.test = assertion.testcase.replace('wcag20:', 'WCAG2:');
+                delete assertion.testcase;
             }
 
             assertion.result.type = assertion.result.type || 'TestResult'

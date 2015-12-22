@@ -67,7 +67,7 @@ angular.module('wcagReporter')
 		},
 
 		getFileName: function (ext) {
-			var title = (evalModel.scopeModel.website.title +
+			var title = (evalModel.scopeModel.website.siteName +
 			' evaluation report');
 			ext = ext || 'json';
 			title = title.trim();
