@@ -44,8 +44,10 @@ angular.module('wcagReporter', [
     }).when('/save', {
         templateUrl: 'views/save.html',
         controller: 'SaveCtrl'
+    }).when('/error', {
+        templateUrl: 'views/error.html'
     }).otherwise({
-        redirectTo: '/'
+        redirectTo: '/error'
     });
 
 // Setup the tooltips default
