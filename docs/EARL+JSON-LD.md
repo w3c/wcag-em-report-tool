@@ -75,7 +75,7 @@ dct:title           | text               | Title of the evaluation report
 dct:summary         | text               | Executive summary
 dct:creator         | earl:Assertor      | Author and creator of the evaluation
 dct:date            | text               | Completion date of the evaluation
-commissioner        | text               | Person/organisation who commissioned the evaluation
+commissioner        | text               | Person/organization who commissioned the evaluation
 WCAG2:reliedupondef | WCAG2:technologydef| Web technologies the website relies upon for providing it's content
 step1               | EvaluationScope    | Scope of the evaluation
 step2a              | text               | Common pages of the website
@@ -180,11 +180,7 @@ WCAG2:webpagedef    | sch:WebPage | Resourced to be rendered in a user agent
 ```
 
 ## sch:WebPage
-A web page. Every web page is implicitly assumed to be declared to 
-be of type WebPage, so the various properties about that webpage, 
-such as breadcrumb may be used. We recommend explicit declaration if
-these properties are specified, but if they are found outside of an 
-itemscope, they will be assumed to be about the page.
+A web page is an document or application made available over http or https.
 
 ### sch:WebPage properties
 Properties          | Type    | Description
@@ -226,7 +222,7 @@ dct:title     | text    | Title by which the technology is known
 ```
 
 ## earl:Assertor
-Assertor - an entity such as a person, a software tool, an organization,
+An assertor is an entity such as a person, a software tool, an organization,
 or any other grouping that carries out a test collectively.
 For more details see: http://www.w3.org/TR/EARL10-Schema/#Assertor
 
@@ -235,12 +231,12 @@ type was used. When creating an evaluation, the 'foaf:Person' class is used.
 
 
 ## earl:Assertion
-Assertions are decribed according to EARL and will also include a TestResult.
+Assertions are described according to EARL and will also include a TestResult.
 For more details see: http://www.w3.org/TR/EARL10-Schema/#Assertion
 
 Important note: To refer to WCAG 2 success criteria, the IDs of given to their
 definition in the official WCAG 2 specification are used. For example, the 
-definition of Success criteiron 1.1.1 is http://www.w3.org/TR/WCAG20/#text-equiv-all
+definition of Success Criterion 1.1.1 is http://www.w3.org/TR/WCAG20/#text-equiv-all
 
 ### hasPart & earl:subject
 

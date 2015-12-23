@@ -30,6 +30,6 @@ To run the tests defined in the project, use the `grunt test` command.
 There are currently two places from which the text of the app is
 pulled. The localization for the UI is placed in directories under
 `app/locale/xx/`. The texts used within WCAG are described in
-`app/wcag20spec/wcag2-xx.json`.
+`app/wcag2spec/wcag2-xx.json`.
 
 More about translations, read [docs/translation.md]
