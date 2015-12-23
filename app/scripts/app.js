@@ -51,10 +51,10 @@ angular.module('wcagReporter', [
     });
 
 // Setup the tooltips default
-}).config(function(tooltipsConfigProvider) {
-    tooltipsConfigProvider.options({
+}).config(function(tooltipsConfProvider) {
+    tooltipsConfProvider.configure({
+        smart: true,
         speed: 'fast',
-        lazy: false,
         showTrigger: 'mouseover focus',
         hideTrigger: 'mouseout blur'
     });
