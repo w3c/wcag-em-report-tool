@@ -18,6 +18,7 @@ describe('model: evalModel export', function () {
     var importEval;
     var exportEval;
     var context;
+    var $rootScope;
 
     beforeEach(inject(function (wcagReporterImport,
     wcagReporterExport, basicEvalOutput2, evalContextV2) {
@@ -28,7 +29,8 @@ describe('model: evalModel export', function () {
     }));
 
     beforeEach(function (done) {
-        inject(function ($rootScope) {
+        inject(function (_$rootScope_) {
+            $rootScope = _$rootScope_;
             $rootScope.$on('wcag2spec:langChange', done);
         });
     });
@@ -109,6 +111,11 @@ describe('model: evalModel export', function () {
     it('Defines the Tool version as (dct:)publisher', function () {
         expect(exportEval.publisher)
         .toBe('reporter:releases/tag/' + '<%= pkg.version =%>');
+    });
+
+    it('exports the current language of the tool', function () {
+        expect(exportEval.lang)
+        .toBe($rootScope.lang);
     });
 
 });
