@@ -2,11 +2,8 @@
 
 angular.module('wcagReporter')
 .controller('NavigationCtrl',
-function ($scope, $translate, wcag2spec, $rootScope, supportedLanguages) {
-    function createCookie(name,value) {
-        document.cookie = name+"="+value+"; path=/";
-    }
-
+function ($scope, $rootScope, supportedLanguages, changeLanguage) {
+    
     $scope.languages = supportedLanguages;
     $scope.currentLang = $rootScope.lang;
     
@@ -14,13 +11,6 @@ function ($scope, $translate, wcag2spec, $rootScope, supportedLanguages) {
         $scope.currentLang = change.language.toLowerCase();
     });
 
-    $scope.changeLanguage = function (lang) {
-        if (document) {
-            createCookie('wcagReporter-lang', lang);
-        }
-        
-        $translate.use(lang);
-        wcag2spec.loadLanguage(lang);
-    };
+    $scope.changeLanguage = changeLanguage;
 
 });

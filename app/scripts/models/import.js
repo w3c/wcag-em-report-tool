@@ -5,7 +5,7 @@
  */
 angular.module('wcagReporter')
 .factory('wcagReporterImport',
-function($rootScope, evalModel, currentUser, reportStorage, importV1) {
+function($rootScope, evalModel, currentUser, reportStorage, importV1, changeLanguage) {
     var jsonld = window.jsonld;
 
     function objectCollide(obj1, obj2) {
@@ -152,6 +152,15 @@ function($rootScope, evalModel, currentUser, reportStorage, importV1) {
                     return otherData;
                 }, [currentUser]);
 
+                if (evaluation.lang) {
+                    // This is a workaround for what seems to be a bug in the 
+                    // JSON-LD lib. It outputs ['e', 'n'] instead of 'en', so we 
+                    // join to fix this.
+                    if (angular.isArray(evaluation.lang)) {
+                        evaluation.lang = evaluation.lang.join('');
+                    }
+                    changeLanguage(evaluation.lang);
+                }
                 // Put the evaluation as the first on the list
                 $rootScope.$apply(function () {
                     updateEvalModel(evaluation);
