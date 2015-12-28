@@ -1,6 +1,7 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
+<main>
 <h1>{{ setTitle( translate('REPORT.TITLE') ) }}</h1>
 
 <p ng-bind-html="'REPORT.INTRO' | translate: {
@@ -134,5 +135,6 @@
 
 <div collapse="rootHide.criteriaReport"
 ng-include src="'views/report/findings.html'"></div>
+</main>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>

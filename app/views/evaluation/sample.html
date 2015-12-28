@@ -1,6 +1,7 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
+<main>
 <h1>{{ setTitle( translate('SAMPLE.TITLE') ) }}</h1>
 
 <p ng-bind-html="'SAMPLE.INTRO' | translate: {
@@ -72,6 +73,6 @@
   remove-page="getPageRemover(randomSample)"></input-pages>
 
 </form>
-
+</main>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>

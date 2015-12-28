@@ -1,5 +1,6 @@
 <div ng-include src="'views/messages.html'"></div>
 
+<main>
 <h1>{{ setTitle( translate('ERROR.TITLE') ) }}</h1>
 
 <p>{{ 'ERROR.INTRO' | translate }}</p>
@@ -17,3 +18,5 @@
 <p ng-bind-html=" 'ERROR.BUG_REPORT' | translate : {
     link_github: 'https://github.com/w3c/wcag-em-report-tool/blob/master/docs/contribute.md'
 }"></p>
+
+</main>

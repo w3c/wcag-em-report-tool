@@ -1,6 +1,7 @@
 <div ng-include src="'views/messages.html'"></div>
 <div ng-include src="'views/evaluation/stepbar.html'"></div>
 
+<main>
 <h1>{{ setTitle( translate('SCOPE.TITLE') ) }}</h1>
 
 <p ng-bind-html="'SCOPE.INTRO' | translate: {
@@ -117,5 +118,6 @@
     cols="40" rows="5"></textarea>
   </div>
 </form>
+</main>
 
 <nav ng-include src="'views/step-buttons.html'"></nav>
