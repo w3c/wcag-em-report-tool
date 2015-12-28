@@ -9,9 +9,7 @@ angular.module('wcagReporter', [
     'ngAnimate',
     'pascalprecht.translate',
     '720kb.tooltips',
-    'ui.bootstrap',
     'wert-templates'
-
 ]).config(function ($routeProvider, $compileProvider) {
 
     $compileProvider
