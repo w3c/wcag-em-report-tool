@@ -19,12 +19,11 @@ angular.module('wcagReporter')
                 }
                 tgt.toggle(200, function () {
                     tgt.focus();
+                    elm.attr('aria-expanded', tgt.is(':visible'));
                 });
             });
         },
         replace: true,
-        template: '<a class="info-icon" href="">' +
-            '<span class="glyphicon glyphicon-info-sign"></span>' +
-            '<span class="sr-only">{{label}}</span></a> '
+        templateUrl: 'views/directives/evaluate/infoButton.html'
     });
 });
