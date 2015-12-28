@@ -11,93 +11,11 @@ https://github.com/angular-ui/bootstrap/issues/3347
  * Version: 0.12.1 - 2015-02-20
  * License: MIT
  */
-angular.module("ui.bootstrap", ["ui.bootstrap.transition","ui.bootstrap.collapse", "ui.bootstrap.dropdown"]);
-angular.module('ui.bootstrap.transition', [])
+angular.module("ui.bootstrap", ["ui.bootstrap.collapse", "ui.bootstrap.dropdown"]);
 
-/**
- * $transition service provides a consistent interface to trigger CSS 3 transitions and to be informed when they complete.
- * @param  {DOMElement} element  The DOMElement that will be animated.
- * @param  {string|object|function} trigger  The thing that will cause the transition to start:
- *   - As a string, it represents the css class to be added to the element.
- *   - As an object, it represents a hash of style attributes to be applied to the element.
- *   - As a function, it represents a function to be called that will cause the transition to occur.
- * @return {Promise}  A promise that is resolved when the transition finishes.
- */
-.factory('$transition', ['$q', '$timeout', '$rootScope', function($q, $timeout, $rootScope) {
+angular.module('ui.bootstrap.collapse', ['ngAnimate'])
 
-  var $transition = function(element, trigger, options) {
-    options = options || {};
-    var deferred = $q.defer();
-    var endEventName = $transition[options.animation ? 'animationEndEventName' : 'transitionEndEventName'];
-
-    var transitionEndHandler = function(event) {
-      $rootScope.$apply(function() {
-        element.unbind(endEventName, transitionEndHandler);
-        deferred.resolve(element);
-      });
-    };
-
-    if (endEventName) {
-      element.bind(endEventName, transitionEndHandler);
-    }
-
-    // Wrap in a timeout to allow the browser time to update the DOM before the transition is to occur
-    $timeout(function() {
-      if ( angular.isString(trigger) ) {
-        element.addClass(trigger);
-      } else if ( angular.isFunction(trigger) ) {
-        trigger(element);
-      } else if ( angular.isObject(trigger) ) {
-        element.css(trigger);
-      }
-      //If browser does not support transitions, instantly resolve
-      if ( !endEventName ) {
-        deferred.resolve(element);
-      }
-    });
-
-    // Add our custom cancel function to the promise that is returned
-    // We can call this if we are about to run a new transition, which we know will prevent this transition from ending,
-    // i.e. it will therefore never raise a transitionEnd event for that transition
-    deferred.promise.cancel = function() {
-      if ( endEventName ) {
-        element.unbind(endEventName, transitionEndHandler);
-      }
-      deferred.reject('Transition cancelled');
-    };
-
-    return deferred.promise;
-  };
-
-  // Work out the name of the transitionEnd event
-  var transElement = document.createElement('trans');
-  var transitionEndEventNames = {
-    'WebkitTransition': 'webkitTransitionEnd',
-    'MozTransition': 'transitionend',
-    'OTransition': 'oTransitionEnd',
-    'transition': 'transitionend'
-  };
-  var animationEndEventNames = {
-    'WebkitTransition': 'webkitAnimationEnd',
-    'MozTransition': 'animationend',
-    'OTransition': 'oAnimationEnd',
-    'transition': 'animationend'
-  };
-  function findEndEventName(endEventNames) {
-    for (var name in endEventNames){
-      if (transElement.style[name] !== undefined) {
-        return endEventNames[name];
-      }
-    }
-  }
-  $transition.transitionEndEventName = findEndEventName(transitionEndEventNames);
-  $transition.animationEndEventName = findEndEventName(animationEndEventNames);
-  return $transition;
-}]);
-
-angular.module('ui.bootstrap.collapse', ['ui.bootstrap.transition'])
-
-  .directive('collapse', ['$transition', function ($transition) {
+  .directive('collapse', ['$animate', function ($animate) {
 
     return {
       link: function (scope, element, attrs) {
@@ -106,10 +24,16 @@ angular.module('ui.bootstrap.collapse', ['ui.bootstrap.transition'])
         var currentTransition;
 
         function doTransition(change) {
-          var newTransition = $transition(element, change);
+          var fromState = {}
+          Object.keys(change).forEach(function (cssProp) {
+            fromState[cssProp] = element.css(cssProp);
+          });
+
+          var newTransition = $animate.animate(element, fromState, change);
           if (currentTransition) {
-            currentTransition.cancel();
+            $animate.cancel(currentTransition);
           }
+
           currentTransition = newTransition;
           newTransition.then(newTransitionDone, newTransitionDone);
           return newTransition;
@@ -172,6 +96,9 @@ angular.module('ui.bootstrap.collapse', ['ui.bootstrap.transition'])
   }]);
 
 
+
+
+
 angular.module('ui.bootstrap.dropdown', [])
 
 .constant('dropdownConfig', {
@@ -225,7 +152,9 @@ angular.module('ui.bootstrap.dropdown', [])
   };
 }])
 
-.controller('DropdownController', ['$scope', '$attrs', '$parse', 'dropdownConfig', 'dropdownService', '$animate', function($scope, $attrs, $parse, dropdownConfig, dropdownService, $animate) {
+.controller('DropdownController', ['$scope', '$attrs', '$parse', 'dropdownConfig', 'dropdownService', '$animate',
+function($scope, $attrs, $parse, dropdownConfig, dropdownService, $animate) {
+  
   var self = this,
       scope = $scope.$new(), // create a child scope so we are not polluting original one
       openClass = dropdownConfig.openClass,
