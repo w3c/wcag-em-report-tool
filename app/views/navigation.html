@@ -1,5 +1,5 @@
 <div class="wert-head" ng-controller="NavigationCtrl">
-  <nav class="navbar navbar-default">
+  <div class="navbar navbar-default">
     <div class="branding">
       <div class="nav navbar-nav navbar-right">
         <span class="w3c"><a href="http://w3.org/">
@@ -13,7 +13,8 @@
     </div>
 
 
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-left" 
+    role="navigation" aria-label="{{ 'NAV.MENU' | translate}}">
       <li><a href="#/" target="_blank">
           <span class="glyphicon glyphicon-file"></span>&nbsp;
           {{ 'NAV.MENU_NEW' | translate }}
@@ -73,5 +74,5 @@
           </li>
       </ul>  </li>
     </ul>
-  </nav>
+  </div>
 </div>
