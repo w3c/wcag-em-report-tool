@@ -8,6 +8,7 @@ ng-class="getClassName(assert.result.outcome)">
       <span class="pull-right">
         <button ng-click="spec.show_text = !spec.show_text"
           class="btn btn-default glyphicon glyphicon-education"
+          aria-expanded="{{spec.show_text}}"
           tooltips tooltip-template="{{'AUDIT.BTN_SHOW_TEXT' | translate}}">
             <span class="sr-only">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
         </button>
@@ -55,6 +56,7 @@ ng-class="getClassName(assert.result.outcome)">
 
   <div class="crit-detail-btn" ng-if="opt.collapses">
     <button class="btn btn-default"
+    aria-expanded="{{!!rootHide[critHide]}}"
     ng-click="rootHide[critHide] = !rootHide[critHide]">
 
       <span ng-if="!rootHide[critHide]" class="glyphicon glyphicon-chevron-right"></span>
