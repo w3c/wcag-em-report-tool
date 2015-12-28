@@ -21,6 +21,7 @@
     "BTN_EXPAND_PAGES": "Show web pages to enter individual results",
     "BTN_COLLAPSE_PAGES": "Hide web pages to enter individual results",
     "LABEL_OUTCOME": "Outcome",
+    "UNTESTED": "{{critCount}} untested",
     "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
     "PLH_ASSERT_DESC": "Observations made during evaluation",
     "CLICK_TO_DELETE": "Click to delete",

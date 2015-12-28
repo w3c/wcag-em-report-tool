@@ -89,6 +89,13 @@ h3 + .collapsing {
     }
 }
 
+.test_count {
+    margin-top:4px;
+    font-size: $font-size-small;
+    color: $text-color;
+    font-style: normal;
+}
+
 .confirm-transfer,
 .confirm-remove {
     left: auto;

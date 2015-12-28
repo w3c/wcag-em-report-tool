@@ -2,17 +2,41 @@
 
 angular.module('wcagReporter')
 .controller('AuditCriteriaCtrl', function ($scope, evalAuditModel, evalScopeModel,
-wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope) {
+wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope, $timeout) {
+    var principlesOrigin;
 
     evalAuditModel.updateToConformance();
 
     $scope.criteria = evalAuditModel.getCriteriaSorted();
 
-    $scope.principles = wcag2spec.getPrinciples();
     $scope.getCritAssert = evalAuditModel.getCritAssert;
 
+    function buildPrinciples(target, origin) {
+        var tgtPrinciple  = origin[target.length];
+        target.push(tgtPrinciple);
+
+        // tgtPrinciple.guidelines.forEach(function (g) {
+        //     g.hideCriteria = true;
+        // });
+
+        if (target.length !== origin.length) {
+            $timeout(function () {
+                buildPrinciples(target, origin);
+            }, 50);
+        }
+    }
+
+    principlesOrigin = wcag2spec.getPrinciples();
+    $scope.principles = [];
+    buildPrinciples($scope.principles, principlesOrigin);
+    $scope.principles[0].guidelines[0].hideCriteria = false;
+
+
     $scope.$on('wcag2spec:langChange', function () {
-        $scope.principles = wcag2spec.getPrinciples();
+        principlesOrigin = wcag2spec.getPrinciples();
+        $scope.principles = [];
+        buildPrinciples($scope.principles, principlesOrigin);
+        $scope.principles[0].guidelines[0].hideCriteria = false;
     });
 
 
@@ -66,6 +90,19 @@ wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope) {
         });
     	return visible;
     };
+
+    var untested = ['earl:untested', 'earl:cantTell'];
+    $scope.criteriaUntested = function (guideline) {
+        var count = 0;
+        guideline.successcriteria.forEach(function (critSpec) {
+            var critAssert = evalAuditModel.getCritAssert(critSpec.id);
+            if (untested.indexOf(critAssert.result.outcome) !== -1) {
+                count += 1;
+            }
+        });
+        return count;
+    }
+
 
     // Scroll to the top, then move focus to the h1
     $scope.toTop = function () {
