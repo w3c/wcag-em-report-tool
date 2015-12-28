@@ -9,6 +9,7 @@ angular.module('wcagReporter')
         },
         link: function (scope, elm) {
             var tgt;
+
             elm.on('click', function () {
                 if (!tgt) {
                     if (typeof scope.target === 'undefined') {
@@ -16,6 +17,8 @@ angular.module('wcagReporter')
                     } else {
                         tgt = angular.element('#' + scope.target);
                     }
+                    tgt.find('.close').on('click',
+                            elm.attr.bind(elm, 'aria-expanded', false));
                 }
                 tgt.toggle(200, function () {
                     tgt.focus();
