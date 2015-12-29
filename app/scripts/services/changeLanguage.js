@@ -8,7 +8,6 @@ angular.module('wcagReporter')
     }
 
 	return function changeLanguage(lang) {
-        console.log('changing to ', lang);
         if ($rootScope.lang === lang) {
             return;
         }
