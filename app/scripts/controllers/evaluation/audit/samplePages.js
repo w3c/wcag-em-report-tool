@@ -31,7 +31,7 @@ function ($scope, evalSampleModel, Page, $rootScope) {
 		pages.forEach(function (page) {
 			page.selected = $scope.anySelect;
 		});
-		$scope.auditSize = ($scope.anySelect ? pages.length : 0);
+		$scope.sampleChange();
 	};
 
 
