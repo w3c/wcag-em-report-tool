@@ -13,6 +13,28 @@
     }
 }
 
+
+.reporter-view {
+    &.ng-enter, &.ng-leave {
+        @include transition(200ms linear opacity);
+    }
+    /* When leaving, put the element in the same place, but don't let it take
+    up screen space. This is for the new view */
+    &.ng-leave {/* starting animations for enter */
+        position: absolute;
+        left: 50%;
+        @include translate(-50%, 0);
+    }
+    &.ng-leave, /* starting animations for enter */
+    &.ng-enter.ng-enter-active { /* terminal animations for leave */
+        opacity: 1;
+    }
+    &.ng-enter, /* starting animations for enter */
+    &.ng-leave.ng-leave-active { /* terminal animations for leave */
+        opacity: 0;
+    }
+}
+
 .appear,
 .appear-tall {
     &.ng-enter,/* starting animations for enter */
