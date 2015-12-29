@@ -88,10 +88,8 @@
 
       <div ng-class="col3">
         <button ng-class="delButton"
-        ng-click="removeTechnology($index, $event)"
-        tooltips tooltip-side="top" tooltip-try="0"
-        tooltip-template="{{'EXPLORE.BTN_REMOVE_TECH' | translate}}">
-          <span class="sr-only">
+        ng-click="removeTechnology($index, $event)">
+          <span class="hint">
             {{'EXPLORE.BTN_REMOVE_TECH' | translate}}
           </span>
         </button>

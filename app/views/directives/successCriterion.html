@@ -8,9 +8,8 @@ ng-class="getClassName(assert.result.outcome)">
       <span class="pull-right">
         <button ng-click="spec.show_text = !spec.show_text"
           class="btn btn-default glyphicon glyphicon-education"
-          aria-expanded="{{spec.show_text}}"
-          tooltips tooltip-template="{{'AUDIT.BTN_SHOW_TEXT' | translate}}">
-            <span class="sr-only">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
+          aria-expanded="{{spec.show_text}}">
+            <span class="hint">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
         </button>
       </span>
     </div>

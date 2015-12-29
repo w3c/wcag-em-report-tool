@@ -1,7 +1,4 @@
 'use strict';
-
-
-
 angular.module('wcagReporter', [
     'ngResource',
     'ngSanitize',
@@ -45,15 +42,6 @@ angular.module('wcagReporter', [
         templateUrl: 'views/error.html'
     }).otherwise({
         redirectTo: '/error'
-    });
-
-// Setup the tooltips default
-}).config(function(tooltipsConfProvider) {
-    tooltipsConfProvider.configure({
-        smart: true,
-        speed: 'fast',
-        showTrigger: 'mouseover focus',
-        hideTrigger: 'mouseout blur'
     });
 });
 
