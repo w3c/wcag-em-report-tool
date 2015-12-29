@@ -291,6 +291,10 @@ a.info-icon {
 .sample-tools {
     margin-left:5px;
     margin-bottom:2px;
+    input[type=checkbox] {
+        margin-top:9px;
+        margin-right:4px;
+    }
 }
 
 #file_label:after {
