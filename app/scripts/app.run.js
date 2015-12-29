@@ -4,7 +4,7 @@ angular.module('wcagReporter')
 .run(function ($rootScope, $document, $rootElement, evalScopeModel) {
     var titleElm = $document.find('title');
     var prefix = titleElm.text().trim();
-    var moveFocusToH1;
+    var routeChanged;
 
     if (prefix) {
         prefix = titleElm.text() + ', ';
@@ -22,7 +22,7 @@ angular.module('wcagReporter')
     view is loaded, we'll wait another half second for it to compile
     and then move focus to the h1.
      */
-    $rootElement.focusH1 = function focusH1() {
+    $rootScope.focusH1 = function focusH1() {
         var h1 = $rootElement.find('h1:first()').attr({
             'tabindex': -1,
             // This is a bug workaround for NVDA + IE, which
@@ -43,8 +43,8 @@ angular.module('wcagReporter')
         titleElm.text(prefix + sitename + title);
 
         // Move focus to h1 when the title is set after the initial load
-        if (moveFocusToH1) {
-            moveFocusToH1 = false;
+        if (routeChanged === true) {
+            routeChanged = false;
             // Wait for the template to compile, then focus to h1
             setTimeout($rootScope.focusH1, 750);
         }
@@ -57,7 +57,7 @@ angular.module('wcagReporter')
      */
     $rootScope.$on('$routeChangeSuccess', function () {
         // Move focus, starting at the second route change
-        moveFocusToH1 = (moveFocusToH1 !== undefined);
+        routeChanged = (routeChanged !== undefined);
 
         if (document.activeElement) {
             document.activeElement.blur();
