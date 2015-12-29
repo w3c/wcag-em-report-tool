@@ -64,7 +64,6 @@ angular.module('wcagReporter')
         }
     });
 
-
 // Setup root scope
 }).run(function ($rootScope, translateFilter, appState,
                  $location, $rootElement) {

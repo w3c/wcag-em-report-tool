@@ -14,7 +14,7 @@
     "WZRD_AUDIT": "4. Toets Sample",
     "WZRD_REPORT": "5. Rapporteer Resultaat",
     "WZRD_ACTIVE": "Actief",
-    "WZRD_EXPORT": "Bekijk Rapport",
+    "WZRD_VIEWREPORT": "Bekijk Rapport",
     "PREV_STEP": "Vorige stap",
     "NEXT_STEP": "Volgende stap",
     "STEP_START": "Start",
@@ -23,6 +23,6 @@
     "STEP_SAMPLE": "Selecteer Sample",
     "STEP_AUDIT": "Toets Sample",
     "STEP_REPORT": "Rapporteer Resultaat",
-    "STEP_VIEW": "Bekijk Rapport",
+    "STEP_VIEWREPORT": "Bekijk Rapport",
     "BTN_BACK_TO_EVAL": "Terug"
 }

@@ -14,7 +14,7 @@
     "WZRD_AUDIT": "4. Audit Sample",
     "WZRD_REPORT": "5. Report Findings",
     "WZRD_ACTIVE": "Active",
-    "WZRD_EXPORT": "View Report",
+    "WZRD_VIEWREPORT": "View Report",
     "PREV_STEP": "Previous step",
     "NEXT_STEP": "Next step",
     "STEP_START": "Start",
@@ -23,6 +23,6 @@
     "STEP_SAMPLE": "Select Sample",
     "STEP_AUDIT": "Audit Sample",
     "STEP_REPORT": "Report Findings",
-    "STEP_VIEW": "View Report",
+    "STEP_VIEWREPORT": "View Report",
     "BTN_BACK_TO_EVAL": "Back"
 }

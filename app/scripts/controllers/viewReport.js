@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ReportCtrl', function ($scope, $document,
+.controller('ViewReportCtrl', function ($scope, $document,
 		evalModel, appState, wcagReporterExport) {
 	var htmlBlob;
 
-	$scope.state = appState.moveToState('export');
+	$scope.state = appState.moveToState('viewReport');
     $scope.scope = evalModel.scopeModel;
     $scope.explore = evalModel.exploreModel;
 

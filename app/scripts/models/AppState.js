@@ -36,8 +36,8 @@ angular.module('wcagReporter')
             route:'/evaluation/report',
             copmlete: false
         }, {
-            name: 'export',
-            route:'/report',
+            name: 'viewReport',
+            route:'/view_report',
             copmlete: false
         }]
     };

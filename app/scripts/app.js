@@ -29,9 +29,9 @@ angular.module('wcagReporter', [
     }).when('/evaluation/report', {
         templateUrl: 'views/evaluation/report.html',
         controller: 'EvalReportCtrl'
-    }).when('/report', {
-        templateUrl: 'views/report.html',
-        controller: 'ReportCtrl'
+    }).when('/view_report', {
+        templateUrl: 'views/viewReport.html',
+        controller: 'ViewReportCtrl'
     }).when('/open', {
         templateUrl: 'views/open.html',
         controller: 'OpenCtrl'
