@@ -8,7 +8,6 @@ angular.module('wcagReporter', [
     'ngRoute',
     'ngAnimate',
     'pascalprecht.translate',
-    '720kb.tooltips',
     'wert-templates'
 ]).config(function ($routeProvider, $compileProvider) {
 
