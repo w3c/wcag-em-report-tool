@@ -54,7 +54,6 @@ TestCaseAssert, wcag2spec, currentUser) {
                     }
                 }
             });
-            // console.log(x, parts.length, page.id);
         };
     }
 

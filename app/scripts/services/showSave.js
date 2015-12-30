@@ -69,7 +69,7 @@ angular.module('wcagReporter')
         showSave = function (data, name, mimeType) {
             var blob = new Blob([data], { type: mimeType || octetStream });
             name = name || 'Download.bin';
-            console.log(1, name);
+
             // I don't assign saveAs to navigator.saveBlob (or the other way around)
             // because I cannot know at this point whether future implementations
             // require these methods to be called with 'this' assigned to window (or
@@ -141,7 +141,7 @@ angular.module('wcagReporter')
             if (BrowserSupportedmimeTypes[mimeType.split(';')[0]] === true) {
                 mimeType = octetStream;
             }
-            console.log(3, name);
+
             // Note that encodeURIComponent produces UTF-8 encoded text. The mime type should contain
             // the charset=UTF-8 parameter. In case you don't want the data to be encoded as UTF-8
             // you could use escape(data) instead.
