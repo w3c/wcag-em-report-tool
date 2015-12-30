@@ -43,6 +43,9 @@
       margin-top: ($line-height-computed / 1.5);
       margin-bottom: ($line-height-computed / 3);
     }
+    a {
+        text-decoration: underline;
+    }
 }
 
 .panel.criterion {
