@@ -52,6 +52,13 @@ angular.module('wertDummy')
               'title': 'page1',
               'source': 'http://www.example.com', // new
               'tested': false
+            }, {
+              'type': ['TestSubject', 'WebPage'],
+              'id': '_:struct_1',
+              'description': undefined,
+              'title': undefined,
+              'source': undefined,
+              'tested': false
             }
           ]
         },

@@ -85,7 +85,10 @@ angular.module('wcagReporter')
         }
         page.title = page.handle;
         delete page.handle;
-        page.source = getUrl(page.description);
+        var source = getUrl(page.description);
+        if (source) {
+            page.source = source;
+        }
     }
 
     /**
@@ -97,7 +100,6 @@ angular.module('wcagReporter')
 
         // Capitalize Evaluation
         evaluation.type = evaluation.type.replace('evaluation', 'Evaluation');
-
 
         // Update the EvaluationScope object
         var evalScope = evaluation.evaluationScope;

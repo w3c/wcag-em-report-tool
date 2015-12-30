@@ -9,8 +9,13 @@ angular.module('wcagReporter')
 	}
 
     Page.updateSource = function (page) {
-        page.source = $filter('getUrl')(page.description);
-        return page.source;
+        var source = $filter('getUrl')(page.description);
+        if (source) {
+            page.source = source;
+        } else {
+            delete page.source;
+        }
+        return source;
     }
 
     Page.prependProtocol = function (page) {

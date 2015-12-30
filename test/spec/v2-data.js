@@ -68,9 +68,13 @@ describe('Changes for 1.1+ data format', function () {
         expect(pages.length).not.toBe(0);
 
         pages.forEach(function (page) {
-            expect(page.description).toBeDefined();
+            var url = getUrl(page.description);
             expect(page.title).toBeDefined();
-            expect(page.source).toBe(getUrl(page.description));
+            if (url === false) {
+                expect(page.source).toBeUndefined();
+            } else {
+                expect(page.source).toBe(url);
+            }
 
             expect(page.handle).not.toBeDefined();
         });

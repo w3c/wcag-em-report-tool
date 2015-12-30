@@ -370,6 +370,11 @@ angular.module('wertDummy', ['wcagReporter'])
               "description": "http://www.example.com/random",
               "handle": "random1",
               "tested": false
+            }, {
+              "type": "webpage",
+              "id": "_:rand_1",
+              "handle": "random2",
+              "tested": false
             }
           ]
         },
