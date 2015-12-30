@@ -25,6 +25,10 @@ $alert-danger-border: #a94442;
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 /* endbower */
 
+@import "bootstrap-extend";
+@import "wizard";
+@import "animation";
+@import "evaluate";
 
 input:-webkit-autofill {
     background-color: #fff !important;
@@ -201,14 +205,3 @@ body .wert-head {
         margin-right: 0;
     }
 }
-
-
-@import "bootstrap-extend";
-
-@import "wizard";
-
-@import "animation";
-
-@import "evaluate";
-
-@import "hint";

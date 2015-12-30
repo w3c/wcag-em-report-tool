@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.directive('successCriterion', function (directivePlugin, $rootScope) {
+.directive('successCriterion', function (directivePlugin, $rootScope, toggleCriterionText) {
     var className = {
         'earl:untested': 'untested',
         'earl:passed': 'passed',
@@ -19,6 +19,7 @@ angular.module('wcagReporter')
             opt: '=options'
         },
         link: function (scope) {
+            window.toggleCriterionText = toggleCriterionText;
             // scope.outcomes = outcomes;
             scope.rootHide = $rootScope.rootHide;
             scope.critHide = scope.spec.id + '-cb';
@@ -26,6 +27,7 @@ angular.module('wcagReporter')
                 return className[state];
             };
         },
+        toggleCriterionText: toggleCriterionText,
         templateUrl: 'views/directives/successCriterion.html'
     });
 });

@@ -1,6 +1,8 @@
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
 
+@import "hint";
+
 .reporter-view {
     table {
         border-collapse:collapse;
@@ -61,6 +63,20 @@
     .criterion-title {
         margin-bottom: 5px;
     }
+
+    .crit-text {
+        visibility:visible;
+        opacity:1;
+        max-height:40em;
+        transition: visibility 0s, opacity .3s, max-height .3s ease-in;
+        overflow:hidden;
+        &.collapsed {
+            max-height:0;
+            opacity: 0;
+            visibility:hidden;
+            transition: visibility 0s linear .3s, opacity .3s, max-height .3s ease-out;
+        }
+    }
 }
 
 .panel {
@@ -115,4 +131,22 @@
     li {
         padding: .2em .1em;
     }
+}
+
+button.glyphicon-copy {
+    background: url("../images/copy.png") 7px 3px no-repeat !important;
+    width:30px;
+    height:23px;
+}
+button.glyphicon {
+    background:inherit;
+    border:solid 1px gray;
+    padding:3px 6px;
+    margin-bottom:3px;
+    @include border-right-radius(3px);
+    @include border-left-radius(3px);
+}
+.glyphicon-none:before {
+    content: "\e013";
+    color: transparent !important;
 }

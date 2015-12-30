@@ -6,14 +6,14 @@ ng-class="getClassName(assert.result.outcome)">
     <div class="col-xs-12 criterion-title">
       <strong>{{ spec.num}} {{ spec.handle}}</strong>: ({{spec.level | rdfToLabel}})
       <span class="pull-right">
-        <button ng-click="spec.show_text = !spec.show_text"
-          class="btn btn-default glyphicon glyphicon-education"
-          aria-expanded="{{spec.show_text}}">
+        <button onclick="toggleCriterionText(this)"
+        class="btn btn-default glyphicon glyphicon-education"
+        aria-expanded="false">
             <span class="hint">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
         </button>
       </span>
-    </div>
-    <div class="col-xs-12" collapse="!spec.show_text">
+    
+    </div><div class="col-xs-12 crit-text collapsed">
       <p>{{spec.text}}<p>
       <div ng-repeat="detail in spec.details">
         <ul ng-if="detail.type === 'ulist'">
