@@ -37,16 +37,16 @@ function ($scope, appState, $timeout, evalExploreModel) {
 
     // Add an empty field by default
     if ($scope.otherTech.length === 0) {
-        $scope.otherTech.push({});
+        $scope.otherTech.push({'type': 'Technology'});
     } else {
         $scope.rootHide.OtherTech = $scope.rootHide.OtherTech || true;
     }
 
     $scope.changeTech = function (tech) {
         if (tech.checked) {
-
-            evalExploreModel.reliedUponTechnology
-            .push(angular.extend({}, tech));
+            var newTech = angular.extend({}, tech);
+            delete newTech.checked;
+            evalExploreModel.reliedUponTechnology.push(newTech);
         } else {
             evalExploreModel.reliedUponTechnology = evalExploreModel.reliedUponTechnology
             .filter(function (item) {
@@ -68,7 +68,7 @@ function ($scope, appState, $timeout, evalExploreModel) {
 
 
     $scope.addTechnology = function ($event) {
-        $scope.otherTech.push({});
+        $scope.otherTech.push({'type': 'Technology'});
 
         //evalExploreModel.addReliedUponTech();
         if ($event) {
