@@ -66,7 +66,7 @@ describe('Controller: EvalExploreCtrl', function () {
         var testId    = 'fooBar';
 
         // Check the default empty tech
-        expect(scope.otherTech[0]).toEqual({});
+        expect(scope.otherTech[0]).toEqual({type: 'Technology'});
         expect(model.reliedUponTechnology.length).toBe(0);
 
         // Add a technology field
