@@ -6,7 +6,7 @@
 <p>{{ 'OPEN.INTRO' | translate }}</p>
 
 <div class="alert alert-info appear" ng-if="fileFeedback.posted">
-  <p>{{:: 'OPEN.MSG_LOADING' | translate }}</p>
+  <p>{{ 'OPEN.MSG_LOADING' | translate }}</p>
 </div>
 <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
   <p>{{fileFeedback.failure}}</p>
@@ -14,7 +14,7 @@
 
 <p><label for="load_json" class="btn btn-primary"
   ng-class="{'focus': fileHasFocus }" id="file_label">
-  {{:: 'OPEN.LABEL_SELECT_FILE' | translate }}
+  {{ 'OPEN.LABEL_SELECT_FILE' | translate }}
 </label></p>
 
 <input type="file" class="sr-only" id="load_json"
