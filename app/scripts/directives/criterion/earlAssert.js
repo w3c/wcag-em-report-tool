@@ -1,17 +1,18 @@
 'use strict';
 angular.module('wcagReporter')
 .directive('earlAssert', 
-function($filter, directivePlugin, CriterionAssert) {
-
-	var outcomes = ['earl:untested', 'earl:passed',
-                    'earl:failed', 'earl:inapplicable',
-                    'earl:cantTell']
-    .map(function (rdfId) {
-        return {
-            id: rdfId,
-            name: $filter('rdfToLabel')(rdfId)
-        };
-    });
+function($filter, directivePlugin, CriterionAssert, $rootScope) {
+    function getOutcomes() {
+        return ['earl:untested', 'earl:passed',
+                        'earl:failed', 'earl:inapplicable',
+                        'earl:cantTell']
+        .map(function (rdfId) {
+            return {
+                id: rdfId,
+                name: $filter('rdfToLabel')(rdfId)
+            };
+        });
+    }
 
     return directivePlugin({
         restrict: 'E',
@@ -22,8 +23,9 @@ function($filter, directivePlugin, CriterionAssert) {
             assert: '='
         },
         link: function (scope) {
+
             scope.result = scope.assert.result;
-            scope.outcomes = outcomes;
+            scope.outcomes = getOutcomes();
             scope.updateMetadata = function () {
                 CriterionAssert.updateMetadata(scope.assert);
             }
