@@ -11,8 +11,6 @@ function ($scope, appState, evalExploreModel,
 
     $scope.exploreModel     = evalExploreModel;
 
-    evalAuditModel.updateToConformance();
-
     if ($scope.structuredSample &&
     $scope.structuredSample.webpage.length === 0) {
         var strPage = evalSampleModel.addNewStructuredPage();

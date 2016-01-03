@@ -5,8 +5,6 @@ angular.module('wcagReporter')
 wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope, $timeout) {
     var principlesOrigin = [];
 
-    evalAuditModel.updateToConformance();
-
     $scope.criteria = evalAuditModel.getCriteriaSorted();
 
     $scope.getCritAssert = evalAuditModel.getCritAssert;
@@ -35,11 +33,9 @@ wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope, $timeout) {
 
 
     $scope.$on('wcag2spec:langChange', function () {
-        if (wcag2spec.isLoaded()) {
-            principlesOrigin = wcag2spec.getPrinciples();
-            $scope.principles = [];
-            buildPrinciples($scope.principles, principlesOrigin);
-        }
+        principlesOrigin = wcag2spec.getPrinciples();
+        $scope.principles = [];
+        buildPrinciples($scope.principles, principlesOrigin);
     });
 
 

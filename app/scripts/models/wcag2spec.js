@@ -89,7 +89,8 @@ angular.module('wcagReporter')
         }, 
         isLoaded: function () {
             return (typeof currentSpec !== 'undefined');
-        }
+        },
+        onLangChange: angular.noop
     };
 
 
@@ -100,9 +101,11 @@ angular.module('wcagReporter')
     this.loadLanguage = wcag2.loadLanguage;
 
     this.$get = ['$rootScope', function ($rootScope) {
-        broadcast = function (a,b,c) {
-            $rootScope.$broadcast(a,b,c);
-        };
+        broadcast = $rootScope.$broadcast.bind($rootScope);
+
+        wcag2.onLangChange = $rootScope.$on
+        .bind($rootScope, 'wcag2spec:langChange');
+
         return angular.extend({}, wcag2);
     }];
 

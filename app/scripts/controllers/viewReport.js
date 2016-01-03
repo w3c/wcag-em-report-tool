@@ -18,8 +18,6 @@ angular.module('wcagReporter')
         $scope.wcag2specReady = true;
     })
 
-    evalModel.auditModel.updateToConformance();
-
     $scope.report = evalModel.reportModel;
     var tpl = ['<!DOCTYPE html><html lang="en"><head>' +
     '<meta charset="utf-8">' +

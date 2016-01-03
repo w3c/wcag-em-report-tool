@@ -4,8 +4,19 @@ angular.module('wcagReporter')
 .service('evalAuditModel', function(TestCaseAssert,
 evalScopeModel, wcag2spec, CriterionAssert) {
 
-    var auditModel,
-        criteria = {};
+    var auditModel;
+    var criteria = {};
+
+    wcag2spec.onLangChange(function () {
+        wcag2spec.getCriteria()
+        .forEach(function (spec) {
+            if (typeof criteria[spec.id] === 'undefined') {
+                auditModel.addCritAssert({
+                    'test': spec.id
+                });
+            }
+        });
+    });
 
     auditModel = {
         criteria: criteria,
@@ -56,7 +67,7 @@ evalScopeModel, wcag2spec, CriterionAssert) {
 
         getCritAssert: function (idref) {
             if (typeof criteria[idref] !== 'object') {
-                throw 'Unknown criterion of id ' + idref;
+                throw new Error('Unknown criterion of id ' + idref);
             }
             return criteria[idref];
         },
@@ -100,20 +111,6 @@ evalScopeModel, wcag2spec, CriterionAssert) {
         removePageFromAsserts: function (page) {
             Object.keys(criteria).forEach(function (critName) {
                 criteria[critName].removePage(page);
-            });
-        },
-
-        updateToConformance: function () {
-            if (!wcag2spec.isLoaded()) {
-                return;
-            }
-            wcag2spec.getCriteria()
-            .forEach(function (spec) {
-                if (typeof criteria[spec.id] === 'undefined') {
-                    auditModel.addCritAssert({
-                        'test': spec.id
-                    });
-                }
             });
         }
     };

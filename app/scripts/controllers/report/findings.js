@@ -4,9 +4,16 @@ angular.module('wcagReporter')
 .controller('ReportFindingsCtrl',
 function ($scope, wcag2spec, evalAuditModel, evalScopeModel, CriterionAssert) {
 
-    evalAuditModel.updateToConformance();
+    if (wcag2spec.isLoaded()) {
+        $scope.principles = wcag2spec.getPrinciples();
+    } else {
+        $scope.principles = [];
+        wcag2spec.onLangChange(function () {
+            $scope.principles = wcag2spec.getPrinciples();
+        });
+    }
 
-    $scope.principles = wcag2spec.getPrinciples();
+
     $scope.auditModel = evalAuditModel;
     $scope.critOpt = {
         editable: false,       collapsed: false,
