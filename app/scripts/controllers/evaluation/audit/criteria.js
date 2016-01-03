@@ -3,7 +3,7 @@
 angular.module('wcagReporter')
 .controller('AuditCriteriaCtrl', function ($scope, evalAuditModel, evalScopeModel,
 wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope, $timeout) {
-    var principlesOrigin;
+    var principlesOrigin = [];
 
     evalAuditModel.updateToConformance();
 
@@ -26,17 +26,20 @@ wcag2spec, $rootElement, $anchorScroll, $filter, $rootScope, $timeout) {
         }
     }
 
-    principlesOrigin = wcag2spec.getPrinciples();
     $scope.principles = [];
-    buildPrinciples($scope.principles, principlesOrigin);
-    $scope.principles[0].guidelines[0].hideCriteria = false;
+
+    if (wcag2spec.isLoaded()) {
+        principlesOrigin = wcag2spec.getPrinciples();
+        buildPrinciples($scope.principles, principlesOrigin);
+    }
 
 
     $scope.$on('wcag2spec:langChange', function () {
-        principlesOrigin = wcag2spec.getPrinciples();
-        $scope.principles = [];
-        buildPrinciples($scope.principles, principlesOrigin);
-        $scope.principles[0].guidelines[0].hideCriteria = false;
+        if (wcag2spec.isLoaded()) {
+            principlesOrigin = wcag2spec.getPrinciples();
+            $scope.principles = [];
+            buildPrinciples($scope.principles, principlesOrigin);
+        }
     });
 
 

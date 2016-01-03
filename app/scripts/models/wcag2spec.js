@@ -86,6 +86,9 @@ angular.module('wcagReporter')
         },
         getPrinciples: function () {
             return currentSpec.principles;
+        }, 
+        isLoaded: function () {
+            return (typeof currentSpec !== 'undefined');
         }
     };
 

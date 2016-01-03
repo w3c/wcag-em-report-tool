@@ -62,6 +62,9 @@ evalScopeModel, wcag2spec, CriterionAssert) {
         },
 
         getCriteriaSorted: function () {
+            if (!wcag2spec.isLoaded()) {
+                return [];
+            }
             var critSpec = wcag2spec.getCriteria();
             return critSpec.map(function (criterion) {
                     return criteria[criterion.id];
@@ -101,6 +104,9 @@ evalScopeModel, wcag2spec, CriterionAssert) {
         },
 
         updateToConformance: function () {
+            if (!wcag2spec.isLoaded()) {
+                return;
+            }
             wcag2spec.getCriteria()
             .forEach(function (spec) {
                 if (typeof criteria[spec.id] === 'undefined') {

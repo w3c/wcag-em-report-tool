@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('ViewReportCtrl', function ($scope, $document,
+.controller('ViewReportCtrl', function ($scope, $document, wcag2spec,
 		evalModel, appState, wcagReporterExport, toggleCriterionText) {
 	var htmlBlob;
 
@@ -12,6 +12,11 @@ angular.module('wcagReporter')
     $scope.filledPages = function () {
         return evalModel.sampleModel.getFilledPages();
     };
+
+    $scope.wcag2specReady = wcag2spec.isLoaded();
+    $scope.$on('wcag2spec:langChange', function () {
+        $scope.wcag2specReady = true;
+    })
 
     evalModel.auditModel.updateToConformance();
 
