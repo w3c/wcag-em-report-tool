@@ -7,6 +7,16 @@
     border-radius: 10px;
 }
 
+.app-loading {
+    main,
+    main + nav,
+    .wert-head .navbar-left,
+    .wizard {
+        opacity:0;
+        transition:1s linear opacity;
+    }
+}
+
 table {
     input[type=text] {
         width:100%;

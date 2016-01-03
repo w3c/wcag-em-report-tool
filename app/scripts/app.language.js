@@ -52,13 +52,12 @@ angular.module('wcagReporter')
 }).run(function ($rootScope, $rootElement, $route, translateFilter) {
     $rootScope.translate = translateFilter;
     
+    $rootElement.addClass('app-loading');
     $rootScope.$on('$translateChangeSuccess', function (e, change) {
         // Update the lang data
         $rootElement.attr('lang', change.language);
         $rootScope.lang = change.language;
-
-        // Refresh the page
-        $route.reload();
+        $rootElement.removeClass('app-loading');
     });
 
 });
