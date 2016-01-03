@@ -47,4 +47,18 @@ angular.module('wcagReporter')
     wcag2specProvider.setSpecPath('wcag2spec/wcag2-${lang}.json');
     wcag2specProvider.loadLanguage(lang);
     $translateProvider.preferredLanguage(lang);
+
+
+}).run(function ($rootScope, $rootElement, $route, translateFilter) {
+    $rootScope.translate = translateFilter;
+    
+    $rootScope.$on('$translateChangeSuccess', function (e, change) {
+        // Update the lang data
+        $rootElement.attr('lang', change.language);
+        $rootScope.lang = change.language;
+
+        // Refresh the page
+        $route.reload();
+    });
+
 });
