@@ -74,7 +74,6 @@ describe('Controller: EvalSampleCtrl', function () {
 
 
     it('adds/removes assertions for each page added/removed', function () {
-        evalModel.auditModel.updateToConformance();
         var criteria = evalModel.auditModel.criteria;
         var critIds  = Object.keys(criteria).splice(0, 3);
 
