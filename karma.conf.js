@@ -14,16 +14,15 @@ module.exports = function(config) {
     files: [
       'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-animate/angular-animate.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/json3/lib/json3.js',
       'app/bower_components/angular-resource/angular-resource.js',
-      'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-translate/angular-translate.js',
       'app/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-      'app/bower_components/angular-animate/angular-animate.js',
+      'app/bower_components/json3/lib/json3.js',
       'app/bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
-      'app/bower_components/angular-tooltips/dist/angular-tooltips.min.js',
       'app/scripts/libs/promise-1.0.0.js',
       'app/scripts/libs/jsonld.js',
       'app/scripts/**/{,*/}*.js',
@@ -34,7 +33,8 @@ module.exports = function(config) {
       {pattern: 'app/wcag2spec/*.json', included: false, served: true},
       'test/setup.js',
       'test/dummyData/*.js',
-      'test/spec/**/{,*/}*.js'
+      'test/spec/models/import.js'
+      // 'test/spec/**/{,*/}*.js'
     ],
 
     // list of files / patterns to exclude
