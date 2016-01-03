@@ -49,7 +49,7 @@ angular.module('wcagReporter')
     $translateProvider.preferredLanguage(lang);
 
 
-}).run(function ($rootScope, $rootElement, $route, translateFilter) {
+}).run(function ($rootScope, $rootElement, translateFilter) {
     $rootScope.translate = translateFilter;
     
     $rootElement.addClass('app-loading');

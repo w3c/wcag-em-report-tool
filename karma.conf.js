@@ -33,8 +33,7 @@ module.exports = function(config) {
       {pattern: 'app/wcag2spec/*.json', included: false, served: true},
       'test/setup.js',
       'test/dummyData/*.js',
-      'test/spec/models/import.js'
-      // 'test/spec/**/{,*/}*.js'
+      'test/spec/**/{,*/}*.js'
     ],
 
     // list of files / patterns to exclude

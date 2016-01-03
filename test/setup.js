@@ -2,7 +2,7 @@
 
 function setupwcagReporterTest() {
     beforeEach(module('wcagReporter',
-    function ($provide, $translateProvider, $urlRouterProvider) {
+    function ($provide, $translateProvider) {
         $provide.factory('customLoader', function ($q) {
             return function () {
                 var deferred = $q.defer();
@@ -11,11 +11,6 @@ function setupwcagReporterTest() {
             };
         });
         $translateProvider.useLoader('customLoader');
-
-        $urlRouterProvider.otherwise(function () {
-            return false;
-        });
-
     }));
 
     beforeEach(module('wertDummy'));
