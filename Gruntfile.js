@@ -17,6 +17,10 @@ module.exports = function (grunt) {
 
   var pkg = require('./package.json');
   var fs = require('fs');
+  var date = new Date();
+  var currentDate = date.getFullYear() + '-' +
+                    (1+date.getMonth()) + '-' +
+                    date.getDay();
 
   var langPath    = 'app/locale/';
   var langs = fs.readdirSync(langPath)
@@ -390,6 +394,9 @@ module.exports = function (grunt) {
           }, {
             match: /<%= pkg\.version =%>/g,
             replacement: pkg.version
+          }, {
+            match: /<%= pkg\.buildDate =%>/g,
+            replacement: currentDate
           }]
         },
         files: [{

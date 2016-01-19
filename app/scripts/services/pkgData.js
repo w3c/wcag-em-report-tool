@@ -3,5 +3,6 @@
 angular.module('wcagReporter')
 .value('pkgData', {
 	name: '<%= pkg.name =%>',
-	version: '<%= pkg.version =%>'
+	version: '<%= pkg.version =%>',
+	buildDate: '<%= pkg.buildDate =%>'
 });

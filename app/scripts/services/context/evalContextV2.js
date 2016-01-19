@@ -12,7 +12,7 @@ angular.module('wcagReporter')
     'earl': 'http://www.w3.org/ns/earl#',
     'dct': 'http://purl.org/dc/terms/',
     'wai': 'http://www.w3.org/WAI/',
-    'sch': 'https://schema.org/',
+    'sch': 'http://schema.org/',
 
     // Classes
     'Evaluation': 'wcagem:Evaluation',
