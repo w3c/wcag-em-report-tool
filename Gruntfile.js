@@ -20,7 +20,7 @@ module.exports = function (grunt) {
   var date = new Date();
   var currentDate = date.getFullYear() + '-' +
                     (1+date.getMonth()) + '-' +
-                    date.getDay();
+                    date.getDate();
 
   var langPath    = 'app/locale/';
   var langs = fs.readdirSync(langPath)
