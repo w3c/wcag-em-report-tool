@@ -52,7 +52,7 @@ evalScopeModel, wcag2spec, CriterionAssert) {
 
             return criteria;
         },
-
+    
         importData: function (evalData) {
             if (evalData.auditResult) {
                 if (!angular.isArray(evalData.auditResult)) {
