@@ -23,6 +23,10 @@ angular.module('wcagReporter')
 		var data = {};
 		var idMap = {};
 		var context = source['@context'];
+		var triggers = {
+			add: {'*': []},
+			forget: {'*': []}
+		};
 
 		var getter = function (type) {
 			return function (filter) {
@@ -38,6 +42,17 @@ angular.module('wcagReporter')
 		var model = {
 			get: function (id) {
 				return idMap[id];
+			},
+
+			on: function (event, cb) {
+				event = event.split(':');
+				var method = event[0];
+				var type = event[1] || '*'
+
+				if (!triggers[method][type]) {
+					triggers[method][type] = [];
+				}
+				triggers[method][type].push(cb);∂
 			},
 
 			updateRefs: function (obj) {
@@ -79,8 +94,8 @@ angular.module('wcagReporter')
 				idMap[obj.id] = obj;
 
 				// Register object with it's types
-				getTypes(obj)
-				.forEach(function (type) {
+				var types = getTypes(obj);
+				types.forEach(function (type) {
 					if (!data[type]) {
 						// Create a new type and a getter for it
 						data[type] = [];
@@ -95,6 +110,15 @@ angular.module('wcagReporter')
 				// Build the object's connections
 				model.updateRefs(obj);
 
+				types.push('*')
+				types.forEach(function (type) {
+					if (triggers.add[type]) {
+						triggers.add[type].forEach(function (cb) {
+							cb(obj, type, modal);
+						}
+					}
+				});
+
 				return model;
 			},
 
@@ -103,10 +127,21 @@ angular.module('wcagReporter')
 					obj.forEach(model.remove);
 					return model;
 				}
-				getTypes(obj)
-				.forEach(function (type) {
+				var types = getTypes(obj);
+				types.forEach(function (type) {
 					data[type].splice(data[type].indexOf(obj), 1);
 				});
+
+				types.push('*')
+				types.forEach(function (type) {
+					if (triggers.forget[type]) {
+						triggers.forget[type].forEach(function (cb) {
+							cb(obj, type, modal);
+						}
+					}
+				});
+
+
 				delete idMap[obj.id];
 
 				return model;

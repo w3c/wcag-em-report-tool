@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('EvalScopeCtrl',
-function ($scope, appState, evalScopeModel,
-          evalReportModel, $filter) {
+.controller('EvalScopeCtrl',    
+function ($scope, appState, ldEval, $filter, evalScopeModel) {
     $scope.state      = appState.moveToState('scope');
-    $scope.scopeModel = evalScopeModel;
+    
+    $scope.scopeModel = ldEval().getOne('EvaluationScope');
 
     $scope.conformanceOptions = evalScopeModel.conformanceOptions
     .reduce(function (tgt, lvl) {
@@ -17,10 +17,10 @@ function ($scope, appState, evalScopeModel,
     // Give the report a default title
     // (won't if one is already set)
     $scope.$on('$routeChangeStart', function() {
-        if (evalScopeModel.website.siteName) {
+        if ($scope.scopeModel.website.siteName) {
             var translate     = $filter('translate');
             var siteName = translate('REPORT.TITLE_PREFIX') + ' ' +
-                        evalScopeModel.website.siteName;
+                        $scope.scopeModel.website.siteName;
             evalReportModel.setDefaultTitle(siteName);
         }
     });
