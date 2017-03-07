@@ -22,4 +22,4 @@ Have an idea for a feature and have some time to develop it? Let us know! We'll 
 
 For minor feature changes, [creating a pull request](https://github.com/w3c/wcag-em-report-tool/pulls) once it is finished is sufficient. But for larger changes, please create an issue first to discuss how to fit it into the larger project.
 
-For more detail on how the project is set up, read the [developer documentation](docs/developer-docs.md).
+For more detail on how the project is set up, read the [developer documentation](https://github.com/normanbrobinson/wcag-em-report-tool/blob/master/docs/developer-docs.md).
