@@ -14,7 +14,7 @@ We work hard to keep the code quality at a high level. But we're human, so we ma
 
 
 ## Create A Translation
-Do you feel the WCAG-EM Report Tool should be available in a different language? Well, we do too! Even better, if you have some time to contribute and share it with the community. For more information, read our [translation instructions](docs/translation.md)
+Do you feel the WCAG-EM Report Tool should be available in a different language? Well, we do too! Even better, if you have some time to contribute and share it with the community. For more information, read our [translation instructions](https://github.com/normanbrobinson/wcag-em-report-tool/blob/master/docs/translation.md)
 
 
 ## Contribute Code
