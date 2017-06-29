@@ -22,8 +22,8 @@ angular.module('wcagReporter')
     var tpl = ['<!DOCTYPE html><html lang="en"><head>' +
     '<meta charset="utf-8">' +
     '<title>' + evalModel.reportModel.title +  '</title>' +
-    '<script>' + toggleCriterionText.toString() + '</script>' +
-    '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />'+
+    '<script>' + toggleCriterionText.toString().replace('function (a)', 'function toggleCriterionText(a)') + '</script>' +
+    '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />'+
     '<link rel="stylesheet" href="report.css" />'+
     '</head><body><div class="container reporter-view">',  '</div></body></html>'];
 
