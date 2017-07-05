@@ -14,7 +14,7 @@ We work hard to keep the code quality at a high level. But we're human, so we ma
 
 
 ## Create A Translation
-Do you feel the WCAG-EM Report Tool should be available in a different language? Well, we do too! Even better, if you have some time to contribute and share it with the community. For more information, read our [translation instructions](docs/translation.md)
+Do you feel the WCAG-EM Report Tool should be available in a different language? Well, we do too! Even better, if you have some time to contribute and share it with the community. For more information, read our [translation instructions](https://github.com/normanbrobinson/wcag-em-report-tool/blob/master/docs/translation.md)
 
 
 ## Contribute Code
@@ -22,4 +22,4 @@ Have an idea for a feature and have some time to develop it? Let us know! We'll 
 
 For minor feature changes, [creating a pull request](https://github.com/w3c/wcag-em-report-tool/pulls) once it is finished is sufficient. But for larger changes, please create an issue first to discuss how to fit it into the larger project.
 
-For more detail on how the project is set up, read the [developer documentation](docs/developer-docs.md).
+For more detail on how the project is set up, read the [developer documentation](https://github.com/normanbrobinson/wcag-em-report-tool/blob/master/docs/developer-docs.md).
