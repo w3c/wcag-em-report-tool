@@ -171,7 +171,51 @@
                                     "text": "For requirements related to color, refer to Guideline 1.4."
                                 }
                             ]
+                        }, 
+                      {
+                            "id": "WCAG2:content-structure-separation-orientation",
+                            "num": "1.3.4",
+                            "handle": "Orientation",
+                            "text": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Note",
+                                    "text": "Examples where a particular display orientation may be essential are a bank check, a piano application, slides for a projector or television, or virtual reality content where binary display orientation is not applicable."
+                                }
+                            ]
+                        }, 
+                      {
+                            "id": "WCAG2:content-structure-separation-identifyInputPurpose",
+                            "num": "1.3.5",
+                            "handle": "Identify Input Purpose",
+                            "text": "The purpose of each input field collecting information about the user can be programmatically determined when:",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "The input field",
+                                            "text": "serves a purpose identified in the Input Purposes for User Interface Components section; and"
+                                        },
+                                        {
+                                            "handle": "The content",
+                                            "text": "is implemented using technologies with support for identifying the expected meaning for form input data."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }, 
+                      {
+                            "id": "WCAG2:content-structure-separation-identifyPurpose",
+                            "num": "1.3.6",
+                            "handle": "Identify Purpose",
+                            "text": "In content implemented using markup languages, the purpose of User Interface Components, icons, and regions can be programmatically determined.",
+                            "level": "AAA"
                         }
+                      
                     ]
                 },
                 {
@@ -372,6 +416,123 @@
                                     "text": "Logotypes (text that is part of a logo or brand name) are considered essential."
                                 }
                             ]
+                        },
+                        {
+                            "id": "WCAG2:reflow",
+                            "num": "1.4.10",
+                            "handle": "Reflow",
+                            "text": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for (a) Vertical scrolling content at a width equivalent to 320 CSS pixels; (v) Horizontal scrolling content at a height equivalent to 256 CSS pixels. Except for parts of the content which require two-dimensional layout for usage or meaning.",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Note 1",
+                                    "text": "320 CSS pixels is equivalent to a starting viewport width of 1280 CSS pixels wide at 400% zoom. For web content which are designed to scroll horizontally (e.g. with vertical text), the 256 CSS pixels is equivalent to a starting viewport height of 1024px at 400% zoom."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Note 2",
+                                    "text": "Examples of content which require two-dimensional layout are images, maps, diagrams, video, games, presentations, data tables, and interfaces where it is necessary to keep toolbars in view while manipulating content."
+                                }
+                            ]
+                        }, 
+                      {
+                            "id": "WCAG2:non-text-contrast",
+                            "num": "1.4.11",
+                            "handle": "Non-text Contrast",
+                            "text": "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "User Interface Components",
+                                            "text": "Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;"
+                                        },
+                                        {
+                                            "handle": "Graphical Objects",
+                                            "text": "Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:text-spacing",
+                            "num": "1.4.12",
+                            "handle": "Text Spacing",
+                            "text": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Line height (line spacing)",
+                                            "text": "to at least 1.5 times the font size;"
+                                        },
+                                        {
+                                            "handle": "Spacing following paragraphs",
+                                            "text": "to at least 2 times the font size;"
+                                        },
+                                        {
+                                            "handle": "Letter spacing (tracking)",
+                                            "text": "to at least 0.12 times the font size;"
+                                        },
+                                        {
+                                            "handle": "Word spacing",
+                                            "text": "tto at least 0.16 times the font size."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Exception:",
+                                    "text": "Human languages and scripts that do not make use of one or more of these text style properties in written text can conform using only the properties that exist for that combination of language and script."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:content-on-hover-or-focus",
+                            "num": "1.4.13",
+                            "handle": "Content on Hover or Focus",
+                            "text": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
+                            "level": "AA",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Dismissable",
+                                            "text": "A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;"
+                                        },
+                                        {
+                                            "handle": "Hoverable",
+                                            "text": "If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;"
+                                        },
+                                        {
+                                            "handle": "Persistent",
+                                            "text": "The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Exception:",
+                                    "text": "The visual presentation of the additional content is controlled by the user agent and is not modified by the author."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Note 1:",
+                                    "text": "Examples of additional content controlled by the user agent include browser tooltips created through use of the HTML title attribute."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Note 2",
+                                    "text": "Custom tooltips, sub-menus, and other nonmodal popups that display on hover and focus are examples of additional content covered by this criterion."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -428,6 +589,32 @@
                             "handle": "Keyboard (No Exception)",
                             "text": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
                             "level": "AAA"
+                        },
+                        {
+                            "id": "WCAG2:character-key-shortcut",
+                            "num": "2.1.4",
+                            "handle": "Character Key Shortcuts",
+                            "text": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:",
+                            "level": "A",
+                            "details": [
+                                {
+                                    "type": "olist",
+                                    "items": [
+                                        {
+                                            "handle": "Turn off:",
+                                            "text": "A mechanism is available to turn the shortcut off;"
+                                        },
+                                        {
+                                            "handle": "Remap:",
+                                            "text": "A mechanism is available to remap the shortcut to use one or more non-printable keyboard characters (e.g. Ctrl, Alt, etc);"
+                                        },
+                                        {
+                                            "handle": "Active only on focus:",
+                                            "text": "The keyboard shortcut for a user interface component is only active when that component has focus."
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -542,6 +729,20 @@
                             "handle": "Re-authenticating",
                             "text": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
                             "level": "AAA"
+                        },
+                        {
+                            "id": "WCAG2:timeouts",
+                            "num": "2.2.6",
+                            "handle": "Timeouts",
+                            "text": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
+                            "level": "AAA",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Note",
+                                    "text": "Privacy regulations may require explicit user consent before user identification has been authenticated and before user data is preserved. In cases where the user is a minor, explicit consent may not be solicited in most jurisdictions, countries or regions. Consultation with privacy professionals and legal counsel is advised when considering data preservation as an approach to satisfy this success criterion."
+                                }
+                            ]
                         }
                     ]
                 },
@@ -570,6 +771,13 @@
                             "num": "2.3.2",
                             "handle": "Three Flashes",
                             "text": "Web pages do not contain anything that flashes more than three times in any one second period.",
+                            "level": "AAA"
+                        },
+                        {
+                            "id": "WCAG2:animation-from-interactions",
+                            "num": "2.3.3",
+                            "handle": "Animation from Interactions",
+                            "text": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
                             "level": "AAA"
                         }
                     ]
@@ -662,6 +870,144 @@
                                 }
                             ]
                         }
+                    ]
+                },
+                {
+                    "id": "WCAG2:input-modalities",
+                    "num": "2.5",
+                    "handle": "Input Modalities",
+                    "text": "Make it easier for users to operate functionality through various inputs beyond keyboard.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:pointer-gestures",
+                            "num": "2.5.1",
+                            "handle": "Pointer Gestures",
+                            "text": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
+                            "level": "A",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Note",
+                                    "text": "This requirement applies to web content that interprets pointer actions (i.e. this does not apply to actions that are required to operate the user agent or assistive technology)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:pointer-cancellation",
+                            "num": "2.5.2",
+                            "handle": "Pointer Cancellation",
+                            "text": "For functionality that can be operated using a single pointer, at least one of the following is true:",
+                            "level": "A",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "No Down-Event",
+                                            "text": "the down-event of the pointer is not used to execute any part of the function;"
+                                        },
+                                        {
+                                            "handle": "Abort or Undo",
+                                            "text": "Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;"
+                                        },
+                                        {
+                                            "handle": "Up Reversal",
+                                            "text": "The up-event reverses any outcome of the preceding down-event;"
+                                        },
+                                        {
+                                            "handle": "Essential",
+                                            "text": "Completing the function on the down-event is essential."
+                                        }
+
+
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Note 1",
+                                    "text": "Functions that emulate a keyboard or numeric keypad key press are considered essential"
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Note 2",
+                                    "text": "This requirement applies to web content that interprets pointer actions (i.e. this does not apply to actions that are required to operate the user agent or assistive technology)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:label-in-name",
+                            "num": "2.5.3",
+                            "handle": "Label in Name",
+                            "text": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
+                            "level": "A",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "",
+                                    "text": "A best practice is to have the text of the label at the start of the name."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:motion-actuation",
+                            "num": "2.5.4",
+                            "handle": "Motion Actuation",
+                            "text": "Functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:",
+                            "level": "A",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Supported Interface",
+                                            "text": "The motion is used to operate functionality through an accessibility supported interface;"
+                                        },
+                                        {
+                                            "handle": "Essential",
+                                            "text": "The motion is essential for the function and doing so would invalidate the activity."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:target-size",
+                            "num": "2.5.5",
+                            "handle": "Target Size",
+                            "text": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:",
+                            "level": "AAA",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Equivalent",
+                                            "text": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;"
+                                        },
+                                        {
+                                            "handle": "Inline",
+                                            "text": "The target is in a sentence or block of text;"
+                                        },
+                                        {
+                                            "handle": "User Agent Control",
+                                            "text": "The size of the target is determined by the user agent and is not modified by the author;"
+                                        },
+                                        {
+                                            "handle": "Essential",
+                                            "text": "A particular presentation of the target is essential to the information being conveyed."
+                                        }
+                                    ]
+                                }
+                            ]
+
+                        },
+                        {
+                            "id": "WCAG2:concurrent-input",
+                            "num": "2.5.6",
+                            "handle": "Concurrent Input Mechanisms",
+                            "text": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
+                            "level": "AAA"
+                        } 
                     ]
                 }
             ]
@@ -894,6 +1240,13 @@
                                     "text": "This success criterion is primarily for Web authors who develop or script their own user interface components. For example, standard HTML controls already meet this success criterion when used according to specification."
                                 }
                             ]
+                        },
+                        {
+                            "id": "WCAG2:status-messages",
+                            "num": "4.1.3",
+                            "handle": "Status Messages",
+                            "text": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
+                            "level": "AA"
                         }
                     ]
                 }
