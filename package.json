@@ -46,7 +46,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "install": "npx bower install",
+    "install": "npx bower install && gem install compass",
     "build": "npx grunt build",
     "start": "npx grunt serve",
     "test": "grunt test"
