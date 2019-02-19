@@ -49,6 +49,6 @@
     "install": "npx bower install && gem install compass",
     "build": "npx grunt build",
     "start": "npx grunt serve",
-    "test": "grunt test"
+    "test": "npx grunt test"
   }
 }
