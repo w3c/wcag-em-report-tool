@@ -19,13 +19,23 @@ The official released version of the Report Tool can be found at <http://www.w3.
 See [Change log](changelog.md) for details about the latest version of the WCAG-EM Report Tool.
 
 
-# Install
+# Requirements
+
 Before you can install the WCAG-EM Report Tool you will need
 to install a few components:
-- NodeJS https://nodejs.org/en/
+
+- NodeJS https://nodejs.org/en/ (or [NodeJS with Node Version Manager installed](https://github.com/creationix/nvm))
+
+  Minimum NodeJS version "lts/carbon" (Long term support)
+
 - Ruby   https://www.ruby-lang.org/en/documentation/installation/
 
-Then install all dependencies by running:
+  Latest stable version
+
+
+# Install
+
+Install the _wcag em report tool_ by running:
 
 ```bash
 # Choose a root folder to install this project then:
@@ -35,6 +45,9 @@ git clone https://github.com/w3c/wcag-em-report-tool.git
 
 # 2
 cd wcag-em-report-tool
+
+# (Optional) if node installed with nvm
+nvm install
 
 # 3
 npm install
