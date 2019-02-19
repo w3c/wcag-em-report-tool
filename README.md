@@ -28,10 +28,19 @@ to install a few components:
 Then install all dependencies by running:
 
 ```bash
+# Choose a root folder to install this project then:
+
+# 1
+git clone https://github.com/w3c/wcag-em-report-tool.git
+
+# 2
+cd wcag-em-report-tool
+
+# 3
 npm install
 ```
 
-This will install all node packages, bower components and compass. See `scripts: install` in `package.json` for detailed installation info.
+This will fetch the project, install all node packages, bower components and compass. See `scripts: install` in `package.json` for detailed installation info.
 
 
 # Usage
