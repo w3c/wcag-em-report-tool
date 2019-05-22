@@ -8,14 +8,7 @@ evalScopeModel, wcag2spec, CriterionAssert) {
     var criteria = {};
 
     wcag2spec.onLangChange(function () {
-        wcag2spec.getCriteria()
-        .forEach(function (spec) {
-            if (typeof criteria[spec.id] === 'undefined') {
-                auditModel.addCritAssert({
-                    'test': spec.id
-                });
-            }
-        });
+        auditModel.restoreMissingCriteria();
     });
 
     auditModel = {
@@ -62,7 +55,19 @@ evalScopeModel, wcag2spec, CriterionAssert) {
                 auditModel.criteria = criteria;
 
                 evalData.auditResult.forEach(auditModel.addCritAssert);
+                auditModel.restoreMissingCriteria();
             }
+        },
+
+        restoreMissingCriteria: function() {
+            wcag2spec.getCriteria()
+            .forEach(function (spec) {
+                if (typeof criteria[spec.id] === 'undefined') {
+                    auditModel.addCritAssert({
+                        'test': spec.id
+                    });
+                }
+            });
         },
 
         getCritAssert: function (idref) {
