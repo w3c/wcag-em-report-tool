@@ -6,6 +6,7 @@
     "url": "git://github.com/w3c/wcag-em-report-tool.git"
   },
   "dependencies": {
+    "textarea-autosize": "~0.4.1",
     "angular": "~1.4.7",
     "angular-animate": "~1.4.7",
     "angular-resource": "~1.4.7",
@@ -15,7 +16,6 @@
     "bootstrap-sass-official": "~3.3.5",
     "es5-shim": "~4.1.14",
     "json3": "~3.3.2",
-    "textarea-autosize": "~0.4.1",
     "angular-mocks": "~1.4.7",
     "angular-scenario": "~1.4.7",
     "angular-translate-loader-static-files": "~2.8.1"
