@@ -14,8 +14,6 @@
     "angular-sanitize": "~1.4.7",
     "angular-translate": "~2.8.1",
     "bootstrap-sass-official": "~3.3.5",
-    "es5-shim": "~4.1.14",
-    "json3": "~3.3.2",
     "angular-mocks": "~1.4.7",
     "angular-scenario": "~1.4.7",
     "angular-translate-loader-static-files": "~2.8.1"
