@@ -12,7 +12,7 @@
 <div collapse="rootHide.start1" class="{{initial}}">
   <p ng-bind-html="'START.INTRO_1' | translate: {
     link_wcagem: 'http://www.w3.org/TR/WCAG-EM/',
-    link_report: '#/report',
+    link_report: '#!/view_report',
     link_wcag: 'http://www.w3.org/WAI/intro/wcag',
     link_conformance: 'http://www.w3.org/WAI/eval/conformance'
   }"></p>
@@ -39,7 +39,7 @@
 <div collapse="rootHide.start3" class="{{initial}}">
   <ul>
     <li>{{ 'START.TIPS_LI1' | translate }}</li>
-    <li ng-bind-html="'START.TIPS_LI2' | translate: { info : 
+    <li ng-bind-html="'START.TIPS_LI2' | translate: { info :
       '<span class=\'glyphicon glyphicon-info-sign primary-color\'></span>' +
       '<span class=\'sr-only\'>' + translate('COMMON.BTN_INFO') + '</span>'
     }">
