@@ -28,7 +28,7 @@
     "grunt-ng-annotate": "^3.0.0",
     "grunt-replace": "^1.0.1",
     "grunt-rev": "^0.1.0",
-    "grunt-usemin": "~3.1.1",
+    "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
     "jasmine-core": "^2.4.1",
     "jshint-stylish": "~2.0.1",
