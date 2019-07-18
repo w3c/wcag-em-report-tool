@@ -39,7 +39,7 @@
     "karma-ng-scenario": "^0.1.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "load-grunt-tasks": "^5.0.0",
-    "phantomjs": "^2.1.3",
+    "phantomjs": "^2.1.7",
     "time-grunt": "^2.0.0"
   },
   "engines": {
