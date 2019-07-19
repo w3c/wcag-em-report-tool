@@ -42,7 +42,7 @@
     "time-grunt": "2.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8.15.0"
   },
   "scripts": {
     "install": "npx bower install && gem install compass",
