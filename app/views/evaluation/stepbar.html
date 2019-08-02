@@ -4,7 +4,7 @@ aria-label="{{'NAV.WZRD_LABEL' | translate }}">
   ng-init="active = state.currentStateIndex == $index"
   ng-class="{active: active, 'wizard-step': 1}">
 
- 	  <a ng-if="!active" ng-href="{{'#' + stateItem.route}}">
+ 	  <a ng-if="!active" ng-href="{{'#!' + stateItem.route}}">
       {{ 'NAV.WZRD_' + stateItem.name | uppercase | translate}}
     </a>
 
