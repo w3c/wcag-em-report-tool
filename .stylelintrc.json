@@ -6,8 +6,18 @@
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "indentation": 2,
-    "linebreaks": "unix",
+    "indentation": [
+      2,
+      {
+        "severity": "warning"
+      }
+    ],
+    "linebreaks": [
+      "unix",
+      {
+        "severity": "warning"
+      }
+    ],
     "no-eol-whitespace": true,
     "no-missing-end-of-source-newline": true
   }}

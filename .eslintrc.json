@@ -18,7 +18,7 @@
           "error"
         ],
         "comma-dangle": [
-          "error",
+          "warn",
           "always-multiline"
         ],
         "curly": [
@@ -26,11 +26,11 @@
           "all"
         ],
         "indent": [
-            "error",
+            "warn",
             2
         ],
         "linebreak-style": [
-            "error",
+            "warn",
             "unix"
         ],
         "new-cap": [
@@ -43,15 +43,15 @@
           "error"
         ],
         "quotes": [
-            "error",
+            "warn",
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ],
         "vars-on-top": [
-          "error"
+          "warn"
         ]
     }
 }
