@@ -38,6 +38,9 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "load-grunt-tasks": "~5.0.0",
     "phantomjs": "^2.1.7",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-scss": "^3.10.0",
     "time-grunt": "2.0.0"
   },
   "engines": {
@@ -48,7 +51,8 @@
     "build": "npx grunt build",
     "start": "npx grunt serve",
     "test": "npx grunt test",
-    "lint": "npm run lint:scripts",
-    "lint:scripts": "npx eslint ./app/scripts ./test -f table"
+    "lint": "npm run lint:styles && npm run lint:scripts",
+    "lint:scripts": "npx eslint ./app/scripts ./test -f table",
+    "lint:styles": "npx stylelint ./app/styles/*.scss -f verbose"
   }
 }
