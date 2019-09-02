@@ -7,21 +7,21 @@
  * @type {Object}
  */
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "jquery": true
+  env: {
+    browser: true,
+    es6: true,
+    jquery: true
   },
-  "extends": "standard",
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
-    "angular": "readonly"
+  extends: 'standard',
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    angular: 'readonly'
   },
-  "parserOptions": {
-    "ecmaVersion": 2018
+  parserOptions: {
+    ecmaVersion: 2018
   },
-  "rules": {
+  rules: {
 
     /*
     ** Array notation:
@@ -31,16 +31,16 @@ module.exports = {
     **   2
     ** ]
      */
-    "array-bracket-newline": [
-      "error",
+    'array-bracket-newline': [
+      'error',
       {
-        "multiline": true,
-        "minItems": 2
+        multiline: true,
+        minItems: 2
       }
     ],
-    "array-element-newline": [
-      "error",
-      "always"
+    'array-element-newline': [
+      'error',
+      'always'
     ],
 
     /**
@@ -56,9 +56,9 @@ module.exports = {
      *   c
      * ) {…}
      */
-    "function-paren-newline": [
-      "error",
-      "multiline-arguments"
+    'function-paren-newline': [
+      'error',
+      'multiline-arguments'
     ],
 
     /**
@@ -72,10 +72,10 @@ module.exports = {
      *   .method()
      *   .method();
      */
-    "newline-per-chained-call": [
-      "error",
+    'newline-per-chained-call': [
+      'error',
       {
-        "ignoreChainWithDepth": 1
+        ignoreChainWithDepth: 1
       }
     ],
 
@@ -89,10 +89,10 @@ module.exports = {
      *
      * var a; var b;
      */
-    "max-statements-per-line": [
-      "error",
+    'max-statements-per-line': [
+      'error',
       {
-        "max": 1
+        max: 1
       }
     ],
 
@@ -101,9 +101,9 @@ module.exports = {
      *
      * execute();
      */
-    "semi": [
-      "error",
-      "always"
+    semi: [
+      'error',
+      'always'
     ]
   }
 };
