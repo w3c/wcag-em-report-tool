@@ -1,54 +1,54 @@
 'use strict';
 
 angular.module('wcagReporter')
-.service('evalExploreModel', function(knownTech, evalSampleModel) {
+  .service('evalExploreModel', function (knownTech, evalSampleModel) {
     var exploreModel = {
-        commonPages: [],
-        otherRelevantPages: [],
-        knownTech: knownTech
+      commonPages: [],
+      otherRelevantPages: [],
+      knownTech: knownTech
     };
     var basicProps = [
-        'reliedUponTechnology', 'essentialFunctionality',
-        'pageTypeVariety'
+      'reliedUponTechnology',
+      'essentialFunctionality',
+      'pageTypeVariety'
     ];
 
     // add all properties to this
     basicProps.forEach(function (prop) {
-        exploreModel[prop] = undefined;
+      exploreModel[prop] = undefined;
     });
 
     exploreModel.reliedUponTechnology = [];
 
     exploreModel.importData = function (evalData) {
-        if (!angular.isArray(evalData.reliedUponTechnology)) {
-            evalData.reliedUponTechnology = [evalData.reliedUponTechnology];
+      if (!angular.isArray(evalData.reliedUponTechnology)) {
+        evalData.reliedUponTechnology = [evalData.reliedUponTechnology];
+      }
+      basicProps.forEach(function (prop) {
+        if (evalData[prop]) {
+          exploreModel[prop] = evalData[prop];
         }
-        basicProps.forEach(function (prop) {
-            if (evalData[prop]) {
-               exploreModel[prop] = evalData[prop];
-            }
-        });
+      });
     };
 
-
     exploreModel.exportData = function () {
-        var exportData = {};
+      var exportData = {};
 
-        basicProps.forEach(function (prop) {
-            exportData[prop] = exploreModel[prop];
-        });
-        return exportData;
+      basicProps.forEach(function (prop) {
+        exportData[prop] = exploreModel[prop];
+      });
+      return exportData;
     };
 
     /**
      * Returns an array of errors indicating which (if any) properties are invalid
      */
     exploreModel.validate = function () {
-        return [];
+      return [];
     };
 
     // Lock up the object, for a little more dev security
     Object.preventExtensions(exploreModel);
 
     return exploreModel;
-});
+  });
