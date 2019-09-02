@@ -1,152 +1,194 @@
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins.scss";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
-
 @import "hint";
 
 .reporter-view {
-    table {
-        border-collapse:collapse;
-        min-width:65%;
-        caption { color: $text-color; }
-        
-        thead th { text-align:center }
-        tbody th { text-align:left } 
 
-        td, th {
-            border:solid 1px #dddddd;
-            padding: .2em .5em;
+  table {
+    border-collapse: collapse;
+    min-width: 65%;
 
-            > p:only-child {
-                padding:0;
-                margin:0;
-            }
-        }
+    caption {
+      color: $text-color;
     }
 
-    h1 + h2,
-    h2 + h3 {
-        margin-top:12px
+    thead th {
+      text-align: center;
     }
 
-    h1, .h1,
-    h3, .h3 {
-      margin-top: $line-height-computed;
-      margin-bottom: ($line-height-computed / 3);
+    tbody th {
+      text-align: left;
     }
 
-    h2, .h2 {
-      margin-top: $line-height-computed;
-      margin-bottom: ($line-height-computed / 3);
-    }
+    td,
+    th {
+      border: solid 1px #ddd;
+      padding: 0.2em 0.5em;
 
-    h4, .h4,
-    h5, .h5,
-    h6, .h6 {
-      margin-top: ($line-height-computed / 1.5);
-      margin-bottom: ($line-height-computed / 3);
+      > p:only-child {
+        padding: 0;
+        margin: 0;
+      }
     }
-    a {
-        text-decoration: underline;
-    }
+  }
+
+  h1 + h2,
+  h2 + h3 {
+    margin-top: 12px;
+  }
+
+  h1,
+  .h1,
+  h3,
+  .h3 {
+    margin-top: $line-height-computed;
+    margin-bottom: ($line-height-computed / 3);
+  }
+
+  h2,
+  .h2 {
+    margin-top: $line-height-computed;
+    margin-bottom: ($line-height-computed / 3);
+  }
+
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin-top: ($line-height-computed / 1.5);
+    margin-bottom: ($line-height-computed / 3);
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .panel.criterion {
-    border-left-width:6px;
-    &.passed       { border-left-color:#86C8A7 }
-    &.failed       { border-left-color:#E48996 }
-    &.inapplicable { border-left-color:#A6A6C7 }
-    &.canttell     { border-left-color:#E0B970 }
-    
-    .panel-heading {
-        padding-bottom:0;
-    }
-    .criterion-title {
-        margin-bottom: 5px;
-    }
+  border-left-width: 6px;
 
-    .crit-text {
-        visibility:visible;
-        opacity:1;
-        max-height:40em;
-        transition: visibility 0s, opacity .3s, max-height .3s ease-in;
-        overflow:hidden;
-        &.collapsed {
-            max-height:0;
-            opacity: 0;
-            visibility:hidden;
-            transition: visibility 0s linear .3s, opacity .3s, max-height .3s ease-out;
-        }
+  &.passed {
+    border-left-color: #86c8a7;
+  }
+
+  &.failed {
+    border-left-color: #e48996;
+  }
+
+  &.inapplicable {
+    border-left-color: #a6a6c7;
+  }
+
+  &.canttell {
+    border-left-color: #e0b970;
+  }
+
+  .panel-heading {
+    padding-bottom: 0;
+  }
+
+  .criterion-title {
+    margin-bottom: 5px;
+  }
+
+  .crit-text {
+    visibility: visible;
+    opacity: 1;
+    max-height: 40em;
+    transition: visibility 0s, opacity 0.3s, max-height 0.3s ease-in;
+    overflow: hidden;
+
+    &.collapsed {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0s linear 0.3s, opacity 0.3s, max-height 0.3s ease-out;
     }
+  }
 }
 
 .panel {
-    border-width:2px;
+  border-width: 2px;
 }
 
 .panel .panel-heading,
 .alert {
-    color:$text-color;
-    a {
-        color:$text-color;
-        text-decoration:underline;
-        &:hover,
-        &:focus {
-            color:black;
-        }
+  color: $text-color;
+
+  a {
+    color: $text-color;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      color: black;
     }
+  }
 }
 
 .panel-heading h1 {
-    margin:0;
+  margin: 0;
 }
 
 .outcome p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .panel-body {
-    &.assert-indent {
-        padding-left:15px;
-        .subject-type {
-            line-height:30px;
-        }
-        .earl-assert {
-            padding-left:15px;
-        }
+
+  &.assert-indent {
+    padding-left: 15px;
+
+    .subject-type {
+      line-height: 30px;
     }
-    + hr {
-        margin:0;
-    }
+
     .earl-assert {
-        margin-bottom:7px;
-        border-bottom:solid 1px #dddddd;
-        &:last-child {
-            border-bottom:none;
-        }
+      padding-left: 15px;
     }
+  }
+
+  + hr {
+    margin: 0;
+  }
+
+  .earl-assert {
+    margin-bottom: 7px;
+    border-bottom: solid 1px #ddd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .sample_narrow {
-    list-style:none;
-    li {
-        padding: .2em .1em;
-    }
+  list-style: none;
+
+  li {
+    padding: 0.2em 0.1em;
+  }
 }
 
 button.glyphicon-copy {
-    background: url("../images/copy.png") 7px 3px no-repeat !important;
-    width:30px;
-    height:23px;
+  background: url("../images/copy.png") 7px 3px no-repeat !important;
+  width: 30px;
+  height: 23px;
 }
+
 button.glyphicon {
-    background:inherit;
-    border:solid 1px gray;
-    padding:3px 6px;
-    margin-bottom:3px;
-    @include border-right-radius(3px);
-    @include border-left-radius(3px);
+  background: inherit;
+  border: solid 1px gray;
+  padding: 3px 6px;
+  margin-bottom: 3px;
+
+  @include border-right-radius(3px);
+  @include border-left-radius(3px);
 }
-.glyphicon-none:before {
-    content: "\e013";
-    color: transparent !important;
+
+.glyphicon-none::before {
+  content: "\e013";
+  color: transparent !important;
 }
