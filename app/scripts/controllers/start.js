@@ -1,24 +1,25 @@
 'use strict';
 
 angular.module('wcagReporter')
-.controller('StartCtrl',
-function ($scope, $location, appState, $timeout, $rootScope) {
+  .controller(
+    'StartCtrl',
+    function ($scope, $location, appState, $timeout, $rootScope) {
   	$scope.state = appState.moveToState('start');
-    
-    if (typeof $rootScope.rootHide.start1 === 'undefined') {
+
+      if (typeof $rootScope.rootHide.start1 === 'undefined') {
         $scope.initial = 'hidden';
         $timeout(function () {
-            $scope.initial = '';
+          $scope.initial = '';
         }, 500);
         $timeout(function () {
-            $rootScope.rootHide.start1 = false;
+          $rootScope.rootHide.start1 = false;
         }, 700);
-    }
+      }
 
-    $scope.nextStep = function () {
+      $scope.nextStep = function () {
         $location.path('/evaluation/scope');
-    };
+      };
 
-    $scope.nextStepName = 'STEP_SCOPE';
-
-});
+      $scope.nextStepName = 'STEP_SCOPE';
+    }
+  );
