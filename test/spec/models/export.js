@@ -23,13 +23,13 @@ describe('model: evalModel export', function () {
     inject(function (
       wcagReporterImport,
       wcagReporterExport,
-      basicEvalOutput2,
-      evalContextV2
+      basicEvalOutput3,
+      evalContextV3
     ) {
       reportImport = wcagReporterImport;
       reportExport = wcagReporterExport;
-      dummyData = basicEvalOutput2;
-      context = evalContextV2;
+      dummyData = basicEvalOutput3;
+      context = evalContextV3;
     })
   );
 
