@@ -19,17 +19,19 @@ describe('model: evalModel export', function () {
   var context;
   var $rootScope;
 
-  beforeEach(inject(function (
-    wcagReporterImport,
-    wcagReporterExport,
-    basicEvalOutput2,
-    evalContextV2
-  ) {
-    reportImport = wcagReporterImport;
-    reportExport = wcagReporterExport;
-    dummyData = basicEvalOutput2;
-    context = evalContextV2;
-  }));
+  beforeEach(
+    inject(function (
+      wcagReporterImport,
+      wcagReporterExport,
+      basicEvalOutput2,
+      evalContextV2
+    ) {
+      reportImport = wcagReporterImport;
+      reportExport = wcagReporterExport;
+      dummyData = basicEvalOutput2;
+      context = evalContextV2;
+    })
+  );
 
   beforeEach(function (done) {
     inject(function (_$rootScope_) {
@@ -40,6 +42,7 @@ describe('model: evalModel export', function () {
 
   beforeEach(function (done) {
     reportImport.fromJson(dummyData, done);
+
     setTimeout(function () {
       exportData = reportExport.getJson();
       importEval = getEval(dummyData);
@@ -79,6 +82,7 @@ describe('model: evalModel export', function () {
       .forEach(function (sampleType) {
         var importPages = importEval[sampleType].webpage;
         var exportPages = exportEval[sampleType].webpage;
+
         expect(importPages.length)
           .toBe(exportPages.length);
 
@@ -90,29 +94,39 @@ describe('model: evalModel export', function () {
   });
 
   it('has the same results', function () {
-    // Find all none-empty assertions
-    importEval.auditResult.filter(function (assert) {
-      var result = assert.result;
-      return (result.outcome !== 'earl:untested' ||
-                    !!result.description);
+    importEval.auditResult
+
+      // Find all none-empty assertions
+      .filter(function (assert) {
+        var result = assert.result;
+
+        return (
+          result.outcome !== 'earl:untested' ||
+        !!result.description
+        );
+      })
 
       // Check if there is 1 none-empty assertion in the output
-    })
       .forEach(function (assertOut) {
         var asserts = [];
+
         // Find all asserts with the same subject & test
-        exportEval.auditResult.forEach(function (assertIn) {
-          if (assertIn.test === assertOut.test &&
-                assertIn.subject === assertOut.subject) {
-          // Remove methods & inherited properties
-            assertIn = JSON.parse(JSON.stringify(assertIn));
-            asserts.push(assertIn);
-          }
-        });
+        exportEval.auditResult
+          .forEach(function (assertIn) {
+            if (
+              assertIn.test === assertOut.test &&
+              assertIn.subject === assertOut.subject
+            ) {
+              // Remove methods & inherited properties
+              assertIn = JSON.parse(JSON.stringify(assertIn));
+              asserts.push(assertIn);
+            }
+          });
 
         // Check there is only 1, and it has all the same properties
         expect(asserts.length)
           .toBe(1);
+
         expect(asserts[0])
           .toEqual(assertOut);
       });
