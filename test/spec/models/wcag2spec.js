@@ -72,15 +72,15 @@ describe('model: wcag2spec', function () {
   });
 
   describe('getCriterion', function () {
-    it('should return a criterion with the given ID (WCAG2:text-equiv-all)', function () {
-      var criterionId = 'WCAG2:text-equiv-all';
+    it('should return a criterion with the given ID (WCAG2:non-text-content)', function () {
+      var criterionId = 'WCAG2:non-text-content';
       var criterion = wcag2spec.getCriterion(criterionId);
 
       expect(typeof criterion)
         .toBe('object');
 
       expect(criterion.id)
-        .toBeEqual(criterionId);
+        .toBe(criterionId);
     });
 
     it('should return undefined if the ID is unknown', function () {
