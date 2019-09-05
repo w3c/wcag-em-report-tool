@@ -8,7 +8,7 @@ angular.module('wcagReporter')
     // Namespaces
     reporter: 'https://github.com/w3c/wcag-em-report-tool/',
     wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
-    WCAG2: 'http://www.w3.org/TR/WCAG20/#',
+    WCAG2: 'http://www.w3.org/TR/WCAG21/#',
     earl: 'http://www.w3.org/ns/earl#',
     dct: 'http://purl.org/dc/terms/',
     wai: 'http://www.w3.org/WAI/',
@@ -21,7 +21,7 @@ angular.module('wcagReporter')
     WebSite: 'sch:WebSite',
     Sample: 'wcagem:Sample',
     WebPage: 'sch:WebPage',
-    Technology: 'WCAG2:technologydef',
+    Technology: 'WCAG2:dfn-technologies',
     Assertion: 'earl:Assertion',
     Assertor: 'earl:Assertor',
     TestResult: 'earl:TestResult',
@@ -35,7 +35,7 @@ angular.module('wcagReporter')
     },
     date: 'dct:date',
     commissioner: 'wcagem:commissioner',
-    reliedUponTechnology: 'WCAG2:reliedupondef',
+    reliedUponTechnology: 'WCAG2:dfn-relied-upon',
     evaluationScope: 'step1',
     commonPages: 'step2a',
     essentialFunctionality: 'step2b',
@@ -57,26 +57,21 @@ angular.module('wcagReporter')
     },
     accessibilitySupportBaseline: 'step1c',
     additionalEvalRequirement: 'step1d',
-    website: 'WCAG2:set-of-web-pagesdef',
+    website: 'WCAG2:dfn-set-of-web-pages',
 
     // sch:WebSite class properties
     siteScope: 'step1a',
     siteName: 'sch:name',
 
     // Sample class properties
-    webpage: 'WCAG2:webpagedef',
-
     // sch:WebPage class properties
+    webpage: 'WCAG2:dfn-web-page-s',
     description: 'dct:description',
-    // 'title': 'dct:title',  -- As in the Evaluation class
     source: {
       '@id': 'dct:source',
       '@type': '@id'
     },
     tested: 'reporter:blob/master/docs/EARL%2BJSON-LD.md#tested',
-
-    // WCAG2:technologydef class properties
-    // 'title': 'dct:title',  -- As in the Evaluation class
 
     // earl:Assertion class properties
     test: {
@@ -99,7 +94,6 @@ angular.module('wcagReporter')
     hasPart: 'dct:hasPart',
 
     // earl:TestResult class properties
-    // 'description': 'dct:description',  -- As in the sch:WebPage class
     outcome: {
       '@id': 'earl:outcome',
       '@type': '@id'
