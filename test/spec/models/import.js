@@ -18,12 +18,12 @@ describe('model: evalModel import', function () {
 
   beforeEach(
     inject(function (
-      wcagReporterImport,
-      basicEvalOutput2,
+      _wcagReporterImport_,
+      _basicEvalOutput3_,
       _evalModel_
     ) {
-      reportImport = wcagReporterImport;
-      dummyData = basicEvalOutput2;
+      reportImport = _wcagReporterImport_;
+      dummyData = _basicEvalOutput3_;
       evalModel = _evalModel_;
       importEval = getEval(dummyData);
     })
