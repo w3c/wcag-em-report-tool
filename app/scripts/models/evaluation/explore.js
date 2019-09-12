@@ -3,8 +3,8 @@
 angular.module('wcagReporter')
   .service('evalExploreModel', function (knownTech, evalSampleModel) {
     var exploreModel = {
-      commonPages: [],
-      otherRelevantPages: [],
+      commonPages: undefined,
+      otherRelevantPages: undefined,
       knownTech: knownTech
     };
     var basicProps = [
