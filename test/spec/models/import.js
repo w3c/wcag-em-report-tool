@@ -60,15 +60,20 @@ describe('model: evalModel import', function () {
 
   it('stores explore properties on evalModel.exploreModel', function () {
     var exploreModel = evalModel.exploreModel;
+
     [
       'reliedUponTechnology',
       'essentialFunctionality',
       'pageTypeVariety',
+
+      // Following properties are added to the model but excluded from view
+      // Still testing for it since it is part of WCAG-EM
       'commonPages',
       'otherRelevantPages'
-    ].forEach(function (prop) {
-      expect(exploreModel[prop])
-        .toEqual(importEval[prop]);
+    ].forEach(function (property) {
+      expect(exploreModel[property])
+        .withContext(property)
+        .toEqual(importEval[property]);
     });
   });
 
