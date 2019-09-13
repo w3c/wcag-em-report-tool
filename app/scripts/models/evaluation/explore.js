@@ -3,14 +3,14 @@
 angular.module('wcagReporter')
   .service('evalExploreModel', function (knownTech, evalSampleModel) {
     var exploreModel = {
-      commonPages: undefined,
-      otherRelevantPages: undefined,
       knownTech: knownTech
     };
     var basicProps = [
       'reliedUponTechnology',
       'essentialFunctionality',
-      'pageTypeVariety'
+      'pageTypeVariety',
+      'commonPages',
+      'otherRelevantPages'
     ];
 
     // add all properties to this
