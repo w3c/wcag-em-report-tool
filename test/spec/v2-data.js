@@ -31,12 +31,13 @@ describe('Changes for 1.1+ data format', function () {
   var importV1;
   var getUrl;
   var assertions;
+  var importedAssertionCount;
   var evalContextV2;
   var latestContext;
 
   beforeEach(
     inject(function (
-      wcagReporterImport,
+      _wcagReporterImport_,
       _importV1_,
       // wcagReporterExport,
       basicEvalOutput1,
@@ -45,7 +46,7 @@ describe('Changes for 1.1+ data format', function () {
       _evalContextV2_,
       _evalContextV3_
     ) {
-      reportImport = wcagReporterImport;
+      reportImport = _wcagReporterImport_;
       dummyData = basicEvalOutput1;
       evalModel = _evalModel_;
       importEval = getEval(dummyData);
@@ -73,17 +74,18 @@ describe('Changes for 1.1+ data format', function () {
           return evalModel.auditModel.criteria[critId];
         });
 
-      expect(assertions.length)
-        .withContext('Dummy data contains assertions and should be loaded in application')
-        .not
-        .toBe(0);
+      importedAssertionCount = assertions.length;
+
+      expect(importedAssertionCount)
+        .withContext('Dummy data v1 contains 25 assertions and should be loaded in application')
+        .toBe(25);
 
       done();
-    }, 100);
+    }, 250);
   });
 
   // Update to reflect current context version
-  it('changes to the latest context version', function () {
+  it('use latest context version', function () {
     expect(evalModel.context)
       .toEqual(latestContext);
   });
@@ -141,11 +143,27 @@ describe('Changes for 1.1+ data format', function () {
       .toBe('EvaluationScope');
 
     expect(evalModel.exploreModel.knownTech.length)
-      .not
-      .toBe(0);
+      .withContext('app/scripts/services/knownTechnologies has 13 defined')
+      .toBe(13);
+
+    expect(Array.isArray(evalModel.exploreModel.reliedUponTechnology))
+      .withContext('reliedUponTechnology is an Array')
+      .toBe(true);
+
+    expect(evalModel.exploreModel.reliedUponTechnology.length)
+      .withContext('reliedUponTechnology contains 2 technologies')
+      .toBe(2);
 
     evalModel.exploreModel.reliedUponTechnology
       .forEach(function (tech) {
+        expect(tech)
+          .withContext('tech should be defined')
+          .toBeDefined();
+
+        expect(tech.type)
+          .withContext(tech)
+          .toBeDefined();
+
         expect(tech.type)
           .toBe('Technology');
       });

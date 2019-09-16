@@ -5,6 +5,7 @@ angular
   .factory('importV1', function (
     evalContextV1,
     evalContextV2,
+    evalContextV3,
     $filter
   ) {
     var getUrl = $filter('getUrl');
@@ -14,7 +15,7 @@ angular
         .map(function (importObj) {
           // upgrade from v1 to v2
           if (isV1Evaluation(importObj)) {
-            importObj = upgradeToV2(importObj);
+            importObj = upgradeToV3(upgradeToV2(importObj));
 
           // Correct the foaf namespace
           } else if (
@@ -185,6 +186,12 @@ angular
           assertion.hasPart.forEach(updateAsserts);
         }
       });
+
+      return evaluation;
+    }
+
+    function upgradeToV3 (evaluation) {
+      evaluation['@context'] = evalContextV3;
 
       return evaluation;
     }
