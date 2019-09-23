@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('wcagReporter')
+angular
+  .module('wcagReporter')
   .value('evalContextV3', {
     // Current namespace
     '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
