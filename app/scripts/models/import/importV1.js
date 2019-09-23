@@ -118,28 +118,25 @@ angular
       }
     }
 
-    /**
-     * Evaluation object from v1 to v2
-     */
     function upgradeToV2 (evaluation) {
-      // Replace with the v2 context
-      evaluation['@context'] = evalContextV2;
-
-      // Capitalize Evaluation
-      evaluation.type = evaluation.type.replace('evaluation', 'Evaluation');
+      // Initiate update to prevent side-effect alteration of evaluation
+      var update = Object.create(evaluation);
+      update['@context'] = evalContextV2;
+      update.type = 'Evaluation';
 
       // Update the EvaluationScope object
-      var evalScope = evaluation.evaluationScope;
+      var evalScope = update.evaluationScope;
       evalScope.type = evalScope.type || 'EvaluationScope';
       evalScope.website.type = evalScope.website.type || [
         'TestSubject',
         'WebSite'
       ];
 
-      evaluation.reliedUponTechnology.forEach(function (tech) {
+      update.reliedUponTechnology.forEach(function (tech) {
         tech.type = tech.type || 'Technology';
       });
 
+      // Change conformanceTarget to "wai:WCAG2X-Conformance" where X is A{1,3}
       if (evalScope.conformanceTarget.substr(0, 13) === 'wcag20:level_') {
         evalScope.conformanceTarget = 'wai:WCAG2' + (
           evalScope.conformanceTarget
@@ -148,26 +145,27 @@ angular
         ) + '-Conformance';
       }
 
+      // website.title > website.siteName
       if (evalScope.website.title) {
         evalScope.website.siteName = evalScope.website.title;
         delete evalScope.website.title;
       }
 
-      // Update the sample
-      if (!angular.isArray(evaluation.structuredSample.webpage)) {
-        evaluation.structuredSample.webpage = [evaluation.structuredSample.webpage];
+      // Update the structured and random sample
+      if (!angular.isArray(update.structuredSample.webpage)) {
+        update.structuredSample.webpage = [update.structuredSample.webpage];
       }
-      evaluation.structuredSample.type = evaluation.structuredSample.type || 'Sample';
-      evaluation.structuredSample.webpage.forEach(fixPage);
+      update.structuredSample.type = update.structuredSample.type || 'Sample';
+      update.structuredSample.webpage.forEach(fixPage);
 
-      if (!angular.isArray(evaluation.randomSample.webpage)) {
-        evaluation.randomSample.webpage = [evaluation.randomSample.webpage];
+      if (!angular.isArray(update.randomSample.webpage)) {
+        update.randomSample.webpage = [update.randomSample.webpage];
       }
-      evaluation.randomSample.type = evaluation.randomSample.type || 'Sample';
-      evaluation.randomSample.webpage.forEach(fixPage);
+      update.randomSample.type = update.randomSample.type || 'Sample';
+      update.randomSample.webpage.forEach(fixPage);
 
       // Update assertions
-      evaluation.auditResult.forEach(function updateAsserts (assertion) {
+      update.auditResult.forEach(function updateAsserts (assertion) {
         assertion.type = assertion.type.replace('earl:assertion', 'Assertion');
 
         if (assertion.testRequirement) {
@@ -187,13 +185,18 @@ angular
         }
       });
 
-      return evaluation;
+      return update;
     }
 
     function upgradeToV3 (evaluation) {
-      evaluation['@context'] = evalContextV3;
+      var update = Object.create(evaluation);
 
-      return evaluation;
+      // update context to v3
+      update['@context'] = evalContextV3;
+
+      // Update successcriteria ids
+
+      return update;
     }
 
     // Expose methods for testing
