@@ -1,7 +1,11 @@
 'use strict';
 
-angular.module('wcagReporter')
-  .service('evalExploreModel', function (knownTech, evalSampleModel) {
+angular
+  .module('wcagReporter')
+  .service('evalExploreModel', function (
+    knownTech,
+    evalSampleModel
+  ) {
     var exploreModel = {
       knownTech: knownTech
     };
