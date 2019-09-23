@@ -257,6 +257,11 @@ describe('Changes for 1.1+ data format', function () {
   it('should be properly upgraded to version 2 first', function () {
     var importEvalV2 = importV1.upgradeToV2(importEval);
 
+    expect(importEval)
+      .withContext('Version 1 should not equal version 2')
+      .not
+      .toBe(importEvalV2);
+
     expect(importEvalV2['@context'])
       .toEqual(evalContextV2);
   });
