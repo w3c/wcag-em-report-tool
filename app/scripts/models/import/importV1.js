@@ -188,6 +188,26 @@ angular
       return update;
     }
 
+    function isV2Evaluation (data) {
+      if (typeof data !== 'object') {
+        throw new TypeError('Expected object but got ' + typeof data);
+      }
+
+      if (!Object.prototype.hasOwnProperty.call(data, '@context')) {
+        return false;
+      }
+
+      Object.keys(evalContextV2)
+        .some(function (key) {
+
+        });
+      if (data['@context'] === evalContextV2) {
+        return true;
+      }
+
+      return false;
+    }
+
     function upgradeToV3 (evaluation) {
       var update = Object.create(evaluation);
 
@@ -199,9 +219,28 @@ angular
       return update;
     }
 
+    function isV3Evaluation (data) {
+      if (typeof data !== 'object') {
+        throw new TypeError('Expected object but got ' + typeof data);
+      }
+
+      if (!Object.prototype.hasOwnProperty.call(data, '@context')) {
+        return false;
+      }
+
+      if (data['@context'] === evalContextV3) {
+        return true;
+      }
+
+      return false;
+    }
+
     // Expose methods for testing
     convertor.isV1Evaluation = isV1Evaluation;
+    convertor.isV2Evaluation = isV2Evaluation;
+    convertor.isV3Evaluation = isV3Evaluation;
     convertor.upgradeToV2 = upgradeToV2;
+    convertor.upgradeToV3 = upgradeToV3;
 
     return convertor;
   });
