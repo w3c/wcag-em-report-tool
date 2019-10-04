@@ -1,8 +1,14 @@
 'use strict';
 
+/**
+ * ImportV1; imports and migrates jsonld data
+ * TODO: Use JSONLD API
+ */
+
 angular
   .module('wcagReporter')
   .factory('importV1', function (
+    wcagSpecIdMap,
     evalContextV1,
     evalContextV2,
     evalContextV3,
@@ -28,6 +34,18 @@ angular
 
           return importObj;
         });
+    }
+
+    function updateTestId (test) {
+      var testId = test.split(':');
+      var criterionIdSet = wcagSpecIdMap
+        .filter(function (idSet) {
+          return idSet.indexOf(testId[1]) >= 0;
+        })[0];
+      var latestId = criterionIdSet.length - 1;
+      testId[1] = criterionIdSet[latestId].toString();
+
+      return testId.join(':');
     }
 
     /**
@@ -120,7 +138,7 @@ angular
 
     function upgradeToV2 (evaluation) {
       // Initiate update to prevent side-effect alteration of evaluation
-      var update = Object.create(evaluation);
+      var update = angular.copy(evaluation);
       update['@context'] = evalContextV2;
       update.type = 'Evaluation';
 
@@ -209,12 +227,30 @@ angular
     }
 
     function upgradeToV3 (evaluation) {
-      var update = Object.create(evaluation);
+      var update = angular.copy(evaluation);
 
       // update context to v3
       update['@context'] = evalContextV3;
 
       // Update successcriteria ids
+      update.auditResult
+        .forEach(function (assertion) {
+          if (assertion.test) {
+            assertion.test = updateTestId(assertion.test);
+          }
+
+          if (
+            assertion.hasPart &&
+            assertion.hasPart.length
+          ) {
+            assertion.hasPart
+              .forEach(function (subAssertion) {
+                if (subAssertion.test) {
+                  subAssertion.test = updateTestId(subAssertion.test);
+                }
+              });
+          }
+        });
 
       return update;
     }
