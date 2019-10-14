@@ -53,69 +53,18 @@ angular
      */
     function isV1Evaluation (data) {
       if (typeof data !== 'object') {
-        throw new TypeError('Expected object for ' + data);
+        throw new TypeError('Expected data to be of type object but is ' + typeof data + ' instead.');
       }
 
       var dataContext = data['@context'];
-      var contextProps = Object.keys(evalContextV1);
 
       // Skip if the context isn't there
       if (typeof dataContext !== 'object') {
         return false;
       }
 
-      // Dirty check if they have the same keys
-      if (
-        (
-          contextProps
-            .sort()
-            .join(',')
-        ) !== (
-          Object.keys(dataContext)
-            .sort()
-            .join(',')
-        )
-      ) {
-        return false;
-      }
-
-      return contextProps
-        .reduce(function (result, prop) {
-          if (!result) { // false is false
-            return result;
-
-          // Context prop doesn't exist
-          } else if (typeof dataContext[prop] === 'undefined') {
-            return false;
-
-          // Context prop is different value
-          } else if (
-            typeof dataContext[prop] === 'string' &&
-            dataContext[prop] !== evalContextV1[prop]
-          ) {
-            return false;
-
-          // Context prop is an object, compare it's content
-          } else if (typeof dataContext[prop] === 'object') {
-            return Object.keys(evalContextV1[prop])
-              .reduce(function (result, subProp) {
-                if (!result) {
-                  return result;
-                } else if (typeof dataContext[prop][subProp] === 'undefined') {
-                  return false;
-                } else if (
-                  typeof dataContext[prop][subProp] === 'string' &&
-                  dataContext[prop][subProp] !== evalContextV1[prop][subProp]
-                ) {
-                  return false;
-                } else {
-                  return true;
-                }
-              }, true);
-          } else {
-            return true;
-          }
-        }, true);
+      // Check if full context V1 is represented in dataContext
+      return _atLeastEqualTo(dataContext, evalContextV1);
     }
 
     /** Upgrade Page to v2 */
