@@ -15,16 +15,29 @@ angular
     $filter
   ) {
     var getUrl = $filter('getUrl');
-
+    var isLatestVersion = isV3Evaluation;
+    /**
+     * Converts json-ld @graph contents
+     * @param  {Array} '@graph'-contents
+     * @return {Array} new updated '@graph'-contents
+     */
     function convertor (importArray) {
       return importArray
         .map(function (importObj) {
           // upgrade from v1 to v2
           if (isV1Evaluation(importObj)) {
-            importObj = upgradeToV3(upgradeToV2(importObj));
+            importObj = upgradeToV2(importObj);
+          }
 
+          if (isV2Evaluation(importObj)) {
+            importObj = upgradeToV3(importObj);
+          }
+
+          if (isV3Evaluation(importObj)) {
+            // is Latest check. Here for future additions.
+          }
           // Correct the foaf namespace
-          } else if (
+          if (
             typeof importObj === 'object' &&
             typeof importObj['@context'] === 'object' &&
             importObj['@context']['@vocab'] === 'http://xmlns.com/foaf/spec/#'
@@ -36,6 +49,12 @@ angular
         });
     }
 
+    /**
+     * Updates the test WCAG ID to latest version.
+     * The test ID exist of 2 parts: [WCAG2, <ID>]
+     * @param  {String}      test string
+     * @return {String}      new test ID string
+     */
     function updateTestId (test) {
       var testId = test.split(':');
       var criterionIdSet = wcagSpecIdMap
@@ -244,6 +263,9 @@ angular
 
       return result;
     }
+
+    // Compatibility check
+    convertor.isLatestVersion = isLatestVersion;
 
     // Expose methods for testing
     convertor.isV1Evaluation = isV1Evaluation;

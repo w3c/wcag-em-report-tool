@@ -123,13 +123,14 @@ angular
 
       fromObject: function (evalData) {
         // Check if an old format needs to be converted:
+        var graphData = evalData['@graph'] || null;
+
         if (
-          angular.isArray(evalData['@graph']) &&
-          typeof evalData['@graph'][0] === 'object' &&
-          evalData['@graph'][0].type.toLowerCase() === 'evaluation'
+          angular.isArray(graphData) &&
+          !importV1.isLatestVersion(graphData)
         ) {
           // Fix an older import format
-          evalData['@graph'] = importV1(evalData['@graph']);
+          evalData['@graph'] = importV1(graphData);
         }
 
         jsonld.expand(evalData, function (err, expanded) {
