@@ -77,8 +77,8 @@ describe('Changes for 1.1+ data format', function () {
       importedAssertionCount = assertions.length;
 
       expect(importedAssertionCount)
-        .withContext('Dummy data v1 contains 25 assertions and should be loaded in application')
-        .toBe(25);
+        .withContext('auditModel should contain 78 assertions reflecting all WCAG criteria')
+        .toBe(78);
 
       done();
     }, 250);
