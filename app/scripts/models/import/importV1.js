@@ -271,6 +271,35 @@ angular
       return false;
     }
 
+    function _atLeastEqualTo (object1, object2) {
+      var result = true;
+
+      for (var property in object2) {
+        if (!Object.prototype.hasOwnProperty.call(object1, property)) {
+          result = false;
+          break;
+        }
+
+        if (
+          typeof object1[property] === 'object' &&
+          !_atLeastEqualTo(object1[property], object2[property])
+        ) {
+          result = false;
+          break;
+        }
+
+        if (
+          typeof object1[property] === 'string' &&
+          object1[property] !== object2[property]
+        ) {
+          result = false;
+          break;
+        }
+      }
+
+      return result;
+    }
+
     // Expose methods for testing
     convertor.isV1Evaluation = isV1Evaluation;
     convertor.isV2Evaluation = isV2Evaluation;
