@@ -164,15 +164,11 @@ angular
         return false;
       }
 
-      Object.keys(evalContextV2)
-        .some(function (key) {
-
-        });
       if (data['@context'] === evalContextV2) {
         return true;
       }
 
-      return false;
+      return _atLeastEqualTo(data['@context'], evalContextV2);
     }
 
     function upgradeToV3 (evaluation) {
