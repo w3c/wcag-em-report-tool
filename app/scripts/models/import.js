@@ -92,9 +92,7 @@ angular
       evalModel.type = evalData.type;
 
       evalModel.sampleModel.importData(evalData);
-
       evalModel.reportModel.importData(evalData);
-
       evalModel.auditModel.importData(evalData);
       evalModel.exploreModel.importData(evalData);
       evalModel.otherData = evalData.otherData;

@@ -11,6 +11,7 @@ angular.module('wcagReporter')
   ) {
     function CriterionAssert (idref) {
       var self = this;
+
       // Copy prototype onto the object - prevents problems with JSON.stringify()
       for (var key in CriterionAssert.prototype) {
         if (!this.hasOwnProperty(key)) {
