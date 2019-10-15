@@ -8,6 +8,7 @@
 angular
   .module('wcagReporter')
   .factory('importV1', function (
+    types,
     wcagSpecIdMap,
     evalContextV1,
     evalContextV2,
@@ -162,9 +163,12 @@ angular
           delete assertion.testcase;
         }
 
-        assertion.result.type = assertion.result.type || 'TestResult';
-        if (assertion.mode === 'manual') {
-          assertion.mode = 'earl:manual';
+        if (assertion.result.type !== types.EARL.RESULT.class) {
+          assertion.result.type = types.EARL.RESULT.class;
+        }
+
+        if (assertion.mode !== types.EARL.MODE.MANUAL) {
+          assertion.mode = types.EARL.MODE.MANUAL;
         }
         if (assertion.hasPart) {
           assertion.hasPart.forEach(updateAsserts);

@@ -2,6 +2,7 @@
 
 angular.module('wcagReporter')
   .service('CriterionAssert', function (
+    types,
     evalSampleModel,
     $filter,
     TestCaseAssert,
@@ -10,7 +11,6 @@ angular.module('wcagReporter')
   ) {
     function CriterionAssert (idref) {
       var self = this;
-
       // Copy prototype onto the object - prevents problems with JSON.stringify()
       for (var key in CriterionAssert.prototype) {
         if (!this.hasOwnProperty(key)) {
@@ -19,9 +19,11 @@ angular.module('wcagReporter')
       }
 
       this.test = idref;
+      this.mode = types.EARL.MODE.MANUAL;
       this.hasPart = [];
       this.result = {
-        outcome: 'earl:untested',
+        type: types.EARL.RESULT.class,
+        outcome: types.EARL.OUTCOME.UNTESTED,
         description: ''
       };
 
@@ -161,12 +163,12 @@ angular.module('wcagReporter')
         }, false);
 
       return hasPart || !!critAssert.result.description ||
-               critAssert.result.outcome !== 'earl:untested';
+               critAssert.result.outcome !== types.EARL.OUTCOME.UNTESTED;
     };
 
     CriterionAssert.updateMetadata = function (critAssert) {
       critAssert.assertedBy = currentUser.id;
-      critAssert.mode = 'earl:manual';
+      critAssert.mode = types.EARL.MODE.MANUAL;
       critAssert.result.date = $filter('date')(Date.now(), 'yyyy-MM-dd HH:mm:ss Z');
     };
 
