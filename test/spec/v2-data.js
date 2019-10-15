@@ -64,10 +64,12 @@ describe('Changes for 1.1+ data format', function () {
 
   beforeEach(function (done) {
     // Load the dummydata v1 into application
-    reportImport.fromObject(dummyData, done);
+    // This means that existing evaluation.model should receive
+    // an update from the imported V1 dummydata.
+    reportImport.fromObject(dummyData);
 
     setTimeout(function () {
-      // Fetch criteria objects, should be loaded by reportImport
+      // Fetch criteria objects, length should not be modified by reportImport
       assertions = Object
         .keys(evalModel.auditModel.criteria)
         .map(function (critId) {
@@ -76,8 +78,9 @@ describe('Changes for 1.1+ data format', function () {
 
       importedAssertionCount = assertions.length;
 
+      // As of with WCAG 2.1 78 criteria
       expect(importedAssertionCount)
-        .withContext('auditModel should contain 78 assertions reflecting all WCAG criteria')
+        .withContext('auditModel (V3) should contain 78 assertions reflecting all WCAG criteria')
         .toBe(78);
 
       done();
@@ -280,9 +283,12 @@ describe('Changes for 1.1+ data format', function () {
       });
   });
 
-  it('has mode:earl:manual', function () {
+  it('has mode: “earl:manual”', function () {
     assertions
       .forEach(function testAssert (assertion) {
+        expect(assertion.mode)
+          .toBeDefined();
+
         expect(assertion.mode)
           .toBe('earl:manual');
 
