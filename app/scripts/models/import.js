@@ -39,7 +39,11 @@ angular
 
       function testCallback (err, compacted) {
         if (err) {
+          // Something json-ldish is not ok here, exit.
+          // This should not be the case anytime since the data should have
+          // been checked before importing.
           console.error(err);
+          return;
         }
 
         results.push(compacted);
