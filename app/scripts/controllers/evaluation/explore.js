@@ -78,11 +78,15 @@ angular
       // evalExploreModel.addReliedUponTech();
       if ($event) {
         var button = angular.element($event.delegateTarget);
+
         $timeout(function () {
           var inputs = button.prev()
             .find('input');
-          inputs[inputs.length - 2].select();
-        }, 100);
+
+          if (inputs.length > 0) {
+            inputs[0].select();
+          }
+        });
       }
     };
 
