@@ -34,9 +34,6 @@ angular
             importObj = upgradeToV3(importObj);
           }
 
-          if (isV3Evaluation(importObj)) {
-            // is Latest check. Here for future additions.
-          }
           // Correct the foaf namespace
           if (
             typeof importObj === 'object' &&
