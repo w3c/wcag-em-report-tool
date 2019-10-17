@@ -2,7 +2,7 @@
 
 angular
   .module('wcagReporter')
-  .value('evalContextV3', {
+  .constant('evalContextV3', {
     // Current namespace
     '@vocab': 'http://www.w3.org/TR/WCAG-EM/#',
 
