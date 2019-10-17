@@ -32,13 +32,12 @@ angular
     }
 
     function compactEach (callback) {
-      var testCallback;
       var results = [];
       var calls = 0;
       var evalType = evalModel.context['@vocab'] + evalModel.type;
       var personType = currentUser['@context']['@vocab'] + currentUser.type;
 
-      testCallback = function (err, compacted) {
+      function testCallback (err, compacted) {
         if (err) {
           console.error(err);
         }
@@ -48,7 +47,7 @@ angular
         if (results.length === calls) {
           callback(results);
         }
-      };
+      }
 
       return function (evalObj) {
         calls += 1;
