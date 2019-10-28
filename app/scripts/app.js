@@ -52,7 +52,8 @@ angular.module('wcagReporter', [
         templateUrl: 'views/error.html'
       })
       .when('/import', {
-        templateUrl: 'views/import.html'
+        templateUrl: 'views/import.html',
+        controller: 'ImportCtrl'
       })
       .otherwise({
         redirectTo: '/error'
