@@ -1,6 +1,6 @@
 {
     "TITLE": "Step 4: Audit the Selected Sample",
-    "INTRO": "Record the outcome from evaluating the web pages selected in the previous step. Compare the results between the structured page and randomly selected pages, and if needed, adjust the selected sample in the previous step. More guidance on this step is provided in <a href={{link_em_4}}>WCAG-EM Step 4: Audit the Selected Sample</a>. <br> <strong>Note:</strong> For each WCAG success criteria, you can enter 'Results for the entire sample' and you can enter results for individual web pages. You can choose to enter either or both. To enter individual results, select the web page(s) under 'Sample to Evaluate' (in the left column); then under the specific success criteria, select 'Show web pages to enter individual results'",
+    "INTRO": "Record the outcome from evaluating the web pages selected in the previous step. Compare the results between the structured page and randomly selected pages, and if needed, adjust the selected sample in the previous step. More guidance on this step is provided in <a href={{link_em_4}}>WCAG-EM Step 4: Audit the Selected Sample</a>. <br> <strong>Note:</strong> For each WCAG 2 success criteria, you can enter 'Results for the entire sample' and you can enter results for individual web pages. You can choose to enter either or both. To enter individual results, select the web page(s) under 'Sample to Evaluate' (in the left column); then under the specific success criteria, select 'Show web pages to enter individual results'",
     "INTRO_0": "",
     "HD_SAMPLE_SELECT": "Sample to Evaluate",
     "INF_AUDIT_SAMPLE": "This section lists the web pages you selected in the previous step. The web pages that are checked in this section are listed when 'Show web pages to enter individual results' is activated in the 'Success Criteria to Evaluate' section. You can show an individual web page that you are evaluating, or show several web pages at the same time. <br> The chainlink icon opens the web page in a separate browser window.",
@@ -10,7 +10,7 @@
     "NO_SAMPLE": "No sample available. Create a sample in step 2 and step 3.",
     "TESTED": "Tested",
     "HD_CRITERIA": "Success Criteria to Evaluate",
-    "INF_AUDIT_CRITERIA": "This section lists the WCAG success criteria. Use the filter to show or hide success criteria of different levels (A, AA and AAA). You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
+    "INF_AUDIT_CRITERIA": "This section lists the WCAG 2 success criteria. Use the filter to show or hide success criteria of different levels (A, AA and AAA). You can select results as: 'Not checked', 'Passed', 'Failed', 'Not present', and 'Cannot tell'; and you can provide details, comments, or other observations made during evaluation in the accompanying text box.",
     "FILTER": "Filter",
     "PRINCIPLE": "Principle",
     "NOTE": "Note",
