@@ -61,8 +61,9 @@ angular.module('wcagReporter')
           if (!angular.isArray(evalData.auditResult)) {
             evalData.auditResult = [evalData.auditResult];
           }
-          criteria = {};
-          auditModel.criteria = criteria;
+          // NOTE: Why was this done? (Reset criteria to imported criteria)
+          // criteria = {};
+          // auditModel.criteria = criteria;
 
           evalData.auditResult.forEach(auditModel.addCritAssert);
         }

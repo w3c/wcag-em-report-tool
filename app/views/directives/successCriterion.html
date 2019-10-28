@@ -12,7 +12,7 @@ ng-class="getClassName(assert.result.outcome)">
             <span class="hint">{{'AUDIT.BTN_SHOW_TEXT' | translate}}</span>
         </button>
       </span>
-    
+
     </div><div class="col-xs-12 crit-text collapsed">
       <p>{{spec.text}}<p>
       <div ng-repeat="detail in spec.details">
@@ -38,13 +38,13 @@ ng-class="getClassName(assert.result.outcome)">
       </div>
       <p>
         <a target="_blank" href="{{
-          'http://www.w3.org/TR/UNDERSTANDING-WCAG20/' +
-          spec.id.substr(6) +
+          'http://www.w3.org/WAI/WCAG21/Understanding/' +
+          spec.id.split(':')[1] +
           '.html'}}">{{ "AUDIT.UNDERSTAND" | translate }} {{spec.number}}
           <span class="glyphicon glyphicon-new-window"></span></a>
         <a target="_blank" href="{{
-          'http://www.w3.org/WAI/WCAG20/quickref/#qr-' +
-          spec.id.substr(6)
+          'http://www.w3.org/WAI/WCAG21/quickref/#' +
+          spec.id.split(':')[1]
           }}">{{ "AUDIT.HOW_TO" | translate }} {{spec.number}}
           <span class="glyphicon glyphicon-new-window"></span></a>
       </p>
