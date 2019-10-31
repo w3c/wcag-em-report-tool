@@ -3,6 +3,7 @@
 angular
   .module('wcagReporter')
   .controller('ImportCtrl', function (
+    fileReader,
     $scope,
     $rootScope
   ) {
@@ -22,23 +23,55 @@ angular
     };
 
     $scope.feedback = false;
-    $scope.importFile = {};
+    $scope.importFile = undefined;
+    $scope.importConfirmed = undefined;
 
-    /**
-     * Try to load a file and progress to 1
-     * Send feedback on what happens
-     * @param  {String} source Url to file
-     * @return {Object}        File that loaded
-     */
+    function resetImport () {
+      $scope.feedback = false;
+      $scope.importFile = undefined;
+      $scope.importConfirmed = undefined;
+    }
+
+    function handleLoad (defer, feedback) {
+      defer.then(
+        function success (result) {
+          $scope.importFile.body = result;
+          feedback = false;
+        },
+        function error (e) {
+          feedback = FEEDBACK.ERROR;
+          if (e.message) {
+            feedback.message = e.message;
+          } else {
+            feedback.message = e;
+          }
+        }
+      );
+    }
+
     $scope.loadFile = function loadFile (source) {
       $scope.feedback = FEEDBACK.PENDING;
+      $scope.importFile = {
+        name: source.name
+      };
 
-      try {
-        $scope.importFile = source;
-        $scope.feedback = FEEDBACK.SUCCESS;
-      } catch (error) {
-        $scope.feedback = FEEDBACK.ERROR;
+      handleLoad(fileReader.readAsText(source, $scope), $scope.feedback);
+    };
+
+    $scope.handleConfirmation = function handleConfirmation (confirmed) {
+      if (confirmed === undefined) {
+        confirmed = false;
       }
-      $scope.$apply();
+
+      if (confirmed) {
+        $scope.importConfirmed = confirmed;
+        $scope.feedback = FEEDBACK.SUCCESS;
+      } else {
+        resetImport();
+      }
+    };
+
+    $scope.handleDoneClick = function handleDoneClick () {
+      $rootScope.setEvalLocation();
     };
   });
