@@ -22,7 +22,13 @@
         <label id="file_label" for="load_json" class="btn btn-primary" ng-class="{'focus': fileHasFocus }">
           {{ 'IMPORT.LABEL_SELECT_FILE' | translate }}
         </label>
-        <input id="load_json" class="sr-only" type="file" ng-focus="fileHasFocus = true" ng-blur="fileHasFocus = false" onchange="var elm = angular.element(this);elm.scope().loadFile(this.files[0])">
+        <input
+          id="load_json"
+          class="sr-only"
+          type="file"
+          accept="{{ allowedMime }}"
+          onchange="var elm = angular.element(this);elm.scope().loadFile(this.files[0])"
+        >
       </p>
     </section>
 

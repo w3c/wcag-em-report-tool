@@ -9,7 +9,7 @@ angular
   ) {
     var FEEDBACK = {
       ERROR: {
-        type: 'error',
+        type: 'danger',
         message: 'Import error'
       },
       PENDING: {
@@ -21,6 +21,11 @@ angular
         message: 'Import successfull'
       }
     };
+
+    $scope.allowedMime = [
+      'application/json',
+      'application/ld+json'
+    ].join(',');
 
     $scope.feedback = false;
     $scope.importFile = undefined;
@@ -49,8 +54,25 @@ angular
       );
     }
 
+    function isJson (file) {
+      if ($scope.allowedMime.indexOf(file.type) >= 0) {
+        return true;
+      }
+
+      return false;
+    }
+
     $scope.loadFile = function loadFile (source) {
       $scope.feedback = FEEDBACK.PENDING;
+
+      if (!isJson(source)) {
+        $scope.feedback = FEEDBACK.ERROR;
+        $scope.feedback.message = 'Expected to open a json-file, the filename must end with either “.json” or “.jsonld”.';
+        $scope.$apply();
+
+        return;
+      }
+
       $scope.importFile = {
         name: source.name
       };
