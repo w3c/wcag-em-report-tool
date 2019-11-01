@@ -35,6 +35,48 @@ angular
     $scope.importFile = undefined;
     $scope.importConfirmed = undefined;
 
+    /**
+     * Assertions that get imported need to be validated against
+     * 1. test: should be directly known / related to WCAG
+     * 2. subject should be related to one of the samples
+     * 3. result: being an earl:TestResult
+     * 4. assertedBy: Nice to know who / what made this assertion
+     * @param  {earl:Assertion} assertion [description]
+     * @return {boolean}           validity
+     */
+    function isValidAssertion (assertion) {
+      function hasRequiredKeys (_assertion) {
+        var assertionKeys = Object.keys(_assertion);
+        var requiredKeys = [
+          'test',
+          'subject',
+          'result'
+          // 'assertedBy'
+        ];
+
+        var missingKeys = [];
+        var key;
+
+        for (key in requiredKeys) {
+          if (assertionKeys.indexOf(requiredKeys[key]) === -1) {
+            missingKeys.push(requiredKeys[key]);
+          }
+        }
+
+        if (missingKeys.length > 0) {
+          return false;
+        }
+
+        return true;
+      }
+
+      if (!hasRequiredKeys(assertion)) {
+        return false;
+      }
+
+      return true;
+    }
+
     function resetImport () {
       $scope.feedback = false;
       $scope.importFile = undefined;
@@ -65,9 +107,14 @@ angular
 
               var graph = framed['@graph'];
               var graphSize = graph.length;
+              var currentAssertion;
 
               for (var i = 0; i < graphSize; i++) {
-                $scope.assertionImport.push(graph[i]);
+                currentAssertion = graph[i];
+
+                if (isValidAssertion(currentAssertion)) {
+                  $scope.assertionImport.push(currentAssertion);
+                }
               }
 
               $scope.$apply();
