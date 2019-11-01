@@ -35,7 +35,7 @@
     <section class="appear" ng-if="importFile && !importConfirmed">
       <h2>Step 2 - Confirm import</h2>
       <p>File “{{importFile.name}}” is ready to be imported.</p>
-      <p>We have found 1337 asserertions that can be inserted into the evaluation audit results</p>
+      <p>We have found {{ assertionImport.length }} asserertions that can be inserted into the evaluation audit results</p>
 
       <fieldset>
         <legend>Do you wish to continue with the import?</legend>

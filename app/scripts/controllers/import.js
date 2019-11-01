@@ -5,8 +5,10 @@ angular
   .controller('ImportCtrl', function (
     fileReader,
     $scope,
-    $rootScope
+    $rootScope,
+    evalContextV2
   ) {
+    var JSONLD = window.jsonld;
     var FEEDBACK = {
       ERROR: {
         type: 'danger',
@@ -21,6 +23,8 @@ angular
         message: 'Import successfull'
       }
     };
+
+    $scope.assertionImport = [];
 
     $scope.allowedMime = [
       'application/json',
@@ -40,8 +44,35 @@ angular
     function handleLoad (defer, feedback) {
       defer.then(
         function success (result) {
-          $scope.importFile.body = result;
-          feedback = false;
+          var resultJson = JSON.parse(result);
+
+          JSONLD.frame(
+            resultJson,
+            {
+              '@context': evalContextV2,
+              '@graph': [
+                {
+                  '@type': 'Assertion'
+                }
+              ]
+            },
+            function (error, framed) {
+              if (error) {
+                feedback = FEEDBACK.ERROR;
+                feedback.message = error.message;
+                return;
+              }
+
+              var graph = framed['@graph'];
+              var graphSize = graph.length;
+
+              for (var i = 0; i < graphSize; i++) {
+                $scope.assertionImport.push(graph[i]);
+              }
+
+              $scope.$apply();
+            }
+          );
         },
         function error (e) {
           feedback = FEEDBACK.ERROR;
