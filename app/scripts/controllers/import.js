@@ -104,11 +104,72 @@ angular
         return false;
       }
 
+      function hasResult (_assertion) {
+        var result = _assertion.result;
+
+        function hasOutcomeValue (_result) {
+          var outcomeValues = earl([
+            'passed',
+            'failed',
+            'cantTell',
+            'inapplicable',
+            'untested'
+          ]);
+          var outcomeClasses = earl([
+            'Pass',
+            'Fail',
+            'CannotTell',
+            'NotApplicable',
+            'NotTested'
+          ]);
+
+          function earl (item) {
+            if (typeof item === 'string') {
+              return [
+                'earl',
+                item
+              ].join(':');
+            }
+
+            if (Array.isArray(item)) {
+              return item.map(function (_item) {
+                return earl(_item);
+              });
+            }
+          }
+
+          if (_result.outcome === undefined) {
+            return false;
+          }
+
+          if (typeof _result.outcome === 'string') {
+            return outcomeValues.indexOf(_result.outcome) >= 0;
+          }
+
+          if (
+            typeof _result.outcome === 'object' &&
+            _result.outcome['@type'] !== undefined
+          ) {
+            return outcomeClasses.indexOf(_result.outcome['@type']) >= 0;
+          }
+        }
+
+        if (!hasOutcomeValue(result)) {
+          return false;
+        }
+
+        return true;
+      }
+
       if (!hasRequiredKeys(assertion)) {
         return false;
       }
 
       if (!isWcagRelated(assertion)) {
+        return false;
+      }
+
+      if (!hasResult(assertion)) {
         return false;
       }
 
