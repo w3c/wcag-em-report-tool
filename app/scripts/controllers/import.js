@@ -70,7 +70,45 @@ angular
         return true;
       }
 
+      function isWcagRelated (_assertion) {
+        var test = _assertion.test;
+
+        function wcagIn (text) {
+          return text.indexOf('WCAG') >= 0;
+        }
+
+        if (
+          typeof test === 'string' &&
+          wcagIn(test)
+        ) {
+          return true;
+        }
+
+        if (
+          typeof test === 'object' &&
+          test['@value'] !== undefined &&
+          wcagIn(test['@value'])
+        ) {
+          return true;
+        }
+
+        if (
+          typeof test === 'object' &&
+          test.isPartOf !== undefined &&
+          typeof test.isPartOf === 'string' &&
+          wcagIn(test.isPartOf)
+        ) {
+          return true;
+        }
+
+        return false;
+      }
+
       if (!hasRequiredKeys(assertion)) {
+        return false;
+      }
+
+      if (!isWcagRelated(assertion)) {
         return false;
       }
 
