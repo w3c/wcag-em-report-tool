@@ -50,8 +50,8 @@ angular
         var requiredKeys = [
           'test',
           'subject',
-          'result'
-          // 'assertedBy'
+          'result',
+          'assertedBy'
         ];
 
         var missingKeys = [];
