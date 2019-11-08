@@ -46,7 +46,7 @@
 
     <section class="appear" ng-if="importConfirmed === true">
       <h2>Step 3 - Finalize import</h2>
-      <p>Imported 1337 asserertions and inserted to the audit results.</p>
+      <p>Imported {{ assertionImport.length }} asserertions and inserted to the audit results.</p>
 
       <button type="button" class="btn btn-primary" ng-click="handleDoneClick()">done</button>
     </section>
