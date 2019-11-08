@@ -268,6 +268,8 @@ angular
         $scope.feedback = FEEDBACK.SUCCESS;
       } else {
         resetImport();
+        $scope.feedback = FEEDBACK.PENDING;
+        $scope.feedback.message = 'Import aborted. Choose another file or go back to the evaluation.';
       }
     };
 
