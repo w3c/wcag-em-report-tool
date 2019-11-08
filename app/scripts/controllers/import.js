@@ -70,33 +70,31 @@ angular
         return true;
       }
 
-      function isWcagRelated (_assertion) {
-        var test = _assertion.test;
-
+      function isWcagRelated (assertionTest) {
         function wcagIn (text) {
           return text.indexOf('WCAG') >= 0;
         }
 
         if (
-          typeof test === 'string' &&
-          wcagIn(test)
+          typeof assertionTest === 'string' &&
+          wcagIn(assertionTest)
         ) {
           return true;
         }
 
         if (
-          typeof test === 'object' &&
-          test['@value'] !== undefined &&
-          wcagIn(test['@value'])
+          typeof assertionTest === 'object' &&
+          assertionTest.id !== undefined &&
+          wcagIn(assertionTest.id)
         ) {
           return true;
         }
 
         if (
-          typeof test === 'object' &&
-          test.isPartOf !== undefined &&
-          typeof test.isPartOf === 'string' &&
-          wcagIn(test.isPartOf)
+          typeof assertionTest === 'object' &&
+          assertionTest.isPartOf !== undefined &&
+          typeof assertionTest.isPartOf === 'string' &&
+          wcagIn(assertionTest.isPartOf)
         ) {
           return true;
         }
@@ -165,7 +163,7 @@ angular
         return false;
       }
 
-      if (!isWcagRelated(assertion)) {
+      if (!isWcagRelated(assertion.test)) {
         return false;
       }
 
@@ -190,7 +188,10 @@ angular
           JSONLD.frame(
             resultJson,
             {
-              '@context': evalContextV2,
+              '@context': {
+                ...evalContextV2,
+                isPartOf: 'dct:isPartOf'
+              },
               '@graph': [
                 {
                   '@type': 'Assertion'
