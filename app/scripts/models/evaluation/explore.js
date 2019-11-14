@@ -1,22 +1,27 @@
 'use strict';
 
-angular.module('wcagReporter')
-  .service('evalExploreModel', function (knownTech, evalSampleModel) {
+angular
+  .module('wcagReporter')
+  .service('evalExploreModel', function (
+    knownTech,
+    evalSampleModel
+  ) {
     var exploreModel = {
-      commonPages: [],
-      otherRelevantPages: [],
       knownTech: knownTech
     };
     var basicProps = [
       'reliedUponTechnology',
       'essentialFunctionality',
-      'pageTypeVariety'
+      'pageTypeVariety',
+      'commonPages',
+      'otherRelevantPages'
     ];
 
     // add all properties to this
-    basicProps.forEach(function (prop) {
-      exploreModel[prop] = undefined;
-    });
+    basicProps
+      .forEach(function (prop) {
+        exploreModel[prop] = undefined;
+      });
 
     exploreModel.reliedUponTechnology = [];
 
@@ -24,19 +29,23 @@ angular.module('wcagReporter')
       if (!angular.isArray(evalData.reliedUponTechnology)) {
         evalData.reliedUponTechnology = [evalData.reliedUponTechnology];
       }
-      basicProps.forEach(function (prop) {
-        if (evalData[prop]) {
-          exploreModel[prop] = evalData[prop];
-        }
-      });
+
+      basicProps
+        .forEach(function (prop) {
+          if (evalData[prop]) {
+            exploreModel[prop] = evalData[prop];
+          }
+        });
     };
 
     exploreModel.exportData = function () {
       var exportData = {};
 
-      basicProps.forEach(function (prop) {
-        exportData[prop] = exploreModel[prop];
-      });
+      basicProps
+        .forEach(function (prop) {
+          exportData[prop] = exploreModel[prop];
+        });
+
       return exportData;
     };
 

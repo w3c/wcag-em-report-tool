@@ -1,10 +1,16 @@
 'use strict';
 
-angular.module('wcagReporter')
-  .service('TestCaseAssert', function (evalSampleModel, currentUser) {
+angular
+  .module('wcagReporter')
+  .service('TestCaseAssert', function (
+    types,
+    evalSampleModel,
+    currentUser
+  ) {
     var protoResult = {
+      type: types.EARL.RESULT.class,
       description: '',
-      outcome: 'earl:untested'
+      outcome: types.EARL.OUTCOME.UNTESTED
     };
 
     function TestCaseAssert () {
@@ -16,7 +22,7 @@ angular.module('wcagReporter')
       }
 
       this.subject = [];
-      this.result = Object.create(protoResult);
+      this.result = angular.copy(protoResult);
     }
 
     TestCaseAssert.isDefined = function (tc) {
@@ -34,7 +40,7 @@ angular.module('wcagReporter')
       testCase: undefined,
       result: undefined,
       multiPage: false,
-      mode: 'earl:manual',
+      mode: types.EARL.MODE.MANUAL,
       isDefined: function () {
         return TestCaseAssert.isDefined(this);
       },
