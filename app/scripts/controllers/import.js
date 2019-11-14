@@ -6,7 +6,7 @@ angular
     fileReader,
     $scope,
     $rootScope,
-    evalContextV2
+    evalContextV3
   ) {
     var JSONLD = window.jsonld;
     var FEEDBACK = {
@@ -189,7 +189,7 @@ angular
             resultJson,
             {
               '@context': {
-                ...evalContextV2,
+                ...evalContextV3,
                 isPartOf: 'dct:isPartOf'
               },
               '@graph': [
