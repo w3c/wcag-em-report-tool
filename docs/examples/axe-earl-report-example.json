@@ -1,0 +1,248 @@
+{
+	"@context": {
+		"@vocab": "http://www.w3.org/ns/earl#",
+		"earl": "http://www.w3.org/ns/earl#",
+		"WCAG20": "http://www.w3.org/TR/WCAG20/#",
+		"WCAG21": "http://www.w3.org/TR/WCAG21/#",
+		"auto-wcag": "https://auto-wcag.github.io/auto-wcag/rules/",
+		"dct": "http://purl.org/dc/terms/",
+		"sch": "https://schema.org/",
+		"source": "dct:source",
+		"title": "dct:title",
+		"EMTest": "http://www.w3.org/TR/WCAG-EM/#testcase",
+		"assertedBy": {
+			"@type": "@id"
+		},
+		"outcome": {
+			"@type": "@id"
+		},
+		"mode": {
+			"@type": "@id"
+		}
+	},
+	"@graph": [
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-allowed-attr",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-allowed-attr?application=axeAPI",
+				"dct:isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-dpub-role-fallback",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-dpub-role-fallback?application=axeAPI",
+				"dct:isPartOf": {
+					"@id": "https://www.w3.org/TR/WCAG20/#content-structure-separation",
+					"@type": "TestRequirement",
+					"dct:title": "Info and Relationships",
+					"dct:description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
+				}
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:passed"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-hidden-body",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-body?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:passed"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-hidden-focus",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-focus?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-required-attr",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-attr?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-required-children",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-children?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-required-parent",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-parent?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-roles",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-roles?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-valid-attr-value",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr-value?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "aria-valid-attr",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "button-name",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/button-name?application=axeAPI"
+			}
+		},
+		{
+			"@type": "Assertion",
+			"mode": "earl:automatic",
+			"subject": {
+				"@type": ["earl:TestSubject", "sch:WebPage"],
+				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+			},
+			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
+			"result": {
+				"@type": "TestResult",
+				"outcome": "earl:inapplicable"
+			},
+			"test": {
+				"@type": "TestCase",
+				"title": "definition-list",
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/definition-list?application=axeAPI"
+			}
+		}
+	]
+}
