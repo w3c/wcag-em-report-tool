@@ -218,6 +218,13 @@ angular
                 }
               }
 
+              if ($scope.assertionImport.length > 0) {
+                $scope.feedback = {
+                  type: FEEDBACK.SUCCESS.type,
+                  message: 'Ready to import ' + $scope.assertionImport.length + ' assertions.'
+                };
+              }
+
               $scope.$apply();
             }
           );
@@ -265,8 +272,9 @@ angular
       }
 
       if (confirmed) {
-        $scope.importConfirmed = confirmed;
-        $scope.feedback = FEEDBACK.SUCCESS;
+        $scope.feedback = FEEDBACK.PENDING;
+        $scope.feedback.message = 'Inserting ' + $scope.assertionImport.length + ' assertions from “' + $scope.importFile.name + '”';
+        // $scope.importConfirmed = confirmed;
       } else {
         resetImport();
         $scope.feedback = FEEDBACK.PENDING;
