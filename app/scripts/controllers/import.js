@@ -178,6 +178,7 @@ angular
       $scope.feedback = false;
       $scope.importFile = undefined;
       $scope.importConfirmed = undefined;
+      $scope.assertionImport.length = 0;
     }
 
     function handleLoad (defer, feedback) {
