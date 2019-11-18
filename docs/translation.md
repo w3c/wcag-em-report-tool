@@ -23,7 +23,7 @@ WCAG 2.0 has been translated into many different languages (http://www.w3.org/WA
 
 The Wcag2Json project scrapes the HTML translations of WCAG and creates a JSON file for the Report Tool. These are available in different languages already. The Wcag2Json project has instructions explaining how to create JSON versions of other WCAG translations.
 
-Once you have the wcag json file, copy it to `app/scripts/wcag2spec/` and give it a name of wcag2-xx.json (where xx is the language code of the language to include).
+Once you have the wcag json file, copy it to `app/wcag2spec/` and give it a name of wcag2-xx.json (where xx is the language code of the language to include).
 
 
 ## 3. Set up the new language
@@ -45,7 +45,7 @@ The .json files in the locale/**/ directory can now be translated. For these fil
 
 To review the translations as you work, run `grunt serve` in your command prompt at the root of the project. Then go to http://localhost:9000 to see the tool.
 
-When the translation is ready, the tool can be build as usual with the 
+When the translation is ready, the tool can be build as usual with the
 `grunt build` command. This builds the app in the dist directory.
 
 
