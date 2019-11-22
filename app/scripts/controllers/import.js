@@ -185,14 +185,13 @@ angular
       defer.then(
         function success (result) {
           var resultJson = JSON.parse(result);
+          var context = angular.copy(evalContextV3);
+          context.isPartOf = 'dct:isPartOf';
 
           JSONLD.frame(
             resultJson,
             {
-              '@context': {
-                ...evalContextV3,
-                isPartOf: 'dct:isPartOf'
-              },
+              '@context': context,
               '@graph': [
                 {
                   '@type': 'Assertion'
