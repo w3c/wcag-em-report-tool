@@ -9,6 +9,8 @@
     "INF_SITE_SCOPE_LI1": "'All web content of the online shop of Example Org. located at http://www.example.org/shop/'",
     "INF_SITE_SCOPE_LI2": "'All web content of the mobile version of the public website of Example Org. located at http://m.example.org'",
     "INF_SITE_SCOPE_1": "WCAG-EM Step 1.a: Define the Scope of the Website",
+    "LABEL_WCAG_VERSION": "WCAG Version",
+    "INFO_WCAG_VERSION": "Select the WCAG version to use. Version 2.1 (default) or 2.0",
     "LABEL_CONFORMANCE_TGT": "Conformance target",
     "INF_CONF_TGT": "Select a target WCAG 2 conformance level ('A', 'AA', or 'AAA') for the evaluation. For more information, see <a href={{link_em_1b}}>WCAG-EM Step 1.b: Define the Conformance Target</a>. This selection determines which conformance level filters are active by default in 'step 4: Audit the Sample'.",
     "LABEL_SUPPORT_BASE": "Accessibility support baseline",
