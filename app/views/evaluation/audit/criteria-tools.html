@@ -1,6 +1,26 @@
 <fieldset class="sc-filters">
   <legend>{{ 'AUDIT.FILTER' | translate }}:</legend>
 
+  <label for="show_version_21" class="btn"
+  ng-class="{
+    'btn-primary': critFilter['WCAG21'],
+    'btn-primary-invert': !critFilter['WCAG21']
+  }">
+    <input id="show_version_21" type="checkbox"
+    ng-model="critFilter['WCAG21']">
+    {{ 'SCOPE.WCAG21' | translate}}
+  </label>
+
+  <label for="show_version_20" class="btn"
+  ng-class="{
+    'btn-primary': critFilter['WCAG20'],
+    'btn-primary-invert': !critFilter['WCAG20']
+  }">
+    <input id="show_version_20" type="checkbox"
+    ng-model="critFilter['WCAG20']">
+    {{ 'SCOPE.WCAG20' | translate}}
+  </label>
+
   <label for="show_level-a" class="btn"
   ng-class="{
     'btn-primary': critFilter['wai:WCAG2A-Conformance'],
@@ -10,6 +30,7 @@
     ng-model="critFilter['wai:WCAG2A-Conformance']">
     {{ 'EARL.LEVEL_A' | translate}}
   </label>
+
   <label for="show_level-aa" class="btn"
   ng-class="{
     'btn-primary': critFilter['wai:WCAG2AA-Conformance'],
@@ -19,6 +40,7 @@
     ng-model="critFilter['wai:WCAG2AA-Conformance']">
     {{ 'EARL.LEVEL_AA' | translate}}
   </label>
+
   <label for="show_level-aaa" class="btn"
   ng-class="{
     'btn-primary': critFilter['wai:WCAG2AAA-Conformance'],
