@@ -13,6 +13,15 @@ angular.module('wcagReporter')
       $scope.state = appState.moveToState('scope');
       $scope.scopeModel = evalScopeModel;
 
+      $scope.wcagVersionOptions = evalScopeModel.wcagVersionOptions
+        .reduce(function (versions, version) {
+          var translateKey = 'SCOPE.' + version;
+
+          versions[version] = $filter('translate')(translateKey);
+
+          return versions;
+        }, {});
+
       $scope.conformanceOptions = evalScopeModel.conformanceOptions
         .reduce(function (tgt, lvl) {
           tgt[lvl] = $filter('rdfToLabel')(lvl);

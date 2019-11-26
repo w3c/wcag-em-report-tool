@@ -33,6 +33,17 @@ angular.module('wcagReporter')
       }
     }
 
+    function criterionMatchFilter (criterion) {
+      var criterionLevel = criterion.level;
+      var criterionVersion = 'WCAG' + criterion.versions[0].replace('.', '');
+      var criteriaFilter = $scope.critFilter;
+
+      return (
+        criteriaFilter[criterionVersion] === true &&
+        criteriaFilter[criterionLevel] === true
+      );
+    }
+
     $scope.principles = [];
 
     if (wcag2spec.isLoaded()) {
@@ -47,21 +58,23 @@ angular.module('wcagReporter')
     });
 
     if ($rootScope.rootHide.criteria) {
-    	$scope.critFilter = $rootScope.rootHide.criteria;
+      $scope.critFilter = $rootScope.rootHide.criteria;
     } else {
-    	$scope.critFilter = {
+      $scope.critFilter = {
+        WCAG21: evalScopeModel.wcagVersion >= 'WCAG21',
+        WCAG20: evalScopeModel.wcagVersion >= 'WCAG20',
         'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
         'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
         'wai:WCAG2AAA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AAA-Conformance')
       };
-    	$rootScope.rootHide.criteria = $scope.critFilter;
+      $rootScope.rootHide.criteria = $scope.critFilter;
     }
 
     $scope.isCriterionVisible = function (critSpec) {
       // Check if the level of this criterion should be shown
-    	if ($scope.critFilter[critSpec.level] !== true) {
-    		return false;
-    	}
+      if (!criterionMatchFilter(critSpec)) {
+        return false;
+      }
 
       // Check if the assert has an outcome, if no, don't show the criterion
       var critAssert = evalAuditModel.getCritAssert(critSpec.id);
@@ -71,29 +84,31 @@ angular.module('wcagReporter')
       }
 
       // Check if the outcome is set to hidden
-    	return true;
+      return true;
     };
 
     $scope.isGuidelineVisible = function (guideline) {
-    	var visible = false;
-    	guideline.successcriteria.forEach(function (critSpec) {
-    		// Only check the criterion if a previous check hasn't already returned true
-    		if (visible || $scope.isCriterionVisible(critSpec)) {
-    			visible = true;
-    		}
-    	});
+      var visible = false;
+      guideline.successcriteria.forEach(function (critSpec) {
+        // Only check the criterion if a previous check hasn't already returned true
+        if (visible || $scope.isCriterionVisible(critSpec)) {
+          visible = true;
+        }
+      });
       return visible;
     };
 
     $scope.isPrincipleVisible = function (principle) {
       var visible = false;
+
       principle.guidelines.forEach(function (guideline) {
         // Only check the criterion if a previous check hasn't already returned true
         if (visible || $scope.isGuidelineVisible(guideline)) {
           visible = true;
         }
       });
-    	return visible;
+
+      return visible;
     };
 
     var untested = [

@@ -4,7 +4,8 @@ angular.module('wcagReporter')
   .service('evalScopeModel', function () {
     var scopeModel = {
       type: 'EvaluationScope',
-    	conformanceTarget: 'wai:WCAG2AA-Conformance',
+      wcagVersion: 'WCAG21',
+      conformanceTarget: 'wai:WCAG2AA-Conformance',
       additionalEvalRequirement: '',
       website: {
         type: [
@@ -32,6 +33,11 @@ angular.module('wcagReporter')
         accessibilitySupportBaseline: scopeModel.accessibilitySupportBaseline
       };
     };
+
+    scopeModel.wcagVersionOptions = [
+      'WCAG21',
+      'WCAG20'
+    ];
 
     scopeModel.conformanceOptions = [
       'wai:WCAG2A-Conformance',
