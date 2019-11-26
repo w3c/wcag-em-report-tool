@@ -33,6 +33,17 @@ angular.module('wcagReporter')
       }
     }
 
+    function criterionMatchFilter (criterion) {
+      var criterionLevel = criterion.level;
+      var criterionVersion = 'WCAG' + criterion.versions[0].replace('.', '');
+      var criteriaFilter = $scope.critFilter;
+
+      return (
+        criteriaFilter[criterionVersion] === true &&
+        criteriaFilter[criterionLevel] === true
+      );
+    }
+
     $scope.principles = [];
 
     if (wcag2spec.isLoaded()) {
@@ -61,7 +72,7 @@ angular.module('wcagReporter')
 
     $scope.isCriterionVisible = function (critSpec) {
       // Check if the level of this criterion should be shown
-      if ($scope.critFilter[critSpec.level] !== true) {
+      if (!criterionMatchFilter(critSpec)) {
         return false;
       }
 
