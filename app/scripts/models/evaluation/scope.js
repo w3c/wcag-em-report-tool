@@ -22,7 +22,6 @@ angular.module('wcagReporter')
     scopeModel.exportData = function () {
       return {
         type: scopeModel.type,
-        wcagVersion: scopeModel.wcagVersion,
         conformanceTarget: scopeModel.conformanceTarget,
         additionalEvalRequirement: scopeModel.additionalEvalRequirement,
         website: {
