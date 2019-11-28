@@ -39,9 +39,6 @@ angular.module('wcagReporter')
       'WCAG20'
     ];
 
-    // NB: These IRI's dont make sense, they point to a 404
-    // TODO: Change conformanceTarget @type to WCAG:ConformanceLevel
-    // refactor options to A, AA, AAA; these are values defined under a list in WCAG2:cc1
     scopeModel.conformanceOptions = [
       'wai:WCAG2A-Conformance',
       'wai:WCAG2AA-Conformance',
