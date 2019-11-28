@@ -104,7 +104,7 @@ h3 + .collapsing {
 
 .btn.btn-primary-invert {
   background: white;
-  border: 2px solid #2570b0;
+  border-color: #2570b0;
   color: #2570b0;
 
   &:focus,
@@ -320,23 +320,34 @@ a.info-icon {
 
 .sc-filters {
   border: solid 1px $panel-default-border;
-  padding: 5px 2px;
+  padding: 0.25em;
   border-radius: 3px;
 
   > legend {
     display: inline-block;
-    float: left;
-    margin: 2px 10px;
-    border: 0;
+    border: none;
     width: auto;
   }
 
-  > label.btn {
-    padding: 2px 7px 0;
-    line-height: 15px;
+  > div + div {
+    margin-top: 0.25em;
+  }
 
-    @include transition(200ms linear background);
+  & label.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include transition(200ms linear background-color);
     @include transition(200ms linear color);
+
+    & > input {
+      margin: 0;
+    }
+
+    & > input + span {
+      margin-left: 0.25em;
+    }
   }
 }
 
