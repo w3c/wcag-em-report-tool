@@ -11,6 +11,9 @@ angular
       },
       OUTCOME: {
         type: 'earl:OutcomeValue',
+        INAPPLICABLE: 'earl:inapplicable',
+        FAILED: 'earl:failed',
+        PASSED: 'earl:passed',
         UNTESTED: 'earl:untested'
       },
       RESULT: {

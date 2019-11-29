@@ -5,7 +5,8 @@ angular.module('wcagReporter')
     TestCaseAssert,
     evalScopeModel,
     wcag2spec,
-    CriterionAssert
+    CriterionAssert,
+    types
   ) {
     var auditModel;
     var criteria = {};
@@ -125,6 +126,14 @@ angular.module('wcagReporter')
                 }
 
                 criterion.result.description += data.result.description;
+
+                if (data.result.outcome !== types.EARL.OUTCOME.UNTESTED &&
+                  criterion.result.outcome !== types.EARL.OUTCOME.FAILED
+                ) {
+                  criterion.result.outcome = (data.result.outcome === types.EARL.OUTCOME.PASSED)
+                    ? types.EARL.OUTCOME.PASSED
+                    : types.EARL.OUTCOME.INAPPLICABLE;
+                }
 
                 break;
               default:
