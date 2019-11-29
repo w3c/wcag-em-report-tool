@@ -52,32 +52,6 @@
   </div>
 
   <div class="form-group">
-    <label for="version_target">
-      {{ 'SCOPE.LABEL_WCAG_VERSION' | translate }}
-      <info-button
-        label="{{'COMMON.BTN_INFO' | translate}}"
-        target="info_wcag_version"
-        title="{{ 'SCOPE.LABEL_VERSION' | translate }}"
-      ></info-button>
-    </label>
-
-    <info-field
-      button="{{'COMMON.BTN_CLOSE_INFO' | translate}}"
-      exitto="wcag_version"
-      ref="info_wcag_version"
-    >
-      <p ng-bind-html="'SCOPE.INFO_WCAG_VERSION' | translate"></p>
-    </info-field>
-
-    <select
-      id="wcag_version"
-      class="form-control"
-      ng-options="key as value for (key,value) in wcagVersionOptions"
-      ng-model="scopeModel.wcagVersion"
-    ></select>
-  </div>
-
-  <div class="form-group">
     <label for="conformance_target">
       {{ 'SCOPE.LABEL_CONFORMANCE_TGT' | translate }}&nbsp;<info-button
       label="{{'COMMON.BTN_INFO' | translate}}" target="inf_conf_tgt"
