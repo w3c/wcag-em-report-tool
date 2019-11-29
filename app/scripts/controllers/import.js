@@ -6,7 +6,8 @@ angular
     fileReader,
     $scope,
     $rootScope,
-    evalContextV3
+    evalContextV3,
+    evalModel
   ) {
     var JSONLD = window.jsonld;
     var FEEDBACK = {
@@ -183,6 +184,22 @@ angular
       return true;
     }
 
+    /**
+     * Tries to insert all found assertions from the import
+     * into the auditModel specific criteria
+     */
+    function insertAssertions () {
+      var assertions = $scope.assertionImport;
+      var assertionsCount = assertions.length;
+      var assertion, wcagId;
+
+      for (var i = 0; i < assertionsCount; i++) {
+        assertion = assertions[i];
+        wcagId = assertion.wcagId || assertion.test;
+        evalModel.auditModel.updateCritAssert(wcagId, assertion);
+      }
+    }
+
     function resetImport () {
       $scope.feedback = false;
       $scope.importFile = undefined;
@@ -282,7 +299,10 @@ angular
       if (confirmed) {
         $scope.feedback = FEEDBACK.PENDING;
         $scope.feedback.message = 'Inserting ' + $scope.assertionImport.length + ' assertions from “' + $scope.importFile.name + '”';
-        // $scope.importConfirmed = confirmed;
+
+        insertAssertions();
+
+        $scope.importConfirmed = confirmed;
       } else {
         resetImport();
         $scope.feedback = FEEDBACK.PENDING;

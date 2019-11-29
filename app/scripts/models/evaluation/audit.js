@@ -106,6 +106,34 @@ angular.module('wcagReporter')
         criteria[newCrit.test] = newCrit;
       },
 
+      updateCritAssert: function updateCritAssert (id, data) {
+        if (data === undefined) {
+          return;
+        } else if (typeof data !== 'object') {
+          return;
+        }
+
+        var criterion = auditModel.getCritAssert(id);
+
+        if (criterion !== null && typeof criterion === 'object') {
+          for (var item in data) {
+
+            switch (item) {
+              case 'result':
+                if (criterion.result.description.length) {
+                  criterion.result.description += '\n\n';
+                }
+
+                criterion.result.description += data.result.description;
+
+                break;
+              default:
+                continue;
+            }
+          }
+        }
+      },
+
       addPageForAsserts: function (page) {
         Object.keys(criteria)
           .forEach(function (critName) {
