@@ -75,6 +75,13 @@ angular
           return text.indexOf('WCAG') >= 0;
         }
 
+        // Mark the assertion.test with an WCAG id
+        // to easily match to a criterion in the auditModel when updating.
+        // It may be found top level or deep nested, finding test.wcagId is certain.
+        function setWcagIdonTest (wcagId, test) {
+          test.wcagId = wcagId;
+        }
+
         if (
           typeof assertionTest === 'string' &&
           wcagIn(assertionTest)
@@ -87,6 +94,7 @@ angular
           assertionTest.id !== undefined &&
           wcagIn(assertionTest.id)
         ) {
+          setWcagIdonTest(assertionTest.id, assertionTest);
           return true;
         }
 
@@ -96,6 +104,7 @@ angular
           typeof assertionTest.isPartOf === 'string' &&
           wcagIn(assertionTest.isPartOf)
         ) {
+          setWcagIdonTest(assertionTest.isPartOf, assertionTest);
           return true;
         }
 
