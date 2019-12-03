@@ -118,7 +118,6 @@ angular.module('wcagReporter')
 
         if (criterion !== null && typeof criterion === 'object') {
           for (var item in data) {
-
             switch (item) {
               case 'result':
                 if (criterion.result.description.length) {
