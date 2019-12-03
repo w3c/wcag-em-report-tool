@@ -11,8 +11,14 @@ angular
       },
       OUTCOME: {
         type: 'earl:OutcomeValue',
+        CANNOT_TELL: 'earl:CannotTell',
+        CANT_TELL: 'earl:cantTell',
         INAPPLICABLE: 'earl:inapplicable',
+        FAIL: 'earl:Fail',
         FAILED: 'earl:failed',
+        NOT_APPLICABLE: 'earl:NotApplicable',
+        NOT_TESTED: 'earl:NotTested',
+        PASS: 'earl:Pass',
         PASSED: 'earl:passed',
         UNTESTED: 'earl:untested'
       },

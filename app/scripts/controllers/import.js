@@ -7,7 +7,8 @@ angular
     $scope,
     $rootScope,
     evalContextV3,
-    evalModel
+    evalModel,
+    types
   ) {
     var JSONLD = window.jsonld;
     var FEEDBACK = {
@@ -116,35 +117,21 @@ angular
         var result = _assertion.result;
 
         function hasOutcomeValue (_result) {
-          var outcomeValues = earl([
-            'passed',
-            'failed',
-            'cantTell',
-            'inapplicable',
-            'untested'
-          ]);
-          var outcomeClasses = earl([
-            'Pass',
-            'Fail',
-            'CannotTell',
-            'NotApplicable',
-            'NotTested'
-          ]);
-
-          function earl (item) {
-            if (typeof item === 'string') {
-              return [
-                'earl',
-                item
-              ].join(':');
-            }
-
-            if (Array.isArray(item)) {
-              return item.map(function (_item) {
-                return earl(_item);
-              });
-            }
-          }
+          var earlOutcome = types.EARL.OUTCOME;
+          var outcomeValues = [
+            earlOutcome.PASSED,
+            earlOutcome.FAILED,
+            earlOutcome.CANT_TELL,
+            earlOutcome.INAPPLICABLE,
+            earlOutcome.UNTESTED
+          ];
+          var outcomeClasses = [
+            earlOutcome.PASS,
+            earlOutcome.FAIL,
+            earlOutcome.CANNOT_TELL,
+            earlOutcome.NOT_APPLICABLE,
+            earlOutcome.NOT_TESTED
+          ];
 
           if (_result.outcome === undefined) {
             return false;
