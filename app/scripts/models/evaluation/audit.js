@@ -22,6 +22,28 @@ angular.module('wcagReporter')
         });
     });
 
+    function updateAssertionResult (assertion, data) {
+      var testResult = data.result;
+
+      if (assertion.result.description.length) {
+        assertion.result.description += '\n\n';
+      }
+
+      assertion.result.description += testResult.description || '';
+
+      // Decide what outcome should be set.
+      // Set Failed if imported result is Failed
+      // This forces the evaluator to check the import and this is the only outcome
+      // that can be set with certainty by automatic assertors.
+      if (
+        // Dont try to modify if it already has failed outcome
+        assertion.result.outcome !== types.EARL.OUTCOME.FAILED &&
+        testResult.outcome === types.EARL.OUTCOME.FAILED
+      ) {
+        assertion.result.outcome = types.EARL.OUTCOME.FAILED;
+      }
+    }
+
     auditModel = {
       criteria: criteria,
 
@@ -114,31 +136,11 @@ angular.module('wcagReporter')
           return;
         }
 
+        // First try to get a matching criteria before anything else
         var criterion = auditModel.getCritAssert(id);
 
-        if (criterion !== null && typeof criterion === 'object') {
-          for (var item in data) {
-            switch (item) {
-              case 'result':
-                if (criterion.result.description.length) {
-                  criterion.result.description += '\n\n';
-                }
-
-                criterion.result.description += data.result.description;
-
-                if (data.result.outcome !== types.EARL.OUTCOME.UNTESTED &&
-                  criterion.result.outcome !== types.EARL.OUTCOME.FAILED
-                ) {
-                  criterion.result.outcome = (data.result.outcome === types.EARL.OUTCOME.PASSED)
-                    ? types.EARL.OUTCOME.PASSED
-                    : types.EARL.OUTCOME.INAPPLICABLE;
-                }
-
-                break;
-              default:
-                continue;
-            }
-          }
+        if (data.result) {
+          updateAssertionResult(criterion, data);
         }
       },
 
