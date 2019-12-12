@@ -72,6 +72,49 @@ angular
         return true;
       }
 
+      function isSampleRelated (subject) {
+        var sampleHosts = evalModel.sampleModel.getPages()
+          .map(function (page) {
+            var pageUrl;
+
+            if (page.source !== undefined) {
+              try {
+                pageUrl = new URL(page.source);
+              } catch (e) {
+                console.error(e);
+
+                return page.source;
+              }
+
+              return pageUrl;
+            }
+          });
+
+        var subjectHost = '';
+
+        if (typeof subject === 'string') {
+          try {
+            subjectHost = new URL(subject);
+          } catch (e) {
+            console.error(e.message);
+
+            return false;
+          }
+        }
+
+        if (typeof subject === 'object' && subject.source !== undefined) {
+          try {
+            subjectHost = new URL(subject.source);
+          } catch (e) {
+            console.error(e.message);
+
+            return false;
+          }
+        }
+
+        return (sampleHosts.indexOf(subjectHost) >= 0);
+      }
+
       function isWcagRelated (assertionTest) {
         function wcagIn (text) {
           return text.indexOf('WCAG') >= 0;
@@ -157,6 +200,10 @@ angular
       }
 
       if (!hasRequiredKeys(assertion)) {
+        return false;
+      }
+
+      if (!isSampleRelated(assertion.subject)) {
         return false;
       }
 
