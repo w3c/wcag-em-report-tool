@@ -61,7 +61,7 @@ angular.module('wcagReporter')
       $scope.critFilter = $rootScope.rootHide.criteria;
     } else {
       $scope.critFilter = {
-        WCAG21: true,
+        WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
         WCAG20: true,
         'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
         'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
