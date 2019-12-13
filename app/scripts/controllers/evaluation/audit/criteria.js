@@ -13,6 +13,7 @@ angular.module('wcagReporter')
     $timeout
   ) {
     var principlesOrigin = [];
+    var activeFilters = [];
 
     $scope.criteria = evalAuditModel.getCriteriaSorted();
 
@@ -33,15 +34,42 @@ angular.module('wcagReporter')
       }
     }
 
-    function criterionMatchFilter (criterion) {
-      var criterionLevel = criterion.level;
-      var criterionVersion = 'WCAG' + criterion.versions[0].replace('.', '');
-      var criteriaFilter = $scope.critFilter;
+    function getActiveFilters () {
+      var filters = $scope.critFilter;
+      var activatedFilters = [];
 
-      return (
-        criteriaFilter[criterionVersion] === true &&
-        criteriaFilter[criterionLevel] === true
-      );
+      for (var filter in filters) {
+        if (Object.prototype.hasOwnProperty.call($scope.critFilter, filter)) {
+          for (var filterOption in filters[filter]) {
+            if (
+              Object.prototype.hasOwnProperty.call(filters[filter], filterOption) &&
+              filters[filter][filterOption] === true
+            ) {
+              activatedFilters.push(filterOption);
+            }
+          }
+        }
+      }
+
+      return activatedFilters.slice();
+    }
+
+    function setActiveFilters () {
+      activeFilters = getActiveFilters();
+    }
+
+    function criterionMatchFilter (criterion) {
+      var versionActive = (activeFilters.indexOf(criterion.versions[0]) !== -1);
+      var levelActive = (activeFilters.indexOf(criterion.level) !== -1);
+
+      if (
+        versionActive &&
+        levelActive
+      ) {
+        return true;
+      }
+
+      return false;
     }
 
     $scope.principles = [];
@@ -57,20 +85,40 @@ angular.module('wcagReporter')
       buildPrinciples($scope.principles, principlesOrigin);
     });
 
+    $scope.$watch(
+      function (scope) {
+        var setFilters = activeFilters = getActiveFilters();
+        return setFilters.length;
+      },
+      function (next, current, scope) {
+        if (next !== current) {
+          setActiveFilters();
+        }
+      }
+    );
+
     if ($rootScope.rootHide.criteria) {
       $scope.critFilter = $rootScope.rootHide.criteria;
     } else {
       $scope.critFilter = {
-        WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
-        WCAG20: true,
-        'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
-        'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
-        'wai:WCAG2AAA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AAA-Conformance')
+        versions: {
+          WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
+          WCAG20: true
+        },
+        levels: {
+          'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
+          'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
+          'wai:WCAG2AAA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AAA-Conformance')
+        }
       };
       $rootScope.rootHide.criteria = $scope.critFilter;
     }
 
     $scope.isCriterionVisible = function (critSpec) {
+      if (activeFilters.length === 0) {
+        return false;
+      }
+
       // Check if the level of this criterion should be shown
       if (!criterionMatchFilter(critSpec)) {
         return false;
@@ -78,8 +126,10 @@ angular.module('wcagReporter')
 
       // Check if the assert has an outcome, if no, don't show the criterion
       var critAssert = evalAuditModel.getCritAssert(critSpec.id);
-      if (typeof critAssert !== 'object' ||
-        typeof critAssert.result !== 'object') {
+      if (
+        typeof critAssert !== 'object' ||
+        typeof critAssert.result !== 'object'
+      ) {
         return false;
       }
 
