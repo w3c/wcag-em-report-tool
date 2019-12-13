@@ -138,27 +138,15 @@ angular.module('wcagReporter')
     };
 
     $scope.isGuidelineVisible = function (guideline) {
-      var visible = false;
-      guideline.successcriteria.forEach(function (critSpec) {
-        // Only check the criterion if a previous check hasn't already returned true
-        if (visible || $scope.isCriterionVisible(critSpec)) {
-          visible = true;
-        }
+      return guideline.successcriteria.some(function (criterion) {
+        return $scope.isCriterionVisible(criterion);
       });
-      return visible;
     };
 
     $scope.isPrincipleVisible = function (principle) {
-      var visible = false;
-
-      principle.guidelines.forEach(function (guideline) {
-        // Only check the criterion if a previous check hasn't already returned true
-        if (visible || $scope.isGuidelineVisible(guideline)) {
-          visible = true;
-        }
+      return principle.guidelines.some(function (guideline) {
+        return $scope.isGuidelineVisible(guideline);
       });
-
-      return visible;
     };
 
     var untested = [
