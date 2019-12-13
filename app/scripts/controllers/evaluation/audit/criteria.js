@@ -58,6 +58,23 @@ angular.module('wcagReporter')
       activeFilters = getActiveFilters();
     }
 
+    function enabledFilter (filter) {
+      var filters = $scope.critFilter;
+
+      if (Object.prototype.hasOwnProperty.call(filters, filter)) {
+        for (var filterOption in filters[filter]) {
+          if (
+            Object.prototype.hasOwnProperty.call(filters[filter], filterOption) &&
+            filters[filter][filterOption] === true
+          ) {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    }
+
     function criterionMatchFilter (criterion) {
       var versionActive = (activeFilters.indexOf(criterion.versions[0]) !== -1);
       var levelActive = (activeFilters.indexOf(criterion.level) !== -1);
@@ -65,6 +82,20 @@ angular.module('wcagReporter')
       if (
         versionActive &&
         levelActive
+      ) {
+        return true;
+      }
+
+      if (
+        versionActive &&
+        !enabledFilter('levels')
+      ) {
+        return true;
+      }
+
+      if (
+        levelActive &&
+        !enabledFilter('versions')
       ) {
         return true;
       }
@@ -101,6 +132,7 @@ angular.module('wcagReporter')
       $scope.critFilter = $rootScope.rootHide.criteria;
     } else {
       $scope.critFilter = {
+        count: 5,
         versions: {
           WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
           WCAG20: true
@@ -115,8 +147,12 @@ angular.module('wcagReporter')
     }
 
     $scope.isCriterionVisible = function (critSpec) {
-      if (activeFilters.length === 0) {
-        return false;
+      // Quick filtering all or none is visible
+      if (
+        activeFilters.length === 0 ||
+        activeFilters.length === $scope.critFilter.count
+      ) {
+        return true;
       }
 
       // Check if the level of this criterion should be shown
