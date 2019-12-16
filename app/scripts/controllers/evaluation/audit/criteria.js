@@ -23,10 +23,6 @@ angular.module('wcagReporter')
       var tgtPrinciple = origin[target.length];
       target.push(tgtPrinciple);
 
-      // tgtPrinciple.guidelines.forEach(function (g) {
-      //     g.hideCriteria = true;
-      // });
-
       if (target.length !== origin.length) {
         $timeout(function () {
           buildPrinciples(target, origin);
