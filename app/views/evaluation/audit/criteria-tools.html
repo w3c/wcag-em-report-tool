@@ -1,29 +1,42 @@
 <fieldset class="sc-filters">
   <legend>{{ 'AUDIT.FILTER' | translate }}:</legend>
 
-  <div>
+  <fieldset>
+    <legend class="sr-only">show version</legend>
+
     <label for="show_version_21" class="btn btn-sm"
     ng-class="{
-      'btn-primary': critFilter.versions['WCAG21'],
-      'btn-primary-invert': !critFilter.versions['WCAG21']
+      'btn-primary': critFilter.version === 'WCAG21 WCAG20',
+      'btn-primary-invert': critFilter.version !== 'WCAG21 WCAG20'
     }">
-      <input id="show_version_21" type="checkbox"
-      ng-model="critFilter.versions['WCAG21']">
+      <input id="show_version_21" type="radio" value="WCAG21 WCAG20"
+      ng-model="critFilter.version">
+      <span>{{ 'SCOPE.WCAG21' | translate}}</span>
+    </label>
+
+    <label for="show_version_21_only" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.version === 'WCAG21',
+      'btn-primary-invert': critFilter.version !== 'WCAG21'
+    }">
+      <input id="show_version_21_only" type="radio" value="WCAG21"
+      ng-model="critFilter.version">
       <span>{{ 'AUDIT.FILTER_NEW_IN_WCAG21' | translate}}</span>
     </label>
 
     <label for="show_version_20" class="btn btn-sm"
     ng-class="{
-      'btn-primary': critFilter.versions['WCAG20'],
-      'btn-primary-invert': !critFilter.versions['WCAG20']
+      'btn-primary': critFilter.version === 'WCAG20',
+      'btn-primary-invert': critFilter.version !== 'WCAG20'
     }">
-      <input id="show_version_20" type="checkbox"
-      ng-model="critFilter.versions['WCAG20']">
+      <input id="show_version_20" type="radio" value="WCAG20"
+      ng-model="critFilter.version">
       <span>{{ 'SCOPE.WCAG20' | translate}}</span>
     </label>
-  </div>
+  </fieldset>
 
-  <div>
+  <fieldset>
+    <legend class="sr-only">show conformance level</legend>
     <label for="show_level-a" class="btn btn-sm"
     ng-class="{
       'btn-primary': critFilter.levels['wai:WCAG2A-Conformance'],
@@ -53,5 +66,5 @@
       ng-model="critFilter.levels['wai:WCAG2AAA-Conformance']">
       <span>{{ 'EARL.LEVEL_AAA' | translate}}</span>
     </label>
-  </div>
+  </fieldset>
 </fieldset>

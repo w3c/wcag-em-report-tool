@@ -88,6 +88,7 @@ angular.module('wcagReporter')
     $scope.$watch(
       function (scope) {
         var setFilters = activeFilters = getActiveFilters();
+
         return setFilters.length;
       },
       function (next, current, scope) {
@@ -101,6 +102,9 @@ angular.module('wcagReporter')
       $scope.critFilter = $rootScope.rootHide.criteria;
     } else {
       $scope.critFilter = {
+        version: evalScopeModel.wcagVersion === 'WCAG21'
+          ? 'WCAG21 WCAG20'
+          : 'WCAG20',
         versions: {
           WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
           WCAG20: true
