@@ -70,6 +70,21 @@ angular.module('wcagReporter')
       activeFilters = getActiveFilters();
     }
 
+    function filteredByLevel () {
+      var levelFilter = $scope.critFilter.levels;
+
+      for (var level in levelFilter) {
+        if (
+          Object.prototype.hasOwnProperty.call(levelFilter, level) &&
+          levelFilter[level] === true
+        ) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
     function criterionMatchFilter (criterion) {
       var versionActive = (activeFilters.indexOf(criterion.versions[0]) !== -1);
       var levelActive = (activeFilters.indexOf(criterion.level) !== -1);
@@ -77,6 +92,15 @@ angular.module('wcagReporter')
       if (
         versionActive &&
         levelActive
+      ) {
+        return true;
+      }
+
+      // Version filtering is always on so if no level is filtered
+      // show criteria based on version occurence alone
+      if (
+        versionActive &&
+        !filteredByLevel()
       ) {
         return true;
       }
