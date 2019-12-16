@@ -99,11 +99,12 @@ angular.module('wcagReporter')
 
     $scope.$watch(
       function (scope) {
-        var setFilters = activeFilters = getActiveFilters();
+        var setFilters = getActiveFilters()
+          .join();
 
-        return setFilters.length;
+        return setFilters;
       },
-      function (next, current, scope) {
+      function (next, current) {
         if (next !== current) {
           setActiveFilters();
         }
@@ -123,14 +124,12 @@ angular.module('wcagReporter')
           'wai:WCAG2AAA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AAA-Conformance')
         }
       };
+
       $rootScope.rootHide.criteria = $scope.critFilter;
     }
+    setActiveFilters();
 
     $scope.isCriterionVisible = function (critSpec) {
-      if (activeFilters.length === 0) {
-        return false;
-      }
-
       // Check if the level of this criterion should be shown
       if (!criterionMatchFilter(critSpec)) {
         return false;
