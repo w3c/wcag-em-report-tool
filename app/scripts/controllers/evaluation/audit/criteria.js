@@ -30,12 +30,17 @@ angular.module('wcagReporter')
       }
     }
 
+    // Read from critFilter
     function getActiveFilters () {
       var filters = $scope.critFilter;
       var activatedFilters = [];
 
       for (var filter in filters) {
-        if (Object.prototype.hasOwnProperty.call($scope.critFilter, filter)) {
+        // levels is an object with level key value boolean
+        if (
+          Object.prototype.hasOwnProperty.call($scope.critFilter, filter) &&
+          typeof filters[filter] === 'object'
+        ) {
           for (var filterOption in filters[filter]) {
             if (
               Object.prototype.hasOwnProperty.call(filters[filter], filterOption) &&
@@ -44,6 +49,17 @@ angular.module('wcagReporter')
               activatedFilters.push(filterOption);
             }
           }
+        }
+
+        // version is a string; WCAG21, WCAG20 or WCAG20 WCAG21
+        if (
+          Object.prototype.hasOwnProperty.call($scope.critFilter, filter) &&
+          typeof filters[filter] === 'string'
+        ) {
+          filters[filter].split(' ')
+            .forEach(function (filterOption) {
+              activatedFilters.push(filterOption);
+            });
         }
       }
 
@@ -101,10 +117,6 @@ angular.module('wcagReporter')
         version: evalScopeModel.wcagVersion === 'WCAG21'
           ? 'WCAG21 WCAG20'
           : 'WCAG20',
-        versions: {
-          WCAG21: evalScopeModel.wcagVersion === 'WCAG21',
-          WCAG20: true
-        },
         levels: {
           'wai:WCAG2A-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2A-Conformance'),
           'wai:WCAG2AA-Conformance': evalScopeModel.matchConformTarget('wai:WCAG2AA-Conformance'),
