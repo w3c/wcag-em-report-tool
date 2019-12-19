@@ -151,16 +151,6 @@ angular.module('wcagReporter')
         return false;
       }
 
-      // Check if the assert has an outcome, if no, don't show the criterion
-      var critAssert = evalAuditModel.getCritAssert(critSpec.id);
-      if (
-        typeof critAssert !== 'object' ||
-        typeof critAssert.result !== 'object'
-      ) {
-        return false;
-      }
-
-      // Check if the outcome is set to hidden
       return true;
     };
 
