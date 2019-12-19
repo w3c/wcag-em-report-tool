@@ -121,19 +121,11 @@ angular.module('wcagReporter')
       buildPrinciples($scope.principles, principlesOrigin);
     });
 
-    $scope.$watch(
-      function (scope) {
-        var setFilters = getActiveFilters()
-          .join();
-
-        return setFilters;
-      },
-      function (next, current) {
-        if (next !== current) {
-          setActiveFilters();
-        }
-      }
-    );
+    $scope.handleFilterChange = function handleFilterChange () {
+      console.log('before', activeFilters);
+      setActiveFilters();
+      console.log('after', activeFilters);
+    };
 
     if ($rootScope.rootHide.criteria) {
       $scope.critFilter = $rootScope.rootHide.criteria;

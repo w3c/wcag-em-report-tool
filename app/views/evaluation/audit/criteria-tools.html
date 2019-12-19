@@ -10,7 +10,8 @@
       'btn-primary-invert': critFilter.version !== 'WCAG21 WCAG20'
     }">
       <input id="show_version_21" type="radio" value="WCAG21 WCAG20"
-      ng-model="critFilter.version">
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
       <span>{{ 'SCOPE.WCAG21' | translate}}</span>
     </label>
 
@@ -20,7 +21,8 @@
       'btn-primary-invert': critFilter.version !== 'WCAG21'
     }">
       <input id="show_version_21_only" type="radio" value="WCAG21"
-      ng-model="critFilter.version">
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
       <span>{{ 'AUDIT.FILTER_NEW_IN_WCAG21' | translate}}</span>
     </label>
 
@@ -30,7 +32,8 @@
       'btn-primary-invert': critFilter.version !== 'WCAG20'
     }">
       <input id="show_version_20" type="radio" value="WCAG20"
-      ng-model="critFilter.version">
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
       <span>{{ 'SCOPE.WCAG20' | translate}}</span>
     </label>
   </fieldset>
@@ -43,7 +46,8 @@
       'btn-primary-invert': !critFilter.levels['wai:WCAG2A-Conformance']
     }">
       <input id="show_level-a" type="checkbox"
-      ng-model="critFilter.levels['wai:WCAG2A-Conformance']">
+      ng-model="critFilter.levels['wai:WCAG2A-Conformance']"
+      ng-change="handleFilterChange()">
       <span>{{ 'EARL.LEVEL_A' | translate}}</span>
     </label>
 
@@ -53,7 +57,8 @@
       'btn-primary-invert': !critFilter.levels['wai:WCAG2AA-Conformance']
     }">
       <input id="show_level-aa" type="checkbox"
-      ng-model="critFilter.levels['wai:WCAG2AA-Conformance']">
+      ng-model="critFilter.levels['wai:WCAG2AA-Conformance']"
+      ng-change="handleFilterChange()">
       <span>{{ 'EARL.LEVEL_AA' | translate}}</span>
     </label>
 
@@ -63,7 +68,8 @@
       'btn-primary-invert': !critFilter.levels['wai:WCAG2AAA-Conformance']
     }">
       <input id="show_level-aaa" type="checkbox"
-      ng-model="critFilter.levels['wai:WCAG2AAA-Conformance']">
+      ng-model="critFilter.levels['wai:WCAG2AAA-Conformance']"
+      ng-change="handleFilterChange()">
       <span>{{ 'EARL.LEVEL_AAA' | translate}}</span>
     </label>
   </fieldset>
