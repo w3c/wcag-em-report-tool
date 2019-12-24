@@ -235,6 +235,11 @@ angular
         assertion = assertions[i];
         wcagId = assertion.wcagId || assertion.test;
         evalModel.auditModel.updateCritAssert(wcagId, assertion);
+
+        $scope.feedback = {
+          type: FEEDBACK.SUCCESS.type,
+          message: 'Import successfull! Imported ' + assertionsCount + ' assertions.'
+        };
       }
     }
 
