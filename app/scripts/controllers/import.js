@@ -286,6 +286,13 @@ angular
                   type: FEEDBACK.SUCCESS.type,
                   message: 'Ready to import ' + $scope.assertionImport.length + ' assertions.'
                 };
+              } else {
+                $scope.feedback = {
+                  type: FEEDBACK.ERROR.type,
+                  message: 'No Assertions found in file “' + $scope.importFile.name + '”'
+                };
+
+                $scope.importFile = null;
               }
 
               $scope.$apply();
