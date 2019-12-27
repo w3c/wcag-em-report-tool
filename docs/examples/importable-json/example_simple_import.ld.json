@@ -1,0 +1,54 @@
+{
+    "@context":
+    {
+        "WCAG21": "http://www.w3.org/TR/WCAG21/#",
+        "earl": "http://www.w3.org/ns/earl#",
+        "Assertion": "earl:Assertion",
+        "test":
+        {
+            "@id": "earl:test",
+            "@type": "@id"
+        },
+        "assertedBy":
+        {
+            "@id": "earl:assertedBy",
+            "@type": "@id"
+        },
+        "subject":
+        {
+            "@id": "earl:subject",
+            "@type": "@id"
+        },
+        "result": "earl:result",
+        "outcome":
+        {
+            "@id": "earl:outcome",
+            "@type": "@id"
+        },
+        "dct": "http://purl.org/dc/terms/",
+        "description": "dct:description"
+    },
+    "@graph": [
+    {
+        "@type": "Assertion",
+        "assertedBy": "_:evaluator",
+        "subject": "https://website-name.org",
+        "result":
+        {
+            "description": "No violations found",
+            "outcome": "earl:passed"
+        },
+        "test": "WCAG21:non-text-content"
+    },
+    {
+        "@context":
+        {
+            "@vocab": "http://xmlns.com/foaf/0.1/",
+            "id": "@id",
+            "type": "@type"
+        },
+        "@id": "_:evaluator",
+        "@type": "Person",
+        "name": "External Evaluator"
+    }]
+}
