@@ -4,6 +4,7 @@
         "WCAG21": "http://www.w3.org/TR/WCAG21/#",
         "earl": "http://www.w3.org/ns/earl#",
         "Assertion": "earl:Assertion",
+        "TestResult": "earl:TestResult",
         "test":
         {
             "@id": "earl:test",
@@ -35,17 +36,40 @@
         "subject": "https://website-name.org",
         "result":
         {
+            "@type": "TestResult",
             "description": "No violations found",
             "outcome": "earl:passed"
         },
         "test": "WCAG21:non-text-content"
     },
     {
+        "@type": "Assertion",
+        "assertedBy": "_:evaluator",
+        "subject": "https://website-name.org/contact-us/",
+        "result":
+        {
+            "@type": "TestResult",
+            "description": "Found a heading like text “Contact us” without heading markup! (`<h2>`)",
+            "outcome": "earl:failed"
+        },
+        "test": "WCAG21:info-and-relationships"
+    },
+    {
+        "@type": "Assertion",
+        "assertedBy": "_:evaluator",
+        "subject": "https://website-name.org/search/?search=some-random-page",
+        "result":
+        {
+            "@type": "TestResult",
+            "description": "Found focus order to start with last search entry visible going up instead of down! And when reverse tabbing focus jumps to body (and focus body only)",
+            "outcome": "earl:failed"
+        },
+        "test": "WCAG21:meaningful-sequence"
+    },
+    {
         "@context":
         {
-            "@vocab": "http://xmlns.com/foaf/0.1/",
-            "id": "@id",
-            "type": "@type"
+            "@vocab": "http://xmlns.com/foaf/0.1/"
         },
         "@id": "_:evaluator",
         "@type": "Person",
