@@ -122,9 +122,7 @@ angular.module('wcagReporter')
     });
 
     $scope.handleFilterChange = function handleFilterChange () {
-      console.log('before', activeFilters);
       setActiveFilters();
-      console.log('after', activeFilters);
     };
 
     if ($rootScope.rootHide.criteria) {
