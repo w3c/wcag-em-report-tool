@@ -6,7 +6,8 @@ angular.module('wcagReporter')
     evalScopeModel,
     wcag2spec,
     CriterionAssert,
-    types
+    types,
+    $filter
   ) {
     var auditModel;
     var criteria = {};
@@ -25,11 +26,23 @@ angular.module('wcagReporter')
     function updateAssertionResult (assertion, data) {
       var testResult = data.result;
 
-      if (assertion.result.description.length) {
-        assertion.result.description += '\n\n';
+      function composeImportResult (result) {
+        var composed = '\n\n';
+        composed += '*Imported finding*:\n';
+        composed += 'outcome: ' + $filter('rdfToLabel')(result.outcome);
+        if (result.description.length > 0) {
+          composed += '\n' + result.description;
+        }
+
+        console.log(composed);
+
+        return composed;
       }
 
-      assertion.result.description += testResult.description || '';
+      assertion.result.description += composeImportResult(testResult);
+
+      // Remove empty lines at start of description
+      assertion.result.description = assertion.result.description.replace(/^\s+/, '');
 
       // Decide what outcome should be set.
       // Set Failed if imported result is Failed
