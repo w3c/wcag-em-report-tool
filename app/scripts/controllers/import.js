@@ -73,8 +73,8 @@ angular
       }
 
       function isSampleRelated (subject) {
-        var sampleHosts = evalModel.sampleModel.getPages()
-          .map(function (page) {
+        var sampleUrls = evalModel.sampleModel.getPages()
+          .map(function getUrls (page) {
             var pageUrl;
 
             if (page.source !== undefined) {
@@ -86,33 +86,37 @@ angular
                 return page.source;
               }
 
-              return pageUrl;
+              return pageUrl.href;
             }
           });
 
-        var subjectHost = '';
+        var subjectUrl = '';
 
         if (typeof subject === 'string') {
           try {
-            subjectHost = new URL(subject);
+            subjectUrl = new URL(subject).href;
           } catch (e) {
-            console.error(e.message);
+            console.error('Expected valid url in import assertion subject.');
 
             return false;
           }
         }
 
-        if (typeof subject === 'object' && subject.source !== undefined) {
+        if (
+          typeof subject === 'object' &&
+          subject.toString() === '[object Object]' &&
+          subject.source !== undefined
+        ) {
           try {
-            subjectHost = new URL(subject.source);
+            subjectUrl = new URL(subject.source).href;
           } catch (e) {
-            console.error(e.message);
+            console.error('Expected valid url in import assertion subject.');
 
             return false;
           }
         }
 
-        return (sampleHosts.indexOf(subjectHost) >= 0);
+        return (sampleUrls.indexOf(subjectUrl) >= 0);
       }
 
       function isWcagRelated (assertionTest) {
@@ -231,6 +235,11 @@ angular
         assertion = assertions[i];
         wcagId = assertion.wcagId || assertion.test;
         evalModel.auditModel.updateCritAssert(wcagId, assertion);
+
+        $scope.feedback = {
+          type: FEEDBACK.SUCCESS.type,
+          message: 'Import successfull! Imported ' + assertionsCount + ' assertions.'
+        };
       }
     }
 
@@ -282,6 +291,13 @@ angular
                   type: FEEDBACK.SUCCESS.type,
                   message: 'Ready to import ' + $scope.assertionImport.length + ' assertions.'
                 };
+              } else {
+                $scope.feedback = {
+                  type: FEEDBACK.ERROR.type,
+                  message: 'No Assertions found in file “' + $scope.importFile.name + '”'
+                };
+
+                $scope.importFile = null;
               }
 
               $scope.$apply();
