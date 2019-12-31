@@ -3,7 +3,7 @@
 <main ng-controller="ImportCtrl">
   <h1>{{ setTitle( translate('IMPORT.TITLE') ) }}</h1>
 
-  <div class="alert appear" ng-class="'alert-' + feedback.type" ng-if="feedback">
+  <div class="alert appear" ng-class="'alert-' + feedback.class" ng-if="feedback">
     <p>{{ feedback.message }}</p>
   </div>
 

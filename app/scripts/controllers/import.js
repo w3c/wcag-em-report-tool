@@ -13,16 +13,16 @@ angular
     var JSONLD = window.jsonld;
     var FEEDBACK = {
       ERROR: {
-        type: 'danger',
-        message: 'Import error'
+        type: 'error',
+        class: 'danger'
       },
       PENDING: {
-        type: 'info',
-        message: 'Import pending...'
+        type: 'pending',
+        class: 'info'
       },
       SUCCESS: {
         type: 'success',
-        message: 'Import successfull'
+        class: 'success'
       }
     };
 
