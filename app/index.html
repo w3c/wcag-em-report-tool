@@ -13,6 +13,15 @@
 </head>
 <body ng-app="wcagReporter">
   <!-- Add your site or application content here -->
+  <div class="not-w3c-notification" lang="en">
+    <strong>Important:</strong> This page is intended for <em>previewing and testing purposes only</em>.
+    The published version of this tool is available at
+    <a href="http://www.w3.org/WAI/eval/report-tool/">
+      www.w3.org/WAI/eval/report-tool/
+    </a>.
+  </div>
+
+
   <div class="page-view">
     <div ng-include src="'views/navigation.html'"></div>
     <div ng-view autoscroll="true" class="container reporter-view"></div>
