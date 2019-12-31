@@ -65,13 +65,23 @@ angular.module('wcagReporter')
 
         // Make an object of the criteria array with uri as keys
         criteria.forEach(function (criterion) {
-          if ([
+          var levels = [
             'A',
             'AA',
             'AAA'
-          ].indexOf(criterion.level) !== -1) {
+          ];
+
+          if (levels.indexOf(criterion.level) !== -1) {
             criterion.level = 'wai:WCAG2' + criterion.level + '-Conformance';
             criteriaObj[criterion.id] = criterion;
+          }
+
+          // Versions are 2.0 or 2.1 but need to be json-ld wich is WCAG20 and WCAG21
+          if (Object.prototype.hasOwnProperty.call(criterion, 'versions')) {
+            criterion.versions = criterion.versions
+              .map(function (version) {
+                return 'WCAG' + version.replace('.', '');
+              });
           }
         });
 
