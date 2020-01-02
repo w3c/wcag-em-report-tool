@@ -9,7 +9,6 @@
 		"sch": "https://schema.org/",
 		"source": "dct:source",
 		"title": "dct:title",
-		"EMTest": "http://www.w3.org/TR/WCAG-EM/#testcase",
 		"assertedBy": {
 			"@type": "@id"
 		},
