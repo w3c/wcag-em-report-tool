@@ -23,8 +23,8 @@ angular.module('wcagReporter')
         });
     });
 
-    function updateAssertionResult (assertion, data) {
-      var testResult = data.result;
+    function updateAssertion (assertion, update) {
+      var testResult = update.result;
 
       function composeImportResult (result) {
         var composed = '\n\n';
@@ -153,7 +153,7 @@ angular.module('wcagReporter')
         var criterion = auditModel.getCritAssert(id);
 
         if (data.result) {
-          updateAssertionResult(criterion, data);
+          updateAssertion(criterion, data);
         }
       },
 
