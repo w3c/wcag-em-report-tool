@@ -179,15 +179,19 @@ angular
             return false;
           }
 
-          if (typeof _result.outcome === 'string') {
-            return outcomeValues.indexOf(_result.outcome) >= 0;
+          if (
+            typeof _result.outcome === 'string' &&
+            outcomeValues.indexOf(_result.outcome) >= 0
+          ) {
+            return true;
           }
 
           if (
             isObjectLiteral(_result.outcome) &&
-            _result.outcome['@type'] !== undefined
+            _result.outcome['@type'] !== undefined &&
+            outcomeClasses.indexOf(_result.outcome['@type']) >= 0
           ) {
-            return outcomeClasses.indexOf(_result.outcome['@type']) >= 0;
+            return true;
           }
         }
 
