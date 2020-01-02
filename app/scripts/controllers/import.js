@@ -8,7 +8,8 @@ angular
     $rootScope,
     evalContextV3,
     evalModel,
-    types
+    types,
+    isObjectLiteral
   ) {
     var JSONLD = window.jsonld;
     var FEEDBACK = {
@@ -98,8 +99,7 @@ angular
         }
 
         if (
-          typeof subject === 'object' &&
-          subject.toString() === '[object Object]' &&
+          isObjectLiteral(subject) &&
           subject.source !== undefined
         ) {
           try {
@@ -134,7 +134,7 @@ angular
         }
 
         if (
-          typeof assertionTest === 'object' &&
+          isObjectLiteral(assertionTest) &&
           assertionTest.id !== undefined &&
           wcagIn(assertionTest.id)
         ) {
@@ -143,7 +143,7 @@ angular
         }
 
         if (
-          typeof assertionTest === 'object' &&
+          isObjectLiteral(assertionTest) &&
           assertionTest.isPartOf !== undefined &&
           typeof assertionTest.isPartOf === 'string' &&
           wcagIn(assertionTest.isPartOf)
@@ -184,7 +184,7 @@ angular
           }
 
           if (
-            typeof _result.outcome === 'object' &&
+            isObjectLiteral(_result.outcome) &&
             _result.outcome['@type'] !== undefined
           ) {
             return outcomeClasses.indexOf(_result.outcome['@type']) >= 0;
