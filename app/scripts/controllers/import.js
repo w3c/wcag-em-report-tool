@@ -56,17 +56,12 @@ angular
           'assertedBy'
         ];
 
-        var missingKeys = [];
         var key;
 
         for (key in requiredKeys) {
           if (assertionKeys.indexOf(requiredKeys[key]) === -1) {
-            missingKeys.push(requiredKeys[key]);
+            return false;
           }
-        }
-
-        if (missingKeys.length > 0) {
-          return false;
         }
 
         return true;
