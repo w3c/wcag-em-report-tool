@@ -34,8 +34,6 @@ angular.module('wcagReporter')
           composed += '\n' + result.description;
         }
 
-        console.log(composed);
-
         return composed;
       }
 
