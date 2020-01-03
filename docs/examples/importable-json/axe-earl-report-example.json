@@ -2,14 +2,7 @@
 	"@context": {
 		"@vocab": "http://www.w3.org/ns/earl#",
 		"earl": "http://www.w3.org/ns/earl#",
-		"WCAG20": "http://www.w3.org/TR/WCAG20/#",
-		"WCAG21": "http://www.w3.org/TR/WCAG21/#",
-		"auto-wcag": "https://auto-wcag.github.io/auto-wcag/rules/",
-		"dct": "http://purl.org/dc/terms/",
-		"sch": "https://schema.org/",
-		"source": "dct:source",
-		"title": "dct:title",
-		"assertedBy": {
+        "assertedBy": {
 			"@type": "@id"
 		},
 		"outcome": {
@@ -17,7 +10,17 @@
 		},
 		"mode": {
 			"@type": "@id"
-		}
+		},
+		"WCAG20": "http://www.w3.org/TR/WCAG20/#",
+		"WCAG21": "http://www.w3.org/TR/WCAG21/#",
+        "sch": "https://schema.org/",
+		"dct": "http://purl.org/dc/terms/",
+        "isPartOf": "dct:isPartOf",
+		"source": {
+            "@id": "dct:source",
+            "@type": "@id"
+        },
+		"title": "dct:title"
 	},
 	"@graph": [
 		{
@@ -25,18 +28,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:passed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-allowed-attr",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-allowed-attr?application=axeAPI",
-				"dct:isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+				"isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -44,7 +47,7 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
@@ -55,12 +58,7 @@
 				"@type": "TestCase",
 				"title": "aria-dpub-role-fallback",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-dpub-role-fallback?application=axeAPI",
-				"dct:isPartOf": {
-					"@id": "https://www.w3.org/TR/WCAG20/#content-structure-separation",
-					"@type": "TestRequirement",
-					"dct:title": "Info and Relationships",
-					"dct:description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text."
-				}
+				"isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation"
 			}
 		},
 		{
@@ -68,7 +66,7 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
@@ -78,15 +76,16 @@
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-hidden-body",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-body?application=axeAPI"
-			}
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-body?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+		}
 		},
 		{
 			"@type": "Assertion",
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org/contact-us/"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
@@ -96,7 +95,8 @@
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-hidden-focus",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-focus?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-focus?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -104,7 +104,7 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
@@ -114,7 +114,8 @@
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-required-attr",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-attr?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-attr?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -122,17 +123,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org/search/"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:failed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-required-children",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-children?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-children?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
 			}
 		},
 		{
@@ -140,17 +142,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:passed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-required-parent",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-parent?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-parent?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
 			}
 		},
 		{
@@ -158,17 +161,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:failed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-roles",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-roles?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-roles?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -176,17 +180,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:passed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-valid-attr-value",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr-value?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr-value?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -194,17 +199,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:passed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "aria-valid-attr",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -212,17 +218,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org/contact-us/"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:failed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "button-name",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/button-name?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/button-name?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
 			}
 		},
 		{
@@ -230,17 +237,18 @@
 			"mode": "earl:automatic",
 			"subject": {
 				"@type": ["earl:TestSubject", "sch:WebPage"],
-				"source": "https://act-rules.github.io/testcases/6cfa84/031ce334e0405bc42f3028964a8f1d94b0c06afc.html"
+				"source": "https://website-name.org/search/"
 			},
 			"assertedBy": "https://github.com/dequelabs/axe-core/releases/tag/3.2.2",
 			"result": {
 				"@type": "TestResult",
-				"outcome": "earl:inapplicable"
+				"outcome": "earl:failed"
 			},
 			"test": {
 				"@type": "TestCase",
 				"title": "definition-list",
-				"@id": "https://dequeuniversity.com/rules/axe/3.2/definition-list?application=axeAPI"
+				"@id": "https://dequeuniversity.com/rules/axe/3.2/definition-list?application=axeAPI",
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
 			}
 		}
 	]
