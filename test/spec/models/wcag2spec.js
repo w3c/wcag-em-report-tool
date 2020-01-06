@@ -6,9 +6,11 @@ describe('model: wcag2spec', function () {
 
   // instantiate service
   var wcag2spec;
-  beforeEach(inject(function (_wcag2spec_) {
-    wcag2spec = _wcag2spec_;
-  }));
+  beforeEach(
+    inject(function (_wcag2spec_) {
+      wcag2spec = _wcag2spec_;
+    })
+  );
 
   beforeEach(function (done) {
     inject(function ($rootScope) {
@@ -18,6 +20,7 @@ describe('model: wcag2spec', function () {
 
   describe('getPrinciples', function () {
     var principles;
+
     beforeEach(function () {
       principles = wcag2spec.getPrinciples();
     });
@@ -37,6 +40,7 @@ describe('model: wcag2spec', function () {
 
   describe('getGuidelines', function () {
     var guidelines;
+
     beforeEach(function () {
       guidelines = wcag2spec.getGuidelines();
     });
@@ -56,6 +60,7 @@ describe('model: wcag2spec', function () {
 
   describe('getCriteria', function () {
     var criteria;
+
     beforeEach(function () {
       criteria = wcag2spec.getCriteria();
     });
@@ -67,24 +72,33 @@ describe('model: wcag2spec', function () {
   });
 
   describe('getCriterion', function () {
-    it('should return a criterion with the given URI', function () {
-      var crit = wcag2spec.getCriterion('WCAG2:text-equiv-all');
-      expect(typeof crit)
+    it('should return a criterion with the given ID (WCAG2:non-text-content)', function () {
+      var criterionId = 'WCAG2:non-text-content';
+      var criterion = wcag2spec.getCriterion(criterionId);
+
+      expect(typeof criterion)
         .toBe('object');
+
+      expect(criterion.id)
+        .toBe(criterionId);
     });
 
-    it('should return undefined if the URI is unknown', function () {
-      var crit = wcag2spec.getCriterion();
+    it('should return undefined if the ID is unknown', function () {
+      var getCriterion = wcag2spec.getCriterion;
 
-      expect(typeof crit)
-        .toBe('undefined');
-      crit = wcag2spec.getCriterion('');
-      expect(typeof crit)
+      // No ID passed to getCriterion
+      expect(typeof getCriterion())
         .toBe('undefined');
 
-      crit = wcag2spec.getCriterion('someRandomThing');
-      expect(typeof crit)
-        .toBe('undefined');
+      [
+        '',
+        'someUnknownId'
+      ].forEach(function (unknownId) {
+        var criterion = getCriterion(unknownId);
+
+        expect(typeof criterion)
+          .toBe('undefined');
+      });
     });
   });
 });

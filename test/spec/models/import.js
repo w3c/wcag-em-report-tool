@@ -5,9 +5,10 @@ describe('model: evalModel import', function () {
   setupwcagReporterTest();
 
   function getEval (linkedData) {
-    return linkedData['@graph'].filter(function (obj) {
-      return obj.type === 'Evaluation';
-    })[0];
+    return linkedData['@graph']
+      .filter(function (obj) {
+        return obj.type === 'Evaluation';
+      })[0];
   }
 
   var reportImport;
@@ -15,17 +16,18 @@ describe('model: evalModel import', function () {
   var evalModel;
   var importEval;
 
-  beforeEach(inject(function (
-    wcagReporterImport,
-    wcagReporterExport,
-    basicEvalOutput2,
-    _evalModel_
-  ) {
-    reportImport = wcagReporterImport;
-    dummyData = basicEvalOutput2;
-    evalModel = _evalModel_;
-    importEval = getEval(dummyData);
-  }));
+  beforeEach(
+    inject(function (
+      _wcagReporterImport_,
+      _basicEvalOutput3_,
+      _evalModel_
+    ) {
+      reportImport = _wcagReporterImport_;
+      dummyData = _basicEvalOutput3_;
+      evalModel = _evalModel_;
+      importEval = getEval(dummyData);
+    })
+  );
 
   beforeEach(function (done) {
     inject(function ($rootScope) {
@@ -39,72 +41,74 @@ describe('model: evalModel import', function () {
   });
 
   it('shares the evaluation ID', function () {
-    	expect(evalModel.id)
-    	.toBe(importEval.id);
+    expect(evalModel.id)
+      .toBe(importEval.id);
   });
 
   it('stores scope properties on evalModel.scopeModel', function () {
-    	var scopeModel = evalModel.scopeModel;
-    	[
+    var scopeModel = evalModel.scopeModel;
+    [
       'additionalEvalRequirement',
-    	 	'conformanceTarget',
-    	 	'accessibilitySupportBaseline',
-    	 	'website'
-    ]
-    	.forEach(function (prop) {
-	    	expect(scopeModel[prop])
-	    	.toEqual(importEval.evaluationScope[prop]);
-    	});
+      'conformanceTarget',
+      'accessibilitySupportBaseline',
+      'website'
+    ].forEach(function (prop) {
+      expect(scopeModel[prop])
+        .toEqual(importEval.evaluationScope[prop]);
+    });
   });
 
   it('stores explore properties on evalModel.exploreModel', function () {
-    	var exploreModel = evalModel.exploreModel;
-    	[
+    var exploreModel = evalModel.exploreModel;
+
+    [
       'reliedUponTechnology',
-    	 	'essentialFunctionality',
-    	 	'pageTypeVariety',
-    	 	'commonPages',
-    	 	'otherRelevantPages'
-    ]
-    	.forEach(function (prop) {
-	    	expect(exploreModel[prop])
-	    	.toEqual(importEval[prop]);
-    	});
+      'essentialFunctionality',
+      'pageTypeVariety',
+
+      // Following properties are added to the model but excluded from view
+      // Still testing for it since it is part of WCAG-EM
+      'commonPages',
+      'otherRelevantPages'
+    ].forEach(function (property) {
+      expect(exploreModel[property])
+        .withContext(property)
+        .toEqual(importEval[property]);
+    });
   });
 
   it('stores sample properties on evalModel.sampleModel', function () {
-    	var sampleModel = evalModel.sampleModel;
+    var sampleModel = evalModel.sampleModel;
 
-    	[
+    [
       'structuredSample',
       'randomSample'
-    ]
-    	.forEach(function (sampleType) {
-    		var modelPages = sampleModel[sampleType].webpage;
-    		var importPages = importEval[sampleType].webpage;
+    ].forEach(function (sampleType) {
+      var modelPages = sampleModel[sampleType].webpage;
+      var importPages = importEval[sampleType].webpage;
 
-    		expect(modelPages.length)
-    		.toBe(importPages.length);
+      expect(modelPages.length)
+        .toBe(importPages.length);
 
-    		importPages.forEach(function (importPage, i) {
-    			var modelPage = modelPages[i];
-    			[
+      importPages
+        .forEach(function (importPage, i) {
+          var modelPage = modelPages[i];
+          [
             'type',
             'id',
             'description',
             'handle',
             'tested'
-          ]
-    			.forEach(function (prop) {
-    				expect(modelPage[prop])
-    				.toEqual(importPage[prop]);
-    			});
-    		});
-       	});
+          ].forEach(function (prop) {
+            expect(modelPage[prop])
+              .toEqual(importPage[prop]);
+          });
+        });
+    });
   });
 
   it('stores audit properties on evalModel.auditModel', function () {
-    	var auditModel = evalModel.auditModel;
+    var auditModel = evalModel.auditModel;
 
     importEval.auditResult
       .forEach(function (assert) {
@@ -118,11 +122,10 @@ describe('model: evalModel import', function () {
           'subject',
           'result',
           'test'
-        ]
-          .forEach(function (prop) {
-            expect(critAssert[prop])
-              .toEqual(assert[prop]);
-          });
+        ].forEach(function (prop) {
+          expect(critAssert[prop])
+            .toEqual(assert[prop]);
+        });
       });
   });
 
@@ -134,22 +137,23 @@ describe('model: evalModel import', function () {
       'summary',
       'specifics',
       'commissioner'
-    ]
-    	.forEach(function (prop) {
-	    	expect(reportModel[prop])
-	    	.toEqual(importEval[prop]);
-    	});
+    ].forEach(function (prop) {
+      expect(reportModel[prop])
+        .toEqual(importEval[prop]);
+    });
 
-    	var creatorId;
-    	if (typeof importEval.creator === 'string') {
-    		creatorId = importEval.creator;
-    	} else if (typeof importEval.creator === 'object') {
-    		if (importEval.creator.id) {
-    			creatorId = importEval.creator.id;
-    		} else if (importEval.creator['@id']) {
-    			creatorId = importEval.creator['@id'];
-    		}
-    	}
+    var creatorId;
+
+    if (typeof importEval.creator === 'string') {
+      creatorId = importEval.creator;
+    } else if (typeof importEval.creator === 'object') {
+      if (importEval.creator.id) {
+        creatorId = importEval.creator.id;
+      } else if (importEval.creator['@id']) {
+        creatorId = importEval.creator['@id'];
+      }
+    }
+
     expect(reportModel.creator.id)
       .toBe(creatorId);
   });
