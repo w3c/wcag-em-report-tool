@@ -3,7 +3,7 @@ node_modules
 .sass-cache
 app/bower_components
 app/styles/bootstrap
-dist/
+# dist/
 .sublime-project
 .sublime-workspace
 .dropbox
