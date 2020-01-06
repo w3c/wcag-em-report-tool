@@ -254,7 +254,10 @@ angular
         function success (result) {
           var resultJson = JSON.parse(result);
           var context = angular.copy(evalContextV3);
-          context.isPartOf = 'dct:isPartOf';
+          context.isPartOf = {
+            '@id': 'dct:isPartOf',
+            '@type': '@id'
+          };
 
           JSONLD.frame(
             resultJson,
