@@ -28,9 +28,9 @@ angular.module('wcagReporter')
 
       function composeImportResult (result) {
         var composed = '\n\n';
-        composed += '*Imported finding*:\n';
-        composed += 'outcome: ' + $filter('rdfToLabel')(result.outcome);
-        if (result.description.length > 0) {
+        composed += '*Imported finding*';
+        composed += '\noutcome: ' + $filter('rdfToLabel')(result.outcome);
+        if (result.description) {
           composed += '\n' + result.description;
         }
 
