@@ -9,7 +9,8 @@ angular
     evalContextV3,
     evalModel,
     types,
-    isObjectLiteral
+    isObjectLiteral,
+    wcagSpecIdMap
   ) {
     var JSONLD = window.jsonld;
     var FEEDBACK = {
@@ -115,20 +116,9 @@ angular
       }
 
       function isWcagRelated (assertionTest) {
-        function wcagIn (text) {
-          return text.indexOf('WCAG') >= 0;
-        }
-
-        // Mark the assertion.test with an WCAG id
-        // to easily match to a criterion in the auditModel when updating.
-        // It may be found top level or deep nested, finding test.wcagId is certain.
-        function setWcagIdonTest (wcagId, test) {
-          test.wcagId = wcagId;
-        }
-
         if (
           typeof assertionTest === 'string' &&
-          wcagIn(assertionTest)
+          isWcagId(assertionTest)
         ) {
           return true;
         }
@@ -136,9 +126,9 @@ angular
         if (
           isObjectLiteral(assertionTest) &&
           assertionTest.id !== undefined &&
-          wcagIn(assertionTest.id)
+          isWcagId(assertionTest.id)
         ) {
-          setWcagIdonTest(assertionTest.id, assertionTest);
+          setWcagId(assertion, assertionTest.id);
           return true;
         }
 
@@ -146,9 +136,9 @@ angular
           isObjectLiteral(assertionTest) &&
           assertionTest.isPartOf !== undefined &&
           typeof assertionTest.isPartOf === 'string' &&
-          wcagIn(assertionTest.isPartOf)
+          isWcagId(assertionTest.isPartOf)
         ) {
-          setWcagIdonTest(assertionTest.isPartOf, assertionTest);
+          setWcagId(assertion, assertionTest.isPartOf);
           return true;
         }
 
@@ -221,6 +211,42 @@ angular
       return true;
     }
 
+    function isWcagId (testId) {
+      var _id = testId.split(':')[1];
+
+      // Find existing wcag id
+      return wcagSpecIdMap.some(function (wcagIdSet) {
+        return wcagIdSet.indexOf(_id) >= 0;
+      });
+    }
+
+    function upgradeWcagId (wcagId) {
+      var _id = wcagId.split(':')[1];
+      var wcagIdSet = wcagSpecIdMap.filter(function (idSet) {
+        return idSet.indexOf(_id) >= 0;
+      })[0];
+      var idCount = wcagIdSet.length;
+
+      return 'WCAG2:' + wcagIdSet[idCount - 1];
+    }
+
+    function setWcagId (assertion, wcagId) {
+      var wcagVersion = wcagId.split(':')[0];
+
+      if (wcagVersion !== 'WCAG2') {
+        wcagId = upgradeWcagId(wcagId);
+      }
+      assertion.wcagId = wcagId;
+    }
+
+    function getWcagId (assertion) {
+      if (typeof assertion.test === 'string') {
+        return assertion.test;
+      }
+
+      return assertion.wcagId || false;
+    }
+
     /**
      * Tries to insert all found assertions from the import
      * into the auditModel specific criteria
@@ -232,14 +258,17 @@ angular
 
       for (var i = 0; i < assertionsCount; i++) {
         assertion = assertions[i];
-        wcagId = assertion.wcagId || assertion.test;
-        evalModel.auditModel.updateCritAssert(wcagId, assertion);
+        wcagId = getWcagId(assertion);
 
-        $scope.feedback = {
-          type: FEEDBACK.SUCCESS.type,
-          message: 'Import successfull! Imported ' + assertionsCount + ' assertions.'
-        };
+        if (wcagId) {
+          evalModel.auditModel.updateCritAssert(wcagId, assertion);
+        }
       }
+
+      $scope.feedback = {
+        type: FEEDBACK.SUCCESS.class,
+        message: 'Import successfull! Imported ' + assertionsCount + ' assertions.'
+      };
     }
 
     function resetImport () {
@@ -254,6 +283,7 @@ angular
         function success (result) {
           var resultJson = JSON.parse(result);
           var context = angular.copy(evalContextV3);
+          context.WCAG20 = 'https://www.w3.org/TR/WCAG20/#';
           context.isPartOf = {
             '@id': 'dct:isPartOf',
             '@type': '@id'
