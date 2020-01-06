@@ -7,10 +7,6 @@
     <p>{{ feedback.message }}</p>
   </div>
 
-  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">
-    <p>{{fileFeedback.failure}}</p>
-  </div>
-
   <section ng-if="!importFile">
     <h2>Step 1 - Select import file</h2>
     <p>{{ 'IMPORT.INTRO' | translate }}</p>
