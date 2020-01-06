@@ -265,10 +265,8 @@ angular
         }
       }
 
-      $scope.feedback = {
-        type: FEEDBACK.SUCCESS.class,
-        message: 'Import successfull! Imported ' + assertionsCount + ' assertions.'
-      };
+      $scope.feedback = FEEDBACK.SUCCESS;
+      $scope.feedback.message = 'Import successfull! Imported ' + assertionsCount + ' assertions.';
     }
 
     function resetImport () {
@@ -319,15 +317,11 @@ angular
               }
 
               if ($scope.assertionImport.length > 0) {
-                $scope.feedback = {
-                  type: FEEDBACK.SUCCESS.type,
-                  message: 'Ready to import ' + $scope.assertionImport.length + ' assertions.'
-                };
+                $scope.feedback = FEEDBACK.PENDING;
+                $scope.feedback.message = 'Ready to import ' + $scope.assertionImport.length + ' assertions.';
               } else {
-                $scope.feedback = {
-                  type: FEEDBACK.ERROR.type,
-                  message: 'No Assertions found in file “' + $scope.importFile.name + '”'
-                };
+                $scope.feedback = FEEDBACK.ERROR;
+                $scope.feedback.message = 'No Assertions found in file “' + $scope.importFile.name + '”';
 
                 $scope.importFile = null;
               }
