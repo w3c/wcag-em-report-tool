@@ -320,12 +320,12 @@ a.info-icon {
 
 .sc-filters {
   border: solid 1px $panel-default-border;
-  padding: 0.25em;
+  padding: 5px 2px;
   border-radius: 3px;
 
   > legend {
-    display: inline-block;
-    border: none;
+    margin: 0;
+    border: 0;
     width: auto;
   }
 
@@ -338,15 +338,20 @@ a.info-icon {
     align-items: center;
     justify-content: space-between;
 
-    @include transition(200ms linear background-color);
-    @include transition(200ms linear color);
+    @include transition(
+      200ms linear color,
+      200ms linear background-color
+    );
+  }
 
-    & > input {
-      margin: 0;
-    }
+  & input {
+    margin: 0;
+    width: 1em;
+    height: 1em;
 
-    & > input + span {
+    & + span {
       margin-left: 0.25em;
+      line-height: 1;
     }
   }
 }

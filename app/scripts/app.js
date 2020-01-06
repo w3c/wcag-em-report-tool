@@ -11,10 +11,11 @@ angular.module('wcagReporter', [
     $compileProvider
       .aHrefSanitizationWhitelist(/^\s*(https?|data|blob):/);
 
-    $routeProvider.when('/', {
-      templateUrl: 'views/start.html',
-      controller: 'StartCtrl'
-    })
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/start.html',
+        controller: 'StartCtrl'
+      })
       .when('/evaluation/scope', {
         templateUrl: 'views/evaluation/scope.html',
         controller: 'EvalScopeCtrl'
@@ -49,6 +50,10 @@ angular.module('wcagReporter', [
       })
       .when('/error', {
         templateUrl: 'views/error.html'
+      })
+      .when('/import', {
+        templateUrl: 'views/import.html',
+        controller: 'ImportCtrl'
       })
       .otherwise({
         redirectTo: '/error'

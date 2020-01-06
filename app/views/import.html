@@ -1,0 +1,47 @@
+<div ng-include="ng-include" src="'views/messages.html'"></div>
+
+<main ng-controller="ImportCtrl">
+  <h1>{{ setTitle( translate('IMPORT.TITLE') ) }}</h1>
+
+  <div class="alert appear" ng-class="'alert-' + feedback.class" ng-if="feedback">
+    <p>{{ feedback.message }}</p>
+  </div>
+
+  <section ng-if="!importFile">
+    <h2>Step 1 - Select import file</h2>
+    <p>{{ 'IMPORT.INTRO' | translate }}</p>
+    <p>
+      <label id="file_label" for="load_json" class="btn btn-primary" ng-class="{'focus': fileHasFocus }">
+        {{ 'IMPORT.LABEL_SELECT_FILE' | translate }}
+      </label>
+      <input id="load_json" class="sr-only" type="file" accept="{{ allowedMime }}" onchange="var elm = angular.element(this);elm.scope().loadFile(this.files[0])">
+    </p>
+  </section>
+
+  <section class="appear" ng-if="importFile && !importConfirmed">
+    <h2>Step 2 - Confirm import</h2>
+    <p>File “{{importFile.name}}” is ready to be imported.</p>
+    <p>We have found
+      {{ assertionImport.length }}
+      asserertions that can be inserted into the evaluation audit results</p>
+
+    <fieldset>
+      <legend>Do you wish to continue with the import?</legend>
+      <button type="button" id="confirm_import_yes" class="btn btn-primary" ng-click="handleConfirmation(true)">Yes</button>
+      <button type="button" id="confirm_import_no" class="btn btn-primary-invert" ng-click="handleConfirmation(false)">No</button>
+    </fieldset>
+  </section>
+
+  <section class="appear" ng-if="importConfirmed === true">
+    <h2>Step 3 - Import summary</h2>
+    <p>Imported
+      {{ assertionImport.length }}
+      asserertions and inserted to the audit results.</p>
+
+    <button type="button" class="btn btn-primary" ng-click="handleDoneClick()">done</button>
+  </section>
+
+  <p>
+    <a href="javascript:window.history.back()">{{'NAV.BTN_BACK_TO_EVAL' | translate}}</a>
+  </p>
+</main>
