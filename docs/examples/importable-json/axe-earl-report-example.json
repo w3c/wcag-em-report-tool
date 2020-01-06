@@ -61,7 +61,7 @@
 				"@type": "TestCase",
 				"title": "aria-dpub-role-fallback",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-dpub-role-fallback?application=axeAPI",
-				"isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation"
+				"isPartOf": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
 			}
 		},
 		{
@@ -80,7 +80,7 @@
 				"@type": "TestCase",
 				"title": "aria-hidden-body",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-body?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 		}
 		},
 		{
@@ -99,7 +99,7 @@
 				"@type": "TestCase",
 				"title": "aria-hidden-focus",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-hidden-focus?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -118,7 +118,7 @@
 				"@type": "TestCase",
 				"title": "aria-required-attr",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-required-attr?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -175,7 +175,7 @@
 				"@type": "TestCase",
 				"title": "aria-roles",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-roles?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -194,7 +194,7 @@
 				"@type": "TestCase",
 				"title": "aria-valid-attr-value",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr-value?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -213,7 +213,7 @@
 				"@type": "TestCase",
 				"title": "aria-valid-attr",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/aria-valid-attr?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
@@ -232,7 +232,7 @@
 				"@type": "TestCase",
 				"title": "button-name",
 				"@id": "https://dequeuniversity.com/rules/axe/3.2/button-name?application=axeAPI",
-                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat"
+                "isPartOf": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
 			}
 		},
 		{
