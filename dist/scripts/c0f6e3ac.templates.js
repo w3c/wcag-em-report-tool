@@ -239,20 +239,21 @@ $templateCache.put('views/directives/fullReport.html',
 '\n' +
 '  <h2>{{\'HTML_REPORT.HD_DOCS\' | translate }}</h2>\n' +
 '  <ul lang="en">\n' +
-'    <li><a target="_blank" href="http://www.w3.org/WAI/intro/wcag">\n' +
-'        Web Content Accessibility Guidelines (WCAG) 2.0</a> <br>\n' +
+'    <li><a target="_blank" href="http://www.w3.org/WAI/standards-guidelines/wcag/">\n' +
+'        Web Content Accessibility Guidelines (WCAG)</a> <br>\n' +
 '        Overview: www.w3.org/WAI/intro/wcag\n' +
 '    </li>\n' +
-'    <li><a target="_blank" href="http://www.w3.org/WAI/WCAG20/quickref/">\n' +
-'        How to Meet WCAG 2.0 Quick Reference</a><br>\n' +
-'        www.w3.org/WAI/WCAG20/quickref/\n' +
+'    <li><a target="_blank" href="http://www.w3.org/WAI/WCAG21/quickref/">\n' +
+'        How to Meet WCAG 2.1 Quick Reference</a><br>\n' +
+'        www.w3.org/WAI/WCAG21/quickref/\n' +
 '    </li>\n' +
 '    <li><a target="_blank" href="http://www.w3.org/WAI/eval/conformance">\n' +
-'        WCAG 2.0 Evaluation Methodology (WCAG-EM)</a><br>\n' +
+'        WCAG Evaluation Methodology (WCAG-EM)</a><br>\n' +
 '        Overview: www.w3.org/WAI/eval/conformance\n' +
 '    </li>\n' +
 '  </ul>\n' +
-'</div>');
+'</div>\n' +
+'');
 $templateCache.put('views/directives/successCriterion.html',
 '<div class="panel criterion panel-default" ng-class="getClassName(assert.result.outcome)">\n' +
 '\n' +
@@ -265,7 +266,7 @@ $templateCache.put('views/directives/successCriterion.html',
 '            <span class="hint">{{\'AUDIT.BTN_SHOW_TEXT\' | translate}}</span>\n' +
 '        </button>\n' +
 '      </span>\n' +
-'    \n' +
+'\n' +
 '    </div><div class="col-xs-12 crit-text collapsed">\n' +
 '      <p>{{spec.text}}</p><p>\n' +
 '      </p><div ng-repeat="detail in spec.details">\n' +
@@ -291,13 +292,13 @@ $templateCache.put('views/directives/successCriterion.html',
 '      </div>\n' +
 '      <p>\n' +
 '        <a target="_blank" href="{{\n' +
-'          \'http://www.w3.org/TR/UNDERSTANDING-WCAG20/\' +\n' +
-'          spec.id.substr(6) +\n' +
+'          \'http://www.w3.org/WAI/WCAG21/Understanding/\' +\n' +
+'          spec.id.split(\':\')[1] +\n' +
 '          \'.html\'}}">{{ "AUDIT.UNDERSTAND" | translate }} {{spec.number}}\n' +
 '          <span class="glyphicon glyphicon-new-window"></span></a>\n' +
 '        <a target="_blank" href="{{\n' +
-'          \'http://www.w3.org/WAI/WCAG20/quickref/#qr-\' +\n' +
-'          spec.id.substr(6)\n' +
+'          \'http://www.w3.org/WAI/WCAG21/quickref/#\' +\n' +
+'          spec.id.split(\':\')[1]\n' +
 '          }}">{{ "AUDIT.HOW_TO" | translate }} {{spec.number}}\n' +
 '          <span class="glyphicon glyphicon-new-window"></span></a>\n' +
 '      </p>\n' +
@@ -319,7 +320,8 @@ $templateCache.put('views/directives/successCriterion.html',
 '  </div>\n' +
 '\n' +
 '  <criterion-body options="opt" assert="assert" class="appear-tall" ng-if="rootHide[critHide] || !opt.collapses"></criterion-body>\n' +
-'</div>');
+'</div>\n' +
+'');
 $templateCache.put('views/error.html',
 '<div ng-include src="\'views/messages.html\'"></div>\n' +
 '\n' +
@@ -331,7 +333,7 @@ $templateCache.put('views/error.html',
 '<ul>\n' +
 '	<li>{{ \'ERROR.SUGGESTION1\' | translate }}</li>\n' +
 '	<li ng-bind-html=" \'ERROR.SUGGESTION2\' | translate : {\n' +
-'	    link_back: \'#/ onclick=window.history.back()\'\n' +
+'	    link_back: \'#!/ onclick=window.history.back()\'\n' +
 '	}"></li>\n' +
 '	<li ng-bind-html=" \'ERROR.SUGGESTION3\' | translate : {\n' +
 '	    link_format: \'https://github.com/w3c/wcag-em-report-tool/blob/master/docs/EARL%2BJSON-LD.md\'\n' +
@@ -342,7 +344,8 @@ $templateCache.put('views/error.html',
 '    link_github: \'https://github.com/w3c/wcag-em-report-tool/blob/master/docs/contribute.md\'\n' +
 '}"></p>\n' +
 '\n' +
-'</main>');
+'</main>\n' +
+'');
 $templateCache.put('views/evaluation/audit.html',
 '<div ng-include src="\'views/messages.html\'"></div>\n' +
 '<div ng-include src="\'views/evaluation/stepbar.html\'"></div>\n' +
@@ -365,28 +368,62 @@ $templateCache.put('views/evaluation/audit/criteria-tools.html',
 '<fieldset class="sc-filters">\n' +
 '  <legend>{{ \'AUDIT.FILTER\' | translate }}:</legend>\n' +
 '\n' +
-'  <label for="show_level-a" class="btn" ng-class="{\n' +
-'    \'btn-primary\': critFilter[\'wai:WCAG2A-Conformance\'],\n' +
-'    \'btn-primary-invert\': !critFilter[\'wai:WCAG2A-Conformance\']\n' +
-'  }">\n' +
-'    <input id="show_level-a" type="checkbox" ng-model="critFilter[\'wai:WCAG2A-Conformance\']">\n' +
-'    {{ \'EARL.LEVEL_A\' | translate}}\n' +
-'  </label>\n' +
-'  <label for="show_level-aa" class="btn" ng-class="{\n' +
-'    \'btn-primary\': critFilter[\'wai:WCAG2AA-Conformance\'],\n' +
-'    \'btn-primary-invert\': !critFilter[\'wai:WCAG2AA-Conformance\']\n' +
-'  }">\n' +
-'    <input id="show_level-aa" type="checkbox" ng-model="critFilter[\'wai:WCAG2AA-Conformance\']">\n' +
-'    {{ \'EARL.LEVEL_AA\' | translate}}\n' +
-'  </label>\n' +
-'  <label for="show_level-aaa" class="btn" ng-class="{\n' +
-'    \'btn-primary\': critFilter[\'wai:WCAG2AAA-Conformance\'],\n' +
-'    \'btn-primary-invert\': !critFilter[\'wai:WCAG2AAA-Conformance\']\n' +
-'  }">\n' +
-'    <input id="show_level-aaa" type="checkbox" ng-model="critFilter[\'wai:WCAG2AAA-Conformance\']">\n' +
-'    {{ \'EARL.LEVEL_AAA\' | translate}}\n' +
-'  </label>\n' +
-'</fieldset>');
+'  <fieldset>\n' +
+'    <legend class="sr-only">show version</legend>\n' +
+'\n' +
+'    <label for="show_version_21" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.version === \'WCAG21 WCAG20\',\n' +
+'      \'btn-primary-invert\': critFilter.version !== \'WCAG21 WCAG20\'\n' +
+'    }">\n' +
+'      <input id="show_version_21" type="radio" value="WCAG21 WCAG20" ng-model="critFilter.version" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'SCOPE.WCAG21\' | translate}}</span>\n' +
+'    </label>\n' +
+'\n' +
+'    <label for="show_version_21_only" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.version === \'WCAG21\',\n' +
+'      \'btn-primary-invert\': critFilter.version !== \'WCAG21\'\n' +
+'    }">\n' +
+'      <input id="show_version_21_only" type="radio" value="WCAG21" ng-model="critFilter.version" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'AUDIT.FILTER_NEW_IN_WCAG21\' | translate}}</span>\n' +
+'    </label>\n' +
+'\n' +
+'    <label for="show_version_20" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.version === \'WCAG20\',\n' +
+'      \'btn-primary-invert\': critFilter.version !== \'WCAG20\'\n' +
+'    }">\n' +
+'      <input id="show_version_20" type="radio" value="WCAG20" ng-model="critFilter.version" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'SCOPE.WCAG20\' | translate}}</span>\n' +
+'    </label>\n' +
+'  </fieldset>\n' +
+'\n' +
+'  <fieldset>\n' +
+'    <legend class="sr-only">show conformance level</legend>\n' +
+'    <label for="show_level-a" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.levels[\'wai:WCAG2A-Conformance\'],\n' +
+'      \'btn-primary-invert\': !critFilter.levels[\'wai:WCAG2A-Conformance\']\n' +
+'    }">\n' +
+'      <input id="show_level-a" type="checkbox" ng-model="critFilter.levels[\'wai:WCAG2A-Conformance\']" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'EARL.LEVEL_A\' | translate}}</span>\n' +
+'    </label>\n' +
+'\n' +
+'    <label for="show_level-aa" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.levels[\'wai:WCAG2AA-Conformance\'],\n' +
+'      \'btn-primary-invert\': !critFilter.levels[\'wai:WCAG2AA-Conformance\']\n' +
+'    }">\n' +
+'      <input id="show_level-aa" type="checkbox" ng-model="critFilter.levels[\'wai:WCAG2AA-Conformance\']" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'EARL.LEVEL_AA\' | translate}}</span>\n' +
+'    </label>\n' +
+'\n' +
+'    <label for="show_level-aaa" class="btn btn-sm" ng-class="{\n' +
+'      \'btn-primary\': critFilter.levels[\'wai:WCAG2AAA-Conformance\'],\n' +
+'      \'btn-primary-invert\': !critFilter.levels[\'wai:WCAG2AAA-Conformance\']\n' +
+'    }">\n' +
+'      <input id="show_level-aaa" type="checkbox" ng-model="critFilter.levels[\'wai:WCAG2AAA-Conformance\']" ng-change="handleFilterChange()">\n' +
+'      <span>{{ \'EARL.LEVEL_AAA\' | translate}}</span>\n' +
+'    </label>\n' +
+'  </fieldset>\n' +
+'</fieldset>\n' +
+'');
 $templateCache.put('views/evaluation/audit/criteria.html',
 '<div ng-controller="AuditCriteriaCtrl">\n' +
 '  <h2>\n' +
@@ -483,7 +520,7 @@ $templateCache.put('views/evaluation/explore.html',
 '  <info-field ref="inf_reliedup_tech" button="Close info">\n' +
 '    <p ng-bind-html="\'EXPLORE.INF_RELIEDUP_TECH\' | translate: {\n' +
 '      link_em_2d: \'http://www.w3.org/TR/WCAG-EM/#step2d\',\n' +
-'      link_relied_upon: \'http://www.w3.org/TR/WCAG20/#reliedupondef\'\n' +
+'      link_relied_upon: \'https://www.w3.org/TR/WCAG21/#dfn-relied-upon\'\n' +
 '    }"></p>\n' +
 '  </info-field>\n' +
 '\n' +
@@ -593,7 +630,8 @@ $templateCache.put('views/evaluation/explore.html',
 '</form>\n' +
 '</main>\n' +
 '\n' +
-'<nav ng-include src="\'views/step-buttons.html\'"></nav>');
+'<nav ng-include src="\'views/step-buttons.html\'"></nav>\n' +
+'');
 $templateCache.put('views/evaluation/report.html',
 '<div ng-include src="\'views/messages.html\'"></div>\n' +
 '<div ng-include src="\'views/evaluation/stepbar.html\'"></div>\n' +
@@ -822,6 +860,19 @@ $templateCache.put('views/evaluation/scope.html',
 '  </div>\n' +
 '\n' +
 '  <div class="form-group">\n' +
+'    <label for="version_target">\n' +
+'      {{ \'SCOPE.LABEL_WCAG_VERSION\' | translate }}\n' +
+'      <info-button label="{{\'COMMON.BTN_INFO\' | translate}}" target="info_wcag_version" title="{{ \'SCOPE.LABEL_VERSION\' | translate }}"></info-button>\n' +
+'    </label>\n' +
+'\n' +
+'    <info-field button="{{\'COMMON.BTN_CLOSE_INFO\' | translate}}" exitto="wcag_version" ref="info_wcag_version">\n' +
+'      <p ng-bind-html="\'SCOPE.INFO_WCAG_VERSION\' | translate"></p>\n' +
+'    </info-field>\n' +
+'\n' +
+'    <select id="wcag_version" class="form-control" ng-options="key as value for (key,value) in wcagVersionOptions" ng-model="scopeModel.wcagVersion"></select>\n' +
+'  </div>\n' +
+'\n' +
+'  <div class="form-group">\n' +
 '    <label for="conformance_target">\n' +
 '      {{ \'SCOPE.LABEL_CONFORMANCE_TGT\' | translate }}&nbsp;<info-button label="{{\'COMMON.BTN_INFO\' | translate}}" target="inf_conf_tgt" title="{{ \'SCOPE.LABEL_CONFORMANCE_TGT\' | translate }}"></info-button>\n' +
 '    </label>\n' +
@@ -875,7 +926,8 @@ $templateCache.put('views/evaluation/scope.html',
 '</form>\n' +
 '</main>\n' +
 '\n' +
-'<nav ng-include src="\'views/step-buttons.html\'"></nav>');
+'<nav ng-include src="\'views/step-buttons.html\'"></nav>\n' +
+'');
 $templateCache.put('views/evaluation/stepbar.html',
 '<ul class="wizard" role="navigation" aria-label="{{\'NAV.WZRD_LABEL\' | translate }}">\n' +
 '  <li ng-repeat="stateItem in state.stateList" ng-init="active = state.currentStateIndex == $index" ng-class="{active: active, \'wizard-step\': 1}">\n' +
@@ -898,16 +950,69 @@ $templateCache.put('views/footer.html',
 '  <div>\n' +
 '    <p><strong>Feedback: We welcome ideas, bug reports, and comments</strong> via <a href="https://github.com/w3c/wcag-em-report-tool/issues">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>\n' +
 '    <p><strong>Status:</strong> Version {{pkg.version}}, {{pkg.buildDate}}</p>\n' +
-'    <p>Development Team: Shadi Abou-Zahra, W3C/WAI (Project Lead) and Wilco Fiers, <a href="https://www.accessibility.nl/english">accessibility.nl</a> (Design and development). <strong>Contributors:</strong> <a href="http://www.w3.org/People/Shawn/">Shawn Lawton Henry</a> and the <a href="http://www.w3.org/WAI/EO/">Education and Outreach Working Group</a>.</p>\n' +
-'    <p>Developed with support from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT Project</a>, a project of the European Commission IST Programme.</p>\n' +
+'    <p><strong>Development Team:</strong> Shadi Abou-Zahra, W3C/WAI (Project Lead) and Roel Antonisse, <a href="https://www.accessibility.nl/english">accessibility.nl</a> (Development). Previously Wilco Fiers (Design and development). <strong>Contributors:</strong> <a href="http://www.w3.org/People/Shawn/">Shawn Lawton Henry</a> and the <a href="http://www.w3.org/WAI/EO/">Education and Outreach Working Group</a>.</p>\n' +
+'    <p>Initially developed with support from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT Project</a>, and updated with support of the <a href="http://www.w3.org/WAI/Tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC).</p>\n' +
 '    <div class="footer-nav">\n' +
 '      <p>[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>] [<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>] [<a href="http://www.w3.org/WAI/search.php">Search</a>] [<a href="/WAI/contacts">Contacting WAI</a>]</p>\n' +
 '    </div>\n' +
 '    <div class="copyright">\n' +
-'      <p><a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2014 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>\n' +
+'      <p><a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>\n' +
 '    </div>\n' +
 '  </div>\n' +
 '</footer>\n' +
+'');
+$templateCache.put('views/import.html',
+'<div ng-include="ng-include" src="\'views/messages.html\'"></div>\n' +
+'\n' +
+'<main ng-controller="ImportCtrl">\n' +
+'  <h1>{{ setTitle( translate(\'IMPORT.TITLE\') ) }}</h1>\n' +
+'\n' +
+'  <div class="alert appear" ng-class="\'alert-\' + feedback.class" ng-if="feedback">\n' +
+'    <p>{{ feedback.message }}</p>\n' +
+'  </div>\n' +
+'\n' +
+'  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">\n' +
+'    <p>{{fileFeedback.failure}}</p>\n' +
+'  </div>\n' +
+'\n' +
+'  <section ng-if="!importFile">\n' +
+'    <h2>Step 1 - Select import file</h2>\n' +
+'    <p>{{ \'IMPORT.INTRO\' | translate }}</p>\n' +
+'    <p>\n' +
+'      <label id="file_label" for="load_json" class="btn btn-primary" ng-class="{\'focus\': fileHasFocus }">\n' +
+'        {{ \'IMPORT.LABEL_SELECT_FILE\' | translate }}\n' +
+'      </label>\n' +
+'      <input id="load_json" class="sr-only" type="file" accept="{{ allowedMime }}" onchange="var elm = angular.element(this);elm.scope().loadFile(this.files[0])">\n' +
+'    </p>\n' +
+'  </section>\n' +
+'\n' +
+'  <section class="appear" ng-if="importFile && !importConfirmed">\n' +
+'    <h2>Step 2 - Confirm import</h2>\n' +
+'    <p>File “{{importFile.name}}” is ready to be imported.</p>\n' +
+'    <p>We have found\n' +
+'      {{ assertionImport.length }}\n' +
+'      asserertions that can be inserted into the evaluation audit results</p>\n' +
+'\n' +
+'    <fieldset>\n' +
+'      <legend>Do you wish to continue with the import?</legend>\n' +
+'      <button type="button" id="confirm_import_yes" class="btn btn-primary" ng-click="handleConfirmation(true)">Yes</button>\n' +
+'      <button type="button" id="confirm_import_no" class="btn btn-primary-invert" ng-click="handleConfirmation(false)">No</button>\n' +
+'    </fieldset>\n' +
+'  </section>\n' +
+'\n' +
+'  <section class="appear" ng-if="importConfirmed === true">\n' +
+'    <h2>Step 3 - Import summary</h2>\n' +
+'    <p>Imported\n' +
+'      {{ assertionImport.length }}\n' +
+'      asserertions and inserted to the audit results.</p>\n' +
+'\n' +
+'    <button type="button" class="btn btn-primary" ng-click="handleDoneClick()">done</button>\n' +
+'  </section>\n' +
+'\n' +
+'  <p>\n' +
+'    <a href="javascript:window.history.back()">{{\'NAV.BTN_BACK_TO_EVAL\' | translate}}</a>\n' +
+'  </p>\n' +
+'</main>\n' +
 '');
 $templateCache.put('views/messages.html',
 '<div class="alert alert-danger" ng-if="!support.hasSupport" collapse="support.hideMessage">\n' +
@@ -951,6 +1056,11 @@ $templateCache.put('views/navigation.html',
 '          {{ \'NAV.MENU_SAVE\' | translate }}\n' +
 '      </a></li>\n' +
 '\n' +
+'      <li><a href="#!/import" title="{{ \'NAV.MENU_IMPORT_TITLE\' | translate}}">\n' +
+'          <span class="glyphicon glyphicon-import"></span>&nbsp;\n' +
+'          {{ \'NAV.MENU_IMPORT\' | translate }}\n' +
+'      </a></li>\n' +
+'\n' +
 '      <li class="dropdown" dropdown>\n' +
 '        <a href="#" class="dropdown-toggle" dropdown-toggle>\n' +
 '          <span class="glyphicon glyphicon-link"></span>&nbsp;\n' +
@@ -959,14 +1069,14 @@ $templateCache.put('views/navigation.html',
 '        </a>\n' +
 '\n' +
 '        <ul class="dropdown-menu" lang="en">\n' +
-'          <li><a target="_blank" href="http://www.w3.org/WAI/intro/wcag">\n' +
-'              Web Content Accessibility Guidelines (WCAG) 2.0\n' +
+'          <li><a target="_blank" href="http://www.w3.org/WAI/standards-guidelines/wcag/">\n' +
+'              Web Content Accessibility Guidelines (WCAG)\n' +
 '          </a></li>\n' +
-'          <li><a target="_blank" href="http://www.w3.org/WAI/WCAG20/quickref/">\n' +
-'              How to Meet WCAG 2.0 Quick Reference\n' +
+'          <li><a target="_blank" href="http://www.w3.org/WAI/WCAG21/quickref/">\n' +
+'              How to Meet WCAG 2.1 Quick Reference\n' +
 '          </a></li>\n' +
-'          <li><a target="_blank" href="http://www.w3.org/WAI/eval/conformance">\n' +
-'              WCAG 2.0 Evaluation Methodology (WCAG-EM)\n' +
+'          <li><a target="_blank" href="http://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">\n' +
+'              WCAG Evaluation Methodology (WCAG-EM)\n' +
 '          </a></li>\n' +
 '      </ul>  </li>\n' +
 '      <li class="dropdown" dropdown>\n' +
@@ -1057,6 +1167,9 @@ $templateCache.put('views/report/scope.html',
 '  	<td data-ng-bind-html="scope.website.siteScope | txtToHtml"></td>\n' +
 '  </tr>\n' +
 '\n' +
+'  <tr><th>{{ \'SCOPE.LABEL_WCAG_VERSION\' | translate }}</th>\n' +
+'      <td>{{ \'SCOPE.\' + scope.wcagVersion | translate }}</td></tr>\n' +
+'\n' +
 '  <tr><th>{{ \'HTML_REPORT.LABEL_CONFORMANCE_TGT\' | translate }}</th>\n' +
 '      <td>{{scope.conformanceTarget | rdfToLabel}}</td></tr>\n' +
 '\n' +
@@ -1144,11 +1257,12 @@ $templateCache.put('views/save.html',
 '</a></p>\n' +
 '\n' +
 '<p ng-bind-html="\'SAVE.TIPS\' | translate: {\n' +
-'  link_report: \'#/report\'\n' +
+'  link_report: \'/#!/view_report\'\n' +
 '}"></p>\n' +
 '\n' +
 '<p><a href="javascript:window.history.back()">{{\'NAV.BTN_BACK_TO_EVAL\' | translate }}</a></p>\n' +
-'</main>');
+'</main>\n' +
+'');
 $templateCache.put('views/start.html',
 '<div ng-include src="\'views/messages.html\'"></div>\n' +
 '<div ng-include src="\'views/evaluation/stepbar.html\'"></div>\n' +
@@ -1165,8 +1279,8 @@ $templateCache.put('views/start.html',
 '  <p ng-bind-html="\'START.INTRO_1\' | translate: {\n' +
 '    link_wcagem: \'http://www.w3.org/TR/WCAG-EM/\',\n' +
 '    link_report: \'#!/view_report\',\n' +
-'    link_wcag: \'http://www.w3.org/WAI/intro/wcag\',\n' +
-'    link_conformance: \'http://www.w3.org/WAI/eval/conformance\'\n' +
+'    link_wcag: \'http://www.w3.org/WAI/standards-guidelines/wcag/\',\n' +
+'    link_conformance: \'http://www.w3.org/WAI/test-evaluate/conformance/wcag-em/\'\n' +
 '  }"></p>\n' +
 '\n' +
 '  <p ng-bind-html="\'START.INTRO_2\' | translate: { mac: \'⌘S\' }"></p>\n' +
