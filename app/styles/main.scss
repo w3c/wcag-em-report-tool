@@ -189,15 +189,6 @@ body .wert-head {
     a {
       outline-color: $wai-border-color;
     }
-
-    @media (max-width: $screen-xs-max) {
-      border-bottom: none;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      display: block;
-      border-bottom: 1px #ccc solid;
-    }
   }
 
   .navbar-nav.navbar-right:last-child {
