@@ -1,12 +1,17 @@
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
 
-module.exports = function(config) {
+module.exports = function (config) {
   'use strict';
-    config.set({
+  config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
+    client: {
+      jasmine: {
+        random: false
+      }
+    },
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
@@ -29,8 +34,16 @@ module.exports = function(config) {
       'app/scripts/app.language.js',
       'app/scripts/app.run.js',
       'app/scripts/app.js',
-      {pattern: '.tmp/locale/*.json', included: false, served: true},
-      {pattern: 'app/wcag2spec/*.json', included: false, served: true},
+      {
+        pattern: '.tmp/locale/*.json',
+        included: false,
+        served: true
+      },
+      {
+        pattern: 'app/wcag2spec/*.json',
+        included: false,
+        served: true
+      },
       'test/setup.js',
       'test/dummyData/*.js',
       'test/spec/**/{,*/}*.js'
@@ -39,10 +52,9 @@ module.exports = function(config) {
     // list of files / patterns to exclude
     exclude: [],
 
-
     proxies: {
-      "/wcag2spec/": "http://localhost:8080/base/app/wcag2spec/",
-      "/locale/": "http://localhost:8080/base/.tmp/locale/"
+      '/wcag2spec/': 'http://localhost:8080/base/app/wcag2spec/',
+      '/locale/': 'http://localhost:8080/base/.tmp/locale/'
     },
 
     // web server port
@@ -64,7 +76,6 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: ['PhantomJS'],
-
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

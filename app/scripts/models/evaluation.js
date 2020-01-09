@@ -1,22 +1,20 @@
 'use strict';
 
-/**
- *
- */
-angular.module('wcagReporter')
+angular
+  .module('wcagReporter')
   .factory('evalModel', function (
     evalScopeModel,
     evalExploreModel,
     evalSampleModel,
     evalAuditModel,
     evalReportModel,
-    evalContextV2,
+    evalContextV3,
     currentUser
   ) {
     var evalModel = {
       id: undefined,
       type: 'Evaluation',
-      context: evalContextV2,
+      context: evalContextV3,
       scopeModel: evalScopeModel,
       exploreModel: evalExploreModel,
       sampleModel: evalSampleModel,

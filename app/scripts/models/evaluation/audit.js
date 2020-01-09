@@ -5,7 +5,9 @@ angular.module('wcagReporter')
     TestCaseAssert,
     evalScopeModel,
     wcag2spec,
-    CriterionAssert
+    CriterionAssert,
+    types,
+    $filter
   ) {
     var auditModel;
     var criteria = {};
@@ -20,6 +22,38 @@ angular.module('wcagReporter')
           }
         });
     });
+
+    function updateAssertion (assertion, update) {
+      var testResult = update.result;
+
+      function composeImportResult (result) {
+        var composed = '\n\n';
+        composed += '*Imported finding*';
+        composed += '\noutcome: ' + $filter('rdfToLabel')(result.outcome);
+        if (result.description) {
+          composed += '\n' + result.description;
+        }
+
+        return composed;
+      }
+
+      assertion.result.description += composeImportResult(testResult);
+
+      // Remove empty lines at start of description
+      assertion.result.description = assertion.result.description.replace(/^\s+/, '');
+
+      // Decide what outcome should be set.
+      // Set Failed if imported result is Failed
+      // This forces the evaluator to check the import and this is the only outcome
+      // that can be set with certainty by automatic assertors.
+      if (
+        // Dont try to modify if it already has failed outcome
+        assertion.result.outcome !== types.EARL.OUTCOME.FAILED &&
+        testResult.outcome === types.EARL.OUTCOME.FAILED
+      ) {
+        assertion.result.outcome = types.EARL.OUTCOME.FAILED;
+      }
+    }
 
     auditModel = {
       criteria: criteria,
@@ -61,8 +95,9 @@ angular.module('wcagReporter')
           if (!angular.isArray(evalData.auditResult)) {
             evalData.auditResult = [evalData.auditResult];
           }
-          criteria = {};
-          auditModel.criteria = criteria;
+          // NOTE: Why was this done? (Reset criteria to imported criteria)
+          // criteria = {};
+          // auditModel.criteria = criteria;
 
           evalData.auditResult.forEach(auditModel.addCritAssert);
         }
@@ -103,6 +138,21 @@ angular.module('wcagReporter')
           }
         }
         criteria[newCrit.test] = newCrit;
+      },
+
+      updateCritAssert: function updateCritAssert (id, data) {
+        if (data === undefined) {
+          return;
+        } else if (typeof data !== 'object') {
+          return;
+        }
+
+        // First try to get a matching criteria before anything else
+        var criterion = auditModel.getCritAssert(id);
+
+        if (data.result) {
+          updateAssertion(criterion, data);
+        }
       },
 
       addPageForAsserts: function (page) {

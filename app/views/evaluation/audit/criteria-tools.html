@@ -1,31 +1,76 @@
 <fieldset class="sc-filters">
   <legend>{{ 'AUDIT.FILTER' | translate }}:</legend>
 
-  <label for="show_level-a" class="btn"
-  ng-class="{
-    'btn-primary': critFilter['wai:WCAG2A-Conformance'],
-    'btn-primary-invert': !critFilter['wai:WCAG2A-Conformance']
-  }">
-    <input id="show_level-a" type="checkbox"
-    ng-model="critFilter['wai:WCAG2A-Conformance']">
-    {{ 'EARL.LEVEL_A' | translate}}
-  </label>
-  <label for="show_level-aa" class="btn"
-  ng-class="{
-    'btn-primary': critFilter['wai:WCAG2AA-Conformance'],
-    'btn-primary-invert': !critFilter['wai:WCAG2AA-Conformance']
-  }">
-    <input id="show_level-aa" type="checkbox"
-    ng-model="critFilter['wai:WCAG2AA-Conformance']">
-    {{ 'EARL.LEVEL_AA' | translate}}
-  </label>
-  <label for="show_level-aaa" class="btn"
-  ng-class="{
-    'btn-primary': critFilter['wai:WCAG2AAA-Conformance'],
-    'btn-primary-invert': !critFilter['wai:WCAG2AAA-Conformance']
-  }">
-    <input id="show_level-aaa" type="checkbox"
-    ng-model="critFilter['wai:WCAG2AAA-Conformance']">
-    {{ 'EARL.LEVEL_AAA' | translate}}
-  </label>
+  <fieldset>
+    <legend class="sr-only">show version</legend>
+
+    <label for="show_version_21" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.version === 'WCAG21 WCAG20',
+      'btn-primary-invert': critFilter.version !== 'WCAG21 WCAG20'
+    }">
+      <input id="show_version_21" type="radio" value="WCAG21 WCAG20"
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
+      <span>{{ 'SCOPE.WCAG21' | translate}}</span>
+    </label>
+
+    <label for="show_version_21_only" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.version === 'WCAG21',
+      'btn-primary-invert': critFilter.version !== 'WCAG21'
+    }">
+      <input id="show_version_21_only" type="radio" value="WCAG21"
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
+      <span>{{ 'AUDIT.FILTER_NEW_IN_WCAG21' | translate}}</span>
+    </label>
+
+    <label for="show_version_20" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.version === 'WCAG20',
+      'btn-primary-invert': critFilter.version !== 'WCAG20'
+    }">
+      <input id="show_version_20" type="radio" value="WCAG20"
+      ng-model="critFilter.version"
+      ng-change="handleFilterChange()">
+      <span>{{ 'SCOPE.WCAG20' | translate}}</span>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend class="sr-only">show conformance level</legend>
+    <label for="show_level-a" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.levels['wai:WCAG2A-Conformance'],
+      'btn-primary-invert': !critFilter.levels['wai:WCAG2A-Conformance']
+    }">
+      <input id="show_level-a" type="checkbox"
+      ng-model="critFilter.levels['wai:WCAG2A-Conformance']"
+      ng-change="handleFilterChange()">
+      <span>{{ 'EARL.LEVEL_A' | translate}}</span>
+    </label>
+
+    <label for="show_level-aa" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.levels['wai:WCAG2AA-Conformance'],
+      'btn-primary-invert': !critFilter.levels['wai:WCAG2AA-Conformance']
+    }">
+      <input id="show_level-aa" type="checkbox"
+      ng-model="critFilter.levels['wai:WCAG2AA-Conformance']"
+      ng-change="handleFilterChange()">
+      <span>{{ 'EARL.LEVEL_AA' | translate}}</span>
+    </label>
+
+    <label for="show_level-aaa" class="btn btn-sm"
+    ng-class="{
+      'btn-primary': critFilter.levels['wai:WCAG2AAA-Conformance'],
+      'btn-primary-invert': !critFilter.levels['wai:WCAG2AAA-Conformance']
+    }">
+      <input id="show_level-aaa" type="checkbox"
+      ng-model="critFilter.levels['wai:WCAG2AAA-Conformance']"
+      ng-change="handleFilterChange()">
+      <span>{{ 'EARL.LEVEL_AAA' | translate}}</span>
+    </label>
+  </fieldset>
 </fieldset>
