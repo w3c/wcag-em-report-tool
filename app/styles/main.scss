@@ -178,20 +178,6 @@ html.full-page {
   }
 }
 
-@media (min-width: $screen-sm-max) {
-
-  body .wert-head {
-    margin-bottom: 81px;
-
-    & > .navbar {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 3;
-    }
-  }
-}
-
 body .wert-head {
 
   & > .navbar {
