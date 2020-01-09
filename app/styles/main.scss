@@ -1,6 +1,6 @@
 $body-bg: #f5f5f5;
 $icon-font-path: 'bootstrap/';
-$wai-border-color: #930;
+$wai-border-color: #005A9C;
 $panel-bg: $body-bg;
 $list-group-bg: $body-bg;
 $navbar-default-bg: #f2f2f2;
@@ -8,7 +8,7 @@ $input-border: #aaa;
 $panel-default-heading-bg: #e8e8e8;
 $panel-default-border: #d6d6d6;
 $textcolor-light: #707070;
-$brand-primary: #2570b0;
+$brand-primary: #005A9C;
 $navbar-default-link-color: #6e6e6e;
 $font-size-base: 16px;
 $panel-body-padding: 7px 15px;
@@ -195,21 +195,22 @@ html.full-page {
 body .wert-head {
 
   & > .navbar {
+    border: none;
     border-top: 5px solid $wai-border-color;
-    border-bottom: 0;
     -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
+    border-radius: 0;
   }
 
   .branding {
 
-    .wai img {
-      margin: 1px 0;
+    > .nav {
+      display: flex;
+      background-color: #005A9C;
     }
 
     a {
-      display: inline-block;
       outline-color: $wai-border-color;
     }
 
@@ -221,23 +222,6 @@ body .wert-head {
       display: block;
       border-bottom: 1px #ccc solid;
       padding: 5px 15px;
-
-      .navbar-nav.navbar-right:last-child {
-        float: none !important;
-      }
-
-      .w3c img {
-        margin: -1px 0;
-      }
-
-      .wai {
-        float: right;
-
-        img {
-          @include border-right-radius(2px);
-          @include border-left-radius(2px);
-        }
-      }
     }
   }
 
