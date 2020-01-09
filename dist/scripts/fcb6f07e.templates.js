@@ -971,10 +971,6 @@ $templateCache.put('views/import.html',
 '    <p>{{ feedback.message }}</p>\n' +
 '  </div>\n' +
 '\n' +
-'  <div class="alert alert-danger appear" ng-if="fileFeedback.failure">\n' +
-'    <p>{{fileFeedback.failure}}</p>\n' +
-'  </div>\n' +
-'\n' +
 '  <section ng-if="!importFile">\n' +
 '    <h2>Step 1 - Select import file</h2>\n' +
 '    <p>{{ \'IMPORT.INTRO\' | translate }}</p>\n' +
@@ -1029,18 +1025,17 @@ $templateCache.put('views/navigation.html',
 '<div class="wert-head" ng-controller="NavigationCtrl">\n' +
 '  <div class="navbar navbar-default">\n' +
 '    <div class="branding">\n' +
-'      <div class="nav navbar-nav navbar-right">\n' +
+'      <div class="nav">\n' +
 '        <span class="w3c"><a href="http://w3.org/">\n' +
-'          <img alt="W3C" width="85" height="50" src="images/w3c.png">\n' +
-'        </a></span>\n' +
-'        <span class="wai"><a href="http://w3.org/WAI/">\n' +
-'          <img alt="Web Accessibility Initiative" width="194" height="48" src="images/wai.png">\n' +
+'          <img alt="W3C" width="73" height="50" src="images/w3c.svg">\n' +
+'        </a></span><span class="wai"><a href="http://w3.org/WAI/">\n' +
+'          <img alt="Web Accessibility Initiative" width="120" height="50" src="images/wai.svg">\n' +
 '        </a></span>\n' +
 '      </div>\n' +
 '    </div>\n' +
 '\n' +
 '\n' +
-'    <ul class="nav navbar-nav navbar-left" role="navigation" aria-label="{{ \'NAV.MENU\' | translate}}">\n' +
+'    <ul class="nav navbar-nav" role="navigation" aria-label="{{ \'NAV.MENU\' | translate}}">\n' +
 '      <li><a href="#!/" target="_blank">\n' +
 '          <span class="glyphicon glyphicon-file"></span>&nbsp;\n' +
 '          {{ \'NAV.MENU_NEW\' | translate }}\n' +
