@@ -1,11 +1,14 @@
 <table>
   <tr><th>{{'HTML_REPORT.LABEL_SITE_NAME' | translate}}</th>
-      <td>{{scope.website.title}}</td></tr>
+      <td>{{scope.website.siteName}}</td></tr>
 
   <tr>
     <th>{{'HTML_REPORT.LABEL_SITE_SCOPE' | translate}}</th>
   	<td data-ng-bind-html="scope.website.siteScope | txtToHtml"></td>
   </tr>
+
+  <tr><th>{{ 'SCOPE.LABEL_WCAG_VERSION' | translate }}</th>
+      <td>{{ 'SCOPE.' + scope.wcagVersion | translate }}</td></tr>
 
   <tr><th>{{ 'HTML_REPORT.LABEL_CONFORMANCE_TGT' | translate }}</th>
       <td>{{scope.conformanceTarget | rdfToLabel}}</td></tr>

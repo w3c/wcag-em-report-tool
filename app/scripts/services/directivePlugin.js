@@ -5,16 +5,16 @@
  *
  * Fow now, only additional link functions are supported
  */
-angular.module('wcagReporter').factory('directivePlugin', function() {
-
+angular.module('wcagReporter')
+  .factory('directivePlugin', function () {
     var func = function (directive) {
-		var link    = directive.link    || function () {};
+      var link = directive.link || function () {};
 
     	if (!directive.plugins) {
     		directive.plugins = [];
     	}
-		
-        directive.link = function () {
+
+      directive.link = function () {
         	var args = arguments;
         	link.apply(undefined, args);
 
@@ -23,9 +23,9 @@ angular.module('wcagReporter').factory('directivePlugin', function() {
         			plugin.link.apply(undefined, args);
         		}
         	});
-        };
+      };
 
     	return directive;
     };
     return func;
-});
+  });
