@@ -1,0 +1,22 @@
+{
+  "TITLE": "Etapa 1: definir o escopo da avaliação",
+  "INTRO": "Defina os parâmetros gerais e o escopo da avaliação. Idealmente, isso é feito com a pessoa que encomendou a avaliação (que pode ou não ser o proprietário do site), para garantir expectativas comuns sobre o escopo da avaliação. Mais orientações sobre esta etapa são fornecidas na <a href={{link_step1}}> Etapa 1 da WCAG-EM: definir o escopo da avaliação </a>. ",
+  "LABEL_SITE_NAME": "Nome do site",
+  "INF_SITE_NAME": "Forneça um nome para o site que você deseja avaliar. Por exemplo: <br> 'Site público da organização de exemplo' <br> 'Loja virtual da empresa de exemplo' <br> 'Intranet da Universidade de exemplo'" ,
+  "LABEL_SITE_SCOPE": "Escopo do site",
+  "INF_SITE_SCOPE_0": "Defina o escopo do site, para que fique claro quais páginas da web estão incluídas na avaliação. Por exemplo:",
+  "INF_SITE_SCOPE_LI0": "'Todo o conteúdo da web do site público da organização de exemplo localizado em http://www.example.org'",
+  "INF_SITE_SCOPE_LI1": "'Todo o conteúdo da web da loja online da organização de exemplo localizada em http://www.example.org/shop/'",
+  "INF_SITE_SCOPE_LI2": "'Todo o conteúdo da Web da versão móvel do site público da organização de exemplo localizada em http://m.example.org'",
+  "INF_SITE_SCOPE_1": "Etapa 1.a das WCAG-EM: definir o escopo do site",
+  "LABEL_CONFORMANCE_TGT": "Nível de conformidade",
+  "INF_CONF_TGT": "Selecione um nível de conformidade das WCAG 2.0 de destino ('A', 'AA' ou 'AAA') para a avaliação. Para obter mais informações, consulte <a href={{link_em_1b}}> Etapa 1 da WCAG-EM .b: Defina o objetivo de conformidade </a>. Essa seleção determina quais filtros de nível de conformidade estão ativos por padrão na 'etapa 4: Auditar a amostra'.",
+  "LABEL_SUPPORT_BASE": "Base do suporte à acessibilidade",
+  "INF_SUPPORT_BASE": "Defina os navegadores da web, tecnologias assistivas e outros <a href={{link_user_agent}}> agentes do usuário </a> que serão <a href={{linklinkaccess_supp}}> acessibilidade suportada </a> Por exemplo, 'Internet Explorer (IE) com JAWS', 'FireFox com NVDA' e 'Apple com VoiceOver' podem ser definições básicas. Para obter mais informações, consulte <a href={{link_em_step1c}}> WCAG -EM Etapa 1.c: definir uma linha de base do suporte à acessibilidade </a>.",
+  "LABEL_EXTRA_REQUIREMENTS": "Requisitos adicionais de avaliação",
+  "INF_EXTRA_REQUIREMENTS_0": "Defina quaisquer requisitos adicionais de avaliação. Por exemplo:",
+  "INF_EXTRA_REQUIREMENTS_LI0": "'O relatório incluirá uma lista de todos os erros identificados pelo avaliador, em vez de apenas exemplos'",
+  "INF_EXTRA_REQUIREMENTS_LI1": "'O relatório incluirá uma descrição do problema e sugestões de reparo para os erros listados'",
+  "INF_EXTRA_REQUIREMENTS_LI2": "'A avaliação cobrirá todas as páginas e o conteúdo do site, em vez de apenas uma amostra selecionada'",
+  "INF_EXTRA_REQUIREMENTS_1": "Etapa 1.d das WCAG-EM: definir requisitos adicionais de avaliação"
+}

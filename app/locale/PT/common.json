@@ -1,0 +1,14 @@
+{
+  "BROWSER_NOT_SUPPORTED": "O navegador web que você está usando não suporta algumas funcionalidades, como salvar e carregar relatórios. Você pode continuar usando a Ferramenta de Relatório com suas funcionalidades limitadas. Atualize ou use um navegador da Web diferente para usar todas as funcionalidades desta ferramenta de relatório.",
+  "WARNING_BEFORE_UNLOAD": "Os dados inseridos não são salvos automaticamente. Será perdido se você fechar esta janela do navegador. Use o link 'Salvar' (Ctrl + S ou ⌘ S) que fica na parte superior de todas as páginas para salvar seus dados em um arquivo localmente no seu computador e recarregue-o mais tarde para continuar trabalhando nele.",
+  "MORE_INFO": "Para maiores informações, acesse <a href={{url}}>{{name}}</a>.",
+  "HIDE_MESSAGE": "Esconder mensagem",
+  "BTN_INFO": "Expandir informações",
+  "BTN_CLOSE_INFO": "Fechar informações",
+  "YES": "Sim",
+  "NO": "Não",
+  "CLICK_EXPAND": "Clique para mostrar a seção",
+  "CLICK_COLLAPSE": "Clique para ocultar a seção",
+  "TO_TOP": "Voltar para o topo",
+  "ACTIVE": "Ativo"
+}

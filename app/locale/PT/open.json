@@ -1,0 +1,7 @@
+{
+  "TITLE": "Abrir Relatório de Avaliação",
+  "INTRO": "Para recarregar um arquivo salvo, clique no botão 'Localizar e selecione o arquivo' e localize o arquivo JSON que você salvou anteriormente.",
+  "LABEL_SELECT_FILE": "Selecione o arquivo",
+  "MSG_LOADING": "Carregando o relatório, por favor aguarde...",
+  "BTN_LOAD_FILE": "Carregar dados do arquivo selecionado"
+}

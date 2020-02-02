@@ -1,0 +1,6 @@
+{
+  "TITLE": "Salvar relatório de avaliação",
+  "INTRO": "Use o link abaixo para salvar as informações do relatório de avaliação que você inseriu em um arquivo JSON no seu computador.",
+  "BTN_DOWNLOAD_DATA_FILE": "Salve o arquivo de dados em seu computador",
+  "TIPS": "Você pode salvar relatórios parcialmente completos (e anotações) e trabalhar neles posteriormente. Você pode abri-los em qualquer navegador e transferir o arquivo para outro computador. <br> Você pode salvar periodicamente enquanto trabalha para evitar a perda de dados se o navegador fechar. Você pode usar as teclas de atalho do Windows Ctrl + S ou as teclas de atalho do Mac ⌘S para abrir a caixa de diálogo Salvar (ou salvá-la automaticamente na sua pasta de downloads, dependendo das configurações do seu navegador). <br> Quando você terminar de inserir as informações do relatório de avaliação, poderá fazer o download de um arquivo HTML do relatório completo na página <a href={{link_report}}> Visualizar relatório </a>."
+}

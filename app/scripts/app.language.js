@@ -5,10 +5,15 @@ angular.module('wcagReporter')
 	{
     	'code': 'en',
     	'localName': 'English'
-    }, {
+    },
+    {
     	'code': 'nl',
-		'localName': 'Nederlands'
-	}
+		  'localName': 'Nederlands'
+    },
+    {
+    	'code': 'pt',
+		  'localName': 'Português'
+	  },
 ])
 .config(function ($translateProvider, wcag2specProvider) {
     var lang;
@@ -51,7 +56,7 @@ angular.module('wcagReporter')
 
 }).run(function ($rootScope, $rootElement, translateFilter) {
     $rootScope.translate = translateFilter;
-    
+
     $rootElement.addClass('app-loading');
     $rootScope.$on('$translateChangeSuccess', function (e, change) {
         // Update the lang data
