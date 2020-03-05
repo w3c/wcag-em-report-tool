@@ -2,7 +2,7 @@
   <legend>{{ 'AUDIT.FILTER' | translate }}:</legend>
 
   <fieldset>
-    <legend class="sr-only">show version</legend>
+    <legend class="sr-only">{{ 'AUDIT.FILTER_VERSION_LEGEND' | translate }}</legend>
 
     <label for="show_version_21" class="btn btn-sm"
     ng-class="{
@@ -39,7 +39,7 @@
   </fieldset>
 
   <fieldset>
-    <legend class="sr-only">show conformance level</legend>
+    <legend class="sr-only">{{ 'AUDIT.FILTER_LEVEL_LEGEND' | translate }}</legend>
     <label for="show_level-a" class="btn btn-sm"
     ng-class="{
       'btn-primary': critFilter.levels['wai:WCAG2A-Conformance'],
