@@ -1,4 +1,6 @@
 {
+    "ASSERTION_RESULT_DESCRIPTION_LABEL": "Observations",
+    "ASSERTION_RESULT_DESCRIPTION_PLACEHOLDER": "Observations made during evaluation",
     "BTN_COLLAPSE_PAGES": "Hide web pages to enter individual results",
     "BTN_COMPLETE_SELECTED": "Set selected to complete",
     "BTN_EXPAND_PAGES": "Show web pages to enter individual results",
@@ -22,7 +24,6 @@
     "NO_PAGE_SELECTED": "No pages selected under Sample to Evaluate",
     "NO_SAMPLE": "No sample available. Create a sample in step 2 and step 3.",
     "NOTE": "Note",
-    "PLH_ASSERT_DESC": "Observations made during evaluation",
     "PRINCIPLE": "Principle",
     "RESULTS_FOR": "Results for",
     "SAMPLE_FINDINGS": "Results for the entire sample",
