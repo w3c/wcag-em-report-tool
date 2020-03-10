@@ -86,7 +86,9 @@ angular.module('wcagReporter')
     }
 
     function criterionMatchFilter (criterion) {
-      var versionActive = (activeFilters.indexOf(criterion.versions[0]) !== -1);
+      var versionActive = criterion.versions
+        ? (activeFilters.indexOf(criterion.versions[0]) !== -1)
+        : true;
       var levelActive = (activeFilters.indexOf(criterion.level) !== -1);
 
       if (
