@@ -123,9 +123,10 @@ $templateCache.put('views/directives/criterion/pageSelect.html',
 '</div>');
 $templateCache.put('views/directives/criterion/resultDescription.html',
 '<div ng-init="focused = false">\n' +
-'  <label class="sr-only" for="assert_desc_{{$id}}" ng-bind="\'AUDIT.LABEL_DESCR\' | translate "></label>\n' +
-'  <textarea class="assert_description" id="assert_desc_{{$id}}" auto-resize ng-model="value" ng-change="updateMetadata()" shy-placeholder="\'AUDIT.PLH_ASSERT_DESC\' | translate" cols="20" rows="4" id="id"></textarea>\n' +
-'</div>');
+'  <label class="sr-only" for="assert_desc_{{$id}}">{{ \'AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL\' | translate }}</label>\n' +
+'  <textarea class="assert_description" id="assert_desc_{{$id}}" auto-resize ng-model="value" ng-change="updateMetadata()" shy-placeholder="\'AUDIT.ASSERTION_RESULT_DESCRIPTION_PLACEHOLDER\' | translate" cols="20" rows="4" id="id"></textarea>\n' +
+'</div>\n' +
+'');
 $templateCache.put('views/directives/evaluate/iconButton.html',
 '<span class="">\n' +
 '    <button ng-click="click()" class="glyphicon btn btn-default" ng-class="\'glyphicon-\' + icon">\n' +
@@ -369,7 +370,7 @@ $templateCache.put('views/evaluation/audit/criteria-tools.html',
 '  <legend>{{ \'AUDIT.FILTER\' | translate }}:</legend>\n' +
 '\n' +
 '  <fieldset>\n' +
-'    <legend class="sr-only">show version</legend>\n' +
+'    <legend class="sr-only">{{ \'AUDIT.FILTER_VERSION_LEGEND\' | translate }}</legend>\n' +
 '\n' +
 '    <label for="show_version_21" class="btn btn-sm" ng-class="{\n' +
 '      \'btn-primary\': critFilter.version === \'WCAG21 WCAG20\',\n' +
@@ -397,7 +398,7 @@ $templateCache.put('views/evaluation/audit/criteria-tools.html',
 '  </fieldset>\n' +
 '\n' +
 '  <fieldset>\n' +
-'    <legend class="sr-only">show conformance level</legend>\n' +
+'    <legend class="sr-only">{{ \'AUDIT.FILTER_LEVEL_LEGEND\' | translate }}</legend>\n' +
 '    <label for="show_level-a" class="btn btn-sm" ng-class="{\n' +
 '      \'btn-primary\': critFilter.levels[\'wai:WCAG2A-Conformance\'],\n' +
 '      \'btn-primary-invert\': !critFilter.levels[\'wai:WCAG2A-Conformance\']\n' +
