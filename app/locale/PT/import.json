@@ -1,0 +1,5 @@
+{
+    "TITLE": "Importar um relatório WCAG EARL",
+    "INTRO": "Se você usou outro aplicativo para gerar um relatório WCAG EARL que se enquadre no escopo desta avaliação, poderá importá-los e adicioná-los ao resultado da auditoria de avaliação. O arquivo em si deve ser: JSON-LD analisável, consiste em objetos no formato EARL e os testes de avaliação devem estar relacionados ao WCAG.",
+    "LABEL_SELECT_FILE": "Selecione um arquivo JSON-LD"
+}

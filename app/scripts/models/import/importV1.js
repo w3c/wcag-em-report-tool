@@ -59,7 +59,14 @@ angular
         .filter(function (idSet) {
           return idSet.indexOf(testId[1]) >= 0;
         })[0];
-      var latestId = criterionIdSet.length - 1;
+      var latestId = criterionIdSet
+        ? criterionIdSet.length - 1
+        : false;
+
+      if (!latestId) {
+        return test;
+      }
+
       testId[1] = criterionIdSet[latestId].toString();
 
       return testId.join(':');

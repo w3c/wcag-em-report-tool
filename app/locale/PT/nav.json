@@ -1,5 +1,7 @@
 ﻿{
     "MENU": "Menu",
+    "MENU_IMPORT": "Importar",
+    "MENU_IMPORT_TITLE": "Iniciar Assistente de Importação de Relatório EARL",
     "MENU_NEW": "Novo Relatório",
     "MENU_OPEN": "Abrir",
     "MENU_SAVE": "Salvar",
