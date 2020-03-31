@@ -1,8 +1,8 @@
 {
-  "TITLE": "Relatório de Avaliação de Acessibilidade do Site",
-  "INTRO": "Abaixo está o relatório de avaliação com base nas informações fornecidas nas etapas anteriores. Você pode voltar para as etapas anteriores agora e alterar qualquer uma dessas informações. Você pode fazer o download dos dados da avaliação para trabalhar posteriormente. (É o mesmo que a funcionalidade 'Salvar'.) <br> Este relatório deve ser baixado. Você pode fazer o download dos arquivos HTML e CSS do Relatório de Avaliação abaixo. Você pode alterar o conteúdo do relatório e o design visual para atender às suas necessidades.",
-  "DOWNLOAD_REPORT": "Faça o download e personalize este relatório",
-  "BTN_SAVE_HTML": "Faça o download do relatório (HTML)",
-  "BTN_SAVE_CSS": "Faça o download da folha de estilo do relatório (CSS)",
-  "BTN_SAVE_JSON": "Salve os dados da avaliação (JSON)"
+    "TITLE": "Relatório de Avaliação de Acessibilidade do Site",
+    "INTRO": "Abaixo está o relatório de avaliação com base nas informações fornecidas nas etapas anteriores. Você pode voltar para as etapas anteriores agora e alterar qualquer uma dessas informações. Você pode fazer o download dos dados da avaliação para trabalhar posteriormente. (É o mesmo que a funcionalidade 'Salvar'.) <br> Este relatório deve ser baixado. Você pode fazer o download dos arquivos HTML e CSS do Relatório de Avaliação abaixo. Você pode alterar o conteúdo do relatório e o design visual para atender às suas necessidades.",
+    "DOWNLOAD_REPORT": "Faça o download e personalize este relatório",
+    "BTN_SAVE_HTML": "Faça o download do relatório (HTML)",
+    "BTN_SAVE_CSS": "Faça o download da folha de estilo do relatório (CSS)",
+    "BTN_SAVE_JSON": "Salve os dados da avaliação (JSON)"
 }

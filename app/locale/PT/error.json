@@ -1,8 +1,8 @@
 {
-  "TITLE": "Opa! Algo deu errado",
-  "INTRO": "Esta não é a página que você está procurando. Tente uma dessas soluções para resolver o problema.",
-  "SUGGESTION1": "Se você digitou o URL, verifique se é exatamente o que deveria ser.",
-  "SUGGESTION2": "Volte <a href={{link_back}}> para a página anterior </a> e tente novamente.",
-  "SUGGESTION3": "Verifique se os arquivos nos quais você está trabalhando seguem o <a href={{link_format}}> formato wcag-em </a>.",
-  "BUG_REPORT": "Para relatar bugs ou features, crie uma issue em nosso <a href={{link github}}> repositório no Github</a>."
+    "TITLE": "Opa! Algo deu errado",
+    "INTRO": "Esta não é a página que você está procurando. Tente uma dessas soluções para resolver o problema.",
+    "SUGGESTION1": "Se você digitou o URL, verifique se é exatamente o que deveria ser.",
+    "SUGGESTION2": "Volte <a href={{link_back}}> para a página anterior </a> e tente novamente.",
+    "SUGGESTION3": "Verifique se os arquivos nos quais você está trabalhando seguem o <a href={{link_format}}> formato wcag-em </a>.",
+    "BUG_REPORT": "Para relatar bugs ou features, crie uma issue em nosso <a href={{link github}}> repositório no Github</a>."
 }
