@@ -17,7 +17,7 @@ Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description|Reas
 ### Fixed
 
 ### Removed
-- AngularJS framework; This framework is too complex and all-inclusive for this type of project. A new framework will be lighter and easier to grasp for starting developers so that it will be easier to be maintained. (Replaced with ...)
+- AngularJS framework; This framework is too complex and all-inclusive for this type of projec  t. A new framework will be lighter and easier to grasp for starting developers so that it will be easier to be maintained. (Replaced with ...)
 - Grunt Task manager has been removed. Grunt does a great job in giving full control in app development, but as a downside this needs configuration and user awereness of all the available tools to manage your app development. Newer tools do a lot of the work automagically and give developers the opportunity to start asap on the project at hand and focus on the assets required for the project rather than assets for setup. Grunt will most likely be replaced with Parcel, a bundler without loads of configuration.
 
 ### Security
