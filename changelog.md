@@ -4,15 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description)"
+Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description|Reason)"
 
 
 ## [Unreleased]
 ### Added
 ### Changed
+- Project management: added Parcel bundler. Focus more on the project, rather than setup.
+- JavaScript Library (to be chosen).
+
 ### Deprecated
 ### Fixed
+
 ### Removed
+- AngularJS framework; This framework is too complex and all-inclusive for this type of project. A new framework will be lighter and easier to grasp for starting developers so that it will be easier to be maintained. (Replaced with ...)
+- Grunt Task manager has been removed. Grunt does a great job in giving full control in app development, but as a downside this needs configuration and user awereness of all the available tools to manage your app development. Newer tools do a lot of the work automagically and give developers the opportunity to start asap on the project at hand and focus on the assets required for the project rather than assets for setup. Grunt will most likely be replaced with Parcel, a bundler without loads of configuration.
+
 ### Security
 
 ## [2.0.0] - 2020/01/09
