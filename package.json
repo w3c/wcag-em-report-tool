@@ -21,6 +21,7 @@
     "node": ">=12.18.0 <13.0.0"
   },
   "scripts": {
-    "development": "npx parcel ./app/views/**/*.html"
+    "development": "npx parcel serve --open ./app/views/**/*.html",
+    "build": "npx parcel build ./app/views/**/*.html"
   }
 }
