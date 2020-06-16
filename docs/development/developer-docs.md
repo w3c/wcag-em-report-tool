@@ -1,9 +1,9 @@
 # WCAG-EM Report Tool
 
-This document describes the architecture and concepts behind 
-the WCAG-EM Report Tool. The WCAG-EM Report Tool is based on 
-the structure outlined by Yeoman Angular Generator 
-(https://github.com/yeoman/generator-angular). Details about 
+This document describes the architecture and concepts behind
+the WCAG-EM Report Tool. The WCAG-EM Report Tool is based on
+the structure outlined by Yeoman Angular Generator
+(https://github.com/yeoman/generator-angular). Details about
 the structure of this project are also available here.
 
 ## Task Runner
@@ -33,3 +33,14 @@ pulled. The localization for the UI is placed in directories under
 `app/wcag2spec/wcag2-xx.json`.
 
 More about translations, read [docs/translation.md]
+
+---
+
+## Best practices
+
+- Models don't require services
+- Models contain domain logic
+- Services contain application logic
+- Controllers connect views to models/services
+
+TODO//REWRITE
