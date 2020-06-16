@@ -1,4 +1,7 @@
+# npm
 node_modules
+
+# parcel
 .tmp
 .sass-cache
 app/bower_components
@@ -12,3 +15,7 @@ Thumbs.db
 /.project
 npm-debug.log
 .DS_Store
+.cache
+
+# dev mode disable package.lock
+package-lock.json
