@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description|Reason)"
 
 
-## [Unreleased]
+## [Unreleased - 3.0.0]
 ### Added
 ### Changed
 - Project management: added Parcel bundler. Focus more on the project, rather than setup.
