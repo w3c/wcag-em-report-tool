@@ -1,7 +1,6 @@
 /**
  * Lint Staged configuration
  * https://github.com/okonet/lint-staged
- * @type {Object}
  */
 
 module.exports = {
