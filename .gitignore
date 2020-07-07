@@ -1,21 +1,15 @@
 # npm
 node_modules
 
-# parcel
+# project
 .tmp
-.sass-cache
-app/bower_components
-app/styles/bootstrap
-dist/
-.sublime-project
-.sublime-workspace
-.dropbox
-desktop.ini
-Thumbs.db
-/.project
-npm-debug.log
-.DS_Store
+dist
+build
+npm-*
 .cache
 
 # dev mode disable package.lock
 package-lock.json
+
+# angular
+angularjs-app

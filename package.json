@@ -1,31 +1,43 @@
 {
     "name": "WCAG-EM-Report-Tool",
     "version": "2.0.1",
-    "repository":
-    {
+    "repository": {
         "type": "git",
         "url": "git://github.com/w3c/wcag-em-report-tool.git"
     },
-    "devDependencies":
-    {
-        "eslint": "^6.2.2",
-        "eslint-config-standard": "^14.1.0",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-node": "^9.2.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
-        "parcel-bundler": "^1.12.4",
-        "stylelint": "^10.1.0",
-        "stylelint-config-standard": "^18.3.0",
-        "stylelint-scss": "^3.10.0"
+    "devDependencies": {
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@open-wc/building-rollup": "^1.0.0",
+        "@open-wc/demoing-storybook": "^2.0.0",
+        "@open-wc/eslint-config": "^2.0.0",
+        "@open-wc/testing": "^2.0.0",
+        "@open-wc/testing-karma": "^3.0.0",
+        "@rollup/plugin-babel": "^5.0.4",
+        "deepmerge": "^3.2.0",
+        "eslint": "^6.1.0",
+        "eslint-config-prettier": "^6.11.0",
+        "husky": "^1.0.0",
+        "lint-staged": "^8.0.0",
+        "prettier": "^2.0.4",
+        "rimraf": "^2.6.3",
+        "rollup": "^2.3.4"
     },
-    "engines":
-    {
+    "engines": {
         "node": ">=12.18.0 <13.0.0"
     },
-    "scripts":
-    {
-        "development": "npx parcel serve ./app/views/**/*.html --open",
-        "build": "npx parcel build ./app/views/**/*.html"
+    "scripts": {
+        "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+        "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+        "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .gitignore",
+        "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
+        "lint": "npm run lint:eslint && npm run lint:prettier",
+        "format": "npm run format:eslint && npm run format:prettier",
+        "test": "karma start --coverage",
+        "test:watch": "karma start --auto-watch=true --single-run=false",
+        "storybook": "start-storybook",
+        "storybook:build": "build-storybook",
+        "build": "rimraf build && rollup -c rollup.config.js",
+        "start:build": "npm run build && es-dev-server --root-dir build --app-index index.html --open --compatibility none"
     }
 }
