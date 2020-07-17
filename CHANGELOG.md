@@ -9,6 +9,9 @@ Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description|Reas
 
 ## [Unreleased - 3.0.0]
 ### Added
+
+- Expanded documentation section: Help for translation, development and decisions documented.
+
 ### Changed
 - Project management: added Parcel bundler. Focus more on the project, rather than setup.
 - JavaScript Library (to be chosen).

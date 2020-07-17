@@ -13,17 +13,16 @@ Related resources:
 
 The official released version of the Report Tool can be found at <http://www.w3.org/WAI/eval/report-tool/>. An example of the latest (unapproved by EO) version is available at <http://w3c.github.io/wcag-em-report-tool/dist/>.
 
-See [Change log](changelog.md) for details about the latest version of the WCAG-EM Report Tool.
-
+See [Change log](CHANGELOG.md) for details about the latest version of the WCAG-EM Report Tool.
 
 ---
 
 ## Contributing
 
-[Read about contributing here](./docs/CONTRIBUTING.md).
+[Read about contributing in our documentation](./docs/CONTRIBUTING.md).
 
 ---
 
-## Report bugs :bug:
+## Report bugs :beetle:
 
-You can file your found bugs and improvements for the WCAG-EM Report Tool with the [issues list](https://github.com/w3c/wcag-em-report-tool/issues).
+Did you spot something off or not working in the WCAG-EM Report Tool? Please check if this is a [known default](https://github.com/AccessibilityNL/wcag-em-report-tool/issues?q=is%3Aopen+is%3Aissue+label%3A%22%3Abeetle%3A+Bug%22) and report if it isnt, thank you!
