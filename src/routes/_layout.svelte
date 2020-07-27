@@ -1,22 +1,21 @@
-<script>
-	import Nav from '../components/Nav.svelte';
+<!-- @layout -->
+<svelte:head>
+  <title>WCAG Report Tool</title>
 
-	export let segment;
-</script>
+  <!-- WAI Website Components: https://w3c.github.io/wai-website-components/index.html -->
+  <link rel="stylesheet" href="https://www.w3.org/WAI/assets/css/style.css">
+</svelte:head>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
-
-<Nav {segment}/>
+<Header />
 
 <main>
-	<slot></slot>
+  <slot></slot>
 </main>
+
+<Footer />
+<!-- /@layout -->
+
+<script>
+  import Header from '../components/Header.svelte';
+  import Footer from '../components/Footer.svelte';
+</script>
