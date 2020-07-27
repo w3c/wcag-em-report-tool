@@ -1,3 +1,0 @@
-/*
-WCAG REPORT TOOL
- */
