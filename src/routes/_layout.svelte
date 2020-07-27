@@ -1,7 +1,5 @@
 <!-- @layout -->
 <svelte:head>
-  <title>WCAG Report Tool</title>
-
   <!-- WAI Website Components: https://w3c.github.io/wai-website-components/index.html -->
   <link rel="stylesheet" href="https://www.w3.org/WAI/assets/css/style.css">
 </svelte:head>
