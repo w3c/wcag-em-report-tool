@@ -1,21 +1,7 @@
 # npm
 node_modules
 
-# parcel
-.tmp
-.sass-cache
-app/bower_components
-app/styles/bootstrap
-dist/
-.sublime-project
-.sublime-workspace
-.dropbox
-desktop.ini
-Thumbs.db
-/.project
-npm-debug.log
-.DS_Store
-.cache
-
-# dev mode disable package.lock
-package-lock.json
+# Sapper
+/src/node_modules/@sapper/
+/cypress/screenshots/
+/__sapper__/
