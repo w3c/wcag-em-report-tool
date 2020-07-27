@@ -96,11 +96,7 @@
 </a>
 <!-- /@Route -->
 
-<style>
-</style>
-
 <script>
   // @TODO: Find a way to extend / set the title prop from layout
   let title = 'Website Accessibility Report Tool';
-
 </script>
