@@ -7,7 +7,3 @@
     <a href="{ nextPage.href }" rel="next">{ nextPage.title }</a>
   {/if}
 </aside>
-
-<script>
-
-</script>

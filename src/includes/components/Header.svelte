@@ -1,9 +1,7 @@
 <!-- @component:Header -->
-<header class="site-header">
-  <div class="brand">
-    <span class="brand-name">WCAG-EM Report Tool</span>
-    <Branding />
-  </div>
+<header id="site-header">
+  <div class="brand-name"><p>WCAG-EM Report Tool</p></div>
+  <Branding />
   <Menubar />
 </header>
 <!-- /@component -->

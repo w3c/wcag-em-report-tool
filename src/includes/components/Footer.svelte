@@ -30,7 +30,7 @@
       <a href="http://www.w3.org/WAI/ACT/">WAI-ACT Project</a>, and updated with support of the
       <a href="http://www.w3.org/WAI/Tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC).</p>
     <div class="footer-nav">
-      <p>[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>] [<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>] [<a href="http://www.w3.org/WAI/search.php">Search</a>] [<a href="/WAI/contacts">Contacting WAI</a>]</p>
+      <p>[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>] [<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>] [<a href="http://www.w3.org/WAI/search.php">Search</a>] [<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]</p>
     </div>
     <div class="copyright">
       <p>
@@ -56,6 +56,6 @@
 <!-- /@Component -->
 
 <script>
-  export let buildDate = '2020/07/27'
-  export let version = '2.0.1';
+  let buildDate = '2020/07/27'
+  let version = '2.0.1';
 </script>

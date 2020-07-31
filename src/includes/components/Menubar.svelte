@@ -1,4 +1,4 @@
-<!-- @Component:data.-->
+<!-- @Component:Menubar-->
 <nav title="menu bar">
   <ul>
     <li>
@@ -52,20 +52,15 @@
     </li>
     <li>
       <p>{ data.language }</p>
-      <ul>
-        <li lang="en">
-          English
-        </li>
-        <li lang="nl">
-          Nederlands
-        </li>
-      </ul>
+      <LanguageSelect />
     </li>
   </ul>
 </nav>
 <!-- /@Component -->
 
 <script>
+  import LanguageSelect from './i18n/LanguageSelect.svelte';
+
   let data = {
     open: 'Open',
     save: 'Save',
