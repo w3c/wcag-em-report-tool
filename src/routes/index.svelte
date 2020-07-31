@@ -1,4 +1,5 @@
 <!-- @Route:/ -->
+<!-- @Page:/ -->
 <svelte:head>
   <title>{ title }</title>
 </svelte:head>
@@ -98,9 +99,11 @@
 <a class="button" href="/evaluation/scope/" rel="next">
   Next step: Define Scope
 </a>
-<!-- /@Route -->
+<!-- /@Page -->
 
 <script>
+  import appData from '../data/app.js';
+
   // @TODO: Find a way to extend / set the title prop from layout
-  let title = 'Website Accessibility Report Tool';
+  let title = appData.title;
 </script>
