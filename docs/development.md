@@ -2,6 +2,18 @@
 
 ## Best practices
 
+### Svelte
+
+- Component structure:
+
+  As opposed to default component markup created by most Svelte itself, reverse the declaration; markup, style and last script. This to make it more readable, structure first, details later.
+  Within Sapper context, write the module script on top, this is read before rendering the svelte component.
+
+  0. Script context="module" (Sapper)
+  1. Component Markup
+  2. Style block
+  3. Script block
+
 ### HTML
 
 - Attribute priority: role, for, id, element specific attributes, global attributes, class, data-attributes, aria-attributes.
