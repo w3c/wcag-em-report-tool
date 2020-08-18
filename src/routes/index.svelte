@@ -1,4 +1,42 @@
-<!-- @Route:/ -->
+<!-- @Documentation
+  * svelte files are pages.
+  * They are parsed in context of the client / Browser
+  * JavaScript used here is client OR server side.
+  * -->
+
+<!--
+  * context="module" is rendered before component render
+  * Add all data request here to serve to the component
+  * -->
+<script context="module">
+  import appData from '../data/app.js';
+
+  export async function preload(page, session) {
+
+    const locale = appData.defaultLocale;
+    let redirectPath;
+
+    // Start serving the defaultLocale
+    if (locale) {
+      redirectPath = `/${locale.lang}/`;
+
+      /**
+       * @NB
+       * @TLDR: Good for now...
+       * ---
+       * [sapper export] generates an html file with only inline script
+       * setting window.location to '/${locale}'
+       * This needs to be improved! (what if javascript does not execute?)
+       * - [1] By adding an .httaccess for example (Let server decide)?
+       * - [2] Render the target page as current path (links are still correct, add canonical link pointing to '/${locale}')
+       * - [3] Extend the _error.svelte page with redirect status codes?
+       * - [4] Create into a redirect page?
+       */
+      return this.redirect(301, redirectPath);
+    }
+  }
+</script>
+
 <!-- @Page:/ -->
 <svelte:head>
   <title>{ title }</title>
