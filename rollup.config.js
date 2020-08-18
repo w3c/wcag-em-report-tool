@@ -39,7 +39,7 @@ export default {
 				exclude: ['node_modules/@babel/**'],
 				presets: [
 					['@babel/preset-env', {
-						targets: '> 0.25%, not dead'
+						targets: '> 0.25%, not dead, ie 11'
 					}]
 				],
 				plugins: [
