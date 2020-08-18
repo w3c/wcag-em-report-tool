@@ -140,7 +140,7 @@
 <!-- /@Page -->
 
 <script>
-  import appData from '../data/app.js';
+  let appData;
 
   // @TODO: Find a way to extend / set the title prop from layout
   let title = appData.title;
