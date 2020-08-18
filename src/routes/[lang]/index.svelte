@@ -1,4 +1,8 @@
 <script context="module">
+  /**
+   * Using this script to import content data and push forward to component
+   */
+
   import i18n from '../../data/i18n/index.js';
   import appData from '../../data/app.js';
 
@@ -76,7 +80,7 @@
   export let page;
 
   let { locale } = page;
-  let sections = [
+  $: sections = [
     {
       tag: 'p',
       ...page.description
@@ -92,5 +96,5 @@
   ];
 
   // @TODO: Find a way to extend / set the title prop from layout
-  let title = page.title;
+  $: title = page.title;
 </script>
