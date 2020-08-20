@@ -1,0 +1,9 @@
+{
+    "background_color": "#ffffff",
+    "theme_color": "#333333",
+    "name": "WCAG Report Tool",
+    "short_name": "WCAGRT",
+    "display": "minimal-ui",
+    "start_url": "/",
+    "icons": []
+}
