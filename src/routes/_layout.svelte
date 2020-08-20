@@ -15,7 +15,7 @@
 
 <script>
   // Layout components receive a segment property
-  export let segment;
+  // export let segment;
 
   import Header from '../includes/components/Header.svelte';
   import Footer from '../includes/components/Footer.svelte';
