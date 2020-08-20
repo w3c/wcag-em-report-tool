@@ -39,51 +39,39 @@
  * This is a "dynamic page" if you have a link or path like this:
  * `/en/index.svelte`
  * page.params will have a variable called locale with value 'en'
- * We can use this to set
+ * We can use this to set other vars or get data based on the locale.
  * -->
-<svelte:head>
-  <title>{ title }</title>
-</svelte:head>
+<Page {title}>
+  {#each sections as section, index }
+    <details open={index === 0}>
+      <summary><h2>{ section.title }</h2></summary>
+      {#if section.tag === "p"}
+        {#each section.contents as content}
+          <p>{@html content}</p>
+        {/each}
+      {:else if section.tag === "ul"}
+        <ul>
+        {#each section.contents as content}
+          <li>{@html content}</li>
+        {/each}
+        </ul>
+      {/if}
 
-{#if !translated }
-  <div class="info">
-    <p>This page is not translated in <span lang="{ locale.lang }">{ locale.title }</span>!</p>
-  </div>
-{/if}
-
-<h1>{ title }</h1>
-
-{#each sections as section, index }
-  <details open={index === 0}>
-    <summary><h2>{ section.title }</h2></summary>
-    {#if section.tag === "p"}
-      {#each section.contents as content}
-        <p>{@html content}</p>
-      {/each}
-    {:else if section.tag === "ul"}
-      <ul>
-      {#each section.contents as content}
-        <li>{@html content}</li>
-      {/each}
-      </ul>
-    {/if}
-
-  </details>
-{/each}
-
-<a class="button" href={nextPage.href} rel="next">
-  Next step: Define Scope
-</a>
+    </details>
+  {/each}
+</Page>
 <!-- /@Page -->
 
 <script>
+  import Page from '../../includes/components/Page.svelte';
   export let page;
 
-  $: translated = page.translated;
+  $: title = page.title;
   $: locale = page.locale;
   $: nextPage = {
     href: `/${page.locale.lang}/evaluation/scope/`
   };
+  $: translated = page.translated;
   $: sections = [
     {
       tag: 'p',
@@ -100,5 +88,4 @@
   ];
 
   // @TODO: Find a way to extend / set the title prop from layout
-  $: title = page.title;
 </script>
