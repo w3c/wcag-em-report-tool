@@ -45,7 +45,7 @@
   <title>{ title }</title>
 </svelte:head>
 
-{#if !page.translated }
+{#if !translated }
   <div class="info">
     <p>This page is not translated in <span lang="{ locale.lang }">{ locale.title }</span>!</p>
   </div>
@@ -71,7 +71,7 @@
   </details>
 {/each}
 
-<a class="button" href="/{locale.lang}/evaluation/scope/" rel="next">
+<a class="button" href={nextPage.href} rel="next">
   Next step: Define Scope
 </a>
 <!-- /@Page -->
@@ -79,7 +79,11 @@
 <script>
   export let page;
 
-  let { locale } = page;
+  $: translated = page.translated;
+  $: locale = page.locale;
+  $: nextPage = {
+    href: `/${page.locale.lang}/evaluation/scope/`
+  };
   $: sections = [
     {
       tag: 'p',
