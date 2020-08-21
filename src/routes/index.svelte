@@ -18,7 +18,7 @@
 
     // Start serving the defaultLocale
     if (locale) {
-      redirectPath = `/${locale.lang}/`;
+      redirectPath = `${locale.lang}/`;
 
       /**
        * @NB

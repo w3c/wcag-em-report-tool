@@ -9,6 +9,7 @@
         "dev": "sapper dev",
         "build": "sapper build --legacy",
         "export": "sapper export --legacy",
+        "export:gh": "NODE_ENV=gh sapper export --basepath wcag-em-report-tool/sapper-preview --legacy",
         "start": "node __sapper__/build",
         "cy:run": "cypress run",
         "cy:open": "cypress open",
