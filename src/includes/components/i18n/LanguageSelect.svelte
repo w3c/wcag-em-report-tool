@@ -1,4 +1,5 @@
 <!-- @Component:LanguageSelect -->
+<span>Language</span>
 <ul id="languageSelect" title="languages" on:click={handleClick}>
   {#each locales as locale}
     <li><a

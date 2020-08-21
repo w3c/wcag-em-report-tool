@@ -51,7 +51,6 @@
       </ul>
     </li>
     <li>
-      <p>{ data.language }</p>
       <LanguageSelect />
     </li>
   </ul>
