@@ -9,7 +9,7 @@
 
   <details open="true">
     <summary><h2>{ $translate('start.INTRO_HD') }</h2></summary>
-    <p>{ $translate('start.INTRO_1', { values: links}) }</p>
+    <p>{ @html $translate('start.INTRO_1', { values: links}) }</p>
     <p>{ $translate('start.INTRO_2') }</p>
   </details>
 
@@ -41,9 +41,9 @@
   import Page from '../../includes/components/Page.svelte';
 
   $: links = {
-    link_wcag: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
-    link_wcagem: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
-    link_wcagem_overview: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
-    link_report_example: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`
+    link_wcag: `<a href="http://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a>`,
+    link_wcagem: `<a href="http://www.w3.org/TR/WCAG-EM/">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
+    link_wcagem_overview: `<a href="http://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM Overview</a>`,
+    link_report_example: `<a href="/${$locale}/evaluation/report/example/">structured report (example)</a>`
   };
 </script>
