@@ -36,16 +36,10 @@
 <!-- /@Page -->
 
 <script>
-  import { stores } from '@sapper/app';
   import { t as translate, locale } from 'svelte-i18n';
 
   import Page from '../../includes/components/Page.svelte';
 
-  const { page } = stores();
-
-  console.dir($page)
-
-  // $: lang = page.params.lang;
   $: links = {
     link_wcag: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
     link_wcagem: `<a href="#wcagem">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
