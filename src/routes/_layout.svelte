@@ -1,3 +1,12 @@
+<script context="module">
+  import { waitLocale } from 'svelte-i18n'
+
+  export async function preload() {
+    // awaits for the loading of the 'en-US' and 'en' dictionaries
+    return waitLocale();
+  }
+</script>
+
 <!-- @layout -->
 <svelte:head>
   <!-- WAI Website Components: https://w3c.github.io/wai-website-components/index.html -->
