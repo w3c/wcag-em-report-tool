@@ -1,6 +1,6 @@
 <!-- @Component:LanguageSelect -->
 <span>Language</span>
-<ul id="languageSelect" title="languages" on:click={handleClick}>
+<ul id="languageSelect" title="languages">
   {#each locales as locale}
     <li><a
       href="{locale.lang}"
@@ -16,21 +16,4 @@
   import appData from '../../../data/app.js';
 
   let { locales, defaultLocale } = appData;
-
-  /**
-   * Handle the languageSelect click,
-   * Changing to target language
-   * @param  {[object]} event [description]
-   * @return {undefined}
-   */
-  function handleClick(event) {
-    const target = event.target;
-
-    if (
-      target.nodeName === 'A' &&
-      locales.some(l => l.lang === target.lang)
-    ) {
-      locale.set(target.lang);
-    }
-  }
 </script>
