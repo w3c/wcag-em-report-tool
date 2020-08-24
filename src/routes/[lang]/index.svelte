@@ -1,3 +1,19 @@
+<script context="module">
+  import { waitLocale, locale } from 'svelte-i18n';
+  import app from '../../data/app.js';
+
+  export async function preload(page, session) {
+    const { lang } = page.params;
+
+    if (app.locales.some((l) => l.lang === lang)) {
+      locale.set(lang);
+    }
+
+    // awaits for the loading of the 'en-US' and 'en' dictionaries
+    return waitLocale();
+  }
+</script>
+
 <!--
  * @Page:/[lang]/
  * This is a "dynamic page" if you have a link or path like this:
@@ -36,8 +52,8 @@
 <!-- /@Page -->
 
 <script>
-  import { t as translate, locale } from 'svelte-i18n';
-
+  // TODO: Refactor to use the dictionary directly instead for content.
+  import { t as translate } from 'svelte-i18n';
   import Page from '../../includes/components/Page.svelte';
 
   $: links = {
