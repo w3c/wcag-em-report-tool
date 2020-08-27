@@ -25,12 +25,29 @@
   *
   *   and passed on to the Components who need them.
   -->
-<Header/>
-<!-- Content please -->
-<Footer/>
+
+<!-- @Component:App -->
+{#if ($isLoading)}
+  <p>Loading WCAG Report Tool</p>
+{:else}
+  <Router>
+    <Layout>
+      <!-- Content please -->
+
+      <Route path="/" component={Index} />
+      <Route path="/:lang" component={Index} />
+
+    </Layout>
+  </Router>
+{/if}
+<!-- /Component -->
 
 <script>
+  import { isLoading } from 'svelte-i18n';
 
-  import Header from './includes/components/Header.svelte';
-  import Footer from './includes/components/Footer.svelte';
+  // Refactor to `import ... Routes.svelte`
+  import { Router, Route } from 'svelte-navigator';
+
+  import Layout from './includes/components/Layout.svelte';
+  import Index from './routes/Index.svelte';
 </script>

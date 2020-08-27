@@ -3,7 +3,7 @@
 <ul id="languageSelect" title="languages">
   {#each locales as locale}
     <li><a
-      href="{locale.lang}"
+      href="/{locale.lang}"
       hreflang="{locale.lang}"
       lang="{locale.lang}"
     >{locale.title} {#if locale.lang === defaultLocale.lang}(Default){/if}</a></li>
