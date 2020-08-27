@@ -1,6 +1,6 @@
-import * as sapper from '@sapper/app';
+import App from './App.svelte';
 import './data/i18n.js';
 
-sapper.start({
-	target: document.querySelector('#sapper')
+const WCAGRT = new App({
+  target: document.getElementById('wcag-rt')
 });

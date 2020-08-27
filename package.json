@@ -10,6 +10,7 @@
         "dev": "rollup -c -w",
         "start": "sirv public"
     },
+    "browser": "src/client.js",
     "dependencies": {
         "sirv-cli": "^1.0.0"
     },

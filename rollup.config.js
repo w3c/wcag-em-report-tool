@@ -1,106 +1,101 @@
-import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
-import commonjs from '@rollup/plugin-commonjs';
-import svelte from 'rollup-plugin-svelte';
 import babel from '@rollup/plugin-babel';
-import { terser } from 'rollup-plugin-terser';
-import config from 'sapper/config/rollup.js';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import livereload from 'rollup-plugin-livereload';
+import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import svelte from 'rollup-plugin-svelte';
+import {
+  terser
+} from 'rollup-plugin-terser';
+
 import pkg from './package.json';
 
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
-const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const production = !process.env.ROLLUP_WATCH;
 
-const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
+function serve() {
+  let server;
+
+  function toExit() {
+    if (server) server.kill(0);
+  }
+
+  return {
+    writeBundle() {
+      if (server) return;
+      server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+        stdio: ['ignore', 'inherit', 'inherit'],
+        shell: true
+      });
+
+      process.on('SIGTERM', toExit);
+      process.on('exit', toExit);
+    }
+  };
+}
 
 export default {
-	client: {
-		input: config.client.input(),
-		output: config.client.output(),
-		plugins: [
-			replace({
-				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
-			}),
-      json(),
-			svelte({
-				dev,
-				hydratable: true,
-				emitCss: true
-			}),
-			resolve({
-				browser: true,
-				dedupe: ['svelte']
-			}),
-			commonjs(),
+  input: pkg.browser,
+  output: {
+    sourcemap: true,
+		format: 'es',
+		name: pkg.name,
+    dir: `public/${pkg.version}`
+  },
+  plugins: [
+    svelte({
+      // enable run-time checks when not in production
+      dev: !production,
+      // we'll extract any component CSS out into
+      // a separate file - better for performance
+      css: css => {
+        css.write('bundle.css');
+      }
+    }),
 
-			legacy && babel({
-				extensions: ['.js', '.mjs', '.html', '.svelte'],
-				babelHelpers: 'runtime',
-				exclude: ['node_modules/@babel/**'],
-				presets: [
-					['@babel/preset-env', {
-						targets: '> 0.25%, not dead, ie 11'
-					}]
-				],
-				plugins: [
-					'@babel/plugin-syntax-dynamic-import',
-					['@babel/plugin-transform-runtime', {
-						useESModules: true
-					}]
-				]
-			}),
+    // If you have external dependencies installed from
+    // npm, you'll most likely need these plugins. In
+    // some cases you'll need additional configuration -
+    // consult the documentation for details:
+    // https://github.com/rollup/plugins/tree/master/packages/commonjs
+    resolve({
+      browser: true,
+      dedupe: ['svelte']
+    }),
+    commonjs(),
+    json(),
 
-			!dev && terser({
-				module: true
-			})
-		],
+    // In dev mode, call `npm run start` once
+    // the bundle has been generated
+    !production && serve(),
 
-		preserveEntrySignatures: false,
-		onwarn,
-	},
+    // Watch the `public` directory and refresh the
+    // browser on changes when not in production
+    !production && livereload('public'),
 
-	server: {
-		input: config.server.input(),
-		output: config.server.output(),
-		plugins: [
-			replace({
-				'process.browser': false,
-				'process.env.NODE_ENV': JSON.stringify(mode)
-			}),
-      json(),
-			svelte({
-				generate: 'ssr',
-				dev
-			}),
-			resolve({
-				dedupe: ['svelte']
-			}),
-			commonjs()
-		],
-		external: Object.keys(pkg.dependencies).concat(
-			require('module').builtinModules || Object.keys(process.binding('natives'))
-		),
+    // If we're building for production (npm run build
+    // instead of npm run dev), minify
+    production && terser(),
 
-		preserveEntrySignatures: 'strict',
-		onwarn,
-	},
-
-	serviceworker: {
-		input: config.serviceworker.input(),
-		output: config.serviceworker.output(),
-		plugins: [
-			resolve(),
-			replace({
-				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
-			}),
-			commonjs(),
-			!dev && terser()
-		],
-
-		preserveEntrySignatures: false,
-		onwarn,
-	}
+    // Babel used to provide legacy (IE 11) support
+    babel({
+      extensions: ['.js', '.mjs', '.html', '.svelte'],
+      babelHelpers: 'runtime',
+      exclude: ['node_modules/@babel/**'],
+      presets: [
+        ['@babel/preset-env', {
+          targets: '> 0.25%, not dead, ie 11'
+        }]
+      ],
+      plugins: [
+        '@babel/plugin-syntax-dynamic-import',
+        ['@babel/plugin-transform-runtime', {
+          useESModules: true
+        }]
+      ]
+    }),
+  ],
+  watch: {
+    clearScreen: false
+  }
 };
