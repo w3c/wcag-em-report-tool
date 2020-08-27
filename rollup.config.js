@@ -40,7 +40,9 @@ export default {
     sourcemap: true,
 		format: 'es',
 		name: pkg.name,
-    dir: `public/${pkg.version}`
+    dir: production
+      ? `public/${pkg.version}`
+      : 'public/dev'
   },
   plugins: [
     svelte({
