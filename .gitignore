@@ -1,7 +1,5 @@
 # npm
 node_modules
 
-# Sapper
-/src/node_modules/@sapper/
-/cypress/screenshots/
-/__sapper__/
+# Svelte
+/public/build/
