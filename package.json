@@ -6,11 +6,9 @@
         "url": "git://github.com/w3c/wcag-em-report-tool.git"
     },
     "scripts": {
-        "dev": "sapper dev",
-        "build": "sapper build --legacy",
-        "export": "sapper export --legacy",
-        "export:gh": "NODE_ENV=gh sapper export --basepath wcag-em-report-tool/sapper-preview --legacy",
-        "start": "node __sapper__/build"
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "start": "sirv public"
     },
     "dependencies": {
         "compression": "^1.7.1",
