@@ -18,7 +18,7 @@
   *
   * In here, App.svelte, they would then be accessed like props:
   * e.g.:
-  *   export let setting;
+  *   export let settings;
   *   export let theme;
   *   export let hacks;
   *   export let etc;
