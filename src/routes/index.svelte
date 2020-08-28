@@ -38,7 +38,7 @@
 <script>
   import { t as translate, locale } from 'svelte-i18n';
 
-  import Page from '../includes/components/Page.svelte';
+  import Page from '../components/Page.svelte';
 
   $: links = {
     link_wcag: `<a href="http://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a>`,

@@ -2,9 +2,9 @@
 <nav title="menu bar">
   <ul>
     <li>
-      <a href="/" target="_blank">
+      <Link to="/">
         New report
-      </a>
+      </Link>
     </li>
     <li>
       <a href="#open">
@@ -58,6 +58,7 @@
 <!-- /@Component -->
 
 <script>
+  import { Link } from 'svelte-navigator';
   import LanguageSelect from './i18n/LanguageSelect.svelte';
 
   let data = {

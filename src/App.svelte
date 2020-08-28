@@ -46,6 +46,6 @@
   // Refactor to `import ... Routes.svelte`
   import { Router, Route } from 'svelte-navigator';
 
-  import Layout from './includes/components/Layout.svelte';
+  import Layout from './components/Layout.svelte';
   import Index from './routes/Index.svelte';
 </script>
