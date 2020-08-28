@@ -2,8 +2,10 @@
   <title>{ title }</title>
 </svelte:head>
 
-<h1>{ title }</h1>
-<slot></slot>
+<main>
+  <h1>{ title }</h1>
+  <slot></slot>  
+</main>
 
 <script>
   export let title;

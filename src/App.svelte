@@ -30,10 +30,11 @@
 {#if ($isLoading)}
   <p>Loading WCAG Report Tool</p>
 {:else}
-  <Router>
+  <Router basepath="/">
     <Layout>
-      <!-- Components are Pages -->
+      <!-- Components are Pages or nested Routes -->
       <Route path="/" component={Index} />
+      <Route path="/evaluation/*" component={Evaluation} />
 
       <!-- If anything else, it should hit an error? -->
       <Route path="*" component={Index} />
@@ -51,4 +52,5 @@
 
   import Layout from './components/Layout.svelte';
   import Index from './routes/Index.svelte';
+  import Evaluation from './routes/Evaluation.svelte';
 </script>

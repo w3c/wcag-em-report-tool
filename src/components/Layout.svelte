@@ -1,9 +1,7 @@
 <!-- @layout -->
 <Header />
 
-<main>
-  <slot></slot>
-</main>
+<slot></slot>
 
 <Footer />
 <!-- /@layout -->

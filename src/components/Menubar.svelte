@@ -2,7 +2,7 @@
 <nav title="menu bar">
   <ul>
     <li>
-      <Link to="/">
+      <Link to="/evaluation/scope">
         New report
       </Link>
     </li>
