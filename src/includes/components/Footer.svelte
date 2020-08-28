@@ -56,6 +56,6 @@
 <!-- /@Component -->
 
 <script>
-  let buildDate = '2020/07/27'
+  let buildDate = '2020/07/27';
   let version = '2.0.1';
 </script>
