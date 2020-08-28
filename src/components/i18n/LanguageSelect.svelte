@@ -1,5 +1,5 @@
 <!-- @Component:LanguageSelect -->
-<span>Language</span>
+<span>Language ({ currentLocale.title })</span>
 <ul id="languageSelect" title="languages" on:click={handleClick}>
   {#each locales as locale}
     <li><Link
@@ -17,6 +17,8 @@
   import appData from '../../data/app.js';
 
   let { locales, defaultLocale } = appData;
+
+  $: currentLocale = locales.find(l => l.lang === $locale);
 
   /**
    * Handle the languageSelect click,
