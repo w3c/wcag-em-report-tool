@@ -34,7 +34,10 @@
     <Layout>
       <!-- Components are Pages -->
       <Route path="/" component={Index} />
-      <Route path="/:lang" component={Index} />
+
+      <!-- If anything else, it should hit an error? -->
+      <Route path="*" component={Index} />
+
     </Layout>
   </Router>
 {/if}
