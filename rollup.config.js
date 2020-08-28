@@ -2,7 +2,6 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
-import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 import svelte from 'rollup-plugin-svelte';
@@ -18,8 +17,8 @@ export default {
   input: pkg.browser,
   output: {
     sourcemap: true,
-		format: 'es',
-		name: pkg.name,
+    format: 'esm',
+    name: pkg.name,
     dir: production
       ? `public/${pkg.version}`
       : 'public/dev'
