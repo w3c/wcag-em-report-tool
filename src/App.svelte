@@ -32,11 +32,9 @@
 {:else}
   <Router>
     <Layout>
-      <!-- Content please -->
-
+      <!-- Components are Pages -->
       <Route path="/" component={Index} />
       <Route path="/:lang" component={Index} />
-
     </Layout>
   </Router>
 {/if}
