@@ -1,9 +1,6 @@
 <!--
- * @Page:/[lang]/
- * This is a "dynamic page" if you have a link or path like this:
- * `/en/index.svelte`
- * page.params will have a variable called locale with value 'en'
- * We can use this to set other vars or get data based on the locale.
+ * @Page:Start
+ * @Route:/
  * -->
 <Page title={ $translate('start.SUBTITLE') }>
 
@@ -36,14 +33,16 @@
 <!-- /@Page -->
 
 <script>
-  import { t as translate, locale } from 'svelte-i18n';
+  import { t as translate } from 'svelte-i18n';
 
   import Page from '../Page.svelte';
 
+  // @todo: Add these links the locales
+  // (They might be used on another page)
   $: links = {
-    link_wcag: `<a href="http://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a>`,
-    link_wcagem: `<a href="http://www.w3.org/TR/WCAG-EM/">Web Content Accessibility Guidelines Evaluation Methodology</a>`,
-    link_wcagem_overview: `<a href="http://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM Overview</a>`,
-    link_report_example: `<a href="/${$locale}/evaluation/report/example/">structured report (example)</a>`
+    link_wcag: '<a href="http://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a>',
+    link_wcagem: '<a href="http://www.w3.org/TR/WCAG-EM/">Web Content Accessibility Guidelines Evaluation Methodology</a>',
+    link_wcagem_overview: '<a href="http://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM Overview</a>',
+    link_report_example: '<a href="/${$locale}/evaluation/report/example/">structured report (example)</a>'
   };
 </script>

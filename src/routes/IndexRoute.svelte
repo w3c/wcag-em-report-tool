@@ -2,11 +2,11 @@
   <Layout>
 
     <!-- Components are Pages or nested Routes -->
-    <Route path="/" component={Start} />
+    <Route path="/" component={StartPage} />
     <Route path="/evaluation/*" component={EvaluationRoute} />
 
     <!-- If anything else, it should hit an error? -->
-    <Route path="*" component={Start} />
+    <Route path="*" component={StartPage} />
 
   </Layout>
 </Router>
@@ -20,5 +20,5 @@
   import EvaluationRoute from './EvaluationRoute.svelte';
 
   // Import pages
-  import Start from '../components/pages/Start.svelte';
+  import StartPage from '../components/pages/StartPage.svelte';
 </script>
