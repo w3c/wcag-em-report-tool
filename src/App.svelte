@@ -32,7 +32,6 @@
 {:else}
   <!--
     * @todo:
-    * - Move Router to Routes
     * - Pass settings / configuration / routes
     * -->
   <IndexRoute />
@@ -41,6 +40,5 @@
 
 <script>
   import { isLoading } from 'svelte-i18n';
-
   import IndexRoute from './routes/IndexRoute.svelte';
 </script>
