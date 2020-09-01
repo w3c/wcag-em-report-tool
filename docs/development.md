@@ -4,15 +4,25 @@
 
 ### Svelte
 
+#### Components
+
 - Component structure:
 
   As opposed to default component markup created by most Svelte itself, reverse the declaration; markup, style and last script. This to make it more readable, structure first, details later.
-  Within Sapper context, write the module script on top, this is read before rendering the svelte component.
+  If you need to export functionality from the component to be used in other contexts, without component rendering, use the module context script.
 
-  0. Script context="module" (Sapper)
   1. Component Markup
   2. Style block
   3. Script block
+  4. Script context="module"
+
+- Component naming
+
+  Inside the components folder you will find:
+
+  - layouts; `{Component}Layout.svelte`
+  - pages; `{Component}Page.svelte`
+  - forms; `{Component}Form.svelte`
 
 ### HTML
 
