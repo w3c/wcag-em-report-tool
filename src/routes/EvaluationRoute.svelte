@@ -1,3 +1,4 @@
+<!-- @Route:/evaluation -->
 <Router>
   <EvaluationLayout>
     <Route path="/scope" component={ScopePage} />
@@ -7,11 +8,12 @@
     <Route path="/summary" component={SummaryPage} />
   </EvaluationLayout>
 </Router>
+<!-- /@Route -->
 
 <script>
   import { Router, Route } from 'svelte-navigator';
 
-  import EvaluationLayout from '../components/EvaluationLayout.svelte';
+  import EvaluationLayout from '../components/layouts/EvaluationLayout.svelte';
 
   import {
     ScopePage,

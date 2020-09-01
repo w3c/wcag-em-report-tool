@@ -1,5 +1,6 @@
+<!-- @Route:/ -->
 <Router basepath="/">
-  <Layout>
+  <BaseLayout>
 
     <!-- Components are Pages or nested Routes -->
     <Route path="/" component={StartPage} />
@@ -8,14 +9,15 @@
     <!-- If anything else, it should hit an error? -->
     <Route path="*" component={StartPage} />
 
-  </Layout>
+  </BaseLayout>
 </Router>
+<!-- /@Route -->
 
 <script>
   // Refactor to `import ... Routes.svelte` See @todo
   import { Router, Route } from 'svelte-navigator';
 
-  import Layout from '../components/Layout.svelte';
+  import BaseLayout from '../components/layouts/BaseLayout.svelte';
 
   import EvaluationRoute from './EvaluationRoute.svelte';
 
