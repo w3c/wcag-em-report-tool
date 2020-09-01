@@ -17,6 +17,6 @@
     Sample,
     Audit,
     Summary
-  } from '../components/pages/Index.svelte';
+  } from '../components/pages/Evaluation/Index.svelte';
   import EvaluationLayout from '../components/EvaluationLayout.svelte';
 </script>

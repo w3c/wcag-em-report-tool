@@ -24,33 +24,23 @@
   *   export let etc;
   *
   *   and passed on to the Components who need them.
-  -->
+  * -->
 
 <!-- @Component:App -->
 {#if ($isLoading)}
   <p>Loading WCAG Report Tool</p>
 {:else}
-  <Router basepath="/">
-    <Layout>
-      <!-- Components are Pages or nested Routes -->
-      <Route path="/" component={Index} />
-      <Route path="/evaluation/*" component={Evaluation} />
-
-      <!-- If anything else, it should hit an error? -->
-      <Route path="*" component={Index} />
-
-    </Layout>
-  </Router>
+  <!--
+    * @todo:
+    * - Move Router to Routes
+    * - Pass settings / configuration / routes
+    * -->
+  <IndexRoute />
 {/if}
 <!-- /Component -->
 
 <script>
   import { isLoading } from 'svelte-i18n';
 
-  // Refactor to `import ... Routes.svelte`
-  import { Router, Route } from 'svelte-navigator';
-
-  import Layout from './components/Layout.svelte';
-  import Index from './routes/Index.svelte';
-  import Evaluation from './routes/Evaluation.svelte';
+  import IndexRoute from './routes/IndexRoute.svelte';
 </script>
