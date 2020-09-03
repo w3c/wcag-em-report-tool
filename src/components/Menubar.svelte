@@ -3,26 +3,28 @@
   <ul>
     <li>
       <Link to="/evaluation/scope">
-        New report
+        { $translate('MENUBAR.MENU_NEW', { default: 'New report' }) }
       </Link>
     </li>
     <li>
       <a href="#open">
-        { data.open }
+        { $translate('MENUBAR.MENU_OPEN', { default: 'Open' }) }
       </a>
     </li>
     <li>
       <a href="#save">
-        { data.save }
+        { $translate('MENUBAR.MENU_SAVE', { default: 'Save' }) }
       </a>
     </li>
     <li>
       <a href="#import" title="Start EARL report import wizzard">
-        { data.import }
+        { $translate('MENUBAR.MENU_IMPORT', { default: 'Import' }) }
       </a>
     </li>
     <li>
-      <p>{ data.resources }</p>
+      <p>
+        { $translate('MENUBAR.MENU_RESOURCES', { default: 'Key resources' }) }
+      </p>
       <ul>
         <li>
           <a
@@ -58,14 +60,7 @@
 <!-- /@Component -->
 
 <script>
+  import { t as translate } from 'svelte-i18n';
   import { Link } from 'svelte-navigator';
   import LanguageSelect from './i18n/LanguageSelect.svelte';
-
-  let data = {
-    open: 'Open',
-    save: 'Save',
-    import: 'Import',
-    resources: 'Resources',
-    language: 'Language'
-  };
 </script>
