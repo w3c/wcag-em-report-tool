@@ -1,18 +1,27 @@
 <!-- @Component:LanguageSelect -->
 <span>Language ({ currentLocale.title })</span>
 <ul id="languageSelect" title="languages" on:click={handleClick}>
-  {#each locales as locale}
-    <li><Link
-          to="/{locale.lang}"
-          hreflang="{locale.lang}"
-          lang="{locale.lang}"
-        >{locale.title} {#if locale.lang === defaultLocale.lang}(Default){/if}</Link></li>
+  {#each locales as appLocale}
+    <li>
+      <button
+        type="button"
+        class="button button-{ appLocale === currentLocale ? 'secondary' : 'primary' }"
+        lang="{appLocale.lang}"
+      >{appLocale.title} {#if appLocale.lang === defaultLocale.lang}(Default){/if}</button>
+    </li>
   {/each}
 </ul>
 <!-- /@Component -->
 
+<style>
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+</style>
+
 <script>
-  import { Link } from 'svelte-navigator';
   import { locale } from 'svelte-i18n';
   import appData from '../../data/app.js';
 
@@ -30,7 +39,7 @@
     const target = event.target;
 
     if (
-      target.nodeName === 'A' &&
+      target.nodeName === 'BUTTON' &&
       locales.some(l => l.lang === target.lang)
     ) {
       // This line is what makes the App translate to another language
