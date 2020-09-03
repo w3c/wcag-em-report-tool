@@ -22,9 +22,9 @@
       </a>
     </li>
     <li>
-      <p>
+      <div>
         { $translate('MENUBAR.MENU_RESOURCES', { default: 'Key resources' }) }
-      </p>
+      </div>
       <ul>
         <li>
           <a
@@ -58,6 +58,18 @@
   </ul>
 </nav>
 <!-- /@Component -->
+
+<style>
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+</style>
 
 <script>
   import { t as translate } from 'svelte-i18n';
