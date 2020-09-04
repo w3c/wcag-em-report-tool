@@ -1,36 +1,41 @@
 <Page title="Scope">
-
   <form method="" novalidate>
     <div class="field">
       <label for="site-name">
-        { $translate('SCOPE.LABEL_SITE_NAME', { default: 'Name of the website'}) }
+        {$translate('SCOPE.LABEL_SITE_NAME', {
+          default: 'Name of the website'
+        })}
       </label>
 
-      <input type="text" id="site-name" class="form-control">
+      <input type="text" id="site-name" class="form-control" />
     </div>
 
     <div class="field">
       <label for="website_scope">
-        { $translate('SCOPE.LABEL_SITE_SCOPE') }
+        {$translate('SCOPE.LABEL_SITE_SCOPE')}
       </label>
 
       <details>
-        <summary>{ $translate('SCOPE.INF_SITE_SCOPE_0') }</summary>
+        <summary>{$translate('SCOPE.INF_SITE_SCOPE_0')}</summary>
         <ul>
-          <li>{ $translate('SCOPE.INF_SITE_SCOPE_LI0') }</li>
-          <li>{ $translate('SCOPE.INF_SITE_SCOPE_LI1') }</li>
-          <li>{ $translate('SCOPE.INF_SITE_SCOPE_LI2') }</li>
+          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI0')}</li>
+          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI1')}</li>
+          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI2')}</li>
         </ul>
       </details>
 
       <textarea
-      class="form-control" id="website_scope" auto-resize
-      cols="40" rows="3"></textarea>
+        class="form-control"
+        id="website_scope"
+        auto-resize
+        cols="40"
+        rows="3"
+      ></textarea>
     </div>
 
     <div class="field">
       <label for="wcag_version">
-        { $translate('SCOPE.LABEL_WCAG_VERSION') }
+        {$translate('SCOPE.LABEL_WCAG_VERSION')}
       </label>
 
       <select id="wcag_version" class="form-control">
@@ -42,7 +47,7 @@
 
     <div class="field">
       <label for="conformance_target">
-        { $translate('SCOPE.LABEL_CONFORMANCE_TGT') }
+        {$translate('SCOPE.LABEL_CONFORMANCE_TGT')}
       </label>
 
       <select id="conformance_target" class="form-control">
@@ -54,34 +59,41 @@
 
     <div class="field">
       <label for="as_baseline" class="">
-        { $translate('SCOPE.LABEL_SUPPORT_BASE') }
+        {$translate('SCOPE.LABEL_SUPPORT_BASE')}
       </label>
 
       <textarea
-      id="as_baseline" class="form-control" auto-resize
-      cols="40" rows="5"></textarea>
+        id="as_baseline"
+        class="form-control"
+        auto-resize
+        cols="40"
+        rows="5"
+      ></textarea>
     </div>
 
     <div class="field">
       <label for="additional_requirements">
-        { $translate('SCOPE.LABEL_EXTRA_REQUIREMENTS') }
+        {$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}
       </label>
 
       <details>
-        <summary>{ $translate('SCOPE.INF_EXTRA_REQUIREMENTS_0') }</summary>
+        <summary>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_0')}</summary>
         <ul>
-          <li>{ $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI0') }</li>
-          <li>{ $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI1') }</li>
-          <li>{ $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI2') }</li>
+          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI0')}</li>
+          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI1')}</li>
+          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI2')}</li>
         </ul>
       </details>
 
       <textarea
-      id="additional_requirements" class="form-control" auto-resize
-      cols="40" rows="5"></textarea>
+        id="additional_requirements"
+        class="form-control"
+        auto-resize
+        cols="40"
+        rows="5"
+      ></textarea>
     </div>
   </form>
-
 </Page>
 
 <script>

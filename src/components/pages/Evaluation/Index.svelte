@@ -5,11 +5,5 @@
   import AuditPage from './AuditPage.svelte';
   import SummaryPage from './SummaryPage.svelte';
 
-  export {
-    ScopePage,
-    ExplorePage,
-    SamplePage,
-    AuditPage,
-    SummaryPage
-  };
+  export { ScopePage, ExplorePage, SamplePage, AuditPage, SummaryPage };
 </script>

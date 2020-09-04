@@ -1,5 +1,5 @@
 import home from './home.js';
 
-export default  {
+export default {
   home
 };

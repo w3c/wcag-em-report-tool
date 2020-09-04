@@ -1,11 +1,11 @@
 <!-- @Route:/evaluation -->
 <Router>
   <EvaluationLayout>
-    <Route path="/scope" component={ScopePage} />
-    <Route path="/explore" component={ExplorePage} />
-    <Route path="/sample" component={SamplePage} />
-    <Route path="/audit" component={AuditPage} />
-    <Route path="/summary" component={SummaryPage} />
+    <Route path="/scope" component="{ScopePage}" />
+    <Route path="/explore" component="{ExplorePage}" />
+    <Route path="/sample" component="{SamplePage}" />
+    <Route path="/audit" component="{AuditPage}" />
+    <Route path="/summary" component="{SummaryPage}" />
   </EvaluationLayout>
 </Router>
 <!-- /@Route -->

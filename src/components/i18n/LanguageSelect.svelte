@@ -1,13 +1,14 @@
 <!-- @Component:LanguageSelect -->
-<span>Language ({ currentLocale.title })</span>
-<ul id="languageSelect" title="languages" on:click={handleClick}>
+<span>Language ({currentLocale.title})</span>
+<ul id="languageSelect" title="languages" on:click="{handleClick}">
   {#each locales as appLocale}
     <li>
       <button
         type="button"
-        class="button button-{ appLocale === currentLocale ? 'secondary' : 'primary' }"
+        class="button button-{appLocale === currentLocale ? 'secondary' : 'primary'}"
         lang="{appLocale.lang}"
-      >{appLocale.title} {#if appLocale.lang === defaultLocale.lang}(Default){/if}</button>
+      >{appLocale.title}
+        {#if appLocale.lang === defaultLocale.lang}(Default){/if}</button>
     </li>
   {/each}
 </ul>
@@ -27,7 +28,7 @@
 
   let { locales, defaultLocale } = appData;
 
-  $: currentLocale = locales.find(l => l.lang === $locale);
+  $: currentLocale = locales.find((l) => l.lang === $locale);
 
   /**
    * Handle the languageSelect click,
@@ -40,7 +41,7 @@
 
     if (
       target.nodeName === 'BUTTON' &&
-      locales.some(l => l.lang === target.lang)
+      locales.some((l) => l.lang === target.lang)
     ) {
       // This line is what makes the App translate to another language
       locale.set(target.lang);

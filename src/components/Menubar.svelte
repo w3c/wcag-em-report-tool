@@ -1,29 +1,29 @@
-<!-- @Component:Menubar-->
+<!-- @component:Menubar-->
 <nav title="menu bar">
   <ul>
     <li>
       <Link to="/evaluation/scope">
-        { $translate('MENUBAR.MENU_NEW', { default: 'New report' }) }
+        {$translate('MENUBAR.MENU_NEW', { default: 'New report' })}
       </Link>
     </li>
     <li>
       <a href="#open">
-        { $translate('MENUBAR.MENU_OPEN', { default: 'Open' }) }
+        {$translate('MENUBAR.MENU_OPEN', { default: 'Open' })}
       </a>
     </li>
     <li>
       <a href="#save">
-        { $translate('MENUBAR.MENU_SAVE', { default: 'Save' }) }
+        {$translate('MENUBAR.MENU_SAVE', { default: 'Save' })}
       </a>
     </li>
     <li>
       <a href="#import" title="Start EARL report import wizzard">
-        { $translate('MENUBAR.MENU_IMPORT', { default: 'Import' }) }
+        {$translate('MENUBAR.MENU_IMPORT', { default: 'Import' })}
       </a>
     </li>
     <li>
       <div>
-        { $translate('MENUBAR.MENU_RESOURCES', { default: 'Key resources' }) }
+        {$translate('MENUBAR.MENU_RESOURCES', { default: 'Key resources' })}
       </div>
       <ul>
         <li>
@@ -35,10 +35,7 @@
           </a>
         </li>
         <li>
-          <a
-            target="_blank"
-            href="http://www.w3.org/WAI/WCAG21/quickref/"
-          >
+          <a target="_blank" href="http://www.w3.org/WAI/WCAG21/quickref/">
             How to Meet WCAG 2.1 Quick Reference
           </a>
         </li>

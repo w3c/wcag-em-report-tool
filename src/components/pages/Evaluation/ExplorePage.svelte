@@ -1,4 +1,4 @@
-<Page title="Explore"></Page>
+<Page title="Explore" />
 
 <script>
   import Page from '../../Page.svelte';

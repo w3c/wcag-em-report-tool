@@ -27,7 +27,7 @@
   * -->
 
 <!-- @Component:App -->
-{#if ($isLoading)}
+{#if $isLoading}
   <p>Loading WCAG Report Tool</p>
 {:else}
   <!--

@@ -2,7 +2,7 @@
 <Header />
 <Menubar />
 
-<slot></slot>
+<slot />
 
 <Footer />
 <!-- /@Layout -->

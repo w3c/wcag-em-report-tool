@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    'eslint:recommended'
-  ],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module'
@@ -10,12 +8,10 @@ module.exports = {
     es6: true,
     browser: true
   },
-  plugins: [
-    'svelte3'
-  ],
   overrides: [
     {
       files: ['*.svelte'],
+      plugins: ['svelte3'],
       processor: 'svelte3/svelte3'
     }
   ]

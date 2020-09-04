@@ -1,6 +1,6 @@
 <!-- @Layout:Evaluation -->
 <Processbar />
-<slot></slot>
+<slot />
 <!-- /@Layout -->
 
 <script>
