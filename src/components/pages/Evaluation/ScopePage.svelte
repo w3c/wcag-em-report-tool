@@ -1,20 +1,18 @@
 <Page title="Scope">
   <form method="" novalidate>
-    <div class="field">
-      <label for="site-name">
-        {$translate('SCOPE.LABEL_SITE_NAME', {
-          default: 'Name of the website'
-        })}
-      </label>
+    <Field
+      id="site_name"
+      label="{$translate('SCOPE.LABEL_SITE_NAME', {
+        default: 'Name of the website'
+      })}"
+    >
+      <input type="text" id="site_name" />
+    </Field>
 
-      <input type="text" id="site-name" class="form-control" />
-    </div>
-
-    <div class="field">
-      <label for="website_scope">
-        {$translate('SCOPE.LABEL_SITE_SCOPE')}
-      </label>
-
+    <Field
+      id="website_scope"
+      label={$translate('SCOPE.LABEL_SITE_SCOPE')}
+    >
       <details>
         <summary>{$translate('SCOPE.INF_SITE_SCOPE_0')}</summary>
         <ul>
@@ -31,37 +29,34 @@
         cols="40"
         rows="3"
       ></textarea>
-    </div>
+    </Field>
 
-    <div class="field">
-      <label for="wcag_version">
-        {$translate('SCOPE.LABEL_WCAG_VERSION')}
-      </label>
-
+    <Field
+      id="wcag_version"
+      label={$translate('SCOPE.LABEL_WCAG_VERSION')}
+    >
       <select id="wcag_version" class="form-control">
         <option value="WCAG22">WCAG 2.2</option>
         <option value="WCAG21" selected>WCAG 2.1</option>
         <option value="WCAG20">WCAG 2.0</option>
       </select>
-    </div>
+    </Field>
 
-    <div class="field">
-      <label for="conformance_target">
-        {$translate('SCOPE.LABEL_CONFORMANCE_TGT')}
-      </label>
-
+    <Field
+      id="conformance_target"
+      label={$translate('SCOPE.LABEL_CONFORMANCE_TGT')}
+    >
       <select id="conformance_target" class="form-control">
         <option>A</option>
         <option selected>AA</option>
         <option>AAA</option>
       </select>
-    </div>
+    </Field>
 
-    <div class="field">
-      <label for="as_baseline" class="">
-        {$translate('SCOPE.LABEL_SUPPORT_BASE')}
-      </label>
-
+    <Field
+      id="as_baseline"
+      label={$translate('SCOPE.LABEL_SUPPORT_BASE')}
+    >
       <textarea
         id="as_baseline"
         class="form-control"
@@ -69,13 +64,12 @@
         cols="40"
         rows="5"
       ></textarea>
-    </div>
+    </Field>
 
-    <div class="field">
-      <label for="additional_requirements">
-        {$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}
-      </label>
-
+    <Field
+      id="additional_requirements"
+      label={$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}
+    >
       <details>
         <summary>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_0')}</summary>
         <ul>
@@ -92,7 +86,7 @@
         cols="40"
         rows="5"
       ></textarea>
-    </div>
+    </Field>
   </form>
 </Page>
 
@@ -100,4 +94,5 @@
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../../Page.svelte';
+  import Field from '../../formcomponents/Field.svelte';
 </script>
