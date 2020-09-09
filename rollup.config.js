@@ -11,6 +11,10 @@ import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
+// You can add this env by using rollup's --environment cli flag;
+// Like: npm run dev -- --environment BASEPATH:"/some-server-subdir/"
+const BASEPATH = process.env.BASEPATH || '/';
+
 export default {
   input: pkg.main,
   output: {
@@ -47,6 +51,11 @@ export default {
     !production &&
       serve({
         contentBase: 'public',
+
+        // Automaticly start your default browser
+        // with serve url; http://localhost:10001<BASEPATH>
+        open: true,
+        openPage: BASEPATH,
         historyApiFallback: true
       }),
 
