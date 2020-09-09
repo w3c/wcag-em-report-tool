@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
+import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 import svelte from 'rollup-plugin-svelte';
@@ -32,6 +33,10 @@ export default {
       css: (css) => {
         css.write('bundle.css');
       }
+    }),
+
+    replace({
+      __BASEPATH__: BASEPATH,
     }),
 
     // If you have external dependencies installed from

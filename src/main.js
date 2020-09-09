@@ -8,6 +8,7 @@ import './data/i18n.js';
 new App({
   target: document.getElementById('wcag-rt'),
   props: {
-    // basepath: {__BASEPATH__}
+    // Replaced string, see rollup.config.json replace plugin.
+    basepath: '__BASEPATH__'
   }
 });

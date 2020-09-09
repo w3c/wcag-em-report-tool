@@ -34,11 +34,13 @@
     * @todo:
     * - Pass settings / configuration / routes
     * -->
-  <IndexRoute />
+  <IndexRoute basepath="{basepath}" />
 {/if}
 <!-- /Component -->
 
 <script>
   import { isLoading } from 'svelte-i18n';
   import IndexRoute from './routes/IndexRoute.svelte';
+
+  export let basepath;
 </script>

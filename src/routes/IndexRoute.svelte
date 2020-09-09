@@ -1,5 +1,5 @@
 <!-- @Route:/ -->
-<Router basepath="/">
+<Router basepath="{basepath}">
   <BaseLayout>
     <!-- Components are Pages or nested Routes -->
     <Route path="/" component="{StartPage}" />
@@ -21,4 +21,6 @@
 
   // Import pages
   import StartPage from '../components/pages/StartPage.svelte';
+
+  export let basepath;
 </script>
