@@ -17,8 +17,8 @@ const production = !process.env.ROLLUP_WATCH;
 // Like: npm run dev -- --environment BASEPATH:"/some-server-subdir/"
 const BASEPATH = process.env.BASEPATH || '/';
 const PATHS = {
-  BUILD: `public/builds${BASEPATH}${pkg.version}`,
-  DEV: `public/development${BASEPATH}`
+  BUILD: `_site/builds${BASEPATH}${pkg.version}`,
+  DEV: `_site/development${BASEPATH}`
 };
 
 
@@ -98,7 +98,7 @@ export default {
     // the bundle has been generated
     !production &&
       serve({
-        contentBase: 'public/development',
+        contentBase: '_site/development',
 
         // Automaticly start your default browser
         // with serve url; http://localhost:10001<BASEPATH>

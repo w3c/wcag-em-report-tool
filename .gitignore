@@ -2,5 +2,4 @@
 node_modules
 
 # Svelte
-public/development
-public/builds
+_site
