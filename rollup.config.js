@@ -45,7 +45,7 @@ export default {
       targets: [
         {
           // Images
-          src: 'src/static/**.{svg,png,jpeg,jpg}',
+          src: 'src/static/**/*.{svg,png,jpeg,jpg}',
           dest:`${production ? PATHS.BUILD : PATHS.DEV}images`,
         },
         {
