@@ -12,7 +12,7 @@ import pkg from './package.json';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: pkg.browser,
+  input: pkg.main,
   output: {
     sourcemap: true,
     format: 'esm',

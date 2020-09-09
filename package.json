@@ -10,7 +10,7 @@
         "dev": "rollup -c -w",
         "start": "sirv public"
     },
-    "browser": "src/client.js",
+    "main": "src/main.js",
     "dependencies": {
         "sirv-cli": "^1.0.0",
         "svelte-navigator": "^3.0.11"

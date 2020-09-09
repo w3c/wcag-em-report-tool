@@ -6,5 +6,8 @@ import './data/i18n.js';
  * https://svelte.dev/docs#Creating_a_component
  */
 new App({
-  target: document.getElementById('wcag-rt')
+  target: document.getElementById('wcag-rt'),
+  props: {
+    // basepath: {__BASEPATH__}
+  }
 });
