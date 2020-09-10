@@ -99,27 +99,6 @@ export default {
     commonjs(),
     json(),
 
-    // In dev mode, call `npm run start` once
-    // the bundle has been generated
-    !production &&
-      serve({
-        contentBase: '_site/development',
-
-        // Automaticly start your default browser
-        // with serve url; http://localhost:10001<BASEPATH>
-        open: true,
-        openPage: BASEPATH,
-        historyApiFallback: true
-      }),
-
-    // Watch the `public` directory and refresh the
-    // browser on changes when not in production
-    !production && livereload(PATHS.DEV),
-
-    // If we're building for production (npm run build
-    // instead of npm run dev), minify
-    production && terser(),
-
     // Babel used to provide legacy (IE 11) support
     babel({
       extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -142,7 +121,28 @@ export default {
           }
         ]
       ]
-    })
+    }),
+    
+    // In dev mode, call `npm run start` once
+    // the bundle has been generated
+    !production &&
+      serve({
+        contentBase: '_site/development',
+
+        // Automaticly start your default browser
+        // with serve url; http://localhost:10001<BASEPATH>
+        open: true,
+        openPage: BASEPATH,
+        historyApiFallback: true
+      }),
+
+    // Watch the `public` directory and refresh the
+    // browser on changes when not in production
+    !production && livereload(PATHS.DEV),
+
+    // If we're building for production (npm run build
+    // instead of npm run dev), minify
+    production && terser()
   ],
   watch: {
     clearScreen: false
