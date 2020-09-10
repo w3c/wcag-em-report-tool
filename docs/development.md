@@ -4,6 +4,8 @@
 
 ### Svelte
 
+See `.prettierrc.js` for prettier configuration for Svelte (3).
+
 #### Components
 
 - Component structure:
@@ -34,8 +36,8 @@
 
   - `Component`
   - `Component__property`
-  - `Component--modifier` or `Component__property--modifier`
-  - `hash` or `a-very-long-hash` intended for document section identification.
+  - `Component--SubComponent`
+  - `hash` or `a-very-long-hash` intended for document section identification / url hashes.
 
 ### JavaScript
 

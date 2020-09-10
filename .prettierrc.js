@@ -16,7 +16,7 @@ module.exports = {
       }
     },
     {
-      // Svelte
+      // Svelte (prettier-plugin-svelte)
       files: '*.svelte',
       options: {
         svelteSortOrder: 'markup-styles-scripts',
