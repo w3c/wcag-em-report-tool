@@ -44,6 +44,11 @@ export default {
     copy({
       targets: [
         {
+          // Styles
+          src: 'src/static/css/**/*.css',
+          dest: `${production ? PATHS.BUILD : PATHS.DEV}css`
+        },
+        {
           // Images
           src: 'src/static/**/*.{svg,png,jpeg,jpg}',
           dest:`${production ? PATHS.BUILD : PATHS.DEV}images`,
