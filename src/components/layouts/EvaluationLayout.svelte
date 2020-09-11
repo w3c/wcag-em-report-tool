@@ -1,5 +1,4 @@
 <!-- @Layout:Evaluation -->
-<Processbar />
 <slot />
 <!-- /@Layout -->
 

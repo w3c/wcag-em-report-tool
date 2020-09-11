@@ -36,6 +36,11 @@
     font-size: 0.75em;
   }
 
+  .LanguageSelect {
+    grid-column: 6 / 9;
+    grid-row: 1;
+  }
+
   .language__item {
     margin: 0 0.25em;
   }

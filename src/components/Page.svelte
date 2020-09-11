@@ -7,6 +7,14 @@
   <slot />
 </main>
 
+<style>
+
+  main {
+    grid-column: 2 / span 6;
+  }
+
+</style>
+
 <script>
   export let title;
 </script>

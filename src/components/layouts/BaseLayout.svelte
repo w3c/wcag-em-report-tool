@@ -1,11 +1,18 @@
 <!-- @Layout:Base -->
-<Header />
-<Menubar />
+<div class="default-grid">
+  <LanguageSelect />
+  <Header />
+  <NavigationBar />
+</div>
 
-<slot />
+
+<div class="default-grid">
+  <slot />
+</div>
 <!-- /@Layout -->
 
 <script>
   import Header from '../Header.svelte';
-  import Menubar from '../Menubar.svelte';
+  import LanguageSelect from '../i18n/LanguageSelect.svelte';
+  import NavigationBar from '../NavigationBar.svelte';
 </script>

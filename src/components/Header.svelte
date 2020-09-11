@@ -9,6 +9,8 @@
 
 <style>
   header {
+    grid-row: 2;
+    grid-column: 2 / 10;
     display: flex;
     flex-direction: row;
     align-items: center;
