@@ -17,7 +17,7 @@ const production = !process.env.ROLLUP_WATCH;
 // Like: npm run dev -- --environment BASEPATH:"/some-server-subdir/"
 const BASEPATH = process.env.BASEPATH || '/';
 const PATHS = {
-  BUILD: `_site/builds${BASEPATH}${pkg.version}`,
+  BUILD: `_site/build${BASEPATH}`,
   DEV: `_site/development${BASEPATH}`
 };
 
@@ -122,7 +122,7 @@ export default {
         ]
       ]
     }),
-    
+
     // In dev mode, call `npm run start` once
     // the bundle has been generated
     !production &&
