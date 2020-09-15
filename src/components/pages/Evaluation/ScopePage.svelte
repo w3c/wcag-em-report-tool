@@ -2,9 +2,7 @@
   <p>{$translate('SCOPE.INTRO')}</p>
 
   <form method="" novalidate>
-    <Field id="site_name" label="{$translate('SCOPE.LABEL_SITE_NAME')}">
-      <input type="text" id="site_name" />
-    </Field>
+    <Input id="site_name" label="{$translate('SCOPE.LABEL_SITE_NAME')}"/>
 
     <Field id="website_scope" label="{$translate('SCOPE.LABEL_SITE_SCOPE')}">
       <details>
@@ -83,4 +81,5 @@
 
   import Page from '../../Page.svelte';
   import Field from '../../formcomponents/Field.svelte';
+  import Input from '../../formcomponents/Input.svelte';
 </script>
