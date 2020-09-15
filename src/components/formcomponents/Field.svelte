@@ -3,11 +3,19 @@
   {#if helptext}
     <details>
       <summary>Help <span class="visually-hidden">for {label}</span></summary>
-      <p>{helptext}</p>
+      {#if Array.isArray(helptext)}
+        <ul>
+          {#each helptext as help}
+            <li>{help}</li>
+          {/each}
+        </ul>
+      {:else}
+        <p>{helptext}</p>
+      {/if}
     </details>
   {/if}
 
-  <slot />
+  <slot/>
 </div>
 
 <style>

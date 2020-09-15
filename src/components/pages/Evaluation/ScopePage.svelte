@@ -4,24 +4,13 @@
   <form method="" novalidate>
     <Input id="site_name" label="{$translate('SCOPE.LABEL_SITE_NAME')}"/>
 
-    <Field id="website_scope" label="{$translate('SCOPE.LABEL_SITE_SCOPE')}">
-      <details>
-        <summary>{$translate('SCOPE.INF_SITE_SCOPE_0')}</summary>
-        <ul>
-          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI0')}</li>
-          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI1')}</li>
-          <li>{$translate('SCOPE.INF_SITE_SCOPE_LI2')}</li>
-        </ul>
-      </details>
+    <Textarea id="website_scope" label="{$translate('SCOPE.LABEL_SITE_SCOPE')}" helptext={[
+      $translate('SCOPE.INF_SITE_SCOPE_0'),
+      $translate('SCOPE.INF_SITE_SCOPE_LI0'),
+      $translate('SCOPE.INF_SITE_SCOPE_LI1'),
+      $translate('SCOPE.INF_SITE_SCOPE_LI2')
+    ]}></Textarea>
 
-      <textarea
-        class="form-control"
-        id="website_scope"
-        auto-resize
-        cols="40"
-        rows="3"
-      ></textarea>
-    </Field>
 
     <Field id="wcag_version" label="{$translate('SCOPE.LABEL_WCAG_VERSION')}">
       <select id="wcag_version" class="form-control">
@@ -42,37 +31,21 @@
       </select>
     </Field>
 
-    <Field id="as_baseline" label="{$translate('SCOPE.LABEL_SUPPORT_BASE')}">
-      <textarea
-        id="as_baseline"
-        class="form-control"
-        auto-resize
-        cols="40"
-        rows="5"
-      ></textarea>
-    </Field>
+    <Textarea
+      id="as_baseline"
+      label="{$translate('SCOPE.LABEL_SUPPORT_BASE')}"
+    />
 
-    <Field
+    <Textarea
       id="additional_requirements"
       label="{$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}"
-    >
-      <details>
-        <summary>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_0')}</summary>
-        <ul>
-          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI0')}</li>
-          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI1')}</li>
-          <li>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI2')}</li>
-        </ul>
-      </details>
-
-      <textarea
-        id="additional_requirements"
-        class="form-control"
-        auto-resize
-        cols="40"
-        rows="5"
-      ></textarea>
-    </Field>
+      helptext={[
+        $translate('SCOPE.INF_EXTRA_REQUIREMENTS_0'),
+        $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI0'),
+        $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI1'),
+        $translate('SCOPE.INF_EXTRA_REQUIREMENTS_LI2')
+      ]}
+    />
   </form>
 </Page>
 
@@ -82,4 +55,5 @@
   import Page from '../../Page.svelte';
   import Field from '../../formcomponents/Field.svelte';
   import Input from '../../formcomponents/Input.svelte';
+  import Textarea from '../../formcomponents/Textarea.svelte';
 </script>
