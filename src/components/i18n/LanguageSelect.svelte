@@ -3,8 +3,9 @@
   <button
     type="button"
     class="LanguageSelect__toggle showhidebutton button-small"
-  >{$translate('UI.LANGUAGESELECTOR_BUTTON_NAME', { default: 'Select language' })}
-    (<span
+  >{$translate('UI.LANGUAGESELECTOR_BUTTON_NAME', {
+      default: 'Select language'
+    })} (<span
       class="visually-hidden"
     >{$translate('UI.LANGUAGESELECTOR_CURRENT_LANGUAGE', {
         default: 'Current language'

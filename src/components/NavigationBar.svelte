@@ -5,10 +5,11 @@
 <nav class="Nav default-grid">
   <ol class="Nav__Itemcontainer">
     {#each navigationItems as navigationItem}
-      <li class="nav__item" class:current={navigationItem.path === currentPath}>
-        <Link to="{navigationItem.path}">
-          {navigationItem.title}
-        </Link>
+      <li
+        class="nav__item"
+        class:current="{navigationItem.path === currentPath}"
+      >
+        <Link to="{navigationItem.path}">{navigationItem.title}</Link>
       </li>
     {/each}
   </ol>
@@ -83,5 +84,4 @@
   const location = useLocation();
 
   $: currentPath = $location.pathname.replace(/^\//, '');
-
 </script>

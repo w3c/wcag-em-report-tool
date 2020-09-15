@@ -9,7 +9,6 @@
 
 <NavigationBar />
 
-
 <div class="default-grid">
   <slot />
 </div>

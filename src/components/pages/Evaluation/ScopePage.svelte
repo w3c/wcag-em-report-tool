@@ -1,18 +1,12 @@
 <Page title="Scope">
+  <p>{$translate('SCOPE.INTRO')}</p>
+
   <form method="" novalidate>
-    <Field
-      id="site_name"
-      label="{$translate('SCOPE.LABEL_SITE_NAME', {
-        default: 'Name of the website'
-      })}"
-    >
+    <Field id="site_name" label="{$translate('SCOPE.LABEL_SITE_NAME')}">
       <input type="text" id="site_name" />
     </Field>
 
-    <Field
-      id="website_scope"
-      label={$translate('SCOPE.LABEL_SITE_SCOPE')}
-    >
+    <Field id="website_scope" label="{$translate('SCOPE.LABEL_SITE_SCOPE')}">
       <details>
         <summary>{$translate('SCOPE.INF_SITE_SCOPE_0')}</summary>
         <ul>
@@ -31,10 +25,7 @@
       ></textarea>
     </Field>
 
-    <Field
-      id="wcag_version"
-      label={$translate('SCOPE.LABEL_WCAG_VERSION')}
-    >
+    <Field id="wcag_version" label="{$translate('SCOPE.LABEL_WCAG_VERSION')}">
       <select id="wcag_version" class="form-control">
         <option value="WCAG22">WCAG 2.2</option>
         <option value="WCAG21" selected>WCAG 2.1</option>
@@ -44,7 +35,7 @@
 
     <Field
       id="conformance_target"
-      label={$translate('SCOPE.LABEL_CONFORMANCE_TGT')}
+      label="{$translate('SCOPE.LABEL_CONFORMANCE_TGT')}"
     >
       <select id="conformance_target" class="form-control">
         <option>A</option>
@@ -53,10 +44,7 @@
       </select>
     </Field>
 
-    <Field
-      id="as_baseline"
-      label={$translate('SCOPE.LABEL_SUPPORT_BASE')}
-    >
+    <Field id="as_baseline" label="{$translate('SCOPE.LABEL_SUPPORT_BASE')}">
       <textarea
         id="as_baseline"
         class="form-control"
@@ -68,7 +56,7 @@
 
     <Field
       id="additional_requirements"
-      label={$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}
+      label="{$translate('SCOPE.LABEL_EXTRA_REQUIREMENTS')}"
     >
       <details>
         <summary>{$translate('SCOPE.INF_EXTRA_REQUIREMENTS_0')}</summary>

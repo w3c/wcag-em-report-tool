@@ -21,7 +21,6 @@ const PATHS = {
   DEV: `_site/development${BASEPATH}`
 };
 
-
 export default {
   input: pkg.main,
   output: {
@@ -51,7 +50,7 @@ export default {
         {
           // Images
           src: 'src/static/**/*.{svg,png,jpeg,jpg}',
-          dest:`${production ? PATHS.BUILD : PATHS.DEV}images`,
+          dest: `${production ? PATHS.BUILD : PATHS.DEV}images`
         },
         {
           // index.html
@@ -68,11 +67,13 @@ export default {
             let replaceRegexp;
 
             for (var key in replacement) {
-
               replaceRegexp = new RegExp(`\\{${key}\\}`, 'g');
 
               if (Object.prototype.hasOwnProperty.call(replacement, key)) {
-                contentsString = contentsString.replace(replaceRegexp, replacement[key]);
+                contentsString = contentsString.replace(
+                  replaceRegexp,
+                  replacement[key]
+                );
               }
             }
 
@@ -84,7 +85,7 @@ export default {
     }),
 
     replace({
-      __BASEPATH__: BASEPATH,
+      __BASEPATH__: BASEPATH
     }),
 
     // If you have external dependencies installed from
