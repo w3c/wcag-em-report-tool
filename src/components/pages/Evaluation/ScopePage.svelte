@@ -1,4 +1,4 @@
-<Page title="Scope">
+<Page title="{$translate('SCOPE.TITLE')}">
   <p>{$translate('SCOPE.INTRO')}</p>
 
   <form method="" novalidate>
