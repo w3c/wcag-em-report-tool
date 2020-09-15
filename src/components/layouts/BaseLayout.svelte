@@ -1,9 +1,13 @@
 <!-- @Layout:Base -->
-<div class="default-grid">
+<div id="controls" class="default-grid">
   <LanguageSelect />
-  <Header />
-  <NavigationBar />
 </div>
+
+<div id="site-header" class="default-grid with-gap">
+  <Header />
+</div>
+
+<NavigationBar />
 
 
 <div class="default-grid">

@@ -51,3 +51,7 @@
     height: auto;
   }
 }
+
+.App__container {
+  background-color: white;
+}
