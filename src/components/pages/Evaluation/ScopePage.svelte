@@ -11,25 +11,35 @@
       $translate('SCOPE.INF_SITE_SCOPE_LI2')
     ]}></Textarea>
 
+    <Select id="wcag_version" label="{$translate('SCOPE.LABEL_WCAG_VERSION')}" options={[
+        {
+          value: 'WCAG22',
+          title: 'WCAG 2.2'
+        },
+        {
+          value: 'WCAG21',
+          title: 'WCAG 2.1',
+          selected: true
+        },
+        {
+          value: 'WCAG20',
+          title: 'WCAG 2.0'
+        }
+      ]}
+    />
 
-    <Field id="wcag_version" label="{$translate('SCOPE.LABEL_WCAG_VERSION')}">
-      <select id="wcag_version" class="form-control">
-        <option value="WCAG22">WCAG 2.2</option>
-        <option value="WCAG21" selected>WCAG 2.1</option>
-        <option value="WCAG20">WCAG 2.0</option>
-      </select>
-    </Field>
-
-    <Field
+    <Select
       id="conformance_target"
       label="{$translate('SCOPE.LABEL_CONFORMANCE_TGT')}"
-    >
-      <select id="conformance_target" class="form-control">
-        <option>A</option>
-        <option selected>AA</option>
-        <option>AAA</option>
-      </select>
-    </Field>
+      options={[
+        'A',
+        {
+          title: 'AA',
+          selected: true
+        },
+        'AAA'
+      ]}
+    />
 
     <Textarea
       id="as_baseline"
@@ -53,7 +63,7 @@
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../../Page.svelte';
-  import Field from '../../formcomponents/Field.svelte';
   import Input from '../../formcomponents/Input.svelte';
+  import Select from '../../formcomponents/Select.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 </script>
