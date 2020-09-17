@@ -1,0 +1,23 @@
+{
+    "TITLE": "Step 3: Select a Representative Sample",
+    "INTRO": "Select web pages for evaluation. The notes that you took during exploration in the previous step are provided here, to help you select the web pages. Ensure that the web pages selected are representative of the target website. More guidance on this step is provided in <a href={{link_em_3}}>WCAG-EM Step 3: Select a Representative Sample</a>.",
+    "HD_STRUCT_SAMPLE": "Structured Sample",
+    "HD_ESSENT_FUNC": "Essential functionality (optional notes from previous step)",
+    "HD_VARIETY_PAGE_TYPES": "Variety of web page types (optional notes from previous step)",
+    "HD_STRUCT_SAMPLE_SUB": "Structured Sample Web Pages",
+    "INF_STRUCT_SAMPLE": "Select web pages that reflect all identified (1) common web pages, (2) essential functionality, (3) types of web pages, (4) web technologies relied upon, and (5) other relevant web pages. For more information, see <a href={{link_em_3a}}>WCAG-EM Step 3.a: Include a Structured Sample</a>.<br> Note: 'Web pages' include different 'web page states'; see definition of <a href={{link_em_state}}>web page states</a>.",
+    "HD_RANDOM_SAMPLE": "Randomly Selected Sample",
+    "INF_RAND_SAMPLE": "Randomly select sample web pages; select 10% of the structured sample selected above. For more information, see <a href={{link_em_3b}}>WCAG-EM Step 3.b: Include a Randomly Selected Sample</a>.<br> Note: 'Web pages' include different 'web page states'; see definition of <a href={{link_em_state}}>web page states</a>.",
+    "RAND_SAMPLE_LENGTH": "Based on your structured sample of {{total}} web pages, chose at least {{count}} randomly selected web pages (to meet the 10% requirement in WCAG-EM).",
+    "LABEL_HANDLE": "Short name",
+    "LABEL_PAGE": "Address (URL) or description",
+    "NO_PAGES_DEFINED": "No pages defined for this list",
+    "ITEM": "Web page",
+    "PLH_TITLE": "Identifier for the web page",
+    "PLH_PAGE_URL": "Address (URL) or description of how to get there",
+    "BTN_ADD_PAGE": "Add web page",
+    "BTN_REMOVE_PAGE": "Remove page",
+    "STRUCTURED_PAGE": "Structured page",
+    "RANDOM_PAGE": "Random page",
+    "SAMPLE_PAGE": "Sample page"
+}

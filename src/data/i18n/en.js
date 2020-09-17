@@ -7,8 +7,8 @@
  *    and or App configuration...🤦‍♂️
  */
 
-import menubar from '../../locales/en/components/menubar.json';
-import startRoute from '../../locales/en/routes/index.json';
+import menubar from '../../locales/en/ui/menubar.json';
+import startRoute from '../../locales/en/pages/index.json';
 
 export default {
   MENUBAR: menubar,

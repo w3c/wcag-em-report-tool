@@ -1,0 +1,17 @@
+{
+    "TITLE": "WCAG-EM Report Tool",
+    "SUBTITLE": "Website Accessibility Evaluation Report Generator",
+    "INTRO_HD": "What this tool does",
+    "INTRO_1": "This tool helps you generate a report according to the <a href={{link_wcagem}}>Website Accessibility Conformance Evaluation Methodology (WCAG-EM)</a>. It does not perform any accessibility checks. It helps you follow the steps of WCAG-EM, to generate a <a href={{link_report}}>structured report</a> from the input that you provide. It is designed for experienced evaluators who know <a href={{link_wcag}}>Web Content Accessibility Guidelines (WCAG) 2</a> and are somewhat familiar with WCAG-EM. For an introduction to WCAG-EM, see the <a href={{link_conformance}}>WCAG-EM Overview</a>.",
+    "INTRO_2": "<strong>Note:</strong> This tool does not automatically save the information that you enter. To save your data in a file locally on your computer, use Windows shortcut keys Ctrl+S or Mac shortcut keys {{mac}} to open the Save dialog. (Or the 'Save' link at the top of the page will open the Save Evaluation Report page and from there the 'Save data file locally to your computer' link will open the Save dialog.)",
+    "USAGE_HD": "How this tool works",
+    "USAGE_LI1": "All functionality provided by this tool is now loaded and running locally in your web browser. You don't need an Internet connection beyond this point. When you close your web browser window, any unsaved data is lost.",
+    "USAGE_LI2": "All input that you provide through this tool is recorded as JSON data in the background (in your web browser, not on any server). You can Save periodically as you work to avoid losing data if your web browser closes.",
+    "USAGE_LI3": "You can save partially-complete reports and work on them later. To reload a saved file, use the 'Open' link at the top and find the file that you previously saved.",
+    "USAGE_LI4": "Links that are not part of the navigation or functionality (links to external resources) open in a new web browser windows.",
+    "TIPS_HD": "Tips for using this tool",
+    "TIPS_LI1": "You can go back and forth between the steps in any order. None of the fields are required.",
+    "TIPS_LI2": "To get more information about a field, select the {{info}} icon next to the field label.",
+    "TIPS_LI3": "The tool provides your report as HTML and CSS files. You can download these files from the 'View Report' page. You can then change the report content and visual design.",
+    "TIPS_LI4": "You can include in your report WCAG 2 success criteria beyond the conformance target. For example, the website is only required to meet Level AA, yet you want to also include Level AAA success criteria in the report. In step 4, use the level filter to show higher level criteria. Any criteria with a result will always be included in the report."
+}

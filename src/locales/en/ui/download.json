@@ -1,0 +1,8 @@
+{
+    "TITLE": "Website Accessibility Evaluation Report",
+    "INTRO": "Below is the evaluation report based on the input that you provided in previous steps. You can go back to previous steps now and change any of this information. You can download the evaluation data so that you can work on it later. (This is the same as the 'Save' functionality.) <br> This report is intended to be downloaded. You can download the Evaluation Report HTML and CSS files below. You can then change the report content and visual design to meet your needs.",
+    "DOWNLOAD_REPORT": "Download and customize this report",
+    "BTN_SAVE_HTML": "Download the evaluation report (HTML)",
+    "BTN_SAVE_CSS": "Download the report stylesheet (CSS)",
+    "BTN_SAVE_JSON": "Save the evaluation data (JSON)"
+}
