@@ -2,30 +2,30 @@
   <p>{$translate('SAMPLE.INTRO')}</p>
   {$translate('SAMPLE.HD_STRUCT_SAMPLE')}
 
-<form action="" novalidate>
-  <Textarea
-    id="essential_functionality"
-    label="{$translate('SAMPLE.HD_ESSENT_FUNC')}"
-  />
+  <form action="" novalidate>
+    <Textarea
+      id="essential_functionality"
+      label="{$translate('SAMPLE.HD_ESSENT_FUNC')}"
+    />
 
-  <Textarea
-    id="page_types"
-    label="{$translate('SAMPLE.HD_VARIETY_PAGE_TYPES')}"
-  />
+    <Textarea
+      id="page_types"
+      label="{$translate('SAMPLE.HD_VARIETY_PAGE_TYPES')}"
+    />
 
-  <!-- listinput -->
-  <Textarea
-    label="{$translate('SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
-    helptext="{$translate('SAMPLE.INF_STRUCT_SAMPLE')}"
-  />
+    <!-- listinput -->
+    <Textarea
+      label="{$translate('SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
+      helptext="{$translate('SAMPLE.INF_STRUCT_SAMPLE')}"
+    />
 
-  <!-- listinput -->
-  <Textarea
-    label="{$translate('SAMPLE.HD_RANDOM_SAMPLE')}"
-    helptext="{$translate('SAMPLE.INF_RAND_SAMPLE')}"
-  />
-  <p>{$translate('SAMPLE.RAND_SAMPLE_LENGTH')}</p>
-</form>
+    <!-- listinput -->
+    <Textarea
+      label="{$translate('SAMPLE.HD_RANDOM_SAMPLE')}"
+      helptext="{$translate('SAMPLE.INF_RAND_SAMPLE')}"
+    />
+    <p>{$translate('SAMPLE.RAND_SAMPLE_LENGTH')}</p>
+  </form>
 </Page>
 
 <script>
