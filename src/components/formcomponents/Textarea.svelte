@@ -1,5 +1,5 @@
 <Field id="{id}" label="{label}" helptext="{helptext}">
-  <textarea id="{id}"></textarea>
+  <textarea id="{id}" rows="5"></textarea>
 </Field>
 
 <script>
