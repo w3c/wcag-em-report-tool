@@ -11,7 +11,7 @@
   main {
     margin-top: 3em;
     grid-column: 2 / span 6;
-    grid-row-start: 2;
+    grid-row: 1;
   }
 </style>
 
