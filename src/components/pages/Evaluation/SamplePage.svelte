@@ -15,12 +15,14 @@
 
     <!-- listinput -->
     <Textarea
+      id="structured_sample"
       label="{$translate('SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
       helptext="{$translate('SAMPLE.INF_STRUCT_SAMPLE')}"
     />
 
     <!-- listinput -->
     <Textarea
+      id="random_sample"
       label="{$translate('SAMPLE.HD_RANDOM_SAMPLE')}"
       helptext="{$translate('SAMPLE.INF_RAND_SAMPLE')}"
     />
