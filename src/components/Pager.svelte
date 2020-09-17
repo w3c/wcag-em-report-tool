@@ -55,16 +55,7 @@
   import { Link, useLocation } from 'svelte-navigator';
 
   export let label = 'page';
-  export let context = [
-    {
-      label: 'Define scope',
-      path: 'scope'
-    },
-    {
-      label: 'Explore website',
-      path: 'explore'
-    }
-  ];
+  export let context = [];
 
   let indexedContext = context.map((page, index) => {
     return {
