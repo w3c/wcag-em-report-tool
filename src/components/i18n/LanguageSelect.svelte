@@ -51,9 +51,8 @@
 
 <script>
   import { t as translate, locale } from 'svelte-i18n';
-  import appData from '../../data/app.js';
 
-  let { locales } = appData;
+  export let locales = [];
 
   $: currentLocale = locales.find((l) => l.lang === $locale);
 
