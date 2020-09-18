@@ -38,7 +38,7 @@
 <style>
   .pager {
     grid-row: 2;
-    grid-column: 2 / span 6;
+    grid-column: 2 / span 5;
   }
 
   .pager--item-text {
