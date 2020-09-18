@@ -59,14 +59,16 @@
 
   let indexedContext = context.map((page, index) => {
     return {
-      ...page,
+      path: page.path || '/',
+      title: page.title || '',
       index
     };
   });
+
   let pageCount = indexedContext.length;
   let location = useLocation();
 
-  $: currentPage = indexedContext.find((page) => $location.pathname.indexOf(page.path) >= 0);
+  $: currentPage = indexedContext.find((page) => console.log(page, $location) || page.path === $location.pathname);
   $: currentPageIndex = currentPage ? currentPage.index : null;
 
   $: previousPage = currentPageIndex > 0 && indexedContext[currentPageIndex - 1];
