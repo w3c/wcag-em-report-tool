@@ -2,11 +2,11 @@
 <Router basepath="{basepath}">
   <BaseLayout>
     <!-- Components are Pages or nested Routes -->
-    <Route path="/" component="{StartPage}" />
+    <Route path="/" component="{OverviewPage}" />
     <Route path="/evaluation/*" component="{EvaluationRoute}" />
 
     <!-- If anything else, it should hit an error? -->
-    <Route path="/*" component="{StartPage}" />
+    <Route path="/*" component="{OverviewPage}" />
   </BaseLayout>
 </Router>
 <!-- /@Route -->
@@ -20,7 +20,7 @@
   import EvaluationRoute from './EvaluationRoute.svelte';
 
   // Import pages
-  import StartPage from '../components/pages/StartPage.svelte';
+  import OverviewPage from '../components/pages/OverviewPage.svelte';
 
   export let basepath;
 </script>
