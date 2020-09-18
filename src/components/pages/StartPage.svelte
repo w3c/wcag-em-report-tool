@@ -12,6 +12,7 @@
     <summary>
       <h2>{$translate('start.USAGE_HD')}</h2>
     </summary>
+    <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
     <ul>
       <li>{$translate('start.USAGE_LI1')}</li>
       <li>{$translate('start.USAGE_LI2')}</li>
@@ -23,6 +24,7 @@
     <summary>
       <h2>{$translate('start.TIPS_HD')}</h2>
     </summary>
+    <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
     <ol>
       <li>{$translate('start.TIPS_LI1')}</li>
       <li>{$translate('start.TIPS_LI2')}</li>
