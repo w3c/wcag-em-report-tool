@@ -52,36 +52,36 @@
 
   let navigationItems = [
     {
-      path: '',
+      path: '/',
       title: 'Overview'
     },
     {
-      path: 'evaluation/scope',
+      path: '/evaluation/scope',
       title: '1. Scope'
     },
     {
-      path: 'evaluation/explore',
+      path: '/evaluation/explore',
       title: '2. Explore'
     },
     {
-      path: 'evaluation/sample',
+      path: '/evaluation/sample',
       title: '3. Sample'
     },
     {
-      path: 'evaluation/audit',
+      path: '/evaluation/audit',
       title: '4. Audit'
     },
     {
-      path: 'evaluation/summary',
+      path: '/evaluation/summary',
       title: '5. Summary'
     },
     {
-      path: 'evaluation/report',
+      path: '/evaluation/report',
       title: 'Report'
     }
   ];
 
   const location = useLocation();
 
-  $: currentPath = $location.pathname.replace(/^\//, '');
+  $: currentPath = $location.pathname;
 </script>

@@ -6,7 +6,7 @@
     <Route path="/evaluation/*" component="{EvaluationRoute}" />
 
     <!-- If anything else, it should hit an error? -->
-    <Route path="*" component="{StartPage}" />
+    <Route path="/*" component="{StartPage}" />
   </BaseLayout>
 </Router>
 <!-- /@Route -->

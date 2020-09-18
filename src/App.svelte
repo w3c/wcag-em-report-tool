@@ -42,5 +42,5 @@
   import { isLoading } from 'svelte-i18n';
   import IndexRoute from './routes/IndexRoute.svelte';
 
-  export let basepath;
+  export let basepath = '/';
 </script>

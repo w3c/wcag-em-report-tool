@@ -27,7 +27,7 @@ export default {
     sourcemap: true,
     format: 'esm',
     name: pkg.name,
-    dir: `${production ? PATHS.BUILD : PATHS.DEV}bundles`
+    dir: `${production ? PATHS.BUILD : PATHS.DEV}/bundles`
   },
   plugins: [
     svelte({
@@ -45,12 +45,12 @@ export default {
         {
           // Styles
           src: 'src/static/css/**/*.css',
-          dest: `${production ? PATHS.BUILD : PATHS.DEV}css`
+          dest: `${production ? PATHS.BUILD : PATHS.DEV}/css`
         },
         {
           // Images
           src: 'src/static/**/*.{svg,png,jpeg,jpg}',
-          dest: `${production ? PATHS.BUILD : PATHS.DEV}images`
+          dest: `${production ? PATHS.BUILD : PATHS.DEV}/images`
         },
         {
           // index.html
@@ -66,6 +66,7 @@ export default {
 
             let replaceRegexp;
 
+            // e.g. "{__TITLE__}" => "WCAG-EM-Report-Tool"
             for (var key in replacement) {
               replaceRegexp = new RegExp(`\\{${key}\\}`, 'g');
 
@@ -133,7 +134,7 @@ export default {
         // Automaticly start your default browser
         // with serve url; http://localhost:10001<BASEPATH>
         open: true,
-        openPage: BASEPATH,
+        openPage: `${BASEPATH}/`,
         historyApiFallback: true
       }),
 

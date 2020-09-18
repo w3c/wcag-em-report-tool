@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--
+     * To prevent needing to set a basepath all over the place,
+     * set a <base />.
+     *
+     * defaults to <base href="/" />
+     *
+     * The takeaway is that hash refs "#goto"
+     * will actually "/#goto" instead.
+     * This issue can be resolved with the app router.
+     *
+     * -->
     <base href="{__BASEPATH__}" />
 
     <title>{__TITLE__}</title>
@@ -15,7 +26,7 @@
     <!-- WAI Website Components: https://w3c.github.io/wai-website-components/index.html -->
     <link rel="stylesheet" href="https://www.w3.org/WAI/assets/css/style.css" />
 
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
 
   <body>
@@ -120,7 +131,7 @@
             <li>
               <a href="https://twitter.com/w3c_wai"
                 ><svg aria-hidden="true" class="icon-twitter">
-                  <use xlink:href="/assets/images/icons.svg#icon-twitter"></use>
+                  <use xlink:href="images/icons.svg#icon-twitter"></use>
                 </svg>
                 Twitter</a
               >
@@ -128,7 +139,7 @@
             <li>
               <a href="https://www.w3.org/WAI/feed.xml"
                 ><svg aria-hidden="true" class="icon-rss">
-                  <use xlink:href="/assets/images/icons.svg#icon-rss"></use>
+                  <use xlink:href="images/icons.svg#icon-rss"></use>
                 </svg>
                 Feed</a
               >
@@ -137,7 +148,7 @@
               <a
                 href="https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/playlistsv"
                 ><svg aria-hidden="true" class="icon-youtube">
-                  <use xlink:href="/assets/images/icons.svg#icon-youtube"></use>
+                  <use xlink:href="images/icons.svg#icon-youtube"></use>
                 </svg>
                 YouTube</a
               >
@@ -162,7 +173,7 @@
               ></a
             >, <a href="https://www.keio.ac.jp/">Keio</a>,
             <a href="https://ev.buaa.edu.cn">Beihang</a>)
-            <a href="/WAI/about/using-wai-material/"
+            <a href="http://www.w3.org/WAI/about/using-wai-material/"
               >Permission to Use WAI Material</a
             >.
           </p>
@@ -170,17 +181,17 @@
       </div>
       <div class="q4-start q4-end">
         <ul style="margin-bottom: 0">
-          <li><a href="/WAI/about/contacting/">Contact WAI</a></li>
-          <li><a href="/WAI/sitemap/">Site Map</a></li>
-          <li><a href="/WAI/news/">News</a></li>
-          <li><a href="/WAI/sitemap/#archive">Archive</a></li>
+          <li><a href="http://www.w3.org/WAI/about/contacting/">Contact WAI</a></li>
+          <li><a href="http://www.w3.org/WAI/sitemap/">Site Map</a></li>
+          <li><a href="http://www.w3.org/WAI/news/">News</a></li>
+          <li><a href="http://www.w3.org/WAI/sitemap/#archive">Archive</a></li>
           <li>
-            <a href="/WAI/about/accessibility-statement/"
+            <a href="http://www.w3.org/WAI/about/accessibility-statement/"
               >Accessibility Statement</a
             >
           </li>
-          <li><a href="/WAI/translations/"> Translations</a></li>
-          <li><a href="/WAI/roles/">Resources for Roles</a></li>
+          <li><a href="http://www.w3.org/WAI/translations/"> Translations</a></li>
+          <li><a href="http://www.w3.org/WAI/roles/">Resources for Roles</a></li>
         </ul>
       </div>
     </footer>
