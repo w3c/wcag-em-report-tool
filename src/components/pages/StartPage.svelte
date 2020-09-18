@@ -3,15 +3,10 @@
  * @Route:/
  * -->
 <Page title="{$translate('start.SUBTITLE')}">
-  <details open="true">
-    <summary>
-      <h2>{$translate('start.INTRO_HD')}</h2>
-    </summary>
-    <p>
-      {@html $translate('start.INTRO_1', { values: links })}
-    </p>
-    <p>{$translate('start.INTRO_2')}</p>
-  </details>
+  <p>
+    {@html $translate('start.INTRO_1', { values: links })}
+  </p>
+  <p>{$translate('start.INTRO_2')}</p>
 
   <details>
     <summary>
