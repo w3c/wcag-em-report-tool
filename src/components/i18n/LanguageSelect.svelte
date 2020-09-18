@@ -1,53 +1,51 @@
-<!-- @Component:LanguageSelect -->
-<div class="LanguageSelect">
-  <button
-    type="button"
-    class="LanguageSelect__toggle showhidebutton button-small"
-  >{$translate('UI.LANGUAGESELECTOR_BUTTON_NAME', {
-      default: 'Select language'
-    })} (<span
-      class="visually-hidden"
-    >{$translate('UI.LANGUAGESELECTOR_CURRENT_LANGUAGE', {
-        default: 'Current language'
-      })}:
-    </span>{currentLocale.title})</button>
-  <ul id="languages--list" title="languages" on:click="{handleClick}">
+<!--
+ * @component
+ * LanguageSelect
+ * -->
+<div class="LanguageSelect languagelist">
+  <svg aria-hidden="true" class="icon-languages"><use
+      xlink:href="images/icons.svg#icon-languages"
+    ></use></svg><strong
+    id="LanguageSelect__label"
+  >{$translate('LANGUAGE_SELECT_LABEL')}:</strong>
+  <ul class="languagelistul" on:click="{handleClick}">
     {#each locales as appLocale}
       <li
         class="language__item {appLocale === currentLocale ? 'language__item--current' : ''}"
       >
-        <a
-          lang="{appLocale.lang}"
-          href="#language-{appLocale.lang}"
-        >{appLocale.title}
-          {#if appLocale.lang === defaultLocale.lang}(Default){/if}</a>
+        {#if appLocale === currentLocale}
+          <strong>{currentLocale.title}</strong>
+        {:else}
+          <a
+            lang="{appLocale.lang}"
+            href="#{appLocale.lang}"
+          >{appLocale.title}</a>
+        {/if}
       </li>
     {/each}
   </ul>
 </div>
-<!-- /@Component -->
+<!-- /component -->
 
 <style>
-  #languages--list {
-    display: inline-flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    font-size: 0.75em;
-  }
-
   .LanguageSelect {
-    grid-column: 6 / 9;
-    grid-row: 1;
-  }
+    grid-column: 2 / 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0.5em 0;
+    list-style-type: none;
+}
 
   .language__item {
     margin: 0 0.25em;
+    min-width: 3rem;
   }
 
   .language__item--current > a {
-    text-decoration: none;
+    text-decoration: underline;
+    font-weight: bold;
   }
 </style>
 
@@ -55,14 +53,14 @@
   import { t as translate, locale } from 'svelte-i18n';
   import appData from '../../data/app.js';
 
-  let { locales, defaultLocale } = appData;
+  let { locales } = appData;
 
   $: currentLocale = locales.find((l) => l.lang === $locale);
 
   /**
    * Handle the languageSelect click,
    * Changing to target language
-   * @param  {[object]} event [description]
+   * @param  {[object]} event
    * @return {undefined}
    */
   function handleClick(event) {
