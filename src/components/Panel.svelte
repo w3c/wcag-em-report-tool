@@ -1,35 +1,50 @@
-<aside class="Panel">
+<aside
+  class="Panel"
+  class:hidden
+>
   <header class="Panel__Header">
-    <h2 class="Panel__Header__heading">Panel heading</h2>
-    <button type="button" class="Panel__Toggle button-small showhidebutton">Hide</button>
+    {#if title}
+      <h2 class="Panel__Header__heading">{title}</h2>
+    {/if}
+    <button
+      type="button"
+      class="Panel__Toggle button-small showhidebutton"
+      on:click="{handleToggleClick}"
+      bind:this="{Panel__Toggle}"
+    >{hidden ? `Show ${title}` : 'Hide'}</button>
   </header>
 
-  <div class="Panel__Body">
-    <p>Panel body</p>
-    <slot></slot>
+  <div class="Panel__Body" bind:this="{Panel_Body}">
+    <slot>
+      <p>Panel body</p>
+    </slot>
   </div>
-
-  <footer class="Panel__Footer">Panel footer</footer>
 </aside>
 
 <style>
   .Panel {
-    -ms-grid-column: 8;
-    -ms-grid-column-span: 1;
-    grid-column: 8 / span 2;
-    -ms-grid-row: 2;
+    box-sizing: border-box;
+    -ms-grid-column: 7;
+    -ms-grid-column-span: 3;
+    grid-column: 7 / span 3;
+    -ms-grid-row: 1;
     grid-row-start: 1;
+    align-self: flex-start;
 
-    align-self: start;
-    justify-self: end;
-
-    margin-bottom: 2em;
     outline: none;
     border: 1px solid var(--line-grey);
     padding: 1em;
     width: 100%;
     background-color: var(--footer-grey);
     box-shadow: 0px 2px 8px -7px #000;
+  }
+
+  .Panel.hidden {
+    width: auto;
+    padding: 1em;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   @media (min-width: 60em) {
@@ -41,23 +56,69 @@
   .Panel__Header {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     border-bottom: 1px solid var(--line-grey);
+  }
+
+  .hidden .Panel__Header {
+    border-bottom-color: transparent;
   }
 
   .Panel__Header__heading {
     margin: 0;
+    margin-right: 1em;
     border-bottom: none;
     font-size: 1em;
     line-height: 1.5;
     font-weight: bold;
   }
 
-  .Panel__Toggle {
-    padding: 0.25em;
+  .hidden .Panel__Header__heading {
+    display: none;
   }
+
+  .Panel__Body:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-top: 1em;
+  }
+
+  :global(.Panel__Body > *:not(:last-child)) {
+    margin-bottom: 1em;
+  }
+
+  .Panel__Toggle {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 0.25em;
+    cursor: pointer;
+    word-wrap: break-word;
+  }
+
+  .hidden .Panel__Toggle {
+    flex-shrink: 1;
+  }
+
   .showhidebutton::after {
     /* Corrections */
     margin-left: 0.5em;
   }
 </style>
+
+<script>
+  export let title = null;
+
+  let Panel_Body;
+  let Panel__Toggle;
+
+  $: hidden = Panel_Body ? Panel_Body.hidden : true;
+
+  function handleToggleClick() {
+    let toggleTo = !hidden;
+
+    Panel_Body.hidden = toggleTo;
+    Panel__Toggle.setAttribute('aria-expanded', !toggleTo);
+  }
+</script>

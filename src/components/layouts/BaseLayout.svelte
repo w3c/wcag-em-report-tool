@@ -16,14 +16,18 @@
     label="step"
     context={routes}
   />
-
-  <Panel />
 </div>
 <!-- /@Layout -->
 
 <style>
   .BaseLayout {
-    padding-top: 3em;
+    padding: 2em 1em;
+  }
+
+  @media (min-width: 60em) {
+    .BaseLayout {
+      padding: 2em 0;
+    }
   }
 </style>
 
@@ -31,7 +35,6 @@
   import appData from '../../data/app.js';
 
   import Header from '../Header.svelte';
-  import Panel from '../Panel.svelte';
   import LanguageSelect from '../i18n/LanguageSelect.svelte';
   import NavigationBar from '../NavigationBar.svelte';
   import Pager from '../Pager.svelte';
