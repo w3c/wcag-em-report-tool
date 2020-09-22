@@ -33,12 +33,24 @@
     </ol>
   </details>
 </Page>
+
+<Panel title="Start&shy;menu">
+  <button
+    type="button"
+    class="button-primary"
+  ><span>Start a <strong>new</strong> evaluation</span></button>
+  <button
+    type="button"
+    class="button-secondary"
+  ><span><strong>Open</strong> a saved evaluation</span></button>
+</Panel>
 <!-- /@Page -->
 
 <script>
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../Page.svelte';
+  import Panel from '../Panel.svelte';
 
   // @todo: Add these links the locales
   // (They might be used on another page)
