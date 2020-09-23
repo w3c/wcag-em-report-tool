@@ -89,6 +89,10 @@
     margin-bottom: 1em;
   }
 
+  :global(.Panel__Body > :last-child) {
+    margin-bottom: 0;
+  }
+
   .Panel__Toggle {
     flex-shrink: 0;
     margin-left: auto;
