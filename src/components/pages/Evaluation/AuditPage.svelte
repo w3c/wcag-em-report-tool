@@ -6,8 +6,6 @@
     'AUDIT.SAMPLE_FINDINGS' 'AUDIT.BTN_EXPAND_PAGES' 'AUDIT.BTN_COLLAPSE_PAGES'
   </div>
 
-  <p class="info">Auditor</p>
-
   <Auditor />
 </Page>
 
