@@ -60,7 +60,7 @@
     border-bottom: 1px solid var(--line-grey);
   }
 
-  .hidden .Panel__Header {
+  .Panel.hidden > .Panel__Header {
     border-bottom-color: transparent;
   }
 
@@ -73,11 +73,11 @@
     font-weight: bold;
   }
 
-  .hidden .Panel__Header__heading {
+  .Panel.hidden .Panel__Header__heading {
     display: none;
   }
 
-  .Panel__Body:not([hidden]) {
+  .Panel:not(.hidden) > .Panel__Body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -101,7 +101,7 @@
     word-wrap: break-word;
   }
 
-  .hidden .Panel__Toggle {
+  .Panel.hidden .Panel__Toggle {
     flex-shrink: 1;
   }
 
