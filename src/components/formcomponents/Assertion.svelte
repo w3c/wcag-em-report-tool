@@ -61,11 +61,6 @@
   }
 
   .Assertion__Header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
     margin-bottom: 1em;
     font-size: 1em;
     line-height: 1.5em;
@@ -79,7 +74,6 @@
   }
 
   .Assertion__Header__heading {
-    display: inline;
     font-size: 1.25em;
     font-weight: normal;
   }
@@ -97,6 +91,7 @@
     width: auto;
     min-inline-size: 5em;
   }
+
   /* use :global for children as they are in different components */
   :global(.Assertion__Result label::after) {
     content: ':';
@@ -108,13 +103,13 @@
 
   :global(.Assertion__Result > :last-child) {
     flex: 3;
-    margin: 0;
   }
 
   :global(.Assertion__Result textarea) {
     width: 100%;
     font-family: 'Noto Sans Mono', monospace;
   }
+
   @media (min-width: 40rem) {
     .Assertion__Result {
       flex-direction: row;
