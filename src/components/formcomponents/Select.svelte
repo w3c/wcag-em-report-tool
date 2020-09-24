@@ -1,3 +1,14 @@
+<!--
+ * @component
+ * Select
+ * @property id <String:Unique>
+ * @property label <String>
+ * @property options <Array:Option{
+ *   title <String>
+ *   value <String>
+ *   selected <Boolean>
+ * }>
+ * -->
 <Field {id} {label}>
   <select {id} disabled={options.length === 0}>
     {#each options as option}
@@ -7,6 +18,7 @@
     {/each}
   </select>
 </Field>
+<!-- /component -->
 
 <script>
   import Field from './Field.svelte';
