@@ -24,5 +24,6 @@
   import WCAG21 from '../data/wcag/WCAG21.json';
   import Assertion from './formcomponents/Assertion.svelte';
 
+  // Quick data, needs to come from context/store
   let assertions = WCAG21;
 </script>
