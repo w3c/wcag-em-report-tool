@@ -32,6 +32,11 @@
         </li>
       </ol>
     </div>
+
+    <div class="">
+      <ResourceLink href="#understanding">Understanding {num}</ResourceLink>
+      <ResourceLink href="#how-to-meet">How to meet {num}</ResourceLink>
+    </div>
   </Details>
 
   <fieldset>
@@ -121,6 +126,7 @@
   import { t as translate, dictionary } from 'svelte-i18n';
 
   import Details from '../Details.svelte';
+  import ResourceLink from '../ResourceLink.svelte';
 
   import Select from './Select.svelte';
   import Textarea from './Textarea.svelte';
