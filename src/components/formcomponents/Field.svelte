@@ -1,8 +1,7 @@
 <div class="Field field">
   {#if label}<label for="{id}">{label}</label>{/if}
   {#if helptext}
-    <details>
-      <summary>Help <span class="visually-hidden">for {label}</span></summary>
+    <Details label={`Help <span class="visually-hidden">for ${label}</span>`}>
       {#if Array.isArray(helptext)}
         <ul>
           {#each helptext as help}
@@ -12,7 +11,7 @@
       {:else}
         <p>{helptext}</p>
       {/if}
-    </details>
+    </Details>
   {/if}
 
   <slot/>
@@ -29,6 +28,8 @@
 </style>
 
 <script>
+  import Details from '../Details.svelte';
+
   export let id;
   export let label;
   export let helptext;
