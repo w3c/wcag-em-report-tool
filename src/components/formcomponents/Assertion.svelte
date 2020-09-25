@@ -13,25 +13,34 @@
   <Details label="{$translate(`${num}.TITLE`)} details">
     <div>{$translate(`${num}.DESCRIPTION.INTRODUCTION`)}</div>
 
-    {#if details.length > 0}
+    {#if details}
       <dl>
         {#each details as detail}
           <dt>{$translate(`${num}.DESCRIPTION.DETAILS.${detail}.TITLE`)}</dt>
           <dd>
-            <p>{$translate(`${num}.DESCRIPTION.DETAILS.${detail}.DESCRIPTION`)}</p>
-            <p class="note">{$translate(`${num}.DESCRIPTION.DETAILS.${detail}.NOTE`)}</p>
+            <p>
+              {$translate(`${num}.DESCRIPTION.DETAILS.${detail}.DESCRIPTION`)}
+            </p>
+            <p class="note">
+              {$translate(`${num}.DESCRIPTION.DETAILS.${detail}.NOTE`)}
+            </p>
           </dd>
         {/each}
       </dl>
     {/if}
-    <div>
-      <span>test.description.notes</span>
-      <ol>
-        <li>
-          <p class="note"><span>Note:</span> <span>note</span></p>
-        </li>
-      </ol>
-    </div>
+
+    {#if notes}
+      <div>
+        <span>test.description.notes</span>
+        <ol>
+          {#each notes as note}
+            <li>
+              <p class="note"><span>Note:</span> <span>{note}</span></p>
+            </li>
+          {/each}
+        </ol>
+      </div>
+    {/if}
 
     <div class="">
       <ResourceLink href="#understanding">Understanding {num}</ResourceLink>
@@ -114,7 +123,7 @@
   .Assertion__Result {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: space-between;
     width: auto;
     min-inline-size: 5em;
