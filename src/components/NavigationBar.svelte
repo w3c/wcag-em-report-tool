@@ -76,8 +76,8 @@
       title: '5. Summary'
     },
     {
-      path: '/evaluation/report',
-      title: 'Report'
+      path: '/evaluation/view-report',
+      title: 'View report'
     }
   ];
 

@@ -6,6 +6,7 @@
     <Route path="/sample" component="{SamplePage}" />
     <Route path="/audit" component="{AuditPage}" />
     <Route path="/summary" component="{SummaryPage}" />
+    <Route path="/view-report" component="{ReportPage}" />
   </EvaluationLayout>
 </Router>
 <!-- /@Route -->
@@ -16,10 +17,11 @@
   import EvaluationLayout from '../components/layouts/EvaluationLayout.svelte';
 
   import {
-    ScopePage,
-    ExplorePage,
-    SamplePage,
     AuditPage,
+    ExplorePage,
+    ReportPage,
+    SamplePage,
+    ScopePage,
     SummaryPage
   } from '../components/pages/Evaluation/Index.svelte';
 </script>

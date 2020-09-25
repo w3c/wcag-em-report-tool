@@ -66,7 +66,7 @@
     },
     {
       title: 'REPORT.TITLE',
-      path: '/evaluation/report',
+      path: '/evaluation/view-report',
     }
   ];
 </script>

@@ -1,9 +1,17 @@
 <script context="module">
-  import ScopePage from './ScopePage.svelte';
-  import ExplorePage from './ExplorePage.svelte';
-  import SamplePage from './SamplePage.svelte';
   import AuditPage from './AuditPage.svelte';
+  import ExplorePage from './ExplorePage.svelte';
+  import ReportPage from './ReportPage.svelte';
+  import SamplePage from './SamplePage.svelte';
+  import ScopePage from './ScopePage.svelte';
   import SummaryPage from './SummaryPage.svelte';
 
-  export { ScopePage, ExplorePage, SamplePage, AuditPage, SummaryPage };
+  export {
+    AuditPage,
+    ExplorePage,
+    ReportPage,
+    SamplePage,
+    ScopePage,
+    SummaryPage
+  };
 </script>
