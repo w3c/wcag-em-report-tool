@@ -1,4 +1,4 @@
-<div class="field">
+<div class="Field field">
   {#if label}<label for="{id}">{label}</label>{/if}
   {#if helptext}
     <details>
@@ -19,6 +19,10 @@
 </div>
 
 <style>
+  .Field {
+    padding: 0;
+  }
+
   label {
     font-weight: bold;
   }
