@@ -27,8 +27,7 @@
     margin-bottom: 0.5em;
   }
 
-  label {
-    display: block;
+  :global(.Field label) {
     font-weight: bold;
   }
 </style>
