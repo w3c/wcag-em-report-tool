@@ -39,8 +39,8 @@
     </div>
   </Details>
 
-  <fieldset>
-    <legend>
+  <fieldset class="Assertion__Result__container">
+    <legend class="Assertion__Subject">
       Result for: <a
         href="subject.url"
         target="_blank"
@@ -95,6 +95,22 @@
     white-space: nowrap;
   }
 
+  .Assertion__Result__container {
+    display: block;
+    border: none;
+    padding-left: 2em;
+  }
+
+  :global(.Assertion__Result__container > *:not(:last-child)) {
+    margin-bottom: 1em;
+  }
+
+  .Assertion__Subject {
+    margin-left: -2em;
+    padding: 0;
+    font-size: 1em;
+  }
+
   .Assertion__Result {
     display: flex;
     flex-direction: column;
@@ -109,9 +125,9 @@
     content: ':';
   }
 
-  :global(.Assertion__Result > *) {
+  :global(.Assertion__Result > *:not(:last-child)) {
     flex: 1;
-    margin: 0;
+    margin-bottom: 1em;
   }
 
   :global(.Assertion__Result > :last-child) {
@@ -126,6 +142,11 @@
   @media (min-width: 40rem) {
     .Assertion__Result {
       flex-direction: row;
+    }
+
+    :global(.Assertion__Result > *:not(:last-child)) {
+      margin-bottom: 0;
+      margin-right: 2em;
     }
   }
 </style>
