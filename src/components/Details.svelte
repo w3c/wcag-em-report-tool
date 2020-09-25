@@ -83,12 +83,16 @@
   }
 
   .Details__body {
-    padding-top: 1em;
+    margin-top: 1em;
     padding-left: 2em;
   }
 
   :global(.Details__body > *:not(:last-child)) {
-    margin-bottom: 1em;
+    margin: 0 0 1em;
+  }
+
+  :global(.Details__body > *:last-child) {
+    margin: 0;
   }
 </style>
 
