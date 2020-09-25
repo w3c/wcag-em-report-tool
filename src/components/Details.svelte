@@ -16,26 +16,26 @@
 
 <style>
   .Details {
-    margin: 0;
     padding: 0;
   }
 
   .Details__label {
-    display: inline-flex;
+    display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     padding-top: 0.25em;
+    font-size: 1em;
+    line-height: 1.5;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  :global(.Details__label::-webkit-details-marker) {
+    display: none;
   }
 
   :global(.Details__label > :first-child::before) {
     content: none !important;
-  }
-
-  .Details__label:focus::before,
-  .Details__label:hover::before {
-    color: white;
-    background-color: var(--w3c-blue);
-    border-color: var(--w3c-blue);
   }
 
   .Details__label::before {
@@ -48,8 +48,19 @@
     width: 1em;
     height: 1em;
     text-align: center;
+    color: inherit;
     color: var(--wai-green);
+    background-color: inherit;
     font-weight: bold;
+  }
+
+  .Details__label:focus::before,
+  .Details__label:hover::before {
+    color: white;
+    background-color: #333;
+    background-color: var(--w3c-blue);
+    border-color: #333;
+    border-color: var(--w3c-blue);
   }
 
   .Details[open] > .Details__label::before {
@@ -69,7 +80,12 @@
   }
 
   .Details__body {
-    margin-top: 1em;
+    padding-top: 1em;
+    padding-left: 2em;
+  }
+
+  :global(.Details__body > *:not(:last-child)) {
+    margin-bottom: 1em;
   }
 </style>
 
