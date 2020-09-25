@@ -4,8 +4,8 @@
   <p class="info">ReportComponent here</p>
 </Page>
 
-<Panel title="Export report">
-  <p>You can download the evaluation html and data for customization and publishing on your own website.</p>
+<Panel title="Export evaluation">
+  <p>Download and customize this evaluation report.</p>
   <button type="button" class="button-primary">Download the evaluation report (HTML)</button>
   <button type="button" class="button-secondary">Download the evaluation data (JSON-LD)</button>
 </Panel>
