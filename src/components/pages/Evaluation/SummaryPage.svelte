@@ -33,7 +33,7 @@
   />
 
   <Textarea
-    id="evaluation_summary"
+    id="evaluation_specifics"
     label="{$translate('REPORT.LABEL_SPECIFICS')}"
     helptext="{$translate('REPORT.INF_SPECIFICS')}"
   />
