@@ -1,7 +1,6 @@
 <div class="Field field">
-  {#if label}<label for="{id}">{label}</label>{/if}
   {#if helptext}
-    <Details label={`Help <span class="visually-hidden">for ${label}</span>`}>
+    <Details label={label && `<label for="${id}">${label}</label>`}>
       {#if Array.isArray(helptext)}
         <ul>
           {#each helptext as help}
@@ -12,6 +11,8 @@
         <p>{helptext}</p>
       {/if}
     </Details>
+  {:else if label}
+    <label for="{id}">{label}</label>
   {/if}
 
   <slot/>
@@ -22,7 +23,12 @@
     padding: 0;
   }
 
+  :global(.Field > *:not(:last-child)) {
+    margin-bottom: 0.5em;
+  }
+
   label {
+    display: block;
     font-weight: bold;
   }
 </style>
