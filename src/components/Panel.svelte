@@ -58,6 +58,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     border-bottom: 1px solid var(--line-grey);
+    margin-bottom: 1em;
   }
 
   .Panel.hidden > .Panel__Header {
@@ -82,11 +83,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    padding-top: 1em;
   }
 
   :global(.Panel__Body > *:not(:last-child)) {
-    margin-bottom: 1em;
+    margin: 0 0 1em;
   }
 
   :global(.Panel__Body > :last-child) {
