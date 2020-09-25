@@ -12,6 +12,10 @@
     grid-column: 2 / span 5;
     grid-row: 1;
   }
+
+  :global(main > *:not(:last-child)) {
+    margin-bottom: 1em;
+  }
 </style>
 
 <script>
