@@ -24,10 +24,6 @@
     padding: 2em 1em;
   }
 
-  :global(.BaseLayout > *:not(:last-child)) {
-    margin: 0 0 2em;
-  }
-
   @media (min-width: 60em) {
     .BaseLayout {
       padding: 2em 0;
