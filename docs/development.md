@@ -26,6 +26,12 @@ See `.prettierrc.js` for prettier configuration for Svelte (3).
   - pages; `{Component}Page.svelte`
   - forms; `{Component}Form.svelte`
 
+- Component styling
+
+  - Do not set top-level margins, only set child component margins;
+
+    > Component context should decide spacing between children
+
 ### HTML
 
 - Attribute priority: role, for, id, element specific attributes, global attributes, class, data-attributes, aria-attributes.
