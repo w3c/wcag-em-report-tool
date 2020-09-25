@@ -58,7 +58,6 @@
 
 <style>
   .Assertion {
-    margin-bottom: 4em;
     background-color: var(--pure-white);
     border: 1px solid var(--line-grey);
     box-shadow: 1px 1px 4px -4px #000;

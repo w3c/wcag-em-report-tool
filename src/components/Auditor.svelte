@@ -2,7 +2,7 @@
   {#if assertions.length > 0}
     <ul class="Auditor__Assertions">
       {#each assertions as assertion}
-        <li>
+        <li class="Auditor__Assertion">
           <Assertion {...assertion} />
         </li>
       {/each}
@@ -17,6 +17,10 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+  }
+
+  .Auditor__Assertion:not(:last-child) {
+    margin-bottom: 3em;
   }
 </style>
 
