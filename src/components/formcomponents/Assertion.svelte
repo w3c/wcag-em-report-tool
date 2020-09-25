@@ -65,6 +65,14 @@
     padding: 1em;
   }
 
+  :global(.Assertion > *:not(:last-child)) {
+    margin-bottom: 1em;
+  }
+
+  :global(.Assertion > *:last-child) {
+    margin-bottom: 0;
+  }
+
   .Assertion__Header {
     margin-bottom: 1em;
     font-size: 1em;
@@ -104,6 +112,7 @@
 
   :global(.Assertion__Result > *) {
     flex: 1;
+    margin: 0;
   }
 
   :global(.Assertion__Result > :last-child) {
@@ -141,7 +150,6 @@
     try {
       details = Object.keys($dictionary[`WCAG21.${num}.DESCRIPTION.DETAILS`]);
     } catch (e) {
-      console.log(e);
       details = [];
     }
   }
