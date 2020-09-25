@@ -55,3 +55,15 @@
 .App__container {
   background-color: white;
 }
+
+/* Normalize svgees */
+svg {
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  font-size: inherit;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  background-color: transparent;
+}
