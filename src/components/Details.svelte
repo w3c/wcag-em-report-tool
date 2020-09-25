@@ -22,8 +22,9 @@
   .Details__label {
     display: flex;
     align-items: flex-start;
+    align-items: baseline;
     justify-content: flex-start;
-    padding-top: 0.25em;
+    padding: 0;
     font-size: 1em;
     line-height: 1.5;
     list-style: none;
@@ -39,7 +40,11 @@
   }
 
   .Details__label::before {
-    display: inline-block;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     content: "";
     margin-right: 0.5em;
     border: 2px solid currentColor;
@@ -47,11 +52,11 @@
     padding: 0.125em;
     width: 1em;
     height: 1em;
-    text-align: center;
     color: inherit;
     color: var(--wai-green);
     background-color: inherit;
     font-weight: bold;
+    line-height: 1em;
   }
 
   .Details__label:focus::before,
@@ -65,12 +70,10 @@
 
   .Details[open] > .Details__label::before {
     content: "–";
-    line-height: 0.875em;
   }
 
   .Details:not([open]) > .Details__label::before {
     content: "+";
-    line-height: 1em;
   }
 
   /* Take control of child spacing */
