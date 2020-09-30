@@ -4,7 +4,7 @@ import app from './app.js';
 
 // Asynchronous loading
 register('en', () => import('../locales/_en.json'));
-register('nl', () => import('./i18n/nl.js'));
+register('nl', () => import('../locales/_nl.json'));
 
 init({
   fallbackLocale: app.defaultLocale.lang,

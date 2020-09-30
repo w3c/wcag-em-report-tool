@@ -1,6 +1,6 @@
 <Page title="{$translate('PAGES.REPORT.TITLE')}">
 
-  <p>{$translate('PAGES.REPORT.INTRO')}</p>
+  <p>{@html $translate('PAGES.REPORT.INTRO')}</p>
 
   <Input
     id="evaluation_title"

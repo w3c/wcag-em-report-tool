@@ -1,0 +1,23 @@
+{
+    "TITLE": "Stap 3: Selecteer een representatieve sample",
+    "INTRO": "Selecteer webpagina's voor de evaluatie. U vindt hier uw aantekeningen uit de vorige stap, om u te helpen webpagina's voor de sample te selecteren. Zorg ervoor dat de gekozen webpagina's representatief zijn voor de te toetsen website. Meer informatie over deze stap vindt u in <a href={{link_em_3}}>WCAG-EM Stap 3: Selecteer een representatieve sample</a>.",
+    "HD_STRUCT_SAMPLE": "Geordende sample",
+    "HD_ESSENT_FUNC": "Essentiële functionaliteiten (optionele notities uit vorige stap)",
+    "HD_VARIETY_PAGE_TYPES": "Diverse paginatypes (optionele notities uit vorige stap)",
+    "HD_STRUCT_SAMPLE_SUB": "Geordende samplepagina's",
+    "INF_STRUCT_SAMPLE": "Selecteer webpagina's representatief voor alle (1) veelgebruikte webpagina's, (2) essentiële functionaliteiten, (3) typen pagina's, (4) webtechnologieën waarop gesteund wordt, en (5) overige relevante pagina's. Meer informatie vindt u in <a href={{link_em_3a}}>WCAG-EM Stap 3.a: Gebruik een geordende sample</a>.<br> Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van <a href={{link_em_state}}>webpagina-toestand</a>",
+    "HD_RANDOM_SAMPLE": "Willekeurige sample",
+    "INF_RAND_SAMPLE": "Selecteer willekeurig samplepagina's; gebruik 10% van de grootte van de geordende sample. Meer informatie vindt u in <a href={{link_em_3b}}>WCAG-EM Stap 3.b: Gebruik een willekeurige sample</a>.<br> Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van <a href={{link_em_state}}>webpagina toestand</a>",
+    "RAND_SAMPLE_LENGTH": "Op basis van de geordende sample van {{total}} webpagina's, selecteer tenminste {{count}} willekeurige webpagina's (om te voldoen aan de 10% eis uit WCAG-EM).",
+    "LABEL_HANDLE": "korte titel",
+    "LABEL_PAGE": "Locatie (URL) of instructie",
+    "NO_PAGES_DEFINED": "Er is geen pagina in deze lijst",
+    "ITEM": "Webpagina",
+    "PLH_TITLE": "Identificerende naam voor de webpagina",
+    "PLH_PAGE_URL": "Locatie (URL) of instructie van het te volgen pad",
+    "BTN_ADD_PAGE": "Pagina toevoegen",
+    "BTN_REMOVE_PAGE": "Pagina verwijderen",
+    "STRUCTURED_PAGE": "Geordende pagina",
+    "RANDOM_PAGE": "Willekeurige pagina",
+    "SAMPLE_PAGE": "Samplepagina"
+}

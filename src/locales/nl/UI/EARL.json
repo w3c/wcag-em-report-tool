@@ -1,0 +1,10 @@
+{
+    "PASSED": "Voldoende",
+    "FAILED": "Onvoldoende",
+    "CANT_TELL": "Onbekend",
+    "NOT_PRESENT": "Niet van toepassing",
+    "NOT_CHECKED": "Niet getoetst",
+    "LEVEL_A": "Niveau A",
+    "LEVEL_AA": "Niveau AA",
+    "LEVEL_AAA": "Niveau AAA"
+}

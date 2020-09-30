@@ -36,6 +36,10 @@ export default {
         {
           src: './src/locales/en/**/*.json',
           dest: './src/locales/_en.json',
+        },
+        {
+          src: './src/locales/nl/**/*.json',
+          dest: './src/locales/_nl.json',
         }
       ],
       verbose: true,
