@@ -1,6 +1,6 @@
 <Page title="{$translate('PAGES.EXPLORE.TITLE')}">
 
-  <p>{$translate('PAGES.EXPLORE.INTRO')}</p>
+  <p>{@html $translate('PAGES.EXPLORE.INTRO')}</p>
 
   <form action="" novalidate>
 
