@@ -2,30 +2,30 @@
  * @Page:Start
  * @Route:/
  * -->
-<Page title="{$translate('pages.start.SUBTITLE')}">
+<Page title="{$translate('PAGES.START.SUBTITLE')}">
   <p>
-    {@html $translate('pages.start.INTRO_1', { values: links })}
+    {@html $translate('PAGES.START.INTRO_1', { values: links })}
   </p>
-  <p>{$translate('pages.start.INTRO_2')}</p>
+  <p>{$translate('PAGES.START.INTRO_2')}</p>
 
   <Details
-    label="<h2>{$translate('pages.start.USAGE_HD')}</h2>"
+    label="<h2>{$translate('PAGES.START.USAGE_HD')}</h2>"
   >
     <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
     <ul>
-      <li>{$translate('pages.start.USAGE_LI1')}</li>
-      <li>{$translate('pages.start.USAGE_LI2')}</li>
-      <li>{$translate('pages.start.USAGE_LI3')}</li>
+      <li>{$translate('PAGES.START.USAGE_LI1')}</li>
+      <li>{$translate('PAGES.START.USAGE_LI2')}</li>
+      <li>{$translate('PAGES.START.USAGE_LI3')}</li>
     </ul>
   </Details>
 
-  <Details label="<h2>{$translate('pages.start.TIPS_HD')}</h2>">
+  <Details label="<h2>{$translate('PAGES.START.TIPS_HD')}</h2>">
     <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
     <ol>
-      <li>{$translate('pages.start.TIPS_LI1')}</li>
-      <li>{$translate('pages.start.TIPS_LI2')}</li>
-      <li>{$translate('pages.start.TIPS_LI3')}</li>
-      <li>{$translate('pages.start.TIPS_LI4')}</li>
+      <li>{$translate('PAGES.START.TIPS_LI1')}</li>
+      <li>{$translate('PAGES.START.TIPS_LI2')}</li>
+      <li>{$translate('PAGES.START.TIPS_LI3')}</li>
+      <li>{$translate('PAGES.START.TIPS_LI4')}</li>
     </ol>
   </Details>
 </Page>
