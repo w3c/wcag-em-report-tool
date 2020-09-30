@@ -1,44 +1,34 @@
 <Page title="{$translate('PAGES.SCOPE.TITLE')}">
-  <p>{$translate('PAGES.SCOPE.INTRO')}</p>
+  <p>
+    {@html $translate('PAGES.SCOPE.INTRO')}
+  </p>
 
   <form method="" novalidate>
-    <Input id="site_name" label="{$translate('PAGES.SCOPE.LABEL_SITE_NAME')}"/>
+    <Input id="site_name" label="{$translate('PAGES.SCOPE.LABEL_SITE_NAME')}" />
 
-    <Textarea id="website_scope" label="{$translate('PAGES.SCOPE.LABEL_SITE_SCOPE')}" helptext={[
-      $translate('PAGES.SCOPE.INF_SITE_SCOPE_0'),
-      $translate('PAGES.SCOPE.INF_SITE_SCOPE_LI0'),
-      $translate('PAGES.SCOPE.INF_SITE_SCOPE_LI1'),
-      $translate('PAGES.SCOPE.INF_SITE_SCOPE_LI2')
-    ]}></Textarea>
+    <Textarea
+      id="website_scope"
+      label="{$translate('PAGES.SCOPE.LABEL_SITE_SCOPE')}"
+      helptext="{`
+        <p>${$translate('PAGES.SCOPE.INF_SITE_SCOPE_0')}</p>
+        <ul>
+          <li>${$translate('PAGES.SCOPE.INF_SITE_SCOPE_LI0')}</li>
+          <li>${$translate('PAGES.SCOPE.INF_SITE_SCOPE_LI1')}</li>
+          <li>${$translate('PAGES.SCOPE.INF_SITE_SCOPE_LI2')}</li>
+        </ul>
+      `}"
+    />
 
-    <Select id="wcag_version" label="{$translate('PAGES.SCOPE.LABEL_WCAG_VERSION')}" options={[
-        {
-          value: 'WCAG22',
-          title: 'WCAG 2.2'
-        },
-        {
-          value: 'WCAG21',
-          title: 'WCAG 2.1',
-          selected: true
-        },
-        {
-          value: 'WCAG20',
-          title: 'WCAG 2.0'
-        }
-      ]}
+    <Select
+      id="wcag_version"
+      label="{$translate('PAGES.SCOPE.LABEL_WCAG_VERSION')}"
+      options="{[{ value: 'WCAG22', title: 'WCAG 2.2' }, { value: 'WCAG21', title: 'WCAG 2.1', selected: true }, { value: 'WCAG20', title: 'WCAG 2.0' }]}"
     />
 
     <Select
       id="conformance_target"
       label="{$translate('PAGES.SCOPE.LABEL_CONFORMANCE_TGT')}"
-      options={[
-        'A',
-        {
-          title: 'AA',
-          selected: true
-        },
-        'AAA'
-      ]}
+      options="{['A', { title: 'AA', selected: true }, 'AAA']}"
     />
 
     <Textarea
@@ -49,12 +39,14 @@
     <Textarea
       id="additional_requirements"
       label="{$translate('PAGES.SCOPE.LABEL_EXTRA_REQUIREMENTS')}"
-      helptext={[
-        $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_0'),
-        $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI0'),
-        $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI1'),
-        $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI2')
-      ]}
+      helptext="{`
+        <p>${$translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_0')}</p>
+        <ul>
+          <li>${$translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI0')}</li>
+          <li>${$translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI1')}</li>
+          <li>${$translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI2')}</li>
+        </ul>
+      `}"
     />
   </form>
 </Page>
