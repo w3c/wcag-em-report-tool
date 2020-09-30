@@ -147,7 +147,7 @@ export default {
         // Automaticly start your default browser
         // with serve url; http://localhost:10001<BASEPATH>
         open: true,
-        openPage: `${BASEPATH}/`,
+        openPage: `${BASEPATH}`,
         historyApiFallback: true
       }),
 
