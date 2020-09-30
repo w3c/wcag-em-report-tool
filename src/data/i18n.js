@@ -3,7 +3,7 @@ import { register, init, getLocaleFromPathname } from 'svelte-i18n';
 import app from './app.js';
 
 // Asynchronous loading
-register('en', () => import('./i18n/en.js'));
+register('en', () => import('../locales/_en.json'));
 register('nl', () => import('./i18n/nl.js'));
 
 init({

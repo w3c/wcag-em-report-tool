@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 import livereload from 'rollup-plugin-livereload';
+import mergeJson from './rollup/rollup-plugin-merge-json/index.js';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
@@ -30,14 +31,16 @@ export default {
     dir: `${production ? PATHS.BUILD : PATHS.DEV}/bundles`
   },
   plugins: [
-    svelte({
-      // enable run-time checks when not in production
-      dev: !production,
-      // we'll extract any component CSS out into
-      // a separate file - better for performance
-      css: (css) => {
-        css.write('app.css');
-      }
+    mergeJson({
+      targets: [
+        {
+          src: './src/locales/en/**/*.json',
+          dest: './src/locales/_en.json',
+        }
+      ],
+      verbose: true,
+      watch: true,
+      wrapWithPath: true
     }),
 
     copy({
@@ -83,6 +86,16 @@ export default {
         }
       ],
       verbose: true
+    }),
+
+    svelte({
+      // enable run-time checks when not in production
+      dev: !production,
+      // we'll extract any component CSS out into
+      // a separate file - better for performance
+      css: (css) => {
+        css.write('app.css');
+      }
     }),
 
     replace({
@@ -147,6 +160,11 @@ export default {
     production && terser()
   ],
   watch: {
+    exclude: [
+      'node_modules/**',
+      // Exclude _underscore-prefixed.files
+      '**/_*.*'
+    ],
     clearScreen: false
   }
 };
