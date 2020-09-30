@@ -1,13 +1,13 @@
-<Page title="{$translate('EXPLORE.TITLE')}">
+<Page title="{$translate('PAGES.EXPLORE.TITLE')}">
 
-  <p>{$translate('EXPLORE.INTRO')}</p>
+  <p>{$translate('PAGES.EXPLORE.INTRO')}</p>
 
   <form action="" novalidate>
 
     <CheckboxGroup
       id="technologies_relied_upon"
-      label="{$translate('EXPLORE.HD_RELIEDUP_TECH')}"
-      helptext="{$translate('EXPLORE.INF_RELIEDUP_TECH')}"
+      label="{$translate('PAGES.EXPLORE.HD_RELIEDUP_TECH')}"
+      helptext="{$translate('PAGES.EXPLORE.INF_RELIEDUP_TECH')}"
       options={[
         { title: 'HTML5'},
         { title: 'XHTML 1.0' },
@@ -25,26 +25,28 @@
       ]}
     />
 
-    {$translate('EXPLORE.LABEL_OTHER')}
-    {$translate('EXPLORE.LABEL_TECH')}
-    {$translate('EXPLORE.PLH_TECH')}
-    {$translate('EXPLORE.LABEL_TECH_SPEC')}
-    {$translate('EXPLORE.PLH_TECH_SPEC')}
+    <div>
+      {$translate('PAGES.EXPLORE.LABEL_OTHER')}<br/>
+      {$translate('PAGES.EXPLORE.LABEL_TECH')}<br/>
+      {$translate('PAGES.EXPLORE.PLH_TECH')}<br/>
+      {$translate('PAGES.EXPLORE.LABEL_TECH_SPEC')}<br/>
+      {$translate('PAGES.EXPLORE.PLH_TECH_SPEC')}<br/>
+    </div>
 
     <fieldset>
-      <legend>{$translate('EXPLORE.HD_NOTE_TAKING')}</legend>
-      <p>{$translate('EXPLORE.INF_NOTE_TAKING')}</p>
+      <legend>{$translate('PAGES.EXPLORE.HD_NOTE_TAKING')}</legend>
+      <p>{$translate('PAGES.EXPLORE.INF_NOTE_TAKING')}</p>
 
       <Textarea
         id="essential_functionality"
-        label="{$translate('EXPLORE.LABEL_ESSENT_FUNC')}"
-        helptext="{$translate('EXPLORE.INF_ESSENT_FUNC')}"
+        label="{$translate('PAGES.EXPLORE.LABEL_ESSENT_FUNC')}"
+        helptext="{$translate('PAGES.EXPLORE.INF_ESSENT_FUNC')}"
       />
 
       <Textarea
         id="page_types"
-        label="{$translate('EXPLORE.LABEL_VARIETY_PAGE_TYPES')}"
-        helptext="{$translate('EXPLORE.INF_VARIETY_PAGE_TYPES')}"
+        label="{$translate('PAGES.EXPLORE.LABEL_VARIETY_PAGE_TYPES')}"
+        helptext="{$translate('PAGES.EXPLORE.INF_VARIETY_PAGE_TYPES')}"
       />
     </fieldset>
   </form>
