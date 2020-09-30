@@ -15,7 +15,7 @@ import pkg from './package.json';
 const production = !process.env.ROLLUP_WATCH;
 
 // You can add this env by using rollup's --environment cli flag;
-// Like: npm run dev -- --environment BASEPATH:"/some-server-subdir/"
+// Like: npm run dev -- --environment BASEPATH:"/some-server-subdir"
 const BASEPATH = process.env.BASEPATH || '/';
 const PATHS = {
   BUILD: `_site/build${BASEPATH}`,
@@ -67,8 +67,10 @@ export default {
             let contentsString = contents.toString();
 
             const replacement = {
-              __TITLE__: pkg.name,
-              __BASEPATH__: BASEPATH
+              __APP_BUILD_DATE__: new Date(),
+              __APP_VERSION__: production ? pkg.version : 'DEVELOPMENT',
+              __BASEPATH__: BASEPATH,
+              __TITLE__: pkg.name
             };
 
             let replaceRegexp;
