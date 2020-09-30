@@ -1,44 +1,44 @@
-<Page title="{$translate('REPORT.TITLE')}">
+<Page title="{$translate('PAGES.REPORT.TITLE')}">
 
-  <p>{$translate('REPORT.INTRO')}</p>
+  <p>{$translate('PAGES.REPORT.INTRO')}</p>
 
   <Input
     id="evaluation_title"
-    label="{$translate('REPORT.LABEL_REPORT_TITLE')}"
-    helptext="{$translate('REPORT.INF_REPORT_TITLE')}"
+    label="{$translate('PAGES.REPORT.LABEL_TITLE')}"
+    helptext="{$translate('PAGES.REPORT.INF_REPORT_TITLE')}"
   />
 
   <Input
     id="evaluation_commissioner"
-    label="{$translate('REPORT.LABEL_COMMISSIONER')}"
-    helptext="{$translate('REPORT.INF_COMMISSIONER')}"
+    label="{$translate('PAGES.REPORT.LABEL_COMMISSIONER')}"
+    helptext="{$translate('PAGES.REPORT.INF_COMMISSIONER')}"
   />
 
   <Input
     id="evaluation_creator"
-    label="{$translate('REPORT.LABEL_CREATOR')}"
-    helptext="{$translate('REPORT.INF_CREATOR')}"
+    label="{$translate('PAGES.REPORT.LABEL_CREATOR')}"
+    helptext="{$translate('PAGES.REPORT.INF_CREATOR')}"
   />
 
   <Input
     id="evaluation_date"
-    label="{$translate('REPORT.LABEL_DATE')}"
-    helptext="{$translate('REPORT.INF_DATE')}"
+    label="{$translate('PAGES.REPORT.LABEL_DATE')}"
+    helptext="{$translate('PAGES.REPORT.INF_DATE')}"
   />
 
   <Textarea
     id="evaluation_summary"
-    label="{$translate('REPORT.LABEL_SUMMARY')}"
-    helptext="{$translate('REPORT.INF_SUMMARY')}"
+    label="{$translate('PAGES.REPORT.LABEL_SUMMARY')}"
+    helptext="{$translate('PAGES.REPORT.INF_SUMMARY')}"
   />
 
   <Textarea
     id="evaluation_specifics"
-    label="{$translate('REPORT.LABEL_SPECIFICS')}"
-    helptext="{$translate('REPORT.INF_SPECIFICS')}"
+    label="{$translate('PAGES.REPORT.LABEL_SPECIFICS')}"
+    helptext="{$translate('PAGES.REPORT.INF_SPECIFICS')}"
   />
 
-  <h2>{$translate('REPORT.HD_CRITERIA_REPORT')}</h2>
+  <h2>{$translate('PAGES.REPORT.HD_CRITERIA_REPORT')}</h2>
   <!-- Criteria here... -->
   <p class="info">Evaluation summary</p>
 </Page>
