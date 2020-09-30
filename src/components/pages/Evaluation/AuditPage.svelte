@@ -1,5 +1,5 @@
 <Page title="{$translate('PAGES.AUDIT.TITLE')}">
-  <p>{$translate('PAGES.AUDIT.INTRO')}</p>
+  <p>{@html $translate('PAGES.AUDIT.INTRO')}</p>
 
   <div>
     <div>{$translate('PAGES.AUDIT.BTN_SHOW_TEXT')}</div>
