@@ -1,9 +1,14 @@
-<Page title="{$translate('AUDIT.TITLE')}">
-  <p>{$translate('AUDIT.INTRO')}</p>
+<Page title="{$translate('PAGES.AUDIT.TITLE')}">
+  <p>{$translate('PAGES.AUDIT.INTRO')}</p>
 
   <div>
-    'AUDIT.BTN_SHOW_TEXT' "AUDIT.NOTE" "AUDIT.UNDERSTAND" "AUDIT.HOW_TO"
-    'AUDIT.SAMPLE_FINDINGS' 'AUDIT.BTN_EXPAND_PAGES' 'AUDIT.BTN_COLLAPSE_PAGES'
+    <div>{$translate('PAGES.AUDIT.BTN_SHOW_TEXT')}</div>
+    <div>{$translate('PAGES.AUDIT.NOTE')}</div>
+    <div>{$translate('PAGES.AUDIT.UNDERSTAND')}</div>
+    <div>{$translate('PAGES.AUDIT.HOW_TO')}</div>
+    <div>{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}</div>
+    <div>{$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</div>
+    <div>{$translate('PAGES.AUDIT.BTN_COLLAPSE_PAGES')}</div>
   </div>
 
   <Auditor />
