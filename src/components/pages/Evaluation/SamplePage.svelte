@@ -1,6 +1,9 @@
 <Page title="{$translate('PAGES.SAMPLE.TITLE')}">
-  <p>{$translate('PAGES.SAMPLE.INTRO')}</p>
-  {$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE')}
+  <p>
+    {@html $translate('PAGES.SAMPLE.INTRO')}
+  </p>
+
+  <div>{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE')}</div>
 
   <form action="" novalidate>
     <Textarea
