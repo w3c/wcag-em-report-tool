@@ -6,7 +6,7 @@
   <p>
     {@html $translate('PAGES.START.INTRO_1', { values: links })}
   </p>
-  <p>{$translate('PAGES.START.INTRO_2')}</p>
+  <p>{@html $translate('PAGES.START.INTRO_2')}</p>
 
   <Details
     label="<h2>{$translate('PAGES.START.USAGE_HD')}</h2>"
