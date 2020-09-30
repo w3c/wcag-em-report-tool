@@ -1,32 +1,32 @@
-<Page title="{$translate('SAMPLE.TITLE')}">
-  <p>{$translate('SAMPLE.INTRO')}</p>
-  {$translate('SAMPLE.HD_STRUCT_SAMPLE')}
+<Page title="{$translate('PAGES.SAMPLE.TITLE')}">
+  <p>{$translate('PAGES.SAMPLE.INTRO')}</p>
+  {$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE')}
 
   <form action="" novalidate>
     <Textarea
       id="essential_functionality"
-      label="{$translate('SAMPLE.HD_ESSENT_FUNC')}"
+      label="{$translate('PAGES.SAMPLE.HD_ESSENT_FUNC')}"
     />
 
     <Textarea
       id="page_types"
-      label="{$translate('SAMPLE.HD_VARIETY_PAGE_TYPES')}"
+      label="{$translate('PAGES.SAMPLE.HD_VARIETY_PAGE_TYPES')}"
     />
 
     <!-- listinput -->
     <Textarea
       id="structured_sample"
-      label="{$translate('SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
-      helptext="{$translate('SAMPLE.INF_STRUCT_SAMPLE')}"
+      label="{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
+      helptext="{$translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE')}"
     />
 
     <!-- listinput -->
     <Textarea
       id="random_sample"
-      label="{$translate('SAMPLE.HD_RANDOM_SAMPLE')}"
-      helptext="{$translate('SAMPLE.INF_RAND_SAMPLE')}"
+      label="{$translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE')}"
+      helptext="{$translate('PAGES.SAMPLE.INF_RAND_SAMPLE')}"
     />
-    <p>{$translate('SAMPLE.RAND_SAMPLE_LENGTH')}</p>
+    <p>{$translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH')}</p>
   </form>
 </Page>
 
