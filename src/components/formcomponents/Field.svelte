@@ -1,15 +1,7 @@
 <div class="Field field">
   {#if helptext}
     <Details label={label && `<label for="${id}">${label}</label>`}>
-      {#if Array.isArray(helptext)}
-        <ul>
-          {#each helptext as help}
-            <li>{help}</li>
-          {/each}
-        </ul>
-      {:else}
-        <p>{helptext}</p>
-      {/if}
+      {@html helptext}
     </Details>
   {:else if label}
     <label for="{id}">{label}</label>
