@@ -185,19 +185,19 @@
 
   $: outcomeOptions = [
     {
-      title: $translate('EARL.PASSED')
+      title: $translate('UI.EARL.PASSED')
     },
     {
-      title: $translate('EARL.FAILED')
+      title: $translate('UI.EARL.FAILED')
     },
     {
-      title: $translate('EARL.CANT_TELL')
+      title: $translate('UI.EARL.CANT_TELL')
     },
     {
-      title: $translate('EARL.NOT_PRESENT')
+      title: $translate('UI.EARL.NOT_PRESENT')
     },
     {
-      title: $translate('EARL.NOT_CHECKED'),
+      title: $translate('UI.EARL.NOT_CHECKED'),
       selected: true
     }
   ];
