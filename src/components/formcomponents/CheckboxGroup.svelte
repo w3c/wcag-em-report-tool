@@ -1,24 +1,38 @@
-<fieldset {id} class="field">
+<fieldset id="{id}" class="field">
   <legend>{label}</legend>
 
-  {#each options as option, index}
-    <div>
-      <input
-        id="{`${id}_${index}`}"
-        type="checkbox"
-        value="{option.value || option.title || option}"
-        checked="{option.checked}"
-        name="{label}"
-      />
-      <label for="{`${id}_${index}`}">{option.title || option}</label>
-    </div>
-  {/each}
+  <ol>
+    {#each options as option, index}
+      <li>
+        <input
+          id="{`${id}_${index}`}"
+          type="checkbox"
+          value="{option.value || option.title || option}"
+          checked="{option.checked}"
+          name="{label}"
+        />
+        <label for="{`${id}_${index}`}">{option.title || option}</label>
+      </li>
+    {/each}
+  </ol>
 </fieldset>
 
 <style>
   label,
   input {
-    display: inline !important;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  input:focus,
+  input:hover {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  ol {
+    columns: 4 10em;
+    column-gap: 2em;
   }
 </style>
 
