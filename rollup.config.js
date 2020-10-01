@@ -16,7 +16,7 @@ const production = !process.env.ROLLUP_WATCH;
 
 // You can add this env by using rollup's --environment cli flag;
 // Like: npm run dev -- --environment BASEPATH:"/some-server-subdir"
-const BASEPATH = process.env.BASEPATH || '/';
+const BASEPATH = process.env.BASEPATH || '';
 const PATHS = {
   BUILD: `_site/build${BASEPATH}`,
   DEV: `_site/development${BASEPATH}`
@@ -151,9 +151,9 @@ export default {
         contentBase: '_site/development',
 
         // Automaticly start your default browser
-        // with serve url; http://localhost:10001<BASEPATH>
+        // with serve url; http://localhost:10001<BASEPATH>/
         open: true,
-        openPage: `${BASEPATH}`,
+        openPage: `${BASEPATH}/`,
         historyApiFallback: true
       }),
 
