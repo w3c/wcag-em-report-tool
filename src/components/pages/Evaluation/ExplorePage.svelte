@@ -25,12 +25,17 @@
       ]}
     />
 
+    <div class="AddInput">
+      <Input
+        id="technologies_relied_upon--add"
+        label="{$translate('PAGES.EXPLORE.LABEL_OTHER')} {$translate('PAGES.EXPLORE.LABEL_TECH')}"
+      />
+      <button type="button" class="button-secondary">Add {$translate('PAGES.EXPLORE.LABEL_OTHER')} {$translate('PAGES.EXPLORE.LABEL_TECH')}</button>
+    </div>
+
     <div>
-      {$translate('PAGES.EXPLORE.LABEL_OTHER')}<br/>
-      {$translate('PAGES.EXPLORE.LABEL_TECH')}<br/>
       {$translate('PAGES.EXPLORE.PLH_TECH')}<br/>
       {$translate('PAGES.EXPLORE.LABEL_TECH_SPEC')}<br/>
-      {$translate('PAGES.EXPLORE.PLH_TECH_SPEC')}<br/>
     </div>
 
     <fieldset>
@@ -58,5 +63,6 @@
 
   import Page from '../../Page.svelte';
   import CheckboxGroup from '../../formcomponents/CheckboxGroup.svelte';
+  import Input from '../../formcomponents/Input.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 </script>
