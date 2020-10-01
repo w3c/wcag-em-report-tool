@@ -17,19 +17,40 @@
     />
 
     <!-- listinput -->
-    <Textarea
-      id="structured_sample"
-      label="{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
-      helptext="{$translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE')}"
-    />
+    <fieldset>
+      <legend>{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB')}</legend>
+      <Details label="Info">{@html $translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE')}</Details>
+
+      <Input
+        id="structured_sample__shortname"
+        label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
+      />
+      <Input
+        id="structured_sample__description"
+        label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}"
+        helptext="URL, path to sample or description"
+      />
+      <button type="button" class="button-secondary">{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}</button>
+    </fieldset>
 
     <!-- listinput -->
-    <Textarea
-      id="random_sample"
-      label="{$translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE')}"
-      helptext="{$translate('PAGES.SAMPLE.INF_RAND_SAMPLE')}"
-    />
-    <p>{$translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH')}</p>
+    <fieldset>
+      <legend>{$translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE')}</legend>
+      <Details label="Info">{@html $translate('PAGES.SAMPLE.INF_RAND_SAMPLE')}</Details>
+
+      <p>{$translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH')}</p>
+
+      <Input
+        id="random_sample__shortname"
+        label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
+      />
+      <Input
+        id="random_sample__description"
+        label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}"
+        helptext="URL, path to sample or description"
+      />
+      <button type="button" class="button-secondary">{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}</button>
+    </fieldset>
   </form>
 </Page>
 
@@ -42,6 +63,8 @@
    */
 
   import Page from '../../Page.svelte';
+  import Details from '../../Details.svelte';
 
+  import Input from '../../formcomponents/Input.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 </script>
