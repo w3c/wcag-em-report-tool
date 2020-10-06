@@ -23,7 +23,6 @@
               "level": "A",
               "handle": "Niet-tekstuele content",
               "title": "Alle niet-tekstuele content die aan de gebruiker wordt gepresenteerd, heeft een tekstalternatief dat een gelijkwaardig doel dient, behalve voor de hierna vermelde situaties.",
-
               "details": [
                 {
                   "type": "ulist",
@@ -54,12 +53,9 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:op-tijd-gebaseerde-media",
@@ -77,7 +73,6 @@
               "level": "A",
               "handle": "Louter-geluid en louter-videobeeld (vooraf opgenomen)",
               "title": "Voor media met vooraf opgenomen louter-geluid en vooraf opgenomen louter-videobeeld is het volgende waar, behalve als de audio of video een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -92,9 +87,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:ondertitels-voor-doven-en-slechthorenden-vooraf-opgenomen",
@@ -103,9 +96,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Ondertitels voor doven en slechthorenden (vooraf opgenomen)",
-              "title": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld.",
-
-              "techniques": []
+              "title": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld."
             },
             {
               "id": "WCAG2:audiodescriptie-of-media-alternatief-vooraf-opgenomen",
@@ -114,9 +105,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Audiodescriptie of media-alternatief (vooraf opgenomen)",
-              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media of audiodescriptie van de vooraf opgenomen videocontent geleverd voor gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld.",
-
-              "techniques": []
+              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media of audiodescriptie van de vooraf opgenomen videocontent geleverd voor gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld."
             },
             {
               "id": "WCAG2:ondertitels-voor-doven-en-slechthorenden-live",
@@ -125,9 +114,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Ondertitels voor doven en slechthorenden (live)",
-              "title": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle live audiocontent in gesynchroniseerde media.",
-
-              "techniques": []
+              "title": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle live audiocontent in gesynchroniseerde media."
             },
             {
               "id": "WCAG2:audiodescriptie-vooraf-opgenomen",
@@ -136,9 +123,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Audiodescriptie (vooraf opgenomen)",
-              "title": "Er wordt een audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
-
-              "techniques": []
+              "title": "Er wordt een audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media."
             },
             {
               "id": "WCAG2:gebarentaal-vooraf-opgenomen",
@@ -147,9 +132,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Gebarentaal (vooraf opgenomen)",
-              "title": "Er wordt een gebarentaalvertolking geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media.",
-
-              "techniques": []
+              "title": "Er wordt een gebarentaalvertolking geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media."
             },
             {
               "id": "WCAG2:verlengde-audiodescriptie-vooraf-opgenomen",
@@ -158,9 +141,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Verlengde audiodescriptie (vooraf opgenomen)",
-              "title": "Waar pauzes in voorgrondgeluid onvoldoende zijn om audiodescripties toe te passen om de boodschap van de video over te brengen, wordt een verlengde audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
-
-              "techniques": []
+              "title": "Waar pauzes in voorgrondgeluid onvoldoende zijn om audiodescripties toe te passen om de boodschap van de video over te brengen, wordt een verlengde audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media."
             },
             {
               "id": "WCAG2:media-alternatief-vooraf-opgenomen",
@@ -169,9 +150,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Media-alternatief (vooraf opgenomen)",
-              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media voor alle vooraf opgenomen gesynchroniseerde media en voor alle vooraf opgenomen louter-videobeeld media.",
-
-              "techniques": []
+              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media voor alle vooraf opgenomen gesynchroniseerde media en voor alle vooraf opgenomen louter-videobeeld media."
             },
             {
               "id": "WCAG2:louter-geluid-live",
@@ -180,12 +159,9 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Louter-geluid (live)",
-              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media dat equivalente informatie presenteert voor live louter-geluid content.",
-
-              "techniques": []
+              "title": "Er wordt een alternatief geleverd voor op tijd gebaseerde media dat equivalente informatie presenteert voor live louter-geluid content."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:aanpasbaar",
@@ -202,9 +178,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Info en relaties",
-              "title": "Informatie, structuur en relaties overgebracht door presentatie kunnen door software bepaald worden of zijn beschikbaar in tekst.",
-
-              "techniques": []
+              "title": "Informatie, structuur en relaties overgebracht door presentatie kunnen door software bepaald worden of zijn beschikbaar in tekst."
             },
             {
               "id": "WCAG2:betekenisvolle-volgorde",
@@ -213,9 +187,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Betekenisvolle volgorde",
-              "title": "Als de volgorde waarin content wordt gepresenteerd van invloed is op zijn betekenis, kan een correcte leesvolgorde door software bepaald worden.",
-
-              "techniques": []
+              "title": "Als de volgorde waarin content wordt gepresenteerd van invloed is op zijn betekenis, kan een correcte leesvolgorde door software bepaald worden."
             },
             {
               "id": "WCAG2:zintuiglijke-eigenschappen",
@@ -224,9 +196,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Zintuiglijke eigenschappen",
-              "title": "Instructies die geleverd worden om content te begrijpen en te bedienen zijn niet alleen afhankelijk van zintuiglijke eigenschappen van componenten zoals vorm, kleur, omvang, visuele locatie, oriëntatie of geluid.",
-
-              "techniques": []
+              "title": "Instructies die geleverd worden om content te begrijpen en te bedienen zijn niet alleen afhankelijk van zintuiglijke eigenschappen van componenten zoals vorm, kleur, omvang, visuele locatie, oriëntatie of geluid."
             },
             {
               "id": "WCAG2:weergavestand",
@@ -235,9 +205,7 @@
               "versions": ["2.1"],
               "level": "AA",
               "handle": "Weergavestand",
-              "title": "De content beperkt de weergave en bediening niet tot een enkele presentatie-oriëntatie, zoals staand of liggend, tenzij een specifieke presentatie-oriëntatie essentieel is.",
-
-              "techniques": []
+              "title": "De content beperkt de weergave en bediening niet tot een enkele presentatie-oriëntatie, zoals staand of liggend, tenzij een specifieke presentatie-oriëntatie essentieel is."
             },
             {
               "id": "WCAG2:identificeer-het-doel-van-de-input",
@@ -246,9 +214,7 @@
               "versions": ["2.1"],
               "level": "AA",
               "handle": "Identificeer het doel van de input",
-              "title": "Het doel van elk invoerveld waarmee informatie van de gebruiker wordt verzameld, kan door software bepaald worden wanneer:",
-
-              "techniques": []
+              "title": "Het doel van elk invoerveld waarmee informatie van de gebruiker wordt verzameld, kan door software bepaald worden wanneer:"
             },
             {
               "id": "WCAG2:identificeer-het-doel",
@@ -257,12 +223,9 @@
               "versions": ["2.1"],
               "level": "AAA",
               "handle": "Identificeer het doel",
-              "title": "In content die is geïmplementeerd met opmaaktalen, kan het doel van de componenten van de gebruikersinterface, pictogrammen en regio's door software bepaald worden.",
-
-              "techniques": []
+              "title": "In content die is geïmplementeerd met opmaaktalen, kan het doel van de componenten van de gebruikersinterface, pictogrammen en regio's door software bepaald worden."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:onderscheidbaar",
@@ -279,9 +242,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Gebruik van kleur",
-              "title": "Kleur wordt niet als het enige visuele middel gebruikt om informatie over te brengen, een actie aan te geven, tot een reactie op te roepen of een visueel element te onderscheiden.",
-
-              "techniques": []
+              "title": "Kleur wordt niet als het enige visuele middel gebruikt om informatie over te brengen, een actie aan te geven, tot een reactie op te roepen of een visueel element te onderscheiden."
             },
             {
               "id": "WCAG2:geluidsbediening",
@@ -290,9 +251,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Geluidsbediening",
-              "title": "Als een geluidsweergave op een webpagina automatisch meer dan 3 seconden speelt, is er of een mechanisme beschikbaar om de geluidsweergave te pauzeren of te stoppen, of er is een mechanisme beschikbaar om het geluidsvolume onafhankelijk van het overall systeemvolume te regelen.",
-
-              "techniques": []
+              "title": "Als een geluidsweergave op een webpagina automatisch meer dan 3 seconden speelt, is er of een mechanisme beschikbaar om de geluidsweergave te pauzeren of te stoppen, of er is een mechanisme beschikbaar om het geluidsvolume onafhankelijk van het overall systeemvolume te regelen."
             },
             {
               "id": "WCAG2:contrast-minimum",
@@ -302,7 +261,6 @@
               "level": "AA",
               "handle": "Contrast (minimum)",
               "title": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 4,5:1, behalve in de volgende gevallen:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -322,7 +280,6 @@
                   ]
                 }
               ],
-
               "techniques": [
                 {
                   "sufficient": [
@@ -443,9 +400,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Herschalen van tekst",
-              "title": "Behalve voor ondertitels voor doven en slechthorenden en afbeeldingen van tekst, kan tekst zonder hulptechnologie tot 200% geschaald worden zonder verlies van content of functionaliteit.",
-
-              "techniques": []
+              "title": "Behalve voor ondertitels voor doven en slechthorenden en afbeeldingen van tekst, kan tekst zonder hulptechnologie tot 200% geschaald worden zonder verlies van content of functionaliteit."
             },
             {
               "id": "WCAG2:afbeeldingen-van-tekst",
@@ -455,7 +410,6 @@
               "level": "AA",
               "handle": "Afbeeldingen van tekst",
               "title": "Als de gebruikte technologieën de visuele weergave tot stand kunnen brengen, wordt tekst gebruikt in plaats van afbeeldingen van tekst om informatie over te brengen, behalve in de volgende gevallen:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -470,9 +424,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:contrast-versterkt",
@@ -482,7 +434,6 @@
               "level": "AAA",
               "handle": "Contrast (versterkt)",
               "title": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 7:1, behalve in de volgende gevallen:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -501,9 +452,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:weinig-of-geen-achtergrondgeluid",
@@ -513,7 +462,6 @@
               "level": "AAA",
               "handle": "Weinig of geen achtergrondgeluid",
               "title": "Voor vooraf opgenomen louter-geluidcontent die (1) voornamelijk spraak op de voorgrond bevat, (2) geen geluids-CAPTCHA of audiologo is, en (3) geen vocalisatie is die primair bedoeld is als muzikale expressie zoals zingen of rappen, is ten minste één van de volgende zaken waar:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -532,9 +480,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:visuele-weergave",
@@ -543,9 +489,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Visuele weergave",
-              "title": "Voor de visuele weergave van tekstblokken is een mechanisme beschikbaar om het volgende te realiseren:",
-
-              "techniques": []
+              "title": "Voor de visuele weergave van tekstblokken is een mechanisme beschikbaar om het volgende te realiseren:"
             },
             {
               "id": "WCAG2:afbeeldingen-van-tekst-geen-uitzondering",
@@ -554,9 +498,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Afbeeldingen van tekst (geen uitzondering)",
-              "title": "Afbeeldingen van tekst worden alleen puur decoratief gebruikt, of daar waar een specifieke weergave van tekst essentieel is voor de informatie die wordt overgebracht.",
-
-              "techniques": []
+              "title": "Afbeeldingen van tekst worden alleen puur decoratief gebruikt, of daar waar een specifieke weergave van tekst essentieel is voor de informatie die wordt overgebracht."
             },
             {
               "id": "WCAG2:reflow",
@@ -565,9 +507,7 @@
               "versions": ["2.1"],
               "level": "AA",
               "handle": "Reflow",
-              "title": "Content kan zonder verlies van informatie of functionaliteit en zonder te moeten scrollen in twee dimensies, worden weergegeven voor:",
-
-              "techniques": []
+              "title": "Content kan zonder verlies van informatie of functionaliteit en zonder te moeten scrollen in twee dimensies, worden weergegeven voor:"
             },
             {
               "id": "WCAG2:contrast-van-niet-tekstuele-content",
@@ -577,7 +517,6 @@
               "level": "AA",
               "handle": "Contrast van niet-tekstuele content",
               "title": "De visuele weergave van het volgende heeft een contrastverhouding van ten minste 3:1 ten opzichte van aangrenzende kleuren:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -592,9 +531,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:tekstafstand",
@@ -603,9 +540,7 @@
               "versions": ["2.1"],
               "level": "AA",
               "handle": "Tekstafstand",
-              "title": "Bij content die wordt geïmplementeerd met opmaaktalen die de volgende stijleigenschappen voor tekst ondersteunen, is er geen sprake van verlies van content of functionaliteit door het instellen van alle volgende, en door het niet wijzigen van andere stijleigenschappen:",
-
-              "techniques": []
+              "title": "Bij content die wordt geïmplementeerd met opmaaktalen die de volgende stijleigenschappen voor tekst ondersteunen, is er geen sprake van verlies van content of functionaliteit door het instellen van alle volgende, en door het niet wijzigen van andere stijleigenschappen:"
             },
             {
               "id": "WCAG2:content-bij-hover-of-focus",
@@ -615,7 +550,6 @@
               "level": "AA",
               "handle": "Content bij hover of focus",
               "title": "Wanneer aanvullende content zichtbaar wordt en daarna weer verborgen, door het gebruik van hover met de aanwijzer of focus met het toetsenbord, gelden de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -634,12 +568,9 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             }
-          ],
-          "techniques": []
+          ]
         }
       ]
     },
@@ -665,9 +596,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Toetsenbord",
-              "title": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder dat afzonderlijke toetsaanslagen aan tijd gebonden zijn, behalve als de onderliggende functie een invoer vereist die afhangt van het pad dat de gebruiker aflegt en niet alleen van de eindpunten.",
-
-              "techniques": []
+              "title": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder dat afzonderlijke toetsaanslagen aan tijd gebonden zijn, behalve als de onderliggende functie een invoer vereist die afhangt van het pad dat de gebruiker aflegt en niet alleen van de eindpunten."
             },
             {
               "id": "WCAG2:geen-toetsenbordval",
@@ -676,9 +605,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Geen toetsenbordval",
-              "title": "Als de toetsenbordfocus met de toetsenbordinterface verplaatst kan worden naar een component van de pagina, dan kan de focus ook met alleen de toetsenbordinterface weer van dat component weg worden bewogen. En, als er meer nodig is dan de standaard pijl- of tabtoetsen of andere standaard methoden om de focus te verplaatsen, dan wordt de gebruiker geïnformeerd over de manier waarop de focus kan worden verplaatst.",
-
-              "techniques": []
+              "title": "Als de toetsenbordfocus met de toetsenbordinterface verplaatst kan worden naar een component van de pagina, dan kan de focus ook met alleen de toetsenbordinterface weer van dat component weg worden bewogen. En, als er meer nodig is dan de standaard pijl- of tabtoetsen of andere standaard methoden om de focus te verplaatsen, dan wordt de gebruiker geïnformeerd over de manier waarop de focus kan worden verplaatst."
             },
             {
               "id": "WCAG2:toetsenbord-geen-uitzondering",
@@ -687,9 +614,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Toetsenbord (geen uitzondering)",
-              "title": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder specifieke timing te vereisen voor de individuele toetsaanslagen",
-
-              "techniques": []
+              "title": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder specifieke timing te vereisen voor de individuele toetsaanslagen"
             },
             {
               "id": "WCAG2:enkel-teken-sneltoetsen",
@@ -699,7 +624,6 @@
               "level": "A",
               "handle": "Enkel teken sneltoetsen",
               "title": "Wanneer een sneltoets in content wordt geïmplementeerd door alleen letters (inclusief hoofdletters en kleine letters), leestekens, cijfers of symbolen te gebruiken, geldt ten minste één van de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -718,12 +642,9 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:genoeg-tijd",
@@ -741,7 +662,6 @@
               "level": "A",
               "handle": "Timing aanpasbaar",
               "title": "Voor elke tijdslimiet die door de content wordt ingesteld, geldt ten minste één van de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -772,9 +692,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:pauzeren-stoppen-verbergen",
@@ -784,7 +702,6 @@
               "level": "A",
               "handle": "Pauzeren, stoppen, verbergen",
               "title": "Voor alle bewegende, knipperende, scrollende of automatisch actualiserende informatie gelden alle volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -799,9 +716,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:geen-timing",
@@ -810,9 +725,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Geen timing",
-              "title": "Timing is geen essentieel onderdeel van de gebeurtenis of activiteit die door de content wordt weergegeven, behalve voor niet-interactieve gesynchroniseerde media en real-time gebeurtenissen.",
-
-              "techniques": []
+              "title": "Timing is geen essentieel onderdeel van de gebeurtenis of activiteit die door de content wordt weergegeven, behalve voor niet-interactieve gesynchroniseerde media en real-time gebeurtenissen."
             },
             {
               "id": "WCAG2:onderbrekingen",
@@ -821,9 +734,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Onderbrekingen",
-              "title": "Onderbrekingen kunnen uitgesteld of uitgezet worden door de gebruiker, behalve onderbrekingen die met een noodsituatie samenhangen.",
-
-              "techniques": []
+              "title": "Onderbrekingen kunnen uitgesteld of uitgezet worden door de gebruiker, behalve onderbrekingen die met een noodsituatie samenhangen."
             },
             {
               "id": "WCAG2:herauthentisering",
@@ -832,9 +743,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Herauthentisering",
-              "title": "Als een geauthentiseerde sessie verloopt, kan de gebruiker na herauthentisering de activiteit zonder gegevensverlies voortzetten.",
-
-              "techniques": []
+              "title": "Als een geauthentiseerde sessie verloopt, kan de gebruiker na herauthentisering de activiteit zonder gegevensverlies voortzetten."
             },
             {
               "id": "WCAG2:time-outs",
@@ -843,12 +752,9 @@
               "versions": ["2.1"],
               "level": "AAA",
               "handle": "Time-outs",
-              "title": "Gebruikers worden gewaarschuwd voor een periode van gebruikersinactiviteit die kan leiden tot verlies van gegevens, tenzij de gegevens gedurende meer dan 20 uur worden bewaard wanneer de gebruiker geen actie onderneemt.",
-
-              "techniques": []
+              "title": "Gebruikers worden gewaarschuwd voor een periode van gebruikersinactiviteit die kan leiden tot verlies van gegevens, tenzij de gegevens gedurende meer dan 20 uur worden bewaard wanneer de gebruiker geen actie onderneemt."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:toevallen-en-fysieke-reacties",
@@ -865,9 +771,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Drie flitsen of beneden drempelwaarde",
-              "title": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde of de flits is beneden de algemene flits- en rodeflitsdrempelwaarden.",
-
-              "techniques": []
+              "title": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde of de flits is beneden de algemene flits- en rodeflitsdrempelwaarden."
             },
             {
               "id": "WCAG2:drie-flitsen",
@@ -876,9 +780,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Drie flitsen",
-              "title": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde.",
-
-              "techniques": []
+              "title": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde."
             },
             {
               "id": "WCAG2:animatie-uit-interacties",
@@ -887,12 +789,9 @@
               "versions": ["2.1"],
               "level": "AAA",
               "handle": "Animatie uit interacties",
-              "title": "Bewegingsanimatie die door interactie wordt geactiveerd, kan worden uitgeschakeld, behalve als de animatie essentieel is voor de functionaliteit of voor de informatie die wordt overgebracht.",
-
-              "techniques": []
+              "title": "Bewegingsanimatie die door interactie wordt geactiveerd, kan worden uitgeschakeld, behalve als de animatie essentieel is voor de functionaliteit of voor de informatie die wordt overgebracht."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:navigeerbaar",
@@ -909,9 +808,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Blokken omzeilen",
-              "title": "Er is een mechanisme beschikbaar om blokken content die op meerdere webpagina's worden herhaald te omzeilen.",
-
-              "techniques": []
+              "title": "Er is een mechanisme beschikbaar om blokken content die op meerdere webpagina's worden herhaald te omzeilen."
             },
             {
               "id": "WCAG2:paginatitel",
@@ -920,9 +817,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Paginatitel",
-              "title": "Webpagina's hebben titels die het onderwerp of doel beschrijven.",
-
-              "techniques": []
+              "title": "Webpagina's hebben titels die het onderwerp of doel beschrijven."
             },
             {
               "id": "WCAG2:focus-volgorde",
@@ -931,9 +826,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Focus volgorde",
-              "title": "Als in webpagina's sequentieel genavigeerd kan worden en de navigatiesequenties hebben invloed op de betekenis of het gebruik, dan krijgen focusbare componenten de focus in de juiste volgorde waardoor betekenis en bedienbaarheid behouden blijft.",
-
-              "techniques": []
+              "title": "Als in webpagina's sequentieel genavigeerd kan worden en de navigatiesequenties hebben invloed op de betekenis of het gebruik, dan krijgen focusbare componenten de focus in de juiste volgorde waardoor betekenis en bedienbaarheid behouden blijft."
             },
             {
               "id": "WCAG2:linkdoel-in-context",
@@ -942,9 +835,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Linkdoel (in context)",
-              "title": "Het linkdoel kan bepaald worden uit enkel de linktekst of uit de linktekst samen met zijn door software bepaalde linkcontext, behalve daar waar het doel van de link een dubbelzinnige betekenis kan hebben voor gebruikers in het algemeen.",
-
-              "techniques": []
+              "title": "Het linkdoel kan bepaald worden uit enkel de linktekst of uit de linktekst samen met zijn door software bepaalde linkcontext, behalve daar waar het doel van de link een dubbelzinnige betekenis kan hebben voor gebruikers in het algemeen."
             },
             {
               "id": "WCAG2:meerdere-manieren",
@@ -953,9 +844,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Meerdere manieren",
-              "title": "Er is meer dan één manier beschikbaar om een webpagina binnen een verzameling webpagina's te vinden, behalve wanneer de webpagina het resultaat is van, of een stap in, een proces.",
-
-              "techniques": []
+              "title": "Er is meer dan één manier beschikbaar om een webpagina binnen een verzameling webpagina's te vinden, behalve wanneer de webpagina het resultaat is van, of een stap in, een proces."
             },
             {
               "id": "WCAG2:koppen-en-labels",
@@ -964,9 +853,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Koppen en labels",
-              "title": "Koppen en labels beschrijven het onderwerp of doel.",
-
-              "techniques": []
+              "title": "Koppen en labels beschrijven het onderwerp of doel."
             },
             {
               "id": "WCAG2:focus-zichtbaar",
@@ -975,9 +862,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Focus zichtbaar",
-              "title": "Elke gebruikersinterface die met een toetsenbord te bedienen is, heeft een bedieningswijze waarbij de indicator van de toetsenbordfocus zichtbaar is.",
-
-              "techniques": []
+              "title": "Elke gebruikersinterface die met een toetsenbord te bedienen is, heeft een bedieningswijze waarbij de indicator van de toetsenbordfocus zichtbaar is."
             },
             {
               "id": "WCAG2:locatie",
@@ -986,9 +871,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Locatie",
-              "title": "Informatie over de locatie van de gebruiker binnen een verzameling webpagina's is beschikbaar.",
-
-              "techniques": []
+              "title": "Informatie over de locatie van de gebruiker binnen een verzameling webpagina's is beschikbaar."
             },
             {
               "id": "WCAG2:linkdoel-alleen-link",
@@ -997,9 +880,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Linkdoel (alleen link)",
-              "title": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn.",
-
-              "techniques": []
+              "title": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn."
             },
             {
               "id": "WCAG2:paragraafkoppen",
@@ -1008,12 +889,9 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Paragraafkoppen",
-              "title": "Paragraaf koppen worden gebruikt om de content te structureren.",
-
-              "techniques": []
+              "title": "Paragraaf koppen worden gebruikt om de content te structureren."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:input-modaliteiten",
@@ -1030,9 +908,7 @@
               "versions": ["2.1"],
               "level": "A",
               "handle": "Aanwijzergebaren",
-              "title": "Alle functionaliteit waarmee bij de bediening gebruik wordt gemaakt van meerpunts- of padgebaseerde gebaren, kan worden bediend met een enkele aanwijzer zonder een padgebaseerd gebaar, tenzij een meerpunts- of padgebaseerd gebaar essentieel is.",
-
-              "techniques": []
+              "title": "Alle functionaliteit waarmee bij de bediening gebruik wordt gemaakt van meerpunts- of padgebaseerde gebaren, kan worden bediend met een enkele aanwijzer zonder een padgebaseerd gebaar, tenzij een meerpunts- of padgebaseerd gebaar essentieel is."
             },
             {
               "id": "WCAG2:aanwijzerannulering",
@@ -1042,7 +918,6 @@
               "level": "A",
               "handle": "Aanwijzerannulering",
               "title": "Voor functionaliteit die kan worden bediend met een enkele aanwijzer, geldt ten minste één van de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -1065,9 +940,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:label-in-naam",
@@ -1076,9 +949,7 @@
               "versions": ["2.1"],
               "level": "A",
               "handle": "Label in naam",
-              "title": "Bij componenten van de gebruikersinterface met labels die tekst of afbeeldingen van tekst bevatten, bevat de naam de tekst die visueel wordt weergegeven.",
-
-              "techniques": []
+              "title": "Bij componenten van de gebruikersinterface met labels die tekst of afbeeldingen van tekst bevatten, bevat de naam de tekst die visueel wordt weergegeven."
             },
             {
               "id": "WCAG2:bewegingsactivering",
@@ -1088,7 +959,6 @@
               "level": "A",
               "handle": "Bewegingsactivering",
               "title": "Functionaliteit die kan worden bediend door de beweging van een apparaat of beweging van een gebruiker, kan ook worden bediend met componenten van de gebruikersinterface. De reactie op de beweging kan worden uitgeschakeld om onbedoelde activering te voorkomen, behalve wanneer:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -1103,9 +973,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:grootte-van-het-aanwijsgebied",
@@ -1115,7 +983,6 @@
               "level": "AAA",
               "handle": "Grootte van het aanwijsgebied",
               "title": "De grootte van het doelgebied voor aanwijzerinvoer is ten minste 44 bij 44 CSS-pixels, behalve in de volgende gevallen:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -1138,9 +1005,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:input-gelijktijdige-invoermechanismen",
@@ -1149,12 +1014,9 @@
               "versions": ["2.1"],
               "level": "AAA",
               "handle": "Input gelijktijdige invoermechanismen",
-              "title": "Webcontent beperkt niet het gebruik van de invoermanieren die op een platform beschikbaar zijn, behalve wanneer de beperking essentieel is, deze vereist is om de beveiliging van de content te garanderen of deze vereist is om gebruikersinstellingen te beschermen.",
-
-              "techniques": []
+              "title": "Webcontent beperkt niet het gebruik van de invoermanieren die op een platform beschikbaar zijn, behalve wanneer de beperking essentieel is, deze vereist is om de beveiliging van de content te garanderen of deze vereist is om gebruikersinstellingen te beschermen."
             }
-          ],
-          "techniques": []
+          ]
         }
       ]
     },
@@ -1180,9 +1042,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Taal van de pagina",
-              "title": "De standaard menselijke taal van diverse webpagina's kan door software bepaald worden.",
-
-              "techniques": []
+              "title": "De standaard menselijke taal van diverse webpagina's kan door software bepaald worden."
             },
             {
               "id": "WCAG2:taal-van-onderdelen",
@@ -1191,9 +1051,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Taal van onderdelen",
-              "title": "De menselijke taal van elke passage of zin in de content kan door software bepaald worden, behalve waar het gaat om eigennamen, technische termen, woorden uit een onbepaalde taal en woorden of zinsdelen die deel zijn gaan uitmaken van het jargon van de onmiddellijk omringende tekst.",
-
-              "techniques": []
+              "title": "De menselijke taal van elke passage of zin in de content kan door software bepaald worden, behalve waar het gaat om eigennamen, technische termen, woorden uit een onbepaalde taal en woorden of zinsdelen die deel zijn gaan uitmaken van het jargon van de onmiddellijk omringende tekst."
             },
             {
               "id": "WCAG2:ongebruikelijke-woorden",
@@ -1202,9 +1060,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Ongebruikelijke woorden",
-              "title": "Er is een mechanisme beschikbaar voor de identificatie van specifieke definities van woorden of zinsdelen die op een ongebruikelijke of beperkte manier gebruikt worden, inclusief idiomatische uitdrukkingen en jargon.",
-
-              "techniques": []
+              "title": "Er is een mechanisme beschikbaar voor de identificatie van specifieke definities van woorden of zinsdelen die op een ongebruikelijke of beperkte manier gebruikt worden, inclusief idiomatische uitdrukkingen en jargon."
             },
             {
               "id": "WCAG2:afkortingen",
@@ -1213,9 +1069,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Afkortingen",
-              "title": "Er is een mechanisme beschikbaar voor de identificatie van de voluit geschreven vorm of betekenis van afkortingen.",
-
-              "techniques": []
+              "title": "Er is een mechanisme beschikbaar voor de identificatie van de voluit geschreven vorm of betekenis van afkortingen."
             },
             {
               "id": "WCAG2:leesniveau",
@@ -1224,9 +1078,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Leesniveau",
-              "title": "Als tekst, nadat eigennamen en titels verwijderd zijn, een leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau, dan is aanvullende content beschikbaar, of er is een versie beschikbaar die geen leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau.",
-
-              "techniques": []
+              "title": "Als tekst, nadat eigennamen en titels verwijderd zijn, een leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau, dan is aanvullende content beschikbaar, of er is een versie beschikbaar die geen leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau."
             },
             {
               "id": "WCAG2:uitspraak",
@@ -1235,12 +1087,9 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Uitspraak",
-              "title": "Er is een mechanisme beschikbaar voor het vaststellen van de specifieke uitspraak van woorden indien de betekenis van de woorden in de context dubbelzinnig is zonder kennis van de uitspraak.",
-
-              "techniques": []
+              "title": "Er is een mechanisme beschikbaar voor het vaststellen van de specifieke uitspraak van woorden indien de betekenis van de woorden in de context dubbelzinnig is zonder kennis van de uitspraak."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:voorspelbaar",
@@ -1257,9 +1106,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Bij focus",
-              "title": "Als een component van de gebruikersinterface de focus krijgt, dan veroorzaakt dat geen contextwijziging.",
-
-              "techniques": []
+              "title": "Als een component van de gebruikersinterface de focus krijgt, dan veroorzaakt dat geen contextwijziging."
             },
             {
               "id": "WCAG2:bij-input",
@@ -1268,9 +1115,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Bij input",
-              "title": "Verandering van de instelling van een component van de gebruikersinterface veroorzaakt niet automatisch een contextwijziging, tenzij de gebruiker geïnformeerd is over het gedrag vóór het gebruik van de component.",
-
-              "techniques": []
+              "title": "Verandering van de instelling van een component van de gebruikersinterface veroorzaakt niet automatisch een contextwijziging, tenzij de gebruiker geïnformeerd is over het gedrag vóór het gebruik van de component."
             },
             {
               "id": "WCAG2:consistente-navigatie",
@@ -1279,9 +1124,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Consistente navigatie",
-              "title": "Navigatiemechanismen, die op meerdere webpagina's binnen een verzameling webpagina's herhaald worden, komen elke keer dat ze worden herhaald in dezelfde relatieve volgorde voor, tenzij een verandering wordt geïnitieerd door de gebruiker.",
-
-              "techniques": []
+              "title": "Navigatiemechanismen, die op meerdere webpagina's binnen een verzameling webpagina's herhaald worden, komen elke keer dat ze worden herhaald in dezelfde relatieve volgorde voor, tenzij een verandering wordt geïnitieerd door de gebruiker."
             },
             {
               "id": "WCAG2:consistente-identificatie",
@@ -1290,9 +1133,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Consistente identificatie",
-              "title": "Componenten die dezelfde functionaliteit hebben binnen een verzameling webpagina's worden consistent geïdentificeerd.",
-
-              "techniques": []
+              "title": "Componenten die dezelfde functionaliteit hebben binnen een verzameling webpagina's worden consistent geïdentificeerd."
             },
             {
               "id": "WCAG2:verandering-op-verzoek",
@@ -1301,12 +1142,9 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Verandering op verzoek",
-              "title": "Contextwijzigingen worden alleen geïnitieerd op verzoek van de gebruiker of er is een mechanisme beschikbaar om zulke veranderingen uit te zetten.",
-
-              "techniques": []
+              "title": "Contextwijzigingen worden alleen geïnitieerd op verzoek van de gebruiker of er is een mechanisme beschikbaar om zulke veranderingen uit te zetten."
             }
-          ],
-          "techniques": []
+          ]
         },
         {
           "id": "WCAG2:assistentie-bij-invoer",
@@ -1323,9 +1161,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Foutidentificatie",
-              "title": "Als een invoerfout automatisch ontdekt wordt, dan wordt het onderdeel waar de fout zit geïdentificeerd en wordt de fout tekstueel aan de gebruiker meegedeeld.",
-
-              "techniques": []
+              "title": "Als een invoerfout automatisch ontdekt wordt, dan wordt het onderdeel waar de fout zit geïdentificeerd en wordt de fout tekstueel aan de gebruiker meegedeeld."
             },
             {
               "id": "WCAG2:labels-of-instructies",
@@ -1334,9 +1170,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Labels of instructies",
-              "title": "Als de content gebruikersinvoer vereist, dan worden labels of instructies geleverd.",
-
-              "techniques": []
+              "title": "Als de content gebruikersinvoer vereist, dan worden labels of instructies geleverd."
             },
             {
               "id": "WCAG2:foutsuggestie",
@@ -1345,9 +1179,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AA",
               "handle": "Foutsuggestie",
-              "title": "Als een invoerfout automatisch ontdekt wordt en suggesties voor verbetering bekend zijn, dan worden de suggesties aan de gebruiker geleverd, tenzij dit de beveiliging of het doel van de content in gevaar zou brengen.",
-
-              "techniques": []
+              "title": "Als een invoerfout automatisch ontdekt wordt en suggesties voor verbetering bekend zijn, dan worden de suggesties aan de gebruiker geleverd, tenzij dit de beveiliging of het doel van de content in gevaar zou brengen."
             },
             {
               "id": "WCAG2:foutpreventie-wettelijk-financieel-gegevens",
@@ -1357,7 +1189,6 @@
               "level": "AA",
               "handle": "Foutpreventie (wettelijk, financieel, gegevens)",
               "title": "Voor webpagina's die wettelijke verplichtingen of financiële transacties voor de gebruiker uitvoeren, die, door gebruikers bedienbaar gegevens in gegevensopslagplaatsen verwijderen of wijzigen, of die antwoorden van de gebruiker verzenden, geldt ten minste één van de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -1376,9 +1207,7 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             },
             {
               "id": "WCAG2:hulp",
@@ -1387,9 +1216,7 @@
               "versions": ["2.0", "2.1"],
               "level": "AAA",
               "handle": "Hulp",
-              "title": "Contextgevoelige hulp is beschikbaar.",
-
-              "techniques": []
+              "title": "Contextgevoelige hulp is beschikbaar."
             },
             {
               "id": "WCAG2:foutpreventie-alle",
@@ -1399,7 +1226,6 @@
               "level": "AAA",
               "handle": "Foutpreventie (alle)",
               "title": "Voor webpagina's die vereisen dat de gebruiker informatie invoert en verzendt, geldt ten minste één van de volgende zaken:",
-
               "details": [
                 {
                   "type": "ulist",
@@ -1418,12 +1244,9 @@
                     }
                   ]
                 }
-              ],
-
-              "techniques": []
+              ]
             }
-          ],
-          "techniques": []
+          ]
         }
       ]
     },
@@ -1449,9 +1272,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Parsen",
-              "title": "In content die geïmplementeerd is met opmaaktalen hebben elementen volledige begin- en eindtags, zijn elementen genest volgens hun specificatie, bevatten elementen geen dubbele attributen en zijn alle ID's uniek, behalve waar de specificatie deze eigenschappen toelaat.",
-
-              "techniques": []
+              "title": "In content die geïmplementeerd is met opmaaktalen hebben elementen volledige begin- en eindtags, zijn elementen genest volgens hun specificatie, bevatten elementen geen dubbele attributen en zijn alle ID's uniek, behalve waar de specificatie deze eigenschappen toelaat."
             },
             {
               "id": "WCAG2:naam-rol-waarde",
@@ -1460,9 +1281,7 @@
               "versions": ["2.0", "2.1"],
               "level": "A",
               "handle": "Naam, rol, waarde",
-              "title": "Voor alle componenten van de gebruikersinterface (inclusief, maar niet uitsluitend voor formulierelementen, links en door scripts gegenereerde componenten), kunnen de naam (name) en rol (role) door software bepaald worden; toestanden (states), eigenschappen (properties) en waarden (values) die door de gebruiker ingesteld kunnen worden, kunnen door software ingesteld worden; en kennisgeving van veranderingen in deze items is beschikbaar voor user agents, met inbegrip van hulptechnologieën.",
-
-              "techniques": []
+              "title": "Voor alle componenten van de gebruikersinterface (inclusief, maar niet uitsluitend voor formulierelementen, links en door scripts gegenereerde componenten), kunnen de naam (name) en rol (role) door software bepaald worden; toestanden (states), eigenschappen (properties) en waarden (values) die door de gebruiker ingesteld kunnen worden, kunnen door software ingesteld worden; en kennisgeving van veranderingen in deze items is beschikbaar voor user agents, met inbegrip van hulptechnologieën."
             },
             {
               "id": "WCAG2:statusberichten",
@@ -1471,12 +1290,9 @@
               "versions": ["2.1"],
               "level": "AA",
               "handle": "Statusberichten",
-              "title": "In content die is geïmplementeerd met opmaaktalen kunnen statusberichten door software bepaald worden met behulp van rol (role) of eigenschappen (properties), zodat hulptechnologieën de berichten aan de gebruiker kunnen presenteren zonder dat ze de focus krijgen.",
-
-              "techniques": []
+              "title": "In content die is geïmplementeerd met opmaaktalen kunnen statusberichten door software bepaald worden met behulp van rol (role) of eigenschappen (properties), zodat hulptechnologieën de berichten aan de gebruiker kunnen presenteren zonder dat ze de focus krijgen."
             }
-          ],
-          "techniques": []
+          ]
         }
       ]
     }
