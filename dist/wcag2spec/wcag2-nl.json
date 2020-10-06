@@ -1,14 +1,14 @@
 {
   "principles": [
     {
-      "id": "WCAG2:waarneembaar",
+      "id": "WCAG2:perceivable",
       "num": "1",
       "versions": ["2.0", "2.1"],
       "handle": "Waarneembaar",
       "text": "Informatie en componenten van de gebruikersinterface moeten toonbaar zijn aan gebruikers op voor hen waarneembare wijze.",
       "guidelines": [
         {
-          "id": "WCAG2:tekstalternatieven",
+          "id": "WCAG2:text-alternatives",
           "alt_id": [],
           "num": "1.1",
           "versions": ["2.0", "2.1"],
@@ -16,7 +16,7 @@
           "text": "Lever tekstalternatieven voor alle niet-tekstuele content, zodat die veranderd kan worden in andere vormen die mensen nodig hebben, zoals grote letters, braille, spraak, symbolen of eenvoudigere taal.",
           "successcriteria": [
             {
-              "id": "WCAG2:niet-tekstuele-content",
+              "id": "WCAG2:non-text-content",
               "alt_id": [],
               "num": "1.1.1",
               "versions": ["2.0", "2.1"],
@@ -58,7 +58,7 @@
           ]
         },
         {
-          "id": "WCAG2:op-tijd-gebaseerde-media",
+          "id": "WCAG2:time-based-media",
           "alt_id": [],
           "num": "1.2",
           "versions": ["2.0", "2.1"],
@@ -66,7 +66,7 @@
           "text": "Lever alternatieven voor op tijd gebaseerde media.",
           "successcriteria": [
             {
-              "id": "WCAG2:louter-geluid-en-louter-videobeeld-vooraf-opgenomen",
+                "id": "WCAG2:audio-only-and-video-only-prerecorded",
               "alt_id": [],
               "num": "1.2.1",
               "versions": ["2.0", "2.1"],
@@ -90,7 +90,7 @@
               ]
             },
             {
-              "id": "WCAG2:ondertitels-voor-doven-en-slechthorenden-vooraf-opgenomen",
+              "id": "WCAG2:captions-prerecorded",
               "alt_id": [],
               "num": "1.2.2",
               "versions": ["2.0", "2.1"],
@@ -99,7 +99,7 @@
               "text": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld."
             },
             {
-              "id": "WCAG2:audiodescriptie-of-media-alternatief-vooraf-opgenomen",
+              "id": "WCAG2:audio-description-or-media-alternative-prerecorded",
               "alt_id": [],
               "num": "1.2.3",
               "versions": ["2.0", "2.1"],
@@ -108,7 +108,7 @@
               "text": "Er wordt een alternatief geleverd voor op tijd gebaseerde media of audiodescriptie van de vooraf opgenomen videocontent geleverd voor gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld."
             },
             {
-              "id": "WCAG2:ondertitels-voor-doven-en-slechthorenden-live",
+              "id": "WCAG2:captions-live",
               "alt_id": [],
               "num": "1.2.4",
               "versions": ["2.0", "2.1"],
@@ -117,7 +117,7 @@
               "text": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle live audiocontent in gesynchroniseerde media."
             },
             {
-              "id": "WCAG2:audiodescriptie-vooraf-opgenomen",
+              "id": "WCAG2:audio-description-prerecorded",
               "alt_id": [],
               "num": "1.2.5",
               "versions": ["2.0", "2.1"],
@@ -126,7 +126,7 @@
               "text": "Er wordt een audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media."
             },
             {
-              "id": "WCAG2:gebarentaal-vooraf-opgenomen",
+              "id": "WCAG2:sign-language-prerecorded",
               "alt_id": [],
               "num": "1.2.6",
               "versions": ["2.0", "2.1"],
@@ -135,7 +135,7 @@
               "text": "Er wordt een gebarentaalvertolking geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media."
             },
             {
-              "id": "WCAG2:verlengde-audiodescriptie-vooraf-opgenomen",
+              "id": "WCAG2:extended-audio-description-prerecorded",
               "alt_id": [],
               "num": "1.2.7",
               "versions": ["2.0", "2.1"],
@@ -144,7 +144,7 @@
               "text": "Waar pauzes in voorgrondgeluid onvoldoende zijn om audiodescripties toe te passen om de boodschap van de video over te brengen, wordt een verlengde audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media."
             },
             {
-              "id": "WCAG2:media-alternatief-vooraf-opgenomen",
+              "id": "WCAG2:media-alternative-prerecorded",
               "alt_id": [],
               "num": "1.2.8",
               "versions": ["2.0", "2.1"],
@@ -153,7 +153,7 @@
               "text": "Er wordt een alternatief geleverd voor op tijd gebaseerde media voor alle vooraf opgenomen gesynchroniseerde media en voor alle vooraf opgenomen louter-videobeeld media."
             },
             {
-              "id": "WCAG2:louter-geluid-live",
+              "id": "WCAG2:audio-only-live",
               "alt_id": [],
               "num": "1.2.9",
               "versions": ["2.0", "2.1"],
@@ -164,7 +164,7 @@
           ]
         },
         {
-          "id": "WCAG2:aanpasbaar",
+          "id": "WCAG2:adaptable",
           "alt_id": [],
           "num": "1.3",
           "versions": ["2.0", "2.1"],
@@ -172,7 +172,7 @@
           "text": "Creëer content die op verschillende manieren gepresenteerd kan worden (bijvoorbeeld eenvoudiger lay-out) zonder verlies van informatie of structuur.",
           "successcriteria": [
             {
-              "id": "WCAG2:info-en-relaties",
+              "id": "WCAG2:info-and-relationships",
               "alt_id": [],
               "num": "1.3.1",
               "versions": ["2.0", "2.1"],
@@ -181,7 +181,7 @@
               "text": "Informatie, structuur en relaties overgebracht door presentatie kunnen door software bepaald worden of zijn beschikbaar in tekst."
             },
             {
-              "id": "WCAG2:betekenisvolle-volgorde",
+              "id": "WCAG2:meaningful-sequence",
               "alt_id": [],
               "num": "1.3.2",
               "versions": ["2.0", "2.1"],
@@ -190,7 +190,7 @@
               "text": "Als de volgorde waarin content wordt gepresenteerd van invloed is op zijn betekenis, kan een correcte leesvolgorde door software bepaald worden."
             },
             {
-              "id": "WCAG2:zintuiglijke-eigenschappen",
+              "id": "WCAG2:sensory-characteristics",
               "alt_id": [],
               "num": "1.3.3",
               "versions": ["2.0", "2.1"],
@@ -199,7 +199,7 @@
               "text": "Instructies die geleverd worden om content te begrijpen en te bedienen zijn niet alleen afhankelijk van zintuiglijke eigenschappen van componenten zoals vorm, kleur, omvang, visuele locatie, oriëntatie of geluid."
             },
             {
-              "id": "WCAG2:weergavestand",
+              "id": "WCAG2:orientation",
               "alt_id": [],
               "num": "1.3.4",
               "versions": ["2.1"],
@@ -208,7 +208,7 @@
               "text": "De content beperkt de weergave en bediening niet tot een enkele presentatie-oriëntatie, zoals staand of liggend, tenzij een specifieke presentatie-oriëntatie essentieel is."
             },
             {
-              "id": "WCAG2:identificeer-het-doel-van-de-input",
+              "id": "WCAG2:identify-input-purpose",
               "alt_id": [],
               "num": "1.3.5",
               "versions": ["2.1"],
@@ -217,7 +217,7 @@
               "text": "Het doel van elk invoerveld waarmee informatie van de gebruiker wordt verzameld, kan door software bepaald worden wanneer:"
             },
             {
-              "id": "WCAG2:identificeer-het-doel",
+              "id": "WCAG2:identify-purpose",
               "alt_id": [],
               "num": "1.3.6",
               "versions": ["2.1"],
@@ -228,7 +228,7 @@
           ]
         },
         {
-          "id": "WCAG2:onderscheidbaar",
+          "id": "WCAG2:distinguishable",
           "alt_id": [],
           "num": "1.4",
           "versions": ["2.0", "2.1"],
@@ -236,7 +236,7 @@
           "text": "Maak het voor gebruikers gemakkelijker om content te horen en te zien, waaronder scheiding van voorgrond en achtergrond.",
           "successcriteria": [
             {
-              "id": "WCAG2:gebruik-van-kleur",
+              "id": "WCAG2:use-of-color",
               "alt_id": [],
               "num": "1.4.1",
               "versions": ["2.0", "2.1"],
@@ -245,7 +245,7 @@
               "text": "Kleur wordt niet als het enige visuele middel gebruikt om informatie over te brengen, een actie aan te geven, tot een reactie op te roepen of een visueel element te onderscheiden."
             },
             {
-              "id": "WCAG2:geluidsbediening",
+              "id": "WCAG2:audio-control",
               "alt_id": [],
               "num": "1.4.2",
               "versions": ["2.0", "2.1"],
@@ -280,121 +280,9 @@
                   ]
                 }
               ],
-              "techniques": [
-                {
-                  "sufficient": [
-                    {
-                      "situations": [
-                        {
-                          "text": "Situation A: text is less than 18 point if not bold and less than 14 point if bold",
-                          "techniques": [
-                            {
-                              "id": "TECH:G18",
-                              "text": "Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text"
-                            },
-                            {
-                              "id": "TECH:G148",
-                              "text": "Not specifying background color, not specifying text color, and not using technology features that change those defaults"
-                            },
-                            {
-                              "id": "TECH:G174",
-                              "text": "Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast"
-                            },
-                            {
-                              "id": "TECH:SL13",
-                              "text": "Providing A Style Switcher To Switch To High Contrast"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Situation B: text is at least 18 point if not bold and at least 14 point if bold",
-                          "techniques": [
-                            {
-                              "id": "TECH:G145",
-                              "text": "Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text"
-                            },
-                            {
-                              "id": "TECH:G148",
-                              "text": "Not specifying background color, not specifying text color, and not using technology features that change those defaults"
-                            },
-                            {
-                              "id": "TECH:G174",
-                              "text": "Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast"
-                            },
-                            {
-                              "id": "TECH:SL13",
-                              "text": "Providing A Style Switcher To Switch To High Contrast"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "advisory": [
-                    {
-                      "id": "TECH:G156",
-                      "text": "Using a technology that has commonly-available user agents that can change the foreground and background of blocks of text"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using a higher contrast value for text that is over a patterned background (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using Unicode text and style sheets instead of images of text (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using a higher contrast values for lines in diagrams (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using greater contrast level for red-black text/background combinations (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using colors that are composed predominantly of mid spectral components for the light and spectral extremes (blue and red wavelengths) for the dark"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using a light pastel background rather than a white background behind black text to create sufficient but not extreme contrast (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Making icons using simple line drawings that meet the contrast provisions for text (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Providing sufficient contrast ratio in graphs and charts (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Using a 3:1 contrast ratio or higher as the default presentation (future link)"
-                    },
-                    {
-                      "id": "TECH:future-contrast-minimum-1",
-                      "text": "Providing sufficient color contrast for empty text fields (future link)"
-                    }
-                  ]
-                },
-                {
-                  "failure": [
-                    {
-                      "id": "TECH:F24",
-                      "text": "Failure of Success Criterion 1.4.3, 1.4.6 and 1.4.8 due to specifying foreground colors without specifying background colors or vice versa"
-                    },
-                    {
-                      "id": "TECH:F83",
-                      "text": "Failure of Success Criterion 1.4.3 and 1.4.6 due to using background images that do not provide sufficient contrast with foreground text (or images of text)"
-                    }
-                  ]
-                }
-              ]
             },
             {
-              "id": "WCAG2:herschalen-van-tekst",
+              "id": "WCAG2:resize-text",
               "alt_id": [],
               "num": "1.4.4",
               "versions": ["2.0", "2.1"],
@@ -403,7 +291,7 @@
               "text": "Behalve voor ondertitels voor doven en slechthorenden en afbeeldingen van tekst, kan tekst zonder hulptechnologie tot 200% geschaald worden zonder verlies van content of functionaliteit."
             },
             {
-              "id": "WCAG2:afbeeldingen-van-tekst",
+              "id": "WCAG2:images-of-text",
               "alt_id": [],
               "num": "1.4.5",
               "versions": ["2.0", "2.1"],
@@ -427,7 +315,7 @@
               ]
             },
             {
-              "id": "WCAG2:contrast-versterkt",
+              "id": "WCAG2:contrast-enhanced",
               "alt_id": [],
               "num": "1.4.6",
               "versions": ["2.0", "2.1"],
@@ -455,7 +343,7 @@
               ]
             },
             {
-              "id": "WCAG2:weinig-of-geen-achtergrondgeluid",
+              "id": "WCAG2:low-or-no-background-audio",
               "alt_id": [],
               "num": "1.4.7",
               "versions": ["2.0", "2.1"],
@@ -483,7 +371,7 @@
               ]
             },
             {
-              "id": "WCAG2:visuele-weergave",
+              "id": "WCAG2:visual-presentation",
               "alt_id": [],
               "num": "1.4.8",
               "versions": ["2.0", "2.1"],
@@ -492,7 +380,7 @@
               "text": "Voor de visuele weergave van tekstblokken is een mechanisme beschikbaar om het volgende te realiseren:"
             },
             {
-              "id": "WCAG2:afbeeldingen-van-tekst-geen-uitzondering",
+              "id": "WCAG2:images-of-text-no-exception",
               "alt_id": [],
               "num": "1.4.9",
               "versions": ["2.0", "2.1"],
@@ -510,7 +398,7 @@
               "text": "Content kan zonder verlies van informatie of functionaliteit en zonder te moeten scrollen in twee dimensies, worden weergegeven voor:"
             },
             {
-              "id": "WCAG2:contrast-van-niet-tekstuele-content",
+              "id": "WCAG2:non-text-contrast",
               "alt_id": [],
               "num": "1.4.11",
               "versions": ["2.1"],
@@ -534,7 +422,7 @@
               ]
             },
             {
-              "id": "WCAG2:tekstafstand",
+              "id": "WCAG2:text-spacing",
               "alt_id": [],
               "num": "1.4.12",
               "versions": ["2.1"],
@@ -543,7 +431,7 @@
               "text": "Bij content die wordt geïmplementeerd met opmaaktalen die de volgende stijleigenschappen voor tekst ondersteunen, is er geen sprake van verlies van content of functionaliteit door het instellen van alle volgende, en door het niet wijzigen van andere stijleigenschappen:"
             },
             {
-              "id": "WCAG2:content-bij-hover-of-focus",
+              "id": "WCAG2:content-on-hover-or-focus",
               "alt_id": [],
               "num": "1.4.13",
               "versions": ["2.1"],
@@ -575,14 +463,14 @@
       ]
     },
     {
-      "id": "WCAG2:bedienbaar",
+      "id": "WCAG2:operable",
       "num": "2",
       "versions": ["2.0", "2.1"],
       "handle": "Bedienbaar",
       "text": "Componenten van de gebruikersinterface en navigatie moeten bedienbaar zijn.",
       "guidelines": [
         {
-          "id": "WCAG2:toetsenbordtoegankelijk",
+          "id": "WCAG2:keyboard-accessible",
           "alt_id": [],
           "num": "2.1",
           "versions": ["2.0", "2.1"],
@@ -590,7 +478,7 @@
           "text": "Maak alle functionaliteit beschikbaar vanaf een toetsenbord.",
           "successcriteria": [
             {
-              "id": "WCAG2:toetsenbord",
+              "id": "WCAG2:keyboard",
               "alt_id": [],
               "num": "2.1.1",
               "versions": ["2.0", "2.1"],
@@ -599,7 +487,7 @@
               "text": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder dat afzonderlijke toetsaanslagen aan tijd gebonden zijn, behalve als de onderliggende functie een invoer vereist die afhangt van het pad dat de gebruiker aflegt en niet alleen van de eindpunten."
             },
             {
-              "id": "WCAG2:geen-toetsenbordval",
+              "id": "WCAG2:no-keyboard-trap",
               "alt_id": [],
               "num": "2.1.2",
               "versions": ["2.0", "2.1"],
@@ -608,7 +496,7 @@
               "text": "Als de toetsenbordfocus met de toetsenbordinterface verplaatst kan worden naar een component van de pagina, dan kan de focus ook met alleen de toetsenbordinterface weer van dat component weg worden bewogen. En, als er meer nodig is dan de standaard pijl- of tabtoetsen of andere standaard methoden om de focus te verplaatsen, dan wordt de gebruiker geïnformeerd over de manier waarop de focus kan worden verplaatst."
             },
             {
-              "id": "WCAG2:toetsenbord-geen-uitzondering",
+              "id": "WCAG2:keyboard-no-exception",
               "alt_id": [],
               "num": "2.1.3",
               "versions": ["2.0", "2.1"],
@@ -617,7 +505,7 @@
               "text": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder specifieke timing te vereisen voor de individuele toetsaanslagen"
             },
             {
-              "id": "WCAG2:enkel-teken-sneltoetsen",
+              "id": "WCAG2:character-key-shortcuts",
               "alt_id": [],
               "num": "2.1.4",
               "versions": ["2.1"],
@@ -647,7 +535,7 @@
           ]
         },
         {
-          "id": "WCAG2:genoeg-tijd",
+          "id": "WCAG2:enough-time",
           "alt_id": [],
           "num": "2.2",
           "versions": ["2.0", "2.1"],
@@ -655,7 +543,7 @@
           "text": "Geef gebruikers genoeg tijd om content te lezen en te gebruiken.",
           "successcriteria": [
             {
-              "id": "WCAG2:timing-aanpasbaar",
+              "id": "WCAG2:timing-adjustable",
               "alt_id": [],
               "num": "2.2.1",
               "versions": ["2.0", "2.1"],
@@ -695,7 +583,7 @@
               ]
             },
             {
-              "id": "WCAG2:pauzeren-stoppen-verbergen",
+              "id": "WCAG2:pause-stop-hide",
               "alt_id": [],
               "num": "2.2.2",
               "versions": ["2.0", "2.1"],
@@ -719,7 +607,7 @@
               ]
             },
             {
-              "id": "WCAG2:geen-timing",
+              "id": "WCAG2:no-timing",
               "alt_id": [],
               "num": "2.2.3",
               "versions": ["2.0", "2.1"],
@@ -728,7 +616,7 @@
               "text": "Timing is geen essentieel onderdeel van de gebeurtenis of activiteit die door de content wordt weergegeven, behalve voor niet-interactieve gesynchroniseerde media en real-time gebeurtenissen."
             },
             {
-              "id": "WCAG2:onderbrekingen",
+              "id": "WCAG2:interruptions",
               "alt_id": [],
               "num": "2.2.4",
               "versions": ["2.0", "2.1"],
@@ -737,7 +625,7 @@
               "text": "Onderbrekingen kunnen uitgesteld of uitgezet worden door de gebruiker, behalve onderbrekingen die met een noodsituatie samenhangen."
             },
             {
-              "id": "WCAG2:herauthentisering",
+              "id": "WCAG2:re-authenticating",
               "alt_id": [],
               "num": "2.2.5",
               "versions": ["2.0", "2.1"],
@@ -746,7 +634,7 @@
               "text": "Als een geauthentiseerde sessie verloopt, kan de gebruiker na herauthentisering de activiteit zonder gegevensverlies voortzetten."
             },
             {
-              "id": "WCAG2:time-outs",
+              "id": "WCAG2:timeouts",
               "alt_id": [],
               "num": "2.2.6",
               "versions": ["2.1"],
@@ -757,7 +645,7 @@
           ]
         },
         {
-          "id": "WCAG2:toevallen-en-fysieke-reacties",
+          "id": "WCAG2:seizures-and-physical-reactions",
           "alt_id": [],
           "num": "2.3",
           "versions": ["2.1"],
@@ -765,7 +653,7 @@
           "text": "Ontwerp content niet op een manier waarvan bekend is dat die toevallen of fysieke reacties veroorzaakt.",
           "successcriteria": [
             {
-              "id": "WCAG2:drie-flitsen-of-beneden-drempelwaarde",
+              "id": "WCAG2:three-flashes-or-below-threshold",
               "alt_id": [],
               "num": "2.3.1",
               "versions": ["2.0", "2.1"],
@@ -774,7 +662,7 @@
               "text": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde of de flits is beneden de algemene flits- en rodeflitsdrempelwaarden."
             },
             {
-              "id": "WCAG2:drie-flitsen",
+              "id": "WCAG2:three-flashes",
               "alt_id": [],
               "num": "2.3.2",
               "versions": ["2.0", "2.1"],
@@ -783,7 +671,7 @@
               "text": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde."
             },
             {
-              "id": "WCAG2:animatie-uit-interacties",
+              "id": "WCAG2:animation-from-interactions",
               "alt_id": [],
               "num": "2.3.3",
               "versions": ["2.1"],
@@ -794,7 +682,7 @@
           ]
         },
         {
-          "id": "WCAG2:navigeerbaar",
+          "id": "WCAG2:navigable",
           "alt_id": [],
           "num": "2.4",
           "versions": ["2.0", "2.1"],
@@ -802,7 +690,7 @@
           "text": "Lever manieren om gebruikers te helpen navigeren, content te vinden en te bepalen waar ze zijn.",
           "successcriteria": [
             {
-              "id": "WCAG2:blokken-omzeilen",
+              "id": "WCAG2:bypass-blocks",
               "alt_id": [],
               "num": "2.4.1",
               "versions": ["2.0", "2.1"],
@@ -811,7 +699,7 @@
               "text": "Er is een mechanisme beschikbaar om blokken content die op meerdere webpagina's worden herhaald te omzeilen."
             },
             {
-              "id": "WCAG2:paginatitel",
+              "id": "WCAG2:page-titled",
               "alt_id": [],
               "num": "2.4.2",
               "versions": ["2.0", "2.1"],
@@ -820,7 +708,7 @@
               "text": "Webpagina's hebben titels die het onderwerp of doel beschrijven."
             },
             {
-              "id": "WCAG2:focus-volgorde",
+              "id": "WCAG2:focus-order",
               "alt_id": [],
               "num": "2.4.3",
               "versions": ["2.0", "2.1"],
@@ -829,7 +717,7 @@
               "text": "Als in webpagina's sequentieel genavigeerd kan worden en de navigatiesequenties hebben invloed op de betekenis of het gebruik, dan krijgen focusbare componenten de focus in de juiste volgorde waardoor betekenis en bedienbaarheid behouden blijft."
             },
             {
-              "id": "WCAG2:linkdoel-in-context",
+              "id": "WCAG2:link-purpose-in-context",
               "alt_id": [],
               "num": "2.4.4",
               "versions": ["2.0", "2.1"],
@@ -838,7 +726,7 @@
               "text": "Het linkdoel kan bepaald worden uit enkel de linktekst of uit de linktekst samen met zijn door software bepaalde linkcontext, behalve daar waar het doel van de link een dubbelzinnige betekenis kan hebben voor gebruikers in het algemeen."
             },
             {
-              "id": "WCAG2:meerdere-manieren",
+              "id": "WCAG2:multiple-ways",
               "alt_id": [],
               "num": "2.4.5",
               "versions": ["2.0", "2.1"],
@@ -847,7 +735,7 @@
               "text": "Er is meer dan één manier beschikbaar om een webpagina binnen een verzameling webpagina's te vinden, behalve wanneer de webpagina het resultaat is van, of een stap in, een proces."
             },
             {
-              "id": "WCAG2:koppen-en-labels",
+              "id": "WCAG2:headings-and-labels",
               "alt_id": [],
               "num": "2.4.6",
               "versions": ["2.0", "2.1"],
@@ -856,7 +744,7 @@
               "text": "Koppen en labels beschrijven het onderwerp of doel."
             },
             {
-              "id": "WCAG2:focus-zichtbaar",
+              "id": "WCAG2:focus-visible",
               "alt_id": [],
               "num": "2.4.7",
               "versions": ["2.0", "2.1"],
@@ -865,7 +753,7 @@
               "text": "Elke gebruikersinterface die met een toetsenbord te bedienen is, heeft een bedieningswijze waarbij de indicator van de toetsenbordfocus zichtbaar is."
             },
             {
-              "id": "WCAG2:locatie",
+              "id": "WCAG2:location",
               "alt_id": [],
               "num": "2.4.8",
               "versions": ["2.0", "2.1"],
@@ -874,7 +762,7 @@
               "text": "Informatie over de locatie van de gebruiker binnen een verzameling webpagina's is beschikbaar."
             },
             {
-              "id": "WCAG2:linkdoel-alleen-link",
+              "id": "WCAG2:link-purpose-link-only",
               "alt_id": [],
               "num": "2.4.9",
               "versions": ["2.0", "2.1"],
@@ -883,7 +771,7 @@
               "text": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn."
             },
             {
-              "id": "WCAG2:paragraafkoppen",
+              "id": "WCAG2:section-headings",
               "alt_id": [],
               "num": "2.4.10",
               "versions": ["2.0", "2.1"],
@@ -894,7 +782,7 @@
           ]
         },
         {
-          "id": "WCAG2:input-modaliteiten",
+          "id": "WCAG2:input-modalities",
           "alt_id": [],
           "num": "2.5",
           "versions": ["2.1"],
@@ -902,7 +790,7 @@
           "text": "Maak het eenvoudiger voor gebruikers om de functionaliteit te bedienen met andere vormen van invoer dan alleen het toetsenbord.",
           "successcriteria": [
             {
-              "id": "WCAG2:aanwijzergebaren",
+              "id": "WCAG2:pointer-gestures",
               "alt_id": [],
               "num": "2.5.1",
               "versions": ["2.1"],
@@ -911,7 +799,7 @@
               "text": "Alle functionaliteit waarmee bij de bediening gebruik wordt gemaakt van meerpunts- of padgebaseerde gebaren, kan worden bediend met een enkele aanwijzer zonder een padgebaseerd gebaar, tenzij een meerpunts- of padgebaseerd gebaar essentieel is."
             },
             {
-              "id": "WCAG2:aanwijzerannulering",
+              "id": "WCAG2:pointer-cancellation",
               "alt_id": [],
               "num": "2.5.2",
               "versions": ["2.1"],
@@ -943,7 +831,7 @@
               ]
             },
             {
-              "id": "WCAG2:label-in-naam",
+              "id": "WCAG2:label-in-name",
               "alt_id": [],
               "num": "2.5.3",
               "versions": ["2.1"],
@@ -952,7 +840,7 @@
               "text": "Bij componenten van de gebruikersinterface met labels die tekst of afbeeldingen van tekst bevatten, bevat de naam de tekst die visueel wordt weergegeven."
             },
             {
-              "id": "WCAG2:bewegingsactivering",
+              "id": "WCAG2:motion-actuation",
               "alt_id": [],
               "num": "2.5.4",
               "versions": ["2.1"],
@@ -976,7 +864,7 @@
               ]
             },
             {
-              "id": "WCAG2:grootte-van-het-aanwijsgebied",
+              "id": "WCAG2:target-size",
               "alt_id": [],
               "num": "2.5.5",
               "versions": ["2.1"],
@@ -1008,7 +896,7 @@
               ]
             },
             {
-              "id": "WCAG2:input-gelijktijdige-invoermechanismen",
+              "id": "WCAG2:concurrent-input-mechanisms",
               "alt_id": [],
               "num": "2.5.6",
               "versions": ["2.1"],
@@ -1021,14 +909,14 @@
       ]
     },
     {
-      "id": "WCAG2:begrijpelijk",
+      "id": "WCAG2:understandable",
       "num": "3",
       "versions": ["2.0", "2.1"],
       "handle": "Begrijpelijk",
       "text": "Informatie en de bediening van de gebruikersinterface moeten begrijpelijk zijn.",
       "guidelines": [
         {
-          "id": "WCAG2:leesbaar",
+          "id": "WCAG2:readable",
           "alt_id": [],
           "num": "3.1",
           "versions": ["2.0", "2.1"],
@@ -1036,7 +924,7 @@
           "text": "Maak tekstcontent leesbaar en begrijpelijk.",
           "successcriteria": [
             {
-              "id": "WCAG2:taal-van-de-pagina",
+              "id": "WCAG2:language-of-page",
               "alt_id": [],
               "num": "3.1.1",
               "versions": ["2.0", "2.1"],
@@ -1045,7 +933,7 @@
               "text": "De standaard menselijke taal van diverse webpagina's kan door software bepaald worden."
             },
             {
-              "id": "WCAG2:taal-van-onderdelen",
+              "id": "WCAG2:language-of-parts",
               "alt_id": [],
               "num": "3.1.2",
               "versions": ["2.0", "2.1"],
@@ -1054,7 +942,7 @@
               "text": "De menselijke taal van elke passage of zin in de content kan door software bepaald worden, behalve waar het gaat om eigennamen, technische termen, woorden uit een onbepaalde taal en woorden of zinsdelen die deel zijn gaan uitmaken van het jargon van de onmiddellijk omringende tekst."
             },
             {
-              "id": "WCAG2:ongebruikelijke-woorden",
+              "id": "WCAG2:unusual-words",
               "alt_id": [],
               "num": "3.1.3",
               "versions": ["2.0", "2.1"],
@@ -1063,7 +951,7 @@
               "text": "Er is een mechanisme beschikbaar voor de identificatie van specifieke definities van woorden of zinsdelen die op een ongebruikelijke of beperkte manier gebruikt worden, inclusief idiomatische uitdrukkingen en jargon."
             },
             {
-              "id": "WCAG2:afkortingen",
+              "id": "WCAG2:abbreviations",
               "alt_id": [],
               "num": "3.1.4",
               "versions": ["2.0", "2.1"],
@@ -1072,7 +960,7 @@
               "text": "Er is een mechanisme beschikbaar voor de identificatie van de voluit geschreven vorm of betekenis van afkortingen."
             },
             {
-              "id": "WCAG2:leesniveau",
+              "id": "WCAG2:reading-level",
               "alt_id": [],
               "num": "3.1.5",
               "versions": ["2.0", "2.1"],
@@ -1081,7 +969,7 @@
               "text": "Als tekst, nadat eigennamen en titels verwijderd zijn, een leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau, dan is aanvullende content beschikbaar, of er is een versie beschikbaar die geen leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau."
             },
             {
-              "id": "WCAG2:uitspraak",
+              "id": "WCAG2:pronunciation",
               "alt_id": [],
               "num": "3.1.6",
               "versions": ["2.0", "2.1"],
@@ -1092,7 +980,7 @@
           ]
         },
         {
-          "id": "WCAG2:voorspelbaar",
+          "id": "WCAG2:predictable",
           "alt_id": [],
           "num": "3.2",
           "versions": ["2.0", "2.1"],
@@ -1100,7 +988,7 @@
           "text": "Maak het uiterlijk en de bediening van webpagina's voorspelbaar.",
           "successcriteria": [
             {
-              "id": "WCAG2:bij-focus",
+              "id": "WCAG2:on-focus",
               "alt_id": [],
               "num": "3.2.1",
               "versions": ["2.0", "2.1"],
@@ -1109,7 +997,7 @@
               "text": "Als een component van de gebruikersinterface de focus krijgt, dan veroorzaakt dat geen contextwijziging."
             },
             {
-              "id": "WCAG2:bij-input",
+              "id": "WCAG2:on-input",
               "alt_id": [],
               "num": "3.2.2",
               "versions": ["2.0", "2.1"],
@@ -1118,7 +1006,7 @@
               "text": "Verandering van de instelling van een component van de gebruikersinterface veroorzaakt niet automatisch een contextwijziging, tenzij de gebruiker geïnformeerd is over het gedrag vóór het gebruik van de component."
             },
             {
-              "id": "WCAG2:consistente-navigatie",
+              "id": "WCAG2:consistent-navigation",
               "alt_id": [],
               "num": "3.2.3",
               "versions": ["2.0", "2.1"],
@@ -1127,7 +1015,7 @@
               "text": "Navigatiemechanismen, die op meerdere webpagina's binnen een verzameling webpagina's herhaald worden, komen elke keer dat ze worden herhaald in dezelfde relatieve volgorde voor, tenzij een verandering wordt geïnitieerd door de gebruiker."
             },
             {
-              "id": "WCAG2:consistente-identificatie",
+              "id": "WCAG2:consistent-identification",
               "alt_id": [],
               "num": "3.2.4",
               "versions": ["2.0", "2.1"],
@@ -1136,7 +1024,7 @@
               "text": "Componenten die dezelfde functionaliteit hebben binnen een verzameling webpagina's worden consistent geïdentificeerd."
             },
             {
-              "id": "WCAG2:verandering-op-verzoek",
+              "id": "WCAG2:change-on-request",
               "alt_id": [],
               "num": "3.2.5",
               "versions": ["2.0", "2.1"],
@@ -1147,7 +1035,7 @@
           ]
         },
         {
-          "id": "WCAG2:assistentie-bij-invoer",
+          "id": "WCAG2:input-assistance",
           "alt_id": [],
           "num": "3.3",
           "versions": ["2.0", "2.1"],
@@ -1155,7 +1043,7 @@
           "text": "Help gebruikers om fouten te vermijden en ze te verbeteren.",
           "successcriteria": [
             {
-              "id": "WCAG2:foutidentificatie",
+              "id": "WCAG2:error-identification",
               "alt_id": [],
               "num": "3.3.1",
               "versions": ["2.0", "2.1"],
@@ -1164,7 +1052,7 @@
               "text": "Als een invoerfout automatisch ontdekt wordt, dan wordt het onderdeel waar de fout zit geïdentificeerd en wordt de fout tekstueel aan de gebruiker meegedeeld."
             },
             {
-              "id": "WCAG2:labels-of-instructies",
+              "id": "WCAG2:labels-or-instructions",
               "alt_id": [],
               "num": "3.3.2",
               "versions": ["2.0", "2.1"],
@@ -1173,7 +1061,7 @@
               "text": "Als de content gebruikersinvoer vereist, dan worden labels of instructies geleverd."
             },
             {
-              "id": "WCAG2:foutsuggestie",
+              "id": "WCAG2:error-suggestion",
               "alt_id": [],
               "num": "3.3.3",
               "versions": ["2.0", "2.1"],
@@ -1182,7 +1070,7 @@
               "text": "Als een invoerfout automatisch ontdekt wordt en suggesties voor verbetering bekend zijn, dan worden de suggesties aan de gebruiker geleverd, tenzij dit de beveiliging of het doel van de content in gevaar zou brengen."
             },
             {
-              "id": "WCAG2:foutpreventie-wettelijk-financieel-gegevens",
+              "id": "WCAG2:error-prevention-legal-financial-data",
               "alt_id": [],
               "num": "3.3.4",
               "versions": ["2.0", "2.1"],
@@ -1210,7 +1098,7 @@
               ]
             },
             {
-              "id": "WCAG2:hulp",
+              "id": "WCAG2:help",
               "alt_id": [],
               "num": "3.3.5",
               "versions": ["2.0", "2.1"],
@@ -1219,7 +1107,7 @@
               "text": "Contextgevoelige hulp is beschikbaar."
             },
             {
-              "id": "WCAG2:foutpreventie-alle",
+              "id": "WCAG2:error-prevention-all",
               "alt_id": [],
               "num": "3.3.6",
               "versions": ["2.0", "2.1"],
@@ -1251,14 +1139,14 @@
       ]
     },
     {
-      "id": "WCAG2:robuust",
+      "id": "WCAG2:robust",
       "num": "4",
       "versions": ["2.0", "2.1"],
       "handle": "Robuust",
       "text": "Content moet voldoende robuust zijn om betrouwbaar geïnterpreteerd te kunnen worden door een breed scala van user agents, met inbegrip van hulptechnologieën.",
       "guidelines": [
         {
-          "id": "WCAG2:compatibel",
+          "id": "WCAG2:compatible",
           "alt_id": [],
           "num": "4.1",
           "versions": ["2.0", "2.1"],
@@ -1266,7 +1154,7 @@
           "text": "Maximaliseer compatibiliteit met huidige en toekomstige user agents, met inbegrip van hulptechnologieën.",
           "successcriteria": [
             {
-              "id": "WCAG2:parsen",
+              "id": "WCAG2:parsing",
               "alt_id": [],
               "num": "4.1.1",
               "versions": ["2.0", "2.1"],
@@ -1275,7 +1163,7 @@
               "text": "In content die geïmplementeerd is met opmaaktalen hebben elementen volledige begin- en eindtags, zijn elementen genest volgens hun specificatie, bevatten elementen geen dubbele attributen en zijn alle ID's uniek, behalve waar de specificatie deze eigenschappen toelaat."
             },
             {
-              "id": "WCAG2:naam-rol-waarde",
+              "id": "WCAG2:name-role-value",
               "alt_id": [],
               "num": "4.1.2",
               "versions": ["2.0", "2.1"],
@@ -1284,7 +1172,7 @@
               "text": "Voor alle componenten van de gebruikersinterface (inclusief, maar niet uitsluitend voor formulierelementen, links en door scripts gegenereerde componenten), kunnen de naam (name) en rol (role) door software bepaald worden; toestanden (states), eigenschappen (properties) en waarden (values) die door de gebruiker ingesteld kunnen worden, kunnen door software ingesteld worden; en kennisgeving van veranderingen in deze items is beschikbaar voor user agents, met inbegrip van hulptechnologieën."
             },
             {
-              "id": "WCAG2:statusberichten",
+              "id": "WCAG2:status-messages",
               "alt_id": [],
               "num": "4.1.3",
               "versions": ["2.1"],
