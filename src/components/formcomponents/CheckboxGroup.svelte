@@ -58,10 +58,6 @@
   const dispatch = createEventDispatcher();
 
   function handleCheckboxAdd(event) {
-    console.log('CheckboxGroup:handleAdd', event);
-
-    console.log(options);
-
     const newOption = {
       title: event.detail.join(),
       // checked: true
