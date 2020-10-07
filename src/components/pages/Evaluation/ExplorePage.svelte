@@ -13,15 +13,6 @@
       on:change="{handleTechnologiesChange}"
     />
 
-    <div class="AddInput">
-      <Input
-        id="technologies_relied_upon--add"
-        label="{$translate('PAGES.EXPLORE.LABEL_OTHER')} {$translate('PAGES.EXPLORE.LABEL_TECH')}"
-      />
-      <button type="button" class="button-secondary">Add {$translate('PAGES.EXPLORE.LABEL_OTHER')}
-        {$translate('PAGES.EXPLORE.LABEL_TECH')}</button>
-    </div>
-
     <div>
       {$translate('PAGES.EXPLORE.PLH_TECH')}<br />
       {$translate('PAGES.EXPLORE.LABEL_TECH_SPEC')}<br />
