@@ -1,4 +1,4 @@
-<fieldset id="{id}" class="field">
+<fieldset id="{id}" class="CheckboxGroup field">
   <legend>{label}</legend>
 
   <ol>
