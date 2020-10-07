@@ -12,7 +12,11 @@
  *
  * -->
 <div class="AddOther__container">
-  <div class="AddOther__Inputs" bind:this="{otherInputs}">
+  <div
+    class="AddOther__Inputs"
+    bind:this="{otherInputsContainer}"
+    on:keyup="{handleAddKeyup}"
+  >
     <slot />
   </div>
   <button type="button" class="button-secondary" on:click="{handleAddClick}">Add {label}</button>
@@ -28,21 +32,50 @@
 </style>
 
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
 
   export let label;
 
   const dispatch = createEventDispatcher();
 
+  let otherInputsContainer;
   let otherInputs;
 
-  function handleAddClick(event) {
-    const inputs = Array.from(
-      otherInputs.querySelectorAll('input, select, textarea')
+  onMount(() => {
+    otherInputs = Array.from(
+      otherInputsContainer.querySelectorAll('input, select, textarea')
     );
-    const detail = inputs.map((input) => {
+  });
+
+  function handleAddKeyup(event) {
+    if (event.key.toLowerCase() === 'enter') {
+      event.preventDefault();
+
+      dispatchAdd();
+    }
+  }
+
+  function handleAddClick(event) {
+    event.preventDefault();
+    dispatchAdd();
+  }
+
+  function dispatchAdd() {
+    // At least one input should have data
+    if (!otherInputs.some((input) => input.value !== '')) {
+      return;
+    }
+
+    const detail = otherInputs.map((input) => {
       return input.value;
     });
+
+    // Clear fields
+    otherInputs.forEach((input) => {
+      input.value = '';
+    });
+
+    otherInputs[0].focus();
 
     dispatch('ADD', detail);
   }
