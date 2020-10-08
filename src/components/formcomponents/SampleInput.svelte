@@ -36,13 +36,14 @@
         {/each}
       </ol>
     {:else}
-    <p>
-      <em>{$translate('PAGES.SAMPLE.NO_PAGES_DEFINED')}</em>
-    </p>
+      <p><em>{$translate('PAGES.SAMPLE.NO_PAGES_DEFINED')}</em></p>
     {/if}
   </div>
 
-  <AddOther label="{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}" on:ADD="{handleAdd}">
+  <AddOther
+    label="{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}"
+    on:ADD="{handleAdd}"
+  >
     <Input id="{id}__name" label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}" />
     <Input id="{id}__href" label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}" />
   </AddOther>
@@ -60,19 +61,16 @@
 <script>
   import { t as translate } from 'svelte-i18n';
 
-  import Details from '../Details.svelte';
   import AddOther from './AddOther.svelte';
+  import Details from '../Details.svelte';
   import Input from './Input.svelte';
 
   export let id;
   export let label;
-  export let itemname = 'new';
   export let helptext;
   export let value = [];
 
   let valueContainer;
-
-  let itemID = itemname.toLowerCase().replace(/[^\w\d_]+/g, '_');
 
   function handleAdd(event) {
     const newSample = {
