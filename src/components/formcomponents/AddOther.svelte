@@ -15,7 +15,7 @@
   <div
     class="AddOther__Inputs"
     bind:this="{otherInputsContainer}"
-    on:keyup="{handleAddKeyup}"
+    on:keydown="{handleAddKeydown}"
   >
     <slot />
   </div>
@@ -49,7 +49,7 @@
     );
   });
 
-  function handleAddKeyup(event) {
+  function handleAddKeydown(event) {
     if (event.key.toLowerCase() === 'enter') {
       event.preventDefault();
 
