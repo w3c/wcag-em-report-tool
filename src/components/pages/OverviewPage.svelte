@@ -6,11 +6,11 @@
   <p>
     {@html $translate('PAGES.START.INTRO_1', { values: links })}
   </p>
-  <p>{@html $translate('PAGES.START.INTRO_2')}</p>
+  <p>
+    {@html $translate('PAGES.START.INTRO_2')}
+  </p>
 
-  <Details
-    label="<h2>{$translate('PAGES.START.USAGE_HD')}</h2>"
-  >
+  <Details label="<h2>{$translate('PAGES.START.USAGE_HD')}</h2>">
     <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
     <ul>
       <li>{$translate('PAGES.START.USAGE_LI1')}</li>
@@ -30,21 +30,18 @@
   </Details>
 </Page>
 
-<Panel title="Start&shy;menu">
-  <button
-    type="button"
-    class="button-primary"
-  ><span>Start a <strong>new</strong> evaluation</span></button>
-  <button
-    type="button"
-    class="button-secondary"
-  ><span><strong>Open</strong> a saved evaluation</span></button>
+<Panel title="Start­menu">
+  <Button><span>Start a <strong>new</strong> evaluation</span></Button>
+  <Button type="secondary">
+    <span><strong>Open</strong> a saved evaluation</span>
+  </Button>
 </Panel>
 <!-- /@Page -->
 
 <script>
   import { t as translate } from 'svelte-i18n';
 
+  import Button from '../Button.svelte';
   import Details from '../Details.svelte';
   import Page from '../Page.svelte';
   import Panel from '../Panel.svelte';
