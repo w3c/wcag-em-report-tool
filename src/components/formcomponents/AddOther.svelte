@@ -19,7 +19,7 @@
   >
     <slot />
   </div>
-  <button type="button" class="button-secondary" on:click="{handleAddClick}">{label}</button>
+  <Button type="secondary" on:click="{handleAddClick}">{label}</Button>
 </div>
 
 <style>
@@ -33,6 +33,8 @@
 
 <script>
   import { onMount, createEventDispatcher } from 'svelte';
+
+  import Button from '../Button.svelte';
 
   export let label = 'Add';
 
