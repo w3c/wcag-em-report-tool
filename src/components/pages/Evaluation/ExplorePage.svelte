@@ -44,7 +44,6 @@
   import CheckboxGroup, {
     getValue as CheckboxGroupValue
   } from '../../formcomponents/CheckboxGroup.svelte';
-  import Input from '../../formcomponents/Input.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   function handleTechnologiesChange(event) {
