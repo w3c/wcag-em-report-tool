@@ -25,13 +25,15 @@
       <ol title="{label}">
         {#each value as item}
           <li>
-            {#if item.href !== '' && item.title !== ''}
+            {#if item.href !== ''}
               <a
                 href="{item.href}"
                 target="_blank"
                 rel="noreferrer noopener"
-              >{item.title}</a> ({item.href})
-            {:else if item.title !== ''}{item.title}{:else}{item.href}{/if}
+              >{#if item.title !== ''}{item.title}{:else}{item.href}{/if}</a> ({item.href})
+            {:else}
+              {item.title}
+            {/if}
           </li>
         {/each}
       </ol>
