@@ -1,4 +1,34 @@
-<div>
+<div class="Auditor">
+
+  <div class="Auditor__Filter box">
+    <header>
+      {$translate('UI.AUDITOR.FILTER_TITLE', {default: 'Filter findings by'})}
+    </header>
+    <div class="Auditor__Filters">
+
+      <MultipleChoice
+        id="filter_wcag_version"
+        label="Criterion WCAG Version"
+        options={[
+          'WCAG 2.0',
+          'WCAG 2.1',
+          'WCAG 2.2'
+        ]}
+      />
+
+      <MultipleChoice
+        id="filter_conformance_level"
+        label="Criterion conformance level"
+        options={[
+          'Level A',
+          'Level AA',
+          'Level AAA'
+        ]}
+      />
+
+    </div>
+  </div>
+
   {#if assertions.length > 0}
     <ul class="Auditor__Assertions">
       {#each assertions as assertion}
@@ -25,8 +55,11 @@
 </style>
 
 <script>
+  import {t as translate} from 'svelte-i18n';
+
   import WCAG21 from '../data/wcag/WCAG21.json';
   import Assertion from './formcomponents/Assertion.svelte';
+  import MultipleChoice from './formcomponents/MultipleChoice.svelte';
 
   // Quick data, needs to come from context/store
   let assertions = WCAG21;
