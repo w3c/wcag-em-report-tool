@@ -1,13 +1,13 @@
-<Page title="{$translate('REPORT.TITLE')}">
-  <p>{$translate('REPORT.INTRO')}</p>
+<Page title="{$translate('PAGES.REPORT.TITLE')}">
+  <p>{@html $translate('PAGES.REPORT.INTRO')}</p>
 
   <p class="info">ReportComponent here</p>
 </Page>
 
 <Panel title="Export evaluation">
-  <p>Download and customize this evaluation report.</p>
-  <button type="button" class="button-primary">Download the evaluation report (HTML)</button>
-  <button type="button" class="button-secondary">Download the evaluation data (JSON-LD)</button>
+  <p>{$translate('PAGES.REPORT.DOWNLOAD_REPORT')}</p>
+  <button type="button" class="button-primary">{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</button>
+  <button type="button" class="button-secondary">{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</button>
 </Panel>
 
 <script>
