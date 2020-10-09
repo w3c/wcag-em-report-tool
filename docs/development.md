@@ -26,11 +26,35 @@ See `.prettierrc.js` for prettier configuration for Svelte (3).
   - pages; `{Component}Page.svelte`
   - forms; `{Component}Form.svelte`
 
+- Component events
+
+  - Custom events fired by createEventDispatcher should be uppercase; `CUSTOM_EVENT` with the exception of firing normal events.
+
+  ```html
+  <!-- Normal event -->
+  <Tag on:click />
+
+  <!-- With custom event -->
+  <Tag on:CUSTOM_EVENT />
+
+  <!-- Dispatching a normal as custom event should use the default lowercasing -->
+  <script>
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
+    // dispatching a normal event
+    dispatch('click', {/* details */});
+  </script>
+  ```
+
 - Component styling
 
   - Do not set top-level margins, only set child component margins;
 
     > Component context should decide spacing between children
+
+
 
 ### HTML
 
