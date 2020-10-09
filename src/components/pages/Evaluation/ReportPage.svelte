@@ -1,7 +1,7 @@
 <Page title="{$translate('PAGES.REPORT.TITLE')}">
   <p>{@html $translate('PAGES.REPORT.INTRO')}</p>
 
-  <p class="info">ReportComponent here</p>
+  <Report />
 </Page>
 
 <Panel title="Export evaluation">
@@ -15,4 +15,5 @@
 
   import Page from '../../Page.svelte';
   import Panel from '../../Panel.svelte';
+  import Report from '../../Report.svelte';
 </script>
