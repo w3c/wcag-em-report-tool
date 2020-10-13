@@ -169,8 +169,6 @@
   export let num;
   export let conformanceLevel;
 
-  console.log(Object.keys($dictionary));
-
   // Dynamicly get the amount of details from the dictionairy
   let details = Object.keys($dictionary[`${$locale}`]).filter((key) => {
     return (
