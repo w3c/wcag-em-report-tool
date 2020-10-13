@@ -70,5 +70,5 @@
   import Select from '../../formcomponents/Select.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
-  const { scopeStore } = getContext('appContext');
+  const { scopeStore } = getContext('app');
 </script>

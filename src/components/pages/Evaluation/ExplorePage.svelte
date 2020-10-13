@@ -11,6 +11,7 @@
       options="{[{ title: 'HTML5' }, { title: 'XHTML 1.0' }, { title: 'HTML 4.01' }, { title: 'CSS' }, { title: 'WAI-ARIA' }, { title: 'ECMAScript 3' }, { title: 'ECMAScript 5' }, { title: 'DOM' }, { title: 'Flash' }, { title: 'Silverlight' }, { title: 'OOXML' }, { title: 'ODF 1.2' }, { title: 'SVG' }]}"
       editable="{true}"
       on:change="{handleTechnologiesChange}"
+      bind:value="{$exploreStore['TECHNOLOGIES_RELIED_UPON']}"
     />
 
     <div>
@@ -26,18 +27,21 @@
         id="essential_functionality"
         label="{$translate('PAGES.EXPLORE.LABEL_ESSENT_FUNC')}"
         helptext="{$translate('PAGES.EXPLORE.INF_ESSENT_FUNC')}"
+        bind:value="{$exploreStore['ESSENTIAL_FUNCTIONALITY']}"
       />
 
       <Textarea
         id="page_types"
         label="{$translate('PAGES.EXPLORE.LABEL_VARIETY_PAGE_TYPES')}"
         helptext="{$translate('PAGES.EXPLORE.INF_VARIETY_PAGE_TYPES')}"
+        bind:value="{$exploreStore['PAGE_TYPES']}"
       />
     </fieldset>
   </form>
 </Page>
 
 <script>
+  import { getContext } from 'svelte';
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../../Page.svelte';
@@ -45,6 +49,8 @@
     getValue as CheckboxGroupValue
   } from '../../formcomponents/CheckboxGroup.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
+
+  const { exploreStore } = getContext('app');
 
   function handleTechnologiesChange(event) {
     console.log('TECHVALUE', CheckboxGroupValue());

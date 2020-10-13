@@ -42,12 +42,16 @@
   import { setContext } from 'svelte';
   import { isLoading } from 'svelte-i18n';
 
+  import exploreStore from './data/stores/exploreStore.js';
   import scopeStore from './data/stores/scopeStore.js';
 
   import IndexRoute from './routes/IndexRoute.svelte';
 
   export let basepath = '/';
 
-  setContext('appContext', {scopeStore});
+  setContext('app', {
+    exploreStore,
+    scopeStore
+  });
 
 </script>
