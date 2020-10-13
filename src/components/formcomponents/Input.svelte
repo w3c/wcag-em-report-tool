@@ -1,5 +1,5 @@
 <Field id="{id}" label="{label}">
-  <input id="{id}" type="text" name="" value="{value}" />
+  <input id="{id}" type="text" name="" bind:value />
 </Field>
 
 <script>

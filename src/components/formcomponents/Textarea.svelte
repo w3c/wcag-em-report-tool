@@ -1,5 +1,5 @@
 <Field id="{id}" label="{label}" helptext="{helptext}">
-  <textarea id="{id}" rows="5"></textarea>
+  <textarea id="{id}" rows="5" bind:value></textarea>
 </Field>
 
 <script>
@@ -8,4 +8,5 @@
   export let id;
   export let label;
   export let helptext;
+  export let value;
 </script>

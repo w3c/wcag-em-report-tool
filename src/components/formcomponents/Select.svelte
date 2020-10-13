@@ -9,10 +9,15 @@
  *   selected <Boolean>
  * }>
  * -->
-<Field {id} {label}>
-  <select {id} disabled={options.length === 0}>
+<Field id="{id}" label="{label}">
+  <select id="{id}" disabled="{options.length === 0}" bind:value>
     {#each options as option}
-      <option value="{option.value || option.title || option}" selected={option.selected}>{option.title || option}</option>
+      <option
+        value="{option.value || option.title || option}"
+        selected="{option.selected}"
+      >
+        {option.title || option}
+      </option>
     {:else}
       <option value="null">No options</option>
     {/each}
@@ -26,4 +31,5 @@
   export let id;
   export let label;
   export let options = [];
+  export let value;
 </script>
