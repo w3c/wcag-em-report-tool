@@ -5,24 +5,21 @@
 <div class="Assertion">
   <header class="Assertion__Header">
     <h3 class="Assertion__Header__heading">
-      {num}: {$translate(`${num}.TITLE`)}
+      {num}: {$translate(`WCAG.WCAG21.${num}.TITLE`)}
     </h3>
     <span class="Assertion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
-  <Details label="{$translate(`${num}.TITLE`)} details">
-    <div>{$translate(`${num}.DESCRIPTION.INTRODUCTION`)}</div>
+  <Details label={`details <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}>
+    <div>{$translate(`WCAG.WCAG21.${num}.DESCRIPTION`)}</div>
 
     {#if details}
       <dl>
         {#each details as detail}
-          <dt>{$translate(`${num}.DESCRIPTION.DETAILS.${detail}.TITLE`)}</dt>
+          <dt>{$translate(`${detail}.TITLE`)}</dt>
           <dd>
             <p>
-              {$translate(`${num}.DESCRIPTION.DETAILS.${detail}.DESCRIPTION`)}
-            </p>
-            <p class="note">
-              {$translate(`${num}.DESCRIPTION.DETAILS.${detail}.NOTE`)}
+              {$translate(`${detail}.DESCRIPTION`)}
             </p>
           </dd>
         {/each}
@@ -43,8 +40,8 @@
     {/if}
 
     <div class="">
-      <ResourceLink href="#understanding">Understanding {num}</ResourceLink>
-      <ResourceLink href="#how-to-meet">How to meet {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.${num}.ID`)}.html">Understanding {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.${num}.ID`)}">How to meet {num}</ResourceLink>
     </div>
   </Details>
 
@@ -161,7 +158,7 @@
 </style>
 
 <script>
-  import { t as translate, dictionary } from 'svelte-i18n';
+  import { t as translate, dictionary, locale } from 'svelte-i18n';
 
   import Details from '../Details.svelte';
   import ResourceLink from '../ResourceLink.svelte';
@@ -172,16 +169,16 @@
   export let num;
   export let conformanceLevel;
 
-  let details;
-  let notes;
+  console.log(Object.keys($dictionary));
 
-  $: {
-    try {
-      details = Object.keys($dictionary[`WCAG21.${num}.DESCRIPTION.DETAILS`]);
-    } catch (e) {
-      details = [];
-    }
-  }
+  // Dynamicly get the amount of details from the dictionairy
+  let details = Object.keys($dictionary[`${$locale}`]).filter((key) => {
+    return (
+      key.indexOf(`WCAG.WCAG21.${num}.DETAILS`) >= 0
+      && key.indexOf('TITLE') >= 0
+    );
+  }).map(key => key.replace('.TITLE', ''));
+  let notes;
 
   $: outcomeOptions = [
     {
