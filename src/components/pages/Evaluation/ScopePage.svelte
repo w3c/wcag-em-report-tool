@@ -61,11 +61,14 @@
 </Page>
 
 <script>
-  import scopeStore from '../../../data/stores/scopeStore.js';
+  import { getContext } from 'svelte';
+
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../../Page.svelte';
   import Input from '../../formcomponents/Input.svelte';
   import Select from '../../formcomponents/Select.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
+
+  const { scopeStore } = getContext('appContext');
 </script>
