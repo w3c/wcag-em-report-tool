@@ -45,6 +45,7 @@
   import exploreStore from './data/stores/exploreStore.js';
   import sampleStore from './data/stores/sampleStore.js';
   import scopeStore from './data/stores/scopeStore.js';
+  import summaryStore from './data/stores/summaryStore.js';
 
   import IndexRoute from './routes/IndexRoute.svelte';
 
@@ -53,7 +54,8 @@
   setContext('app', {
     exploreStore,
     sampleStore,
-    scopeStore
+    scopeStore,
+    summaryStore
   });
 
 </script>
