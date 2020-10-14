@@ -4,7 +4,7 @@ const summaryStore = writable({
   EVALUATION_TITLE: '',
   EVALUATION_COMMISSIONER: '',
   EVALUATION_CREATOR: '',
-  EVALUATION_DATE: '',
+  EVALUATION_DATE: new Date(),
   EVALUATION_SUMMARY: '',
   EVALUATION_SPECIFICS: ''
 });
