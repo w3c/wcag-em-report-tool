@@ -22,14 +22,14 @@
       id="structured_sample"
       label="{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
       helptext="{$translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE')}"
-      bind:value="{sampleStore['STRUCTURED_SAMPLE']}"
+      bind:value="{$sampleStore['STRUCTURED_SAMPLE']}"
     />
 
     <SampleInput
       id="random_sample"
       label="{$translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE')}"
       helptext="{$translate('PAGES.SAMPLE.INF_RAND_SAMPLE')}"
-      bind:value="{sampleStore['RANDOM_SAMPLE']}"
+      bind:value="{$sampleStore['RANDOM_SAMPLE']}"
     >
       <p>{$translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH')}</p>
     </SampleInput>
