@@ -35,11 +35,11 @@ export default {
       targets: [
         {
           src: './src/locales/en/**/*.json',
-          dest: './src/locales/_en.json',
+          dest: './src/locales/translations_en.json',
         },
         {
           src: './src/locales/nl/**/*.json',
-          dest: './src/locales/_nl.json',
+          dest: './src/locales/translations_nl.json',
         }
       ],
       verbose: true,

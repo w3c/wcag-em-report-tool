@@ -3,8 +3,8 @@ import { register, init } from 'svelte-i18n';
 import app from './app.js';
 
 // Asynchronous loading
-register('en', () => import('../locales/_en.json'));
-register('nl', () => import('../locales/_nl.json'));
+register('en', () => import('../locales/translations_en.json'));
+register('nl', () => import('../locales/translations_nl.json'));
 
 init({
   fallbackLocale: app.defaultLocale.lang,
