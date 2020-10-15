@@ -8,12 +8,12 @@
       type="button"
       class="Editable__Control--edit"
       on:click="{toggleEditMode}"
-    >{#if editMode}Done{:else}Edit{/if}</button>
+    >{#if editMode}Done{:else}Edit{/if} {label}</button>
     <button
       type="button"
       class="Editable__Control--delete button-secondary"
       on:click="{dispatchDelete}"
-    >Delete</button>
+    >Delete {label}</button>
   </div>
 </div>
 
@@ -21,6 +21,7 @@
   import { createEventDispatcher } from 'svelte';
 
   export let id = '';
+  export let label = '';
 
   const dispatch = createEventDispatcher();
   const EVENT = {

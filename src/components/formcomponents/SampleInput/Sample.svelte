@@ -1,5 +1,6 @@
 <Editable
   id="{id}"
+  label="{title || href}"
   on:EDIT="{handleSampleEdit}"
   on:DELETE
 >
