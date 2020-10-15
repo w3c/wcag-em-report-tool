@@ -1,5 +1,5 @@
 <div class="Editable">
-  <div class="Editable__Contents" tabindex="0" title="editable text">
+  <div class="Editable__Contents">
     <slot />
   </div>
 
