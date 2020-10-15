@@ -41,7 +41,7 @@
   import { t as translate } from 'svelte-i18n';
 
   import Page from '../../Page.svelte';
-  import SampleInput from '../../formcomponents/SampleInput.svelte';
+  import SampleInput from '../../formcomponents/SampleInput/SampleInput.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   const { exploreStore, sampleStore } = getContext('app');
