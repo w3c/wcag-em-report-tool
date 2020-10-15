@@ -57,11 +57,11 @@ The format of the new WCAG translation files will look something like:
       "TITLE": "Non-text Content",
       "DESCRIPTION": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.",
       "DETAILS": {
-        "CONTROLS_INPUT": {
+        "DETAIL_0": {
           "TITLE": "Controls, Input",
           "DESCRIPTION": "If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Guideline 4.1 for additional requirements for controls and content that accepts user input.)"
         },
-        "TIME_BASED_MEDIA": {}
+        "DETAIL_1": {}
       },
     },
     "1.2.1": {}
