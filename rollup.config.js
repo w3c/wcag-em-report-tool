@@ -169,7 +169,7 @@ export default {
     exclude: [
       'node_modules/**',
       // Exclude _underscore-prefixed.files
-      '**/_*.*'
+      'src/locales/translations_*.json'
     ],
     clearScreen: false
   }
