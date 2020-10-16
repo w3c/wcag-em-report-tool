@@ -1,6 +1,6 @@
 <!--
- * @Page:Start
- * @Route:/
+ * @component
+ * Start: /
  * -->
 <Page title="{$translate('PAGES.START.SUBTITLE')}">
   <p>
@@ -29,22 +29,13 @@
     </ol>
   </Details>
 </Page>
-
-<Panel title="Start­menu">
-  <Button><span>Start a <strong>new</strong> evaluation</span></Button>
-  <Button type="secondary">
-    <span><strong>Open</strong> a saved evaluation</span>
-  </Button>
-</Panel>
-<!-- /@Page -->
+<!-- /component -->
 
 <script>
   import { t as translate } from 'svelte-i18n';
 
-  import Button from '../Button.svelte';
   import Details from '../Details.svelte';
   import Page from '../Page.svelte';
-  import Panel from '../Panel.svelte';
 
   // @todo: Add these links the locales
   // (They might be used on another page)

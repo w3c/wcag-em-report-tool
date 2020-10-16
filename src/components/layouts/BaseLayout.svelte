@@ -16,6 +16,12 @@
     label="step"
     context={routes}
   />
+
+  <Panel title="Your report">
+    <Button>View report</Button>
+    <Button type="secondary">Start new Evaluation</Button>
+    <Button type="secondary">Import findings</Button>
+  </Panel>
 </div>
 <!-- /@Layout -->
 
@@ -34,10 +40,12 @@
 <script>
   import appData from '../../data/app.js';
 
+  import Button from '../Button.svelte';
   import Header from '../Header.svelte';
   import LanguageSelect from '../i18n/LanguageSelect.svelte';
   import NavigationBar from '../NavigationBar.svelte';
   import Pager from '../Pager.svelte';
+  import Panel from '../Panel.svelte';
 
   let routes = [
     {
