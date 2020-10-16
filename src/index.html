@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -23,7 +23,7 @@
     <link href="css/global.css" rel="stylesheet" />
     <link href="bundles/app.css" rel="stylesheet" />
 
-    <!-- WAI Website Components: https://w3c.github.io/wai-website-components/index.html -->
+    <!-- WAI Website Components: https://wai-website-theme.netlify.app/components/ -->
     <link rel="stylesheet" href="https://www.w3.org/WAI/assets/css/style.css" />
 
     <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -34,8 +34,52 @@
       <!-- WCAG-EM REPORT TOOL APP CONTENTS -->
     </div>
 
+    <!-- WAI SPECIFIC BELOW -->
+    <div class="default-grid">
+      <aside
+        class="box box-icon box-space-above"
+        id="helpimprove"
+        style="-ms-grid-column: 2; -ms-grid-column-span: 8; grid-column: 2 / 8"
+      >
+        <header class="box-h box-h-icon box-h-space-above box-h-icon">
+          <svg focusable="false" aria-hidden="true" class="icon-comments">
+            <use xlink:href="images/icons.svg#icon-comments"></use>
+          </svg>
+          <h2>Help improve this page</h2>
+        </header>
+        <div class="box-i">
+          <p>
+            Please share your ideas, suggestions, or comments via e-mail to the
+            publicly-archived list
+            <a
+              href="mailto:wai-eo-editors@w3.org?subject=[en]%20Accessibility%20Fundamentals%20Overview"
+              >wai-eo-editors@w3.org</a
+            >
+            or via GitHub.
+          </p>
+          <div class="button-group">
+            <a
+              href="mailto:wai-eo-editors@w3.org?subject=[en]%20ATAG%20Report%20Tool&amp;body=[put%20comment%20here...]"
+              class="button"
+              ><span>E-mail</span></a
+            >
+            <a
+              href="https://github.com/w3c/wai-atag-report-tool/"
+              class="button"
+              ><span>Fork &amp; Edit on GitHub</span></a
+            ><a
+              href="https://github.com/w3c/wai-atag-report-tool/issues/new"
+              class="button"
+              ><span>New GitHub Issue</span></a
+            >
+          </div>
+        </div>
+        <div></div>
+      </aside>
+    </div>
+
     <footer class="page-footer default-grid">
-      <div class="inner">
+      <div class="inner" style="-ms-grid-column: 2; -ms-grid-column-span: 8; grid-column: 2 / 8;">
         <p>
           <strong>Feedback: We welcome ideas, bug reports, and comments</strong>
           via
@@ -47,7 +91,8 @@
         </p>
 
         <p>
-          <strong>Status:</strong> Version {__APP_VERSION__}, {__APP_BUILD_DATE__}
+          <strong>Status:</strong> Version {__APP_VERSION__},
+          {__APP_BUILD_DATE__}
         </p>
 
         <p>
@@ -114,7 +159,7 @@
           <p>
             <a
               class="largelink"
-              href="https://www.w3.org/WAI/"
+              href="https://w3.org/WAI/"
               lang="en"
               dir="auto"
               translate="no"
@@ -130,16 +175,20 @@
           <ul>
             <li>
               <a href="https://twitter.com/w3c_wai"
-                ><svg aria-hidden="true" class="icon-twitter">
-                  <use xlink:href="images/icons.svg#icon-twitter"></use>
+                ><svg focusable="false" aria-hidden="true" class="icon-twitter">
+                  <use
+                    xlink:href="images/icons.svg#icon-twitter"
+                  ></use>
                 </svg>
                 Twitter</a
               >
             </li>
             <li>
-              <a href="https://www.w3.org/WAI/feed.xml"
-                ><svg aria-hidden="true" class="icon-rss">
-                  <use xlink:href="images/icons.svg#icon-rss"></use>
+              <a href="https://w3.org/WAI/feed.xml"
+                ><svg focusable="false" aria-hidden="true" class="icon-rss">
+                  <use
+                    xlink:href="images/icons.svg#icon-rss"
+                  ></use>
                 </svg>
                 Feed</a
               >
@@ -147,14 +196,16 @@
             <li>
               <a
                 href="https://www.youtube.com/channel/UCU6ljj3m1fglIPjSjs2DpRA/playlistsv"
-                ><svg aria-hidden="true" class="icon-youtube">
-                  <use xlink:href="images/icons.svg#icon-youtube"></use>
+                ><svg focusable="false" aria-hidden="true" class="icon-youtube">
+                  <use
+                    xlink:href="images/icons.svg#icon-youtube"
+                  ></use>
                 </svg>
                 YouTube</a
               >
             </li>
             <li>
-              <a href="https://www.w3.org/WAI/news/subscribe/" class="button"
+              <a href="https://w3.org/WAI/news/subscribe/" class="button"
                 >Get News in Email</a
               >
             </li>
@@ -173,29 +224,30 @@
               ></a
             >, <a href="https://www.keio.ac.jp/">Keio</a>,
             <a href="https://ev.buaa.edu.cn">Beihang</a>)
-            <a href="http://www.w3.org/WAI/about/using-wai-material/"
+            <a href="https://w3.org/WAI/about/using-wai-material/"
               >Permission to Use WAI Material</a
             >.
           </p>
         </div>
       </div>
-      <div class="q4-start q4-end">
+      <div lang="en" dir="auto" translate="no" class="q4-start q4-end">
         <ul style="margin-bottom: 0">
-          <li><a href="http://www.w3.org/WAI/about/contacting/">Contact WAI</a></li>
-          <li><a href="http://www.w3.org/WAI/sitemap/">Site Map</a></li>
-          <li><a href="http://www.w3.org/WAI/news/">News</a></li>
-          <li><a href="http://www.w3.org/WAI/sitemap/#archive">Archive</a></li>
           <li>
-            <a href="http://www.w3.org/WAI/about/accessibility-statement/"
+            <a href="https://w3.org/WAI/about/contacting/">Contact WAI</a>
+          </li>
+          <li><a href="https://w3.org/WAI/sitemap/">Site Map</a></li>
+          <li><a href="https://w3.org/WAI/news/">News</a></li>
+          <li><a href="https://w3.org/WAI/sitemap/#archive">Archive</a></li>
+          <li>
+            <a href="https://w3.org/WAI/about/accessibility-statement/"
               >Accessibility Statement</a
             >
           </li>
-          <li><a href="http://www.w3.org/WAI/translations/"> Translations</a></li>
-          <li><a href="http://www.w3.org/WAI/roles/">Resources for Roles</a></li>
+          <li><a href="https://w3.org/WAI/translations/"> Translations</a></li>
+          <li><a href="https://w3.org/WAI/roles/">Resources for Roles</a></li>
         </ul>
       </div>
     </footer>
-
     <script src="bundles/main.js"></script>
   </body>
 </html>
