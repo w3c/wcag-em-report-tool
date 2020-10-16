@@ -1,4 +1,4 @@
-<div class="Editable">
+<div class="Editable" class:editing>
   <div class="Editable__Contents">
     <slot />
   </div>
@@ -6,7 +6,7 @@
   <div class="Editable__Controls">
     <button
       type="button"
-      class="Editable__Control--edit"
+      class="Editable__Control--edit button-secondary"
       on:click="{handleEditClick}"
       bind:this="{EditToggle}"
     >{#if editing}Done{:else}Edit{/if}
@@ -21,11 +21,25 @@
   </div>
 </div>
 
+<style>
+  .Editable {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .editing {
+    flex-direction: column;
+  }
+
+  :not(.editing) > .Editable__Controls {
+    margin-left: auto;
+  }
+</style>
+
 <script context="module">
   import { writable } from 'svelte/store';
 
   export const editMode = writable({});
-
 </script>
 
 <script>
