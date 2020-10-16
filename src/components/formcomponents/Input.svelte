@@ -1,5 +1,12 @@
 <Field id="{id}" label="{label}">
-  <input id="{id}" type="text" name="" bind:value bind:this={textInput} />
+  <input
+    id="{id}"
+    type="text"
+    name=""
+    on:keydown
+    bind:value
+    bind:this="{textInput}"
+  />
 </Field>
 
 <script>
