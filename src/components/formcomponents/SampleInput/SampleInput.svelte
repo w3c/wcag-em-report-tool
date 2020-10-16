@@ -42,27 +42,14 @@
   <AddOther
     label="{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}"
     on:ADD="{handleAdd}"
-  >
-    <Input id="{id}__name" label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}" />
-    <Input id="{id}__href" label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}" />
-  </AddOther>
+  ></AddOther>
 </fieldset>
-
-<style>
-  :global(.AddItem > *:not(:last-child)) {
-    margin: 0 0 1em;
-  }
-  :global(.AddItem > *:last-child) {
-    margin-bottom: 0;
-  }
-</style>
 
 <script>
   import { t as translate } from 'svelte-i18n';
 
   import AddOther from '../AddOther.svelte';
   import Details from '../../Details.svelte';
-  import Input from '../Input.svelte';
   import Sample from './Sample.svelte';
 
   export let id;
@@ -72,19 +59,17 @@
 
   let valueContainer;
 
-  function handleAdd(event) {
+  function handleAdd() {
     const newId =
       value.length > 0 ? Math.max(...value.map((i) => parseInt(i.id.replace(`${id}__`, ''), 10))) + 1 : 1;
 
     const newSample = {
       id: `${id}__${newId}`,
-      title: event.detail[0],
-      href: event.detail[1]
+      title: '',
+      href: ''
     };
 
-    if (event.detail !== value) {
-      value = [...value, newSample];
-    }
+    value = [...value, newSample];
   }
 
   function handleSampleDelete(event) {
