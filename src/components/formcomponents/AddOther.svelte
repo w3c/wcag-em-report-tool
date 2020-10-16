@@ -11,8 +11,8 @@
  * - optional ...any; required props to pass on to specific formcomponents
  *
  * -->
-<fieldset class="AddOther__container">
-  <legend>{label}</legend>
+
+<div class="AddOther__container">
   <div
     class="AddOther__Inputs"
     bind:this="{otherInputsContainer}"
@@ -21,7 +21,7 @@
     <slot />
   </div>
   <Button type="secondary" on:click="{handleAddClick}">{label}</Button>
-</fieldset>
+</div>
 
 <style>
   :global(.AddOther__Inputs > *:not(:last-child)) {
@@ -64,21 +64,18 @@
   }
 
   function dispatchAdd() {
-    // At least one input should have data
-    if (!otherInputs.some((input) => input.value !== '')) {
-      return;
-    }
-
     const detail = otherInputs.map((input) => {
       return input.value;
     });
 
-    // Clear fields
-    otherInputs.forEach((input) => {
-      input.value = '';
-    });
+    if (otherInputs.length > 0) {
+      // Clear fields
+      otherInputs.forEach((input) => {
+        input.value = '';
+      });
 
-    otherInputs[0].focus();
+      otherInputs[0].focus();
+    }
 
     dispatch('ADD', detail);
   }
