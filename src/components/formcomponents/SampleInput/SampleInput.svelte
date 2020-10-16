@@ -78,7 +78,6 @@
 
     const newSample = {
       id: `${id}__${newId}`,
-      editable: false,
       title: event.detail[0],
       href: event.detail[1]
     };
