@@ -11,7 +11,7 @@
       class="Panel__Toggle button-small showhidebutton"
       on:click="{handleToggleClick}"
       bind:this="{Panel__Toggle}"
-    >{hidden ? `Show ${title}` : 'Hide'}</button>
+    >{hidden ? `Show “${title}”` : 'Hide'}</button>
   </header>
 
   <div class="Panel__Body" bind:this="{Panel_Body}">
@@ -42,7 +42,7 @@
   .Panel.hidden {
     width: auto;
     padding: 1em;
-    border: none;
+    border-color: transparent;
     background-color: transparent;
     box-shadow: none;
   }
