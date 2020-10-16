@@ -3,19 +3,21 @@
   label="{title || href}"
   on:EDIT="{handleSampleEdit}"
   on:DELETE
+  on:keydown="{handleEditableKeydown}"
 >
-  {#if editMode}
+  {#if editing}
     <Input
       id="{id}__name"
       label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
-      autofocus={true}
+      autofocus="{true}"
       bind:value="{title}"
-      bind:this={SampleName}
+      on:keydown="{handleEditableKeydown}"
     />
     <Input
       id="{id}__href"
       label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}"
       bind:value="{href}"
+      on:keydown="{handleEditableKeydown}"
     />
   {:else}
     <!-- <Sample title description edit/> -->
@@ -32,19 +34,27 @@
 <script>
   import { t as translate } from 'svelte-i18n';
 
-  import Editable from '../Editable.svelte';
+  import Editable, { editMode } from '../Editable.svelte';
   import Input from '../Input.svelte';
 
   export let id;
   export let title;
   export let href;
 
-  export let editable = false;
-
-  let editMode = editable;
-  let SampleName;
+  $: editing = $editMode[id];
 
   function handleSampleEdit(event) {
-    editMode = !editMode;
+    toggleEditMode();
+  }
+
+  function handleEditableKeydown(event) {
+
+    if (event.key === 'Enter') {
+      toggleEditMode();
+    }
+  }
+
+  function toggleEditMode() {
+    $editMode[id] = !editing;
   }
 </script>

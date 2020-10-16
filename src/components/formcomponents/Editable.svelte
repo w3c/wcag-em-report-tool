@@ -7,15 +7,26 @@
     <button
       type="button"
       class="Editable__Control--edit"
-      on:click="{toggleEditMode}"
-    >{#if editMode}Done{:else}Edit{/if} {label}</button>
-    <button
-      type="button"
-      class="Editable__Control--delete button-secondary"
-      on:click="{dispatchDelete}"
-    >Delete {label}</button>
+      on:click="{handleEditClick}"
+      bind:this="{EditToggle}"
+    >{#if editing}Done{:else}Edit{/if}
+      {label}</button>
+    {#if !editing}
+      <button
+        type="button"
+        class="Editable__Control--delete button-secondary"
+        on:click="{dispatchDelete}"
+      >Delete {label}</button>
+    {/if}
   </div>
 </div>
+
+<script context="module">
+  import { writable } from 'svelte/store';
+
+  export const editMode = writable({});
+
+</script>
 
 <script>
   import { createEventDispatcher } from 'svelte';
@@ -28,14 +39,25 @@
     DELETE: 'DELETE',
     EDIT: 'EDIT'
   };
-  let editMode = false;
+
+  let EditToggle;
+
+  $: editing = $editMode[id];
+
+  function handleEditClick(event) {
+    if (!editing) {
+      dispatchEdit();
+    }
+
+    $editMode[id] = !editing;
+  }
 
   function dispatchDelete() {
     dispatch(EVENT.DELETE, id);
   }
 
-  function toggleEditMode() {
-    editMode = !editMode;
-    dispatch(EVENT.EDIT, id);
+  function dispatchEdit() {
+    dispatch(EVENT.ID, id);
+    console.log(EVENT.EDIT);
   }
 </script>
