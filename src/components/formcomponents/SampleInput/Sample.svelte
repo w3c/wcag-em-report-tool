@@ -42,12 +42,11 @@
 
   $: editing = $editMode[id];
 
-  function handleSampleEdit(event) {
+  function handleSampleEdit() {
     toggleEditMode();
   }
 
   function handleEditableKeydown(event) {
-
     if (event.key === 'Enter') {
       toggleEditMode();
     }

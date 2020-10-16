@@ -58,7 +58,7 @@
 
   $: editing = $editMode[id];
 
-  function handleEditClick(event) {
+  function handleEditClick() {
     if (!editing) {
       dispatchEdit();
     }
