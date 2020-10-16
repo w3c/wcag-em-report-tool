@@ -1,17 +1,19 @@
-<div class="Editable" class:editing>
+<div class="Editable">
   <div class="Editable__Contents">
     <slot />
   </div>
 
   <div class="Editable__Controls">
-    <button
-      type="button"
-      class="Editable__Control--edit button-secondary"
-      on:click="{handleEditClick}"
-      bind:this="{EditToggle}"
-    >{#if editing}Done{:else}Edit{/if}
-      <span class="visually-hidden">{label}</span></button>
-    {#if !editing}
+    {#if !persistent}
+      <button
+        type="button"
+        class="Editable__Control--edit button-secondary"
+        on:click="{handleEditClick}"
+        bind:this="{EditToggle}"
+      >{#if editing}Done{:else}Edit{/if}
+        <span class="visually-hidden">{label}</span></button>
+    {/if}
+    {#if removable}
       <button
         type="button"
         class="Editable__Control--delete button-secondary"
@@ -24,15 +26,17 @@
 <style>
   .Editable {
     display: flex;
-    flex-direction: row;
-  }
-
-  .editing {
     flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
   }
 
-  :not(.editing) > .Editable__Controls {
-    margin-left: auto;
+  :global(.Editable__Contents > *:not(:last-child)) {
+    margin-bottom: 1em;
+  }
+
+  :global(.Editable__Contents > *:last-child) {
+    margin-bottom: 0;
   }
 </style>
 
@@ -47,6 +51,8 @@
 
   export let id = '';
   export let label = '';
+  export let persistent = false;
+  export let removable = false;
 
   const dispatch = createEventDispatcher();
   const EVENT = {
@@ -56,7 +62,7 @@
 
   let EditToggle;
 
-  $: editing = $editMode[id];
+  $: editing = $editMode[id] = persistent;
 
   function handleEditClick() {
     if (!editing) {
@@ -72,6 +78,5 @@
 
   function dispatchEdit() {
     dispatch(EVENT.ID, id);
-    console.log(EVENT.EDIT);
   }
 </script>
