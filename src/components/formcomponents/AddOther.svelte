@@ -11,7 +11,8 @@
  * - optional ...any; required props to pass on to specific formcomponents
  *
  * -->
-<div class="AddOther__container">
+<fieldset class="AddOther__container">
+  <legend>{label}</legend>
   <div
     class="AddOther__Inputs"
     bind:this="{otherInputsContainer}"
@@ -20,7 +21,7 @@
     <slot />
   </div>
   <Button type="secondary" on:click="{handleAddClick}">{label}</Button>
-</div>
+</fieldset>
 
 <style>
   :global(.AddOther__Inputs > *:not(:last-child)) {
