@@ -104,7 +104,6 @@
   .Assertion__Result__container {
     display: block;
     border: none;
-    padding-left: 2em;
   }
 
   :global(.Assertion__Result__container > *:not(:last-child)) {
@@ -112,7 +111,6 @@
   }
 
   .Assertion__Subject {
-    margin-left: -2em;
     padding: 0;
     font-size: 1em;
   }
