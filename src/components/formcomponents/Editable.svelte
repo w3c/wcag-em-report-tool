@@ -10,13 +10,13 @@
       on:click="{handleEditClick}"
       bind:this="{EditToggle}"
     >{#if editing}Done{:else}Edit{/if}
-      {label}</button>
+      <span class="visually-hidden">{label}</span></button>
     {#if !editing}
       <button
         type="button"
         class="Editable__Control--delete button-secondary"
         on:click="{dispatchDelete}"
-      >Delete {label}</button>
+      >Delete <span class="visually-hidden">{label}</span></button>
     {/if}
   </div>
 </div>
