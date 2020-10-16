@@ -27,20 +27,44 @@
 
 <style>
   label,
-  input {
+  input[type="checkbox"] {
     display: inline-block;
     cursor: pointer;
   }
 
-  input:focus,
-  input:hover {
+  input[type="checkbox"] {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+  }
+
+  label {
+    margin-left: 0.5em;
+    flex-grow: 0;
+    flex-shrink: 1;
+    word-break: break-word;
+  }
+
+  input[type="checkbox"]:focus,
+  input[type="checkbox"]:hover {
     outline: 2px solid currentColor;
     outline-offset: 2px;
   }
 
   ol {
+    margin: 0 0 3em;
+    padding: 0;
     columns: 4 10em;
     column-gap: 2em;
+    list-style: none;
+  }
+
+  ol > li {
+    break-inside: avoid-column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 </style>
 
