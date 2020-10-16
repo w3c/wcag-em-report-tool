@@ -18,10 +18,6 @@
   :global(.Field > *:not(:last-child)) {
     margin-bottom: 0.5em;
   }
-
-  :global(.Field label) {
-    font-weight: bold;
-  }
 </style>
 
 <script>
