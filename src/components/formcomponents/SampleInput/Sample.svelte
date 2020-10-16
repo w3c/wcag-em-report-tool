@@ -5,19 +5,22 @@
   on:DELETE
 >
   {#if editing}
-    <Input
-      id="{id}__name"
-      label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
-      autofocus="{true}"
-      bind:value="{title}"
-      on:keydown="{handleEditableKeydown}"
-    />
-    <Input
-      id="{id}__href"
-      label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}"
-      bind:value="{href}"
-      on:keydown="{handleEditableKeydown}"
-    />
+    <fieldset>
+      <legend>Edit {title}</legend>
+      <Input
+        id="{id}__name"
+        label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
+        autofocus="{true}"
+        bind:value="{title}"
+        on:keydown="{handleEditableKeydown}"
+      />
+      <Input
+        id="{id}__href"
+        label="{$translate('PAGES.SAMPLE.LABEL_PAGE')}"
+        bind:value="{href}"
+        on:keydown="{handleEditableKeydown}"
+      />
+    </fieldset>
   {:else}
     <!-- <Sample title description edit/> -->
     {#if href !== ''}
