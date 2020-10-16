@@ -3,7 +3,6 @@
   label="{title || href}"
   on:EDIT="{handleSampleEdit}"
   on:DELETE
-  on:keydown="{handleEditableKeydown}"
 >
   {#if editing}
     <Input
