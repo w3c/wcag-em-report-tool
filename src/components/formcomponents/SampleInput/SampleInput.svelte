@@ -44,6 +44,7 @@
     on:ADD="{handleAdd}"
   ></AddOther>
 </fieldset>
+<!-- /component -->
 
 <script>
   import { t as translate } from 'svelte-i18n';
