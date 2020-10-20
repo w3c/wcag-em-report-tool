@@ -1,6 +1,6 @@
 <aside
   class="Panel"
-  class:hidden
+  class:hidden="{!open}"
 >
   <header class="Panel__Header">
     {#if title}
@@ -10,11 +10,11 @@
       type="button"
       class="Panel__Toggle button-small showhidebutton"
       on:click="{handleToggleClick}"
-      bind:this="{Panel__Toggle}"
-    >{hidden ? `Show “${title}”` : 'Hide'}</button>
+      aria-expanded="{open}"
+    >{!open ? `Show “${title}”` : 'Hide'}</button>
   </header>
 
-  <div class="Panel__Body" bind:this="{Panel_Body}">
+  <div class="Panel__Body" hidden="{!open}">
     <slot>
       <p>Panel body</p>
     </slot>
@@ -113,16 +113,11 @@
 
 <script>
   export let title = null;
-
-  let Panel_Body;
-  let Panel__Toggle;
-
-  $: hidden = Panel_Body ? Panel_Body.hidden : true;
+  export let open = false;
 
   function handleToggleClick() {
-    let toggleTo = !hidden;
+    let toggleTo = !open;
 
-    Panel_Body.hidden = toggleTo;
-    Panel__Toggle.setAttribute('aria-expanded', !toggleTo);
+    open = toggleTo;
   }
 </script>
