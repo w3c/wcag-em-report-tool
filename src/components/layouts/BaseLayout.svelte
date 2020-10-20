@@ -43,6 +43,7 @@
 </style>
 
 <script>
+  import { t as translate } from 'svelte-i18n';
   import { useLocation } from 'svelte-navigator';
 
   import appData from '../../data/app.js';
@@ -62,31 +63,31 @@
 
   let routes = [
     {
-      title: 'START.TITLE',
+      title: $translate('UI.NAV.STEP_START'),
       path: '/'
     },
     {
-      title: 'SCOPE.TITLE',
+      title: $translate('UI.NAV.STEP_SCOPE'),
       path: '/evaluation/scope'
     },
     {
-      title: 'EXPLORE.TITLE',
+      title: $translate('UI.NAV.STEP_EXPLORE'),
       path: '/evaluation/explore'
     },
     {
-      title: 'SAMPLE.TITLE',
+      title: $translate('UI.NAV.STEP_SAMPLE'),
       path: '/evaluation/sample'
     },
     {
-      title: 'AUDIT.TITLE',
+      title: $translate('UI.NAV.STEP_AUDIT'),
       path: '/evaluation/audit'
     },
     {
-      title: 'SUMMARY.TITLE',
+      title: $translate('UI.NAV.STEP_REPORT'),
       path: '/evaluation/summary'
     },
     {
-      title: 'REPORT.TITLE',
+      title: $translate('UI.NAV.STEP_VIEWREPORT'),
       path: '/evaluation/view-report'
     }
   ];
