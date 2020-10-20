@@ -1,6 +1,6 @@
 <!-- @Layout:Base -->
 <div id="controls" class="default-grid">
-  <LanguageSelect locales={appData.locales} />
+  <LanguageSelect locales="{appData.locales}" />
 </div>
 
 <div id="site-header" class="default-grid with-gap">
@@ -11,22 +11,21 @@
 
 <div class="BaseLayout">
   <Grid>
-    <GridItem area="{ panelIsOpen ? 'content' : 'full'}" row="1">
+    <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
 
-      <Pager
-        label="step"
-        context={routes}
-      />
+      <Pager label="step" context="{routes}" />
     </GridItem>
 
-    <GridItem area="right" row="1">
-      <Panel title="Your report" bind:open="{panelIsOpen}">
-        <Button>View report</Button>
-        <Button type="secondary">Start new Evaluation</Button>
-        <Button type="secondary">Import findings</Button>
-      </Panel>
-    </GridItem>
+    {#if hasPanel}
+      <GridItem area="right" row="1">
+        <Panel title="Your report" bind:open="{panelIsOpen}">
+          <Button>View report</Button>
+          <Button type="secondary">Start new Evaluation</Button>
+          <Button type="secondary">Import findings</Button>
+        </Panel>
+      </GridItem>
+    {/if}
   </Grid>
 </div>
 <!-- /@Layout -->
@@ -44,6 +43,8 @@
 </style>
 
 <script>
+  import { useLocation } from 'svelte-navigator';
+
   import appData from '../../data/app.js';
 
   import Button from '../Button.svelte';
@@ -55,6 +56,10 @@
   import Pager from '../Pager.svelte';
   import Panel from '../Panel.svelte';
 
+  const location = useLocation();
+
+  $: hasPanel = $location.pathname !== '/evaluation/view-report';
+
   let routes = [
     {
       title: 'START.TITLE',
@@ -62,29 +67,29 @@
     },
     {
       title: 'SCOPE.TITLE',
-      path: '/evaluation/scope',
+      path: '/evaluation/scope'
     },
     {
       title: 'EXPLORE.TITLE',
-      path: '/evaluation/explore',
+      path: '/evaluation/explore'
     },
     {
       title: 'SAMPLE.TITLE',
-      path: '/evaluation/sample',
+      path: '/evaluation/sample'
     },
     {
       title: 'AUDIT.TITLE',
-      path: '/evaluation/audit',
+      path: '/evaluation/audit'
     },
     {
       title: 'SUMMARY.TITLE',
-      path: '/evaluation/summary',
+      path: '/evaluation/summary'
     },
     {
       title: 'REPORT.TITLE',
-      path: '/evaluation/view-report',
+      path: '/evaluation/view-report'
     }
   ];
 
-  let panelIsOpen = true;
+  $: panelIsOpen = hasPanel;
 </script>
