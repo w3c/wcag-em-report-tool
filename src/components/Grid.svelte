@@ -3,9 +3,9 @@
 </div>
 
 <style>
-  .Grid {
-    display: grid;
-  }
+  .Grid {}
+
+  .Grid__rightside {}
 </style>
 
 <script>
