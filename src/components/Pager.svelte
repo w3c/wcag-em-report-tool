@@ -1,11 +1,11 @@
 <!--
  * @component
- * Pager
+ *   Pager
  * -->
-<aside class="pager">
+<aside class="Pager pager">
   <ul>
     {#if previousPage}
-      <li class="pager--item previous">
+      <li class="Pager__Item pager--item previous">
         <Link to="{previousPage.path}">
           <svg aria-hidden="true" class="pager--item-icon icon-arrow-left"><use
               xlink:href="images/icons.svg#icon-arrow-left"
@@ -19,7 +19,7 @@
     {/if}
 
     {#if nextPage}
-      <li class="pager--item next">
+      <li class="Pager__Item pager--item next">
         <Link to="{nextPage.path}">
           <svg aria-hidden="true" class="pager--item-icon icon-arrow-right"><use
               xlink:href="images/icons.svg#icon-arrow-right"
@@ -36,18 +36,9 @@
 <!-- /component -->
 
 <style>
-  .pager {
-    grid-row: 2;
-    grid-column: 2 / span 5;
-  }
+  .Pager {}
 
-  .pager--item-text {
-    margin: 0 0.5em;
-  }
-
-  .next {
-    text-align: right;
-  }
+  .Pager__Item {}
 </style>
 
 <script>

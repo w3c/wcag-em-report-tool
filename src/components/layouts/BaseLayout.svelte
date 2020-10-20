@@ -10,19 +10,23 @@
 <NavigationBar />
 
 <div class="BaseLayout">
-  <Grid rightside="{panelIsOpen}">
-    <slot />
+  <Grid>
+    <GridItem area="{ panelIsOpen ? 'content' : 'full'}" row="1">
+      <slot />
 
-    <Pager
-      label="step"
-      context={routes}
-    />
+      <Pager
+        label="step"
+        context={routes}
+      />
+    </GridItem>
 
-    <Panel title="Your report" bind:open="{panelIsOpen}">
-      <Button>View report</Button>
-      <Button type="secondary">Start new Evaluation</Button>
-      <Button type="secondary">Import findings</Button>
-    </Panel>
+    <GridItem area="right" row="1">
+      <Panel title="Your report" bind:open="{panelIsOpen}">
+        <Button>View report</Button>
+        <Button type="secondary">Start new Evaluation</Button>
+        <Button type="secondary">Import findings</Button>
+      </Panel>
+    </GridItem>
   </Grid>
 </div>
 <!-- /@Layout -->
@@ -44,6 +48,7 @@
 
   import Button from '../Button.svelte';
   import Grid from '../Grid.svelte';
+  import GridItem from '../GridItem.svelte';
   import Header from '../Header.svelte';
   import LanguageSelect from '../i18n/LanguageSelect.svelte';
   import NavigationBar from '../NavigationBar.svelte';
