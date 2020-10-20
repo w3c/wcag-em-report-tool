@@ -9,19 +9,21 @@
 
 <NavigationBar />
 
-<div class="BaseLayout default-grid">
-  <slot />
+<div class="BaseLayout">
+  <Grid rightside="{panelIsOpen}">
+    <slot />
 
-  <Pager
-    label="step"
-    context={routes}
-  />
+    <Pager
+      label="step"
+      context={routes}
+    />
 
-  <Panel title="Your report">
-    <Button>View report</Button>
-    <Button type="secondary">Start new Evaluation</Button>
-    <Button type="secondary">Import findings</Button>
-  </Panel>
+    <Panel title="Your report" bind:open="{panelIsOpen}">
+      <Button>View report</Button>
+      <Button type="secondary">Start new Evaluation</Button>
+      <Button type="secondary">Import findings</Button>
+    </Panel>
+  </Grid>
 </div>
 <!-- /@Layout -->
 
@@ -41,6 +43,7 @@
   import appData from '../../data/app.js';
 
   import Button from '../Button.svelte';
+  import Grid from '../Grid.svelte';
   import Header from '../Header.svelte';
   import LanguageSelect from '../i18n/LanguageSelect.svelte';
   import NavigationBar from '../NavigationBar.svelte';
@@ -77,4 +80,6 @@
       path: '/evaluation/view-report',
     }
   ];
+
+  let panelIsOpen = true;
 </script>
