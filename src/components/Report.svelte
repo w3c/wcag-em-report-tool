@@ -1,6 +1,6 @@
 <article class="Report" bind:this="{exportableReport}">
   <header>
-    <h1>{report.title || 'Accessibility report'}</h1>
+    <h1>{report.title}</h1>
     <dl>
       <dt>{$translate('UI.REPORT.BY')}</dt>
       <dd>{report.creator || '…'}</dd>
@@ -107,6 +107,6 @@
     ],
     specifics: $summaryStore['EVALUATION_SPECIFICS'],
     summary: $summaryStore['EVALUATION_SUMMARY'],
-    title: $summaryStore['EVALUATION_TITLE']
+    title: $summaryStore['EVALUATION_TITLE'] || $translate('PAGES.REPORT.TITLE')
   };
 </script>
