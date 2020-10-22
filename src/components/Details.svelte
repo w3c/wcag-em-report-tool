@@ -4,15 +4,17 @@
  * @property label <String|@html>
  * @slot Detail contents
  * -->
-<details class="Details" bind:open="{open}">
-  <summary class="Details__label">
-    {#if iconPosition !== 'right'}
-      <span class="Details__icon">{@html icon}</span>
-    {/if}
-    <span>{@html label}</span>
-    {#if iconPosition === 'right'}
-      <span class="Details__icon">{@html icon}</span>
-    {/if}
+<details class="Details" bind:open>
+  <summary class="Details__summary">
+    <Flex direction="row" align="start" justify="start">
+      {#if iconPosition !== 'right'}
+        <span class="Details__icon">{@html icon}</span>
+      {/if}
+      <span class="Details__label">{@html label}</span>
+      {#if iconPosition === 'right'}
+        <span class="Details__icon">{@html icon}</span>
+      {/if}
+    </Flex>
   </summary>
 
   <div class="Details__body">
@@ -22,39 +24,54 @@
 <!-- /component -->
 
 <style>
-  .Details {}
+  .Details {
+  }
 
   .Details__icon {
+    flex-grow: 0;
+    flex-shrink: 0;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 2px #066;
-    border-radius: 5px;
-    width: 1.5em;
-    height: 1.5em;
+    border: solid 1px currentColor;
+    border-radius: 3px;
+    padding: 0 0.25em;
+    min-width: 1.5em;
+    min-height: 1.5em;
     font-size: 1em;
-    font-weight: bold;
-    color: #066;
+    color: inherit;
     background-color: transparent;
   }
 
-  .Details__label {
+  .Details__summary {
     list-style: none;
   }
 
-  .Details__label::-webkit-details-marker {
+  .Details__summary::-webkit-details-marker {
     display: none;
   }
 
-  .Details__label:focus > .Details__icon,
-  .Details__label:hover > .Details__icon {
+  .Details__summary:focus .Details__icon,
+  .Details__summary:hover .Details__icon {
     color: #fff;
-    background-color: #036;
-    border-color: #036;
+    background-color: #333;
+    border-color: #333;
   }
 
-  .Details__body {}
+  :global(.Details__label > *) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .Details__icon + .Details__label,
+  .Details__label + .Details__icon {
+    margin-left: 0.5em;
+  }
+
+  .Details__body {
+    font-style: italic;
+  }
 
   :global(.Details__body > *:not(:last-child)) {
     margin: 0 0 1em;
@@ -66,6 +83,8 @@
 </style>
 
 <script>
+  import Flex from './Flex.svelte';
+
   export let label = 'label';
   export let open = false;
 
