@@ -27,9 +27,39 @@
     <link rel="stylesheet" href="https://w3.org/WAI/assets/css/style.css?1573220675560713000" />
     <!-- WAI style corrections -->
     <style>
-      summary > :first-child::before {
+      /* Details styling */
+      /*
+       * WAI sets an "icon" on the first child
+       * of the summary (::before) to replace
+       * the disclosure triangle. Prevent that.
+       */
+      #wai-wcag-em-report-tool summary > :first-child::before {
         display: none;
         content: none;
+      }
+
+      /*
+       * This is the current styling of WAI's
+       * summary disclosure triangle.
+       */
+      #wai-wcag-em-report-tool .Details__icon {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: solid 2px #066;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #066;
+        background-color: transparent;
+      }
+      /* Summary hover / focus styling */
+      #wai-wcag-em-report-tool .Details__summary:focus .Details__icon,
+      #wai-wcag-em-report-tool .Details__summary:hover .Details__icon {
+        color: #fff;
+        background-color: #036;
+        border-color: #036;
       }
     </style>
 
@@ -38,7 +68,7 @@
   </head>
 
   <body>
-    <div id="wcag-rt" class="App__container">
+    <div id="wai-wcag-em-report-tool" class="App__container">
       <!-- WCAG-EM REPORT TOOL APP CONTENTS -->
     </div>
 
