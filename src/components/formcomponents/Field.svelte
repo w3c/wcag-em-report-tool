@@ -1,13 +1,16 @@
 <div class="Field field">
   {#if helptext}
-    <Details label={label && `<label for="${id}">${label}</label>`}>
+    <Details
+      label="{label && `<label for="${id}">${label}</label>`}"
+      iconPosition="right"
+      iconCollapse="Hide info"
+      iconExpand="Show info"
+    >
       {@html helptext}
     </Details>
-  {:else if label}
-    <label for="{id}">{label}</label>
-  {/if}
+  {:else if label}<label for="{id}">{label}</label>{/if}
 
-  <slot/>
+  <slot />
 </div>
 
 <style>
