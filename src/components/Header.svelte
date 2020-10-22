@@ -7,8 +7,6 @@
     <a href="http://w3.org/"><img
         alt="W3C"
         src="images/w3c.svg"
-        width="92"
-        height="44"
       /></a>
     <a href="http://w3.org/WAI/"><img
         alt="Web Accessibility Initiative"
