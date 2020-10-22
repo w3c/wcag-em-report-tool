@@ -61,4 +61,8 @@
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   const { summaryStore } = getContext('app');
+
+  if ($summaryStore['EVALUATION_TITLE'] === '') {
+    $summaryStore['EVALUATION_TITLE'] = $translate('PAGES.SUMMARY.TITLE_PREFIX');
+  }
 </script>
