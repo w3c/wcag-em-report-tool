@@ -2,17 +2,21 @@
  * @component
  * <Navigation>
  *  -->
-<nav class="Nav default-grid">
-  <ol class="Nav__Itemcontainer">
-    {#each navigationItems as navigationItem}
-      <li
-        class="nav__item"
-        class:current="{navigationItem.path === currentPath}"
-      >
-        <Link to="{navigationItem.path}">{navigationItem.title}</Link>
-      </li>
-    {/each}
-  </ol>
+<nav class="Nav">
+  <Grid>
+    <GridItem area="full">
+      <ol class="Nav__Itemcontainer">
+        {#each navigationItems as navigationItem}
+          <li
+            class="nav__item"
+            class:current="{navigationItem.path === currentPath}"
+          >
+            <Link to="{navigationItem.path}">{navigationItem.title}</Link>
+          </li>
+        {/each}
+      </ol>
+    </GridItem>
+  </Grid>
 </nav>
 <!-- </Nav> -->
 
@@ -32,10 +36,6 @@
     overflow-x: auto;
   }
 
-  .nav__item {
-    padding: 0.25em;
-  }
-
   .nav__item.current {
     background-color: #fff;
   }
@@ -49,6 +49,9 @@
 
 <script>
   import { Link, useLocation } from 'svelte-navigator';
+
+  import Grid from './Grid.svelte';
+  import GridItem from './GridItem.svelte';
 
   let navigationItems = [
     {

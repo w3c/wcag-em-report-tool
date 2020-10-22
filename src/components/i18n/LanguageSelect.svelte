@@ -29,12 +29,11 @@
 
 <style>
   .LanguageSelect {
-    grid-column: 2 / 10;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
-    padding: 0.5em 0;
+    padding: 0;
     list-style-type: none;
 }
 

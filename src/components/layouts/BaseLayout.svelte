@@ -1,12 +1,20 @@
 <!-- @Layout:Base -->
-<div id="controls" class="default-grid">
-  <LanguageSelect locales="{appData.locales}" />
+
+<div class="Controls">
+  <Grid>
+    <GridItem area="full">
+      <LanguageSelect locales="{appData.locales}" />
+    </GridItem>
+  </Grid>
 </div>
 
-<div id="site-header" class="default-grid with-gap">
-  <Header />
+<div id="site-header">
+  <Grid>
+    <GridItem area="full">
+      <Header />
+    </GridItem>
+  </Grid>
 </div>
-
 <NavigationBar />
 
 <div class="BaseLayout">
@@ -33,6 +41,10 @@
 <style>
   .BaseLayout {
     padding: 2em 1em;
+  }
+
+  .Controls {
+    font-size: 0.875em;
   }
 
   @media (min-width: 60em) {
