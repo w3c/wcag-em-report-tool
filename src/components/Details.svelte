@@ -38,7 +38,7 @@
     border-radius: 3px;
     padding: 0 0.25em;
     min-width: 1.5em;
-    min-height: 1.5em;
+    height: 1.5em;
     font-size: 1em;
     color: inherit;
     background-color: transparent;
@@ -46,6 +46,7 @@
 
   .Details__summary {
     list-style: none;
+    outline: none;
   }
 
   .Details__summary::-webkit-details-marker {
@@ -62,6 +63,11 @@
   :global(.Details__label > *) {
     margin: 0;
     padding: 0;
+  }
+
+  .Details__label:not(:first-child) {
+    flex-grow: 1;
+    flex-shrink: 1;
   }
 
   .Details__icon + .Details__label,
