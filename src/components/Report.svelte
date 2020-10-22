@@ -12,10 +12,12 @@
       <dd>{report.date || '…'}</dd>
     </dl>
   </header>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_SUMMARY')}</h2>
     <p>{report.summary || '…'}</p>
   </section>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_SCOPE')}</h2>
 
@@ -39,14 +41,17 @@
       <dd>{scope.baseline || '…'}</dd>
     </dl>
   </section>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_SCORE')}</h2>
     <p>{report.result || '…'}</p>
   </section>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_CRITERIA_REPORT')}</h2>
     <p>{report.audit || '…'}</p>
   </section>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_SAMPLE')}</h2>
     {#if report.samples.length > 0}
@@ -59,10 +64,12 @@
       <p>No sample</p>
     {/if}
   </section>
+
   <section>
     <h2>{$translate('UI.REPORT.HD_SPECIFICS')}</h2>
     <p>{report.specifics || '…'}</p>
   </section>
+
   <aside>
     <h2>{$translate('UI.REPORT.HD_DOCS')}</h2>
     <p class="info">resources</p>
@@ -99,6 +106,7 @@
       ...$sampleStore['RANDOM_SAMPLE']
     ],
     specifics: $summaryStore['EVALUATION_SPECIFICS'],
-    summary: $summaryStore['EVALUATION_SUMMARY']
+    summary: $summaryStore['EVALUATION_SUMMARY'],
+    title: $summaryStore['EVALUATION_TITLE']
   };
 </script>
