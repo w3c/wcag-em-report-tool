@@ -67,3 +67,11 @@ svg {
   fill: currentColor;
   background-color: transparent;
 }
+
+/*
+ * Remove default focus styles from elements that
+ * otherwise should not receive focus.
+*/
+[tabindex]:focus {
+  outline: none;
+}
