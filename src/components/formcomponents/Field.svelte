@@ -1,11 +1,11 @@
 <div class="Field field">
   {#if helptext}
-    <Details
+    <HelpText
       label="{label && `<label for="${id}">${label}</label>`}"
       icon={helptextIcon}
     >
       {@html helptext}
-    </Details>
+    </HelpText>
   {:else if label}<label for="{id}">{label}</label>{/if}
 
   <slot />
@@ -22,7 +22,7 @@
 </style>
 
 <script>
-  import Details from '../Details.svelte';
+  import HelpText from './HelpText.svelte';
 
   export let id;
   export let label;
