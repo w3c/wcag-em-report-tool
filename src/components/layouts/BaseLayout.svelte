@@ -8,7 +8,7 @@
   </Grid>
 </div>
 
-<div id="site-header">
+<div id="site-header" style="padding: 0;">
   <Grid>
     <GridItem area="full">
       <Header />
