@@ -7,12 +7,12 @@
 <details class="Details" bind:open>
   <summary class="Details__summary">
     <Flex direction="row" align="start" justify="start">
-      {#if iconPosition !== 'right'}
-        <span class="Details__icon">{@html icon}</span>
+      {#if icon.position !== 'right'}
+        <span class="Details__icon"><Button type="secondary" small fake>{@html iconValue}</Button></span>
       {/if}
       <span class="Details__label">{@html label}</span>
-      {#if iconPosition === 'right'}
-        <span class="Details__icon">{@html icon}</span>
+      {#if icon.position === 'right'}
+        <span class="Details__icon"><Button type="secondary" small fake>{@html iconValue}</Button></span>
       {/if}
     </Flex>
   </summary>
@@ -34,30 +34,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 1px currentColor;
-    border-radius: 3px;
-    padding: 0 0.25em;
     min-width: 1.5em;
     height: 1.5em;
     font-size: 1em;
-    color: inherit;
-    background-color: transparent;
   }
 
   .Details__summary {
     list-style: none;
-    outline: none;
   }
 
   .Details__summary::-webkit-details-marker {
     display: none;
-  }
-
-  .Details__summary:focus .Details__icon,
-  .Details__summary:hover .Details__icon {
-    color: #fff;
-    background-color: #333;
-    border-color: #333;
   }
 
   :global(.Details__label > *) {
@@ -75,9 +62,7 @@
     margin-left: 0.5em;
   }
 
-  .Details__body {
-    font-style: italic;
-  }
+  .Details__body {}
 
   :global(.Details__body > *:not(:last-child)) {
     margin: 0 0 1em;
@@ -89,14 +74,32 @@
 </style>
 
 <script>
+  import Button from './Button.svelte';
   import Flex from './Flex.svelte';
 
   export let label = 'label';
   export let open = false;
+  export let icon = {
+    collapse: '–',
+    expand: '+',
+    position: 'left'
+  };
 
-  export let iconCollapse = '–';
-  export let iconExpand = '+';
-  export let iconPosition = 'left';
+  // Enforce icon defaults
+  if (!icon.collapse) {
+    icon.collapse = '-';
+  }
 
-  $: icon = open ? iconCollapse : iconExpand;
+  if (!icon.expand) {
+    icon.expand = '+';
+  }
+
+  if (!icon.position) {
+    icon.position = 'left';
+  }
+
+  $: iconValue = open
+    ? icon.collapse
+    : icon.expand;
+
 </script>

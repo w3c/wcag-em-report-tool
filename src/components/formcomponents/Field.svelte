@@ -2,9 +2,7 @@
   {#if helptext}
     <Details
       label="{label && `<label for="${id}">${label}</label>`}"
-      iconPosition="right"
-      iconCollapse="Hide info"
-      iconExpand="Show info"
+      icon={helptextIcon}
     >
       {@html helptext}
     </Details>
@@ -29,4 +27,10 @@
   export let id;
   export let label;
   export let helptext;
+
+  const helptextIcon = {
+    collapse: 'Hide info',
+    expand: 'Show info',
+    position: 'right'
+  };
 </script>
