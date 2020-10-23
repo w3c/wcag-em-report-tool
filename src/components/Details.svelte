@@ -30,13 +30,9 @@
   .Details__icon {
     flex-grow: 0;
     flex-shrink: 0;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 1.5em;
-    height: 1.5em;
-    font-size: 1em;
   }
 
   .Details__summary {
