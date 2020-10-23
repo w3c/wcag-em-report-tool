@@ -49,6 +49,18 @@
         background-color: #036;
         border-color: #036;
       }
+
+      /* Showhidebutton correction to center ::after contents */
+      .showhidebutton::after {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .HelpText:not([open]) .showhidebutton::after {
+        content: '+';
+      }
+
     </style>
 
 
