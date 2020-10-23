@@ -7,10 +7,14 @@
 <details class="HelpText information" bind:open>
   <summary class="HelpText__summary">
     <Flex direction="row" align="start" justify="start">
-      <span class="HelpText__label">{@html label}</span>
-      <span class="HelpText__icon"><span class="button button-small showhidebutton">
-          {@html iconValue}
-        </span></span>
+      <div class="HelpText__label">
+        {@html label}
+      </div>
+      <div class="HelpText__icon">
+        <span class="button button-small showhidebutton">
+          <span class="visuallyhidden">,</span> {@html iconValue}
+        </span>
+      </div>
     </Flex>
   </summary>
 
@@ -83,7 +87,7 @@
 
   // Enforce icon defaults
   if (!icon.collapse) {
-    icon.collapse = '-';
+    icon.collapse = '–';
   }
 
   if (!icon.expand) {
