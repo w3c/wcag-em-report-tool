@@ -2,10 +2,8 @@
  * @component
  * LanguageSelect
  * -->
-<div class="LanguageSelect languagelist">
-  <svg aria-hidden="true" class="icon-languages"><use
-      xlink:href="images/icons.svg#icon-languages"
-    ></use></svg><strong
+<div class="LanguageSelect languagelist" class:collapsed>
+  <strong
     id="LanguageSelect__label"
   >{$translate('LANGUAGE_SELECT_LABEL')}:</strong>
   <ul class="languagelistul" on:click="{handleClick}">
@@ -24,6 +22,23 @@
       </li>
     {/each}
   </ul>
+  {#if !collapsed}
+   <span>|</span>
+  {/if}
+  <button
+    on:click="{handleToggle}"
+    type="button"
+    class="button-inline showhidebutton"
+    aria-expanded="{!collapsed}"
+  >
+    <svg aria-hidden="true" class="icon-languages"><use
+        xlink:href="images/icons.svg#icon-languages"
+      ></use></svg>
+    <span>
+      {collapsed ? 'Show' : 'Hide'}
+      {$translate('LANGUAGE_SELECT_BUTTON')}
+    </span>
+  </button>
 </div>
 <!-- /component -->
 
@@ -31,11 +46,12 @@
   .LanguageSelect {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
+  }
 
   .language__item {
     margin: 0 0.25em;
@@ -46,12 +62,17 @@
     text-decoration: underline;
     font-weight: bold;
   }
+  .LanguageSelect.collapsed > *:not(:last-child) {
+    display: none;
+  }
 </style>
 
 <script>
   import { t as translate, locale } from 'svelte-i18n';
 
   export let locales = [];
+
+  let collapsed = true;
 
   $: currentLocale = locales.find((l) => l.lang === $locale);
 
@@ -73,5 +94,9 @@
       // This line is what makes the App translate to another language
       locale.set(target.lang);
     }
+  }
+
+  function handleToggle(event) {
+    collapsed = !collapsed;
   }
 </script>
