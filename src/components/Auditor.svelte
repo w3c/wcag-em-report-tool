@@ -1,31 +1,24 @@
 <div class="Auditor">
-
-  <div class="Auditor__Filter box">
-    <header>
-      {$translate('UI.AUDITOR.FILTER_TITLE', {default: 'Filter findings by'})}
+  <div class="Auditor__Filter box box-simple">
+    <header class="box-h box-h-simple">
+      {$translate('UI.AUDITOR.FILTER_TITLE', { default: 'Filter findings by' })}
     </header>
-    <div class="Auditor__Filters">
 
+    <div class="Auditor__Filters">
       <MultipleChoice
         id="filter_wcag_version"
         label="Criterion WCAG Version"
-        options={[
-          'WCAG 2.0',
-          'WCAG 2.1',
-          'WCAG 2.2'
-        ]}
+        type="radio"
+        options="{['WCAG 2.0', 'WCAG 2.1', 'WCAG 2.2']}"
+        value="WCAG 2.1"
       />
 
       <MultipleChoice
         id="filter_conformance_level"
         label="Criterion conformance level"
-        options={[
-          'Level A',
-          'Level AA',
-          'Level AAA'
-        ]}
+        options="{['Level A', 'Level AA', 'Level AAA']}"
+        value="{['Level A', 'Level AA']}"
       />
-
     </div>
   </div>
 
@@ -43,6 +36,10 @@
 </div>
 
 <style>
+  .Auditor__Filter {
+    margin-bottom: 3rem;
+  }
+
   .Auditor__Assertions {
     margin: 0;
     padding: 0;
@@ -55,7 +52,7 @@
 </style>
 
 <script>
-  import {t as translate} from 'svelte-i18n';
+  import { t as translate } from 'svelte-i18n';
 
   import WCAG21 from '../data/wcag/WCAG21.json';
   import Assertion from './formcomponents/Assertion.svelte';
