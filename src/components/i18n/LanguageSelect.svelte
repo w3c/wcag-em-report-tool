@@ -73,7 +73,7 @@
 
   export let locales = [];
 
-  let collapsed = true;
+  let collapsed = false;
 
   $: currentLocale = locales.find((l) => l.lang === $locale);
 
