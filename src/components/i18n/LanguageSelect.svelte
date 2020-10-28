@@ -2,43 +2,50 @@
  * @component
  * LanguageSelect
  * -->
-<div class="LanguageSelect languagelist" class:collapsed>
-  <strong
-    id="LanguageSelect__label"
-  >{$translate('LANGUAGE_SELECT_LABEL')}:</strong>
-  <ul class="languagelistul" on:click="{handleClick}">
-    {#each locales as appLocale}
-      <li
-        class="language__item {appLocale === currentLocale ? 'language__item--current' : ''}"
-      >
-        {#if appLocale === currentLocale}
-          <strong>{currentLocale.title}</strong>
-        {:else}
-          <a
-            lang="{appLocale.lang}"
-            href="#{appLocale.lang}"
-          >{appLocale.title}</a>
-        {/if}
-      </li>
-    {/each}
-  </ul>
+<div class="LanguageSelect">
   {#if !collapsed}
-   <span>|</span>
-  {/if}
-  <button
-    on:click="{handleToggle}"
-    type="button"
-    class="button-inline showhidebutton"
-    aria-expanded="{!collapsed}"
-  >
-    <svg aria-hidden="true" class="icon-languages"><use
-        xlink:href="images/icons.svg#icon-languages"
-      ></use></svg>
-    <span>
-      {collapsed ? 'Show' : 'Hide'}
-      {$translate('LANGUAGE_SELECT_BUTTON')}
+    <span class="LanguageSelect__languages_container languagelist">
+      <strong
+        id="LanguageSelect__label"
+      >{$translate('LANGUAGE_SELECT_LABEL')}:</strong>
+      <ul
+        class="LanguageSelect__languages languagelistul"
+        on:click="{handleClick}"
+      >
+        {#each locales as appLocale}
+          <li
+            class="LanguageSelect__language {appLocale === currentLocale ? 'language__item--current' : ''}"
+          >
+            {#if appLocale === currentLocale}
+              <strong>{currentLocale.title}</strong>
+            {:else}
+              <a
+                lang="{appLocale.lang}"
+                href="#{appLocale.lang}"
+              >{appLocale.title}</a>
+            {/if}
+          </li>
+        {/each}
+      </ul>
     </span>
-  </button>
+  {/if}
+  <span class="LanguageSelect__toggle">
+    <button
+      id="showoptions"
+      on:click="{handleToggle}"
+      type="button"
+      class="button-inline showhidebutton"
+      aria-expanded="{!collapsed}"
+    >
+      <svg aria-hidden="true" class="icon-languages"><use
+          xlink:href="images/icons.svg#icon-languages"
+        ></use></svg>
+      <span>
+        {collapsed ? 'Show' : 'Hide'}
+        {$translate('LANGUAGE_SELECT_BUTTON')}
+      </span>
+    </button>
+  </span>
 </div>
 <!-- /component -->
 
@@ -47,23 +54,17 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
     list-style-type: none;
   }
 
-  .language__item {
-    margin: 0 0.25em;
-    min-width: 3rem;
-  }
-
-  .language__item--current > a {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-  .LanguageSelect.collapsed > *:not(:last-child) {
-    display: none;
+  .LanguageSelect > *:not(:first-child) {
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: solid 1px var(--w3c-classic);
   }
 </style>
 
