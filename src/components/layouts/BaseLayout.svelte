@@ -44,7 +44,7 @@
   }
 
   .Controls {
-    font-size: 0.875em;
+    font-size: 0.8125em;
   }
 
   @media (min-width: 60em) {
