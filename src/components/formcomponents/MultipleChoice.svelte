@@ -31,7 +31,7 @@
   </ol>
 
   {#if editable}
-    <AddOther label="Add other {label}" on:ADD="{handleCheckboxAdd}">
+    <AddOther label="Add other {label}" on:ADD="{handleOptionAdd}">
       <Input id="{id}__other" label="Other {label}" />
     </AddOther>
   {/if}
@@ -39,26 +39,50 @@
 
 <style>
   label,
-  input {
+  input[type="checkbox"] {
     display: inline-block;
     cursor: pointer;
   }
 
-  input:focus,
-  input:hover {
+  input[type="checkbox"] {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+  }
+
+  label {
+    margin-left: 0.5em;
+    flex-grow: 0;
+    flex-shrink: 1;
+    word-break: break-word;
+  }
+
+  input[type="checkbox"]:focus,
+  input[type="checkbox"]:hover {
     outline: 2px solid currentColor;
     outline-offset: 2px;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    columns: 4 10em;
+    column-gap: 2em;
+    list-style: none;
+  }
+
+  ol > li {
+    break-inside: avoid-column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 </style>
 
 <script context="module">
   const CHECKBOX = 'checkbox';
   const RADIO = 'radio';
-  let value = [];
-
-  export function getValue() {
-    return value;
-  }
 </script>
 
 <script>
@@ -72,10 +96,11 @@
   export let type = CHECKBOX;
   export let options = [];
   export let editable = false;
+  export let value = '';
 
   const dispatch = createEventDispatcher();
 
-  function handleCheckboxAdd(event) {
+  function handleOptionAdd(event) {
     const newOption = {
       title: event.detail.join()
       // checked: true
