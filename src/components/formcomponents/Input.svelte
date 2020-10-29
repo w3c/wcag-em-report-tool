@@ -1,8 +1,7 @@
-<Field id="{id}" label="{label}">
+<Field id="{id}" {...$$restProps}>
   <input
     id="{id}"
     type="text"
-    name=""
     on:keydown
     bind:value
     bind:this="{textInput}"
@@ -14,7 +13,6 @@
   import Field from './Field.svelte';
 
   export let id;
-  export let label;
   export let value = '';
   export let autofocus = false;
 
