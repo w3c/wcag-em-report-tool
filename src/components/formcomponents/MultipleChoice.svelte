@@ -1,5 +1,4 @@
-<fieldset id="{id}" class="MultipleChoice field">
-  <legend>{label}</legend>
+<Fieldset id="{id}" legend={label} {...$$restProps}>
 
   <ol class="MultipleChoice__options{columns ? '--columns' : ''}">
     {#each options as option, index (option)}
@@ -38,7 +37,7 @@
       <Input id="{id}__other" label="Other {label}" />
     </AddOther>
   {/if}
-</fieldset>
+</Fieldset>
 
 <style>
   .MultipleChoice__option__label,
@@ -94,6 +93,7 @@
 
 <script>
   import AddOther from './AddOther.svelte';
+  import Fieldset from './Fieldset.svelte';
   import Input from './Input.svelte';
 
   export let id;
