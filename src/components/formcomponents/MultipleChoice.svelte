@@ -93,8 +93,6 @@
 </script>
 
 <script>
-  import { createEventDispatcher } from 'svelte';
-
   import AddOther from './AddOther.svelte';
   import Input from './Input.svelte';
 
@@ -106,9 +104,14 @@
   export let editable = false;
   export let value = '';
 
-  const dispatch = createEventDispatcher();
-
   function handleOptionAdd(event) {
+
+    const newValue = event.detail.join();
+
+    if (!newValue) {
+      return;
+    }
+
     const newOption = {
       title: event.detail.join()
       // checked: true
@@ -117,8 +120,6 @@
     if (!options.some((option) => option.title === newOption.title)) {
       options = [...options, newOption];
       value = [...value, newOption.title];
-
-      dispatch('change', value);
     }
   }
 </script>
