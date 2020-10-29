@@ -1,12 +1,14 @@
 <fieldset id="{id}" class="MultipleChoice field">
   <legend>{label}</legend>
 
-  <ol>
+  <ol class="MultipleChoice__options{columns ? '--columns' : ''}">
     {#each options as option, index (option)}
-      <li>
+      <li class="MultipleChoice__option">
+        <!-- type attribute cant be dynamic with bind:group -->
         {#if type === CHECKBOX}
           <input
             id="{`${id}_${index}`}"
+            class="MultipleChoice__option__input"
             type="checkbox"
             value="{option.value || option.title || option}"
             checked="{option.checked}"
@@ -17,6 +19,7 @@
         {:else if type === RADIO}
           <input
             id="{`${id}_${index}`}"
+            class="MultipleChoice__option__input"
             type="radio"
             value="{option.value || option.title || option}"
             checked="{option.checked}"
@@ -25,7 +28,7 @@
             on:change
           />
         {/if}
-        <label for="{`${id}_${index}`}">{option.title || option}</label>
+        <label class="MultipleChoice__option__label" for="{`${id}_${index}`}">{option.title || option}</label>
       </li>
     {/each}
   </ol>
@@ -38,41 +41,45 @@
 </fieldset>
 
 <style>
-  label,
-  input[type="checkbox"] {
+  .MultipleChoice__option__label,
+  .MultipleChoice__option__input {
     display: inline-block;
     cursor: pointer;
   }
 
-  input[type="checkbox"] {
+  .MultipleChoice__option__input {
     flex-grow: 0;
     flex-shrink: 0;
     width: 1em;
     height: 1em;
   }
 
-  label {
+  .MultipleChoice__option__label {
     margin-left: 0.5em;
     flex-grow: 0;
     flex-shrink: 1;
     word-break: break-word;
   }
 
-  input[type="checkbox"]:focus,
-  input[type="checkbox"]:hover {
+  .MultipleChoice__option__input:focus,
+  .MultipleChoice__option__input:hover {
     outline: 2px solid currentColor;
     outline-offset: 2px;
   }
 
-  ol {
+  .MultipleChoice__options,
+  .MultipleChoice__options--columns {
     margin: 0;
     padding: 0;
-    columns: 4 10em;
-    column-gap: 2em;
     list-style: none;
   }
 
-  ol > li {
+  .MultipleChoice__options--columns {
+    columns: 4 10em;
+    column-gap: 2em;
+  }
+
+  .MultipleChoice__option {
     break-inside: avoid-column;
     display: flex;
     align-items: flex-start;
@@ -95,6 +102,7 @@
   export let label;
   export let type = CHECKBOX;
   export let options = [];
+  export let columns = false;
   export let editable = false;
   export let value = '';
 
