@@ -9,7 +9,7 @@
         id="filter_wcag_version"
         label="Criterion WCAG Version"
         type="radio"
-        options="{['WCAG 2.0', 'WCAG 2.1', 'WCAG 2.2']}"
+        options="{['WCAG 2.2', 'WCAG 2.1', 'WCAG 2.0']}"
         value="WCAG 2.1"
       />
 
@@ -38,6 +38,16 @@
 <style>
   .Auditor__Filter {
     margin-bottom: 3rem;
+  }
+
+  .Auditor__Filters {
+    columns: 4 20rem;
+    column-gap: 2rem;
+  }
+
+  :global(.Auditor .Auditor__Filters > *) {
+    margin-bottom: 0;
+    break-inside: avoid-column;
   }
 
   .Auditor__Assertions {
