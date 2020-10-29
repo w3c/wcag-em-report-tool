@@ -45,17 +45,6 @@
   .Auditor {
   }
 
-  @media (min-width: 60rem) {
-    .Auditor {
-      display: grid;
-      grid-template-columns:
-        [left-start] minmax(0, 292px)
-        [left-end content-start] auto
-        [content-end];
-      grid-gap: 32px;
-    }
-  }
-
   .Auditor__samples {
     grid-area: left;
     grid-row: 1 / span 2;
@@ -87,6 +76,21 @@
 
   .Auditor__Assertion:not(:last-child) {
     margin-bottom: 3em;
+  }
+
+  @media (min-width: 60rem) {
+    .Auditor {
+      display: grid;
+      grid-template-columns:
+        [left-start] minmax(0, 292px)
+        [left-end content-start] auto
+        [content-end];
+      grid-gap: 32px;
+    }
+
+    .Auditor__Filter {
+      margin: 0;
+    }
   }
 </style>
 
