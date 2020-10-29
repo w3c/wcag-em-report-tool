@@ -9,7 +9,8 @@
       label="{$translate('PAGES.EXPLORE.HD_RELIEDUP_TECH')}"
       helptext="{$translate('PAGES.EXPLORE.INF_RELIEDUP_TECH')}"
       options="{[{ title: 'HTML5' }, { title: 'XHTML 1.0' }, { title: 'HTML 4.01' }, { title: 'CSS' }, { title: 'WAI-ARIA' }, { title: 'ECMAScript 3' }, { title: 'ECMAScript 5' }, { title: 'DOM' }, { title: 'Flash' }, { title: 'Silverlight' }, { title: 'OOXML' }, { title: 'ODF 1.2' }, { title: 'SVG' }]}"
-      editable="{true}"
+      editable
+      columns
       bind:value="{$exploreStore['TECHNOLOGIES_RELIED_UPON']}"
     />
 
