@@ -1,5 +1,5 @@
 <aside
-  class="Panel"
+  class="Panel your-report"
   class:hidden="{!open}"
 >
   <header class="Panel__Header">
@@ -24,14 +24,6 @@
 <style>
   .Panel {
     box-sizing: border-box;
-    -ms-grid-column: 7;
-    -ms-grid-column-span: 3;
-    grid-column: 7 / span 3;
-    -ms-grid-row: 1;
-    grid-row-start: 1;
-    align-self: flex-start;
-
-    outline: none;
     border: 1px solid var(--line-grey);
     padding: 1em;
     width: 100%;
