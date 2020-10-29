@@ -10,7 +10,7 @@
     <span class="Assertion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
-  <Details label={`details <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}>
+  <Details label={`${$translate('PAGES.AUDIT.BTN_SHOW_TEXT')} <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}>
     <div>{$translate(`WCAG.WCAG21.${num}.DESCRIPTION`)}</div>
 
     {#if details}
@@ -40,17 +40,14 @@
     {/if}
 
     <div class="">
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.${num}.ID`)}.html">Understanding {num}</ResourceLink>
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.${num}.ID`)}">How to meet {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.${num}.ID`)}.html">{$translate('PAGES.AUDIT.UNDERSTAND')} {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.${num}.ID`)}">{$translate('PAGES.AUDIT.HOW_TO')} {num}</ResourceLink>
     </div>
   </Details>
 
   <fieldset class="Assertion__Result__container">
     <legend class="Assertion__Subject">
-      Result for: <a
-        href="subject.url"
-        target="_blank"
-      >{'subject.title' || 'subject.url'}</a> (<span>subject.type?</span>)
+      {$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}
     </legend>
 
     <div class="Assertion__Result">
@@ -59,6 +56,10 @@
       <Textarea id="Result__Description" label="Description" />
     </div>
   </fieldset>
+
+  <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
+    <p class="info">RESULTS INDIVIDUAL SAMPLES</p>
+  </Details>
 </div>
 <!-- /component -->
 
