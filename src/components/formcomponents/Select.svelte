@@ -9,7 +9,7 @@
  *   selected <Boolean>
  * }>
  * -->
-<Field id="{id}" label="{label}">
+<Field id="{id}" {...$$restProps}>
   <select id="{id}" disabled="{options.length === 0}" bind:value>
     {#each options as option}
       <option
@@ -29,7 +29,6 @@
   import Field from './Field.svelte';
 
   export let id;
-  export let label;
   export let options = [];
   export let value;
 </script>
