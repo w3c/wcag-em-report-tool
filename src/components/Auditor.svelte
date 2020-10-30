@@ -82,8 +82,8 @@
     .Auditor {
       display: grid;
       grid-template-columns:
-        [left-start] minmax(0, 292px)
-        [left-end content-start] auto
+        [left-start] repeat(2, minmax(0, 130px))
+        [left-end content-start] repeat(4, minmax(0, 130px))
         [content-end];
       grid-gap: 32px;
     }
