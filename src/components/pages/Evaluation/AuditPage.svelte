@@ -7,6 +7,6 @@
 <script>
   import { t as translate } from 'svelte-i18n';
 
-  import Auditor from '../../Auditor.svelte';
+  import Auditor from '../../Auditor/Auditor.svelte';
   import Page from '../../Page.svelte';
 </script>

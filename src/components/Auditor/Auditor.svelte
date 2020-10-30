@@ -1,8 +1,6 @@
 <div class="Auditor">
   <div class="Auditor__samples">
-    <Panel title="{$translate('PAGES.AUDIT.HD_SAMPLE_SELECT')}" open>
-      <p class="info">Sample selecting tool</p>
-    </Panel>
+    <AuditorSamples />
   </div>
 
   <div class="Auditor__Filter box box-simple">
@@ -97,11 +95,11 @@
 <script>
   import { t as translate } from 'svelte-i18n';
 
-  import WCAG21 from '../data/wcag/WCAG21.json';
+  import WCAG21 from '../../data/wcag/WCAG21.json';
 
-  import Assertion from './formcomponents/Assertion.svelte';
-  import Panel from './Panel.svelte';
-  import MultipleChoice from './formcomponents/MultipleChoice.svelte';
+  import Assertion from '../formcomponents/Assertion.svelte';
+  import AuditorSamples from './AuditorSamples.svelte';
+  import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
 
   // Quick data, needs to come from context/store
   let assertions = WCAG21;
