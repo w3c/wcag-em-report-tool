@@ -29,15 +29,13 @@
   {#if assertions.length > 0}
     <div class="Auditor__Assertions">
       {#each [...principles] as principle}
-        <Details label="{`<h2>P${principle}</h2>`}" open>
-          {#each [...guidelines].filter(g => g.indexOf(principle) === 0) as guideline}
-            <Details label="{`<h3>G${guideline}</h3>`}" open>
-              {#each assertions.filter(a => a.num.indexOf(guideline) === 0) as assertion}
-                {#if assertion.num.indexOf(principle) === 0}
-                  <div class="Auditor__Assertion">
-                    <Assertion {...assertion} />
-                  </div>
-                {/if}
+        <Details label="{`<h2>${$translate(`WCAG.2.1.PRINCIPLE.${principle}`)}</h2>`}" open>
+          {#each [...guidelines].filter((g) => g.indexOf(principle) === 0) as guideline}
+            <Details label="{`<h3>${$translate(`WCAG.2.1.GUIDELINE.${guideline}`)}</h3>`}" open>
+              {#each assertions.filter((a) => a.num.indexOf(guideline) === 0) as assertion}
+                <div class="Auditor__Assertion">
+                  <Assertion {...assertion} />
+                </div>
               {/each}
             </Details>
           {/each}
@@ -80,6 +78,10 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+  }
+
+  :global(.Auditor__Assertions > *:not(:last-child)) {
+    margin-bottom: 1rem;
   }
 
   .Auditor__Assertion:not(:last-child) {
