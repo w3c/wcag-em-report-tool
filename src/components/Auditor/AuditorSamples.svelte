@@ -2,21 +2,29 @@
   <Details label="show info">
     <div>{$translate('PAGES.AUDIT.INF_AUDIT_SAMPLE')}</div>
   </Details>
-  <div>{$translate('PAGES.AUDIT.TESTED')}</div>
 
   <div class="buttongroup actionbar">
-    <div class="button">
-      <input id="AuditorSamples__multiselect" type="checkbox" indeterminate="true" /><label for="AuditorSamples__multiselect" class="visuallyhidden">{$translate('PAGES.AUDIT.SELECT_ALL')}</label>
-    </div>
-    <button class="button">V<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_COMPLETE_SELECTED')}</span></button>
-    <button class="button">X<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_UNCOMPLETE_SELECTED')}</span></button>
-    <button class="button">^<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_OPEN_SELECTED')}</span></button>
+    <input
+      id="AuditorSamples__multiselect"
+      type="checkbox"
+      indeterminate="true"
+    /><label
+      for="AuditorSamples__multiselect"
+      class="visuallyhidden"
+    >{$translate('PAGES.AUDIT.SELECT_ALL')}</label>
+    <button class="button button-small button-secondary">V<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_COMPLETE_SELECTED')}</span></button>
+    <button class="button button-small button-secondary">X<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_UNCOMPLETE_SELECTED')}</span></button>
+    <button class="button button-small button-secondary">^<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_OPEN_SELECTED')}</span></button>
   </div>
 
   {#each samples as sample}
     <div>
       <input id="{sample.id}" type="checkbox" />
-      <label for="{sample.id}">{sample.title}</label>
+      <label for="{sample.id}">{sample.title}
+        {#if sample.completed}
+          <span class="visuallyhidden">{$translate('PAGES.AUDIT.TESTED')}</span>
+        {/if}
+      </label>
       <button type="button">Open</button>
     </div>
   {:else}
