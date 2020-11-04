@@ -3,12 +3,12 @@
     <AuditorSamples />
   </div>
 
-  <div class="Auditor__Filter box box-simple">
-    <header class="box-h box-h-simple">
-      {$translate('UI.AUDITOR.FILTER_TITLE', { default: 'Filter findings by' })}
+  <div class="Auditor__Filter box">
+    <header class="Auditor__Filter__header box-h">
+      {$translate('UI.AUDITOR.FILTER_TITLE', { default: 'Show' })}
     </header>
 
-    <div class="Auditor__Filters">
+    <div class="Auditor__Filters box-i">
       <MultipleChoice
         id="filter_wcag_version"
         label="Criterion WCAG Version"
@@ -80,8 +80,8 @@
     .Auditor {
       display: grid;
       grid-template-columns:
-        [left-start] repeat(2, minmax(0, 130px))
-        [left-end content-start] repeat(4, minmax(0, 130px))
+        [left-start] 1fr
+        [left-end content-start] 2fr
         [content-end];
       grid-gap: 32px;
     }
