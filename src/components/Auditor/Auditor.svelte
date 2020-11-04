@@ -27,13 +27,23 @@
   </div>
 
   {#if assertions.length > 0}
-    <ul class="Auditor__Assertions">
-      {#each assertions as assertion}
-        <li class="Auditor__Assertion">
-          <Assertion {...assertion} />
-        </li>
+    <div class="Auditor__Assertions">
+      {#each [...principles] as principle}
+        <Details label="{`<h2>P${principle}</h2>`}" open>
+          {#each [...guidelines].filter(g => g.indexOf(principle) === 0) as guideline}
+            <Details label="{`<h3>G${guideline}</h3>`}" open>
+              {#each assertions.filter(a => a.num.indexOf(guideline) === 0) as assertion}
+                {#if assertion.num.indexOf(principle) === 0}
+                  <div class="Auditor__Assertion">
+                    <Assertion {...assertion} />
+                  </div>
+                {/if}
+              {/each}
+            </Details>
+          {/each}
+        </Details>
       {/each}
-    </ul>
+    </div>
   {:else}
     <p>Nothing found add something.</p>
   {/if}
@@ -99,8 +109,18 @@
 
   import Assertion from '../formcomponents/Assertion.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
+  import Details from '../Details.svelte';
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
 
   // Quick data, needs to come from context/store
   let assertions = WCAG21;
+
+  let principles = new Set(assertions.map((a) => a.num.split('.')[0]));
+  let guidelines = new Set(
+    assertions.map((a) => {
+      const splitted = a.num.split('.');
+
+      return `${splitted[0]}.${splitted[1]}`;
+    })
+  );
 </script>
