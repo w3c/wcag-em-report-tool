@@ -13,7 +13,7 @@
         id="filter_wcag_version"
         label="Criterion WCAG Version"
         type="radio"
-        options="{['WCAG 2.2', 'WCAG 2.1', 'WCAG 2.0']}"
+        options="{['WCAG 2.1','Added in WCAG 2.1', 'WCAG 2.0']}"
         value="WCAG 2.1"
       />
 
