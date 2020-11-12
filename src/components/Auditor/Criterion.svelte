@@ -40,8 +40,8 @@
     {/if}
 
     <div class="">
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.${num}.ID`)}.html">{$translate('PAGES.AUDIT.UNDERSTAND')} {num}</ResourceLink>
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.${num}.ID`)}">{$translate('PAGES.AUDIT.HOW_TO')} {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}.html">{$translate('PAGES.AUDIT.UNDERSTAND')} {num}</ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}">{$translate('PAGES.AUDIT.HOW_TO')} {num}</ResourceLink>
     </div>
   </Details>
 
