@@ -56,9 +56,9 @@
     </legend>
 
     <div class="Criterion__Result">
-      <Select id="{`${num}--result__outcome`}" label="Outcome" options="{outcomeOptions}" bind:value="{scopeAssertion.result.outcome}" />
+      <Select id="{`${num}--result__outcome`}" label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}" options="{outcomeOptions}" bind:value="{scopeAssertion.result.outcome}" />
 
-      <Textarea id="{`${num}--result__description`}" label="Description" bind:value="{scopeAssertion.result.description}" />
+      <Textarea id="{`${num}--result__description`}" label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}" bind:value="{scopeAssertion.result.description}" />
     </div>
   </fieldset>
 
