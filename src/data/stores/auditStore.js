@@ -13,53 +13,40 @@
  * - toggled samples to evaluate
  * - filtered by level, version
  */
-import { derived, writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 
-// wcag data
-import WCAG20 from '../wcag/WCAG20.json';
-import WCAG21 from '../wcag/WCAG21.json';
+import wcagStore from './wcagStore.js';
 
-// dependent stores
-import scopeStore from './scopeStore.js';
+import { AssertionModel, TestResultModel } from '../earl.js';
 
-export const assertionPrototype = {
-  assertedBy: {},
-  id: '',
-  mode: {},
-  result: {},
-  subject: {},
-  test: {}
-};
-
-const assertions = writable([]);
-
-export const testrequirements = derived(scopeStore, ($scopeStore) => {
-  const { WCAG_VERSION } = $scopeStore;
-
-  switch (WCAG_VERSION) {
-    case 'WCAG20':
-      return WCAG20;
-
-    case 'WCAG21':
-    default:
-      return WCAG21;
-  }
-});
 
 export const auditFilter = writable({
   LEVEL: [],
   VERSION: []
 });
 
+const assertions = [];
+get(wcagStore).forEach((test, index) => {
+  const newAssertion = Object.create(AssertionModel);
+  newAssertion.id = `assertion__${index}`;
+  newAssertion.test = test;
+  newAssertion.subject = {
+    type: ['TestSubject', 'WebSite'],
+  };
+  newAssertion.result = Object.create(TestResultModel);
+  assertions.push(newAssertion);
+});
+
 export const filteredAssertions = derived(
-  [testrequirements, auditFilter],
-  ([$testrequirements, $auditFilter]) => {
-    return $testrequirements.filter((a) => {
-      return $auditFilter['LEVEL'].indexOf(a.conformanceLevel) >= 0;
+  auditFilter,
+  ($auditFilter) => {
+    return assertions.filter((a) => {
+      return $auditFilter['LEVEL'].indexOf(a.test.conformanceLevel) >= 0;
     });
   }
 );
 
 export default writable({
-  'ASSERTIONS': []
+  'ASSERTIONS': assertions,
+  'DETAILS_OPEN': {}
 });

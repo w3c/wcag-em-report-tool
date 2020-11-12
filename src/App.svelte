@@ -47,6 +47,7 @@
   import sampleStore from './data/stores/sampleStore.js';
   import scopeStore from './data/stores/scopeStore.js';
   import summaryStore from './data/stores/summaryStore.js';
+  import wcagStore from './data/stores/wcagStore.js';
 
   import IndexRoute from './routes/IndexRoute.svelte';
 
@@ -57,7 +58,8 @@
     exploreStore,
     sampleStore,
     scopeStore,
-    summaryStore
+    summaryStore,
+    wcagStore
   });
 
 </script>

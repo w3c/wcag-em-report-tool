@@ -13,7 +13,7 @@
         id="filter_wcag_version"
         label="Criterion WCAG Version"
         type="radio"
-        options="{['WCAG 2.1','Added in WCAG 2.1', 'WCAG 2.0']}"
+        options="{['WCAG 2.1', 'Added in WCAG 2.1', 'WCAG 2.0']}"
         value="WCAG 2.1"
       />
 
@@ -26,25 +26,9 @@
     </div>
   </div>
 
-  {#if assertions.length > 0}
-    <div class="Auditor__Assertions">
-      {#each [...principles] as principle}
-        <Details label="{`<h2>${$translate(`WCAG.2.1.PRINCIPLE.${principle}`)}</h2>`}" open>
-          {#each [...guidelines].filter((g) => g.indexOf(principle) === 0) as guideline}
-            <Details label="{`<h3>${$translate(`WCAG.2.1.GUIDELINE.${guideline}`)}</h3>`}" open>
-              {#each assertions.filter((a) => a.num.indexOf(guideline) === 0) as assertion}
-                <div class="Auditor__Assertion">
-                  <Assertion {...assertion} />
-                </div>
-              {/each}
-            </Details>
-          {/each}
-        </Details>
-      {/each}
-    </div>
-  {:else}
-    <p>Nothing found add something.</p>
-  {/if}
+  <div class="Auditor__Assertions">
+    <AuditorView criteria="{$wcagStore}" />
+  </div>
 </div>
 
 <style>
@@ -84,10 +68,6 @@
     margin-bottom: 1rem;
   }
 
-  .Auditor__Assertion:not(:last-child) {
-    margin-bottom: 3em;
-  }
-
   @media (min-width: 60rem) {
     .Auditor {
       display: grid;
@@ -105,24 +85,14 @@
 </style>
 
 <script>
+  import { getContext } from 'svelte';
   import { t as translate } from 'svelte-i18n';
 
-  import WCAG21 from '../../data/wcag/WCAG21.json';
-
-  import Assertion from '../formcomponents/Assertion.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
-  import Details from '../Details.svelte';
+  import AuditorView from './AuditorView.svelte';
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
 
-  // Quick data, needs to come from context/store
-  let assertions = WCAG21;
+  const { wcagStore } = getContext('app');
 
-  let principles = new Set(assertions.map((a) => a.num.split('.')[0]));
-  let guidelines = new Set(
-    assertions.map((a) => {
-      const splitted = a.num.split('.');
 
-      return `${splitted[0]}.${splitted[1]}`;
-    })
-  );
 </script>
