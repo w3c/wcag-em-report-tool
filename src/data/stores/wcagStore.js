@@ -18,4 +18,10 @@ const wcag = derived(scopeStore, ($scopeStore) => {
   }
 });
 
+export const newInWcag = {
+  2.1: WCAG21.filter(
+    (newsc) => !WCAG20.some((oldsc) => newsc.num === oldsc.num)
+  )
+};
+
 export default wcag;
