@@ -29,7 +29,7 @@
       id="wcag_version"
       label="{$translate('PAGES.SCOPE.LABEL_WCAG_VERSION')}"
       helptext="{$translate('PAGES.SCOPE.INFO_WCAG_VERSION')}"
-      options="{[{ value: 'WCAG22', title: 'WCAG 2.2' }, { value: 'WCAG21', title: 'WCAG 2.1', selected: true }, { value: 'WCAG20', title: 'WCAG 2.0' }]}"
+      options="{wcagVersions}"
       bind:value="{$scopeStore['WCAG_VERSION']}"
     />
 
@@ -37,7 +37,7 @@
       id="conformance_target"
       label="{$translate('PAGES.SCOPE.LABEL_CONFORMANCE_TGT')}"
       helptext="{$translate('PAGES.SCOPE.INF_CONF_TGT')}"
-      options="{['A', { title: 'AA', selected: true }, 'AAA']}"
+      options="{conformanceLevels}"
       bind:value="{$scopeStore['CONFORMANCE_TARGET']}"
     />
 
@@ -66,8 +66,9 @@
 
 <script>
   import { getContext } from 'svelte';
-
   import { t as translate } from 'svelte-i18n';
+
+  import { CONFORMANCE_LEVELS, VERSIONS} from '../../../data/stores/wcagStore.js';
 
   import Page from '../../Page.svelte';
   import Input from '../../formcomponents/Input.svelte';
@@ -75,4 +76,18 @@
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   const { scopeStore } = getContext('app');
+
+  let wcagVersions = VERSIONS.map((version) => {
+    return {
+      title: `WCAG ${version}`,
+      value: `WCAG${version.replace(/\D/g, '')}`
+    };
+  });
+
+  $: conformanceLevels = CONFORMANCE_LEVELS.map((level) => {
+    return {
+      title: `${$translate('WCAG.COMMON.CONFORMANCE_LEVEL')} ${level}`,
+      value: level
+    };
+  });
 </script>
