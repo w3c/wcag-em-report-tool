@@ -24,4 +24,15 @@ export const newInWcag = {
   )
 };
 
+export const CONFORMANCE_LEVELS = [
+  'A',
+  'AA',
+  'AAA'
+];
+
+export const VERSIONS = [
+  '2.1',
+  '2.0'
+];
+
 export default wcag;
