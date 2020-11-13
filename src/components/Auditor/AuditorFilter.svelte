@@ -9,14 +9,14 @@
       label="Criterion WCAG Version"
       type="radio"
       options="{['WCAG 2.1', 'Added in WCAG 2.1', 'WCAG 2.0']}"
-      value="WCAG 2.1"
+      bind:value="{$auditFilter['VERSION']}"
     />
 
     <MultipleChoice
       id="filter_conformance_level"
       label="Criterion conformance level"
       options="{['Level A', 'Level AA', 'Level AAA']}"
-      value="{['Level A', 'Level AA']}"
+      bind:value="{$auditFilter['LEVEL']}"
     />
   </div>
 </div>
@@ -25,7 +25,7 @@
   .Auditor__Filter {
     grid-area: content;
     grid-row: 1;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem;
   }
 
   .Auditor__Filters {
@@ -37,5 +37,9 @@
 <script>
   import { t as translate } from 'svelte-i18n';
 
+  import { auditFilter } from '../../data/stores/auditStore.js';
+
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
+
+
 </script>

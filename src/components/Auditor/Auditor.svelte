@@ -45,16 +45,11 @@
         [content-end];
       grid-gap: 32px;
     }
-
-    .Auditor__Filter {
-      margin: 0;
-    }
   }
 </style>
 
 <script>
   import { getContext } from 'svelte';
-  import { t as translate } from 'svelte-i18n';
 
   import AuditorFilter from './AuditorFilter.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
