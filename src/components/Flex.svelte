@@ -61,6 +61,9 @@
   .flex-justify--evenly {
     justify-content: space-evenly;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
 </style>
 
 <script>
@@ -68,12 +71,14 @@
   export let align = 'center';
   export let justify = 'center';
   export let reverse = false;
+  export let wrap = false;
 
   $: classNames = [
     'Flex',
     `flex-direction--${direction}${reverse ? '--reverse' : ''}`,
     `flex-align--${align}`,
     `flex-justify--${justify}`,
+    wrap ? 'flex-wrap' : '',
     //  Apply any additional/custom classNames, if provided
     $$restProps.class ? $$restProps.class : '',
   ].join(' ');
