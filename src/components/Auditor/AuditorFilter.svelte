@@ -8,14 +8,14 @@
       id="filter_wcag_version"
       label="Criterion WCAG Version"
       type="radio"
-      options="{['WCAG 2.1', 'Added in WCAG 2.1', 'WCAG 2.0']}"
+      options="{wcagVersions}"
       bind:value="{$auditFilter['VERSION']}"
     />
 
     <MultipleChoice
       id="filter_conformance_level"
       label="Criterion conformance level"
-      options="{['Level A', 'Level AA', 'Level AAA']}"
+      options="{conformanceLevels}"
       bind:value="{$auditFilter['LEVEL']}"
     />
   </div>
@@ -38,8 +38,36 @@
   import { t as translate } from 'svelte-i18n';
 
   import { auditFilter } from '../../data/stores/auditStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS} from '../../data/stores/wcagStore.js';
 
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
 
+  let wcagVersions = VERSIONS.reduce((result, version, index) => {
+    const versionValue = version.replace(/\D/g, '');
+    const newFilter = {
+      title: `WCAG ${version}`,
+      value: `WCAG${versionValue}`
+    };
+    result.push(newFilter);
 
+    if (index === VERSIONS.length - 1) {
+      return result;
+    }
+
+    // Add a version added filter
+    // Last index excluded, it is the first version.
+    result.push({
+      title: `Added in WCAG ${version}`,
+      value: `WCAG${versionValue}+`
+    });
+
+    return result;
+  }, []);
+
+  $: conformanceLevels = CONFORMANCE_LEVELS.map((level) => {
+    return {
+      title: `${$translate('WCAG.COMMON.CONFORMANCE_LEVEL')} ${level}`,
+      value: level
+    };
+  });
 </script>
