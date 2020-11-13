@@ -36,6 +36,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 0.5em;
+    height: 1.5em;
   }
 
   .HelpText__summary {
