@@ -8,17 +8,23 @@
   <summary class="Details__summary">
     <Flex direction="row" align="start" justify="start">
       {#if icon.position !== 'right'}
-        <span class="Details__icon"><Button type="secondary" small fake>{@html iconValue}</Button></span>
+        <span class="Details__icon"><Button type="secondary" small fake>
+            {@html iconValue}
+          </Button></span>
       {/if}
       <span class="Details__label">{@html label}</span>
       {#if icon.position === 'right'}
-        <span class="Details__icon"><Button type="secondary" small fake>{@html iconValue}</Button></span>
+        <span class="Details__icon"><Button type="secondary" small fake>
+            {@html iconValue}
+          </Button></span>
       {/if}
     </Flex>
   </summary>
 
   <div class="Details__body">
-    <slot />
+    {#if open}
+      <slot />
+    {/if}
   </div>
 </details>
 <!-- /component -->
@@ -58,7 +64,8 @@
     margin-left: 0.5em;
   }
 
-  .Details__body {}
+  .Details__body {
+  }
 
   :global(.Details__body > *:not(:last-child)) {
     margin: 0 0 1em;
@@ -94,8 +101,5 @@
     icon.position = 'left';
   }
 
-  $: iconValue = open
-    ? icon.collapse
-    : icon.expand;
-
+  $: iconValue = open ? icon.collapse : icon.expand;
 </script>
