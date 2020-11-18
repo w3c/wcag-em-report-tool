@@ -10,7 +10,9 @@
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
-  <Details label={`${$translate('PAGES.AUDIT.BTN_SHOW_TEXT')} <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}>
+  <Details
+    label="{`${$translate('PAGES.AUDIT.BTN_SHOW_TEXT')} <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}"
+  >
     <div>{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.DESCRIPTION`)}</div>
 
     {#if details}
@@ -18,9 +20,7 @@
         {#each details as detail}
           <dt>{$translate(`${detail}.TITLE`)}</dt>
           <dd>
-            <p>
-              {$translate(`${detail}.DESCRIPTION`)}
-            </p>
+            <p>{$translate(`${detail}.DESCRIPTION`)}</p>
           </dd>
         {/each}
       </dl>
@@ -40,8 +40,18 @@
     {/if}
 
     <div class="">
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}.html">{$translate('PAGES.AUDIT.UNDERSTAND')} {num}</ResourceLink>
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}">{$translate('PAGES.AUDIT.HOW_TO')} {num}</ResourceLink>
+      <ResourceLink
+        href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}.html"
+      >
+        {$translate('PAGES.AUDIT.UNDERSTAND')}
+        {num}
+      </ResourceLink>
+      <ResourceLink
+        href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}"
+      >
+        {$translate('PAGES.AUDIT.HOW_TO')}
+        {num}
+      </ResourceLink>
     </div>
   </Details>
 
@@ -56,14 +66,46 @@
     </legend>
 
     <div class="Criterion__Result">
-      <Select id="{`${num}--result__outcome`}" label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}" options="{outcomeOptions}" bind:value="{scopeAssertion.result.outcome}" />
+      <Select
+        id="{`${num}--result__outcome`}"
+        label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
+        options="{outcomeOptions}"
+        bind:value="{scopeAssertion.result.outcome}"
+      />
 
-      <Textarea id="{`${num}--result__description`}" label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}" bind:value="{scopeAssertion.result.description}" />
+      <Textarea
+        id="{`${num}--result__description`}"
+        label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
+        bind:value="{scopeAssertion.result.description}"
+      />
     </div>
   </fieldset>
 
   <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
-    <p class="info">RESULTS INDIVIDUAL SAMPLES</p>
+    {#each $allSamples as sample (`${num}-${sample.id}`)}
+      <fieldset class="Criterion__Result__container">
+        <legend class="Criterion__Subject">
+          {sample.title || sample.description || sample.id}
+        </legend>
+
+        <div class="Criterion__Result">
+          <Select
+            id="{`${num}--${sample.id}--result__outcome`}"
+            label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
+            options="{outcomeOptions}"
+            value=""
+          />
+
+          <Textarea
+            id="{`${num}--${sample.id}--result__description`}"
+            label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
+            value=""
+          />
+        </div>
+      </fieldset>
+    {:else}
+      <p>No sample(s) selected.</p>
+    {/each}
   </Details>
 </div>
 <!-- /component -->
@@ -165,7 +207,10 @@
   import { getContext } from 'svelte';
   import { t as translate, dictionary, locale } from 'svelte-i18n';
 
+  import { allSamples } from '../../data/stores/sampleStore.js';
+
   import Details from '../Details.svelte';
+  import EarlResult from '../EarlResult.svelte';
   import ResourceLink from '../ResourceLink.svelte';
 
   import Select from '../formcomponents/Select.svelte';
@@ -177,16 +222,24 @@
   const { auditStore } = getContext('app');
 
   // Dynamicly get the amount of details from the dictionairy
-  let details = Object.keys($dictionary[`${$locale}`]).filter((key) => {
-    return (
-      key.indexOf(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.DETAILS`) >= 0
-      && key.indexOf('TITLE') >= 0
-    );
-  }).map(key => key.replace('.TITLE', ''));
+  let details = Object.keys($dictionary[`${$locale}`])
+    .filter((key) => {
+      return (
+        key.indexOf(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.DETAILS`) >= 0 &&
+        key.indexOf('TITLE') >= 0
+      );
+    })
+    .map((key) => key.replace('.TITLE', ''));
   let notes;
 
   $: assertions = $auditStore['ASSERTIONS'].filter((a) => a.test.num === num);
-  $: scopeAssertion = assertions.find((a) => a.subject.type.indexOf('WebSite') >= 0);
+  $: scopeAssertion = assertions.find(
+    (a) => a.subject.type.indexOf('WebSite') >= 0
+  );
+  $: sampleAssertions = assertions.filter(
+    (a) => a.subject.type.indexOf('WebSite') === -1
+  );
+
   $: outcomeOptions = [
     {
       title: $translate('UI.EARL.PASSED')
