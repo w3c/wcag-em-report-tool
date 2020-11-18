@@ -15,7 +15,7 @@
            * Specificly test.num.indexOf guideline === 0
            * because we are grouping per principle > guideline.
            * -->
-          {#each criteria.filter((criterion) => criterion.num.indexOf(guideline) === 0) as criterion}
+          {#each criteria.filter((criterion) => criterion.num.indexOf(guideline) === 0) as criterion (criterion.num)}
             <div class="Auditor__Assertion">
               <!--
                * This should probably not be called an assertion
@@ -51,6 +51,8 @@
         </Details>
       {/each}
     </Details>
+  {:else}
+    <p>No criteria, use the filter to show some criteria.</p>
   {/each}
 </div>
 

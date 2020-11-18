@@ -38,15 +38,14 @@
   import { t as translate } from 'svelte-i18n';
 
   import { auditFilter } from '../../data/stores/auditStore.js';
-  import { CONFORMANCE_LEVELS, VERSIONS} from '../../data/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS } from '../../data/stores/wcagStore.js';
 
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
 
   let wcagVersions = VERSIONS.reduce((result, version, index) => {
-    const versionValue = version.replace(/\D/g, '');
     const newFilter = {
       title: `WCAG ${version}`,
-      value: `WCAG${versionValue}`
+      value: version
     };
     result.push(newFilter);
 
@@ -58,7 +57,7 @@
     // Last index excluded, it is the first version.
     result.push({
       title: `Added in WCAG ${version}`,
-      value: `WCAG${versionValue}+`
+      value: `${version}+`
     });
 
     return result;

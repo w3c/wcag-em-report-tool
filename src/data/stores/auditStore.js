@@ -13,7 +13,7 @@
  * - toggled samples to evaluate
  * - filtered by level, version
  */
-import { derived, get, writable } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 
 import wcagStore from './wcagStore.js';
 
@@ -26,7 +26,7 @@ export const auditFilter = writable({
 });
 
 const assertions = [];
-get(wcagStore).forEach((test, index) => {
+wcagStore[2.1].forEach((test, index) => {
   const newAssertion = Object.create(AssertionModel);
   newAssertion.id = `assertion__${index}`;
   newAssertion.test = test;
