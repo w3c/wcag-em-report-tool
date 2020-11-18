@@ -5,7 +5,7 @@ const scopeStore = writable({
   AS_BASELINE: '',
   CONFORMANCE_TARGET: 'AA',
   SITE_NAME: '',
-  WCAG_VERSION: 'WCAG21',
+  WCAG_VERSION: '2.1',
   WEBSITE_SCOPE: ''
 });
 
