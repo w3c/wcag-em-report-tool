@@ -21,6 +21,9 @@ Object.keys(wcag).reverse().reduce((previous, current, index) => {
   );
 
   wcag[`${current}+`] = newInCurrent;
+
+  // Return the current to set a previous version!
+  return current;
 }, '');
 
 
