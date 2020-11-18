@@ -1,5 +1,5 @@
 const BaseModel = {
-  ID: 0,
+  ID: null,
   date: null,
   title: null,
   description: null
