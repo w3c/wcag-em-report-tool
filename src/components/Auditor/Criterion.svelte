@@ -60,49 +60,21 @@
    * assertion.subject === scope
    * assertion.result
    * -->
-  <fieldset class="Criterion__Result__container">
-    <legend class="Criterion__Subject">
-      {$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}
-    </legend>
-
-    <div class="Criterion__Result">
-      <Select
-        id="{`${num}--result__outcome`}"
-        label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
-        options="{outcomeOptions}"
-        bind:value="{scopeAssertion.result.outcome}"
-      />
-
-      <Textarea
-        id="{`${num}--result__description`}"
-        label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
-        bind:value="{scopeAssertion.result.description}"
-      />
-    </div>
-  </fieldset>
+  <EarlResult {...scopeAssertion} />
 
   <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
+    <!--
+     * Sample results should be generated from
+     * (sample) assertions.
+     * Assertions should be preferably created at
+     * samplePage or sampleInput?
+     * Then assertions should be filtered
+     * by the selected list of AuditorSamples.
+     *
+     * Then each assertion => <EarlResult {...assertion} />
+   -->
     {#each $allSamples as sample (`${num}-${sample.id}`)}
-      <fieldset class="Criterion__Result__container">
-        <legend class="Criterion__Subject">
-          {sample.title || sample.description || sample.id}
-        </legend>
-
-        <div class="Criterion__Result">
-          <Select
-            id="{`${num}--${sample.id}--result__outcome`}"
-            label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
-            options="{outcomeOptions}"
-            value=""
-          />
-
-          <Textarea
-            id="{`${num}--${sample.id}--result__description`}"
-            label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
-            value=""
-          />
-        </div>
-      </fieldset>
+      <EarlResult subject="{sample}" />
     {:else}
       <p>No sample(s) selected.</p>
     {/each}
@@ -116,14 +88,6 @@
     border: 1px solid var(--line-grey);
     box-shadow: 1px 1px 4px -4px #000;
     padding: 1em;
-  }
-
-  :global(.Criterion > *:not(:last-child)) {
-    margin-bottom: 1em;
-  }
-
-  :global(.Criterion > *:last-child) {
-    margin-bottom: 0;
   }
 
   .Criterion__Header {
@@ -148,59 +112,6 @@
     vertical-align: middle;
     white-space: nowrap;
   }
-
-  .Criterion__Result__container {
-    display: block;
-    border: none;
-  }
-
-  :global(.Criterion__Result__container > *:not(:last-child)) {
-    margin-bottom: 1em;
-  }
-
-  .Criterion__Subject {
-    padding: 0;
-    font-size: 1em;
-  }
-
-  .Criterion__Result {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: auto;
-    min-inline-size: 5em;
-  }
-
-  /* use :global for children as they are in different components */
-  :global(.Criterion__Result label::after) {
-    content: ':';
-  }
-
-  :global(.Criterion__Result > *:not(:last-child)) {
-    flex: 1;
-    margin-bottom: 1em;
-  }
-
-  :global(.Criterion__Result > :last-child) {
-    flex: 3;
-  }
-
-  :global(.Criterion__Result textarea) {
-    width: 100%;
-    font-family: 'Noto Sans Mono', monospace;
-  }
-
-  @media (min-width: 40rem) {
-    .Criterion__Result {
-      flex-direction: row;
-    }
-
-    :global(.Criterion__Result > *:not(:last-child)) {
-      margin-bottom: 0;
-      margin-right: 2em;
-    }
-  }
 </style>
 
 <script>
@@ -213,11 +124,12 @@
   import EarlResult from '../EarlResult.svelte';
   import ResourceLink from '../ResourceLink.svelte';
 
-  import Select from '../formcomponents/Select.svelte';
-  import Textarea from '../formcomponents/Textarea.svelte';
-
   export let num;
   export let conformanceLevel;
+
+  // Should receive assertions specific
+  // to the test.id (wich is a wcag.sc.num)
+  // export let assertions;
 
   const { auditStore } = getContext('app');
 
@@ -232,30 +144,18 @@
     .map((key) => key.replace('.TITLE', ''));
   let notes;
 
+  // We can drop this line
   $: assertions = $auditStore['ASSERTIONS'].filter((a) => a.test.num === num);
+
+  // Find the assertion with subject
+  // type WebSite === scope
   $: scopeAssertion = assertions.find(
     (a) => a.subject.type.indexOf('WebSite') >= 0
   );
+
+  // Find the assertion with subject
+  // type not WebSite (or WebPage/sample instead)
   $: sampleAssertions = assertions.filter(
     (a) => a.subject.type.indexOf('WebSite') === -1
   );
-
-  $: outcomeOptions = [
-    {
-      title: $translate('UI.EARL.PASSED')
-    },
-    {
-      title: $translate('UI.EARL.FAILED')
-    },
-    {
-      title: $translate('UI.EARL.CANT_TELL')
-    },
-    {
-      title: $translate('UI.EARL.NOT_PRESENT')
-    },
-    {
-      title: $translate('UI.EARL.NOT_CHECKED'),
-      selected: true
-    }
-  ];
 </script>
