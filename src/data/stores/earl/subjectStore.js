@@ -17,7 +17,7 @@ export function subject(options) {
 
 function createSubject(options) {
   const _subject = new TestSubject(options);
-  _subject.ID = _subjectIds.length > 0 ? Math.max.apply(_subjectIds) + 1 : 1;
+  _subject.ID = _subjectIds.length > 0 ? Math.max.apply(null, _subjectIds) + 1 : 1;
   _subjectIds.push(_subject.ID);
   _subjects[_subject.ID] = _subject;
 
