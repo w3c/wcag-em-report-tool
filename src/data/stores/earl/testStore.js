@@ -1,5 +1,4 @@
 import { derived } from 'svelte/store';
-import { locale, dictionary } from 'svelte-i18n';
 
 import auditStore from '../auditStore.js';
 import wcag from '../wcagStore.js';
@@ -29,47 +28,19 @@ import { TestRequirement } from './models.js';
  */
 const _tests = {};
 
-const $tests = derived([auditStore, locale], () => lookupTests);
+const $tests = derived([auditStore], () => lookupTests);
 
 function lookupTests(wcagVersion) {
-  let langCode;
-
-  const unsubscribeLocale = locale.subscribe((value) => {
-    langCode = value;
-  });
-  unsubscribeLocale();
-
-  if (_tests[langCode] && _tests[langCode][wcagVersion]) {
-    return _tests[langCode][wcagVersion];
+  if (_tests[wcagVersion]) {
+    return _tests[wcagVersion];
   }
 
-  return createTests(langCode, wcagVersion);
+  return createTests(wcagVersion);
 }
 
-function createTests(locale, wcagVersion) {
-  const translationVersion = `WCAG${wcagVersion.replace(/[+.]/g, '')}`;
-  let translations;
-  const unsubscribeDictionary = dictionary.subscribe((value) => {
-    translations = value[locale];
-  });
-
-  unsubscribeDictionary();
-
-  if (!_tests[locale]) {
-    _tests[locale] = {};
-  }
-
-  _tests[locale][wcagVersion] = wcag[wcagVersion].map((criterion) => {
-    const test = new TestRequirement({
-      title:
-        translations[
-          `WCAG.${translationVersion}.SUCCESS_CRITERION.${criterion.num}.TITLE`
-        ],
-      description:
-        translations[
-          `WCAG.${translationVersion}.SUCCESS_CRITERION.${criterion.num}.DESCRIPTION`
-        ]
-    });
+function createTests(wcagVersion) {
+  _tests[wcagVersion] = wcag[wcagVersion].map((criterion) => {
+    const test = new TestRequirement();
 
     // Extend with wcag specific props
     Object.assign(test, {
@@ -80,7 +51,7 @@ function createTests(locale, wcagVersion) {
     return test;
   });
 
-  return _tests[locale][wcagVersion];
+  return _tests[wcagVersion];
 }
 
 export default $tests;
