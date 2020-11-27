@@ -2,7 +2,6 @@ import { writable } from 'svelte/store';
 
 import { TestSubject } from './models.js';
 
-const _subjectIds = [];
 const _subjects = {};
 
 export function subject(options) {
@@ -17,8 +16,6 @@ export function subject(options) {
 
 function createSubject(options) {
   const _subject = new TestSubject(options);
-  _subject.ID = _subjectIds.length > 0 ? Math.max.apply(null, _subjectIds) + 1 : 1;
-  _subjectIds.push(_subject.ID);
   _subjects[_subject.ID] = _subject;
 
   return _subject;
