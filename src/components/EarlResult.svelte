@@ -11,24 +11,24 @@
  * -->
 <fieldset class="Criterion__Result__container">
   <legend class="Criterion__Subject">
-    Result for {subject.title || subject.description || subject.id}
+    Result for {subject.title || subject.description || subject.ID}
   </legend>
 
   <Flex direction="row" align="start" justify="between" wrap>
     <div class="Criterion__Result--outcome">
       <Select
-        id="{`${test}--${subject.id}--result__outcome`}"
+        id="{`assertion__${_assertion.ID}--result__outcome`}"
         label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
         options="{outcomeOptions}"
-        bind:value="{assertion.result.outcome}"
+        bind:value="{_assertion.result.outcome}"
       />
     </div>
 
     <div class="Criterion__Result--description">
       <Textarea
-        id="{`${test}--${subject.id}--result__description`}"
+        id="{`assertion__${_assertion.ID}--result__description`}"
         label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
-        bind:value="{assertion.result.description}"
+        bind:value="{_assertion.result.description}"
       />
     </div>
   </Flex>
@@ -65,22 +65,13 @@
    */
 
   import { getContext } from 'svelte';
+  import { assertion } from '../data/stores/earl/assertionStore.js';
 
   import Flex from './Flex.svelte';
   import Select from './formcomponents/Select.svelte';
   import Textarea from './formcomponents/Textarea.svelte';
 
-  // Might setup to accept an assertion only
-  // To reduce mistakes made.
-
-  // Where data gets stored
-  // used as:
-  // - bind:value="{result.outcome}"
-  // - bind:value="{result.description}"
-  export let result = {};
-
-  // Used to display as groupname
-  // and for id creation
+  // Used to display subject.title
   export let subject = {};
 
   // Used for id creation (test.id)
@@ -92,11 +83,12 @@
   // Get or set; e.g. $assertion(test, subject)
   // and returns an Assertion object
   // Will be passed through for better composability!
-  let assertion = {
-    result,
-    test,
-    subject
-  };
+  // let result = {};
+
+  $: _assertion = $assertion({
+    subject,
+    test
+  });
 
   // Grab this from earl data maybe?
   // Keeping the values consistent
