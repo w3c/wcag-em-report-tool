@@ -2,7 +2,7 @@
 const _ids = {};
 
 const partsMixin = (SuperClass) => class PartsMixin extends SuperClass {
-  constructor(options) {
+  constructor(options = {}) {
     super(options);
 
     this.hasPart = options.hasPart || null;
@@ -31,7 +31,7 @@ class Base {
 
 
 export class TestSubject extends partsMixin(Base) {
-  constructor(options) {
+  constructor(options = {}) {
     super(options);
 
     const { type } = options;
@@ -78,7 +78,7 @@ export class TestResult extends Base {
 
 
 export class Assertion extends Base {
-  constructor(options) {
+  constructor(options = {}) {
     super(options);
 
     this.assertedBy = null;
