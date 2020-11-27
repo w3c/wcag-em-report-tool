@@ -8,21 +8,13 @@ import { TestRequirement } from './models.js';
 /**
  * Lookup dictionairy for tests
  * {
- *  [locale]: {
  *    [version]: [
  *      {
- *        ID: '#.#.#',
- *        title: '…',
- *        description: '…',
- *        details: [
- *          {
- *            title: '…',
- *            description: '…'
- *          }
- *        ]
+ *        ...TestRequirement,
+ *        num: '…',
+ *        conformanceLevel: '…'
  *      }
  *    ]
- *  }
  * }
  * @type {Object}
  */
