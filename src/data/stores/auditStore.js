@@ -25,8 +25,16 @@ export const auditFilter = writable({
   VERSION: []
 });
 
+let wcag;
+
+const unscribeWCAG = wcagStore.subscribe((get) => {
+  wcag = get('2.1');
+});
+
+unscribeWCAG();
+
 const assertions = [];
-wcagStore[2.1].forEach((test, index) => {
+wcag.forEach((test, index) => {
   const newAssertion = Object.create(AssertionModel);
   newAssertion.id = `assertion__${index}`;
   newAssertion.test = test;
