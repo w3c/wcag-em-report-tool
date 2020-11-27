@@ -67,13 +67,13 @@
 
   const { auditStore } = getContext('app');
 
-  // Can be moved to derived store
+  // Sets are unique values
   $: principles = new Set(criteria.map((a) => a.num.split('.')[0]));
   $: guidelines = new Set(
     criteria.map((a) => {
-      const splitted = a.num.split('.');
+      const splittedNum = a.num.split('.');
 
-      return `${splitted[0]}.${splitted[1]}`;
+      return `${splittedNum[0]}.${splittedNum[1]}`;
     })
   );
 </script>
