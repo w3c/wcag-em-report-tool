@@ -39,6 +39,25 @@ export class TestSubject extends Base {
   }
 }
 
+
+class TestCriterion extends Base {
+  constructor(options) {
+    super(options);
+
+    this.type = ['TestCriterion'];
+  }
+}
+
+
+
+export class TestRequirement extends TestCriterion {
+  constructor(options) {
+    super(options);
+
+    this.type = this.type.concat(['TestRequirement']);
+  }
+}
+
 function createDate(date = new Date()) {
   const Y = date.getFullYear();
   const M = date.getMonth();
