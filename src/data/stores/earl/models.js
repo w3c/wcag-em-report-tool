@@ -67,6 +67,28 @@ export class TestRequirement extends TestCriterion {
   }
 }
 
+
+export class TestResult extends Base {
+  constructor(options) {
+    super(options);
+
+    this.outcome = '';
+  }
+}
+
+
+export class Assertion extends Base {
+  constructor(options) {
+    super(options);
+
+    this.assertedBy = null;
+    this.mode = 'manual';
+    this.result = options.result || null;
+    this.subject = options.subject || null;
+    this.test = options.test || null;
+  }
+}
+
 function createDate(date = new Date()) {
   const Y = date.getFullYear();
   const M = date.getMonth();
