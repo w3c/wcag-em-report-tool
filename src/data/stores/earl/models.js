@@ -5,8 +5,8 @@ const partsMixin = (SuperClass) => class PartsMixin extends SuperClass {
   constructor(options) {
     super(options);
 
-    this.hasPart = null;
-    this.isPartOf = null;
+    this.hasPart = options.hasPart || null;
+    this.isPartOf = options.isPartOf || null;
   }
 };
 

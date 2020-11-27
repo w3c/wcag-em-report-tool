@@ -64,7 +64,8 @@
 
   function handleSampleAdd() {
     const newSample = $subject({
-      type: 'WebPage'
+      type: 'WebPage',
+      isPartOf: $subject(1)
     });
 
     value = [...value, newSample];
