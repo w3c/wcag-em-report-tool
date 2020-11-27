@@ -10,9 +10,8 @@
   // Initialize
 
   // Create a WebSite subject
-  let websiteSubject = subject({
-    ID: 1,
-    type: 'WebSite',
+  let websiteSubject = $subject(1, {
+    type: 'WebSite'
   });
 
   $: {

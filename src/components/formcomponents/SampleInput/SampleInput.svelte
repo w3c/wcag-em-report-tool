@@ -63,7 +63,7 @@
   let valueContainer;
 
   function handleSampleAdd() {
-    const newSample = subject({
+    const newSample = $subject({
       type: 'WebPage'
     });
 
