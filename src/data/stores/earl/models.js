@@ -1,3 +1,6 @@
+// id lookup
+const _ids = {};
+
 class Base {
   constructor(options) {
     const {
@@ -7,8 +10,10 @@ class Base {
       description
     } = options;
 
-    this.ID = ID || null;
-    this.date = new Date(date) || new Date();
+    this.name = this.constructor.name;
+
+    this.ID = ID || createID(this.name);
+    this.date = date ? date : createDate();
     this.title = title || '';
     this.description = description || '';
   }
@@ -34,3 +39,27 @@ export class TestSubject extends Base {
   }
 }
 
+function createDate(date = new Date()) {
+  const Y = date.getFullYear();
+  const M = date.getMonth();
+  const D = date.getDate();
+
+  return `${Y}-${M}-${D}`;
+}
+
+function createID(className) {
+  let currentIds = _ids[className];
+  let newId;
+
+  if (!currentIds) {
+    currentIds = _ids[className] = [];
+  }
+
+  newId = currentIds.length > 0
+    ? Math.max.apply(null, currentIds) + 1
+    : 1;
+
+  currentIds.push(newId);
+
+  return newId;
+}
