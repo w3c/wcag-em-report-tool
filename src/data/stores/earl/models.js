@@ -12,7 +12,8 @@ const partsMixin = (SuperClass) => class PartsMixin extends SuperClass {
 
 
 class Base {
-  constructor(options) {
+  constructor(options = {}) {
+
     const {
       ID,
       date,
@@ -20,9 +21,7 @@ class Base {
       description
     } = options;
 
-    this.name = this.constructor.name;
-
-    this.ID = ID || createID(this.name);
+    this.ID = ID ? ID : createID(this.constructor.name);
     this.date = date ? date : createDate();
     this.title = title || '';
     this.description = description || '';
