@@ -35,10 +35,7 @@ function createTests(wcagVersion) {
     const test = new TestRequirement();
 
     // Extend with wcag specific props
-    Object.assign(test, {
-      num: criterion.num,
-      conformanceLevel: criterion.conformanceLevel
-    });
+    Object.assign(test, criterion);
 
     return test;
   });
