@@ -53,6 +53,7 @@
 
   import { auditFilter } from '../../data/stores/auditStore.js';
   import { CONFORMANCE_LEVELS } from '../../data/stores/wcagStore.js';
+  import tests from '../../data/stores/earl/testStore.js';
 
   import AuditorFilter from './AuditorFilter.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
@@ -67,7 +68,7 @@
     );
   }
 
-  $: wcag = wcagStore[$auditFilter['VERSION']];
+  $: wcag = $tests($auditFilter['VERSION']);
 
   $: criteria = wcag
     // Filter by conformance level
