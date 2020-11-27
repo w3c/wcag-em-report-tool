@@ -73,7 +73,7 @@
      *
      * Then each assertion => <EarlResult {...assertion} />
    -->
-    {#each $allSamples as sample (`${num}-${sample.id}`)}
+    {#each $allSamples as sample (`${num}-${sample.ID}`)}
       <EarlResult subject="{sample}" />
     {:else}
       <p>No sample(s) selected.</p>

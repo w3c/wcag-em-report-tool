@@ -23,12 +23,11 @@
   <div id="{id}--value" class="ListInput--value">
     {#if value.length > 0}
       <ol title="{label}" bind:this="{valueContainer}">
-        {#each value as item (item.id)}
+        {#each value as sample, index (sample.ID)}
           <li>
             <Sample
-              id="{item.id}"
-              bind:title="{item.title}"
-              bind:href="{item.href}"
+              id="{id}__{index + 1}"
+              bind:data="{sample}"
               on:DELETE="{handleSampleDelete}"
             />
           </li>
@@ -41,13 +40,15 @@
 
   <AddOther
     label="{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}"
-    on:ADD="{handleAdd}"
+    on:ADD="{handleSampleAdd}"
   ></AddOther>
 </fieldset>
 <!-- /component -->
 
 <script>
   import { t as translate } from 'svelte-i18n';
+
+  import { subject } from '../../../data/stores/earl/subjectStore.js';
 
   import AddOther from '../AddOther.svelte';
   import Details from '../../Details.svelte';
@@ -60,27 +61,23 @@
 
   let valueContainer;
 
-  function handleAdd() {
-    const newId =
-      value.length > 0 ? Math.max(...value.map((i) => parseInt(i.id.replace(`${id}__`, ''), 10))) + 1 : 1;
-
-    const newSample = {
-      id: `${id}__${newId}`,
-      title: '',
-      href: ''
-    };
+  function handleSampleAdd() {
+    const newSample = subject({
+      type: 'WebPage'
+    });
 
     value = [...value, newSample];
   }
 
   function handleSampleDelete(event) {
-    const removeSample = value.find(sample => sample.id === event.detail);
+
+    const removeSample = value.find(sample => sample.ID === event.detail);
     const indexSample = value.indexOf(removeSample);
 
-    // This construct is required due to Svelte's reactivity rules...
     // value need to be set explicitly
     const newValue = value;
     newValue.splice(indexSample, 1);
     value = newValue;
+    // @TODO: removeSample.delete(); !required for cleanup
   }
 </script>
