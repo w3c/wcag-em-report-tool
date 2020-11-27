@@ -17,8 +17,10 @@
 </Page>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import Page from '../../Page.svelte';
   import Report from '../../Report.svelte';
+
+  const { translate } = getContext('app');
 </script>

@@ -42,12 +42,13 @@
 </style>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
   import { Link, useLocation } from 'svelte-navigator';
 
   export let label = 'page';
   export let context = [];
 
+  const { translate } = getContext('app');
   let indexedContext = context.map((page, index) => {
     return {
       path: page.path || '/',

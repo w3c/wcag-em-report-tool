@@ -32,10 +32,12 @@
 <!-- /component -->
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import Details from '../Details.svelte';
   import Page from '../Page.svelte';
+
+  const { translate } = getContext('app');
 
   // @todo: Add these links the locales
   // (They might be used on another page)

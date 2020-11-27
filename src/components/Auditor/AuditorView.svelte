@@ -58,14 +58,13 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { t as translate } from 'svelte-i18n';
 
   import Criterion from './Criterion.svelte';
   import Details from '../Details.svelte';
 
   export let criteria = [];
 
-  const { auditStore } = getContext('app');
+  const { auditStore, translate } = getContext('app');
 
   // Sets are unique values
   $: principles = new Set(criteria.map((a) => a.num.split('.')[0]));

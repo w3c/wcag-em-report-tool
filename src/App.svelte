@@ -40,7 +40,7 @@
 
 <script>
   import { setContext } from 'svelte';
-  import { isLoading } from 'svelte-i18n';
+  import { isLoading, t as translate } from 'svelte-i18n';
 
   import auditStore from './data/stores/auditStore.js';
   import exploreStore from './data/stores/exploreStore.js';
@@ -54,6 +54,7 @@
   export let basepath = '/';
 
   setContext('app', {
+    translate,
     auditStore,
     exploreStore,
     sampleStore,

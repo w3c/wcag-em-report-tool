@@ -35,12 +35,14 @@
 </style>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import { auditFilter } from '../../data/stores/auditStore.js';
   import { CONFORMANCE_LEVELS, VERSIONS } from '../../data/stores/wcagStore.js';
 
   import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
+
+  const { translate } = getContext('app');
 
   let wcagVersions = VERSIONS.reduce((result, version, index) => {
     const newFilter = {

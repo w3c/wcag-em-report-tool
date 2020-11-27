@@ -5,8 +5,10 @@
 </Page>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import Auditor from '../../Auditor/Auditor.svelte';
   import Page from '../../Page.svelte';
+
+  const { translate } = getContext('app');
 </script>

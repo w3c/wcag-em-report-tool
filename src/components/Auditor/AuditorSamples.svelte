@@ -45,11 +45,13 @@
 </Panel>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import { allSamples } from '../../data/stores/sampleStore.js';
 
   import Details from '../Details.svelte';
   import Flex from '../Flex.svelte';
   import Panel from '../Panel.svelte';
+
+  const { translate } = getContext('app');
 </script>

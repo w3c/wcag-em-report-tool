@@ -46,7 +46,7 @@
 <!-- /component -->
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import { subject } from '../../../data/stores/earl/subjectStore.js';
 
@@ -59,6 +59,7 @@
   export let helptext;
   export let value = [];
 
+  const { translate } = getContext('app');
   let valueContainer;
 
   function handleSampleAdd() {

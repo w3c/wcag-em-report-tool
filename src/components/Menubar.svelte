@@ -69,7 +69,10 @@
 </style>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
   import { Link } from 'svelte-navigator';
+
   import LanguageSelect from './i18n/LanguageSelect.svelte';
+
+  const { translate } = getContext('app');
 </script>

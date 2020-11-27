@@ -66,7 +66,6 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { t as translate } from 'svelte-i18n';
 
   import { CONFORMANCE_LEVELS, VERSIONS} from '../../../data/stores/wcagStore.js';
 
@@ -75,7 +74,7 @@
   import Select from '../../formcomponents/Select.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
-  const { scopeStore } = getContext('app');
+  const { scopeStore, translate } = getContext('app');
 
   let wcagVersions = VERSIONS.map((version) => {
     return {

@@ -64,7 +64,7 @@
    * - test
    */
 
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import Flex from './Flex.svelte';
   import Select from './formcomponents/Select.svelte';
@@ -85,6 +85,8 @@
 
   // Used for id creation (test.id)
   export let test = {};
+
+  const { translate } = getContext('app');
 
   // This should be storeLike stuff
   // Get or set; e.g. $assertion(test, subject)

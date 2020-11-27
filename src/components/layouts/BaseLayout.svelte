@@ -55,7 +55,7 @@
 </style>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
   import { useLocation } from 'svelte-navigator';
 
   import appData from '../../data/app.js';
@@ -69,6 +69,7 @@
   import Pager from '../Pager.svelte';
   import Panel from '../Panel.svelte';
 
+  const { translate } = getContext('app');
   const location = useLocation();
 
   $: hasPanel = $location.pathname !== '/evaluation/view-report';

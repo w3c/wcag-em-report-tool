@@ -42,7 +42,6 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { t as translate } from 'svelte-i18n';
 
   import webTechnologies from '../../../data/webtechnologies.json';
 
@@ -50,5 +49,5 @@
   import MultipleChoice from '../../formcomponents/MultipleChoice.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
-  const { exploreStore } = getContext('app');
+  const { exploreStore, translate } = getContext('app');
 </script>

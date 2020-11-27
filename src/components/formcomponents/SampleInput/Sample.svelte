@@ -24,11 +24,13 @@
 </Editable>
 
 <script>
-  import { t as translate } from 'svelte-i18n';
+  import { getContext } from 'svelte';
 
   import Editable from '../Editable.svelte';
   import Input from '../Input.svelte';
 
   export let id;
   export let data;
+
+  const { translate } = getContext('app');
 </script>
