@@ -1,6 +1,16 @@
 // id lookup
 const _ids = {};
 
+const partsMixin = (SuperClass) => class PartsMixin extends SuperClass {
+  constructor(options) {
+    super(options);
+
+    this.hasPart = null;
+    this.isPartOf = null;
+  }
+};
+
+
 class Base {
   constructor(options) {
     const {
@@ -21,7 +31,7 @@ class Base {
 
 
 
-export class TestSubject extends Base {
+export class TestSubject extends partsMixin(Base) {
   constructor(options) {
     super(options);
 
@@ -40,7 +50,7 @@ export class TestSubject extends Base {
 }
 
 
-class TestCriterion extends Base {
+class TestCriterion extends partsMixin(Base) {
   constructor(options) {
     super(options);
 
