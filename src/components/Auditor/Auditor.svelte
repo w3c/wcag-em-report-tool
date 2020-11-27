@@ -69,7 +69,9 @@
 
   $: wcag = wcagStore[$auditFilter['VERSION']];
 
-  $: criteria = wcag.filter((criterion) => {
-    return $auditFilter['LEVEL'].indexOf(criterion.conformanceLevel) >= 0;
-  });
+  $: criteria = wcag
+    // Filter by conformance level
+    .filter((criterion) => {
+      return $auditFilter['LEVEL'].indexOf(criterion.conformanceLevel) >= 0;
+    });
 </script>
