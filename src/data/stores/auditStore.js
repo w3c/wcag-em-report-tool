@@ -5,6 +5,8 @@ export const auditFilter = writable({
   VERSION: []
 });
 
+export const auditSamples = writable([]);
+
 export default writable({
   'DETAILS_OPEN': {}
 });
