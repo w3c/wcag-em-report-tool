@@ -8,7 +8,9 @@
       <input
         id="AuditorSamples__multiselect"
         type="checkbox"
-        indeterminate="true"
+        indeterminate="{someChecked}"
+        checked="{allChecked}"
+        on:change="{handleMultiselectClick}"
       /><label
         for="AuditorSamples__multiselect"
         class="visuallyhidden"
@@ -66,6 +68,9 @@
 
   const { translate } = getContext('app');
 
+  $: allChecked = $allSamples.length === $auditSamples.length;
+  $: someChecked = !allChecked && $auditSamples.length > 0;
+
   function sampleID(index) {
     return parseInt(index, 10) + 1;
   }
@@ -75,6 +80,14 @@
       return new URL(value);
     } catch (e) {
       return false;
+    }
+  }
+
+  function handleMultiselectClick(event) {
+    $auditSamples = [];
+
+    if (!allChecked) {
+      $auditSamples = $allSamples.map((sample) => sample.ID);
     }
   }
 </script>
