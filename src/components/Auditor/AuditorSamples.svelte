@@ -23,13 +23,13 @@
 
   <hr />
 
-  {#each $allSamples as sample, index}
-    <Flex align="center" justify="start">
+  {#each $allSamples as sample, index (sampleID(index))}
+    <Flex align="center" justify="start" wrap>
       <Flex align="start" justify="start">
-        <input id="sample__{index + 1}" type="checkbox" />
+        <input id="sample__{sampleID(index)}" type="checkbox" value="{sample.ID}" bind:group="{$auditSamples}" />
         <label
-          for="sample__{index + 1}"
-        >{sample.title || sample.description || `Sample ${index + 1}`}
+          for="sample__{sampleID(index)}"
+        >{sample.title || sample.description || `Sample ${sampleID(index)}`}
           {#if sample.completed}
             <span
               class="visuallyhidden"
@@ -57,6 +57,7 @@
 <script>
   import { getContext } from 'svelte';
 
+  import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
 
   import Details from '../Details.svelte';
@@ -64,6 +65,10 @@
   import Panel from '../Panel.svelte';
 
   const { translate } = getContext('app');
+
+  function sampleID(index) {
+    return parseInt(index, 10) + 1;
+  }
 
   function isURL(value) {
     try {
