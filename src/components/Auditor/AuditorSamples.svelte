@@ -37,12 +37,22 @@
           {/if}
         </label>
       </Flex>
-      <div><button type="button" class="button-small">Open</button></div>
+      <div class="AuditorSample__controls">
+        {#if isURL(sample.description)}
+          <a class="button button-small" href="{sample.description}">Open</a>
+        {/if}
+      </div>
     </Flex>
   {:else}
     <div>{$translate('PAGES.AUDIT.NO_SAMPLE')}</div>
   {/each}
 </Panel>
+
+<style media="screen">
+  .AuditorSample__controls {
+    margin-left: auto;
+  }
+</style>
 
 <script>
   import { getContext } from 'svelte';
@@ -54,4 +64,12 @@
   import Panel from '../Panel.svelte';
 
   const { translate } = getContext('app');
+
+  function isURL(value) {
+    try {
+      return new URL(value);
+    } catch (e) {
+      return false;
+    }
+  }
 </script>
