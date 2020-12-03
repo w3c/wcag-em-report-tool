@@ -60,7 +60,7 @@
    * assertion.subject === WebSite
    * assertion.result
    * -->
-  <EarlResult test="{test}" subject="{scopeSubject}" />
+  <EarlResult label="{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}" test="{test}" subject="{scopeSubject}" />
 
   <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
     <!--
@@ -73,8 +73,8 @@
      *
      * Then each assertion => <EarlResult {...assertion} />
    -->
-    {#each $allSamples as sample (`${num}-${sample.ID}`)}
-      <EarlResult test="{test}" subject="{sample}" />
+    {#each $allSamples as sample, index (`${num}-${sample.ID}`)}
+      <EarlResult label="{$translate('PAGES.AUDIT.RESULTS_FOR')}: {sample.title || sample.description || `Sample ${index + 1}`}" test="{test}" subject="{sample}" />
     {:else}
       <p>No sample(s) selected.</p>
     {/each}
