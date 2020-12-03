@@ -69,12 +69,20 @@
   }
 
   $: versionedTests = $tests.filter((test) => {
+    if (!test.version) {
+      return false;
+    }
+
     return test.version.indexOf($auditFilter['VERSION']) >= 0;
   });
 
   $: criteria = versionedTests
     // Filter by conformance level
     .filter((criterion) => {
+      if (!criterion.conformanceLevel) {
+        return false;
+      }
+
       return $auditFilter['LEVEL'].indexOf(criterion.conformanceLevel) >= 0;
     });
 </script>
