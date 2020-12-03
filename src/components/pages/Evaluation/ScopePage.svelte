@@ -79,7 +79,7 @@
   let wcagVersions = VERSIONS.map((version) => {
     return {
       title: `WCAG ${version}`,
-      value: `WCAG${version.replace(/\D/g, '')}`
+      value: version
     };
   });
 
