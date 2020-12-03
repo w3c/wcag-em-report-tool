@@ -23,13 +23,13 @@
 
   <hr />
 
-  {#each $allSamples as sample}
+  {#each $allSamples as sample, index}
     <Flex align="center" justify="start">
       <Flex align="start" justify="start">
-        <input id="{sample.id}" type="checkbox" />
+        <input id="sample__{index + 1}" type="checkbox" />
         <label
-          for="{sample.id}"
-        >{sample.title || sample.description || sample.id}
+          for="sample__{index + 1}"
+        >{sample.title || sample.description || `Sample ${index + 1}`}
           {#if sample.completed}
             <span
               class="visuallyhidden"
