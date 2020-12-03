@@ -11,7 +11,11 @@
  * -->
 <fieldset class="Criterion__Result__container">
   <legend class="Criterion__Subject">
-    Result for {subject.title || subject.description || subject.ID}
+    {#if label}
+      {label}
+    {:else}
+      {$translate('PAGES.AUDIT.RESULTS_FOR')}: {subject.title || subject.description || `subject ${subject.ID}`}
+    {/if}
   </legend>
 
   <Flex direction="row" align="start" justify="between" wrap>
@@ -71,6 +75,7 @@
   import Select from './formcomponents/Select.svelte';
   import Textarea from './formcomponents/Textarea.svelte';
 
+  export let label = undefined;
   // Used to display subject.title
   export let subject = {};
 
@@ -79,12 +84,7 @@
 
   const { translate } = getContext('app');
 
-  // This should be storeLike stuff
-  // Get or set; e.g. $assertion(test, subject)
-  // and returns an Assertion object
-  // Will be passed through for better composability!
-  // let result = {};
-
+  // Create or get an Assertion
   $: _assertion = $assertion({
     subject,
     test
