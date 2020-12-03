@@ -68,7 +68,9 @@
     );
   }
 
-  $: versionedTests = $tests($auditFilter['VERSION']);
+  $: versionedTests = $tests.filter((test) => {
+    return test.version.indexOf($auditFilter['VERSION']) >= 0;
+  });
 
   $: criteria = versionedTests
     // Filter by conformance level
