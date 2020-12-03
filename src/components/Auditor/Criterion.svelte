@@ -60,7 +60,11 @@
    * assertion.subject === WebSite
    * assertion.result
    * -->
-  <EarlResult label="{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}" test="{test}" subject="{scopeSubject}" />
+  <EarlResult
+    label="{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}"
+    test="{test}"
+    subject="{scopeSubject}"
+  />
 
   <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
     <!--
@@ -74,7 +78,13 @@
      * Then each assertion => <EarlResult {...assertion} />
    -->
     {#each $allSamples as sample, index (`${num}-${sample.ID}`)}
-      <EarlResult label="{$translate('PAGES.AUDIT.RESULTS_FOR')}: {sample.title || sample.description || `Sample ${index + 1}`}" test="{test}" subject="{sample}" />
+      {#if $auditSamples.indexOf(sample.ID) >= 0}
+        <EarlResult
+          label="{$translate('PAGES.AUDIT.RESULTS_FOR')}: {sample.title || sample.description || `Sample ${index + 1}`}"
+          test="{test}"
+          subject="{sample}"
+        />
+      {/if}
     {:else}
       <p>No sample(s) selected.</p>
     {/each}
@@ -118,6 +128,7 @@
   import { getContext } from 'svelte';
   import { dictionary, locale } from 'svelte-i18n';
 
+  import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
   import { subject } from '../../data/stores/earl/subjectStore.js';
 
@@ -127,10 +138,7 @@
 
   export let test;
 
-  const {
-    conformanceLevel,
-    num
-  } = test;
+  const { conformanceLevel, num } = test;
 
   const { translate } = getContext('app');
 
@@ -146,5 +154,4 @@
   let notes;
 
   let scopeSubject = $subject(1);
-
 </script>
