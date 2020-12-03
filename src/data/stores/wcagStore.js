@@ -6,7 +6,7 @@ import auditStore from './auditStore.js';
 import WCAG20 from '../wcag/WCAG20.json';
 import WCAG21 from '../wcag/WCAG21.json';
 
-const wcag = {
+export const wcag = {
   '2.1': WCAG21,
   '2.0': WCAG20
 };
