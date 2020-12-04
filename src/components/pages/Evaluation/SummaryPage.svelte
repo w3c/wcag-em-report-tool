@@ -46,21 +46,23 @@
     />
   </form>
 
-  <h2>{$translate('PAGES.SUMMARY.HD_CRITERIA_REPORT')}</h2>
-  <!-- Criteria here... -->
-  <p class="info">Evaluation summary</p>
+  <Details label="{`<h2>${$translate('PAGES.SUMMARY.HD_CRITERIA_REPORT')}</h2>`}">
+    <AuditorSummary criteria="{$tests}" />
+  </Details>
 </Page>
 
 <script>
   import { getContext } from 'svelte';
-  import {t as translate} from 'svelte-i18n';
+  import tests from '../../../data/stores/earl/testStore.js';
 
+  import Details from '../../Details.svelte';
   import Page from '../../Page.svelte';
 
+  import AuditorSummary from '../../Auditor/AuditorSummary.svelte';
   import Input from '../../formcomponents/Input.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
 
-  const { summaryStore } = getContext('app');
+  const { summaryStore, translate } = getContext('app');
 
   if ($summaryStore['EVALUATION_TITLE'] === '') {
     $summaryStore['EVALUATION_TITLE'] = $translate('PAGES.SUMMARY.TITLE_PREFIX');
