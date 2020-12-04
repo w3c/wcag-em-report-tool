@@ -58,21 +58,20 @@
             {:else}
               <p>Not checked.</p>
             {/each}
-            <Details label="{`${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}`}">
-              {#each sampleAssertions(criterion) as assertion}
-                <h6>
-                  Results for {assertion.subject.title || '-subject title-'}
-                </h6>
-                <dl>
+            <h6>Results for individual pages</h6>
+            {#each sampleAssertions(criterion) as assertion}
+              <div class="box box-simple">
+                <span class="box-h box-h-simple">Results for {assertion.subject.title || `Sample ${assertion.subject.ID}`}</span>
+                <dl class="box-i">
                   <dt>Outcome</dt>
                   <dd>{assertion.result.outcome}</dd>
                   <dt>Observation</dt>
                   <dd>{assertion.result.description}</dd>
                 </dl>
-              {:else}
-                <p>Not checked.</p>
-              {/each}
-            </Details>
+              </div>
+            {:else}
+              <p>Not checked.</p>
+            {/each}
           </div>
         </div>
       </div>
