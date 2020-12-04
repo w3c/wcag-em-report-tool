@@ -68,7 +68,8 @@
 
   const { translate } = getContext('app');
 
-  $: allChecked = $allSamples.length === $auditSamples.length;
+  $: allSampleIDs = $allSamples.map((sample) => sample.ID);
+  $: allChecked = allSampleIDs.length === $auditSamples.length;
   $: someChecked = !allChecked && $auditSamples.length > 0;
 
   function sampleID(index) {
@@ -83,11 +84,11 @@
     }
   }
 
-  function handleMultiselectClick(event) {
+  function handleMultiselectClick() {
     $auditSamples = [];
 
     if (!allChecked) {
-      $auditSamples = $allSamples.map((sample) => sample.ID);
+      $auditSamples = allSampleIDs;
     }
   }
 </script>
