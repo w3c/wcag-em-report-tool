@@ -49,7 +49,7 @@
 
   <section>
     <h2>{$translate('UI.REPORT.HD_CRITERIA_REPORT')}</h2>
-    <p>{report.audit || '…'}</p>
+    <AuditorSummary criteria="{$tests}" />
   </section>
 
   <section>
@@ -77,12 +77,16 @@
 </article>
 
 <style>
-  .Report {}
+  .Report {
+  }
 </style>
 
 <script>
   import { getContext } from 'svelte';
   import { t as translate, date } from 'svelte-i18n';
+  import tests from '../data/stores/earl/testStore.js';
+
+  import AuditorSummary from './Auditor/AuditorSummary.svelte';
 
   let exportableReport;
 
@@ -100,7 +104,7 @@
   $: report = {
     commissioner: $summaryStore['EVALUATION_COMMISSIONER'],
     creator: $summaryStore['EVALUATION_CREATOR'],
-    date: $date(new Date($summaryStore['EVALUATION_DATE']), { format: 'full'}),
+    date: $date(new Date($summaryStore['EVALUATION_DATE']), { format: 'full' }),
     samples: [
       ...$sampleStore['STRUCTURED_SAMPLE'],
       ...$sampleStore['RANDOM_SAMPLE']
