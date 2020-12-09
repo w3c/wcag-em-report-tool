@@ -8,8 +8,8 @@
       <h2>{$translate('PAGES.REPORT.DOWNLOAD_REPORT')}</h2>
     </header>
     <div class="box-i">
-      <button><span>{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</span></button>
-      <button><span>{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</span></button>
+      <Button><span>{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</span></Button>
+      <Button type="secondary" on:click="{handleJSONDownloadClick}"><span>{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</span></Button>
     </div>
   </aside>
 
@@ -19,8 +19,15 @@
 <script>
   import { getContext } from 'svelte';
 
+  import evaluationStore from '../../../data/stores/evaluationStore.js';
+
+  import Button from '../../Button.svelte';
   import Page from '../../Page.svelte';
   import Report from '../../Report.svelte';
 
   const { translate } = getContext('app');
+
+  function handleJSONDownloadClick() {
+    console.log('Download JSON', JSON.stringify($evaluationStore));
+  }
 </script>
