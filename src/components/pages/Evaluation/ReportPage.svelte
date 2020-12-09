@@ -9,7 +9,9 @@
     </header>
     <div class="box-i">
       <Button><span>{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</span></Button>
-      <Button type="secondary" on:click="{handleJSONDownloadClick}"><span>{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</span></Button>
+      <Button type="secondary" on:click="{handleJSONDownloadClick}">
+        <span>{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</span>
+      </Button>
     </div>
   </aside>
 
@@ -28,6 +30,20 @@
   const { translate } = getContext('app');
 
   function handleJSONDownloadClick() {
-    console.log('Download JSON', JSON.stringify($evaluationStore));
+    downloadFile({
+      name: 'evaluation',
+      type: 'application/json',
+      contents: JSON.stringify($evaluationStore)
+    });
+  }
+
+  function downloadFile({ contents, name, type }) {
+    const _a = document.createElement('a');
+    const file = new Blob([contents], { type });
+
+    _a.href = URL.createObjectURL(file);
+    _a.download = name;
+
+    _a.click();
   }
 </script>
