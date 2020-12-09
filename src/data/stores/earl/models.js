@@ -90,11 +90,16 @@ export class Assertion extends Base {
 }
 
 function createDate(date = new Date()) {
-  const Y = date.getFullYear();
-  const M = date.getMonth();
-  const D = date.getDate();
+  let dateObject;
 
-  return `${Y}-${M}-${D}`;
+  try {
+    dateObject = new Date(date);
+  } catch (e) {
+    console.warn(`[createDate]: ${e.message}`);
+    return date;
+  }
+
+  return dateObject.toISOString();
 }
 
 function createID(className) {
