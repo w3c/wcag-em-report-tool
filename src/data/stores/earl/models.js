@@ -164,7 +164,6 @@ export class TestResult extends Base {
   constructor(options) {
     super(options);
 
-    this.outcome = '';
     Object.assign(this['@context'], {
       TestResult: 'earl:TestResult',
       OutcomeValue: 'earl:OutcomeValue',
@@ -175,6 +174,7 @@ export class TestResult extends Base {
     });
 
     this.type = ['TestResult'];
+    this.outcome = UNTESTED;
   }
 }
 
