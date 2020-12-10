@@ -57,7 +57,7 @@
     {#if report.samples.length > 0}
       <ol>
         {#each report.samples as sample}
-          <li><span>{sample.title}</span> - <span>{sample.href}</span></li>
+          <li><span>{sample.title}</span> - <span>{sample.description}</span></li>
         {/each}
       </ol>
     {:else}
