@@ -27,14 +27,23 @@
   import Page from '../../Page.svelte';
   import Report from '../../Report.svelte';
 
-  const { translate } = getContext('app');
+  const { jsonld, translate } = getContext('app');
 
   function handleJSONDownloadClick() {
-    downloadFile({
-      name: 'evaluation',
-      type: 'application/json',
-      contents: JSON.stringify($evaluationStore)
-    });
+
+    jsonld.compact($evaluationStore, $evaluationStore['@context'])
+      .then((compacted) => {
+        console.log(compacted);
+
+        downloadFile({
+          name: 'evaluation',
+          type: 'application/json',
+          contents: JSON.stringify(compacted)
+        });
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   }
 
   function downloadFile({ contents, name, type }) {
