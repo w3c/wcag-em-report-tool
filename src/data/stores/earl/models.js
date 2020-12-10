@@ -89,6 +89,71 @@ export class TestRequirement extends TestCriterion {
   }
 }
 
+class OutcomeValue extends Base {
+  constructor(options) {
+    super(options);
+
+    const { type } = options;
+    const ALLOWED_TYPES = [
+      'Pass',
+      'Fail',
+      'CannotTell',
+      'NotApplicable',
+      'NotTested'
+    ];
+
+    Object.assign(this['@context'], {
+      OutcomeValue: 'earl:OutcomeValue',
+      Pass: 'earl:Pass',
+      Fail: 'earl:Fail',
+      CannotTell: 'earl:CannotTell',
+      NotApplicable: 'earl:NotApplicable',
+      NotTested: 'earl:NotTested'
+    });
+
+    this.type = ['OutcomeValue'];
+
+    if (ALLOWED_TYPES.indexOf(type) >= 0) {
+      this.type.push(type);
+    }
+
+    delete this.date;
+  }
+}
+
+const PASSED = new OutcomeValue({
+  '@id': 'earl:passed',
+  type: 'Pass'
+});
+
+const FAILED = new OutcomeValue({
+  '@id': 'earl:failed',
+  type: 'Fail'
+});
+
+const CANT_TELL = new OutcomeValue({
+  '@id': 'earl:cantTell',
+  type: 'CannotTell'
+});
+
+const INAPPLICABLE = new OutcomeValue({
+  '@id': 'earl:inapplicable',
+  type: 'NotApplicable'
+});
+
+const UNTESTED = new OutcomeValue({
+  '@id': 'earl:untested',
+  type: 'NotTested'
+});
+
+export const OUTCOME = {
+  PASSED,
+  FAILED,
+  CANT_TELL,
+  INAPPLICABLE,
+  UNTESTED
+};
+
 export class TestResult extends Base {
   constructor(options) {
     super(options);
