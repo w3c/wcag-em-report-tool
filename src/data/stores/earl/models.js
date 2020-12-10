@@ -41,6 +41,10 @@ class Base {
     this.title = title;
     this.description = description;
   }
+
+  update() {
+    this.date = createDate();
+  }
 }
 
 export class TestSubject extends partsMixin(Base) {
@@ -119,6 +123,8 @@ class OutcomeValue extends Base {
 
     delete this.date;
   }
+
+  update() {}
 }
 
 const PASSED = new OutcomeValue({
