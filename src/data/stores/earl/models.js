@@ -69,6 +69,10 @@ class TestCriterion extends partsMixin(Base) {
   constructor(options) {
     super(options);
 
+    Object.assign(this['@context'], {
+      TestCriterion: 'earl:TestCriterion'
+    });
+
     this.type = ['TestCriterion'];
   }
 }
@@ -77,7 +81,11 @@ export class TestRequirement extends TestCriterion {
   constructor(options) {
     super(options);
 
-    this.type = this.type.concat(['TestRequirement']);
+    Object.assign(this['@context'], {
+      TestRequirement: 'earl:TestRequirement'
+    });
+
+    this.type.push('TestRequirement');
   }
 }
 
@@ -86,6 +94,16 @@ export class TestResult extends Base {
     super(options);
 
     this.outcome = '';
+    Object.assign(this['@context'], {
+      TestResult: 'earl:TestResult',
+      OutcomeValue: 'earl:OutcomeValue',
+      outcome: {
+        '@id': 'earl:outcome',
+        '@type': 'earl:OutcomeValue'
+      }
+    });
+
+    this.type = ['TestResult'];
   }
 }
 
@@ -93,11 +111,36 @@ export class Assertion extends Base {
   constructor(options = {}) {
     super(options);
 
+    Object.assign(this['@context'], {
+      Assertion: 'earl:Assertion',
+      assertedBy: {
+        '@id': 'earl:assertedBy',
+        '@type': 'earl:Assertor'
+      },
+      mode: {
+        '@id': 'earl:mode',
+        '@type': 'earl:TestMode'
+      },
+      result: {
+        '@id': 'earl:result',
+        '@type': 'earl:TestResult'
+      },
+      subject: {
+        '@id': 'earl:subject',
+        '@type': 'earl:TestSubject'
+      },
+      test: {
+        '@id': 'earl:test',
+        '@type': 'earl:TestCriterion'
+      }
+    });
+
+    this.type = 'Assertion';
     this.assertedBy = null;
-    this.mode = 'manual';
-    this.result = options.result || null;
-    this.subject = options.subject || null;
-    this.test = options.test || null;
+    this.mode = 'earl:manual';
+    this.result = options.result;
+    this.subject = options.subject;
+    this.test = options.test;
   }
 }
 
