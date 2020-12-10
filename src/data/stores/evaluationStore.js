@@ -48,12 +48,39 @@ export default derived(
     } = $exploreStore;
 
     return {
-      language: $locale,
+      '@context': {
+        // EARL
+        earl: 'http://www.w3.org/ns/earl#',
+
+        // WCAG Context
+        WCAG20: 'http://www.w3.org/TR/WCAG20/#',
+        WCAG21: 'http://www.w3.org/TR/WCAG21/#',
+        wcagVersion: 'http://www.w3.org/WAI/standards-guidelines/wcag/#versions',
+
+        // WCAG-EM Context
+        wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
+        Evaluation: 'wcagem:procedure',
+        defineScope: 'wcagem:step1',
+        scope: 'wcagem:step1a',
+        conformanceTarget: 'wcagem:step1b',
+        exploreTarget: 'wcagem:step2',
+        essentialFunctionality: 'step2b',
+        pageTypeVariety: 'step2c',
+        technologiesReliedUpon: 'step2d',
+        selectSample: 'wcagem:step3',
+        structuredSample: 'wcagem:step3a',
+        randomSample: 'wcagem:step3b',
+        auditSample: {
+          '@id': 'wcagem:step4',
+          '@type': 'earl:Assertion'
+        },
+        reportFindings: 'wcagem:step5'
+      },
+      '@type': 'Evaluation',
+      '@language': $locale,
       defineScope: {
         // First subject === scope / website
         scope: $subject(1),
-
-        // https://www.w3.org/WAI/standards-guidelines/wcag/#versions
         wcagVersion: WCAG_VERSION,
         conformanceTarget: CONFORMANCE_TARGET
       },
@@ -67,7 +94,7 @@ export default derived(
         structuredSample: STRUCTURED_SAMPLE
       },
       auditSample: $assertionStore,
-      report: {
+      reportFindings: {
         commissioner: EVALUATION_COMMISSIONER,
         date: EVALUATION_DATE,
         evaluator: EVALUATION_CREATOR,
