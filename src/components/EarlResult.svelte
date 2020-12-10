@@ -25,6 +25,7 @@
         label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
         options="{outcomeOptions}"
         bind:value="{_assertion.result.outcome}"
+        on:change="{handleResultChange}"
       />
     </div>
 
@@ -33,6 +34,7 @@
         id="{`assertion__${_assertion.ID}--result__description`}"
         label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
         bind:value="{_assertion.result.description}"
+        on:change="{handleResultChange}"
       />
     </div>
   </Flex>
@@ -105,4 +107,8 @@
       selected: index === Object.keys(OUTCOME).length - 1
     };
   });
+
+  function handleResultChange() {
+    _assertion.result.update();
+  }
 </script>
