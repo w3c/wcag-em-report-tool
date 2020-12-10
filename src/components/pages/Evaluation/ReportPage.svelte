@@ -33,8 +33,6 @@
 
     jsonld.compact($evaluationStore, $evaluationStore['@context'])
       .then((compacted) => {
-        console.log(compacted);
-
         downloadFile({
           name: 'evaluation',
           type: 'application/json',
