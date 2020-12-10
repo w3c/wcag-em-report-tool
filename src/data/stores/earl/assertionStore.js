@@ -18,10 +18,7 @@ function lookupAssertion(ID, options = {}) {
       return true;
     }
 
-    return (
-      a.test === options.test
-      && a.subject === options.subject
-    );
+    return a.test === options.test && a.subject === options.subject;
   });
 
   if (_assertion) {
@@ -47,7 +44,5 @@ function createAssertion(ID, options) {
   return _assertion;
 }
 
-export {
-  $assertion as assertion
-};
+export { $assertion as assertion };
 export default $assertions;
