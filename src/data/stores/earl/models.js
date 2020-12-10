@@ -16,15 +16,22 @@ class Base {
     const { ID, date, title, description } = options;
 
     this['@context'] = {
+      earl: 'http://www.w3.org/ns/earl#',
       dcterms: 'http://purl.org/dc/terms/',
+      W3CDTF: 'http://www.w3.org/TR/NOTE-datetime',
       title: 'dcterms:title',
-      description: 'dcterms:description'
+      date: {
+        '@id': 'dcterms:date',
+        '@type': 'W3CDTF'
+      },
+      description: 'dcterms:description',
+      type: '@type'
     };
 
     this.ID = ID ? ID : createID(this.constructor.name);
     this.date = date ? date : createDate();
-    this.title = title || '';
-    this.description = description || '';
+    this.title = title;
+    this.description = description;
   }
 }
 
