@@ -42,7 +42,7 @@
         });
       })
       .catch((error) => {
-        console.error(error.message);
+        console.error(`An error occured: “${error.name}”\n${error.message}`);
       });
   }
 
