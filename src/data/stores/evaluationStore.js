@@ -64,16 +64,13 @@ export default derived(
         scope: 'wcagem:step1a',
         conformanceTarget: 'wcagem:step1b',
         exploreTarget: 'wcagem:step2',
-        essentialFunctionality: 'step2b',
-        pageTypeVariety: 'step2c',
-        technologiesReliedUpon: 'step2d',
+        essentialFunctionality: 'wcagem:step2b',
+        pageTypeVariety: 'wcagem:step2c',
+        technologiesReliedUpon: 'wcagem:step2d',
         selectSample: 'wcagem:step3',
         structuredSample: 'wcagem:step3a',
         randomSample: 'wcagem:step3b',
-        auditSample: {
-          '@id': 'wcagem:step4',
-          '@type': 'earl:Assertion'
-        },
+        auditSample: 'wcagem:step4',
         reportFindings: 'wcagem:step5'
       },
       '@type': 'Evaluation',
