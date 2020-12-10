@@ -1,5 +1,5 @@
 <Field id="{id}" label="{label}" helptext="{helptext}">
-  <textarea id="{id}" rows="5" bind:value></textarea>
+  <textarea id="{id}" rows="5" bind:value on:change></textarea>
 </Field>
 
 <script>
