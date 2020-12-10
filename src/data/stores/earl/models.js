@@ -6,8 +6,12 @@ const partsMixin = (SuperClass) =>
     constructor(options = {}) {
       super(options);
 
-      this.hasPart = options.hasPart || null;
-      this.isPartOf = options.isPartOf || null;
+      Object.assign(this['@context'], {
+        hasPart: 'dcterms:hasPart',
+        isPartOf: 'dcterms:isPartOf'
+      });
+      this.hasPart = options.hasPart;
+      this.isPartOf = options.isPartOf;
     }
   };
 
