@@ -1,25 +1,25 @@
 // id lookup
 const _ids = {};
 
-const partsMixin = (SuperClass) => class PartsMixin extends SuperClass {
-  constructor(options = {}) {
-    super(options);
+const partsMixin = (SuperClass) =>
+  class PartsMixin extends SuperClass {
+    constructor(options = {}) {
+      super(options);
 
-    this.hasPart = options.hasPart || null;
-    this.isPartOf = options.isPartOf || null;
-  }
-};
-
+      this.hasPart = options.hasPart || null;
+      this.isPartOf = options.isPartOf || null;
+    }
+  };
 
 class Base {
   constructor(options = {}) {
+    const { ID, date, title, description } = options;
 
-    const {
-      ID,
-      date,
-      title,
-      description
-    } = options;
+    this['@context'] = {
+      dcterms: 'http://purl.org/dc/terms/',
+      title: 'dcterms:title',
+      description: 'dcterms:description'
+    };
 
     this.ID = ID ? ID : createID(this.constructor.name);
     this.date = date ? date : createDate();
@@ -28,17 +28,12 @@ class Base {
   }
 }
 
-
-
 export class TestSubject extends partsMixin(Base) {
   constructor(options = {}) {
     super(options);
 
     const { type } = options;
-    const ALLOWED_TYPES = [
-      'WebSite',
-      'WebPage'
-    ];
+    const ALLOWED_TYPES = ['WebSite', 'WebPage'];
 
     this.type = ['TestSubject'];
 
@@ -48,7 +43,6 @@ export class TestSubject extends partsMixin(Base) {
   }
 }
 
-
 class TestCriterion extends partsMixin(Base) {
   constructor(options) {
     super(options);
@@ -56,8 +50,6 @@ class TestCriterion extends partsMixin(Base) {
     this.type = ['TestCriterion'];
   }
 }
-
-
 
 export class TestRequirement extends TestCriterion {
   constructor(options) {
@@ -67,7 +59,6 @@ export class TestRequirement extends TestCriterion {
   }
 }
 
-
 export class TestResult extends Base {
   constructor(options) {
     super(options);
@@ -75,7 +66,6 @@ export class TestResult extends Base {
     this.outcome = '';
   }
 }
-
 
 export class Assertion extends Base {
   constructor(options = {}) {
@@ -110,9 +100,7 @@ function createID(className) {
     currentIds = _ids[className] = [];
   }
 
-  newId = currentIds.length > 0
-    ? Math.max.apply(null, currentIds) + 1
-    : 1;
+  newId = currentIds.length > 0 ? Math.max.apply(null, currentIds) + 1 : 1;
 
   currentIds.push(newId);
 
