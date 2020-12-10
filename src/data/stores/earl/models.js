@@ -50,6 +50,13 @@ export class TestSubject extends partsMixin(Base) {
     const { type } = options;
     const ALLOWED_TYPES = ['WebSite', 'WebPage'];
 
+    Object.assign(this['@context'], {
+      schema: 'http://schema.org/',
+      WebSite: 'schema:WebSite',
+      WebPage: 'schema:WebPage',
+      TestSubject: 'earl:TestSubject'
+    });
+
     this.type = ['TestSubject'];
 
     if (ALLOWED_TYPES.indexOf(type) >= 0) {
