@@ -28,6 +28,10 @@ class Base {
       type: '@type'
     };
 
+    if (options['@id']) {
+      this['@id'] = options['@id'];
+    }
+
     this.ID = ID ? ID : createID(this.constructor.name);
     this.date = date ? date : createDate();
     this.title = title;
