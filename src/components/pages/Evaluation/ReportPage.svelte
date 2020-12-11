@@ -21,6 +21,7 @@
 <script>
   import { getContext } from 'svelte';
 
+  import appJsonLdContext from '../../../data/jsonld/appContext.js';
   import evaluationStore from '../../../data/stores/evaluationStore.js';
 
   import Button from '../../Button.svelte';
@@ -31,7 +32,7 @@
 
   function handleJSONDownloadClick() {
 
-    jsonld.compact($evaluationStore, $evaluationStore['@context'])
+    jsonld.compact($evaluationStore, appJsonLdContext)
       .then((compacted) => {
         downloadFile({
           name: 'evaluation',
