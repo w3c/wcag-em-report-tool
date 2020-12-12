@@ -51,7 +51,7 @@
             {#each scopeAssertion(criterion) as assertion}
               <dl>
                 <dt>Outcome</dt>
-                <dd>{assertion.result.outcome}</dd>
+                <dd>{assertion.result.outcome.title}</dd>
                 <dt>Observation</dt>
                 <dd>{assertion.result.description}</dd>
               </dl>
