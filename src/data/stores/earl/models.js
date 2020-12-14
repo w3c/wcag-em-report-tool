@@ -93,7 +93,7 @@ export class TestRequirement extends TestCriterion {
   }
 }
 
-class OutcomeValue extends Base {
+export class OutcomeValue extends Base {
   constructor(options) {
     super(options);
 
