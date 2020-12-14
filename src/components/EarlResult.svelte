@@ -72,7 +72,7 @@
 
   import { getContext } from 'svelte';
   import { assertion } from '../data/stores/earl/assertionStore.js';
-  import { OUTCOME } from '../data/stores/earl/models.js';
+  import { outcomeValueStore as outcomes } from '../data/stores/earl/resultStore.js';
 
   import Flex from './Flex.svelte';
   import Select from './formcomponents/Select.svelte';
@@ -93,18 +93,14 @@
     test
   });
 
-  // Grab this from earl data maybe?
-  // Keeping the values consistent
-  $: outcomeOptions = Object.keys(OUTCOME).map((outcomeKey, index) => {
-    const title = $translate(`UI.EARL.${outcomeKey}`);
-    const value = OUTCOME[outcomeKey];
-
-    value.title = title;
+  $: outcomeOptions = $outcomes.map((outcome, index) => {
+    const title = outcome.title;
+    const value = outcome;
 
     return {
       title,
       value,
-      selected: index === Object.keys(OUTCOME).length - 1
+      selected: index === $outcomes.length - 1
     };
   });
 
