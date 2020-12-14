@@ -38,30 +38,12 @@ export default {
   NotTested: 'earl:NotTested',
 
   // - earl:properties
-  assertedBy: {
-    '@id': 'earl:assertedBy',
-    '@type': 'earl:Assertor'
-  },
-  mode: {
-    '@id': 'earl:mode',
-    '@type': 'earl:TestMode'
-  },
-  result: {
-    '@id': 'earl:result',
-    '@type': 'earl:TestResult'
-  },
-  subject: {
-    '@id': 'earl:subject',
-    '@type': 'earl:TestSubject'
-  },
-  test: {
-    '@id': 'earl:test',
-    '@type': 'earl:TestCriterion'
-  },
-  outcome: {
-    '@id': 'earl:outcome',
-    '@type': 'earl:OutcomeValue'
-  },
+  assertedBy: 'earl:assertedBy',
+  mode: 'earl:mode',
+  result: 'earl:result',
+  subject: 'earl:subject',
+  test: 'earl:test',
+  outcome: 'earl:outcome',
 
   // Dublin Core
   dcterms: 'http://purl.org/dc/terms/',
