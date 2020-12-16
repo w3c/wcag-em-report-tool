@@ -77,14 +77,17 @@ const $tests = derived(
     // }
     // Then set title to locales.locale.title
     _tests.forEach((_test) => {
+      const wcagTranslationKey = 'WCAG.WCAG21.SUCCESS_CRITERION';
       let translateable;
       let translations = _test.locales[$locale];
 
+
       if (!translations) {
         translations = _test.locales[$locale] = {
-          title: $translate(`WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.TITLE`),
+          '@id': `WCAG21:${$translate(`${wcagTranslationKey}.${_test.num}.ID`)}`,
+          title: $translate(`${wcagTranslationKey}.${_test.num}.TITLE`),
           description: $translate(
-            `WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.DESCRIPTION`
+            `${wcagTranslationKey}.${_test.num}.DESCRIPTION`
           ),
 
           // Get details from dictionary instead,
@@ -93,7 +96,7 @@ const $tests = derived(
             // Get ...DETAILS.DETAIL_#... entries
             .filter((key) => {
               return (
-                key.indexOf(`WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.DETAILS`) >=
+                key.indexOf(`${wcagTranslationKey}.${_test.num}.DETAILS`) >=
                   0 && key.indexOf('TITLE') >= 0
               );
             })
