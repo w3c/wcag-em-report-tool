@@ -174,7 +174,7 @@ export class TestResult extends Base {
     });
 
     this.type = ['TestResult'];
-    this.outcome = UNTESTED;
+    this.outcome = {...UNTESTED};
   }
 }
 
