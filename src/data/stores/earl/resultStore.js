@@ -2,43 +2,16 @@ import { derived } from 'svelte/store';
 
 import { locale, t as translate } from 'svelte-i18n';
 
-import { OutcomeValue } from './models.js';
 
-// Create outcomeValues
-const PASSED = new OutcomeValue({
-  '@id': 'earl:passed',
-  type: 'Pass'
-});
+import { OUTCOME, TestResult } from './models.js';
 
-const FAILED = new OutcomeValue({
-  '@id': 'earl:failed',
-  type: 'Fail'
-});
-
-const CANT_TELL = new OutcomeValue({
-  '@id': 'earl:cantTell',
-  type: 'CannotTell'
-});
-
-const INAPPLICABLE = new OutcomeValue({
-  '@id': 'earl:inapplicable',
-  type: 'NotApplicable'
-});
-
-const UNTESTED = new OutcomeValue({
-  '@id': 'earl:untested',
-  type: 'NotTested'
-});
-
-const OUTCOME = {
-  PASSED,
-  FAILED,
-  CANT_TELL,
-  INAPPLICABLE,
-  UNTESTED
-};
-
-const _outcomeValues = [PASSED, FAILED, CANT_TELL, INAPPLICABLE, UNTESTED];
+const _outcomeValues = [
+  {...OUTCOME.PASSED},
+  {...OUTCOME.FAILED},
+  {...OUTCOME.CANT_TELL},
+  {...OUTCOME.INAPPLICABLE},
+  {...OUTCOME.UNTESTED}
+];
 
 export const outcomeValueStore = derived(
   [locale, translate],
