@@ -131,26 +131,31 @@ const PASSED = new OutcomeValue({
   '@id': 'earl:passed',
   type: 'Pass'
 });
+Object.freeze(PASSED);
 
 const FAILED = new OutcomeValue({
   '@id': 'earl:failed',
   type: 'Fail'
 });
+Object.freeze(FAILED);
 
 const CANT_TELL = new OutcomeValue({
   '@id': 'earl:cantTell',
   type: 'CannotTell'
 });
+Object.freeze(CANT_TELL);
 
 const INAPPLICABLE = new OutcomeValue({
   '@id': 'earl:inapplicable',
   type: 'NotApplicable'
 });
+Object.freeze(INAPPLICABLE);
 
 const UNTESTED = new OutcomeValue({
   '@id': 'earl:untested',
   type: 'NotTested'
 });
+Object.freeze(UNTESTED);
 
 export const OUTCOME = {
   PASSED,
@@ -159,6 +164,7 @@ export const OUTCOME = {
   INAPPLICABLE,
   UNTESTED
 };
+Object.freeze(OUTCOME);
 
 export class TestResult extends Base {
   constructor(options) {
