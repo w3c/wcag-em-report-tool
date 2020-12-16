@@ -5,7 +5,7 @@
 <div class="Criterion">
   <header class="Criterion__Header">
     <h3 class="Criterion__Header__heading">
-      {num}: {$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.TITLE`)}
+      {num}: {test.title}
     </h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
@@ -13,14 +13,14 @@
   <Details
     label="{`${$translate('PAGES.AUDIT.BTN_SHOW_TEXT')} <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}"
   >
-    <div>{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.DESCRIPTION`)}</div>
+    <div>{test.description}</div>
 
-    {#if details}
+    {#if test.details.length > 0}
       <dl>
-        {#each details as detail}
-          <dt>{$translate(`${detail}.TITLE`)}</dt>
+        {#each test.details as detail}
+          <dt>{detail.title}</dt>
           <dd>
-            <p>{$translate(`${detail}.DESCRIPTION`)}</p>
+            <p>{detail.description}</p>
           </dd>
         {/each}
       </dl>
@@ -126,7 +126,6 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { dictionary, locale } from 'svelte-i18n';
 
   import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
@@ -138,20 +137,9 @@
 
   export let test;
 
-  const { conformanceLevel, num } = test;
-
   const { translate } = getContext('app');
-
-  // Dynamicly get the amount of WCAG criterion details from the dictionairy
-  let details = Object.keys($dictionary[`${$locale}`])
-    .filter((key) => {
-      return (
-        key.indexOf(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.DETAILS`) >= 0 &&
-        key.indexOf('TITLE') >= 0
-      );
-    })
-    .map((key) => key.replace('.TITLE', ''));
   let notes;
+  const { conformanceLevel, num } = test;
 
   let scopeSubject = $subject(1);
 </script>
