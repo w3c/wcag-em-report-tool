@@ -1,4 +1,5 @@
-import { readable } from 'svelte/store';
+import { derived } from 'svelte/store';
+import { dictionary, locale, t as translate } from 'svelte-i18n';
 
 import { wcag, VERSIONS } from '../wcagStore.js';
 
@@ -20,7 +21,7 @@ let _tests = wcag[VERSIONS[0]].map((criterion) => {
   return test;
 });
 
-// Push version data to tests
+// Add version data to tests
 VERSIONS.forEach((version) => {
   wcag[version].forEach((criterion) => {
     const matchedTest = _tests.find((_test) => _test.num === criterion.num);
@@ -37,6 +38,86 @@ VERSIONS.forEach((version) => {
   });
 });
 
+/**
+ * Set of earl.TestCriterion
+ * -
+ * @todo
+ *  Change to derived store;
+ *  dependencies:
+ *  - $locale / $dictionary
+ *  - $scopeStore -> wcagVersion
+ *
+ *  This to autoupdate @id, title and description
+ *  values of the tests.
+ * -
+ * @type {[TestCriterion]}
+ */
+const $tests = derived(
+  [dictionary, locale, translate],
+  ([$dictionary, $locale, $translate]) => {
+    // Set locales property
+    if (
+      _tests.length > 0 &&
+      !Object.prototype.hasOwnProperty.call(_tests[0], 'locales')
+    ) {
+      _tests.forEach((_test) => {
+        // add a locales property containing
+        // translations for translateable properties
+        _test.locales = {};
+      });
+    }
 
-const $tests = readable(_tests);
+    // Get or set translations like:
+    // {
+    //  [locale]: {
+    //    title: translation,
+    //    description: translation,
+    //    details: [translation],
+    //  }
+    // }
+    // Then set title to locales.locale.title
+    _tests.forEach((_test) => {
+      let translateable;
+      let translations = _test.locales[$locale];
+
+      if (!translations) {
+        translations = _test.locales[$locale] = {
+          title: $translate(`WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.TITLE`),
+          description: $translate(
+            `WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.DESCRIPTION`
+          ),
+
+          // Get details from dictionary instead,
+          // the amount of details vary per SC.
+          details: Object.keys($dictionary[$locale])
+            // Get ...DETAILS.DETAIL_#... entries
+            .filter((key) => {
+              return (
+                key.indexOf(`WCAG.WCAG21.SUCCESS_CRITERION.${_test.num}.DETAILS`) >=
+                  0 && key.indexOf('TITLE') >= 0
+              );
+            })
+            .map((key) => {
+              const detail = key.replace('.TITLE', '');
+
+              return {
+                title: $translate(`${detail}.TITLE`),
+                description: $translate(`${detail}.DESCRIPTION`)
+              };
+            })
+        };
+      }
+
+      // Translate all
+      for (translateable in translations) {
+        if (Object.prototype.hasOwnProperty.call(translations, translateable)) {
+          _test[translateable] = translations[translateable];
+        }
+      }
+    });
+
+    return _tests;
+  },
+  _tests
+);
 export default $tests;
