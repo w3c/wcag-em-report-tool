@@ -4,8 +4,9 @@
 
 <script>
   import { getContext, setContext } from 'svelte';
-  import { subject } from '../../data/stores/earl/subjectStore.js';
   import { outcomeValueStore } from '../../data/stores/earl/resultStore.js';
+  import { subject } from '../../data/stores/earl/subjectStore.js';
+  import testStore from '../../data/stores/earl/testStore.js';
 
   const { scopeStore } = getContext('app');
   // Initialize
@@ -21,6 +22,7 @@
   }
 
   setContext('Evaluation', {
-    outcomeValues: $outcomeValueStore
+    outcomeValues: $outcomeValueStore,
+    testCriteria: $testStore
   });
 </script>
