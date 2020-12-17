@@ -53,13 +53,13 @@
 
   import { auditFilter } from '../../data/stores/auditStore.js';
   import { CONFORMANCE_LEVELS } from '../../data/stores/wcagStore.js';
-  import tests from '../../data/stores/earl/testStore.js';
 
   import AuditorFilter from './AuditorFilter.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
   import AuditorView from './AuditorView.svelte';
 
   const { scopeStore } = getContext('app');
+  const { testCriteria } = getContext('Evaluation');
 
   if ($auditFilter['VERSION'].length === 0) {
     $auditFilter['VERSION'] = $scopeStore['WCAG_VERSION'];
@@ -68,7 +68,7 @@
     );
   }
 
-  $: versionedTests = $tests.filter((test) => {
+  $: versionedTests = testCriteria.filter((test) => {
     if (!test.version) {
       return false;
     }
