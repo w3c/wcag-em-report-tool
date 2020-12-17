@@ -28,8 +28,17 @@
     {#if hasPanel}
       <GridItem area="right" row="1">
         <Panel title="Your report" bind:open="{panelIsOpen}">
+          <!--
+           * @note
+           * Panel slotted stuff is layout/page dependend
+           * We should try to think of a way to achieve this.
+           * e.g. in Context / store state
+           * -->
+
+          <!-- State based; is there an open Evaluation? -->
           <Button>View report</Button>
           <Button type="secondary">Start new Evaluation</Button>
+          <OpenEvaluation />
           <Button type="secondary">Import findings</Button>
         </Panel>
       </GridItem>
@@ -61,6 +70,7 @@
   import appData from '../../data/app.js';
 
   import Button from '../Button.svelte';
+  import OpenEvaluation from '../formcomponents/OpenEvaluation.svelte';
   import Grid from '../Grid.svelte';
   import GridItem from '../GridItem.svelte';
   import Header from '../Header.svelte';
@@ -74,6 +84,7 @@
 
   $: hasPanel = $location.pathname !== '/evaluation/view-report';
 
+  // Move to appStore -> $routes(derived)
   let routes = [
     {
       title: $translate('UI.NAV.STEP_START'),
