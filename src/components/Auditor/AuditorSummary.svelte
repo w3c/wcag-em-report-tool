@@ -84,8 +84,6 @@
 
   import assertions from '../../data/stores/earl/assertionStore.js';
 
-  import Details from '../Details.svelte';
-
   export let criteria = [];
 
   const { translate } = getContext('app');
