@@ -3,8 +3,9 @@
 <!-- /@Layout -->
 
 <script>
-  import { getContext } from 'svelte';
+  import { getContext, setContext } from 'svelte';
   import { subject } from '../../data/stores/earl/subjectStore.js';
+  import { outcomeValueStore } from '../../data/stores/earl/resultStore.js';
 
   const { scopeStore } = getContext('app');
   // Initialize
@@ -18,4 +19,8 @@
     websiteSubject.title = $scopeStore['SITE_NAME'];
     websiteSubject.description = $scopeStore['WEBSITE_SCOPE'];
   }
+
+  setContext('Evaluation', {
+    outcomeValues: $outcomeValueStore
+  });
 </script>
