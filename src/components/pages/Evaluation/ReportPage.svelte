@@ -31,6 +31,7 @@
   const { jsonld, translate } = getContext('app');
 
   function handleJSONDownloadClick() {
+    $evaluationStore.save();
 
     jsonld.compact($evaluationStore, appJsonLdContext)
       .then((compacted) => {
