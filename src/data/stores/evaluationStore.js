@@ -1,3 +1,5 @@
+import jsonld from '../../../node_modules/jsonld/lib/jsonld.js';
+
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
@@ -9,6 +11,153 @@ import summaryStore from './summaryStore.js';
 
 import assertionStore from './earl/assertionStore.js';
 import { subject } from './earl/subjectStore.js';
+
+const evaluationContext = {
+  // EARL
+  earl: 'http://www.w3.org/ns/earl#',
+
+  // WCAG Context
+  WCAG20: 'http://www.w3.org/TR/WCAG20/#',
+  WCAG21: 'http://www.w3.org/TR/WCAG21/#',
+  wcagVersion: 'http://www.w3.org/WAI/standards-guidelines/wcag/#versions',
+
+  // WCAG-EM Context
+  wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
+  Evaluation: 'wcagem:procedure',
+  defineScope: 'wcagem:step1',
+  scope: 'wcagem:step1a',
+  conformanceTarget: 'wcagem:step1b',
+  exploreTarget: 'wcagem:step2',
+  essentialFunctionality: 'wcagem:step2b',
+  pageTypeVariety: 'wcagem:step2c',
+  technologiesReliedUpon: 'wcagem:step2d',
+  selectSample: 'wcagem:step3',
+  structuredSample: 'wcagem:step3a',
+  randomSample: 'wcagem:step3b',
+  auditSample: 'wcagem:step4',
+  reportFindings: 'wcagem:step5'
+};
+
+class EvaluationModel {
+  constructor() {
+    this['@context'] = evaluationContext;
+    this['@type'] = ['Evaluation'];
+    this['@language'] = 'en';
+
+    this.defineScope = {
+      // First subject === scope / website
+      scope: {},
+      wcagVersion: '2.1',
+      conformanceTarget: 'AA'
+    };
+
+    this.exploreTarget = {
+      technologiesReliedUpon: [],
+      essentialFunctionality: '',
+      pageTypeVariety: ''
+    };
+
+    this.selectSample = {
+      randomSample: [],
+      structuredSample: []
+    };
+    this.auditSample = [];
+    this.reportFindings = {
+      commissioner: '',
+      date: new Date(),
+      evaluator: '',
+      specifics: '',
+      summary: '',
+      title: ''
+    };
+  }
+
+  open(openedEvaluation) {
+    /**
+     *  First save current data by copy
+     *  to return to when loading fails.
+     *
+     */
+    const previousEvaluation = this;
+    let openedJsonld;
+
+    /**
+     *  Apply jsonld conversion to make sure
+     *  valid data is presented (expand > compact).
+     *
+     *  @note: In future we can try to be forgiving and add a simple
+     *  fix by setting '@context' on the object before expanding to json-ld.
+     *  (As if we were enriching plain json to json-ld).
+     *
+     *  Return on error, otherwise continue.
+     */
+    jsonld
+      .expand(openedEvaluation)
+      .then((expanded) => {
+        openedJsonld = expanded;
+      })
+      .catch((error) => {
+        console.error(
+          `[Open Evaluation]: An error ocured while expanding json-ld; ${error.message}`
+        );
+
+        openedJsonld = false;
+      });
+
+    if (!openedJsonld) {
+      return;
+    }
+
+    /**
+     *  (type: Evaluation; language)
+     *  Read the language and set application language to it. Default to app default.
+     *  (TestCriteria / WCAG versions differ between languages)
+     */
+
+    /**
+     *  Read / Determine the (asumed) wcagVersion
+     *  - Read the first Assertion found and find the right test
+     *    '@id's are translated here as well and supported WCAG versions
+     *    are contained in @context. If WCAG version + id does not Match
+     *    a fix on the data is required first, e.g. check other version of wcag.
+     *
+     *  Return on error or no matches found.
+     */
+
+    /**
+     *  Ready to start loading: Remove current data set?
+     */
+
+    /**
+     *  Read all samples (TestSubject, WebPage) and recreate.
+     *  Replace the sample with the created one.
+     */
+
+    /**
+     *  Read all Assertions
+     *  For each Assertion:
+     *  - Create a new appAssertion with Assertion values present in the assertionStore
+     *    - Match tests by '@id'
+     *    - Match subject by '@id'
+     *    - Set result values; outcome and description
+     *    - ...
+     */
+
+    /**
+     * Read / set other values (scope, explore, sample, summary, ...)
+     */
+
+    /**
+     * Open the evaluation/scope page
+     */
+  }
+
+  save() {
+    console.log('Saving evaluation');
+  }
+}
+
+const _evaluation = new EvaluationModel();
 
 export default derived(
   [
@@ -47,58 +196,38 @@ export default derived(
       TECHNOLOGIES_RELIED_UPON
     } = $exploreStore;
 
-    return {
-      '@context': {
-        // EARL
-        earl: 'http://www.w3.org/ns/earl#',
+    _evaluation['@language'] = $locale;
 
-        // WCAG Context
-        WCAG20: 'http://www.w3.org/TR/WCAG20/#',
-        WCAG21: 'http://www.w3.org/TR/WCAG21/#',
-        wcagVersion: 'http://www.w3.org/WAI/standards-guidelines/wcag/#versions',
-
-        // WCAG-EM Context
-        wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
-        Evaluation: 'wcagem:procedure',
-        defineScope: 'wcagem:step1',
-        scope: 'wcagem:step1a',
-        conformanceTarget: 'wcagem:step1b',
-        exploreTarget: 'wcagem:step2',
-        essentialFunctionality: 'wcagem:step2b',
-        pageTypeVariety: 'wcagem:step2c',
-        technologiesReliedUpon: 'wcagem:step2d',
-        selectSample: 'wcagem:step3',
-        structuredSample: 'wcagem:step3a',
-        randomSample: 'wcagem:step3b',
-        auditSample: 'wcagem:step4',
-        reportFindings: 'wcagem:step5'
-      },
-      '@type': 'Evaluation',
-      '@language': $locale,
-      defineScope: {
-        // First subject === scope / website
-        scope: $subject(1),
-        wcagVersion: WCAG_VERSION,
-        conformanceTarget: CONFORMANCE_TARGET
-      },
-      exploreTarget: {
-        technologiesReliedUpon: TECHNOLOGIES_RELIED_UPON,
-        essentialFunctionality: ESSENTIAL_FUNCTIONALITY,
-        pageTypeVariety: PAGE_TYPES
-      },
-      selectSample: {
-        randomSample: RANDOM_SAMPLE,
-        structuredSample: STRUCTURED_SAMPLE
-      },
-      auditSample: $assertionStore,
-      reportFindings: {
-        commissioner: EVALUATION_COMMISSIONER,
-        date: EVALUATION_DATE,
-        evaluator: EVALUATION_CREATOR,
-        specifics: EVALUATION_SPECIFICS,
-        summary: EVALUATION_SUMMARY,
-        title: EVALUATION_TITLE
-      }
+    _evaluation.defineScope = {
+      // First subject === scope / website
+      scope: $subject(1),
+      wcagVersion: WCAG_VERSION,
+      conformanceTarget: CONFORMANCE_TARGET
     };
-  }
+
+    _evaluation.exploreTarget = {
+      technologiesReliedUpon: TECHNOLOGIES_RELIED_UPON,
+      essentialFunctionality: ESSENTIAL_FUNCTIONALITY,
+      pageTypeVariety: PAGE_TYPES
+    };
+
+    _evaluation.selectSample = {
+      randomSample: RANDOM_SAMPLE,
+      structuredSample: STRUCTURED_SAMPLE
+    };
+
+    _evaluation.auditSample = $assertionStore;
+
+    _evaluation.reportFindings = {
+      commissioner: EVALUATION_COMMISSIONER,
+      date: EVALUATION_DATE,
+      evaluator: EVALUATION_CREATOR,
+      specifics: EVALUATION_SPECIFICS,
+      summary: EVALUATION_SUMMARY,
+      title: EVALUATION_TITLE
+    };
+
+    return _evaluation;
+  },
+  _evaluation
 );
