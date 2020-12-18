@@ -35,7 +35,7 @@
     jsonld.compact($evaluationStore, appJsonLdContext)
       .then((compacted) => {
         downloadFile({
-          name: 'evaluation',
+          name: 'evaluation.json',
           type: 'application/json',
           contents: JSON.stringify(compacted)
         });
