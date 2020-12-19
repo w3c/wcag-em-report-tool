@@ -83,14 +83,14 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { t as translate, date } from 'svelte-i18n';
+  import { date } from 'svelte-i18n';
   import tests from '../data/stores/earl/testStore.js';
 
   import AuditorSummary from './Auditor/AuditorSummary.svelte';
 
   let exportableReport;
 
-  const { sampleStore, scopeStore, summaryStore } = getContext('app');
+  const { sampleStore, scopeStore, summaryStore, translate } = getContext('app');
 
   $: scope = {
     siteName: $scopeStore['SITE_NAME'],
