@@ -101,6 +101,7 @@ class EvaluationModel {
      */
     const previousEvaluation = this;
     let openedJsonld;
+    let language;
     let wcagVersion;
 
     /**
@@ -130,15 +131,21 @@ class EvaluationModel {
       return;
     }
 
-    console.log(openedJsonld);
-    return openedJsonld;
-
     /**
      *  (type: Evaluation; language)
      *  Read the language and set application language to it. Default to app default.
      *  (TestCriteria / WCAG versions differ between languages)
      */
+    await jsonld
+      .frame(openedJsonld, {
+        '@context': evaluationContext,
+        '@type': evaluationTypes
+      })
+      .then((result) => {
+        language = result['@language'] || 'en';
+      });
 
+    return openedJsonld;
     /**
      *  Read / Determine the (asumed) wcagVersion
      *  - Read the first Assertion found and find the right test
@@ -178,7 +185,8 @@ class EvaluationModel {
   }
 
   save() {
-    jsonld.compact(this, appJsonLdContext)
+    jsonld
+      .compact(this, appJsonLdContext)
       .then((compacted) => {
         downloadFile({
           name: 'evaluation.json',
