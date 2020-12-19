@@ -3,6 +3,8 @@ import jsonld from '../../../node_modules/jsonld/lib/jsonld.js';
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
+import appJsonLdContext from '../jsonld/appContext.js';
+
 // Import related stores and combine
 import scopeStore from './scopeStore.js';
 import exploreStore from './exploreStore.js';
@@ -11,6 +13,16 @@ import summaryStore from './summaryStore.js';
 
 import assertionStore from './earl/assertionStore.js';
 import { subject } from './earl/subjectStore.js';
+
+function downloadFile({ contents, name, type }) {
+  const _a = document.createElement('a');
+  const file = new Blob([contents], { type });
+
+  _a.href = URL.createObjectURL(file);
+  _a.download = name;
+
+  _a.click();
+}
 
 const evaluationContext = {
   // EARL
@@ -38,10 +50,17 @@ const evaluationContext = {
   reportFindings: 'wcagem:step5'
 };
 
+const evaluationTypes = [
+  'Evaluation',
+
+  // Fallbacktype for previous versions
+  'wcagem:Evaluation'
+];
+
 class EvaluationModel {
   constructor() {
     this['@context'] = evaluationContext;
-    this['@type'] = ['Evaluation'];
+    this['@type'] = evaluationTypes[0];
     this['@language'] = 'en';
 
     this.defineScope = {
@@ -72,7 +91,9 @@ class EvaluationModel {
     };
   }
 
-  open(openedEvaluation) {
+  async open(openedEvaluation) {
+    console.log('Opening evaluation');
+
     /**
      *  First save current data by copy
      *  to return to when loading fails.
@@ -80,6 +101,7 @@ class EvaluationModel {
      */
     const previousEvaluation = this;
     let openedJsonld;
+    let wcagVersion;
 
     /**
      *  Apply jsonld conversion to make sure
@@ -91,7 +113,7 @@ class EvaluationModel {
      *
      *  Return on error, otherwise continue.
      */
-    jsonld
+    await jsonld
       .expand(openedEvaluation)
       .then((expanded) => {
         openedJsonld = expanded;
@@ -107,6 +129,9 @@ class EvaluationModel {
     if (!openedJsonld) {
       return;
     }
+
+    console.log(openedJsonld);
+    return openedJsonld;
 
     /**
      *  (type: Evaluation; language)
@@ -153,7 +178,17 @@ class EvaluationModel {
   }
 
   save() {
-    console.log('Saving evaluation');
+    jsonld.compact(this, appJsonLdContext)
+      .then((compacted) => {
+        downloadFile({
+          name: 'evaluation.json',
+          type: 'application/json',
+          contents: JSON.stringify(compacted)
+        });
+      })
+      .catch((error) => {
+        console.error(`An error occured: “${error.name}”\n${error.message}`);
+      });
   }
 }
 
