@@ -61,6 +61,9 @@ export class TestSubject extends partsMixin(Base) {
       TestSubject: 'earl:TestSubject'
     });
 
+    if (!this['@id']) {
+      this['@id'] = `_:subject_${this.ID}`;
+    }
     this.type = ['TestSubject'];
 
     if (ALLOWED_TYPES.indexOf(type) >= 0) {
