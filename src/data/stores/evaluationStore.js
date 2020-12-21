@@ -327,34 +327,34 @@ export default derived(
 
     _evaluation['@language'] = $locale;
 
-    _evaluation.defineScope = {
+    Object.assign(_evaluation.defineScope, {
       // First subject === scope / website
       scope: $subject(1),
       wcagVersion: WCAG_VERSION,
       conformanceTarget: CONFORMANCE_TARGET
-    };
+    });
 
-    _evaluation.exploreTarget = {
+    Object.assign(_evaluation.exploreTarget, {
       technologiesReliedUpon: TECHNOLOGIES_RELIED_UPON,
       essentialFunctionality: ESSENTIAL_FUNCTIONALITY,
       pageTypeVariety: PAGE_TYPES
-    };
+    });
 
-    _evaluation.selectSample = {
+    Object.assign(_evaluation.selectSample, {
       randomSample: RANDOM_SAMPLE,
       structuredSample: STRUCTURED_SAMPLE
-    };
+    });
 
     _evaluation.auditSample = $assertionStore;
 
-    _evaluation.reportFindings = {
+    Object.assign(_evaluation.reportFindings, {
       commissioner: EVALUATION_COMMISSIONER,
       date: EVALUATION_DATE,
       evaluator: EVALUATION_CREATOR,
-      specifics: EVALUATION_SPECIFICS,
+      evaluationSpecifics: EVALUATION_SPECIFICS,
       summary: EVALUATION_SUMMARY,
       title: EVALUATION_TITLE
-    };
+    });
 
     return _evaluation;
   },
