@@ -25,13 +25,25 @@ function downloadFile({ contents, name, type }) {
 }
 
 const evaluationContext = {
+  // Dublin Core Terms
+  dcterms: 'http://purl.org/dc/terms/',
+  title: 'dcterms:title',
+  description: 'dcterms:description',
+  summary: 'dcterms:summary',
+  date: {
+    '@id': 'dcterms:date',
+    '@type': 'W3CDTF'
+  },
+  W3CDTF: 'http://www.w3.org/TR/NOTE-datetime',
+
   // EARL
   earl: 'http://www.w3.org/ns/earl#',
 
   // WCAG Context
+  WAI: 'http://www.w3.org/WAI/',
   WCAG20: 'http://www.w3.org/TR/WCAG20/#',
   WCAG21: 'http://www.w3.org/TR/WCAG21/#',
-  wcagVersion: 'http://www.w3.org/WAI/standards-guidelines/wcag/#versions',
+  wcagVersion: 'WAI:standards-guidelines/wcag/#versions',
 
   // WCAG-EM Context
   wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
@@ -39,6 +51,8 @@ const evaluationContext = {
   defineScope: 'wcagem:step1',
   scope: 'wcagem:step1a',
   conformanceTarget: 'wcagem:step1b',
+  accessibilitySupportBaseline: 'wcagem:step1c',
+  additionalEvaluationRequirements: 'wcagem:step1d',
   exploreTarget: 'wcagem:step2',
   essentialFunctionality: 'wcagem:step2b',
   pageTypeVariety: 'wcagem:step2c',
@@ -47,7 +61,10 @@ const evaluationContext = {
   structuredSample: 'wcagem:step3a',
   randomSample: 'wcagem:step3b',
   auditSample: 'wcagem:step4',
-  reportFindings: 'wcagem:step5'
+  reportFindings: 'wcagem:step5',
+  documentSteps: 'wcagem:step5a',
+  commissioner: 'wcagem:commissioner',
+  evaluationSpecifics: 'wcagem:step5b'
 };
 
 const evaluationTypes = [
@@ -64,6 +81,7 @@ class EvaluationModel {
     this['@language'] = 'en';
 
     this.defineScope = {
+      '@id': '_:defineScope',
       // First subject === scope / website
       scope: {},
       wcagVersion: '2.1',
@@ -71,21 +89,31 @@ class EvaluationModel {
     };
 
     this.exploreTarget = {
+      '@id': '_:exploreTarget',
       technologiesReliedUpon: [],
       essentialFunctionality: '',
       pageTypeVariety: ''
     };
 
     this.selectSample = {
+      '@id': '_:selectSample',
       randomSample: [],
       structuredSample: []
     };
     this.auditSample = [];
     this.reportFindings = {
+      documentSteps: [
+        {
+          '@id': '_:about'
+        },
+        { '@id': '_:defineScope' },
+        { '@id': '_:exploreTarget'},
+        { '@id': '_:selectSample' }
+      ],
       commissioner: '',
       date: new Date(),
       evaluator: '',
-      specifics: '',
+      evaluationSpecifics: '',
       summary: '',
       title: ''
     };
@@ -132,17 +160,75 @@ class EvaluationModel {
     }
 
     /**
-     *  (type: Evaluation; language)
-     *  Read the language and set application language to it. Default to app default.
-     *  (TestCriteria / WCAG versions differ between languages)
+     *  Frame the Evaluation object
+     *  Read simple info first:
+     *  - language
+     *  - defineScope
+     *  - exploreTarget
+     *  - reportFindings
      */
     await jsonld
       .frame(openedJsonld, {
-        '@context': evaluationContext,
+        '@context': appJsonLdContext,
         '@type': evaluationTypes
       })
-      .then((result) => {
-        language = result['@language'] || 'en';
+      .then((framedEvaluation) => {
+        console.log(framedEvaluation);
+
+        let { defineScope, exploreTarget, reportFindings } = framedEvaluation;
+
+        if (!defineScope) {
+          defineScope = {};
+        }
+
+        if (!exploreTarget) {
+          exploreTarget = {};
+        }
+
+        if (!reportFindings) {
+          reportFindings = {};
+        }
+
+        language = framedEvaluation.language || 'en';
+
+        scopeStore.update((value) => {
+          return Object.assign(value, {
+            ADDITIONAL_REQUIREMENTS:
+              defineScope.additionalEvaluationRequirements || '',
+            AS_BASELINE: defineScope.accessibilitySupportBaseline || '',
+            CONFORMANCE_TARGET: 'AA'
+          });
+        });
+
+        exploreStore.update((value) => {
+          return Object.assign(value, {
+            TECHNOLOGIES_RELIED_UPON:
+              exploreTarget.technologiesReliedUpon || [],
+            ESSENTIAL_FUNCTIONALITY:
+              exploreTarget.essentialFunctionality ||
+              framedEvaluation.essentialFunctionality ||
+              '',
+            PAGE_TYPES:
+              exploreTarget.pageTypeVariety ||
+              framedEvaluation.pageTypeVariety ||
+              ''
+          });
+        });
+
+        summaryStore.update((value) => {
+          return Object.assign(value, {
+            EVALUATION_TITLE: reportFindings.title || '',
+            EVALUATION_COMMISSIONER: reportFindings.commissioner || framedEvaluation.commissioner || '',
+            EVALUATION_CREATOR: reportFindings.evaluator || '',
+            EVALUATION_DATE: reportFindings.date || '',
+            EVALUATION_SUMMARY:
+              reportFindings.summary || framedEvaluation.summary || '',
+            EVALUATION_SPECIFICS:
+              reportFindings.evaluationSpecifics ||
+              framedEvaluation.evaluationSpecifics ||
+              ''
+          });
+        });
       });
 
     return openedJsonld;

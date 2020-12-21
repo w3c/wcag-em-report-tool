@@ -1,10 +1,14 @@
 export default {
+  reporter: 'https://github.com/w3c/wcag-em-report-tool/',
+
   // WCAG-EM
   wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
   Evaluation: 'wcagem:procedure',
   defineScope: 'wcagem:step1',
   scope: 'wcagem:step1a',
   conformanceTarget: 'wcagem:step1b',
+  accessibilitySupportBaseline: 'wcagem:step1c',
+  additionalEvaluationRequirements: 'wcagem:step1d',
   exploreTarget: 'wcagem:step2',
   essentialFunctionality: 'wcagem:step2b',
   pageTypeVariety: 'wcagem:step2c',
@@ -14,6 +18,9 @@ export default {
   randomSample: 'wcagem:step3b',
   auditSample: 'wcagem:step4',
   reportFindings: 'wcagem:step5',
+  documentSteps: 'wcagem:step5a',
+  commissioner: 'wcagem:commissioner',
+  evaluationSpecifics: 'wcagem:step5b',
 
   // WCAG
   WCAG20: 'http://www.w3.org/TR/WCAG20/#',
@@ -49,6 +56,7 @@ export default {
   dcterms: 'http://purl.org/dc/terms/',
   title: 'dcterms:title',
   description: 'dcterms:description',
+  summary: 'dcterms:summary',
   date: {
     '@id': 'dcterms:date',
     '@type': 'W3CDTF'
