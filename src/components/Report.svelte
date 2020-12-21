@@ -104,7 +104,7 @@
   $: report = {
     commissioner: $summaryStore['EVALUATION_COMMISSIONER'],
     creator: $summaryStore['EVALUATION_CREATOR'],
-    date: $date(new Date($summaryStore['EVALUATION_DATE']), { format: 'full' }),
+    date: $summaryStore['EVALUATION_DATE'],
     samples: [
       ...$sampleStore['STRUCTURED_SAMPLE'],
       ...$sampleStore['RANDOM_SAMPLE']
