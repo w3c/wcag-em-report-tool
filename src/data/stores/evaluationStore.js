@@ -3,7 +3,7 @@ import jsonld from '../../../node_modules/jsonld/lib/jsonld.js';
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
-import appJsonLdContext from '../jsonld/appContext.js';
+import appJsonLdContext, { importContext } from '../jsonld/appContext.js';
 
 // Import related stores and combine
 import scopeStore from './scopeStore.js';
@@ -169,7 +169,7 @@ class EvaluationModel {
      */
     await jsonld
       .frame(openedJsonld, {
-        '@context': appJsonLdContext,
+        '@context': importContext,
         '@type': evaluationTypes
       })
       .then((framedEvaluation) => {
