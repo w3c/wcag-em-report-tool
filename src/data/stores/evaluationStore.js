@@ -4,6 +4,7 @@ import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
 import appJsonLdContext, { importContext } from '../jsonld/appContext.js';
+import webTechnologies from '../webtechnologies.json';
 
 // Import related stores and combine
 import scopeStore from './scopeStore.js';
@@ -224,9 +225,13 @@ class EvaluationModel {
         });
 
         exploreStore.update((value) => {
+          const technologies =
+            exploreTarget.technologiesReliedUpon ||
+            framedEvaluation.DfnReliedUponTechnologyWcag21 ||
+            [];
+
           return Object.assign(value, {
-            TECHNOLOGIES_RELIED_UPON:
-              exploreTarget.technologiesReliedUpon || [],
+            TECHNOLOGIES_RELIED_UPON: technologies.map((tech) => tech.title),
             ESSENTIAL_FUNCTIONALITY:
               exploreTarget.essentialFunctionality ||
               framedEvaluation.essentialFunctionality ||
@@ -361,7 +366,7 @@ export default derived(
     });
 
     Object.assign(_evaluation.exploreTarget, {
-      technologiesReliedUpon: TECHNOLOGIES_RELIED_UPON,
+      technologiesReliedUpon: webTechnologies.filter((tech) => TECHNOLOGIES_RELIED_UPON.indexOf(tech.title) >= 0),
       essentialFunctionality: ESSENTIAL_FUNCTIONALITY,
       pageTypeVariety: PAGE_TYPES
     });
