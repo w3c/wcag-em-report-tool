@@ -1,4 +1,20 @@
+const deprecatedContext = {
+  DfnTechnologyWcag20: 'WCAG20:technologydef',
+  DfnReliedUponTechnologyWcag20: 'WCAG20:reliedupondef',
+  DfnSetOfWebpagesWcag20: 'WCAG20:set-of-web-pagesdef',
+  DfnWebpageWcag20: 'WCAG20:webpagedef',
+
+  DfnTechnologyWcag21: 'WCAG21:dfn-technologies',
+  DfnReliedUponTechnologyWcag21: 'WCAG21:dfn-relied-upon',
+  DfnSetOfWebpagesWcag21: 'WCAG21:dfn-set-of-web-pages',
+  DfnWebpageWcag21: 'WCAG21:dfn-web-page-s',
+};
+
+
 export default {
+  // Add this to support previous versions of this tool
+  ...deprecatedContext,
+
   reporter: 'https://github.com/w3c/wcag-em-report-tool/',
 
   // WCAG-EM
