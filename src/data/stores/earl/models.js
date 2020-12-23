@@ -17,7 +17,7 @@ const partsMixin = (SuperClass) =>
 
 class Base {
   constructor(options = {}) {
-    const { ID, date, title, description } = options;
+    const { ID, date, title, description, summary } = options;
 
     this['@context'] = {
       earl: 'http://www.w3.org/ns/earl#',
@@ -40,6 +40,7 @@ class Base {
     this.date = date ? date : createDate();
     this.title = title;
     this.description = description;
+    this.summary = summary;
   }
 
   update() {
@@ -183,7 +184,7 @@ export class TestResult extends Base {
     });
 
     this.type = ['TestResult'];
-    this.outcome = {...UNTESTED};
+    this.outcome = { ...UNTESTED };
   }
 }
 
