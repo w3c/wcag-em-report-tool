@@ -102,7 +102,7 @@
   export let options = [];
   export let columns = false;
   export let editable = false;
-  export let value = '';
+  export let value = [];
 
   function handleOptionAdd(event) {
 
