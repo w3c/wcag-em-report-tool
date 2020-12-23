@@ -190,13 +190,36 @@ class EvaluationModel {
         }
 
         language = framedEvaluation.language || 'en';
+        wcagVersion = defineScope.wcagVersion;
 
+        /**
+         * Start setting values from the imported json-ld.
+         * Any key that is defined in appContext
+         * can be accessed, if not present the Context
+         * should be updated as well with new or deprecated values.
+         */
         scopeStore.update((value) => {
           return Object.assign(value, {
             ADDITIONAL_REQUIREMENTS:
               defineScope.additionalEvaluationRequirements || '',
             AS_BASELINE: defineScope.accessibilitySupportBaseline || '',
-            CONFORMANCE_TARGET: 'AA'
+            CONFORMANCE_TARGET: defineScope.conformanceTarget || 'AA',
+            SITE_NAME:
+              // Current version
+              (defineScope.scope && defineScope.scope.title) ||
+              // Previous versions (deprecated)
+              defineScope.DfnSetOfWebpagesWcag21['schema:name'] ||
+              defineScope.DfnSetOfWebpagesWcag20['schema:name'] ||
+              // Default
+              '',
+            WEBSITE_SCOPE:
+              // Current version
+              (defineScope.scope && defineScope.scope.description) ||
+              // Previous versions (Deprecated)
+              defineScope.DfnSetOfWebpagesWcag21.scope ||
+              defineScope.DfnSetOfWebpagesWcag20.scope ||
+              // Default
+              ''
           });
         });
 
@@ -218,7 +241,10 @@ class EvaluationModel {
         summaryStore.update((value) => {
           return Object.assign(value, {
             EVALUATION_TITLE: reportFindings.title || '',
-            EVALUATION_COMMISSIONER: reportFindings.commissioner || framedEvaluation.commissioner || '',
+            EVALUATION_COMMISSIONER:
+              reportFindings.commissioner ||
+              framedEvaluation.commissioner ||
+              '',
             EVALUATION_CREATOR: reportFindings.evaluator || '',
             EVALUATION_DATE: reportFindings.date || '',
             EVALUATION_SUMMARY:
