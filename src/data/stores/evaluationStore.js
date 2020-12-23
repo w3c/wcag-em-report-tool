@@ -13,7 +13,6 @@ import sampleStore from './sampleStore.js';
 import summaryStore from './summaryStore.js';
 
 import assertionStore from './earl/assertionStore.js';
-import { subject } from './earl/subjectStore.js';
 
 function downloadFile({ contents, name, type }) {
   const _a = document.createElement('a');

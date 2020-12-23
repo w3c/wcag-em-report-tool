@@ -48,7 +48,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { subject } from '../../../data/stores/earl/subjectStore.js';
+  import subjects from '../../../data/stores/earl/subjectStore.js';
 
   import AddOther from '../AddOther.svelte';
   import Details from '../../Details.svelte';
@@ -63,9 +63,8 @@
   let valueContainer;
 
   function handleSampleAdd() {
-    const newSample = $subject({
-      type: 'WebPage',
-      isPartOf: $subject(1)
+    const newSample = subjects.create({
+      type: 'WebPage'
     });
 
     value = [...value, newSample];
@@ -81,5 +80,6 @@
     newValue.splice(indexSample, 1);
     value = newValue;
     // @TODO: removeSample.delete(); !required for cleanup
+    subjects.remove(removeSample);
   }
 </script>
