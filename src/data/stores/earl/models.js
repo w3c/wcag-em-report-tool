@@ -29,11 +29,12 @@ class Base {
         '@type': 'W3CDTF'
       },
       description: 'dcterms:description',
+      id: '@id',
       type: '@type'
     };
 
-    if (options['@id']) {
-      this['@id'] = options['@id'];
+    if (options.id) {
+      this.id = options.id;
     }
 
     this.ID = ID ? ID : createID(this.constructor.name);
@@ -52,7 +53,7 @@ export class TestSubject extends partsMixin(Base) {
   constructor(options = {}) {
     super(options);
 
-    const { type } = options;
+    let { type } = options;
     const ALLOWED_TYPES = ['WebSite', 'WebPage'];
 
     Object.assign(this['@context'], {
@@ -62,14 +63,20 @@ export class TestSubject extends partsMixin(Base) {
       TestSubject: 'earl:TestSubject'
     });
 
-    if (!this['@id']) {
-      this['@id'] = `_:subject_${this.ID}`;
+    if (!this.id) {
+      this.id = `_:subject_${this.ID}`;
     }
     this.type = ['TestSubject'];
 
-    if (ALLOWED_TYPES.indexOf(type) >= 0) {
-      this.type.push(type);
+    if (!Array.isArray(type)) {
+      type = [type];
     }
+
+    type.forEach((t) => {
+      if (ALLOWED_TYPES.indexOf(t) >= 0) {
+        this.type.push(t);
+      }
+    });
   }
 }
 
@@ -132,31 +139,31 @@ export class OutcomeValue extends Base {
 }
 
 const PASSED = new OutcomeValue({
-  '@id': 'earl:passed',
+  id: 'earl:passed',
   type: 'Pass'
 });
 Object.freeze(PASSED);
 
 const FAILED = new OutcomeValue({
-  '@id': 'earl:failed',
+  id: 'earl:failed',
   type: 'Fail'
 });
 Object.freeze(FAILED);
 
 const CANT_TELL = new OutcomeValue({
-  '@id': 'earl:cantTell',
+  id: 'earl:cantTell',
   type: 'CannotTell'
 });
 Object.freeze(CANT_TELL);
 
 const INAPPLICABLE = new OutcomeValue({
-  '@id': 'earl:inapplicable',
+  id: 'earl:inapplicable',
   type: 'NotApplicable'
 });
 Object.freeze(INAPPLICABLE);
 
 const UNTESTED = new OutcomeValue({
-  '@id': 'earl:untested',
+  id: 'earl:untested',
   type: 'NotTested'
 });
 Object.freeze(UNTESTED);
