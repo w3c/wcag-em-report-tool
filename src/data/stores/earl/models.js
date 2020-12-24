@@ -72,6 +72,14 @@ export class TestSubject extends partsMixin(Base) {
       type = [type];
     }
 
+    if (!this.title) {
+      this.title = '';
+    }
+
+    if (!this.description) {
+      this.description = '';
+    }
+
     type.forEach((t) => {
       if (ALLOWED_TYPES.indexOf(t) >= 0) {
         this.type.push(t);
