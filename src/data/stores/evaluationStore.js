@@ -141,7 +141,6 @@ class EvaluationModel {
      *  to return to when loading fails.
      *
      */
-    const previousEvaluation = this;
     let openedJsonld;
     let language;
     let wcagVersion;
@@ -177,10 +176,13 @@ class EvaluationModel {
 
     /**
      *  Frame the Evaluation object
-     *  Read simple info first:
+     *  and read info:
      *  - language
+     *  - wcagVersion
      *  - defineScope
      *  - exploreTarget
+     *  - selectSample
+     *  - auditSample
      *  - reportFindings
      */
     await jsonld
@@ -325,7 +327,6 @@ class EvaluationModel {
         });
       });
 
-    return openedJsonld;
     /**
      *  Read / Determine the (asumed) wcagVersion
      *  - Read the first Assertion found and find the right test
