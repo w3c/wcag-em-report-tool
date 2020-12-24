@@ -233,16 +233,20 @@ class EvaluationModel {
               // Current version
               (defineScope.scope && defineScope.scope.title) ||
               // Previous versions (deprecated)
-              defineScope.DfnSetOfWebpagesWcag21['schema:name'] ||
-              defineScope.DfnSetOfWebpagesWcag20['schema:name'] ||
+              (defineScope.DfnSetOfWebpagesWcag21 &&
+                defineScope.DfnSetOfWebpagesWcag21['schema:name']) ||
+              (defineScope.DfnSetOfWebpagesWcag20 &&
+                defineScope.DfnSetOfWebpagesWcag20['schema:name']) ||
               // Default
               '',
             WEBSITE_SCOPE:
               // Current version
               (defineScope.scope && defineScope.scope.description) ||
               // Previous versions (Deprecated)
-              defineScope.DfnSetOfWebpagesWcag21.scope ||
-              defineScope.DfnSetOfWebpagesWcag20.scope ||
+              (defineScope.DfnSetOfWebpagesWcag21 &&
+                defineScope.DfnSetOfWebpagesWcag21.scope) ||
+              (defineScope.DfnSetOfWebpagesWcag20 &&
+                defineScope.DfnSetOfWebpagesWcag20.scope) ||
               // Default
               ''
           });
