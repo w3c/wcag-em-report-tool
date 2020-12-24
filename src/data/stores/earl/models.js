@@ -207,6 +207,16 @@ export class Assertion extends Base {
   constructor(options = {}) {
     super(options);
 
+    const REQUIRED_OPTIONS = ['subject', 'test'];
+
+    if (REQUIRED_OPTIONS.some((option) => options[option] === undefined)) {
+      throw Error(
+        `[Assertion]: Expected required options: ${REQUIRED_OPTIONS.join(
+          ', '
+        )}, but only got ${Object.keys(options).join(', ')}`
+      );
+    }
+
     Object.assign(this['@context'], {
       Assertion: 'earl:Assertion',
       assertedBy: {
@@ -232,9 +242,9 @@ export class Assertion extends Base {
     });
 
     this.type = 'Assertion';
-    this.assertedBy = null;
+    this.assertedBy = options.assertedBy;
     this.mode = 'earl:manual';
-    this.result = options.result;
+    this.result = options.result || new TestResult();
     this.subject = options.subject;
     this.test = options.test;
   }

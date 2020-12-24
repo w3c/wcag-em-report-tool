@@ -1,9 +1,10 @@
-import { derived, writable } from 'svelte/store';
+import { derived } from 'svelte/store';
 
+import collectionStore from '../collectionStore.js';
 import { Assertion, TestResult } from './models.js';
 
 const _assertions = [];
-const $assertions = writable(_assertions);
+const $assertions = collectionStore(Assertion, []);
 
 const $assertion = derived([$assertions], () => lookupAssertion);
 
