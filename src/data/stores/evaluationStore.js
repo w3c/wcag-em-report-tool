@@ -386,7 +386,7 @@ export default derived(
   [
     assertionStore,
     locale,
-    subject,
+    subjects,
     scopeStore,
     exploreStore,
     sampleStore,
@@ -395,7 +395,7 @@ export default derived(
   ([
     $assertionStore,
     $locale,
-    $subject,
+    $subjects,
     $scopeStore,
     $exploreStore,
     $sampleStore,
@@ -423,13 +423,17 @@ export default derived(
 
     Object.assign(_evaluation.defineScope, {
       // First subject === scope / website
-      scope: $subject(1),
+      scope: $subjects.find((s) => {
+        return s.type.indexOf('WebSite') >= 0;
+      }),
       wcagVersion: WCAG_VERSION,
       conformanceTarget: CONFORMANCE_TARGET
     });
 
     Object.assign(_evaluation.exploreTarget, {
-      technologiesReliedUpon: webTechnologies.filter((tech) => TECHNOLOGIES_RELIED_UPON.indexOf(tech.title) >= 0),
+      technologiesReliedUpon: webTechnologies.filter(
+        (tech) => TECHNOLOGIES_RELIED_UPON.indexOf(tech.title) >= 0
+      ),
       essentialFunctionality: ESSENTIAL_FUNCTIONALITY,
       pageTypeVariety: PAGE_TYPES
     });
