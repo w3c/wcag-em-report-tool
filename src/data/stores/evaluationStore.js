@@ -114,7 +114,7 @@ class EvaluationModel {
           '@id': '_:about'
         },
         { '@id': '_:defineScope' },
-        { '@id': '_:exploreTarget'},
+        { '@id': '_:exploreTarget' },
         { '@id': '_:selectSample' }
       ],
       commissioner: '',
