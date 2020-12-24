@@ -84,7 +84,13 @@ class EvaluationModel {
     this.defineScope = {
       '@id': '_:defineScope',
       // First subject === scope / website
-      scope: {},
+      scope: {
+        // WEBSITE_NAME
+        title: '',
+
+        // WEBSITE_SCOPE
+        description: ''
+      },
       wcagVersion: '2.1',
       conformanceTarget: 'AA'
     };
