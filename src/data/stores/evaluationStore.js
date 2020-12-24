@@ -185,7 +185,12 @@ class EvaluationModel {
       .then((framedEvaluation) => {
         console.log(framedEvaluation);
 
-        let { defineScope, exploreTarget, reportFindings } = framedEvaluation;
+        let {
+          defineScope,
+          exploreTarget,
+          reportFindings,
+          selectSample
+        } = framedEvaluation;
 
         if (!defineScope) {
           defineScope = {};
@@ -197,6 +202,10 @@ class EvaluationModel {
 
         if (!reportFindings) {
           reportFindings = {};
+        }
+
+        if (!selectSample) {
+          selectSample = {};
         }
 
         language = framedEvaluation.language || 'en';
@@ -250,6 +259,41 @@ class EvaluationModel {
               framedEvaluation.pageTypeVariety ||
               ''
           });
+        });
+
+        sampleStore.update(() => {
+          let structuredSample =
+            selectSample.structuredSample ||
+            // Deprecated / previous versions
+            framedEvaluation.structuredSample.DfnWebpageWcag21 ||
+            framedEvaluation.structuredSample.DfnWebpageWcag20 ||
+            // Default
+            [];
+
+          let randomSample =
+            selectSample.randomSample ||
+            // Deprecated / previous versions
+            framedEvaluation.randomSample.DfnWebpageWcag21 ||
+            framedEvaluation.randomSample.DfnWebpageWcag20 ||
+            // Default
+            [];
+
+          if (!Array.isArray(structuredSample)) {
+            structuredSample = [structuredSample];
+          }
+
+          if (!Array.isArray(randomSample)) {
+            randomSample = [randomSample];
+          }
+
+          return {
+            STRUCTURED_SAMPLE: structuredSample.map((sample) => {
+              return subjects.create(sample);
+            }),
+            RANDOM_SAMPLE: randomSample.map((sample) => {
+              return subjects.create(sample);
+            })
+          };
         });
 
         summaryStore.update((value) => {
