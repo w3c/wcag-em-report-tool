@@ -8,11 +8,12 @@ import webTechnologies from '../webtechnologies.json';
 
 // Import related stores and combine
 import scopeStore from './scopeStore.js';
-import exploreStore from './exploreStore.js';
-import sampleStore from './sampleStore.js';
+import exploreStore, { initialExploreStore } from './exploreStore.js';
+import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore from './summaryStore.js';
 
 import assertionStore from './earl/assertionStore.js';
+import subjects, { initialSubjectStore } from './earl/subjectStore.js';
 
 function downloadFile({ contents, name, type }) {
   const _a = document.createElement('a');
@@ -119,6 +120,13 @@ class EvaluationModel {
     };
   }
 
+  reset() {
+    assertionStore.update(() => []);
+    sampleStore.update(() => initialSampleStore);
+    exploreStore.update(() => initialExploreStore);
+    subjects.update(() => initialSubjectStore);
+  }
+
   async open(openedEvaluation) {
     console.log('Opening evaluation');
 
@@ -158,6 +166,8 @@ class EvaluationModel {
     if (!openedJsonld) {
       return;
     }
+
+    await this.reset();
 
     /**
      *  Frame the Evaluation object
