@@ -105,7 +105,11 @@ const exportContext = {
 export const importContext = {
   // Add deprecatedContext to support previous versions of this tool
   ...deprecatedContext,
-  ...exportContext
+  ...exportContext,
+
+  // Set simple IRI to prevent left hand expansion
+  // to dcterms:date
+  date: 'dcterms:date'
 };
 
 export default exportContext;
