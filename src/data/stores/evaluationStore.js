@@ -7,13 +7,15 @@ import appJsonLdContext, { importContext } from '../jsonld/appContext.js';
 import webTechnologies from '../webtechnologies.json';
 
 // Import related stores and combine
+import { TestResult } from './earl/models.js';
 import scopeStore from './scopeStore.js';
 import exploreStore, { initialExploreStore } from './exploreStore.js';
 import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore from './summaryStore.js';
 
-import assertionStore from './earl/assertionStore.js';
+import assertions from './earl/assertionStore.js';
 import subjects, { initialSubjectStore } from './earl/subjectStore.js';
+import tests from './earl/testStore.js';
 
 function downloadFile({ contents, name, type }) {
   const _a = document.createElement('a');
@@ -127,15 +129,13 @@ class EvaluationModel {
   }
 
   reset() {
-    assertionStore.update(() => []);
+    assertions.update(() => []);
     sampleStore.update(() => initialSampleStore);
     exploreStore.update(() => initialExploreStore);
     subjects.update(() => initialSubjectStore);
   }
 
   async open(openedEvaluation) {
-    console.log('Opening evaluation');
-
     /**
      *  First save current data by copy
      *  to return to when loading fails.
@@ -191,14 +191,27 @@ class EvaluationModel {
         '@type': evaluationTypes
       })
       .then((framedEvaluation) => {
-        console.log(framedEvaluation);
+        let $subjects;
+        const unscribeSubjects = subjects.subscribe((value) => {
+          $subjects = value;
+        });
+
+        let $tests;
+        const unscribeTests = tests.subscribe((value) => {
+          $tests = value;
+        });
 
         let {
+          auditSample,
           defineScope,
           exploreTarget,
           reportFindings,
           selectSample
         } = framedEvaluation;
+
+        if (!auditSample) {
+          auditSample = [];
+        }
 
         if (!defineScope) {
           defineScope = {};
@@ -226,29 +239,29 @@ class EvaluationModel {
          * should be updated as well with new or deprecated values.
          */
         scopeStore.update((value) => {
+          const scopeSubject = $subjects.find(($subject) => $subject.ID === 1);
+          const openedScope =
+            defineScope.scope ||
+            defineScope.DfnSetOfWebpagesWcag21 ||
+            defineScope.DfnSetOfWebpagesWcag20;
+
+          scopeSubject.id = openedScope.id;
+
           return Object.assign(value, {
             ADDITIONAL_REQUIREMENTS:
               defineScope.additionalEvaluationRequirements || '',
             AS_BASELINE: defineScope.accessibilitySupportBaseline || '',
             CONFORMANCE_TARGET: defineScope.conformanceTarget || 'AA',
             SITE_NAME:
-              // Current version
-              (defineScope.scope && defineScope.scope.title) ||
-              // Previous versions (deprecated)
-              (defineScope.DfnSetOfWebpagesWcag21 &&
-                defineScope.DfnSetOfWebpagesWcag21['schema:name']) ||
-              (defineScope.DfnSetOfWebpagesWcag20 &&
-                defineScope.DfnSetOfWebpagesWcag20['schema:name']) ||
+              openedScope.title ||
+              // Deprecated
+              openedScope['schema:name'] ||
               // Default
               '',
             WEBSITE_SCOPE:
-              // Current version
-              (defineScope.scope && defineScope.scope.description) ||
-              // Previous versions (Deprecated)
-              (defineScope.DfnSetOfWebpagesWcag21 &&
-                defineScope.DfnSetOfWebpagesWcag21.scope) ||
-              (defineScope.DfnSetOfWebpagesWcag20 &&
-                defineScope.DfnSetOfWebpagesWcag20.scope) ||
+              openedScope.description ||
+              // Deprecated
+              openedScope.scope ||
               // Default
               ''
           });
@@ -325,6 +338,54 @@ class EvaluationModel {
               ''
           });
         });
+
+        (function importAssertions(_assertions) {
+          _assertions.forEach((assertion) => {
+
+            const { assertedBy, mode, result, subject, test } = assertion;
+            const newSubject = $subjects.find(($subject) => {
+              return $subject.id === subject.id;
+            });
+
+            const newTest = $tests.find(($test) => {
+              const _test = test
+                ? test
+                // In previous versions a testcase was set on Assertions
+                // that was part of the main Assertion
+                : assertion.testcase || {};
+
+              const _testId = _test.id || _test;
+              const scID = _testId.split(':')[1];
+
+              return (
+                $test.id === _test.id ||
+                // fallback for bad implemented testIRI
+                ($test.id.indexOf(scID) >= 0 && _testId.indexOf(scID) >= 0)
+              );
+            });
+
+            const newResult = result
+              ? new TestResult(result)
+              : new TestResult();
+
+            if (newSubject && newTest) {
+              assertions.create({
+                assertedBy,
+                mode,
+                result: newResult,
+                subject: newSubject,
+                test: newTest
+              });
+            }
+
+            if (assertion.hasPart && Array.isArray(assertion.hasPart)) {
+              importAssertions(assertion.hasPart);
+            }
+          });
+        })(auditSample);
+
+        unscribeSubjects();
+        unscribeTests();
       });
 
     /**
@@ -385,7 +446,7 @@ const _evaluation = new EvaluationModel();
 
 export default derived(
   [
-    assertionStore,
+    assertions,
     locale,
     subjects,
     scopeStore,
@@ -394,7 +455,7 @@ export default derived(
     summaryStore
   ],
   ([
-    $assertionStore,
+    $assertions,
     $locale,
     $subjects,
     $scopeStore,
@@ -444,7 +505,7 @@ export default derived(
       structuredSample: STRUCTURED_SAMPLE
     });
 
-    _evaluation.auditSample = $assertionStore;
+    _evaluation.auditSample = $assertions;
 
     Object.assign(_evaluation.reportFindings, {
       commissioner: EVALUATION_COMMISSIONER,
