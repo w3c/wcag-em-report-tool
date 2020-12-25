@@ -8,6 +8,8 @@ const deprecatedContext = {
   DfnReliedUponTechnologyWcag21: 'WCAG21:dfn-relied-upon',
   DfnSetOfWebpagesWcag21: 'WCAG21:dfn-set-of-web-pages',
   DfnWebpageWcag21: 'WCAG21:dfn-web-page-s',
+
+  testcase: 'wcagem:testcase'
 };
 
 const exportContext = {
