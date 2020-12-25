@@ -186,7 +186,7 @@ export const OUTCOME = {
 Object.freeze(OUTCOME);
 
 export class TestResult extends Base {
-  constructor(options) {
+  constructor(options = {}) {
     super(options);
 
     Object.assign(this['@context'], {
@@ -199,7 +199,7 @@ export class TestResult extends Base {
     });
 
     this.type = ['TestResult'];
-    this.outcome = { ...UNTESTED };
+    this.outcome = options.outcome || { ...UNTESTED };
   }
 }
 
