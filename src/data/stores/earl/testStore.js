@@ -1,6 +1,7 @@
 import { derived } from 'svelte/store';
 import { dictionary, locale, t as translate } from 'svelte-i18n';
 
+import scopeStore from '../scopeStore.js';
 import { wcag, VERSIONS } from '../wcagStore.js';
 
 import { TestRequirement } from './models.js';
@@ -53,8 +54,11 @@ VERSIONS.forEach((version) => {
  * @type {[TestCriterion]}
  */
 const $tests = derived(
-  [dictionary, locale, translate],
-  ([$dictionary, $locale, $translate]) => {
+  [dictionary, locale, scopeStore, translate],
+  ([$dictionary, $locale, $scopeStore, $translate]) => {
+    const wcagVersion = $scopeStore['WCAG_VERSION'];
+    const wcagLdIRI = `WCAG${wcagVersion.replace('.', '')}`;
+
     // Set locales property
     if (
       _tests.length > 0 &&
@@ -81,10 +85,9 @@ const $tests = derived(
       let translateable;
       let translations = _test.locales[$locale];
 
-
       if (!translations) {
         translations = _test.locales[$locale] = {
-          '@id': `WCAG21:${$translate(`${wcagTranslationKey}.${_test.num}.ID`)}`,
+          id: `${wcagLdIRI}:${$translate(`${wcagTranslationKey}.${_test.num}.ID`)}`,
           title: $translate(`${wcagTranslationKey}.${_test.num}.TITLE`),
           description: $translate(
             `${wcagTranslationKey}.${_test.num}.DESCRIPTION`
