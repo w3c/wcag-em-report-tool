@@ -68,7 +68,7 @@
     );
   }
 
-  $: versionedTests = testCriteria.filter((test) => {
+  $: versionedTests = $testCriteria.filter((test) => {
     if (!test.version) {
       return false;
     }

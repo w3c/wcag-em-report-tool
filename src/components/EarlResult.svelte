@@ -87,14 +87,14 @@
   const { translate } = getContext('app');
   const { outcomeValues } = getContext('Evaluation');
 
-  $: outcomeOptions = outcomeValues.map((outcomeValue, index) => {
+  $: outcomeOptions = $outcomeValues.map((outcomeValue, index) => {
     const title = outcomeValue.title;
     const value = outcomeValue;
 
     return {
       title,
       value,
-      selected: index === outcomeValues.length - 1
+      selected: index === $outcomeValues.length - 1
     };
   });
 
@@ -103,14 +103,6 @@
     $assertions.find(($assertion) => {
       return $assertion.test === test && $assertion.subject === subject;
     }) || assertions.create({ subject, test });
-
-  $: {
-    if (!_assertion.result.outcome.title) {
-      _assertion.result.outcome = outcomeValues.find((outcome) => {
-        return outcome.id === _assertion.result.outcome.id;
-      });
-    }
-  }
 
   function handleResultChange() {
     _assertion.result.update();

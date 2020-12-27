@@ -24,7 +24,7 @@
   }
 
   setContext('Evaluation', {
-    outcomeValues: $outcomeValueStore,
-    testCriteria: $testStore
+    outcomeValues: outcomeValueStore,
+    testCriteria: testStore
   });
 </script>
