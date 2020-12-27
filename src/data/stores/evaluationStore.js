@@ -14,6 +14,7 @@ import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore from './summaryStore.js';
 
 import assertions from './earl/assertionStore.js';
+import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
 import subjects, { initialSubjectStore } from './earl/subjectStore.js';
 import tests from './earl/testStore.js';
 
@@ -201,6 +202,11 @@ class EvaluationModel {
           $tests = value;
         });
 
+        let $outcomeValues;
+        const unscribeOutcomeValues = outcomeValues.subscribe((value) => {
+          $outcomeValues = value;
+        });
+
         let {
           auditSample,
           defineScope,
@@ -347,6 +353,11 @@ class EvaluationModel {
               return $subject.id === subject.id;
             });
 
+            let newResult = result ? new TestResult(result) : new TestResult();
+            newResult.outcome = $outcomeValues.find(($outcomeValue) => {
+              return $outcomeValue.id === newResult.outcome.id;
+            });
+
             const newTest = $tests.find(($test) => {
               const _test = test
                 ? test
@@ -363,10 +374,6 @@ class EvaluationModel {
                 ($test.id.indexOf(scID) >= 0 && _testId.indexOf(scID) >= 0)
               );
             });
-
-            const newResult = result
-              ? new TestResult(result)
-              : new TestResult();
 
             if (newSubject && newTest) {
               assertions.create({
@@ -386,6 +393,7 @@ class EvaluationModel {
 
         unscribeSubjects();
         unscribeTests();
+        unscribeOutcomeValues();
       });
 
     /**
