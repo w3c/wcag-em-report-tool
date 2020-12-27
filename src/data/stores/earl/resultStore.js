@@ -3,30 +3,20 @@ import { derived } from 'svelte/store';
 import { locale, t as translate } from 'svelte-i18n';
 
 
-import { OUTCOME, TestResult } from './models.js';
+import { OUTCOME } from './models.js';
 
-const _outcomeValues = [
-  {...OUTCOME.PASSED},
-  {...OUTCOME.FAILED},
-  {...OUTCOME.CANT_TELL},
-  {...OUTCOME.INAPPLICABLE},
-  {...OUTCOME.UNTESTED}
-];
+const _outcomeValues = Object.keys(OUTCOME).map((key) => {
+  return {
+    ...OUTCOME[key],
+    key,
+    title: '',
+    locales: {}
+  };
+});
 
 export const outcomeValueStore = derived(
   [locale, translate],
   ([$locale, $translate]) => {
-    const outcomeKeys = Object.keys(OUTCOME);
-
-    // Set locales property
-    if (!Object.prototype.hasOwnProperty.call(_outcomeValues[0], 'locales')) {
-      _outcomeValues.forEach((_outcomeValue) => {
-        // add a locales property containing
-        // translations for translateable properties
-        _outcomeValue.locales = {};
-      });
-    }
-
     // add translations to locales property like:
     // {
     //  [locale]: {
@@ -34,12 +24,11 @@ export const outcomeValueStore = derived(
     //  }
     // }
     // Then set title to locales.locale.title
-    outcomeKeys.forEach((outcomeKey, index) => {
-      const _outcomeValue = _outcomeValues[index];
+    _outcomeValues.forEach((_outcomeValue) => {
 
       if (!_outcomeValue.locales[$locale]) {
         _outcomeValue.locales[$locale] = {
-          title: $translate(`UI.EARL.${outcomeKey}`)
+          title: $translate(`UI.EARL.${_outcomeValue.key}`)
         };
       }
 
