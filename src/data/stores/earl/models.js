@@ -38,7 +38,7 @@ class Base {
     }
 
     this.ID = ID ? ID : createID(this.constructor.name);
-    this.date = date ? date : createDate();
+    this.date = date ? createDate(date) : createDate();
     this.title = title;
     this.description = description;
     this.summary = summary;
