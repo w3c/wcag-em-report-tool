@@ -236,7 +236,9 @@ class EvaluationModel {
         }
 
         language = framedEvaluation.language || 'en';
-        wcagVersion = defineScope.wcagVersion;
+        locale.set(language);
+
+        wcagVersion = defineScope.wcagVersion || '2.1';
 
         /**
          * Start setting values from the imported json-ld.
