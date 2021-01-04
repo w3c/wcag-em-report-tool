@@ -254,13 +254,13 @@ function createDate(date = new Date()) {
   let dateObject;
 
   try {
-    dateObject = new Date(date);
+    dateObject = (new Date(date)).toISOString();
   } catch (e) {
     console.warn(`[createDate]: ${e.message}`);
-    return date;
+    dateObject = date;
   }
 
-  return dateObject.toISOString();
+  return dateObject;
 }
 
 function createID(className) {
