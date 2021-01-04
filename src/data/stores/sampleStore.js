@@ -1,6 +1,5 @@
 import { derived, writable } from 'svelte/store';
 
-const sampleStore = writable({
 export const initialSampleStore = {
   STRUCTURED_SAMPLE: [],
   RANDOM_SAMPLE: []
