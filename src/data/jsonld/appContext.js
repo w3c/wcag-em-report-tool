@@ -80,10 +80,7 @@ const exportContext = {
   title: 'dcterms:title',
   description: 'dcterms:description',
   summary: 'dcterms:summary',
-  date: {
-    '@id': 'dcterms:date',
-    '@type': 'W3CDTF'
-  },
+  date: 'dcterms:date',
   hasPart: 'dcterms:hasPart',
   isPartOf: 'dcterms:isPartOf',
 
@@ -91,10 +88,6 @@ const exportContext = {
   schema: 'http://schema.org/',
   WebSite: 'schema:WebSite',
   WebPage: 'schema:WebPage',
-
-  // Value types
-  // - datetime format
-  W3CDTF: 'http://www.w3.org/TR/NOTE-datetime',
 
   // @json-ld; Makes props accessible by dotnotation
   id: '@id',
@@ -105,11 +98,7 @@ const exportContext = {
 export const importContext = {
   // Add deprecatedContext to support previous versions of this tool
   ...deprecatedContext,
-  ...exportContext,
-
-  // Set simple IRI to prevent left hand expansion
-  // to dcterms:date
-  date: 'dcterms:date'
+  ...exportContext
 };
 
 export default exportContext;

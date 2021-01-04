@@ -22,12 +22,8 @@ class Base {
     this['@context'] = {
       earl: 'http://www.w3.org/ns/earl#',
       dcterms: 'http://purl.org/dc/terms/',
-      W3CDTF: 'http://www.w3.org/TR/NOTE-datetime',
       title: 'dcterms:title',
-      date: {
-        '@id': 'dcterms:date',
-        '@type': 'W3CDTF'
-      },
+      date: 'dcterms:date',
       description: 'dcterms:description',
       id: '@id',
       type: '@type'
