@@ -50,12 +50,12 @@ export class TestSubject extends partsMixin(Base) {
     super(options);
 
     let { type } = options;
-    const ALLOWED_TYPES = ['WebSite', 'WebPage'];
+    const ALLOWED_TYPES = ['Website', 'Webpage'];
 
     Object.assign(this['@context'], {
-      schema: 'http://schema.org/',
-      WebSite: 'schema:WebSite',
-      WebPage: 'schema:WebPage',
+      wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
+      Website: 'wcagem:website',
+      Webpage: 'wcagem:webpage',
       TestSubject: 'earl:TestSubject'
     });
 

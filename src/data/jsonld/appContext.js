@@ -1,3 +1,12 @@
+/*
+ * Used in previous versions and removed
+ * due to wrong implementation or,
+ * to simplify json-ld dependencies to just
+ * dublin core, earl, wcag-em.
+ * If required to specify,
+ * prefer resources from w3c when possible,
+ * otherwise keep it simple and stupid.
+ */
 const deprecatedContext = {
   DfnTechnologyWcag20: 'WCAG20:technologydef',
   DfnReliedUponTechnologyWcag20: 'WCAG20:reliedupondef',
@@ -9,10 +18,15 @@ const deprecatedContext = {
   DfnSetOfWebpagesWcag21: 'WCAG21:dfn-set-of-web-pages',
   DfnWebpageWcag21: 'WCAG21:dfn-web-page-s',
 
-  testcase: 'wcagem:testcase'
+  testcase: 'wcagem:testcase',
+
+  // Schema
+  schema: 'http://schema.org/',
+  WebSite: 'schema:WebSite',
+  WebPage: 'schema:WebPage'
 };
 
-const exportContext = {
+export const exportContext = {
   reporter: 'https://github.com/w3c/wcag-em-report-tool/',
 
   // WCAG-EM
@@ -34,6 +48,8 @@ const exportContext = {
   selectSample: 'wcagem:step3',
   structuredSample: 'wcagem:step3a',
   randomSample: 'wcagem:step3b',
+  Website: 'wcagem:website',
+  Webpage: 'wcagem:webpage',
   auditSample: 'wcagem:step4',
   reportFindings: 'wcagem:step5',
   documentSteps: 'wcagem:step5a',
@@ -83,11 +99,6 @@ const exportContext = {
   date: 'dcterms:date',
   hasPart: 'dcterms:hasPart',
   isPartOf: 'dcterms:isPartOf',
-
-  // Schema
-  schema: 'http://schema.org/',
-  WebSite: 'schema:WebSite',
-  WebPage: 'schema:WebPage',
 
   // @json-ld; Makes props accessible by dotnotation
   id: '@id',

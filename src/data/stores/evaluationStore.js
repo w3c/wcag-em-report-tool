@@ -321,9 +321,13 @@ class EvaluationModel {
 
           return {
             STRUCTURED_SAMPLE: structuredSample.map((sample) => {
+              sample.type = 'Webpage';
+
               return subjects.create(sample);
             }),
             RANDOM_SAMPLE: randomSample.map((sample) => {
+              sample.type = 'Webpage';
+
               return subjects.create(sample);
             })
           };
