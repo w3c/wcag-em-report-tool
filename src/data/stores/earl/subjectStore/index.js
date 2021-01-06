@@ -1,16 +1,20 @@
-import collectionStore from '../collectionStore.js';
+import collectionStore from '../../collectionStore.js';
 
-import { TestSubject } from './models.js';
+import { TestSubject, TestSubjectTypes } from './models.js';
 
 export const initialSubjectStore = [
   new TestSubject({
     ID: 1,
-    type: 'WebSite',
+    type: TestSubjectTypes.WEBSITE,
     title: '',
     description: ''
   })
 ];
 
 const $subjects = collectionStore(TestSubject, initialSubjectStore);
+
+export {
+  TestSubjectTypes
+};
 
 export default $subjects;

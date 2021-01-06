@@ -15,7 +15,7 @@ import summaryStore from './summaryStore.js';
 
 import assertions from './earl/assertionStore.js';
 import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
-import subjects, { initialSubjectStore } from './earl/subjectStore.js';
+import subjects, { initialSubjectStore, TestSubjectTypes } from './earl/subjectStore/';
 import tests from './earl/testStore.js';
 
 function downloadFile({ contents, name, type }) {
@@ -499,8 +499,8 @@ export default derived(
 
     Object.assign(_evaluation.defineScope, {
       // First subject === scope / website
-      scope: $subjects.find((s) => {
-        return s.type.indexOf('WebSite') >= 0;
+      scope: $subjects.find(($subject) => {
+        return $subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
       }),
       wcagVersion: WCAG_VERSION,
       conformanceTarget: CONFORMANCE_TARGET

@@ -83,6 +83,7 @@
   import { getContext } from 'svelte';
 
   import assertions from '../../data/stores/earl/assertionStore.js';
+  import { TestSubjectTypes } from '../../data/stores/earl/subjectStore/';
 
   export let criteria = [];
 
@@ -114,13 +115,13 @@
 
   function scopeAssertion(criterion) {
     return criterionAssertions(criterion).filter((assertion) => {
-      return assertion.subject.type.indexOf('WebSite') >= 0;
+      return assertion.subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
     });
   }
 
   function sampleAssertions(criterion) {
     return criterionAssertions(criterion).filter((assertion) => {
-      return assertion.subject.type.indexOf('WebPage') >= 0;
+      return assertion.subject.type.indexOf(TestSubjectTypes.WEBPAGE) >= 0;
     });
   }
 </script>

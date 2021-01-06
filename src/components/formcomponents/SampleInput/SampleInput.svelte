@@ -48,7 +48,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import subjects from '../../../data/stores/earl/subjectStore.js';
+  import subjects, { TestSubjectTypes } from '../../../data/stores/earl/subjectStore/';
 
   import AddOther from '../AddOther.svelte';
   import Details from '../../Details.svelte';
@@ -64,7 +64,7 @@
 
   function handleSampleAdd() {
     const newSample = subjects.create({
-      type: 'WebPage'
+      type: TestSubjectTypes.WEBPAGE
     });
 
     value = [...value, newSample];

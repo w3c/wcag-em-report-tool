@@ -129,7 +129,7 @@
 
   import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
-  import subjects from '../../data/stores/earl/subjectStore.js';
+  import subjects, { TestSubjectTypes } from '../../data/stores/earl/subjectStore/';
 
   import Details from '../Details.svelte';
   import EarlResult from '../EarlResult.svelte';
@@ -142,6 +142,6 @@
   const { conformanceLevel, num } = test;
 
   let scopeSubject = $subjects.find((subject) => {
-    return subject.type.indexOf('WebSite') >= 0;
+    return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
   });
 </script>

@@ -5,7 +5,7 @@
 <script>
   import { getContext, onDestroy, onMount, setContext } from 'svelte';
   import { outcomeValueStore } from '../../data/stores/earl/resultStore.js';
-  import subjects from '../../data/stores/earl/subjectStore.js';
+  import subjects, { TestSubjectTypes } from '../../data/stores/earl/subjectStore/';
   import testStore from '../../data/stores/earl/testStore.js';
 
   const { scopeStore } = getContext('app');
@@ -14,10 +14,10 @@
   // Create a WebSite subject
   let websiteSubject =
     $subjects.find((subject) => {
-      return subject.type.indexOf('WebSite') >= 0;
+      return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
     }) ||
     subjects.create({
-      type: 'WebSite'
+      type: TestSubjectTypes.WEBSITE
     });
 
   let endSubscription;

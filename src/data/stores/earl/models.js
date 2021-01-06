@@ -1,7 +1,8 @@
 // id lookup
+// May be better to move this to collectionStore
 const _ids = {};
 
-const partsMixin = (SuperClass) =>
+export const partsMixin = (SuperClass) =>
   class PartsMixin extends SuperClass {
     constructor(options = {}) {
       super(options);
@@ -15,7 +16,7 @@ const partsMixin = (SuperClass) =>
     }
   };
 
-class Base {
+export class Base {
   constructor(options = {}) {
     const { ID, date, title, description, summary } = options;
 
@@ -42,45 +43,6 @@ class Base {
 
   update() {
     this.date = createDate();
-  }
-}
-
-export class TestSubject extends partsMixin(Base) {
-  constructor(options = {}) {
-    super(options);
-
-    let { type } = options;
-    const ALLOWED_TYPES = ['Website', 'Webpage'];
-
-    Object.assign(this['@context'], {
-      wcagem: 'http://www.w3.org/TR/WCAG-EM/#',
-      Website: 'wcagem:website',
-      Webpage: 'wcagem:webpage',
-      TestSubject: 'earl:TestSubject'
-    });
-
-    if (!this.id) {
-      this.id = `_:subject_${this.ID}`;
-    }
-    this.type = ['TestSubject'];
-
-    if (!Array.isArray(type)) {
-      type = [type];
-    }
-
-    if (!this.title) {
-      this.title = '';
-    }
-
-    if (!this.description) {
-      this.description = '';
-    }
-
-    type.forEach((t) => {
-      if (ALLOWED_TYPES.indexOf(t) >= 0) {
-        this.type.push(t);
-      }
-    });
   }
 }
 
