@@ -6,6 +6,6 @@ export const initialExploreStore = {
   PAGE_TYPES: ''
 };
 
-const exploreStore = writable(initialExploreStore);
+const exploreStore = writable({...initialExploreStore});
 
 export default exploreStore;

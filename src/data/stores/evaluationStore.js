@@ -134,9 +134,12 @@ class EvaluationModel {
       return { ...initialScopeStore };
     });
 
+    exploreStore.update(() => {
+      return { ...initialExploreStore };
+    });
+
     assertions.update(() => []);
     sampleStore.update(() => initialSampleStore);
-    exploreStore.update(() => initialExploreStore);
     subjects.update(() => initialSubjectStore);
   }
 
