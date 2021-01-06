@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
-export default function collectionStore(Item, initialCollection) {
-  const collection = writable(initialCollection);
+export default function collectionStore(Item, initialCollection = []) {
+  const collection = writable([...initialCollection]);
 
   collection.create = function (value) {
     if (typeof value !== 'object') {
