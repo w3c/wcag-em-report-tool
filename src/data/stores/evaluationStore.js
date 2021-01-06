@@ -11,7 +11,7 @@ import { TestResult } from './earl/models.js';
 import scopeStore, { initialScopeStore } from './scopeStore.js';
 import exploreStore, { initialExploreStore } from './exploreStore.js';
 import sampleStore, { initialSampleStore } from './sampleStore.js';
-import summaryStore from './summaryStore.js';
+import summaryStore, { initialSummaryStore } from './summaryStore.js';
 
 import assertions from './earl/assertionStore.js';
 import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
@@ -144,6 +144,10 @@ class EvaluationModel {
 
     assertions.update(() => []);
     subjects.update(() => initialSubjectStore);
+
+    summaryStore.update(() => {
+      return { ...initialSummaryStore };
+    });
   }
 
   async open(openedEvaluation) {

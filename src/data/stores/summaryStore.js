@@ -1,12 +1,14 @@
 import { writable } from 'svelte/store';
 
-const summaryStore = writable({
+export const initialSummaryStore = {
   EVALUATION_TITLE: '',
   EVALUATION_COMMISSIONER: '',
   EVALUATION_CREATOR: '',
   EVALUATION_DATE: new Date(),
   EVALUATION_SUMMARY: '',
   EVALUATION_SPECIFICS: ''
-});
+};
+
+const summaryStore = writable({...initialSummaryStore});
 
 export default summaryStore;
