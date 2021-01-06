@@ -15,7 +15,10 @@ import summaryStore, { initialSummaryStore } from './summaryStore.js';
 
 import assertions from './earl/assertionStore.js';
 import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
-import subjects, { initialSubjectStore, TestSubjectTypes } from './earl/subjectStore/';
+import subjects, {
+  initialSubjectStore,
+  TestSubjectTypes
+} from './earl/subjectStore/';
 import tests from './earl/testStore.js';
 
 function downloadFile({ contents, name, type }) {
@@ -143,7 +146,10 @@ class EvaluationModel {
     });
 
     assertions.update(() => []);
-    subjects.update(() => initialSubjectStore);
+
+    subjects.update(() => {
+      return [...initialSubjectStore];
+    });
 
     summaryStore.update(() => {
       return { ...initialSummaryStore };
