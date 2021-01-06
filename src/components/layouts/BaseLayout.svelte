@@ -36,7 +36,7 @@
            * -->
 
           <!-- State based; is there an open Evaluation? -->
-          <Button>View report</Button>
+          <Link class="button" to="/evaluation/view-report">View report</Link>
           <Button type="secondary">Start new Evaluation</Button>
           <OpenEvaluation />
           <Button type="secondary">Import findings</Button>
@@ -65,7 +65,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation } from 'svelte-navigator';
+  import { useLocation, Link } from 'svelte-navigator';
 
   import appData from '../../data/app.js';
 
