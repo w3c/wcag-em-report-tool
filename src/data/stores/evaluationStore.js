@@ -355,7 +355,7 @@ class EvaluationModel {
 
         summaryStore.update((value) => {
           return Object.assign(value, {
-            EVALUATION_TITLE: reportFindings.title || '',
+            EVALUATION_TITLE: reportFindings.title || framedEvaluation.title || '',
             EVALUATION_COMMISSIONER:
               reportFindings.commissioner ||
               framedEvaluation.commissioner ||
