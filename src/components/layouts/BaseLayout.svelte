@@ -37,7 +37,9 @@
 
           <!-- State based; is there an open Evaluation? -->
           <Link class="button" to="/evaluation/view-report">View report</Link>
-          <Button type="secondary">Start new Evaluation</Button>
+          <Button type="secondary" on:click="{handleNewEvaluationClick}">
+            Start new Evaluation
+          </Button>
           <OpenEvaluation />
           <Button type="secondary">Import findings</Button>
         </Panel>
@@ -65,8 +67,9 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation, Link } from 'svelte-navigator';
+  import { navigate, useLocation, Link } from 'svelte-navigator';
 
+  import evaluationStore from '../../data/stores/evaluationStore.js';
   import appData from '../../data/app.js';
 
   import Button from '../Button.svelte';
@@ -117,4 +120,9 @@
   ];
 
   $: panelIsOpen = hasPanel;
+
+  function handleNewEvaluationClick() {
+    $evaluationStore.reset();
+    navigate('/evaluation/scope', { replace: true });
+  }
 </script>
