@@ -8,7 +8,7 @@ import webTechnologies from '../webtechnologies.json';
 
 // Import related stores and combine
 import { TestResult } from './earl/models.js';
-import scopeStore from './scopeStore.js';
+import scopeStore, { initialScopeStore } from './scopeStore.js';
 import exploreStore, { initialExploreStore } from './exploreStore.js';
 import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore from './summaryStore.js';
@@ -130,6 +130,10 @@ class EvaluationModel {
   }
 
   reset() {
+    scopeStore.update(() => {
+      return { ...initialScopeStore };
+    });
+
     assertions.update(() => []);
     sampleStore.update(() => initialSampleStore);
     exploreStore.update(() => initialExploreStore);
