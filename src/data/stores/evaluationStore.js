@@ -358,7 +358,8 @@ class EvaluationModel {
 
         summaryStore.update((value) => {
           return Object.assign(value, {
-            EVALUATION_TITLE: reportFindings.title || framedEvaluation.title || '',
+            EVALUATION_TITLE:
+              reportFindings.title || framedEvaluation.title || '',
             EVALUATION_COMMISSIONER:
               reportFindings.commissioner ||
               framedEvaluation.commissioner ||
@@ -374,9 +375,10 @@ class EvaluationModel {
           });
         });
 
+        // Recursive function to address deprecated
+        // nested Assertions within an Assertion
         (function importAssertions(_assertions) {
           _assertions.forEach((assertion) => {
-
             const { assertedBy, mode, result, subject, test } = assertion;
             const newSubject = $subjects.find(($subject) => {
               return $subject.id === subject.id;
@@ -388,12 +390,10 @@ class EvaluationModel {
             });
 
             const newTest = $tests.find(($test) => {
-              const _test = test
-                ? test
-                // In previous versions a testcase was set on Assertions
-                // that was part of the main Assertion
-                : assertion.testcase || {};
-
+              // In previous versions a testcase was set on Assertions
+              // that was part of the main Assertion
+              // undo this here.
+              const _test = test ? test : assertion.testcase || {};
               const _testId = _test.id || _test;
               const scID = _testId.split(':')[1];
 
@@ -414,6 +414,8 @@ class EvaluationModel {
               });
             }
 
+            // This is the part that Assertions
+            // contain nested Assertions
             if (assertion.hasPart && Array.isArray(assertion.hasPart)) {
               importAssertions(assertion.hasPart);
             }
@@ -509,6 +511,12 @@ export default derived(
     const { RANDOM_SAMPLE, STRUCTURED_SAMPLE } = $sampleStore;
 
     const {
+      ESSENTIAL_FUNCTIONALITY,
+      PAGE_TYPES,
+      TECHNOLOGIES_RELIED_UPON
+    } = $exploreStore;
+
+    const {
       EVALUATION_CREATOR,
       EVALUATION_COMMISSIONER,
       EVALUATION_DATE,
@@ -516,12 +524,6 @@ export default derived(
       EVALUATION_SUMMARY,
       EVALUATION_TITLE
     } = $summaryStore;
-
-    const {
-      ESSENTIAL_FUNCTIONALITY,
-      PAGE_TYPES,
-      TECHNOLOGIES_RELIED_UPON
-    } = $exploreStore;
 
     _evaluation['@language'] = $locale;
 
