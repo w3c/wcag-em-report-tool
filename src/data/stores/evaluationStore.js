@@ -301,6 +301,7 @@ class EvaluationModel {
           const technologies =
             exploreTarget.technologiesReliedUpon ||
             framedEvaluation.DfnReliedUponTechnologyWcag21 ||
+            framedEvaluation.DfnReliedUponTechnologyWcag20 ||
             [];
 
           return Object.assign(value, {
