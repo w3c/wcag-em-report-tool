@@ -6,9 +6,12 @@
         "url": "git://github.com/w3c/wcag-em-report-tool.git"
     },
     "scripts": {
-        "build": "rollup -c",
-        "dev": "rollup -c -w",
-        "start": "sirv public"
+        "build": "npm run clean:build & rollup -c",
+        "dev": "npm run clean:dev & rollup -c -w",
+        "start": "sirv ./_site/build -s",
+        "clean": "rimraf ./_site ./node_modules",
+        "clean:build": "rimraf ./site/build",
+        "clean:dev": "rimraf ./site/development"
     },
     "main": "src/main.js",
     "dependencies": {
@@ -34,6 +37,7 @@
         "npm-run-all": "^4.1.5",
         "prettier": "^2.1.1",
         "prettier-plugin-svelte": "^1.2.1",
+        "rimraf": "^3.0.2",
         "rollup": "^2.3.4",
         "rollup-plugin-copy": "^3.3.0",
         "rollup-plugin-livereload": "^1.0.0",
