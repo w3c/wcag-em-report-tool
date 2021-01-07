@@ -98,7 +98,9 @@ class EvaluationModel {
         description: ''
       },
       wcagVersion: '2.1',
-      conformanceTarget: 'AA'
+      conformanceTarget: 'AA',
+      accessibilitySupportBaseline: '',
+      additionalEvaluationRequirements: ''
     };
 
     this.exploreTarget = {
@@ -497,7 +499,12 @@ export default derived(
     $sampleStore,
     $summaryStore
   ]) => {
-    const { CONFORMANCE_TARGET, WCAG_VERSION } = $scopeStore;
+    const {
+      ADDITIONAL_REQUIREMENTS,
+      AS_BASELINE,
+      CONFORMANCE_TARGET,
+      WCAG_VERSION
+    } = $scopeStore;
     const { RANDOM_SAMPLE, STRUCTURED_SAMPLE } = $sampleStore;
 
     const {
@@ -518,12 +525,13 @@ export default derived(
     _evaluation['@language'] = $locale;
 
     Object.assign(_evaluation.defineScope, {
-      // First subject === scope / website
       scope: $subjects.find(($subject) => {
         return $subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
       }),
       wcagVersion: WCAG_VERSION,
-      conformanceTarget: CONFORMANCE_TARGET
+      conformanceTarget: CONFORMANCE_TARGET,
+      accessibilitySupportBaseline: AS_BASELINE,
+      additionalEvaluationRequirements: ADDITIONAL_REQUIREMENTS
     });
 
     Object.assign(_evaluation.exploreTarget, {
