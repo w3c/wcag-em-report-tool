@@ -67,7 +67,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { navigate, useLocation, Link } from 'svelte-navigator';
+  import { useNavigate, useLocation, Link } from 'svelte-navigator';
 
   import evaluationStore from '../../data/stores/evaluationStore.js';
   import appData from '../../data/app.js';
@@ -84,6 +84,7 @@
 
   const { translate } = getContext('app');
   const location = useLocation();
+  const navigate = useNavigate();
 
   $: hasPanel = $location.pathname !== '/evaluation/view-report';
 
