@@ -1,4 +1,4 @@
-<article class="Report" bind:this="{exportableReport}">
+<article class="Report" bind:this="{Report}">
   <header>
     <h1>{report.title}</h1>
     <dl>
@@ -57,7 +57,9 @@
     {#if report.samples.length > 0}
       <ol>
         {#each report.samples as sample}
-          <li><span>{sample.title}</span> - <span>{sample.description}</span></li>
+          <li>
+            <span>{sample.title}</span> - <span>{sample.description}</span>
+          </li>
         {/each}
       </ol>
     {:else}
@@ -81,16 +83,31 @@
   }
 </style>
 
+<script context="module">
+  import { downloadFile } from '../scripts/files.js';
+
+  let Report;
+
+  export function downloadReport() {
+    downloadFile({
+      contents: Report.outerHTML,
+      name: 'report.html',
+      type: 'text/html'
+    });
+  }
+</script>
+
 <script>
   import { getContext } from 'svelte';
   import { date } from 'svelte-i18n';
+
   import tests from '../data/stores/earl/testStore.js';
 
   import AuditorSummary from './Auditor/AuditorSummary.svelte';
 
-  let exportableReport;
-
-  const { sampleStore, scopeStore, summaryStore, translate } = getContext('app');
+  const { sampleStore, scopeStore, summaryStore, translate } = getContext(
+    'app'
+  );
 
   $: scope = {
     siteName: $scopeStore['SITE_NAME'],
