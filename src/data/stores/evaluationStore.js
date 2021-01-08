@@ -5,6 +5,7 @@ import { locale } from 'svelte-i18n';
 
 import appJsonLdContext, { importContext } from '../jsonld/appContext.js';
 import webTechnologies from '../webtechnologies.json';
+import { downloadFile } from '../../scripts/files.js';
 
 // Import related stores and combine
 import { TestResult } from './earl/models.js';
@@ -20,16 +21,6 @@ import subjects, {
   TestSubjectTypes
 } from './earl/subjectStore/';
 import tests from './earl/testStore.js';
-
-function downloadFile({ contents, name, type }) {
-  const _a = document.createElement('a');
-  const file = new Blob([contents], { type });
-
-  _a.href = URL.createObjectURL(file);
-  _a.download = name;
-
-  _a.click();
-}
 
 const evaluationContext = {
   // Dublin Core Terms
