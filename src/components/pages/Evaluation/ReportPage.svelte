@@ -8,7 +8,7 @@
       <h2>{$translate('PAGES.REPORT.DOWNLOAD_REPORT')}</h2>
     </header>
     <div class="box-i">
-      <Button><span>{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</span></Button>
+      <Button on:click="{handleHTMLDownloadClick}"><span>{$translate('PAGES.REPORT.BTN_SAVE_HTML')}</span></Button>
       <Button type="secondary" on:click="{handleJSONDownloadClick}">
         <span>{$translate('PAGES.REPORT.BTN_SAVE_JSON')}</span>
       </Button>
@@ -25,9 +25,13 @@
 
   import Button from '../../Button.svelte';
   import Page from '../../Page.svelte';
-  import Report from '../../Report.svelte';
+  import Report, { downloadReport } from '../../Report.svelte';
 
   const { translate } = getContext('app');
+
+  function handleHTMLDownloadClick() {
+    downloadReport();
+  }
 
   function handleJSONDownloadClick() {
     $evaluationStore.save();
