@@ -5,11 +5,13 @@
 />
 
 <script>
+  import { useNavigate } from 'svelte-navigator';
   import evaluationStore from '../../data/stores/evaluationStore.js';
 
   import File, { readFile } from './File.svelte';
 
   let loading = false;
+  const navigate = useNavigate();
 
   function handleOpenChange(event) {
     loading = true;
@@ -20,9 +22,14 @@
     readFile(file, (result) => {
       const json = JSON.parse(result);
 
-      $evaluationStore.open(json).finally(() => {
-        loading = false;
-      });
+      $evaluationStore
+        .open(json)
+        .then(() => {
+          navigate('/evaluation/scope');
+        })
+        .finally(() => {
+          loading = false;
+        });
     });
   }
 </script>
