@@ -10,5 +10,13 @@
     "CLICK_EXPAND": "Click to show section",
     "CLICK_COLLAPSE": "Click to hide section",
     "TO_TOP": "Back to top",
-    "ACTIVE": "Active"
+    "ACTIVE": "Active",
+    "BUTTON": {
+        "HIDE": "Hide {subject}",
+        "LANGUAGE_SELECT": "translations",
+        "SHOW": "Show {subject}"
+    },
+    "LABEL": {
+        "LANGUAGE_SELECT": "This page in"
+    }
 }

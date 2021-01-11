@@ -5,9 +5,7 @@
 <div class="LanguageSelect">
   {#if !collapsed}
     <span class="LanguageSelect__languages_container languagelist">
-      <strong
-        id="LanguageSelect__label"
-      >{$translate('LANGUAGE_SELECT_LABEL')}:</strong>
+      <strong id="LanguageSelect__label">{LABEL_TRANSLATIONS}:</strong>
       <ul
         class="LanguageSelect__languages languagelistul"
         on:click="{handleClick}"
@@ -41,8 +39,9 @@
           xlink:href="images/icons.svg#icon-languages"
         ></use></svg>
       <span>
-        {collapsed ? 'Show' : 'Hide'}
-        {$translate('LANGUAGE_SELECT_BUTTON')}
+        {#if collapsed}
+          {BUTTON_SHOW_TRANSLATIONS}
+        {:else}{BUTTON_HIDE_TRANSLATIONS}{/if}
       </span>
     </button>
   </span>
@@ -77,12 +76,23 @@
 
   $: currentLocale = locales.find((l) => l.lang === $locale);
 
-  /**
-   * Handle the languageSelect click,
-   * Changing to target language
-   * @param  {[object]} event
-   * @return {undefined}
-   */
+  // translations
+  $: TRANSLATIONS = $translate('UI.COMMON.BUTTON.LANGUAGE_SELECT');
+
+  $: BUTTON_SHOW_TRANSLATIONS = $translate('UI.COMMON.BUTTON.SHOW', {
+    values: {
+      subject: TRANSLATIONS
+    }
+  });
+
+  $: BUTTON_HIDE_TRANSLATIONS = $translate('UI.COMMON.BUTTON.HIDE', {
+    values: {
+      subject: TRANSLATIONS
+    }
+  });
+
+  $: LABEL_TRANSLATIONS = $translate('UI.COMMON.LABEL.LANGUAGE_SELECT');
+
   function handleClick(event) {
     const target = event.target;
 
@@ -97,7 +107,7 @@
     }
   }
 
-  function handleToggle(event) {
+  function handleToggle() {
     collapsed = !collapsed;
   }
 </script>

@@ -9,5 +9,13 @@
     "NO": "Nee",
     "CLICK_EXPAND": "Klik om sectie te tonen",
     "CLICK_COLLAPSE": "Klik om sectie te verbergen",
-    "TO_TOP": "Naar boven"
+    "TO_TOP": "Naar boven",
+    "BUTTON": {
+        "HIDE": "Verberg {subject}",
+        "LANGUAGE_SELECT": "vertalingen",
+        "SHOW": "Toon {subject}"
+    },
+    "LABEL": {
+        "LANGUAGE_SELECT": "Deze pagina in het"
+    }
 }
