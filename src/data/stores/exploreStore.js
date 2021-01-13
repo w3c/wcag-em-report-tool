@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 
+import collection from './collectionStore.js';
+
 import webTechnologies from '../webtechnologies.json';
 
 export const initialExploreStore = {
@@ -8,7 +10,7 @@ export const initialExploreStore = {
   PAGE_TYPES: ''
 };
 
-export const webTechnologyStore = writable([...webTechnologies]);
+export const webTechnologyStore = collection(null, [...webTechnologies]);
 
 const exploreStore = writable({...initialExploreStore});
 

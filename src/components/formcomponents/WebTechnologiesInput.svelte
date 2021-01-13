@@ -67,13 +67,10 @@
     }
 
     if (withValue && !exists({ title, detail })) {
-      $webTechnologyStore = [
-        ...currentTechnologies,
-        {
-          title,
-          description
-        }
-      ];
+      webTechnologyStore.create({
+        title,
+        description
+      });
 
       value = [...value, title];
     }
