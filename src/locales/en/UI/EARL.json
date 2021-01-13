@@ -2,8 +2,8 @@
     "PASSED": "Passed",
     "FAILED": "Failed",
     "CANT_TELL": "Cannot tell",
-    "NOT_PRESENT": "Not present",
-    "NOT_CHECKED": "Not checked",
+    "INAPPLICABLE": "Not present",
+    "UNTESTED": "Not checked",
     "LEVEL_A": "Level A",
     "LEVEL_AA": "Level AA",
     "LEVEL_AAA": "Level AAA"
