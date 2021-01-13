@@ -4,20 +4,9 @@
   </p>
 
   <form action="" novalidate>
-    <MultipleChoice
-      id="technologies_relied_upon"
-      label="{$translate('PAGES.EXPLORE.HD_RELIEDUP_TECH')}"
-      helptext="{$translate('PAGES.EXPLORE.INF_RELIEDUP_TECH')}"
-      options="{webTechnologies}"
-      editable
-      columns
+    <WebTechnologiesInput
       bind:value="{$exploreStore['TECHNOLOGIES_RELIED_UPON']}"
     />
-
-    <div>
-      {$translate('PAGES.EXPLORE.PLH_TECH')}<br />
-      {$translate('PAGES.EXPLORE.LABEL_TECH_SPEC')}<br />
-    </div>
 
     <fieldset>
       <legend>{$translate('PAGES.EXPLORE.HD_NOTE_TAKING')}</legend>
@@ -43,11 +32,10 @@
 <script>
   import { getContext } from 'svelte';
 
-  import webTechnologies from '../../../data/webtechnologies.json';
-
   import Page from '../../Page.svelte';
-  import MultipleChoice from '../../formcomponents/MultipleChoice.svelte';
   import Textarea from '../../formcomponents/Textarea.svelte';
+
+  import WebTechnologiesInput from '../../formcomponents/WebTechnologiesInput.svelte';
 
   const { exploreStore, translate } = getContext('app');
 </script>
