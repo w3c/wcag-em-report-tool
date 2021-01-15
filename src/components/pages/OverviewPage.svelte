@@ -1,31 +1,29 @@
 <!--
  * @component
- * Start: /
+ *   OverviewPage
  * -->
-<Page title="{$translate('PAGES.START.SUBTITLE')}">
+<Page title="{PAGE_TITLE}">
   <p>
-    {@html $translate('PAGES.START.INTRO_1', { values: links })}
+    {@html INTRODUCTION_P1}
   </p>
   <p>
-    {@html $translate('PAGES.START.INTRO_2')}
+    {@html INTRODUCTION_P2}
   </p>
 
-  <Details label="<h2>{$translate('PAGES.START.USAGE_HD')}</h2>">
-    <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
+  <Details label="<h2>{USAGE_HEADING}</h2>">
     <ul>
-      <li>{$translate('PAGES.START.USAGE_LI1')}</li>
-      <li>{$translate('PAGES.START.USAGE_LI2')}</li>
-      <li>{$translate('PAGES.START.USAGE_LI3')}</li>
+      <li>{USAGE_LI1}</li>
+      <li>{USAGE_LI2}</li>
+      <li>{USAGE_LI3}</li>
     </ul>
   </Details>
 
-  <Details label="<h2>{$translate('PAGES.START.TIPS_HD')}</h2>">
-    <p class="info"><strong>Editor's note</strong>: Requires a rewrite.</p>
+  <Details label="<h2>{TIPS_HEADING}</h2>">
     <ol>
-      <li>{$translate('PAGES.START.TIPS_LI1')}</li>
-      <li>{$translate('PAGES.START.TIPS_LI2')}</li>
-      <li>{$translate('PAGES.START.TIPS_LI3')}</li>
-      <li>{$translate('PAGES.START.TIPS_LI4')}</li>
+      <li>{TIPS_LI1}</li>
+      <li>{TIPS_LI2}</li>
+      <li>{TIPS_LI3}</li>
+      <li>{TIPS_LI4}</li>
     </ol>
   </Details>
 </Page>
@@ -38,6 +36,18 @@
   import Page from '../Page.svelte';
 
   const { translate } = getContext('app');
+  $: PAGE_TITLE = $translate('PAGES.START.SUBTITLE');
+  $: INTRODUCTION_P1 = $translate('PAGES.START.INTRO_1', { values: links });
+  $: INTRODUCTION_P2 = $translate('PAGES.START.INTRO_2');
+  $: USAGE_HEADING = $translate('PAGES.START.USAGE_HD');
+  $: USAGE_LI1 = $translate('PAGES.START.USAGE_LI1');
+  $: USAGE_LI2 = $translate('PAGES.START.USAGE_LI2');
+  $: USAGE_LI3 = $translate('PAGES.START.USAGE_LI3');
+  $: TIPS_HEADING = $translate('PAGES.START.TIPS_HD');
+  $: TIPS_LI1 = $translate('PAGES.START.TIPS_LI1');
+  $: TIPS_LI2 = $translate('PAGES.START.TIPS_LI2');
+  $: TIPS_LI3 = $translate('PAGES.START.TIPS_LI3');
+  $: TIPS_LI4 = $translate('PAGES.START.TIPS_LI4');
 
   // @todo: Add these links the locales
   // (They might be used on another page)
