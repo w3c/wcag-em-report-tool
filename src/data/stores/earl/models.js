@@ -161,6 +161,7 @@ export class TestResult extends Base {
   }
 }
 
+export const AssertionTypes = ['Assertion'];
 export class Assertion extends Base {
   constructor(options = {}) {
     super(options);
@@ -199,7 +200,7 @@ export class Assertion extends Base {
       }
     });
 
-    this.type = 'Assertion';
+    this.type = AssertionTypes;
     this.assertedBy = options.assertedBy;
     this.mode = 'earl:manual';
     this.result = options.result || new TestResult();
