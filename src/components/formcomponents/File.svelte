@@ -1,14 +1,14 @@
-<div class="field">
+<div class="File">
   <input
     id="{id}"
-    class="visuallyhidden"
+    class="File__input visuallyhidden"
     type="file"
     accept="{accept}"
     bind:files
     bind:value
     on:change
   />
-  <label for="{id}"><Button type="secondary" fake>{label}</Button></label>
+  <label for="{id}" class="File__label button button-secondary">{label}</label>
   {#if showFiles}
     <output for="{id}" title="Selected file(s)">
       {#each files as file}{file.name}<br />{:else}No file selected{/each}
@@ -17,7 +17,15 @@
 </div>
 
 <style>
-  :focus + label {
+  :focus + .File__label {
+    color: #fff;
+    background-color: #036;
+    border-color: #036;
+  }
+
+  .File__label {
+    display: block;
+    text-align: center;
   }
 </style>
 
@@ -42,8 +50,6 @@
 </script>
 
 <script>
-  import Button from '../Button.svelte';
-
   export let id;
   export let label = 'File';
   export let value = '';
