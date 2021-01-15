@@ -41,7 +41,7 @@
             Start new Evaluation
           </Button>
           <OpenEvaluation />
-          <Button type="secondary">Import findings</Button>
+          <AuditorImport />
         </Panel>
       </GridItem>
     {/if}
@@ -73,6 +73,7 @@
   import appData from '../../data/app.js';
 
   import Button from '../Button.svelte';
+  import AuditorImport from '../Auditor/AuditorImport.svelte';
   import OpenEvaluation from '../formcomponents/OpenEvaluation.svelte';
   import Grid from '../Grid.svelte';
   import GridItem from '../GridItem.svelte';
