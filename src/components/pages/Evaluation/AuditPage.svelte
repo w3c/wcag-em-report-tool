@@ -1,5 +1,5 @@
-<Page title="{$translate('PAGES.AUDIT.TITLE')}">
-  <p>{@html $translate('PAGES.AUDIT.INTRO')}</p>
+<Page title="{TRANSLATED.PAGE_TITLE}">
+  <p>{@html TRANSLATED.INTRODUCTION}</p>
 
   <Auditor />
 </Page>
@@ -11,4 +11,10 @@
   import Page from '../../Page.svelte';
 
   const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    PAGE_TITLE: $translate('PAGES.AUDIT.TITLE'),
+    INTRODUCTION: $translate('PAGES.AUDIT.INTRO')
+  };
+
 </script>
