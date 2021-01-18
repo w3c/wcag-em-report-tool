@@ -13,7 +13,7 @@
 <fieldset id="{id}">
   <legend>{label}</legend>
   {#if helptext}
-    <Details label="Info">
+    <Details label="{TRANSLATED.SHOW_INFO_BUTTON}">
       {@html helptext}
     </Details>
   {/if}
@@ -34,12 +34,12 @@
         {/each}
       </ol>
     {:else}
-      <p><em>{$translate('PAGES.SAMPLE.NO_PAGES_DEFINED')}</em></p>
+      <p><em>{TRANSLATED.NO_SAMPLE}</em></p>
     {/if}
   </div>
 
   <AddOther
-    label="{$translate('PAGES.SAMPLE.BTN_ADD_PAGE')}"
+    label="{TRANSLATED.ADD_PAGE_BUTTON}"
     on:ADD="{handleSampleAdd}"
   ></AddOther>
 </fieldset>
@@ -59,8 +59,14 @@
   export let helptext;
   export let value = [];
 
-  const { translate } = getContext('app');
   let valueContainer;
+  const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    NO_SAMPLE: $translate('PAGES.SAMPLE.NO_PAGES_DEFINED'),
+    ADD_PAGE_BUTTON: $translate('PAGES.SAMPLE.BTN_ADD_PAGE'),
+    SHOW_INFO_BUTTON: 'Info'
+  };
 
   function handleSampleAdd() {
     const newSample = subjects.create({
