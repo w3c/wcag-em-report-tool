@@ -8,7 +8,7 @@
     "INF_STRUCT_SAMPLE": "Selecteer webpagina's representatief voor alle (1) veelgebruikte webpagina's, (2) essentiële functionaliteiten, (3) typen pagina's, (4) webtechnologieën waarop gesteund wordt, en (5) overige relevante pagina's. Meer informatie vindt u in <a href={{link_em_3a}}>WCAG-EM Stap 3.a: Gebruik een geordende sample</a>.<br> Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van <a href={{link_em_state}}>webpagina-toestand</a>",
     "HD_RANDOM_SAMPLE": "Willekeurige sample",
     "INF_RAND_SAMPLE": "Selecteer willekeurig samplepagina's; gebruik 10% van de grootte van de geordende sample. Meer informatie vindt u in <a href={{link_em_3b}}>WCAG-EM Stap 3.b: Gebruik een willekeurige sample</a>.<br> Opmerking: 'webpagina's' kunnen in verschillende 'toestanden' (states) bestaan; zie de definitie van <a href={{link_em_state}}>webpagina toestand</a>",
-    "RAND_SAMPLE_LENGTH": "Op basis van de geordende sample van {{total}} webpagina's, selecteer tenminste {{count}} willekeurige webpagina's (om te voldoen aan de 10% eis uit WCAG-EM).",
+    "RAND_SAMPLE_LENGTH": "Op basis van de geordende sample van {STRUCTURED_SAMPLE_COUNT} webpagina's, selecteer tenminste {REQUIRED_RANDOM_SAMPLE_COUNT} willekeurige webpagina's (om te voldoen aan de 10% eis uit WCAG-EM).",
     "LABEL_HANDLE": "korte titel",
     "LABEL_PAGE": "Locatie (URL) of instructie",
     "NO_PAGES_DEFINED": "Er is geen pagina in deze lijst",

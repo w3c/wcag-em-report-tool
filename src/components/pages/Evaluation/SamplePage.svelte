@@ -1,37 +1,36 @@
-<Page title="{$translate('PAGES.SAMPLE.TITLE')}">
+<Page title="{TRANSLATED.PAGE_TITLE}">
   <p>
-    {@html $translate('PAGES.SAMPLE.INTRO')}
+    {@html TRANSLATED.INTRODUCTION}
   </p>
 
-  <div>{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE')}</div>
-
   <form action="" novalidate>
+    <h2>{TRANSLATED.EXPLORE_OPTIONAL_HEADING}</h2>
     <Textarea
       id="essential_functionality"
-      label="{$translate('PAGES.SAMPLE.HD_ESSENT_FUNC')}"
+      label="{TRANSLATED.EXPLORE_ESSENTIAL_FUNCTIONALITY_LABEL}"
       bind:value="{$exploreStore['ESSENTIAL_FUNCTIONALITY']}"
     />
 
     <Textarea
       id="page_types"
-      label="{$translate('PAGES.SAMPLE.HD_VARIETY_PAGE_TYPES')}"
+      label="{TRANSLATED.EXPLORE_VARIETY_OF_WEB_PAGE_TYPES_LABEL}"
       bind:value="{$exploreStore['PAGE_TYPES']}"
     />
 
     <SampleInput
       id="structured_sample"
-      label="{$translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB')}"
-      helptext="{$translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE')}"
       bind:value="{$sampleStore['STRUCTURED_SAMPLE']}"
+      label="{TRANSLATED.STRUCTURED_SAMPLE_HEADING}"
+      helptext="{TRANSLATED.STRUCTURED_SAMPLE_INFO}"
     />
 
     <SampleInput
       id="random_sample"
-      label="{$translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE')}"
-      helptext="{$translate('PAGES.SAMPLE.INF_RAND_SAMPLE')}"
       bind:value="{$sampleStore['RANDOM_SAMPLE']}"
+      label="{TRANSLATED.RANDOM_SAMPLE_HEADING}"
+      helptext="{TRANSLATED.RANDOM_SAMPLE_INFO}"
     >
-      <p>{$translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH')}</p>
+      <p>{TRANSLATED.RANDOM_SAMPLE_NOTE}</p>
     </SampleInput>
   </form>
 </Page>
@@ -44,4 +43,30 @@
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   const { exploreStore, sampleStore, translate } = getContext('app');
+
+  $: structuredSample = $sampleStore['STRUCTURED_SAMPLE'];
+  $: STRUCTURED_SAMPLE_COUNT = structuredSample.length || 0;
+  $: REQUIRED_RANDOM_SAMPLE_COUNT = Math.round(structuredSample.length / 10);
+
+  $: TRANSLATED = {
+    PAGE_TITLE: $translate('PAGES.SAMPLE.TITLE'),
+    INTRODUCTION: $translate('PAGES.SAMPLE.INTRO'),
+    EXPLORE_OPTIONAL_HEADING: $translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE'),
+    EXPLORE_ESSENTIAL_FUNCTIONALITY_LABEL: $translate(
+      'PAGES.SAMPLE.HD_ESSENT_FUNC'
+    ),
+    EXPLORE_VARIETY_OF_WEB_PAGE_TYPES_LABEL: $translate(
+      'PAGES.SAMPLE.HD_VARIETY_PAGE_TYPES'
+    ),
+    STRUCTURED_SAMPLE_HEADING: $translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE_SUB'),
+    STRUCTURED_SAMPLE_INFO: $translate('PAGES.SAMPLE.INF_STRUCT_SAMPLE'),
+    RANDOM_SAMPLE_HEADING: $translate('PAGES.SAMPLE.HD_RANDOM_SAMPLE'),
+    RANDOM_SAMPLE_INFO: $translate('PAGES.SAMPLE.INF_RAND_SAMPLE'),
+    RANDOM_SAMPLE_NOTE: $translate('PAGES.SAMPLE.RAND_SAMPLE_LENGTH', {
+      values: {
+        STRUCTURED_SAMPLE_COUNT,
+        REQUIRED_RANDOM_SAMPLE_COUNT
+      }
+    })
+  };
 </script>
