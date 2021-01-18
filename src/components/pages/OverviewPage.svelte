@@ -51,6 +51,7 @@
 
   // @todo: Add these links the locales
   // (They might be used on another page)
+  // or... use markdown inside translations...
   $: links = {
     link_wcag:
       '<a href="http://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG) 2</a>',
