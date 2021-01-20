@@ -4,20 +4,18 @@
  * -->
 <div class="Criterion">
   <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">
-      {num}: {test.title}
-    </h3>
+    <h3 class="Criterion__Header__heading">{num}: {title}</h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
   <Details
-    label="{`${$translate('PAGES.AUDIT.BTN_SHOW_TEXT')} <span class="visuallyhidden">for ${$translate(`WCAG.WCAG21.${num}.TITLE`)}</span>`}"
+    label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${test.title}</span>`}"
   >
-    <div>{test.description}</div>
+    <div>{description}</div>
 
-    {#if test.details.length > 0}
+    {#if details.length > 0}
       <dl>
-        {#each test.details as detail}
+        {#each details as detail}
           <dt>{detail.title}</dt>
           <dd>
             <p>{detail.description}</p>
@@ -41,15 +39,13 @@
 
     <div class="">
       <ResourceLink
-        href="https://www.w3.org/WAI/WCAG21/Understanding/{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}.html"
+        href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
       >
-        {$translate('PAGES.AUDIT.UNDERSTAND')}
+        {TRANSLATED.UNDERSTAND_BUTTON}
         {num}
       </ResourceLink>
-      <ResourceLink
-        href="https://www.w3.org/WAI/WCAG21/quickref/#{$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${num}.ID`)}"
-      >
-        {$translate('PAGES.AUDIT.HOW_TO')}
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
+        {TRANSLATED.HOW_TO_BUTTON}
         {num}
       </ResourceLink>
     </div>
@@ -61,12 +57,12 @@
    * assertion.result
    * -->
   <EarlResult
-    label="{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}"
+    label="{TRANSLATED.SCOPE_RESULT_LEGEND}"
     test="{test}"
     subject="{scopeSubject}"
   />
 
-  <Details label="{`<h4>${$translate('PAGES.AUDIT.BTN_EXPAND_PAGES')}</h4>`}">
+  <Details label="{`<h4>${TRANSLATED.SAMPLE_RESULTS_DETAILS_BUTTON}</h4>`}">
     <!--
      * Sample results should be generated from
      * (sample) assertions.
@@ -80,7 +76,7 @@
     {#each $allSamples as sample, index (`${num}-${sample.ID}`)}
       {#if $auditSamples.indexOf(sample.ID) >= 0}
         <EarlResult
-          label="{$translate('PAGES.AUDIT.RESULTS_FOR')}: {sample.title || sample.description || `Sample ${index + 1}`}"
+          label="{TRANSLATED.RESULT_FOR_LABEL}: {sample.title || sample.description || `Sample ${index + 1}`}"
           test="{test}"
           subject="{sample}"
         />
@@ -129,7 +125,9 @@
 
   import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
-  import subjects, { TestSubjectTypes } from '../../data/stores/earl/subjectStore/';
+  import subjects, {
+    TestSubjectTypes
+  } from '../../data/stores/earl/subjectStore/';
 
   import Details from '../Details.svelte';
   import EarlResult from '../EarlResult.svelte';
@@ -137,9 +135,19 @@
 
   export let test;
 
-  const { translate } = getContext('app');
+  const { conformanceLevel, description, details, id, num, title } = test;
+
   let notes;
-  const { conformanceLevel, num } = test;
+  const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    SHOW_DESCRIPTION_BUTTON: $translate('PAGES.AUDIT.BTN_SHOW_TEXT'),
+    UNDERSTAND_BUTTON: $translate('PAGES.AUDIT.UNDERSTAND'),
+    HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
+    SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
+    SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
+    RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR')
+  };
 
   let scopeSubject = $subjects.find((subject) => {
     return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
