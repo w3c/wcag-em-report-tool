@@ -1,52 +1,55 @@
-<Page title="{$translate('PAGES.SUMMARY.TITLE')}">
-
-  <p>{@html $translate('PAGES.SUMMARY.INTRO')}</p>
+<Page title="{TRANSLATED.PAGE_TITLE}">
+  <p>
+    {@html TRANSLATED.INTRODUCTION}
+  </p>
 
   <form action="" novalidate>
     <Input
       id="evaluation_title"
-      label="{$translate('PAGES.SUMMARY.LABEL_TITLE')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_REPORT_TITLE')}"
+      label="{TRANSLATED.REPORT_TITLE_LABEL}"
+      helptext="{TRANSLATED.REPORT_TITLE_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_TITLE']}"
     />
 
     <Input
       id="evaluation_commissioner"
-      label="{$translate('PAGES.SUMMARY.LABEL_COMMISSIONER')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_COMMISSIONER')}"
+      label="{TRANSLATED.COMMISSIONER_LABEL}"
+      helptext="{TRANSLATED.COMMISSIONER_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_COMMISSIONER']}"
     />
 
     <Input
       id="evaluation_creator"
-      label="{$translate('PAGES.SUMMARY.LABEL_CREATOR')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_CREATOR')}"
+      label="{TRANSLATED.EVALUATOR_LABEL}"
+      helptext="{TRANSLATED.EVALUATOR_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_CREATOR']}"
     />
 
     <Input
       id="evaluation_date"
-      label="{$translate('PAGES.SUMMARY.LABEL_DATE')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_DATE')}"
+      label="{TRANSLATED.DATE_LABEL}"
+      helptext="{TRANSLATED.DATE_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_DATE']}"
     />
 
     <Textarea
       id="evaluation_summary"
-      label="{$translate('PAGES.SUMMARY.LABEL_SUMMARY')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_SUMMARY')}"
+      label="{TRANSLATED.EXECUTIVE_SUMMARY_LABEL}"
+      helptext="{TRANSLATED.EXECUTIVE_SUMMARY_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_SUMMARY']}"
     />
 
     <Textarea
       id="evaluation_specifics"
-      label="{$translate('PAGES.SUMMARY.LABEL_SPECIFICS')}"
-      helptext="{$translate('PAGES.SUMMARY.INF_SPECIFICS')}"
+      label="{TRANSLATED.EVALUATION_SPECIFICS_LABEL}"
+      helptext="{TRANSLATED.EVALUATION_SPECIFICS_HELPTEXT}"
       bind:value="{$summaryStore['EVALUATION_SPECIFICS']}"
     />
   </form>
 
-  <Details label="{`<h2>${$translate('PAGES.SUMMARY.HD_CRITERIA_REPORT')}</h2>`}">
+  <Details
+    label="{`<h2>${TRANSLATED.AUDIT_RESULTS_HEADING}</h2>`}"
+  >
     <AuditorSummary criteria="{$tests}" />
   </Details>
 </Page>
@@ -63,8 +66,27 @@
   import Textarea from '../../formcomponents/Textarea.svelte';
 
   const { summaryStore, translate } = getContext('app');
+  $: TRANSLATED = {
+    PAGE_TITLE: $translate('PAGES.SUMMARY.TITLE'),
+    INTRODUCTION: $translate('PAGES.SUMMARY.INTRO'),
+    REPORT_TITLE_LABEL: $translate('PAGES.SUMMARY.LABEL_TITLE'),
+    REPORT_TITLE_HELPTEXT: $translate('PAGES.SUMMARY.INF_REPORT_TITLE'),
+    COMMISSIONER_LABEL: $translate('PAGES.SUMMARY.LABEL_COMMISSIONER'),
+    COMMISSIONER_HELPTEXT: $translate('PAGES.SUMMARY.INF_COMMISSIONER'),
+    EVALUATOR_LABEL: $translate('PAGES.SUMMARY.LABEL_CREATOR'),
+    EVALUATOR_HELPTEXT: $translate('PAGES.SUMMARY.INF_CREATOR'),
+    DATE_LABEL: $translate('PAGES.SUMMARY.LABEL_DATE'),
+    DATE_HELPTEXT: $translate('PAGES.SUMMARY.INF_DATE'),
+    EXECUTIVE_SUMMARY_LABEL: $translate('PAGES.SUMMARY.LABEL_SUMMARY'),
+    EXECUTIVE_SUMMARY_HELPTEXT: $translate('PAGES.SUMMARY.INF_SUMMARY'),
+    EVALUATION_SPECIFICS_LABEL: $translate('PAGES.SUMMARY.LABEL_SPECIFICS'),
+    EVALUATION_SPECIFICS_HELPTEXT: $translate('PAGES.SUMMARY.INF_SPECIFICS'),
+    AUDIT_RESULTS_HEADING: $translate('PAGES.SUMMARY.HD_CRITERIA_REPORT')
+  };
 
   if ($summaryStore['EVALUATION_TITLE'] === '') {
-    $summaryStore['EVALUATION_TITLE'] = $translate('PAGES.SUMMARY.TITLE_PREFIX');
+    $summaryStore['EVALUATION_TITLE'] = $translate(
+      'PAGES.SUMMARY.TITLE_PREFIX'
+    );
   }
 </script>
