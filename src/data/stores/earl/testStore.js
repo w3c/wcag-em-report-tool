@@ -1,5 +1,5 @@
 import { derived } from 'svelte/store';
-import { dictionary, locale, t as translate } from 'svelte-i18n';
+import { json, dictionary, locale, t as translate } from 'svelte-i18n';
 
 import scopeStore from '../scopeStore.js';
 import { wcag, VERSIONS } from '../wcagStore.js';
@@ -54,10 +54,13 @@ VERSIONS.forEach((version) => {
  * @type {[TestCriterion]}
  */
 const $tests = derived(
-  [dictionary, locale, scopeStore, translate],
-  ([$dictionary, $locale, $scopeStore, $translate]) => {
+  [json, locale, scopeStore],
+  ([$json, $locale, $scopeStore]) => {
     const wcagVersion = $scopeStore['WCAG_VERSION'];
     const wcagLdIRI = `WCAG${wcagVersion.replace('.', '')}`;
+    // const wcagTranslationKey = `WCAG.${wcagLdIRI}.SUCCESS_CRITERION`;
+    const wcagTranslationKey = 'WCAG.WCAG21.SUCCESS_CRITERION';
+    const criteria = $json(wcagTranslationKey);
 
     // Set locales property
     if (
@@ -81,36 +84,26 @@ const $tests = derived(
     // }
     // Then set title to locales.locale.title
     _tests.forEach((_test) => {
-      const wcagTranslationKey = 'WCAG.WCAG21.SUCCESS_CRITERION';
       let translateable;
       let translations = _test.locales[$locale];
+      const translatedCriterion = criteria[_test.num];
 
       if (!translations) {
         translations = _test.locales[$locale] = {
-          id: `${wcagLdIRI}:${$translate(`${wcagTranslationKey}.${_test.num}.ID`)}`,
-          title: $translate(`${wcagTranslationKey}.${_test.num}.TITLE`),
-          description: $translate(
-            `${wcagTranslationKey}.${_test.num}.DESCRIPTION`
-          ),
+          id: translatedCriterion.ID,
+          title: translatedCriterion.TITLE,
+          description: translatedCriterion.DESCRIPTION,
 
           // Get details from dictionary instead,
           // the amount of details vary per SC.
-          details: Object.keys($dictionary[$locale])
-            // Get ...DETAILS.DETAIL_#... entries
-            .filter((key) => {
-              return (
-                key.indexOf(`${wcagTranslationKey}.${_test.num}.DETAILS`) >=
-                  0 && key.indexOf('TITLE') >= 0
-              );
-            })
-            .map((key) => {
-              const detail = key.replace('.TITLE', '');
+          details: Object.keys(translatedCriterion.DETAILS).map((key) => {
+            const detail = translatedCriterion.DETAILS[key];
 
-              return {
-                title: $translate(`${detail}.TITLE`),
-                description: $translate(`${detail}.DESCRIPTION`)
-              };
-            })
+            return {
+              title: detail.TITLE,
+              description: detail.DESCRIPTION
+            };
+          })
         };
       }
 
