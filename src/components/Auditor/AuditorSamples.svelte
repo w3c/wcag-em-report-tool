@@ -1,6 +1,6 @@
-<Panel title="{$translate('PAGES.AUDIT.HD_SAMPLE_SELECT')}" open>
+<Panel title="{TRANSLATED.SAMPLE_SELECT_HEADING}" open>
   <Details label="show info">
-    <div>{$translate('PAGES.AUDIT.INF_AUDIT_SAMPLE')}</div>
+    <div>{TRANSLATED.SAMPLE_SELECT_INFO}</div>
   </Details>
 
   <Flex align="center" justify="stretch">
@@ -14,12 +14,12 @@
       /><label
         for="AuditorSamples__multiselect"
         class="visuallyhidden"
-      >{$translate('PAGES.AUDIT.SELECT_ALL')}</label>
+      >{TRANSLATED.SAMPLE_SELECT_LABEL_SELECT_ALL}</label>
     </div>
     <div style="margin-left: auto;">
-      <button class="button button-small button-secondary">V<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_COMPLETE_SELECTED')}</span></button>
-      <button class="button button-small button-secondary">X<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_UNCOMPLETE_SELECTED')}</span></button>
-      <button class="button button-small button-secondary">^<span class="visuallyhidden">{$translate('PAGES.AUDIT.BTN_OPEN_SELECTED')}</span></button>
+      <button class="button button-small button-secondary">V<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_COMPLETE_SELECTED}</span></button>
+      <button class="button button-small button-secondary">X<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_UNCOMPLETE_SELECTED}</span></button>
+      <button class="button button-small button-secondary">^<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_OPEN_SELECTED}</span></button>
     </div>
   </Flex>
 
@@ -28,14 +28,19 @@
   {#each $allSamples as sample, index (sampleID(index))}
     <Flex align="center" justify="start" wrap>
       <Flex align="start" justify="start">
-        <input id="sample__{sampleID(index)}" type="checkbox" value="{sample.ID}" bind:group="{$auditSamples}" />
+        <input
+          id="sample__{sampleID(index)}"
+          type="checkbox"
+          value="{sample.ID}"
+          bind:group="{$auditSamples}"
+        />
         <label
           for="sample__{sampleID(index)}"
         >{sample.title || sample.description || `Sample ${sampleID(index)}`}
           {#if sample.completed}
             <span
               class="visuallyhidden"
-            >{$translate('PAGES.AUDIT.TESTED')}</span>
+            >{TRANSLATED.SAMPLE_SELECT_TESTED}</span>
           {/if}
         </label>
       </Flex>
@@ -46,7 +51,7 @@
       </div>
     </Flex>
   {:else}
-    <div>{$translate('PAGES.AUDIT.NO_SAMPLE')}</div>
+    <div>{TRANSLATED.SAMPLE_SELECT_NO_SAMPLE}</div>
   {/each}
 </Panel>
 
@@ -67,6 +72,17 @@
   import Panel from '../Panel.svelte';
 
   const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    SAMPLE_SELECT_HEADING: $translate('PAGES.AUDIT.HD_SAMPLE_SELECT'),
+    SAMPLE_SELECT_INFO: $translate('PAGES.AUDIT.INF_AUDIT_SAMPLE'),
+    SAMPLE_SELECT_LABEL_SELECT_ALL: $translate('PAGES.AUDIT.SELECT_ALL'),
+    SAMPLE_SELECT_BUTTON_COMPLETE_SELECTED: $translate('PAGES.AUDIT.BTN_COMPLETE_SELECTED'),
+    SAMPLE_SELECT_BUTTON_UNCOMPLETE_SELECTED: $translate('PAGES.AUDIT.BTN_UNCOMPLETE_SELECTED'),
+    SAMPLE_SELECT_BUTTON_OPEN_SELECTED: $translate('PAGES.AUDIT.BTN_OPEN_SELECTED'),
+    SAMPLE_SELECT_TESTED: $translate('PAGES.AUDIT.TESTED'),
+    SAMPLE_SELECT_NO_SAMPLE: $translate('PAGES.AUDIT.NO_SAMPLE')
+  };
 
   $: allSampleIDs = $allSamples.map((sample) => sample.ID);
   $: allChecked = allSampleIDs.length === $auditSamples.length;
