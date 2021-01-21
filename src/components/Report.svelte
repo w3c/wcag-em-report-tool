@@ -1,59 +1,63 @@
+<!--
+ * @component
+ *   Report
+ * -->
 <article class="Report" bind:this="{Report}">
   <header>
     <h1>{report.title}</h1>
     <dl>
-      <dt>{$translate('UI.REPORT.BY')}</dt>
+      <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
       <dd>{report.creator || '…'}</dd>
 
-      <dt>{$translate('UI.REPORT.COMMISION_BY')}</dt>
+      <dt>{TRANSLATED.LABEL_COMMISSIONER}</dt>
       <dd>{report.commissioner || '…'}</dd>
 
-      <dt>{$translate('PAGES.SUMMARY.LABEL_DATE')}</dt>
+      <dt>{TRANSLATED.LABEL_DATE}</dt>
       <dd>{report.date || '…'}</dd>
     </dl>
   </header>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_SUMMARY')}</h2>
+    <h2>{TRANSLATED.HEADING_SUMMARY}</h2>
     <p>{report.summary || '…'}</p>
   </section>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_SCOPE')}</h2>
+    <h2>{TRANSLATED.HEADING_SCOPE}</h2>
 
     <dl>
-      <dt>{$translate('PAGES.SCOPE.LABEL_SITE_NAME')}</dt>
+      <dt>{TRANSLATED.LABEL_WEBSITE_NAME}</dt>
       <dd>{scope.siteName || '…'}</dd>
 
-      <dt>{$translate('PAGES.SCOPE.LABEL_SITE_SCOPE')}</dt>
+      <dt>{TRANSLATED.LABEL_WEBSITE_SCOPE}</dt>
       <dd>{scope.siteScope || '…'}</dd>
 
-      <dt>{$translate('PAGES.SCOPE.LABEL_WCAG_VERSION')}</dt>
+      <dt>{TRANSLATED.LABEL_WCAG_VERSION}</dt>
       <dd>{scope.wcagVersion || '…'}</dd>
 
-      <dt>{$translate('PAGES.SCOPE.LABEL_CONFORMANCE_TGT')}</dt>
+      <dt>{TRANSLATED.LABEL_CONFORMANCE_TARGET}</dt>
       <dd>{scope.conformanceTarget || '…'}</dd>
 
-      <dt>{$translate('PAGES.SCOPE.LABEL_EXTRA_REQUIREMENTS')}</dt>
+      <dt>{TRANSLATED.LABEL_EXTRA_REQUIREMENTS}</dt>
       <dd>{scope.extra || '…'}</dd>
 
-      <dt>{$translate('PAGES.SCOPE.LABEL_SUPPORT_BASE')}</dt>
+      <dt>{TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}</dt>
       <dd>{scope.baseline || '…'}</dd>
     </dl>
   </section>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_SCORE')}</h2>
+    <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_OVERVIEW}</h2>
     <p>{report.result || '…'}</p>
   </section>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_CRITERIA_REPORT')}</h2>
+    <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
     <AuditorSummary criteria="{$tests}" />
   </section>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_SAMPLE')}</h2>
+    <h2>{TRANSLATED.HEADING_SAMPLE}</h2>
     {#if report.samples.length > 0}
       <ol>
         {#each report.samples as sample}
@@ -63,25 +67,21 @@
         {/each}
       </ol>
     {:else}
-      <p>No sample</p>
+      <p>{TRANSLATED.TEXT_NO_SAMPLE}</p>
     {/if}
   </section>
 
   <section>
-    <h2>{$translate('UI.REPORT.HD_SPECIFICS')}</h2>
+    <h2>{TRANSLATED.HEADING_SPECIFICS}</h2>
     <p>{report.specifics || '…'}</p>
   </section>
 
   <aside>
-    <h2>{$translate('UI.REPORT.HD_DOCS')}</h2>
-    <p class="info">resources</p>
+    <h2>{TRANSLATED.HEADING_RESOURCES}</h2>
+    <p class="info">List resources</p>
   </aside>
 </article>
-
-<style>
-  .Report {
-  }
-</style>
+<!-- /component -->
 
 <script context="module">
   import { downloadFile } from '../scripts/files.js';
@@ -108,6 +108,25 @@
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
   );
+
+  $: TRANSLATED = {
+    LABEL_EVALUATOR: $translate('UI.REPORT.BY'),
+    LABEL_COMMISSIONER: $translate('UI.REPORT.COMMISION_BY'),
+    LABEL_DATE: $translate('PAGES.SUMMARY.LABEL_DATE'),
+    HEADING_SUMMARY: $translate('UI.REPORT.HD_SUMMARY'),
+    HEADING_SCOPE: $translate('UI.REPORT.HD_SCOPE'),
+    LABEL_WEBSITE_NAME: $translate('PAGES.SCOPE.LABEL_SITE_NAME'),
+    LABEL_WEBSITE_SCOPE: $translate('PAGES.SCOPE.LABEL_SITE_SCOPE'),
+    LABEL_WCAG_VERSION: $translate('PAGES.SCOPE.LABEL_WCAG_VERSION'),
+    LABEL_CONFORMANCE_TARGET: $translate('PAGES.SCOPE.LABEL_CONFORMANCE_TGT'),
+    LABEL_EXTRA_REQUIREMENTS: $translate('PAGES.SCOPE.LABEL_EXTRA_REQUIREMENTS'),
+    LABEL_ACCESSIBILITY_SUPPORT_BASELINE: $translate('PAGES.SCOPE.LABEL_SUPPORT_BASE'),
+    HEADING_AUDIT_RESULTS_OVERVIEW: $translate('UI.REPORT.HD_SCORE'),
+    HEADING_AUDIT_RESULTS_DETAIL: $translate('UI.REPORT.HD_CRITERIA_REPORT'),
+    HEADING_SAMPLE: $translate('UI.REPORT.HD_SAMPLE'),
+    HEADING_SPECIFICS: $translate('UI.REPORT.HD_SPECIFICS'),
+    HEADING_RESOURCES: $translate('UI.REPORT.HD_DOCS'),
+  };
 
   $: scope = {
     siteName: $scopeStore['SITE_NAME'],
