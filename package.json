@@ -16,6 +16,7 @@
     "main": "src/main.js",
     "dependencies": {
         "jsonld": "^3.2.0",
+        "marked": "^1.2.7",
         "sirv-cli": "^1.0.0",
         "svelte-navigator": "^3.0.11"
     },

@@ -40,10 +40,11 @@
 
 <script>
   import { setContext } from 'svelte';
-  import { isLoading, t as translate } from 'svelte-i18n';
+  import { isLoading } from 'svelte-i18n';
 
   import jsonld from '../node_modules/jsonld/lib/jsonld.js';
 
+  import { translate } from './data/stores/i18nStore.js';
   import auditStore from './data/stores/auditStore.js';
   import exploreStore from './data/stores/exploreStore.js';
   import sampleStore from './data/stores/sampleStore.js';
