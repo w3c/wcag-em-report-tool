@@ -11,6 +11,7 @@ Updates are described as "(Feature|Chore|Bug|Issue) : (Solution|Description|Reas
 ### Added
 
 - Expanded documentation section: Help for translation, development and decisions documented.
+- Support for markdown syntax in translations.
 
 ### Changed
 - Project management: added Parcel bundler. Focus more on the project, rather than setup.
