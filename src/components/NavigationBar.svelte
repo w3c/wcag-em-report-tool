@@ -48,39 +48,42 @@
 </style>
 
 <script>
+  import { getContext } from 'svelte';
   import { Link, useLocation } from 'svelte-navigator';
 
   import Grid from './Grid.svelte';
   import GridItem from './GridItem.svelte';
 
-  let navigationItems = [
+  const { translate } = getContext('app');
+
+  $: navigationItems = [
     {
       path: '/',
-      title: 'Overview'
+      title: $translate('UI.NAV.WZRD_START')
     },
     {
       path: '/evaluation/scope',
-      title: '1. Scope'
+      title: $translate('UI.NAV.WZRD_SCOPE')
     },
     {
       path: '/evaluation/explore',
-      title: '2. Explore'
+      title: $translate('UI.NAV.WZRD_EXPLORE')
     },
     {
       path: '/evaluation/sample',
-      title: '3. Sample'
+      title: $translate('UI.NAV.WZRD_SAMPLE')
     },
     {
       path: '/evaluation/audit',
-      title: '4. Audit'
+      title: $translate('UI.NAV.WZRD_AUDIT')
     },
     {
       path: '/evaluation/summary',
-      title: '5. Summary'
+      title: $translate('UI.NAV.WZRD_REPORT')
     },
     {
       path: '/evaluation/view-report',
-      title: 'View report'
+      title: $translate('UI.NAV.WZRD_VIEWREPORT')
     }
   ];
 
