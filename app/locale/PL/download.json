@@ -1,0 +1,8 @@
+{
+    "TITLE": "Raport z oceny dostępności strony internetowej",
+    "INTRO": "Poniżej znajduje się raport z oceny oparty na informacjach, które zostały wprowadzone w poprzednich krokach. Możesz teraz wrócić do poprzednich kroków i zmienić każdą z tych informacji. Możesz pobrać dane z oceny, aby móc nad nimi później popracować. (Jest to to samo, co funkcja „Zapisz”.) <br>Ten raport jest przeznaczony do pobrania. Poniżej można pobrać raport z oceny w formacie HTML i pliki CSS. Następnie możesz zmienić zawartość raportu i projekt graficzny, aby sprostać Twoim potrzebom.",
+    "DOWNLOAD_REPORT": "Pobierz i dostosuj ten raport",
+    "BTN_SAVE_HTML": "Pobierz raport z oceny (HTML)",
+    "BTN_SAVE_CSS": "Pobierz arkusz stylów raportów (CSS)",
+    "BTN_SAVE_JSON": "Zapisz dane oceny (JSON)"
+}
