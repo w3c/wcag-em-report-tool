@@ -1,6 +1,6 @@
 {
     "TITLE": "WCAG-EM Report Tool",
-    "SUBTITLE": "Website Accessibility Evaluation Report Generator",
+    "SUBTITLE": "Overview",
     "INTRO_HD": "What this tool does",
     "INTRO_1": "This tool helps you generate a report according to the [Web Content Accessibility Guidelines Evaluation Methodology (WCAG-EM)](https://www.w3.org/TR/WCAG-EM/). It does not perform any accessibility checks. It helps you follow the steps of WCAG-EM, to generate a [structured report (example)](/evaluation/view-report) from the input that you provide. It is designed for experienced evaluators who know the [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/standards-guidelines/wcag/) and are somewhat familiar with WCAG-EM. For an introduction to WCAG-EM, see the [WCAG-EM Overview](https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/).",
     "INTRO_2": "**Note**: This tool does not automatically save the information that you enter. To save your data in a file locally on your computer, use Windows shortcut keys *ctrl+s* or Mac shortcut keys *cmd+s* to open the Save dialog. (Or the ‘Save’ link at the top of the page will open the Save Evaluation Report page and from there the 'Save data file locally to your computer' link will open the Save dialog.)",
