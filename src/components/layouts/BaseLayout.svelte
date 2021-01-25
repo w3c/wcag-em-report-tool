@@ -21,7 +21,7 @@
     <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
 
-      <Pager label="step" context="{pagerContext}" />
+      <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
     </GridItem>
 
     {#if hasPanel}
@@ -90,8 +90,13 @@
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
-    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', { default: 'New report'}),
-    HEADING_PANEL: $translate('UI.COMMON.HEADING.PANEL', { default: 'Your report' }),
+    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
+      default: 'New report'
+    }),
+    HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
+      default: 'Your report'
+    }),
+    STEP: $translate('UI.NAV.STEP', { default: 'step' }),
     VIEW_REPORT: $translate('UI.BUTTON.VIEW_REPORT', { default: 'View report' })
   };
 
