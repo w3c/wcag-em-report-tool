@@ -1,14 +1,21 @@
 <File
   id="evaluation_open"
-  label="{loading ? 'Loading Evaluation' : 'Open an Evaluation from JSON'}"
+  label="{TRANSLATED.BUTTON}"
   on:change="{handleOpenChange}"
 />
 
 <script>
+  import { getContext } from 'svelte';
   import { useNavigate } from 'svelte-navigator';
   import evaluationStore from '../../data/stores/evaluationStore.js';
 
   import File, { readFile } from './File.svelte';
+
+  const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    BUTTON: $translate('UI.NAV.MENU_OPEN', {default: 'Open evaluation'})
+  };
 
   let loading = false;
   const navigate = useNavigate();
