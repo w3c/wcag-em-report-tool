@@ -1,7 +1,4 @@
-<aside
-  class="Panel your-report"
-  class:hidden="{!open}"
->
+<aside class="Panel your-report" class:hidden="{!open}">
   <header class="Panel__Header">
     {#if title}
       <h2 class="Panel__Header__heading">{title}</h2>
@@ -11,13 +8,11 @@
       class="Panel__Toggle button-small showhidebutton"
       on:click="{handleToggleClick}"
       aria-expanded="{open}"
-    >{!open ? `Show “${title}”` : 'Hide'}</button>
+    >{@html TRANSLATED.SHOW_HIDE}</button>
   </header>
 
   <div class="Panel__Body" hidden="{!open}">
-    <slot>
-      <p>Panel body</p>
-    </slot>
+    <slot />
   </div>
 </aside>
 
@@ -104,8 +99,24 @@
 </style>
 
 <script>
+  import { getContext } from 'svelte';
+
   export let title = null;
   export let open = false;
+
+  const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    SHOW_HIDE: open
+      ? $translate('UI.COMMON.BUTTON.HIDE', {
+          default: 'Hide {subject}',
+          values: { subject: `<span class="visuallyhidden">${title || ''}</span>` }
+        })
+      : $translate('UI.COMMON.BUTTON.SHOW', {
+          default: 'Show {subject}',
+          values: { subject: title || '' }
+        })
+  };
 
   function handleToggleClick() {
     let toggleTo = !open;
