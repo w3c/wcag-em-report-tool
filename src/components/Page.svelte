@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>{title}</title>
+  <title>{title} | WCAG-EM Report Tool</title>
 </svelte:head>
 
 <main>
