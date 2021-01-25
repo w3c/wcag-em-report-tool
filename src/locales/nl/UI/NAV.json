@@ -1,9 +1,10 @@
 {
     "MENU": "Menu",
+    "MENU_IMPORT": "Importeer gegevens",
     "MENU_RESOURCES": "Relevante links",
     "MENU_NEW": "Nieuw rapport",
-    "MENU_OPEN": "Open",
-    "MENU_SAVE": "Opslaan",
+    "MENU_OPEN": "Open rapport",
+    "MENU_SAVE": "Rapport opslaan",
     "MENU_SAVE_TITLE": "Ctrl + S of ⌘ S",
     "MENU_LANGUAGE": "Taalkeuze",
     "WZRD_LABEL": "Evaluatiestappen",
