@@ -49,7 +49,7 @@
   export let context = [];
 
   const { translate } = getContext('app');
-  let indexedContext = context.map((page, index) => {
+  $: indexedContext = context.map((page, index) => {
     return {
       path: page.path || '/',
       title: page.title || '',
@@ -57,7 +57,7 @@
     };
   });
 
-  let pageCount = indexedContext.length;
+  $: pageCount = indexedContext.length;
   let location = useLocation();
 
   $: currentPage = indexedContext.find((page) => page.path === $location.pathname);
