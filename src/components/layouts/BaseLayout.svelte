@@ -1,5 +1,4 @@
 <!-- @Layout:Base -->
-
 <div class="Controls">
   <Grid>
     <GridItem area="full">
@@ -22,12 +21,12 @@
     <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
 
-      <Pager label="step" context="{routes}" />
+      <Pager label="step" context="{pagerContext}" />
     </GridItem>
 
     {#if hasPanel}
       <GridItem area="right" row="1">
-        <Panel title="Your report" bind:open="{panelIsOpen}">
+        <Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
           <!--
            * @note
            * Panel slotted stuff is layout/page dependend
@@ -36,9 +35,11 @@
            * -->
 
           <!-- State based; is there an open Evaluation? -->
-          <Link class="button" to="/evaluation/view-report">View report</Link>
+          <Link class="button" to="/evaluation/view-report">
+            {TRANSLATED.VIEW_REPORT}
+          </Link>
           <Button type="secondary" on:click="{handleNewEvaluationClick}">
-            Start new Evaluation
+            {TRANSLATED.BUTTON_NEW_EVALUATION}
           </Button>
           <OpenEvaluation />
           <AuditorImport />
@@ -69,6 +70,7 @@
   import { getContext } from 'svelte';
   import { useNavigate, useLocation, Link } from 'svelte-navigator';
 
+  import { routes } from '../../data/stores/appStore.js';
   import evaluationStore from '../../data/stores/evaluationStore.js';
   import appData from '../../data/app.js';
 
@@ -83,48 +85,25 @@
   import Pager from '../Pager.svelte';
   import Panel from '../Panel.svelte';
 
-  const { translate } = getContext('app');
   const location = useLocation();
   const navigate = useNavigate();
+  const { translate } = getContext('app');
 
-  $: hasPanel = $location.pathname !== '/evaluation/view-report';
+  $: TRANSLATED = {
+    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', { default: 'New report'}),
+    HEADING_PANEL: $translate('UI.COMMON.HEADING.PANEL', { default: 'Your report' }),
+    VIEW_REPORT: $translate('UI.BUTTON.VIEW_REPORT', { default: 'View report' })
+  };
 
-  // Move to appStore -> $routes(derived)
-  let routes = [
-    {
-      title: $translate('UI.NAV.STEP_START'),
-      path: '/'
-    },
-    {
-      title: $translate('UI.NAV.STEP_SCOPE'),
-      path: '/evaluation/scope'
-    },
-    {
-      title: $translate('UI.NAV.STEP_EXPLORE'),
-      path: '/evaluation/explore'
-    },
-    {
-      title: $translate('UI.NAV.STEP_SAMPLE'),
-      path: '/evaluation/sample'
-    },
-    {
-      title: $translate('UI.NAV.STEP_AUDIT'),
-      path: '/evaluation/audit'
-    },
-    {
-      title: $translate('UI.NAV.STEP_REPORT'),
-      path: '/evaluation/summary'
-    },
-    {
-      title: $translate('UI.NAV.STEP_VIEWREPORT'),
-      path: '/evaluation/view-report'
-    }
-  ];
-
+  $: hasPanel = $location.pathname !== $routes.VIEW_REPORT.path;
   $: panelIsOpen = hasPanel;
+
+  $: pagerContext = Object.keys($routes).map((key) => {
+    return $routes[key];
+  });
 
   function handleNewEvaluationClick() {
     $evaluationStore.reset();
-    navigate('/evaluation/scope', { replace: true });
+    navigate($routes.SCOPE.path, { replace: true });
   }
 </script>
