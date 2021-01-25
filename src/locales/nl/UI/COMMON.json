@@ -7,6 +7,8 @@
     "BTN_CLOSE_INFO": "Sluit info",
     "YES": "Ja",
     "NO": "Nee",
+    "NEXT": "Volgende {label}",
+    "PREVIOUS": "Vorige {label}",
     "CLICK_EXPAND": "Klik om sectie te tonen",
     "CLICK_COLLAPSE": "Klik om sectie te verbergen",
     "TO_TOP": "Naar boven",
@@ -17,5 +19,6 @@
     },
     "LABEL": {
         "LANGUAGE_SELECT": "Deze pagina in het"
-    }
+    },
+    "YOUR_REPORT": "Jouw rapport"
 }
