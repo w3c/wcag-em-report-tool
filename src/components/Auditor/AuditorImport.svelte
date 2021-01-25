@@ -1,9 +1,19 @@
-<File id="import__assertions" label="Import" on:change="{handleChange}" />
+<File
+  id="import__assertions"
+  label="{TRANSLATED.BUTTON}"
+  on:change="{handleChange}"
+/>
 
 <script>
-
+  import { getContext } from 'svelte';
   import { importAssertions } from '../../data/stores/earl/assertionStore.js';
   import File, { readFile } from '../formcomponents/File.svelte';
+
+  const { translate } = getContext('app');
+
+  $: TRANSLATED = {
+    BUTTON: $translate('UI.NAV.MENU_IMPORT', { default: 'Import data' })
+  };
 
   function handleChange(event) {
     const file = event.target.files[0];
