@@ -97,7 +97,7 @@
       default: 'Your report'
     }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.BUTTON.VIEW_REPORT', { default: 'View report' })
+    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', { default: 'View report' })
   };
 
   $: hasPanel = $location.pathname !== $routes.VIEW_REPORT.path;
