@@ -11,6 +11,7 @@
     "CLICK_COLLAPSE": "Klik om sectie te verbergen",
     "TO_TOP": "Naar boven",
     "BUTTON": {
+        "ADD": "{subject} toevoegen",
         "INFO": "info",
         "HIDE": "Verberg {subject}",
         "LANGUAGE_SELECT": "vertalingen",

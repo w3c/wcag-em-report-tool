@@ -65,7 +65,7 @@
   $: TRANSLATED = {
     NO_SAMPLE: $translate('PAGES.SAMPLE.NO_PAGES_DEFINED'),
     ADD_PAGE_BUTTON: $translate('PAGES.SAMPLE.BTN_ADD_PAGE'),
-    SHOW_INFO_BUTTON: 'Info'
+    SHOW_INFO_BUTTON: $translate('UI.COMMON.BUTTON.INFO')
   };
 
   function handleSampleAdd() {

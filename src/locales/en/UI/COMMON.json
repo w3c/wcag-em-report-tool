@@ -12,6 +12,7 @@
     "TO_TOP": "Back to top",
     "ACTIVE": "Active",
     "BUTTON": {
+        "ADD": "Add {subject}",
         "INFO": "info",
         "HIDE": "Hide {subject}",
         "LANGUAGE_SELECT": "translations",
