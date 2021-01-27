@@ -1,9 +1,11 @@
 <fieldset id="{id}" class="Fieldset field">
-  <legend>{@html legend}</legend>
+  <legend>
+    {@html legend}
+  </legend>
 
   {#if helptext}
     <div class="Fieldset__helptext">
-      <Details label="Show info">
+      <Details label="{TRANSLATED.SHOW_HIDE_HELPTEXT}" bind:open="{showHelptext}">
         {@html helptext}
       </Details>
     </div>
@@ -29,10 +31,23 @@
 </style>
 
 <script>
+  import { getContext } from 'svelte';
   import Details from '../Details.svelte';
 
   export let id;
   export let legend;
   export let helptext;
 
+  let showHelptext = false;
+
+  const { translate } = getContext('app');
+  $: TRANSLATED = {
+    SHOW_HIDE_HELPTEXT: showHelptext
+      ? $translate('UI.COMMON.BUTTON.HIDE', {
+          values: { subject: $translate('UI.COMMON.BUTTON.INFO') }
+        })
+      : $translate('UI.COMMON.BUTTON.SHOW', {
+          values: { subject: $translate('UI.COMMON.BUTTON.INFO') }
+        })
+  };
 </script>
