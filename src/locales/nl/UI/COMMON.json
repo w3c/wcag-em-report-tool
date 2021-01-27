@@ -3,8 +3,6 @@
     "WARNING_BEFORE_UNLOAD": "Uw data worden niet automatisch opgeslagen. Wanneer het venster van uw web browser sluit is de data verloren. Gebruik de 'Opslaan' link (Ctrl + S of ⌘ S) bovenaan iedere pagina om uw data in een bestand op uw locale computer te bewaren en open deze later om door te werken.",
     "MORE_INFO": "Voor meer informatie, zie <a href={{url}}>{{name}}</a>.",
     "HIDE_MESSAGE": "Verberg bericht",
-    "BTN_INFO": "Info uitklappen",
-    "BTN_CLOSE_INFO": "Sluit info",
     "YES": "Ja",
     "NO": "Nee",
     "NEXT": "Volgende {label}",
@@ -13,6 +11,7 @@
     "CLICK_COLLAPSE": "Klik om sectie te verbergen",
     "TO_TOP": "Naar boven",
     "BUTTON": {
+        "INFO": "info",
         "HIDE": "Verberg {subject}",
         "LANGUAGE_SELECT": "vertalingen",
         "SHOW": "Toon {subject}"
