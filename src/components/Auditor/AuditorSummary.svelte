@@ -1,11 +1,8 @@
 {#each principles as principle}
-  <h3>{principle} {$translate(`WCAG.WCAG21.PRINCIPLE.${principle}.TITLE`)}</h3>
+  <h3>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h3>
 
   {#each guidelines.filter((g) => g.indexOf(principle) === 0) as guideline}
-    <h4>
-      {guideline}
-      {$translate(`WCAG.WCAG21.GUIDELINE.${guideline}.TITLE`)}
-    </h4>
+    <h4>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h4>
     <!--
      * Should filter assertions based on test prop;
      * assertion.test.num in case of wcag.
@@ -14,63 +11,33 @@
      * -->
     {#each guidelineCriteria(guideline) as criterion (criterion.num)}
       <div class="Auditor__Assertion">
-        <!--
-         * This should probably not be called an assertion
-         * We do target a certain group of assertions,
-         * but we are displaying a complex testView based on multiple assertions;
-         * This one specificly shows all assertions:
-         * 1. that are tested agains one specific type of test
-         * 2. and contain website results shown first
-         * 3. followed by webpage specific results
-         *
-         * proposed:
-         * - AuditView / AuditorView,
-         *   with props possibly
-         *
-         *   - collection? The assertions to pass through.
-         *   - groupby?
-         *     To create one or multiple expandable groups?
-         *     values should be picked from collection item props
-         *     eg: <AuditorView collection="{$assertions}" groupby="test subject" />
-         *
-         *
-         *   May be slotted? To use as a template of some sorts?
-         *   eg:
-         *    <AuditorView collection="{$assertions}" let:slotprop={assertion}>
-         *      <div>{assertion.subject}</div>
-         *    </AuditorView>
-         *
-         *
-         * -->
         <div class="box box-simple">
-          <h5 class="box-h box-h-simple">
-            {criterion.num}: {$translate(`WCAG.WCAG21.SUCCESS_CRITERION.${criterion.num}.TITLE`)}
-          </h5>
+          <h5 class="box-h box-h-simple">{criterion.num}: {criterion.title}</h5>
           <div class="box-i">
-            <h6>{$translate('PAGES.AUDIT.SAMPLE_FINDINGS')}</h6>
+            <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
             {#each scopeAssertion(criterion) as assertion}
               <dl>
-                <dt>Outcome</dt>
+                <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
                 <dd>{assertion.result.outcome.title}</dd>
-                <dt>Observation</dt>
+                <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
                 <dd>{assertion.result.description}</dd>
               </dl>
             {:else}
-              <p>Not checked.</p>
+              <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
             {/each}
-            <h6>Results for individual pages</h6>
+            <h6>{TRANSLATED.HEADING_RESULTS_FOR}</h6>
             {#each sampleAssertions(criterion) as assertion}
               <div class="box box-simple">
                 <span class="box-h box-h-simple">Results for {assertion.subject.title || `Sample ${assertion.subject.ID}`}</span>
                 <dl class="box-i">
-                  <dt>Outcome</dt>
+                  <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
                   <dd>{assertion.result.outcome}</dd>
-                  <dt>Observation</dt>
+                  <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
                   <dd>{assertion.result.description}</dd>
                 </dl>
               </div>
             {:else}
-              <p>Not checked.</p>
+              <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
             {/each}
           </div>
         </div>
@@ -87,7 +54,17 @@
 
   export let criteria = [];
 
-  const { translate } = getContext('app');
+  const { translate, translateToObject } = getContext('app');
+
+  $: TRANSLATED = {
+    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
+    GUIDELINES: $translateToObject('WCAG.WCAG21.GUIDELINE'),
+    LABEL_OUTCOME: $translate('PAGES.AUDIT.LABEL_OUTCOME'),
+    LABEL_OBSERVATION: $translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL'),
+    HEADING_SCOPE_RESULTS: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
+    HEADING_RESULTS_FOR: $translate('PAGES.AUDIT.RESULTS_FOR'),
+    TEXT_NOT_CHECKED: $translate('UI.EARL.UNTESTED')
+  };
 
   // Sets are unique values
   $: principles = [...new Set(criteria.map((a) => a.num.split('.')[0]))];
