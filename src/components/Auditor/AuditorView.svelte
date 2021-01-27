@@ -1,12 +1,12 @@
 <div class="AuditorView">
   {#each [...principles] as principle}
     <Details
-      label="{`<h2>${principle} ${$translate(`WCAG.WCAG21.PRINCIPLE.${principle}.TITLE`)}</h2>`}"
+      label="{`<h2>${principle} ${TRANSLATED.PRINCIPLES[principle].TITLE}</h2>`}"
       bind:open="{$auditStore['DETAILS_OPEN'][`PRINCIPLE_${principle}`]}"
     >
       {#each [...guidelines].filter((g) => g.indexOf(principle) === 0) as guideline}
         <Details
-          label="{`<h3>${guideline} ${$translate(`WCAG.WCAG21.GUIDELINE.${guideline}.TITLE`)}</h3>`}"
+          label="{`<h3>${guideline} ${TRANSLATED.GUIDELINES[guideline].TITLE}</h3>`}"
           bind:open="{$auditStore['DETAILS_OPEN'][`GUIDELINE_${guideline}`]}"
         >
           <!--
@@ -64,7 +64,12 @@
 
   export let criteria = [];
 
-  const { auditStore, translate } = getContext('app');
+  const { auditStore, translateToObject } = getContext('app');
+
+  $: TRANSLATED = {
+    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
+    GUIDELINES: $translateToObject('WCAG.WCAG21.GUIDELINE')
+  };
 
   // Sets are unique values
   $: principles = new Set(criteria.map((a) => a.num.split('.')[0]));
