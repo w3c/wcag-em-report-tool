@@ -118,7 +118,6 @@ export default {
       dedupe: ['svelte']
     }),
     commonjs(),
-    json(),
 
     // Babel used to provide legacy (IE 11) support
     babel({
@@ -142,6 +141,9 @@ export default {
           }
         ]
       ]
+    }),
+    json({
+      compact: production,
     }),
 
     // In dev mode, call `npm run start` once
