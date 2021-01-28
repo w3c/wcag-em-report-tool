@@ -1,16 +1,9 @@
+import locales from '../locales/index.json';
+
 const appData = {
   title: 'Web Content Accessibility Guidelines Report Tool',
   id: 'WCAGRT',
-  locales: [
-    {
-      lang: 'en',
-      title: 'English'
-    },
-    {
-      lang: 'nl',
-      title: 'Nederlands'
-    }
-  ]
+  locales
 };
 
 appData.defaultLocale = (() => appData.locales[0] || null)();
