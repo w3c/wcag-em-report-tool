@@ -76,3 +76,12 @@ See `.prettierrc.js` for prettier configuration for Svelte (3).
   - `Class` or `HTMLElement` or `Component`
   - `property` or `longPropertyNames`
   - `CONSTANT` or `LONG_CONSTANT`
+
+
+## JSON-LD
+
+- Context absolute IRI's should start with http protocol; This to ensure compatibility with other tools and prevent mismatches.
+
+  > This tool will force context IRI's to http before matching contents.
+
+- When using URI's default to https protocol
