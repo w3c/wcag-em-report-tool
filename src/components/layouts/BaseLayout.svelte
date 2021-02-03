@@ -70,8 +70,8 @@
   import { getContext } from 'svelte';
   import { useNavigate, useLocation, Link } from 'svelte-navigator';
 
-  import { routes } from 'data/stores/appStore.js';
-  import evaluationStore from 'data/stores/evaluationStore.js';
+  import { routes } from 'stores/appStore.js';
+  import evaluationStore from 'stores/evaluationStore.js';
   import appData from 'data/app.js';
 
   import Button from 'components/Button.svelte';

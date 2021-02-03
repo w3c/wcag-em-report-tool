@@ -3,9 +3,9 @@ import jsonld from 'jsonld/lib/jsonld.js';
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
-import appJsonLdContext, { importContext } from '../jsonld/appContext.js';
-import webTechnologies from '../webtechnologies.json';
-import { downloadFile } from '../../scripts/files.js';
+import appJsonLdContext, { importContext } from 'data/jsonld/appContext.js';
+import webTechnologies from 'data/webtechnologies.json';
+import { downloadFile } from '../scripts/files.js';
 
 // Import related stores and combine
 import { TestResult } from './earl/models.js';

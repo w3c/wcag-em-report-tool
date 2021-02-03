@@ -67,7 +67,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { CONFORMANCE_LEVELS, VERSIONS} from 'data/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS} from 'stores/wcagStore.js';
 
   import Page from 'components/Page.svelte';
   import Input from 'components/formcomponents/Input.svelte';

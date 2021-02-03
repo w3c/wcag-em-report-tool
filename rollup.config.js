@@ -35,7 +35,8 @@ export default {
     alias({
       entries: {
         components: './src/components',
-        data: './src/data'
+        data: './src/data',
+        stores: './src/stores'
       }
     }),
     mergeJson({

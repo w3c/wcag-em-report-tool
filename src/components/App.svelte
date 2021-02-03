@@ -44,13 +44,13 @@
 
   import jsonld from 'jsonld/lib/jsonld.js';
 
-  import { translate, translateToObject } from 'data/stores/i18nStore.js';
-  import auditStore from 'data/stores/auditStore.js';
-  import exploreStore from 'data/stores/exploreStore.js';
-  import sampleStore from 'data/stores/sampleStore.js';
-  import scopeStore from 'data/stores/scopeStore.js';
-  import summaryStore from 'data/stores/summaryStore.js';
-  import wcagStore from 'data/stores/wcagStore.js';
+  import { translate, translateToObject } from 'stores/i18nStore.js';
+  import auditStore from 'stores/auditStore.js';
+  import exploreStore from 'stores/exploreStore.js';
+  import sampleStore from 'stores/sampleStore.js';
+  import scopeStore from 'stores/scopeStore.js';
+  import summaryStore from 'stores/summaryStore.js';
+  import wcagStore from 'stores/wcagStore.js';
 
   import BaseRoute from 'components/routes/BaseRoute.svelte';
 

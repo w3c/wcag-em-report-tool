@@ -64,8 +64,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditSamples } from 'data/stores/auditStore.js';
-  import { allSamples } from 'data/stores/sampleStore.js';
+  import { auditSamples } from 'stores/auditStore.js';
+  import { allSamples } from 'stores/sampleStore.js';
 
   import Details from 'components/Details.svelte';
   import Flex from 'components/Flex.svelte';

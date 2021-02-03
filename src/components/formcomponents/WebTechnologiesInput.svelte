@@ -25,7 +25,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { webTechnologyStore } from 'data/stores/exploreStore.js';
+  import { webTechnologyStore } from 'stores/exploreStore.js';
 
   import AddOther from './AddOther.svelte';
   import Input from './Input.svelte';

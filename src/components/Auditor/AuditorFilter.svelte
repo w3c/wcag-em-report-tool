@@ -37,8 +37,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditFilter } from 'data/stores/auditStore.js';
-  import { CONFORMANCE_LEVELS, VERSIONS } from 'data/stores/wcagStore.js';
+  import { auditFilter } from 'stores/auditStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS } from 'stores/wcagStore.js';
 
   import MultipleChoice from 'components/formcomponents/MultipleChoice.svelte';
 

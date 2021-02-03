@@ -23,7 +23,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import evaluationStore from 'data/stores/evaluationStore.js';
+  import evaluationStore from 'stores/evaluationStore.js';
 
   import Button from 'components/Button.svelte';
   import Page from 'components/Page.svelte';

@@ -1,8 +1,8 @@
 import { derived } from 'svelte/store';
 import { json, locale } from 'svelte-i18n';
 
-import scopeStore from '../scopeStore.js';
-import { wcag, VERSIONS } from '../wcagStore.js';
+import scopeStore from 'stores/scopeStore.js';
+import { wcag, VERSIONS } from 'stores/wcagStore.js';
 
 import { TestRequirement } from './models.js';
 
