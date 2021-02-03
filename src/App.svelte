@@ -34,7 +34,7 @@
     * @todo:
     * - Pass settings / configuration / routes
     * -->
-  <IndexRoute basepath="{basepath}" />
+  <BaseRoute basepath="{basepath}" />
 {/if}
 <!-- /Component -->
 
@@ -52,7 +52,7 @@
   import summaryStore from './data/stores/summaryStore.js';
   import wcagStore from './data/stores/wcagStore.js';
 
-  import IndexRoute from 'components/routes/IndexRoute.svelte';
+  import BaseRoute from 'components/routes/BaseRoute.svelte';
 
   export let basepath = '/';
 
