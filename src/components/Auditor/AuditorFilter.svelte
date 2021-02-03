@@ -40,7 +40,7 @@
   import { auditFilter } from '../../data/stores/auditStore.js';
   import { CONFORMANCE_LEVELS, VERSIONS } from '../../data/stores/wcagStore.js';
 
-  import MultipleChoice from '../formcomponents/MultipleChoice.svelte';
+  import MultipleChoice from 'components/formcomponents/MultipleChoice.svelte';
 
   const { translate } = getContext('app');
 

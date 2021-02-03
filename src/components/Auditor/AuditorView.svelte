@@ -60,7 +60,7 @@
   import { getContext } from 'svelte';
 
   import Criterion from './Criterion.svelte';
-  import Details from '../Details.svelte';
+  import Details from 'components/Details.svelte';
 
   export let criteria = [];
 

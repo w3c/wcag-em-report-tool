@@ -67,9 +67,9 @@
   import { auditSamples } from '../../data/stores/auditStore.js';
   import { allSamples } from '../../data/stores/sampleStore.js';
 
-  import Details from '../Details.svelte';
-  import Flex from '../Flex.svelte';
-  import Panel from '../Panel.svelte';
+  import Details from 'components/Details.svelte';
+  import Flex from 'components/Flex.svelte';
+  import Panel from 'components/Panel.svelte';
 
   const { translate } = getContext('app');
 

@@ -129,9 +129,9 @@
     TestSubjectTypes
   } from '../../data/stores/earl/subjectStore/';
 
-  import Details from '../Details.svelte';
-  import EarlResult from '../EarlResult.svelte';
-  import ResourceLink from '../ResourceLink.svelte';
+  import Details from 'components/Details.svelte';
+  import EarlResult from 'components/EarlResult.svelte';
+  import ResourceLink from 'components/ResourceLink.svelte';
 
   export let test;
 

@@ -7,7 +7,7 @@
 <script>
   import { getContext } from 'svelte';
   import { importAssertions } from '../../data/stores/earl/assertionStore.js';
-  import File, { readFile } from '../formcomponents/File.svelte';
+  import File, { readFile } from 'components/formcomponents/File.svelte';
 
   const { translate } = getContext('app');
 
