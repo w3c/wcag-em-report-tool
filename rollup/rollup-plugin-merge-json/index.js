@@ -61,10 +61,9 @@ export default function mergeJson(options = {}) {
     buildStart: async function () {
       let mergeList = [];
 
-      console.log('TARGETS');
       if (Array.isArray(targets) && targets.length) {
         for (const target of targets) {
-          console.log('TARGET:', target);
+
           if (!isObject(target)) {
             throw new Error(
               `${JSON.stringify(target)} target must be an object`
@@ -157,8 +156,6 @@ export default function mergeJson(options = {}) {
                 });
             }
           }
-
-          console.log(mergeList);
 
           // 5. Merge  with result
           // console.log('merged', merge(...mergeList));
