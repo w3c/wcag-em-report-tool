@@ -74,16 +74,16 @@
   import evaluationStore from '../../data/stores/evaluationStore.js';
   import appData from '../../data/app.js';
 
-  import Button from '../Button.svelte';
-  import AuditorImport from '../Auditor/AuditorImport.svelte';
-  import OpenEvaluation from '../formcomponents/OpenEvaluation.svelte';
-  import Grid from '../Grid.svelte';
-  import GridItem from '../GridItem.svelte';
-  import Header from '../Header.svelte';
-  import LanguageSelect from '../i18n/LanguageSelect.svelte';
-  import NavigationBar from '../NavigationBar.svelte';
-  import Pager from '../Pager.svelte';
-  import Panel from '../Panel.svelte';
+  import Button from 'components/Button.svelte';
+  import AuditorImport from 'components/Auditor/AuditorImport.svelte';
+  import OpenEvaluation from 'components/formcomponents/OpenEvaluation.svelte';
+  import Grid from 'components/Grid.svelte';
+  import GridItem from 'components/GridItem.svelte';
+  import Header from 'components/Header.svelte';
+  import LanguageSelect from 'components/i18n/LanguageSelect.svelte';
+  import NavigationBar from 'components/NavigationBar.svelte';
+  import Pager from 'components/Pager.svelte';
+  import Panel from 'components/Panel.svelte';
 
   const location = useLocation();
   const navigate = useNavigate();
