@@ -166,7 +166,8 @@ export default function mergeJson(options = {}) {
           // 6. await write result to destiny json (create dirs if required)
           await createDirIfNotExist(dest);
           await writeFile(dest, JSON.stringify(merge.all(mergeList)));
-          // 5. Done
+          // 5. Done; cleanup!!!
+          mergeList = [];
         }
       }
     }
