@@ -1,3 +1,4 @@
+import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
@@ -31,15 +32,20 @@ export default {
     dir: `${production ? PATHS.BUILD : PATHS.DEV}/bundles`
   },
   plugins: [
+    alias({
+      entries: {
+        components: './src/components'
+      }
+    }),
     mergeJson({
       targets: [
         {
           src: './src/locales/en/**/*.json',
-          dest: './src/locales/translations_en.json',
+          dest: './src/locales/translations_en.json'
         },
         {
           src: './src/locales/nl/**/*.json',
-          dest: './src/locales/translations_nl.json',
+          dest: './src/locales/translations_nl.json'
         }
       ],
       verbose: true,
@@ -143,7 +149,7 @@ export default {
       ]
     }),
     json({
-      compact: production,
+      compact: production
     }),
 
     // In dev mode, call `npm run start` once
