@@ -36,6 +36,8 @@ export default {
       entries: {
         components: './src/components',
         data: './src/data',
+        locales: './src/locales',
+        scripts: './src/scripts',
         stores: './src/stores'
       }
     }),

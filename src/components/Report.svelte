@@ -84,7 +84,7 @@
 <!-- /component -->
 
 <script context="module">
-  import { downloadFile } from '../scripts/files.js';
+  import { downloadFile } from 'scripts/files.js';
 
   let Report;
 

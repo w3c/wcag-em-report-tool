@@ -1,4 +1,4 @@
-import locales from '../locales/index.json';
+import locales from 'locales/index.json';
 
 const appData = {
   title: 'Web Content Accessibility Guidelines Report Tool',
