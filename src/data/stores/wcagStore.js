@@ -3,8 +3,8 @@ import { derived } from 'svelte/store';
 import auditStore from './auditStore.js';
 
 // import wcag data here
-import WCAG20 from '../wcag/WCAG20.json';
-import WCAG21 from '../wcag/WCAG21.json';
+import WCAG20 from 'data/wcag/WCAG20.json';
+import WCAG21 from 'data/wcag/WCAG21.json';
 
 export const wcag = {
   '2.1': WCAG21,

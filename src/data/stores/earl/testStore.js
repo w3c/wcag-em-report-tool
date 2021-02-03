@@ -1,5 +1,5 @@
 import { derived } from 'svelte/store';
-import { json, dictionary, locale, t as translate } from 'svelte-i18n';
+import { json, locale } from 'svelte-i18n';
 
 import scopeStore from '../scopeStore.js';
 import { wcag, VERSIONS } from '../wcagStore.js';
