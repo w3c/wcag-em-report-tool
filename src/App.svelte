@@ -52,7 +52,7 @@
   import summaryStore from './data/stores/summaryStore.js';
   import wcagStore from './data/stores/wcagStore.js';
 
-  import IndexRoute from './routes/IndexRoute.svelte';
+  import IndexRoute from 'components/routes/IndexRoute.svelte';
 
   export let basepath = '/';
 
