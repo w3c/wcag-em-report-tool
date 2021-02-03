@@ -12,6 +12,7 @@ import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
+import locales from './src/locales/index.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -41,17 +42,14 @@ export default {
         stores: './src/stores'
       }
     }),
+
     mergeJson({
-      targets: [
-        {
-          src: './src/locales/en/**/*.json',
-          dest: './src/locales/translations_en.json'
-        },
-        {
-          src: './src/locales/nl/**/*.json',
-          dest: './src/locales/translations_nl.json'
-        }
-      ],
+      targets: locales.map((locale) => {
+        return {
+          src: `./src/locales/${locale.lang}/**/*.json`,
+          dest: `./src/locales/translations_${locale.lang}.json`
+        };
+      }),
       verbose: true,
       watch: true,
       wrapWithPath: true
