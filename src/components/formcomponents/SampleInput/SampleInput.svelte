@@ -50,8 +50,8 @@
 
   import subjects, { TestSubjectTypes } from '../../../data/stores/earl/subjectStore/';
 
-  import AddOther from '../AddOther.svelte';
-  import Details from '../../Details.svelte';
+  import AddOther from 'components/formcomponents/AddOther.svelte';
+  import Details from 'components/Details.svelte';
   import Sample from './Sample.svelte';
 
   export let id;

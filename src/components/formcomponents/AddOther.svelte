@@ -35,7 +35,7 @@
 <script>
   import { onMount, createEventDispatcher } from 'svelte';
 
-  import Button from '../Button.svelte';
+  import Button from 'components/Button.svelte';
 
   export let label = 'Add';
 

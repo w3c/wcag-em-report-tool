@@ -32,7 +32,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import Details from '../Details.svelte';
+  import Details from 'components/Details.svelte';
 
   export let id;
   export let legend;

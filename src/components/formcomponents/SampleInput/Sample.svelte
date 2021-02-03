@@ -26,8 +26,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Editable from '../Editable.svelte';
-  import Input from '../Input.svelte';
+  import Editable from 'components/formcomponents/Editable.svelte';
+  import Input from 'components/formcomponents/Input.svelte';
 
   export let id;
   export let data;

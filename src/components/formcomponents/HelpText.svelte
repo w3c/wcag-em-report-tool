@@ -76,7 +76,7 @@
 </style>
 
 <script>
-  import Flex from '../Flex.svelte';
+  import Flex from 'components/Flex.svelte';
 
   export let label = 'label';
   export let open = false;
