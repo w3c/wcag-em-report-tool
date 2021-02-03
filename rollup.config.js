@@ -34,7 +34,8 @@ export default {
   plugins: [
     alias({
       entries: {
-        components: './src/components'
+        components: './src/components',
+        data: './src/data'
       }
     }),
     mergeJson({

@@ -51,8 +51,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditFilter } from '../../data/stores/auditStore.js';
-  import { CONFORMANCE_LEVELS } from '../../data/stores/wcagStore.js';
+  import { auditFilter } from 'data/stores/auditStore.js';
+  import { CONFORMANCE_LEVELS } from 'data/stores/wcagStore.js';
 
   import AuditorFilter from './AuditorFilter.svelte';
   import AuditorSamples from './AuditorSamples.svelte';

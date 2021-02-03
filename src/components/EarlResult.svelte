@@ -71,7 +71,7 @@
    */
 
   import { getContext } from 'svelte';
-  import assertions from '../data/stores/earl/assertionStore.js';
+  import assertions from 'data/stores/earl/assertionStore.js';
 
   import Flex from 'components/Flex.svelte';
   import Select from 'components/formcomponents/Select.svelte';

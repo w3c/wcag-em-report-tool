@@ -19,7 +19,7 @@ import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
 import subjects, {
   initialSubjectStore,
   TestSubjectTypes
-} from './earl/subjectStore/';
+} from './earl/subjectStore/index.js';
 import tests from './earl/testStore.js';
 
 const evaluationContext = {

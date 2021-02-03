@@ -123,11 +123,11 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditSamples } from '../../data/stores/auditStore.js';
-  import { allSamples } from '../../data/stores/sampleStore.js';
+  import { auditSamples } from 'data/stores/auditStore.js';
+  import { allSamples } from 'data/stores/sampleStore.js';
   import subjects, {
     TestSubjectTypes
-  } from '../../data/stores/earl/subjectStore/';
+  } from 'data/stores/earl/subjectStore/index.js';
 
   import Details from 'components/Details.svelte';
   import EarlResult from 'components/EarlResult.svelte';

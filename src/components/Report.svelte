@@ -100,7 +100,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import tests from '../data/stores/earl/testStore.js';
+  import tests from 'data/stores/earl/testStore.js';
 
   import AuditorSummary from 'components/Auditor/AuditorSummary.svelte';
 

@@ -56,7 +56,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import tests from '../../../data/stores/earl/testStore.js';
+  import tests from 'data/stores/earl/testStore.js';
 
   import Details from 'components/Details.svelte';
   import Page from 'components/Page.svelte';

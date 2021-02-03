@@ -48,7 +48,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import subjects, { TestSubjectTypes } from '../../../data/stores/earl/subjectStore/';
+  import subjects, { TestSubjectTypes } from 'data/stores/earl/subjectStore/index.js';
 
   import AddOther from 'components/formcomponents/AddOther.svelte';
   import Details from 'components/Details.svelte';

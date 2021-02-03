@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import './data/i18n.js';
+import 'data/i18n.js';
 
 /**
  * See for options:
