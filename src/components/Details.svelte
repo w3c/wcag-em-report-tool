@@ -77,8 +77,8 @@
 </style>
 
 <script>
-  import Button from './Button.svelte';
-  import Flex from './Flex.svelte';
+  import Button from 'components/Button.svelte';
+  import Flex from 'components/Flex.svelte';
 
   export let label = 'label';
   export let open = false;

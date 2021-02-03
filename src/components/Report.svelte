@@ -99,11 +99,10 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { date } from 'svelte-i18n';
 
   import tests from '../data/stores/earl/testStore.js';
 
-  import AuditorSummary from './Auditor/AuditorSummary.svelte';
+  import AuditorSummary from 'components/Auditor/AuditorSummary.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
