@@ -42,7 +42,7 @@
   import { setContext } from 'svelte';
   import { isLoading } from 'svelte-i18n';
 
-  import jsonld from '../node_modules/jsonld/lib/jsonld.js';
+  import jsonld from 'jsonld/lib/jsonld.js';
 
   import { translate, translateToObject } from 'data/stores/i18nStore.js';
   import auditStore from 'data/stores/auditStore.js';

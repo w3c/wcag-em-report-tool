@@ -1,4 +1,4 @@
-import jsonld from '../../../../node_modules/jsonld/lib/jsonld.js';
+import jsonld from 'jsonld/lib/jsonld.js';
 
 import { importContext } from 'data/jsonld/appContext.js';
 import collectionStore from '../collectionStore.js';

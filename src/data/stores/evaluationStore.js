@@ -1,4 +1,4 @@
-import jsonld from '../../../node_modules/jsonld/lib/jsonld.js';
+import jsonld from 'jsonld/lib/jsonld.js';
 
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
