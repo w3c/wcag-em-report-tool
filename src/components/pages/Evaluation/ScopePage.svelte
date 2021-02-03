@@ -69,10 +69,10 @@
 
   import { CONFORMANCE_LEVELS, VERSIONS} from '../../../data/stores/wcagStore.js';
 
-  import Page from '../../Page.svelte';
-  import Input from '../../formcomponents/Input.svelte';
-  import Select from '../../formcomponents/Select.svelte';
-  import Textarea from '../../formcomponents/Textarea.svelte';
+  import Page from 'components/Page.svelte';
+  import Input from 'components/formcomponents/Input.svelte';
+  import Select from 'components/formcomponents/Select.svelte';
+  import Textarea from 'components/formcomponents/Textarea.svelte';
 
   const { scopeStore, translate } = getContext('app');
   $: TRANSLATED = {

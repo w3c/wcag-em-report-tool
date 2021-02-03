@@ -25,9 +25,9 @@
 
   import evaluationStore from '../../../data/stores/evaluationStore.js';
 
-  import Button from '../../Button.svelte';
-  import Page from '../../Page.svelte';
-  import Report, { downloadReport } from '../../Report.svelte';
+  import Button from 'components/Button.svelte';
+  import Page from 'components/Page.svelte';
+  import Report, { downloadReport } from 'components/Report.svelte';
 
   const { translate } = getContext('app');
 

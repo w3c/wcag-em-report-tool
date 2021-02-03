@@ -38,9 +38,9 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Page from '../../Page.svelte';
-  import SampleInput from '../../formcomponents/SampleInput/SampleInput.svelte';
-  import Textarea from '../../formcomponents/Textarea.svelte';
+  import Page from 'components/Page.svelte';
+  import SampleInput from 'components/formcomponents/SampleInput/SampleInput.svelte';
+  import Textarea from 'components/formcomponents/Textarea.svelte';
 
   const { exploreStore, sampleStore, translate } = getContext('app');
 
