@@ -2,7 +2,7 @@
 <div class="Controls">
   <Grid>
     <GridItem area="full">
-      <LanguageSelect locales="{appData.locales}" />
+      <LanguageSelect locales="{locales}" />
     </GridItem>
   </Grid>
 </div>
@@ -72,7 +72,7 @@
 
   import { routes } from 'stores/appStore.js';
   import evaluationStore from 'stores/evaluationStore.js';
-  import appData from 'data/app.js';
+  import locales from 'locales/index.json';
 
   import Button from 'components/Button.svelte';
   import AuditorImport from 'components/Auditor/AuditorImport.svelte';
@@ -97,7 +97,9 @@
       default: 'Your report'
     }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', { default: 'View report' })
+    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
+      default: 'View report'
+    })
   };
 
   $: hasPanel = $location.pathname !== $routes.VIEW_REPORT.path;
