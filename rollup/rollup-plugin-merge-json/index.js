@@ -59,11 +59,12 @@ export default function mergeJson(options = {}) {
   return {
     name: 'merge-json',
     buildStart: async function () {
+      verbose && console.log('Merge JSON'.yellow);
+
       let mergeList = [];
 
       if (Array.isArray(targets) && targets.length) {
         for (const target of targets) {
-
           if (!isObject(target)) {
             throw new Error(
               `${JSON.stringify(target)} target must be an object`
@@ -104,15 +105,17 @@ export default function mergeJson(options = {}) {
             matchedPaths.splice(matchedPaths.indexOf(dest), 1);
           }
 
-          // const basePath from matchedPaths
+          verbose &&
+            console.log(
+              `“${basePath}*”(${matchedPaths.length}) to “${dest}”`.blue
+            );
 
           if (matchedPaths.length) {
             for (const matchedPath of matchedPaths) {
-              if (watch && !isWatched(matchedPath)) {
+              verbose && console.log(`  “${matchedPath}”`);
+
+              if (watch) {
                 this.addWatchFile(matchedPath);
-                watchedFiles.push(matchedPath);
-                verbose &&
-                  console.log(`[merge-json]: Watching “${matchedPath}”`);
               }
 
               // 0. create const wrapPath to use to wrap json
@@ -134,9 +137,6 @@ export default function mergeJson(options = {}) {
 
                 // 3. wrapWithPath && Wrap in path objects
                 .then((json) => {
-
-                  verbose && console.log(`[merge-json]: Wrap with path “${wrapKeys}”`);
-
                   if (wrapWithPath) {
                     return wrapWithKeys(json, wrapKeys);
                   }
@@ -166,6 +166,8 @@ export default function mergeJson(options = {}) {
           // 5. Done; cleanup!!!
           mergeList = [];
         }
+
+        verbose && watch && console.log('Watching json'.blue);
       }
     }
   };
