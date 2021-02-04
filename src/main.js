@@ -1,7 +1,11 @@
-import App from 'components/App.svelte';
-import { internationalize } from 'data/i18n.js';
+import { internationalize } from 'scripts/i18n.js';
 
-internationalize().then(() => {
+import languages from 'locales/index.json';
+import App from 'components/App.svelte';
+
+const locales = languages.map((language) => language.lang);
+
+internationalize(locales).then(() => {
   /**
    * See for options:
    * https://svelte.dev/docs#Creating_a_component
