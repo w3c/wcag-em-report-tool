@@ -77,6 +77,6 @@
   }
 
   function dispatchEdit() {
-    dispatch(EVENT.ID, id);
+    dispatch(EVENT.EDIT, id);
   }
 </script>
