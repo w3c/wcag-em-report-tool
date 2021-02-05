@@ -1,14 +1,6 @@
 <!--
  * @component
- * SampleInput
- * A customizable forminput that receives
- * a value as array with either a string or an object.
- * a format of how to add a list item which is
- * an array of objects containing:
- * - required label
- * - required type; text | textarea | select | checkbox(group)
- * - optional helptext
- * - optional ...any; required props to pass on to specific formcomponents
+ *   SampleInput
  * -->
 <fieldset id="{id}">
   <legend>{label}</legend>
@@ -20,23 +12,21 @@
 
   <slot />
 
-  <div id="{id}--value" class="ListInput--value">
-    {#if value.length > 0}
-      <ol title="{label}" bind:this="{valueContainer}">
-        {#each value as sample, index (sample.ID)}
-          <li>
-            <Sample
-              id="{id}__{index + 1}"
-              bind:data="{sample}"
-              on:DELETE="{handleSampleDelete}"
-            />
-          </li>
-        {/each}
-      </ol>
-    {:else}
-      <p><em>{TRANSLATED.NO_SAMPLE}</em></p>
-    {/if}
-  </div>
+  {#if value.length > 0}
+    <ol title="{label}" bind:this="{valueContainer}">
+      {#each value as sample, index (sample.ID)}
+        <li>
+          <Sample
+            id="{id}__{index + 1}"
+            bind:data="{sample}"
+            on:DELETE="{handleSampleDelete}"
+          />
+        </li>
+      {/each}
+    </ol>
+  {:else}
+    <p><em>{TRANSLATED.NO_SAMPLE}</em></p>
+  {/if}
 
   <AddOther
     label="{TRANSLATED.ADD_PAGE_BUTTON}"
