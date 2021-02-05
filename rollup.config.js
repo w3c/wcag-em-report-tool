@@ -77,7 +77,7 @@ export default {
             let contentsString = contents.toString();
 
             const replacement = {
-              __APP_BUILD_DATE__: new Date(),
+              __APP_BUILD_DATE__: new Date().toISOString(),
               __APP_VERSION__: production ? pkg.version : 'DEVELOPMENT',
               __BASEPATH__: BASEPATH,
               __TITLE__: pkg.name
