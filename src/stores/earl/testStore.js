@@ -41,16 +41,6 @@ VERSIONS.forEach((version) => {
 
 /**
  * Set of earl.TestCriterion
- * -
- * @todo
- *  Change to derived store;
- *  dependencies:
- *  - $locale / $dictionary
- *  - $scopeStore -> wcagVersion
- *
- *  This to autoupdate @id, title and description
- *  values of the tests.
- * -
  * @type {[TestCriterion]}
  */
 const $tests = derived(
