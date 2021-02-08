@@ -41,22 +41,22 @@ export class Base {
     this.summary = summary;
   }
 
-  update() {
-    this.date = createDate();
+  setDate(date) {
+    this.date = createDate(date);
   }
 }
 
 function createDate(date = new Date()) {
-  let dateObject;
+  let dateString;
 
   try {
-    dateObject = (new Date(date)).toISOString();
+    dateString = (new Date(date)).toISOString();
   } catch (e) {
     console.warn(`[createDate]: ${e.message}`);
-    dateObject = date;
+    dateString = date;
   }
 
-  return dateObject;
+  return dateString;
 }
 
 function createID(className) {

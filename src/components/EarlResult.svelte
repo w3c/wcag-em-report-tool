@@ -105,6 +105,6 @@
     }) || assertions.create({ subject, test });
 
   function handleResultChange() {
-    _assertion.result.update();
+    _assertion.result.setDate();
   }
 </script>
