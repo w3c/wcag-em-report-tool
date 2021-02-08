@@ -59,7 +59,7 @@
   import tests from '@app/stores/earl/testStore/index.js';
 
   import Details from '@app/components/ui/Details.svelte';
-  import Page from '@app/components/Page.svelte';
+  import Page from '@app/components/ui/Page.svelte';
 
   import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
   import Input from '@app/components/form/Input.svelte';

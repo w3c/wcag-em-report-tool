@@ -30,7 +30,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Page from '@app/components/Page.svelte';
+  import Page from '@app/components/ui/Page.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
   import WebTechnologiesInput from '@app/components/form/WebTechnologiesInput.svelte';
 

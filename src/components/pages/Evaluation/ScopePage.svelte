@@ -69,7 +69,7 @@
 
   import { CONFORMANCE_LEVELS, VERSIONS} from '@app/stores/wcagStore.js';
 
-  import Page from '@app/components/Page.svelte';
+  import Page from '@app/components/ui/Page.svelte';
   import Input from '@app/components/form/Input.svelte';
   import Select from '@app/components/form/Select.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';

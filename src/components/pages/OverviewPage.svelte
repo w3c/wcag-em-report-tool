@@ -33,7 +33,7 @@
   import { getContext } from 'svelte';
 
   import Details from '@app/components/ui/Details.svelte';
-  import Page from '@app/components/Page.svelte';
+  import Page from '@app/components/ui/Page.svelte';
 
   const { translate } = getContext('app');
 

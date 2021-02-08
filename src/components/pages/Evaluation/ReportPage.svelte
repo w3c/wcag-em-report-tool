@@ -26,7 +26,7 @@
   import evaluationStore from '@app/stores/evaluationStore.js';
 
   import Button from '@app/components/ui/Button.svelte';
-  import Page from '@app/components/Page.svelte';
+  import Page from '@app/components/ui/Page.svelte';
   import Report, { downloadReport } from '@app/components/Report.svelte';
 
   const { translate } = getContext('app');
