@@ -10,7 +10,21 @@
 <div id="site-header" style="padding: 0;">
   <Grid>
     <GridItem area="full">
-      <Header />
+      <div class="tool-header">
+        <div class="tool-header-name">
+          WCAG-EM R<span class="display-phablet">eport </span>T<span class="display-phablet">ool</span>
+        </div>
+        <div class="tool-header-logo">
+          <a href="http://w3.org/"><img
+              alt="W3C"
+              src="images/w3c.svg"
+            /></a>
+          <a href="http://w3.org/WAI/"><img
+              alt="Web Accessibility Initiative"
+              src="images/wai.svg"
+            /></a>
+        </div>
+      </div>
     </GridItem>
   </Grid>
 </div>
@@ -79,7 +93,6 @@
   import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/ui/Grid.svelte';
   import GridItem from '@app/components/ui/GridItem.svelte';
-  import Header from '@app/components/Header.svelte';
   import LanguageSelect from '@app/components/i18n/LanguageSelect.svelte';
   import NavigationBar from '@app/components/NavigationBar.svelte';
   import Pager from '@app/components/Pager.svelte';
