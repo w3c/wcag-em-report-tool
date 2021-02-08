@@ -20,7 +20,7 @@ import subjects, {
   initialSubjectStore,
   TestSubjectTypes
 } from '@app/stores/earl/subjectStore/index.js';
-import tests from '@app/stores/earl/testStore.js';
+import tests from '@app/stores/earl/testStore/index.js';
 
 const evaluationContext = {
   // Dublin Core Terms

@@ -46,30 +46,6 @@ export class Base {
   }
 }
 
-class TestCriterion extends partsMixin(Base) {
-  constructor(options) {
-    super(options);
-
-    Object.assign(this['@context'], {
-      TestCriterion: 'earl:TestCriterion'
-    });
-
-    this.type = ['TestCriterion'];
-  }
-}
-
-export class TestRequirement extends TestCriterion {
-  constructor(options) {
-    super(options);
-
-    Object.assign(this['@context'], {
-      TestRequirement: 'earl:TestRequirement'
-    });
-
-    this.type.push('TestRequirement');
-  }
-}
-
 function createDate(date = new Date()) {
   let dateObject;
 
