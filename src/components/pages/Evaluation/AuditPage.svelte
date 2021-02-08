@@ -7,7 +7,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Auditor from '@app/components/Auditor/Auditor.svelte';
+  import Auditor from '@app/components/ui/Auditor/Auditor.svelte';
   import Page from '@app/components/Page.svelte';
 
   const { translate } = getContext('app');

@@ -61,7 +61,7 @@
   import Details from '@app/components/ui/Details.svelte';
   import Page from '@app/components/Page.svelte';
 
-  import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';
+  import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
   import Input from '@app/components/form/Input.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
 

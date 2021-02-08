@@ -75,7 +75,7 @@
   import locales from '@app/locales/index.json';
 
   import Button from '@app/components/ui/Button.svelte';
-  import AuditorImport from '@app/components/Auditor/AuditorImport.svelte';
+  import AuditorImport from '@app/components/ui/Auditor/AuditorImport.svelte';
   import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/Grid.svelte';
   import GridItem from '@app/components/GridItem.svelte';

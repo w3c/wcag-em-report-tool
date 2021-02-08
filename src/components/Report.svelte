@@ -102,7 +102,7 @@
 
   import tests from '@app/stores/earl/testStore/index.js';
 
-  import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';
+  import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
