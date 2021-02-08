@@ -93,7 +93,7 @@
   import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/ui/Grid.svelte';
   import GridItem from '@app/components/ui/GridItem.svelte';
-  import LanguageSelect from '@app/components/i18n/LanguageSelect.svelte';
+  import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
   import Panel from '@app/components/ui/Panel.svelte';
