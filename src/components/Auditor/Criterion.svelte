@@ -129,7 +129,7 @@
     TestSubjectTypes
   } from '@app/stores/earl/subjectStore/index.js';
 
-  import Details from '@app/components/Details.svelte';
+  import Details from '@app/components/ui/Details.svelte';
   import EarlResult from '@app/components/EarlResult.svelte';
   import ResourceLink from '@app/components/ResourceLink.svelte';
 

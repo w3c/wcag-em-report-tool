@@ -58,7 +58,7 @@
   import { getContext } from 'svelte';
   import tests from '@app/stores/earl/testStore/index.js';
 
-  import Details from '@app/components/Details.svelte';
+  import Details from '@app/components/ui/Details.svelte';
   import Page from '@app/components/Page.svelte';
 
   import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';

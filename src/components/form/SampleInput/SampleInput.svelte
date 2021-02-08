@@ -41,7 +41,7 @@
   import subjects, { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
 
   import AddOther from '@app/components/form/AddOther.svelte';
-  import Details from '@app/components/Details.svelte';
+  import Details from '@app/components/ui/Details.svelte';
   import Sample from './Sample.svelte';
 
   export let id;

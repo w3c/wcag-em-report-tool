@@ -67,7 +67,7 @@
   import { auditSamples } from '@app/stores/auditStore.js';
   import { allSamples } from '@app/stores/sampleStore.js';
 
-  import Details from '@app/components/Details.svelte';
+  import Details from '@app/components/ui/Details.svelte';
   import Flex from '@app/components/Flex.svelte';
   import Panel from '@app/components/Panel.svelte';
 
