@@ -77,8 +77,8 @@
   import Button from '@app/components/ui/Button.svelte';
   import AuditorImport from '@app/components/ui/Auditor/AuditorImport.svelte';
   import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
-  import Grid from '@app/components/Grid.svelte';
-  import GridItem from '@app/components/GridItem.svelte';
+  import Grid from '@app/components/ui/Grid.svelte';
+  import GridItem from '@app/components/ui/GridItem.svelte';
   import Header from '@app/components/Header.svelte';
   import LanguageSelect from '@app/components/i18n/LanguageSelect.svelte';
   import NavigationBar from '@app/components/NavigationBar.svelte';
