@@ -1,6 +1,6 @@
 <!--
  * @component
- * <Navigation>
+ *   NavigationBar
  *  -->
 <nav class="Nav">
   <Grid>
@@ -18,7 +18,7 @@
     </GridItem>
   </Grid>
 </nav>
-<!-- </Nav> -->
+<!-- /component -->
 
 <style>
   .Nav {
