@@ -1,0 +1,77 @@
+/**
+ * Device display helper class
+ * If text just does not fit, visually hide it!
+ * It will still be accessible to
+ * assistive technology, like screenreaders.
+ */
+.visually-hidden,
+.display-phablet,
+.display-tablet,
+.display-desktop {
+  position: absolute;
+  right: 99999px;
+  bottom: 99999px;
+  width: 1px;
+  height: 1px;
+}
+
+/**
+ *  PHABLETS;
+ *  to big to be a phone,
+ *  to small to be a tablet...🤷‍♂️
+ */
+@media (min-width: 30em) {
+  .display-phablet {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* TABLETS */
+@media (min-width: 40em) {
+  .display-tablet {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 60em) {
+  .display-desktop {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+  }
+}
+
+.App__container {
+  background-color: white;
+}
+
+/* Normalize svgees */
+svg {
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  font-size: inherit;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  background-color: transparent;
+}
+
+/*
+ * Remove default focus styles from elements that
+ * otherwise should not receive focus.
+*/
+[tabindex]:focus {
+  outline: none;
+}

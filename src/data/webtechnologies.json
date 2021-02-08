@@ -1,0 +1,54 @@
+[
+    {
+        "title": "HTML5",
+        "description": "http://www.w3.org/TR/html5/"
+    },
+    {
+        "title": "XHTML 1.0",
+        "description": "http://www.w3.org/TR/xhtml1/"
+    },
+    {
+        "title": "HTML 4.01",
+        "description": "http://www.w3.org/TR/html401/"
+    },
+    {
+        "title": "CSS",
+        "description": "http://www.w3.org/Style/CSS/specs/"
+    },
+    {
+        "title": "WAI-ARIA",
+        "description": "http://www.w3.org/TR/wai-aria/"
+    },
+    {
+        "title": "ECMAScript 3",
+        "description": "http://www.ecma-international.org/publications/standards/Ecma-327.htm"
+    },
+    {
+        "title": "ECMAScript 5",
+        "description": "http://www.ecma-international.org/publications/standards/Ecma-262.htm"
+    },
+    {
+        "title": "DOM",
+        "description": "http://www.w3.org/DOM/"
+    },
+    {
+        "title": "Flash",
+        "description": "http://get.adobe.com/nl/flashplayer/"
+    },
+    {
+        "title": "Silverlight",
+        "description": "http://www.microsoft.com/silverlight/"
+    },
+    {
+        "title": "OOXML",
+        "description": "http://www.ecma-international.org/publications/standards/Ecma-376.htm"
+    },
+    {
+        "title": "ODF 1.2",
+        "description": "https://www.oasis-open.org/standards#opendocumentv1.2"
+    },
+    {
+        "title": "SVG",
+        "description": "http://www.w3.org/TR/SVG/"
+    }
+]

@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - 'lts/*'
+  - 'lts/Erbium'
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+  - 'npm install'

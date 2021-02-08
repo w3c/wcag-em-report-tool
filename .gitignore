@@ -1,14 +1,12 @@
+# npm
 node_modules
-.tmp
-.sass-cache
-app/bower_components
-app/styles/bootstrap
-dist/
-.sublime-project
-.sublime-workspace
-.dropbox
-desktop.ini
-Thumbs.db
-/.project
-npm-debug.log
-.DS_Store
+
+# App specific
+_site
+
+# The translations are build from
+# locales/<LOCALE> files.
+# They need to be ignored by git,
+# but not by platforms like Github Pages.
+# Files prefixed with `_` are ignored by default.
+translations_*.json

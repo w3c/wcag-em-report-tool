@@ -1,0 +1,21 @@
+{
+    "BY" : "Report Creator:",
+    "COMMISION_BY": "Evaluation Commissioner:",
+    "HD_SUMMARY": "Summary of the evaluation findings",
+    "HD_SCOPE": "Scope of the evaluation",
+    "LABEL_SITE_NAME": "Website name",
+    "LABEL_SITE_SCOPE": "Scope of the website",
+    "LABEL_CONFORMANCE_TGT": "Conformance target",
+    "LABEL_EXTRA_REQUIREMENTS": "Additional evaluation requirements",
+    "LABEL_SUPPORT_BASE": "Accessibility support baseline",
+    "LABEL_RELIEDUP_TECH": "Relied upon technologies",
+    "HD_SCORE": "Overview of audit results",
+    "RESULTS_OF": "Results of",
+    "PRINCIPLE": "Principle",
+    "TOTAL_SCORE": "Total",
+    "HD_CRITERIA_REPORT": "Detailed audit results",
+    "LABEL_DESCR": "Findings",
+    "HD_SAMPLE": "Sample of audited web pages",
+    "HD_SPECIFICS": "Recording of evaluation specifics",
+    "HD_DOCS": "Related WCAG 2 resources"
+}

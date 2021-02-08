@@ -1,0 +1,8 @@
+{
+    "TITLE": "Website Toegankelijkheid Evaluatie Rapport",
+    "INTRO": "Hieronder vindt u het evaluatierapport gebaseerd op de gegevens die u in vorige stappen heeft ingevuld. U kunt teruggaan naar vorige stappen voor verdere aanpassingen. U kunt de evaluatiedata downloaden zodat u hier later aan door kunt werken. (Hetzelfde als bij 'Opslaan'.) <br> Dit rapport is bedoeld als download. U kunt de HTML en CSS bestanden van het rapport hieronder downloaden. Daarna kunt u de presentatie en de inhoud van het rapport verder bewerken.",
+    "DOWNLOAD_REPORT": "Download het rapport",
+    "BTN_SAVE_HTML": "Download het evaluatierapport (HTML)",
+    "BTN_SAVE_CSS": "Download de stylesheet van het rapport (CSS)",
+    "BTN_SAVE_JSON": "Bewaar de evaluatiedata (JSON)"
+}
