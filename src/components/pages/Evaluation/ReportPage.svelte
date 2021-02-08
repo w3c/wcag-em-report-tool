@@ -27,7 +27,7 @@
 
   import Button from '@app/components/ui/Button.svelte';
   import Page from '@app/components/ui/Page.svelte';
-  import Report, { downloadReport } from '@app/components/Report.svelte';
+  import Report, { downloadReport } from '@app/components/ui/Report.svelte';
 
   const { translate } = getContext('app');
 
