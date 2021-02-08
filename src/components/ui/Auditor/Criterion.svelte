@@ -131,7 +131,7 @@
 
   import Details from '@app/components/ui/Details.svelte';
   import EarlResult from '@app/components/EarlResult.svelte';
-  import ResourceLink from '@app/components/ResourceLink.svelte';
+  import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
   export let test;
 
