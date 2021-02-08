@@ -76,7 +76,7 @@
 
   import Button from '@app/components/Button.svelte';
   import AuditorImport from '@app/components/Auditor/AuditorImport.svelte';
-  import OpenEvaluation from '@app/components/formcomponents/OpenEvaluation.svelte';
+  import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/Grid.svelte';
   import GridItem from '@app/components/GridItem.svelte';
   import Header from '@app/components/Header.svelte';

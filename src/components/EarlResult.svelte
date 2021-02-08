@@ -74,8 +74,8 @@
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
   import Flex from '@app/components/Flex.svelte';
-  import Select from '@app/components/formcomponents/Select.svelte';
-  import Textarea from '@app/components/formcomponents/Textarea.svelte';
+  import Select from '@app/components/form/Select.svelte';
+  import Textarea from '@app/components/form/Textarea.svelte';
 
   export let label = undefined;
   // Used to display subject.title

@@ -62,8 +62,8 @@
   import Page from '@app/components/Page.svelte';
 
   import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';
-  import Input from '@app/components/formcomponents/Input.svelte';
-  import Textarea from '@app/components/formcomponents/Textarea.svelte';
+  import Input from '@app/components/form/Input.svelte';
+  import Textarea from '@app/components/form/Textarea.svelte';
 
   const { summaryStore, translate } = getContext('app');
   $: TRANSLATED = {

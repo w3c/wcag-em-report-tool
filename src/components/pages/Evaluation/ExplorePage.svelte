@@ -31,8 +31,8 @@
   import { getContext } from 'svelte';
 
   import Page from '@app/components/Page.svelte';
-  import Textarea from '@app/components/formcomponents/Textarea.svelte';
-  import WebTechnologiesInput from '@app/components/formcomponents/WebTechnologiesInput.svelte';
+  import Textarea from '@app/components/form/Textarea.svelte';
+  import WebTechnologiesInput from '@app/components/form/WebTechnologiesInput.svelte';
 
   const { exploreStore, translate } = getContext('app');
   $: TRANSLATED = {
