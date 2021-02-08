@@ -1,9 +1,7 @@
 <!--
   * This file should be used to arange the base of the App.
-  * Meaning: importing stuff and display without the need
-  * to do any logic etc.
   * If the app needs configuration, this can be passed on
-  * from the main file 'client.js' and passed as props.
+  * from the main file '@app/main.js' and passed as props.
   * e.g.:
   *   new App({
   *     ...
@@ -23,7 +21,10 @@
   *   export let hacks;
   *   export let etc;
   *
-  *   and passed on to the Components who need them.
+  *   or $$otherProps
+  *
+  *   and passed on to the app context; setContext('app', {...})
+  *   where components can access them with: const {...} = getContext('app');
   * -->
 
 <!-- @Component:App -->
@@ -42,8 +43,6 @@
   import { setContext } from 'svelte';
   import { isLoading } from 'svelte-i18n';
 
-  import jsonld from 'jsonld/lib/jsonld.js';
-
   import { translate, translateToObject } from '@app/stores/i18nStore.js';
   import auditStore from '@app/stores/auditStore.js';
   import exploreStore from '@app/stores/exploreStore.js';
@@ -59,7 +58,6 @@
   setContext('app', {
     translate,
     translateToObject,
-    jsonld,
     auditStore,
     exploreStore,
     sampleStore,
