@@ -67,12 +67,12 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { CONFORMANCE_LEVELS, VERSIONS} from 'stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS} from '@app/stores/wcagStore.js';
 
-  import Page from 'components/Page.svelte';
-  import Input from 'components/formcomponents/Input.svelte';
-  import Select from 'components/formcomponents/Select.svelte';
-  import Textarea from 'components/formcomponents/Textarea.svelte';
+  import Page from '@app/components/Page.svelte';
+  import Input from '@app/components/formcomponents/Input.svelte';
+  import Select from '@app/components/formcomponents/Select.svelte';
+  import Textarea from '@app/components/formcomponents/Textarea.svelte';
 
   const { scopeStore, translate } = getContext('app');
   $: TRANSLATED = {

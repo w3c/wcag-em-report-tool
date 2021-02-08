@@ -84,7 +84,7 @@
 <!-- /component -->
 
 <script context="module">
-  import { downloadFile } from 'scripts/files.js';
+  import { downloadFile } from '@app/scripts/files.js';
 
   let Report;
 
@@ -100,9 +100,9 @@
 <script>
   import { getContext } from 'svelte';
 
-  import tests from 'stores/earl/testStore.js';
+  import tests from '@app/stores/earl/testStore.js';
 
-  import AuditorSummary from 'components/Auditor/AuditorSummary.svelte';
+  import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'

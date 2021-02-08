@@ -14,7 +14,7 @@
 <script>
   import { Router, Route } from 'svelte-navigator';
 
-  import EvaluationLayout from 'components/layouts/EvaluationLayout.svelte';
+  import EvaluationLayout from '@app/components/layouts/EvaluationLayout.svelte';
 
   import {
     AuditPage,
@@ -23,5 +23,5 @@
     SamplePage,
     ScopePage,
     SummaryPage
-  } from 'components/pages/Evaluation/Index.svelte';
+  } from '@app/components/pages/Evaluation/Index.svelte';
 </script>

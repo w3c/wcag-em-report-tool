@@ -38,10 +38,10 @@
 <script>
   import { getContext } from 'svelte';
 
-  import subjects, { TestSubjectTypes } from 'stores/earl/subjectStore/index.js';
+  import subjects, { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
 
-  import AddOther from 'components/formcomponents/AddOther.svelte';
-  import Details from 'components/Details.svelte';
+  import AddOther from '@app/components/formcomponents/AddOther.svelte';
+  import Details from '@app/components/Details.svelte';
   import Sample from './Sample.svelte';
 
   export let id;

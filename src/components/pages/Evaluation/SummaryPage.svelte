@@ -56,14 +56,14 @@
 
 <script>
   import { getContext } from 'svelte';
-  import tests from 'stores/earl/testStore.js';
+  import tests from '@app/stores/earl/testStore.js';
 
-  import Details from 'components/Details.svelte';
-  import Page from 'components/Page.svelte';
+  import Details from '@app/components/Details.svelte';
+  import Page from '@app/components/Page.svelte';
 
-  import AuditorSummary from 'components/Auditor/AuditorSummary.svelte';
-  import Input from 'components/formcomponents/Input.svelte';
-  import Textarea from 'components/formcomponents/Textarea.svelte';
+  import AuditorSummary from '@app/components/Auditor/AuditorSummary.svelte';
+  import Input from '@app/components/formcomponents/Input.svelte';
+  import Textarea from '@app/components/formcomponents/Textarea.svelte';
 
   const { summaryStore, translate } = getContext('app');
   $: TRANSLATED = {

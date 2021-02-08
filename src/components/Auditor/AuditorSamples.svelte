@@ -64,12 +64,12 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditSamples } from 'stores/auditStore.js';
-  import { allSamples } from 'stores/sampleStore.js';
+  import { auditSamples } from '@app/stores/auditStore.js';
+  import { allSamples } from '@app/stores/sampleStore.js';
 
-  import Details from 'components/Details.svelte';
-  import Flex from 'components/Flex.svelte';
-  import Panel from 'components/Panel.svelte';
+  import Details from '@app/components/Details.svelte';
+  import Flex from '@app/components/Flex.svelte';
+  import Panel from '@app/components/Panel.svelte';
 
   const { translate } = getContext('app');
 

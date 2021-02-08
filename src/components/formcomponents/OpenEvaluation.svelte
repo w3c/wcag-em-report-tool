@@ -7,7 +7,7 @@
 <script>
   import { getContext } from 'svelte';
   import { useNavigate } from 'svelte-navigator';
-  import evaluationStore from 'stores/evaluationStore.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
 
   import File, { readFile } from './File.svelte';
 

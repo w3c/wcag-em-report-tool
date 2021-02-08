@@ -71,11 +71,11 @@
    */
 
   import { getContext } from 'svelte';
-  import assertions from 'stores/earl/assertionStore.js';
+  import assertions from '@app/stores/earl/assertionStore.js';
 
-  import Flex from 'components/Flex.svelte';
-  import Select from 'components/formcomponents/Select.svelte';
-  import Textarea from 'components/formcomponents/Textarea.svelte';
+  import Flex from '@app/components/Flex.svelte';
+  import Select from '@app/components/formcomponents/Select.svelte';
+  import Textarea from '@app/components/formcomponents/Textarea.svelte';
 
   export let label = undefined;
   // Used to display subject.title

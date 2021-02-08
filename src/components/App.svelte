@@ -44,15 +44,15 @@
 
   import jsonld from 'jsonld/lib/jsonld.js';
 
-  import { translate, translateToObject } from 'stores/i18nStore.js';
-  import auditStore from 'stores/auditStore.js';
-  import exploreStore from 'stores/exploreStore.js';
-  import sampleStore from 'stores/sampleStore.js';
-  import scopeStore from 'stores/scopeStore.js';
-  import summaryStore from 'stores/summaryStore.js';
-  import wcagStore from 'stores/wcagStore.js';
+  import { translate, translateToObject } from '@app/stores/i18nStore.js';
+  import auditStore from '@app/stores/auditStore.js';
+  import exploreStore from '@app/stores/exploreStore.js';
+  import sampleStore from '@app/stores/sampleStore.js';
+  import scopeStore from '@app/stores/scopeStore.js';
+  import summaryStore from '@app/stores/summaryStore.js';
+  import wcagStore from '@app/stores/wcagStore.js';
 
-  import BaseRoute from 'components/routes/BaseRoute.svelte';
+  import BaseRoute from '@app/components/routes/BaseRoute.svelte';
 
   export let basepath = '/';
 

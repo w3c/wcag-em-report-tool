@@ -49,8 +49,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import assertions from 'stores/earl/assertionStore.js';
-  import { TestSubjectTypes } from 'stores/earl/subjectStore/index.js';
+  import assertions from '@app/stores/earl/assertionStore.js';
+  import { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
 
   export let criteria = [];
 

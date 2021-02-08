@@ -51,8 +51,8 @@
   import { getContext } from 'svelte';
   import { Link, useLocation } from 'svelte-navigator';
 
-  import Grid from 'components/Grid.svelte';
-  import GridItem from 'components/GridItem.svelte';
+  import Grid from '@app/components/Grid.svelte';
+  import GridItem from '@app/components/GridItem.svelte';
 
   const { translate } = getContext('app');
 

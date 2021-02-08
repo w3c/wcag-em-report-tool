@@ -1,7 +1,7 @@
-import { internationalize } from 'scripts/i18n.js';
+import { internationalize } from '@app/scripts/i18n.js';
 
-import languages from 'locales/index.json';
-import App from 'components/App.svelte';
+import languages from '@app/locales/index.json';
+import App from '@app/components/App.svelte';
 
 const locales = languages.map((language) => language.lang);
 

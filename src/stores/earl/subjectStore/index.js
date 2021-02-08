@@ -1,4 +1,4 @@
-import collectionStore from 'stores/collectionStore.js';
+import collectionStore from '@app/stores/collectionStore.js';
 
 import { TestSubject, TestSubjectTypes } from './models.js';
 

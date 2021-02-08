@@ -32,8 +32,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  import Details from 'components/Details.svelte';
-  import Page from 'components/Page.svelte';
+  import Details from '@app/components/Details.svelte';
+  import Page from '@app/components/Page.svelte';
 
   const { translate } = getContext('app');
 

@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 import collection from './collectionStore.js';
 
-import webTechnologies from 'data/webtechnologies.json';
+import webTechnologies from '@app/data/webtechnologies.json';
 
 export const initialExploreStore = {
   TECHNOLOGIES_RELIED_UPON: [],

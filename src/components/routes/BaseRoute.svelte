@@ -15,12 +15,12 @@
   // Refactor to `import ... Routes.svelte` See @todo
   import { Router, Route } from 'svelte-navigator';
 
-  import BaseLayout from 'components/layouts/BaseLayout.svelte';
+  import BaseLayout from '@app/components/layouts/BaseLayout.svelte';
 
   import EvaluationRoute from './EvaluationRoute.svelte';
 
   // Import pages
-  import OverviewPage from 'components/pages/OverviewPage.svelte';
+  import OverviewPage from '@app/components/pages/OverviewPage.svelte';
 
   export let basepath;
 </script>

@@ -70,20 +70,20 @@
   import { getContext } from 'svelte';
   import { useNavigate, useLocation, Link } from 'svelte-navigator';
 
-  import { routes } from 'stores/appStore.js';
-  import evaluationStore from 'stores/evaluationStore.js';
-  import locales from 'locales/index.json';
+  import { routes } from '@app/stores/appStore.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
+  import locales from '@app/locales/index.json';
 
-  import Button from 'components/Button.svelte';
-  import AuditorImport from 'components/Auditor/AuditorImport.svelte';
-  import OpenEvaluation from 'components/formcomponents/OpenEvaluation.svelte';
-  import Grid from 'components/Grid.svelte';
-  import GridItem from 'components/GridItem.svelte';
-  import Header from 'components/Header.svelte';
-  import LanguageSelect from 'components/i18n/LanguageSelect.svelte';
-  import NavigationBar from 'components/NavigationBar.svelte';
-  import Pager from 'components/Pager.svelte';
-  import Panel from 'components/Panel.svelte';
+  import Button from '@app/components/Button.svelte';
+  import AuditorImport from '@app/components/Auditor/AuditorImport.svelte';
+  import OpenEvaluation from '@app/components/formcomponents/OpenEvaluation.svelte';
+  import Grid from '@app/components/Grid.svelte';
+  import GridItem from '@app/components/GridItem.svelte';
+  import Header from '@app/components/Header.svelte';
+  import LanguageSelect from '@app/components/i18n/LanguageSelect.svelte';
+  import NavigationBar from '@app/components/NavigationBar.svelte';
+  import Pager from '@app/components/Pager.svelte';
+  import Panel from '@app/components/Panel.svelte';
 
   const location = useLocation();
   const navigate = useNavigate();

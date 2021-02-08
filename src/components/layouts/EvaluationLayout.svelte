@@ -4,9 +4,9 @@
 
 <script>
   import { getContext, onDestroy, onMount, setContext } from 'svelte';
-  import { outcomeValueStore } from 'stores/earl/resultStore.js';
-  import subjects, { TestSubjectTypes } from 'stores/earl/subjectStore/index.js';
-  import testStore from 'stores/earl/testStore.js';
+  import { outcomeValueStore } from '@app/stores/earl/resultStore.js';
+  import subjects, { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
+  import testStore from '@app/stores/earl/testStore.js';
 
   const { scopeStore } = getContext('app');
   // Initialize

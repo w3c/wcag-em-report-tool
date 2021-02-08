@@ -23,11 +23,11 @@
 <script>
   import { getContext } from 'svelte';
 
-  import evaluationStore from 'stores/evaluationStore.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
 
-  import Button from 'components/Button.svelte';
-  import Page from 'components/Page.svelte';
-  import Report, { downloadReport } from 'components/Report.svelte';
+  import Button from '@app/components/Button.svelte';
+  import Page from '@app/components/Page.svelte';
+  import Report, { downloadReport } from '@app/components/Report.svelte';
 
   const { translate } = getContext('app');
 

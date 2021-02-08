@@ -47,11 +47,7 @@ export default {
 
     alias({
       entries: {
-        components: './src/components',
-        data: './src/data',
-        locales: './src/locales',
-        scripts: './src/scripts',
-        stores: './src/stores'
+        '@app': './src'
       }
     }),
 

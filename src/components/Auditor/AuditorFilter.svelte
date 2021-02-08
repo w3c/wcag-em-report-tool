@@ -37,10 +37,10 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { auditFilter } from 'stores/auditStore.js';
-  import { CONFORMANCE_LEVELS, VERSIONS } from 'stores/wcagStore.js';
+  import { auditFilter } from '@app/stores/auditStore.js';
+  import { CONFORMANCE_LEVELS, VERSIONS } from '@app/stores/wcagStore.js';
 
-  import MultipleChoice from 'components/formcomponents/MultipleChoice.svelte';
+  import MultipleChoice from '@app/components/formcomponents/MultipleChoice.svelte';
 
   const { translate } = getContext('app');
 
