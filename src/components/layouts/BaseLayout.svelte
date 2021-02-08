@@ -96,7 +96,7 @@
   import LanguageSelect from '@app/components/i18n/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import Panel from '@app/components/Panel.svelte';
+  import Panel from '@app/components/ui/Panel.svelte';
 
   const location = useLocation();
   const navigate = useNavigate();

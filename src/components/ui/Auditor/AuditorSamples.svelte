@@ -69,7 +69,7 @@
 
   import Details from '@app/components/ui/Details.svelte';
   import Flex from '@app/components/ui/Flex.svelte';
-  import Panel from '@app/components/Panel.svelte';
+  import Panel from '@app/components/ui/Panel.svelte';
 
   const { translate } = getContext('app');
 
