@@ -8,19 +8,19 @@ import webTechnologies from '@app/data/webtechnologies.json';
 import { downloadFile } from '@app/scripts/files.js';
 
 // Import related stores and combine
-import scopeStore, { initialScopeStore } from './scopeStore.js';
-import exploreStore, { initialExploreStore } from './exploreStore.js';
-import sampleStore, { initialSampleStore } from './sampleStore.js';
-import summaryStore, { initialSummaryStore } from './summaryStore.js';
-
-import assertions from './earl/assertionStore/index.js';
 import { TestResult } from '@app/stores/earl/resultStore/models.js';
 import { outcomeValueStore as outcomeValues } from '@app/stores/earl/resultStore/index.js';
+import scopeStore, { initialScopeStore } from '@app/stores/scopeStore.js';
+import exploreStore, { initialExploreStore } from '@app/stores/exploreStore.js';
+import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
+import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
+
+import assertions from '@app/stores/earl/assertionStore/index.js';
 import subjects, {
   initialSubjectStore,
   TestSubjectTypes
-} from './earl/subjectStore/index.js';
-import tests from './earl/testStore.js';
+} from '@app/stores/earl/subjectStore/index.js';
+import tests from '@app/stores/earl/testStore.js';
 
 const evaluationContext = {
   // Dublin Core Terms
