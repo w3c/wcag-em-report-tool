@@ -14,7 +14,7 @@ import exploreStore, { initialExploreStore } from './exploreStore.js';
 import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore, { initialSummaryStore } from './summaryStore.js';
 
-import assertions from './earl/assertionStore.js';
+import assertions from './earl/assertionStore/index.js';
 import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
 import subjects, {
   initialSubjectStore,
