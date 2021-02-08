@@ -1,4 +1,5 @@
-import { Base as BaseModel, TestResult } from '@app/stores/earl/models.js';
+import { Base as BaseModel } from '@app/stores/earl/models.js';
+import { TestResult } from '@app/stores/earl/resultStore/models.js';
 
 export const AssertionTypes = ['Assertion'];
 export class Assertion extends BaseModel {

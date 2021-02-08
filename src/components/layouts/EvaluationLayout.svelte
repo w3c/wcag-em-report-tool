@@ -4,7 +4,7 @@
 
 <script>
   import { getContext, onDestroy, onMount, setContext } from 'svelte';
-  import { outcomeValueStore } from '@app/stores/earl/resultStore.js';
+  import { outcomeValueStore } from '@app/stores/earl/resultStore/index.js';
   import subjects, { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
   import testStore from '@app/stores/earl/testStore.js';
 

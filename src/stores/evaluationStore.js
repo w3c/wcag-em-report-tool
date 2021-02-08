@@ -8,14 +8,14 @@ import webTechnologies from '@app/data/webtechnologies.json';
 import { downloadFile } from '@app/scripts/files.js';
 
 // Import related stores and combine
-import { TestResult } from './earl/models.js';
 import scopeStore, { initialScopeStore } from './scopeStore.js';
 import exploreStore, { initialExploreStore } from './exploreStore.js';
 import sampleStore, { initialSampleStore } from './sampleStore.js';
 import summaryStore, { initialSummaryStore } from './summaryStore.js';
 
 import assertions from './earl/assertionStore/index.js';
-import { outcomeValueStore as outcomeValues } from './earl/resultStore.js';
+import { TestResult } from '@app/stores/earl/resultStore/models.js';
+import { outcomeValueStore as outcomeValues } from '@app/stores/earl/resultStore/index.js';
 import subjects, {
   initialSubjectStore,
   TestSubjectTypes
