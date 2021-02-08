@@ -130,7 +130,7 @@
   } from '@app/stores/earl/subjectStore/index.js';
 
   import Details from '@app/components/ui/Details.svelte';
-  import EarlResult from '@app/components/EarlResult.svelte';
+  import EarlResult from '@app/components/form/EarlResult.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
   export let test;
