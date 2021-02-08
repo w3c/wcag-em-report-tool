@@ -25,7 +25,7 @@
 
   import evaluationStore from '@app/stores/evaluationStore.js';
 
-  import Button from '@app/components/Button.svelte';
+  import Button from '@app/components/ui/Button.svelte';
   import Page from '@app/components/Page.svelte';
   import Report, { downloadReport } from '@app/components/Report.svelte';
 

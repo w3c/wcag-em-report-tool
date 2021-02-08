@@ -74,7 +74,7 @@
   import evaluationStore from '@app/stores/evaluationStore.js';
   import locales from '@app/locales/index.json';
 
-  import Button from '@app/components/Button.svelte';
+  import Button from '@app/components/ui/Button.svelte';
   import AuditorImport from '@app/components/Auditor/AuditorImport.svelte';
   import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/Grid.svelte';
