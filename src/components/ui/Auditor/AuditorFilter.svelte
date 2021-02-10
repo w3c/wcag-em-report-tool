@@ -8,7 +8,7 @@
       id="filter_wcag_version"
       label="Criterion WCAG Version"
       type="radio"
-      options="{wcagVersions}"
+      options="{versionFilterOptions}"
       bind:value="{$auditFilter['VERSION']}"
     />
 
@@ -44,10 +44,14 @@
 
   const { translate } = getContext('app');
 
-  let wcagVersions = VERSIONS.reduce((result, version, index) => {
+  const wcagVersions = [...VERSIONS].reverse();
+
+  let versionFilterOptions = wcagVersions.reduce((result, version, index) => {
     const newFilter = {
       title: `WCAG ${version}`,
-      value: version
+      value: wcagVersions.filter((VERSION) => {
+        return VERSION <= version;
+      }).join()
     };
     result.push(newFilter);
 
@@ -59,7 +63,7 @@
     // Last index excluded, it is the first version.
     result.push({
       title: `Added in WCAG ${version}`,
-      value: `${version}+`
+      value: version
     });
 
     return result;
