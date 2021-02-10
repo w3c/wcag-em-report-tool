@@ -22,8 +22,8 @@ WCAG20 = artoo.scrape('.sc', {
 });
 artoo.saveJson(WCAG20, 'WCAG20.json');
 
-// SC DATA WCAG21
-WCAG21_EN = artoo.scrape('.sc', {
+// NEW SC DATA
+WCAG_UPDATE = artoo.scrape('.sc.new, .sc.changed', {
   num: function () {
     return $(this)
       .find('.secno')
@@ -38,7 +38,16 @@ WCAG21_EN = artoo.scrape('.sc', {
       .replace(/[^A]/g, '')
       .trim();
   }
-});
+}).reduce((result, sc) => {
+  const { num, conformanceLevel } = sc;
+  result[num] = {
+    num,
+    conformanceLevel
+  };
+
+  return result;
+}, {});
+artoo.saveJson(WCAG_UPDATE, 'wcag_new.json');
 
 let WCAG21_P = artoo
   .scrape('.principle', {
