@@ -10,29 +10,30 @@
     {@html TRANSLATED.INTRODUCTION_P2}
   </p>
 
-  <Details label="<h2>{TRANSLATED.USAGE_HEADING}</h2>">
+  <details>
+    <summary><h2>{TRANSLATED.USAGE_HEADING}</h2></summary>
     <ul>
       <li>{TRANSLATED.USAGE_LI1}</li>
       <li>{TRANSLATED.USAGE_LI2}</li>
       <li>{TRANSLATED.USAGE_LI3}</li>
     </ul>
-  </Details>
+  </details>
 
-  <Details label="<h2>{TRANSLATED.TIPS_HEADING}</h2>">
+  <details>
+    <summary><h2>{TRANSLATED.TIPS_HEADING}</h2></summary>
     <ol>
       <li>{TRANSLATED.TIPS_LI1}</li>
       <li>{TRANSLATED.TIPS_LI2}</li>
       <li>{TRANSLATED.TIPS_LI3}</li>
       <li>{TRANSLATED.TIPS_LI4}</li>
     </ol>
-  </Details>
+  </details>
 </Page>
 <!-- /component -->
 
 <script>
   import { getContext } from 'svelte';
 
-  import Details from '@app/components/ui/Details.svelte';
   import Page from '@app/components/ui/Page.svelte';
 
   const { translate } = getContext('app');

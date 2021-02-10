@@ -47,18 +47,16 @@
     />
   </form>
 
-  <Details
-    label="{`<h2>${TRANSLATED.AUDIT_RESULTS_HEADING}</h2>`}"
-  >
+  <details>
+    <summary><h2>{TRANSLATED.AUDIT_RESULTS_HEADING}</h2></summary>
     <AuditorSummary criteria="{$tests}" />
-  </Details>
+  </details>
 </Page>
 
 <script>
   import { getContext } from 'svelte';
   import tests from '@app/stores/earl/testStore/index.js';
 
-  import Details from '@app/components/ui/Details.svelte';
   import Page from '@app/components/ui/Page.svelte';
 
   import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
