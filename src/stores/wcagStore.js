@@ -1,48 +1,78 @@
 import { derived } from 'svelte/store';
 
-import auditStore from './auditStore.js';
-
-// import wcag data here
-import WCAG20 from '@app/data/wcag/WCAG20.json';
-import WCAG21 from '@app/data/wcag/WCAG21.json';
-
-export const wcag = {
-  '2.1': WCAG21,
-  '2.0': WCAG20
-};
-
-export const newInWcag = {};
-
-/* For every new wcag 2.x version,
- * add an entry for “only in new version” here.
- */
-Object.keys(wcag).reverse().reduce((previous, current, index) => {
-  // Skip first
-  if (index === 0) {
-    return current;
-  }
-
-  const newInCurrent = wcag[current].filter(
-    (currentSc) => !wcag[previous].some((previousSc) => currentSc.num === previousSc.num)
-  );
-
-  newInWcag[`${current}`] = newInCurrent;
-
-  // Return the current to set a previous version!
-  return current;
-}, '');
-
+import scopeStore from '@app/stores/scopeStore.js';
+import wcagCriteriaData from '@app/data/wcag.json';
 
 export const CONFORMANCE_LEVELS = ['A', 'AA', 'AAA'];
 
-export const VERSIONS = ['2.1', '2.0'];
+export const VERSIONS = Object.keys(wcagCriteriaData);
 
-export default derived([auditStore], () => {
-  return function lookupWCAG(version) {
-    if (!wcag[version]) {
-      return wcag['2.1'];
+const _wcagCriteria = VERSIONS.reduce((result, version) => {
+  const versionedCriteria = [];
+  let criterion;
+
+  for (criterion in wcagCriteriaData[version]) {
+    versionedCriteria.push({
+      ...wcagCriteriaData[version][criterion],
+      version
+    });
+  }
+
+  return [...result, ...versionedCriteria];
+}, []);
+
+export const wcag = derived([scopeStore], ([$scopeStore]) => {
+  const wcagVersion = $scopeStore['WCAG_VERSION'];
+
+  const result = _wcagCriteria.reduce((_result, criterion) => {
+    // Skip pushing criterion if version does not match
+    if (criterion.version > wcagVersion) {
+      return _result;
     }
 
-    return wcag[version];
-  };
+    // Filter out duplicate criterion,
+    // last version owns the criterion
+    const newResult = _result.filter((_criterion) => {
+      return _criterion.num !== criterion.num;
+    });
+
+    if (criterion.version <= wcagVersion) {
+      newResult.push(criterion);
+    }
+
+    return newResult;
+  }, []);
+
+  return result.sort((a, b) => {
+    const [ap, ag, ac] = a.num.split('.').map((str) => parseInt(str, 10));
+    const [bp, bg, bc] = b.num.split('.').map((str) => parseInt(str, 10));
+
+    if (ap > bp) {
+      return 1;
+    }
+
+    if (ap < bp) {
+      return -1;
+    }
+
+    if (ag > bg) {
+      return 1;
+    }
+
+    if (ag < bg) {
+      return -1;
+    }
+
+    if (ac > bc) {
+      return 1;
+    }
+
+    if (ac < bc) {
+      return -1;
+    }
+
+    return -1;
+  });
 });
+
+export default wcag;
