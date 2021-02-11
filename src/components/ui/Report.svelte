@@ -4,6 +4,7 @@
  * -->
 <article class="Report" bind:this="{Report}">
   <header>
+    <h2>{TRANSLATED.HEADING_ABOUT}</h2>
     <dl>
       <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
       <dd>{report.creator || '…'}</dd>
@@ -111,6 +112,7 @@
     LABEL_EVALUATOR: $translate('UI.REPORT.BY'),
     LABEL_COMMISSIONER: $translate('UI.REPORT.COMMISION_BY'),
     LABEL_DATE: $translate('PAGES.SUMMARY.LABEL_DATE'),
+    HEADING_ABOUT: $translate('UI.REPORT.HD_ABOUT'),
     HEADING_SUMMARY: $translate('UI.REPORT.HD_SUMMARY'),
     HEADING_SCOPE: $translate('UI.REPORT.HD_SCOPE'),
     LABEL_WEBSITE_NAME: $translate('PAGES.SCOPE.LABEL_SITE_NAME'),
