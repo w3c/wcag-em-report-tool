@@ -1,8 +1,16 @@
-<File
-  id="import__assertions"
-  label="{TRANSLATED.BUTTON}"
-  on:change="{handleChange}"
-/>
+<div class="AuditorImport">
+  <File
+    id="import__assertions"
+    label="{TRANSLATED.BUTTON}"
+    on:change="{handleChange}"
+  />
+</div>
+
+<style>
+.AuditorImport {
+  display: inline-block;
+}
+</style>
 
 <script>
   import { getContext } from 'svelte';
