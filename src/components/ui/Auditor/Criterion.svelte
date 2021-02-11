@@ -4,18 +4,18 @@
  * -->
 <div class="Criterion">
   <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">{num}: {title}</h3>
+    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.TITLE}</h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
   <Details
     label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${test.title}</span>`}"
   >
-    <div>{description}</div>
+    <div>{TRANSLATED.ESCRIPTION}</div>
 
-    {#if details.length > 0}
+    {#if TRANSLATED.DETAILS.length > 0}
       <dl>
-        {#each details as detail}
+        {#each TRANSLATED.DETAILS as detail}
           <dt>{detail.title}</dt>
           <dd>
             <p>{detail.description}</p>
@@ -135,7 +135,7 @@
 
   export let test;
 
-  const { conformanceLevel, description, details, id, num, title } = test;
+  const { conformanceLevel, id, num } = test;
 
   let notes;
   const { translate } = getContext('app');
@@ -146,7 +146,10 @@
     HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
-    RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR')
+    RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
+    DESCRIPTION: test.description,
+    DETAILS: test.details,
+    TITLE: test.title
   };
 
   let scopeSubject = $subjects.find((subject) => {
