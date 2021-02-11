@@ -6,9 +6,18 @@ import wcagCriteriaData from '@app/data/wcag.json';
 
 export const CONFORMANCE_LEVELS = ['A', 'AA', 'AAA'];
 
-export const VERSIONS = Object.keys(wcagCriteriaData);
+export const WCAG_VERSIONS = Object.keys(wcagCriteriaData);
 
-const _wcagCriteria = VERSIONS.reduce((result, version) => {
+export const scopedWcagVersions = derived([scopeStore], ([$scopeStore]) => {
+  const {WCAG_VERSION} = $scopeStore;
+
+  return WCAG_VERSIONS.filter((version) => {
+    return version <= WCAG_VERSION;
+  });
+});
+
+
+const _wcagCriteria = WCAG_VERSIONS.reduce((result, version) => {
   const versionedCriteria = [];
   let criterion;
 

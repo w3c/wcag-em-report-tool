@@ -1,3 +1,12 @@
+<!--
+ * @component
+ *   AuditorFilter
+ *
+ * @note
+ *   Might be good to setup for dynamic additions
+ *   e.g. pass filters and cycle with each
+ *   also dispatching a FILTER event back up with details
+ * -->
 <div class="Auditor__Filter box">
   <header class="Auditor__Filter__header box-h">
     {$translate('UI.AUDITOR.FILTER_TITLE', { default: 'Show' })}
@@ -20,6 +29,7 @@
     />
   </div>
 </div>
+<!-- /component -->
 
 <style>
   .Auditor__Filter {
@@ -38,13 +48,13 @@
   import { getContext } from 'svelte';
 
   import { auditFilter } from '@app/stores/auditStore.js';
-  import { CONFORMANCE_LEVELS, VERSIONS } from '@app/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, scopedWcagVersions } from '@app/stores/wcagStore.js';
 
   import MultipleChoice from '@app/components/form/MultipleChoice.svelte';
 
   const { translate } = getContext('app');
 
-  const wcagVersions = [...VERSIONS].reverse();
+  const wcagVersions = [...$scopedWcagVersions].reverse();
 
   let versionFilterOptions = wcagVersions.reduce((result, version, index) => {
     const newFilter = {
@@ -55,7 +65,7 @@
     };
     result.push(newFilter);
 
-    if (index === VERSIONS.length - 1) {
+    if (index === $scopedWcagVersions.length - 1) {
       return result;
     }
 
