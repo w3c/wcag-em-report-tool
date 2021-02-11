@@ -1,8 +1,4 @@
 <Page title="{TRANSLATED.PAGE_TITLE}">
-  <p>
-    {@html TRANSLATED.INTRODUCTION}
-  </p>
-
 
     <Button on:click="{handleHTMLDownloadClick}">
       <span>{TRANSLATED.BUTTON_SAVE_HTML}</span>
@@ -27,7 +23,6 @@
 
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.REPORT.TITLE'),
-    INTRODUCTION: $translate('PAGES.REPORT.INTRO'),
     BUTTON_SAVE_HTML: $translate('PAGES.REPORT.BTN_SAVE_HTML'),
     BUTTON_SAVE_JSON: $translate('PAGES.REPORT.BTN_SAVE_JSON')
   };
