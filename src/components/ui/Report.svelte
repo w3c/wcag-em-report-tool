@@ -53,7 +53,7 @@
 
   <section>
     <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
-    <AuditorSummary criteria="{$tests}" />
+    <AuditorSummary criteria="{$wcag}" />
   </section>
 
   <section>
@@ -100,7 +100,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import tests from '@app/stores/earl/testStore/index.js';
+  import wcag from '@app/stores/wcagStore.js';
 
   import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
 
