@@ -97,6 +97,32 @@
   }
 </script>
 
+<style>
+  dt {
+    grid-column: 1 / 2;
+    margin-top: 0;
+    font-weight: normal;
+  }
+  dt:after {
+    content: ":";
+  }
+  dd {
+    font-weight: bold;
+    margin-left: 0;
+    margin-bottom: 1em;
+    grid-column: 2 / 3;
+  }
+  @media (min-width: 40em) {
+    dl {
+      display: grid;
+      grid-template-columns: auto 2fr;
+      gap: 0.5em 1em;
+    }
+    dd {
+      margin-bottom: 0;
+    }
+  }
+  </style>
 <script>
   import { getContext } from 'svelte';
 
