@@ -28,7 +28,8 @@
   }
 
   setContext('Evaluation', {
-    outcomeValues: outcomeValueStore
+    outcomeValues: outcomeValueStore,
+    wcagCriteria: wcag
   });
 
   onMount(() => {
