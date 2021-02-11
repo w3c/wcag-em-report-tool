@@ -2,85 +2,66 @@
  * @component
  *   Report
  * -->
-<article class="Report" bind:this="{Report}">
-  <header>
-    <h2>{TRANSLATED.HEADING_ABOUT}</h2>
-    <dl>
-      <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
-      <dd>{report.creator || '…'}</dd>
+<h2>{TRANSLATED.HEADING_ABOUT}</h2>
+<dl>
+  <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
+  <dd>{report.creator || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_COMMISSIONER}</dt>
-      <dd>{report.commissioner || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_COMMISSIONER}</dt>
+  <dd>{report.commissioner || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_DATE}</dt>
-      <dd>{report.date || '…'}</dd>
-    </dl>
-  </header>
+  <dt>{TRANSLATED.LABEL_DATE}</dt>
+  <dd>{report.date || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+</dl>
 
-  <section>
-    <h2>{TRANSLATED.HEADING_SUMMARY}</h2>
-    <p>{report.summary || '…'}</p>
-  </section>
+<h2>{TRANSLATED.HEADING_SUMMARY}</h2>
+<p>{report.summary || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
-  <section>
-    <h2>{TRANSLATED.HEADING_SCOPE}</h2>
+<h2>{TRANSLATED.HEADING_SCOPE}</h2>
+<dl>
+  <dt>{TRANSLATED.LABEL_WEBSITE_NAME}</dt>
+  <dd>{scope.siteName || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-    <dl>
-      <dt>{TRANSLATED.LABEL_WEBSITE_NAME}</dt>
-      <dd>{scope.siteName || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_WEBSITE_SCOPE}</dt>
+  <dd>{scope.siteScope || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_WEBSITE_SCOPE}</dt>
-      <dd>{scope.siteScope || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_WCAG_VERSION}</dt>
+  <dd>{scope.wcagVersion || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_WCAG_VERSION}</dt>
-      <dd>{scope.wcagVersion || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_CONFORMANCE_TARGET}</dt>
+  <dd>{scope.conformanceTarget || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_CONFORMANCE_TARGET}</dt>
-      <dd>{scope.conformanceTarget || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_EXTRA_REQUIREMENTS}</dt>
+  <dd>{scope.extra || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
 
-      <dt>{TRANSLATED.LABEL_EXTRA_REQUIREMENTS}</dt>
-      <dd>{scope.extra || '…'}</dd>
+  <dt>{TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}</dt>
+  <dd>{scope.baseline || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+</dl>
 
-      <dt>{TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}</dt>
-      <dd>{scope.baseline || '…'}</dd>
-    </dl>
-  </section>
+<h2>{TRANSLATED.HEADING_AUDIT_RESULTS_OVERVIEW}</h2>
+<p>{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
-  <section>
-    <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_OVERVIEW}</h2>
-    <p>{report.result || '…'}</p>
-  </section>
+<h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
+<AuditorSummary criteria="{$tests}" />
 
-  <section>
-    <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
-    <AuditorSummary criteria="{$tests}" />
-  </section>
+<h2>{TRANSLATED.HEADING_SAMPLE}</h2>
+{#if report.samples.length > 0}
+  <ol>
+    {#each report.samples as sample}
+      <li>
+        <span>{sample.title}</span> - <span>{sample.description}</span>
+      </li>
+    {/each}
+  </ol>
+{:else}
+  <p>{TRANSLATED.TEXT_NO_SAMPLE}</p>
+{/if}
 
-  <section>
-    <h2>{TRANSLATED.HEADING_SAMPLE}</h2>
-    {#if report.samples.length > 0}
-      <ol>
-        {#each report.samples as sample}
-          <li>
-            <span>{sample.title}</span> - <span>{sample.description}</span>
-          </li>
-        {/each}
-      </ol>
-    {:else}
-      <p>{TRANSLATED.TEXT_NO_SAMPLE}</p>
-    {/if}
-  </section>
+<h2>{TRANSLATED.HEADING_SPECIFICS}</h2>
+<p>{report.specifics || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
-  <section>
-    <h2>{TRANSLATED.HEADING_SPECIFICS}</h2>
-    <p>{report.specifics || '…'}</p>
-  </section>
-
-  <aside>
-    <h2>{TRANSLATED.HEADING_RESOURCES}</h2>
-    <p class="info">List resources</p>
-  </aside>
-</article>
+<h2>{TRANSLATED.HEADING_RESOURCES}</h2>
+<p class="info">List resources</p>
 <!-- /component -->
 
 <script context="module">
@@ -123,6 +104,7 @@
     }
   }
   </style>
+
 <script>
   import { getContext } from 'svelte';
 
@@ -137,6 +119,7 @@
   $: TRANSLATED = {
     LABEL_EVALUATOR: $translate('UI.REPORT.BY'),
     LABEL_COMMISSIONER: $translate('UI.REPORT.COMMISION_BY'),
+    LABEL_NOT_PROVIDED: $translate('UI.REPORT.LABEL_NOT_PROVIDED'),
     LABEL_DATE: $translate('PAGES.SUMMARY.LABEL_DATE'),
     HEADING_ABOUT: $translate('UI.REPORT.HD_ABOUT'),
     HEADING_SUMMARY: $translate('UI.REPORT.HD_SUMMARY'),
