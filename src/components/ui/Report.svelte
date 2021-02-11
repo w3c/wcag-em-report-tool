@@ -4,7 +4,6 @@
  * -->
 <article class="Report" bind:this="{Report}">
   <header>
-    <h1>{report.title}</h1>
     <dl>
       <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
       <dd>{report.creator || '…'}</dd>
