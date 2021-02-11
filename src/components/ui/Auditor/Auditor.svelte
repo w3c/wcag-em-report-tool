@@ -6,9 +6,7 @@
   <AuditorFilter />
 
   <div class="Auditor__Assertions">
-    <AuditorView
-      criteria="{criteriaFiltered}"
-    />
+    <AuditorView criteria="{criteriaFiltered}" />
   </div>
 </div>
 
@@ -73,11 +71,24 @@
   $: criteriaFiltered = $wcagCriteria
     // Filter by version
     .filter((criterion) => {
-      return $auditFilter['VERSION'].indexOf(criterion.version) >= 0;
+      const filterVersions = $auditFilter['VERSION'];
+
+      // Pass filtering if not enabled
+      if (filterVersions.length === 0) {
+        return true;
+      }
+
+      return filterVersions.indexOf(criterion.version) >= 0;
     })
     // Filter by conformance level
     .filter((criterion) => {
-      return $auditFilter['LEVEL'].indexOf(criterion.conformanceLevel) >= 0;
-    });
+      const filterLevels = $auditFilter['LEVEL'];
 
+      // Pass filtering if not enabled
+      if (filterLevels.length === 0) {
+        return true;
+      }
+
+      return filterLevels.indexOf(criterion.conformanceLevel) >= 0;
+    });
 </script>
