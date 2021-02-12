@@ -4,7 +4,7 @@
  * -->
 <div class="Criterion">
   <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.TITLE}</h3>
+    <h3 class="Criterion__Header__heading">{TRANSLATED.TITLE}</h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
