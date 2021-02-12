@@ -14,14 +14,16 @@
     <div>{TRANSLATED.DESCRIPTION}</div>
 
     {#if TRANSLATED.DETAILS.length > 0}
-      <dl>
+      <ul>
         {#each TRANSLATED.DETAILS as detail}
-          <dt>{detail.title}</dt>
-          <dd>
-            <p>{detail.description}</p>
-          </dd>
+          <li>
+            <p>
+              {#if detail.title}<strong>{detail.title}</strong>:{/if}
+              {detail.description}
+            </p>
+          </li>
         {/each}
-      </dl>
+      </ul>
     {/if}
 
     {#if notes}
