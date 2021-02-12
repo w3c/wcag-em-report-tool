@@ -19,8 +19,10 @@
               <dl>
                 <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
                 <dd>{assertion.result.outcome.title}</dd>
+                {#if assertion.result.description}
                 <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
-                <dd>{assertion.result.description}</dd>
+                <dd>{@html marked(assertion.result.description)}</dd>
+                {/if}
               </dl>
             {:else}
               <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
@@ -32,8 +34,10 @@
                 <dl class="box-i">
                   <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
                   <dd>{assertion.result.outcome}</dd>
+                  {#if assertion.result.description}
                   <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
-                  <dd>{assertion.result.description}</dd>
+                  <dd>{@html marked(assertion.result.description)}</dd>
+                  {/if}
                 </dl>
               </div>
             {:else}
@@ -48,6 +52,7 @@
 
 <script>
   import { getContext } from 'svelte';
+  import marked from "marked";
 
   import assertions from '@app/stores/earl/assertionStore/index.js';
   import { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';

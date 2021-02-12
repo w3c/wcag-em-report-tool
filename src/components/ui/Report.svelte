@@ -15,7 +15,11 @@
 </dl>
 
 <h2>{TRANSLATED.HEADING_SUMMARY}</h2>
-<p>{report.summary || TRANSLATED.LABEL_NOT_PROVIDED}</p>
+{#if report.summary}
+{@html marked(report.summary)}
+{:else}
+<p>{TRANSLATED.LABEL_NOT_PROVIDED}</p>
+{/if}
 
 <h2>{TRANSLATED.HEADING_SCOPE}</h2>
 <dl>
@@ -107,6 +111,7 @@
 
 <script>
   import { getContext } from 'svelte';
+  import marked from "marked";
 
   import tests from '@app/stores/earl/testStore/index.js';
 
