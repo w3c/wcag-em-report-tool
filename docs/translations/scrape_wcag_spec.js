@@ -110,13 +110,22 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
   const principle = $(this);
   const guidelines = principle.find('.guideline');
 
+  function getTitle(str) {
+    const regexp = /(\d(\.\d*)+)(( +[a-zA-Z-–_,()]+)+)/;
+    const matches = str.match(regexp);
+
+    console.log(matches);
+
+    return matches[3].trim() || '';
+  }
+
   function cleanWhitespace(str) {
     return str.replace(/\s{2,}/g, ' ').trim();
   }
 
   return {
     num: principle.find('> h2 > .secno').text().replace(/\D/g, ''),
-    title: cleanWhitespace(principle.find('> h2').text().replace('§', '')),
+    title: getTitle(principle.find('> h2').text()),
     description: cleanWhitespace(principle.find('> p').text()),
     guidelines: guidelines
       .map(function getGuidelines() {
@@ -128,9 +137,7 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
             .find('> h3 > .secno')
             .text()
             .match(/\d\.\d/)[0],
-          title: cleanWhitespace(
-            guideline.find('> h3').text().replace('§', '')
-          ),
+          title: getTitle(guideline.find('> h3').text()),
           description: cleanWhitespace(guideline.find('> p').text()),
           succescriteria: succescriteria
             .map(function getCriteria(index) {
@@ -143,7 +150,9 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
                 .get();
 
               if (index === 0) {
-                WCAG_COMMON.CONFORMANCE_LEVEL = level.match(/(?<=\()\w+(?=\s)/g)[0];
+                WCAG_COMMON.CONFORMANCE_LEVEL = level.match(
+                  /(?<=\()\w+(?=\s)/g
+                )[0];
               }
 
               const scDetails = sc
@@ -219,7 +228,7 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
                   .find('.secno')
                   .text()
                   .match(/\d(\.\d){2}/g)[0],
-                title: cleanWhitespace(sc.find('> h4').text().replace('§', '')),
+                title: getTitle(sc.find('> h4').text()),
                 description,
                 details: scDetails
               };

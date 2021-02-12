@@ -2,79 +2,79 @@
     "COMMON": { "CONFORMANCE_LEVEL": "Level" },
     "PRINCIPLE": {
         "1": {
-            "TITLE": "1. Perceivable",
+            "TITLE": "Perceivable",
             "DESCRIPTION": "Information and user interface components must be presentable to users in ways they can perceive."
         },
         "2": {
-            "TITLE": "2. Operable",
+            "TITLE": "Operable",
             "DESCRIPTION": "User interface components and navigation must be operable."
         },
         "3": {
-            "TITLE": "3. Understandable",
+            "TITLE": "Understandable",
             "DESCRIPTION": "Information and the operation of user interface must be understandable."
         },
         "4": {
-            "TITLE": "4. Robust",
+            "TITLE": "Robust",
             "DESCRIPTION": "Content must be robust enough that it can be interpreted by by a wide variety of user agents, including assistive technologies."
         }
     },
     "GUIDELINE": {
         "1.1": {
-            "TITLE": "Guideline 1.1 Text Alternatives",
+            "TITLE": "Text Alternatives",
             "DESCRIPTION": "Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language."
         },
         "1.2": {
-            "TITLE": "Guideline 1.2 Time-based Media",
+            "TITLE": "Time-based Media",
             "DESCRIPTION": "Provide alternatives for time-based media."
         },
         "1.3": {
-            "TITLE": "Guideline 1.3 Adaptable",
+            "TITLE": "Adaptable",
             "DESCRIPTION": "Create content that can be presented in different ways (for example simpler layout) without losing information or structure."
         },
         "1.4": {
-            "TITLE": "Guideline 1.4 Distinguishable",
+            "TITLE": "Distinguishable",
             "DESCRIPTION": "Make it easier for users to see and hear content including separating foreground from background."
         },
         "2.1": {
-            "TITLE": "Guideline 2.1 Keyboard Accessible",
+            "TITLE": "Keyboard Accessible",
             "DESCRIPTION": "Make all functionality available from a keyboard."
         },
         "2.2": {
-            "TITLE": "Guideline 2.2 Enough Time",
+            "TITLE": "Enough Time",
             "DESCRIPTION": "Provide users enough time to read and use content."
         },
         "2.3": {
-            "TITLE": "Guideline 2.3 Seizures and Physical Reactions",
+            "TITLE": "Seizures and Physical Reactions",
             "DESCRIPTION": "Do not design content in a way that is known to cause seizures or physical reactions."
         },
         "2.4": {
-            "TITLE": "Guideline 2.4 Navigable",
+            "TITLE": "Navigable",
             "DESCRIPTION": "Provide ways to help users navigate, find content, and determine where they are."
         },
         "2.5": {
-            "TITLE": "Guideline 2.5 Input Modalities",
+            "TITLE": "Input Modalities",
             "DESCRIPTION": "Make it easier for users to operate functionality through various inputs beyond keyboard."
         },
         "3.1": {
-            "TITLE": "Guideline 3.1 Readable",
+            "TITLE": "Readable",
             "DESCRIPTION": "Make text content readable and understandable."
         },
         "3.2": {
-            "TITLE": "Guideline 3.2 Predictable",
+            "TITLE": "Predictable",
             "DESCRIPTION": "Make Web pages appear and operate in predictable ways."
         },
         "3.3": {
-            "TITLE": "Guideline 3.3 Input Assistance",
+            "TITLE": "Input Assistance",
             "DESCRIPTION": "Help users avoid and correct mistakes."
         },
         "4.1": {
-            "TITLE": "Guideline 4.1 Compatible",
+            "TITLE": "Compatible",
             "DESCRIPTION": "Maximize compatibility with current and future user agents, including assistive technologies."
         }
     },
     "SUCCESS_CRITERION": {
         "1.1.1": {
-            "TITLE": "Success Criterion 1.1.1 Non-text Content",
+            "TITLE": "Non-text Content",
             "DESCRIPTION": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.",
             "DETAILS": {
                 "1": {
@@ -104,7 +104,7 @@
             }
         },
         "1.2.1": {
-            "TITLE": "Success Criterion 1.2.1 Audio-only and Video-only (Prerecorded)",
+            "TITLE": "Audio-only and Video-only (Prerecorded)",
             "DESCRIPTION": "For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such:",
             "DETAILS": {
                 "1": {
@@ -118,67 +118,67 @@
             }
         },
         "1.2.2": {
-            "TITLE": "Success Criterion 1.2.2 Captions (Prerecorded)",
+            "TITLE": "Captions (Prerecorded)",
             "DESCRIPTION": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
             "DETAILS": {}
         },
         "1.2.3": {
-            "TITLE": "Success Criterion 1.2.3 Audio Description or Media Alternative (Prerecorded)",
+            "TITLE": "Audio Description or Media Alternative (Prerecorded)",
             "DESCRIPTION": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
             "DETAILS": {}
         },
         "1.2.4": {
-            "TITLE": "Success Criterion 1.2.4 Captions (Live)",
+            "TITLE": "Captions (Live)",
             "DESCRIPTION": "Captions are provided for all live audio content in synchronized media.",
             "DETAILS": {}
         },
         "1.2.5": {
-            "TITLE": "Success Criterion 1.2.5 Audio Description (Prerecorded)",
+            "TITLE": "Audio Description (Prerecorded)",
             "DESCRIPTION": "Audio description is provided for all prerecorded video content in synchronized media.",
             "DETAILS": {}
         },
         "1.2.6": {
-            "TITLE": "Success Criterion 1.2.6 Sign Language (Prerecorded)",
+            "TITLE": "Sign Language (Prerecorded)",
             "DESCRIPTION": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
             "DETAILS": {}
         },
         "1.2.7": {
-            "TITLE": "Success Criterion 1.2.7 Extended Audio Description (Prerecorded)",
+            "TITLE": "Extended Audio Description (Prerecorded)",
             "DESCRIPTION": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video, extended audio description is provided for all prerecorded video content in synchronized media.",
             "DETAILS": {}
         },
         "1.2.8": {
-            "TITLE": "Success Criterion 1.2.8 Media Alternative (Prerecorded)",
+            "TITLE": "Media Alternative (Prerecorded)",
             "DESCRIPTION": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media.",
             "DETAILS": {}
         },
         "1.2.9": {
-            "TITLE": "Success Criterion 1.2.9 Audio-only (Live)",
+            "TITLE": "Audio-only (Live)",
             "DESCRIPTION": "An alternative for time-based media that presents equivalent information for live audio-only content is provided.",
             "DETAILS": {}
         },
         "1.3.1": {
-            "TITLE": "Success Criterion 1.3.1 Info and Relationships",
+            "TITLE": "Info and Relationships",
             "DESCRIPTION": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
             "DETAILS": {}
         },
         "1.3.2": {
-            "TITLE": "Success Criterion 1.3.2 Meaningful Sequence",
+            "TITLE": "Meaningful Sequence",
             "DESCRIPTION": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
             "DETAILS": {}
         },
         "1.3.3": {
-            "TITLE": "Success Criterion 1.3.3 Sensory Characteristics",
+            "TITLE": "Sensory Characteristics",
             "DESCRIPTION": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound.",
             "DETAILS": {}
         },
         "1.3.4": {
-            "TITLE": "Success Criterion 1.3.4 Orientation",
+            "TITLE": "Orientation",
             "DESCRIPTION": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
             "DETAILS": {}
         },
         "1.3.5": {
-            "TITLE": "Success Criterion 1.3.5 Identify Input Purpose",
+            "TITLE": "Identify Input Purpose",
             "DESCRIPTION": "The purpose of each input field collecting information about the user can be programmatically determined when:",
             "DETAILS": {
                 "1": {
@@ -190,12 +190,12 @@
             }
         },
         "1.3.6": {
-            "TITLE": "Success Criterion 1.3.6 Identify Purpose",
+            "TITLE": "Identify Purpose",
             "DESCRIPTION": "In content implemented using markup languages, the purpose of User Interface Components, icons, and regions can be programmatically determined.",
             "DETAILS": {}
         },
         "1.4.1": {
-            "TITLE": "Success Criterion 1.4.13 Content on Hover or Focus",
+            "TITLE": "Content on Hover or Focus",
             "DESCRIPTION": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
             "DETAILS": {
                 "1": {
@@ -213,12 +213,12 @@
             }
         },
         "1.4.2": {
-            "TITLE": "Success Criterion 1.4.2 Audio Control",
+            "TITLE": "Audio Control",
             "DESCRIPTION": "If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.",
             "DETAILS": {}
         },
         "1.4.3": {
-            "TITLE": "Success Criterion 1.4.3 Contrast (Minimum)",
+            "TITLE": "Contrast (Minimum)",
             "DESCRIPTION": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:",
             "DETAILS": {
                 "1": {
@@ -236,12 +236,12 @@
             }
         },
         "1.4.4": {
-            "TITLE": "Success Criterion 1.4.4 Resize text",
+            "TITLE": "Resize text",
             "DESCRIPTION": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
             "DETAILS": {}
         },
         "1.4.5": {
-            "TITLE": "Success Criterion 1.4.5 Images of Text",
+            "TITLE": "Images of Text",
             "DESCRIPTION": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:",
             "DETAILS": {
                 "1": {
@@ -255,7 +255,7 @@
             }
         },
         "1.4.6": {
-            "TITLE": "Success Criterion 1.4.6 Contrast (Enhanced)",
+            "TITLE": "Contrast (Enhanced)",
             "DESCRIPTION": "The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following:",
             "DETAILS": {
                 "1": {
@@ -273,7 +273,7 @@
             }
         },
         "1.4.7": {
-            "TITLE": "Success Criterion 1.4.7 Low or No Background Audio",
+            "TITLE": "Low or No Background Audio",
             "DESCRIPTION": "For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -291,7 +291,7 @@
             }
         },
         "1.4.8": {
-            "TITLE": "Success Criterion 1.4.8 Visual Presentation",
+            "TITLE": "Visual Presentation",
             "DESCRIPTION": "For the visual presentation of blocks of text, a mechanism is available to achieve the following:",
             "DETAILS": {
                 "1": {
@@ -312,27 +312,27 @@
             }
         },
         "1.4.9": {
-            "TITLE": "Success Criterion 1.4.9 Images of Text (No Exception)",
+            "TITLE": "Images of Text (No Exception)",
             "DESCRIPTION": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
             "DETAILS": {}
         },
         "2.1.1": {
-            "TITLE": "Success Criterion 2.1.1 Keyboard",
+            "TITLE": "Keyboard",
             "DESCRIPTION": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.",
             "DETAILS": {}
         },
         "2.1.2": {
-            "TITLE": "Success Criterion 2.1.2 No Keyboard Trap",
+            "TITLE": "No Keyboard Trap",
             "DESCRIPTION": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.",
             "DETAILS": {}
         },
         "2.1.3": {
-            "TITLE": "Success Criterion 2.1.3 Keyboard (No Exception)",
+            "TITLE": "Keyboard (No Exception)",
             "DESCRIPTION": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
             "DETAILS": {}
         },
         "2.1.4": {
-            "TITLE": "Success Criterion 2.1.4 Character Key Shortcuts",
+            "TITLE": "Character Key Shortcuts",
             "DESCRIPTION": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -350,7 +350,7 @@
             }
         },
         "2.2.1": {
-            "TITLE": "Success Criterion 2.2.1 Timing Adjustable",
+            "TITLE": "Timing Adjustable",
             "DESCRIPTION": "For each time limit that is set by the content, at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -380,7 +380,7 @@
             }
         },
         "2.2.2": {
-            "TITLE": "Success Criterion 2.2.2 Pause, Stop, Hide",
+            "TITLE": "Pause, Stop, Hide",
             "DESCRIPTION": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:",
             "DETAILS": {
                 "1": {
@@ -394,92 +394,92 @@
             }
         },
         "2.2.3": {
-            "TITLE": "Success Criterion 2.2.3 No Timing",
+            "TITLE": "No Timing",
             "DESCRIPTION": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
             "DETAILS": {}
         },
         "2.2.4": {
-            "TITLE": "Success Criterion 2.2.4 Interruptions",
+            "TITLE": "Interruptions",
             "DESCRIPTION": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency.",
             "DETAILS": {}
         },
         "2.2.5": {
-            "TITLE": "Success Criterion 2.2.5 Re-authenticating",
+            "TITLE": "Re-authenticating",
             "DESCRIPTION": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
             "DETAILS": {}
         },
         "2.2.6": {
-            "TITLE": "Success Criterion 2.2.6 Timeouts",
+            "TITLE": "Timeouts",
             "DESCRIPTION": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
             "DETAILS": {}
         },
         "2.3.1": {
-            "TITLE": "Success Criterion 2.3.1 Three Flashes or Below Threshold",
+            "TITLE": "Three Flashes or Below Threshold",
             "DESCRIPTION": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.",
             "DETAILS": {}
         },
         "2.3.2": {
-            "TITLE": "Success Criterion 2.3.2 Three Flashes",
+            "TITLE": "Three Flashes",
             "DESCRIPTION": "Web pages do not contain anything that flashes more than three times in any one second period.",
             "DETAILS": {}
         },
         "2.3.3": {
-            "TITLE": "Success Criterion 2.3.3 Animation from Interactions",
+            "TITLE": "Animation from Interactions",
             "DESCRIPTION": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
             "DETAILS": {}
         },
         "2.4.1": {
-            "TITLE": "Success Criterion 2.4.10 Section Headings",
+            "TITLE": "Section Headings",
             "DESCRIPTION": "Section headings are used to organize the content.",
             "DETAILS": {}
         },
         "2.4.2": {
-            "TITLE": "Success Criterion 2.4.2 Page Titled",
+            "TITLE": "Page Titled",
             "DESCRIPTION": "Web pages have titles that describe topic or purpose.",
             "DETAILS": {}
         },
         "2.4.3": {
-            "TITLE": "Success Criterion 2.4.3 Focus Order",
+            "TITLE": "Focus Order",
             "DESCRIPTION": "If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
             "DETAILS": {}
         },
         "2.4.4": {
-            "TITLE": "Success Criterion 2.4.4 Link Purpose (In Context)",
+            "TITLE": "Link Purpose (In Context)",
             "DESCRIPTION": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
             "DETAILS": {}
         },
         "2.4.5": {
-            "TITLE": "Success Criterion 2.4.5 Multiple Ways",
+            "TITLE": "Multiple Ways",
             "DESCRIPTION": "More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.",
             "DETAILS": {}
         },
         "2.4.6": {
-            "TITLE": "Success Criterion 2.4.6 Headings and Labels",
+            "TITLE": "Headings and Labels",
             "DESCRIPTION": "Headings and labels describe topic or purpose.",
             "DETAILS": {}
         },
         "2.4.7": {
-            "TITLE": "Success Criterion 2.4.7 Focus Visible",
+            "TITLE": "Focus Visible",
             "DESCRIPTION": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
             "DETAILS": {}
         },
         "2.4.8": {
-            "TITLE": "Success Criterion 2.4.8 Location",
+            "TITLE": "Location",
             "DESCRIPTION": "Information about the user's location within a set of Web pages is available.",
             "DETAILS": {}
         },
         "2.4.9": {
-            "TITLE": "Success Criterion 2.4.9 Link Purpose (Link Only)",
+            "TITLE": "Link Purpose (Link Only)",
             "DESCRIPTION": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
             "DETAILS": {}
         },
         "2.5.1": {
-            "TITLE": "Success Criterion 2.5.1 Pointer Gestures",
+            "TITLE": "Pointer Gestures",
             "DESCRIPTION": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
             "DETAILS": {}
         },
         "2.5.2": {
-            "TITLE": "Success Criterion 2.5.2 Pointer Cancellation",
+            "TITLE": "Pointer Cancellation",
             "DESCRIPTION": "For functionality that can be operated using a single pointer, at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -501,12 +501,12 @@
             }
         },
         "2.5.3": {
-            "TITLE": "Success Criterion 2.5.3 Label in Name",
+            "TITLE": "Label in Name",
             "DESCRIPTION": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
             "DETAILS": {}
         },
         "2.5.4": {
-            "TITLE": "Success Criterion 2.5.4 Motion Actuation",
+            "TITLE": "Motion Actuation",
             "DESCRIPTION": "Functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:",
             "DETAILS": {
                 "1": {
@@ -520,7 +520,7 @@
             }
         },
         "2.5.5": {
-            "TITLE": "Success Criterion 2.5.5 Target Size",
+            "TITLE": "Target Size",
             "DESCRIPTION": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:",
             "DETAILS": {
                 "1": {
@@ -542,82 +542,82 @@
             }
         },
         "2.5.6": {
-            "TITLE": "Success Criterion 2.5.6 Concurrent Input Mechanisms",
+            "TITLE": "Concurrent Input Mechanisms",
             "DESCRIPTION": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
             "DETAILS": {}
         },
         "3.1.1": {
-            "TITLE": "Success Criterion 3.1.1 Language of Page",
+            "TITLE": "Language of Page",
             "DESCRIPTION": "The default human language of each Web page can be programmatically determined.",
             "DETAILS": {}
         },
         "3.1.2": {
-            "TITLE": "Success Criterion 3.1.2 Language of Parts",
+            "TITLE": "Language of Parts",
             "DESCRIPTION": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
             "DETAILS": {}
         },
         "3.1.3": {
-            "TITLE": "Success Criterion 3.1.3 Unusual Words",
+            "TITLE": "Unusual Words",
             "DESCRIPTION": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
             "DETAILS": {}
         },
         "3.1.4": {
-            "TITLE": "Success Criterion 3.1.4 Abbreviations",
+            "TITLE": "Abbreviations",
             "DESCRIPTION": "A mechanism for identifying the expanded form or meaning of abbreviations is available.",
             "DETAILS": {}
         },
         "3.1.5": {
-            "TITLE": "Success Criterion 3.1.5 Reading Level",
+            "TITLE": "Reading Level",
             "DESCRIPTION": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles, supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available.",
             "DETAILS": {}
         },
         "3.1.6": {
-            "TITLE": "Success Criterion 3.1.6 Pronunciation",
+            "TITLE": "Pronunciation",
             "DESCRIPTION": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation.",
             "DETAILS": {}
         },
         "3.2.1": {
-            "TITLE": "Success Criterion 3.2.1 On Focus",
+            "TITLE": "On Focus",
             "DESCRIPTION": "When any user interface component receives focus, it does not initiate a change of context.",
             "DETAILS": {}
         },
         "3.2.2": {
-            "TITLE": "Success Criterion 3.2.2 On Input",
+            "TITLE": "On Input",
             "DESCRIPTION": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
             "DETAILS": {}
         },
         "3.2.3": {
-            "TITLE": "Success Criterion 3.2.3 Consistent Navigation",
+            "TITLE": "Consistent Navigation",
             "DESCRIPTION": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
             "DETAILS": {}
         },
         "3.2.4": {
-            "TITLE": "Success Criterion 3.2.4 Consistent Identification",
+            "TITLE": "Consistent Identification",
             "DESCRIPTION": "Components that have the same functionality within a set of Web pages are identified consistently.",
             "DETAILS": {}
         },
         "3.2.5": {
-            "TITLE": "Success Criterion 3.2.5 Change on Request",
+            "TITLE": "Change on Request",
             "DESCRIPTION": "Changes of context are initiated only by user request or a mechanism is available to turn off such changes.",
             "DETAILS": {}
         },
         "3.3.1": {
-            "TITLE": "Success Criterion 3.3.1 Error Identification",
+            "TITLE": "Error Identification",
             "DESCRIPTION": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
             "DETAILS": {}
         },
         "3.3.2": {
-            "TITLE": "Success Criterion 3.3.2 Labels or Instructions",
+            "TITLE": "Labels or Instructions",
             "DESCRIPTION": "Labels or instructions are provided when content requires user input.",
             "DETAILS": {}
         },
         "3.3.3": {
-            "TITLE": "Success Criterion 3.3.3 Error Suggestion",
+            "TITLE": "Error Suggestion",
             "DESCRIPTION": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
             "DETAILS": {}
         },
         "3.3.4": {
-            "TITLE": "Success Criterion 3.3.4 Error Prevention (Legal, Financial, Data)",
+            "TITLE": "Error Prevention (Legal, Financial, Data)",
             "DESCRIPTION": "For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -635,12 +635,12 @@
             }
         },
         "3.3.5": {
-            "TITLE": "Success Criterion 3.3.5 Help",
+            "TITLE": "Help",
             "DESCRIPTION": "Context-sensitive help is available.",
             "DETAILS": {}
         },
         "3.3.6": {
-            "TITLE": "Success Criterion 3.3.6 Error Prevention (All)",
+            "TITLE": "Error Prevention (All)",
             "DESCRIPTION": "For Web pages that require the user to submit information, at least one of the following is true:",
             "DETAILS": {
                 "1": {
@@ -658,17 +658,17 @@
             }
         },
         "4.1.1": {
-            "TITLE": "Success Criterion 4.1.1 Parsing",
+            "TITLE": "Parsing",
             "DESCRIPTION": "In content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs are unique, except where the specifications allow these features.",
             "DETAILS": {}
         },
         "4.1.2": {
-            "TITLE": "Success Criterion 4.1.2 Name, Role, Value",
+            "TITLE": "Name, Role, Value",
             "DESCRIPTION": "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.",
             "DETAILS": {}
         },
         "4.1.3": {
-            "TITLE": "Success Criterion 4.1.3 Status Messages",
+            "TITLE": "Status Messages",
             "DESCRIPTION": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
             "DETAILS": {}
         }
