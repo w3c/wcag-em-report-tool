@@ -83,22 +83,23 @@ export default function mergeJson(options = {}) {
 
           const matchedPaths = await globby(src);
           const basePath = matchedPaths.reduce((result, iPath) => {
-            const dir = path.dirname(iPath);
+            const dirs = path.dirname(iPath).split(path.sep);
 
-            if (result === '') {
-              return dir;
+            if (result.length === 0) {
+              return dirs;
             }
 
-            const isNotInResult = dir.split(path.sep).find((splitDir) => {
-              return result.indexOf(splitDir) === -1;
+            const isNotInResult = dirs.find((dir) => {
+              return result.indexOf(dir) === -1;
             });
 
             if (isNotInResult) {
-              return dir.replace(new RegExp(`${isNotInResult}.*`), '');
+              // return a slice of dirs that are already in the result
+              return dirs.slice(0, dirs.indexOf(isNotInResult));
             }
 
             return result;
-          }, '');
+          }, []);
 
           // remove destiny from matchedPaths to prevent infinite loopings
           if (matchedPaths.indexOf(dest) !== -1) {
@@ -121,8 +122,8 @@ export default function mergeJson(options = {}) {
               // 0. create const wrapPath to use to wrap json
               const wrapKeys = path
                 .dirname(matchedPath)
-                .replace(basePath, '')
                 .split(path.sep)
+                .slice(basePath.length)
                 .concat(path.basename(matchedPath, path.extname(matchedPath)));
 
               // 1. await Read json
