@@ -1,4 +1,4 @@
-<Page title="{TRANSLATED.PAGE_TITLE}">
+<Page title="{$summaryStore['EVALUATION_TITLE'] ? $summaryStore['EVALUATION_TITLE'] : TRANSLATED.PAGE_TITLE}">
 
     <Button on:click="{handleHTMLDownloadClick}">
       <span>{TRANSLATED.BUTTON_SAVE_HTML}</span>
@@ -14,6 +14,7 @@
   import { getContext } from 'svelte';
 
   import evaluationStore from '@app/stores/evaluationStore.js';
+  import summaryStore from '@app/stores/summaryStore.js';
 
   import Button from '@app/components/ui/Button.svelte';
   import Page from '@app/components/ui/Page.svelte';
