@@ -57,8 +57,8 @@
   const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
-    GUIDELINES: $translateToObject('WCAG.WCAG21.GUIDELINE'),
+    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
+    GUIDELINES: $translateToObject('WCAG.GUIDELINE'),
     LABEL_OUTCOME: $translate('PAGES.AUDIT.LABEL_OUTCOME'),
     LABEL_OBSERVATION: $translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL'),
     HEADING_SCOPE_RESULTS: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),

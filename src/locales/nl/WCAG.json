@@ -1,0 +1,676 @@
+{
+    "COMMON": { "CONFORMANCE_LEVEL": "Niveau" },
+    "PRINCIPLE": {
+        "1": {
+            "TITLE": "Principe 1. Waarneembaar",
+            "DESCRIPTION": "Informatie en componenten van de gebruikersinterface moeten toonbaar zijn aan gebruikers op voor hen waarneembare wijze."
+        },
+        "2": {
+            "TITLE": "Principe 2. Bedienbaar",
+            "DESCRIPTION": "Componenten van de gebruikersinterface en navigatie moeten bedienbaar zijn."
+        },
+        "3": {
+            "TITLE": "Principe 3. Begrijpelijk",
+            "DESCRIPTION": "Informatie en de bediening van de gebruikersinterface moeten begrijpelijk zijn."
+        },
+        "4": {
+            "TITLE": "Principe 4. Robuust",
+            "DESCRIPTION": "Content moet voldoende robuust zijn om betrouwbaar geïnterpreteerd te kunnen worden door een breed scala van user agents, met inbegrip van hulptechnologieën."
+        }
+    },
+    "GUIDELINE": {
+        "1.1": {
+            "TITLE": "Richtlijn 1.1 Tekstalternatieven",
+            "DESCRIPTION": "Lever tekstalternatieven voor alle niet-tekstuele content, zodat die veranderd kan worden in andere vormen die mensen nodig hebben, zoals grote letters, braille, spraak, symbolen of eenvoudigere taal."
+        },
+        "1.2": {
+            "TITLE": "Richtlijn 1.2 Op tijd gebaseerde media",
+            "DESCRIPTION": "Lever alternatieven voor op tijd gebaseerde media."
+        },
+        "1.3": {
+            "TITLE": "Richtlijn 1.3 Aanpasbaar",
+            "DESCRIPTION": "Creëer content die op verschillende manieren gepresenteerd kan worden (bijvoorbeeld eenvoudiger lay-out) zonder verlies van informatie of structuur."
+        },
+        "1.4": {
+            "TITLE": "Richtlijn 1.4 Onderscheidbaar",
+            "DESCRIPTION": "Maak het voor gebruikers gemakkelijker om content te horen en te zien, waaronder scheiding van voorgrond en achtergrond."
+        },
+        "2.1": {
+            "TITLE": "Richtlijn 2.1 Toetsenbordtoegankelijk",
+            "DESCRIPTION": "Maak alle functionaliteit beschikbaar vanaf een toetsenbord."
+        },
+        "2.2": {
+            "TITLE": "Richtlijn 2.2 Genoeg tijd",
+            "DESCRIPTION": "Geef gebruikers genoeg tijd om content te lezen en te gebruiken."
+        },
+        "2.3": {
+            "TITLE": "Richtlijn 2.3 Toevallen en fysieke reacties",
+            "DESCRIPTION": "Ontwerp content niet op een manier waarvan bekend is dat die toevallen of fysieke reacties veroorzaakt."
+        },
+        "2.4": {
+            "TITLE": "Richtlijn 2.4 Navigeerbaar",
+            "DESCRIPTION": "Lever manieren om gebruikers te helpen navigeren, content te vinden en te bepalen waar ze zijn."
+        },
+        "2.5": {
+            "TITLE": "Richtlijn 2.5 Input Modaliteiten",
+            "DESCRIPTION": "Maak het eenvoudiger voor gebruikers om de functionaliteit te bedienen met andere vormen van invoer dan alleen het toetsenbord."
+        },
+        "3.1": {
+            "TITLE": "Richtlijn 3.1 Leesbaar",
+            "DESCRIPTION": "Maak tekstcontent leesbaar en begrijpelijk."
+        },
+        "3.2": {
+            "TITLE": "Richtlijn 3.2 Voorspelbaar",
+            "DESCRIPTION": "Maak het uiterlijk en de bediening van webpagina's voorspelbaar."
+        },
+        "3.3": {
+            "TITLE": "Richtlijn 3.3 Assistentie bij invoer",
+            "DESCRIPTION": "Help gebruikers om fouten te vermijden en ze te verbeteren."
+        },
+        "4.1": {
+            "TITLE": "Richtlijn 4.1 Compatibel",
+            "DESCRIPTION": "Maximaliseer compatibiliteit met huidige en toekomstige user agents, met inbegrip van hulptechnologieën."
+        }
+    },
+    "SUCCESS_CRITERION": {
+        "1.1.1": {
+            "TITLE": "Succescriterium 1.1.1 Niet-tekstuele content",
+            "DESCRIPTION": "Alle niet-tekstuele content die aan de gebruiker wordt gepresenteerd, heeft een tekstalternatief dat een gelijkwaardig doel dient, behalve voor de hierna vermelde situaties.",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Als niet-tekstuele content een bedieningselement is of gebruikersinvoer accepteert, dan heeft deze een naam die het doel ervan beschrijft. (We verwijzen naar succescriterium 4.1.2 voor aanvullende eisen ten aanzien van bedieningselementen en content die gebruikersinvoer accepteren.)",
+                    "TITLE": "Bedieningselementen, invoer"
+                },
+                "2": {
+                    "DESCRIPTION": "Als niet-tekstuele content op tijd gebaseerde media is, dan leveren tekstalternatieven ten minste een beschrijving van de niet-tekstuele content. (We verwijzen naar Richtlijn 1.2 voor aanvullende eisen ten aanzien van media.)",
+                    "TITLE": "Op tijd gebaseerde media"
+                },
+                "3": {
+                    "DESCRIPTION": "Als niet-tekstuele content een test of oefening is die, als ze door middel van tekst gepresenteerd wordt onjuist zou zijn, dan leveren tekstalternatieven ten minste een beschrijving van de niet-tekstuele content.",
+                    "TITLE": "Test"
+                },
+                "4": {
+                    "DESCRIPTION": "Als niet-tekstuele content primair is bedoeld om een specifieke zintuiglijke ervaring te creëren, dan leveren tekstalternatieven ten minste een beschrijving van de niet-tekstuele content.",
+                    "TITLE": "Zintuiglijk"
+                },
+                "5": {
+                    "DESCRIPTION": "Als het doel van niet-tekstuele content is om te bevestigen dat content wordt gebruikt door een persoon in plaats van een computer, dan worden tekstalternatieven geleverd die het doel van de niet-tekstuele content identificeren en beschrijven. En er worden alternatieve vormen van CAPTCHA aangeboden gebruikmakend van uitvoermodes voor verschillende soorten van zintuiglijke perceptie om tegemoet te komen aan verschillende functiebeperkingen.",
+                    "TITLE": "CAPTCHA"
+                },
+                "6": {
+                    "DESCRIPTION": "Als niet-tekstuele content puur decoratief is, slechts voor visuele opmaak wordt gebruikt, of niet aan gebruikers wordt gerepresenteerd, dan wordt het op zo'n manier geïmplementeerd dat het genegeerd kan worden door hulptechnologie.",
+                    "TITLE": "Decoratie, opmaak, onzichtbaar"
+                }
+            }
+        },
+        "1.2.1": {
+            "TITLE": "Succescriterium 1.2.1 Louter-geluid en louter-videobeeld (vooraf opgenomen)",
+            "DESCRIPTION": "Voor media met vooraf opgenomen louter-geluid en vooraf opgenomen louter-videobeeld is het volgende waar, behalve als de audio of video een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Er wordt een alternatief geleverd voor op tijd gebaseerde media dat equivalente informatie geeft voor vooraf opgenomen louter-geluid content.",
+                    "TITLE": "Vooraf opgenomen louter-geluid"
+                },
+                "2": {
+                    "DESCRIPTION": "Er wordt een alternatief geleverd voor op tijd gebaseerde media of een geluidsspoor dat equivalente informatie geeft voor vooraf opgenomen louter-videobeeld content.",
+                    "TITLE": "Vooraf opgenomen louter-videobeeld"
+                }
+            }
+        },
+        "1.2.2": {
+            "TITLE": "Succescriterium 1.2.2 Ondertitels voor doven en slechthorenden (vooraf opgenomen)",
+            "DESCRIPTION": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld.",
+            "DETAILS": {}
+        },
+        "1.2.3": {
+            "TITLE": "Succescriterium 1.2.3 Audiodescriptie of media-alternatief (vooraf opgenomen)",
+            "DESCRIPTION": "Er wordt een alternatief geleverd voor op tijd gebaseerde media of audiodescriptie van de vooraf opgenomen videocontent geleverd voor gesynchroniseerde media, behalve als het mediabestand een media-alternatief voor tekst is en duidelijk als zodanig is gelabeld.",
+            "DETAILS": {}
+        },
+        "1.2.4": {
+            "TITLE": "Succescriterium 1.2.4 Ondertitels voor doven en slechthorenden (live)",
+            "DESCRIPTION": "Er worden ondertitels voor doven en slechthorenden geleverd voor alle live audiocontent in gesynchroniseerde media.",
+            "DETAILS": {}
+        },
+        "1.2.5": {
+            "TITLE": "Succescriterium 1.2.5 Audiodescriptie (vooraf opgenomen)",
+            "DESCRIPTION": "Er wordt een audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
+            "DETAILS": {}
+        },
+        "1.2.6": {
+            "TITLE": "Succescriterium 1.2.6 Gebarentaal (vooraf opgenomen)",
+            "DESCRIPTION": "Er wordt een gebarentaalvertolking geleverd voor alle vooraf opgenomen audiocontent in gesynchroniseerde media.",
+            "DETAILS": {}
+        },
+        "1.2.7": {
+            "TITLE": "Succescriterium 1.2.7 Verlengde audiodescriptie (vooraf opgenomen)",
+            "DESCRIPTION": "Waar pauzes in voorgrondgeluid onvoldoende zijn om audiodescripties toe te passen om de boodschap van de video over te brengen, wordt een verlengde audiodescriptie geleverd voor alle vooraf opgenomen videocontent in gesynchroniseerde media.",
+            "DETAILS": {}
+        },
+        "1.2.8": {
+            "TITLE": "Succescriterium 1.2.8 Media-alternatief (vooraf opgenomen)",
+            "DESCRIPTION": "Er wordt een alternatief geleverd voor op tijd gebaseerde media voor alle vooraf opgenomen gesynchroniseerde media en voor alle vooraf opgenomen louter-videobeeld media.",
+            "DETAILS": {}
+        },
+        "1.2.9": {
+            "TITLE": "Succescriterium 1.2.9 Louter-geluid (live)",
+            "DESCRIPTION": "Er wordt een alternatief geleverd voor op tijd gebaseerde media dat equivalente informatie presenteert voor live louter-geluid content.",
+            "DETAILS": {}
+        },
+        "1.3.1": {
+            "TITLE": "Succescriterium 1.3.1 Info en relaties",
+            "DESCRIPTION": "Informatie, structuur en relaties overgebracht door presentatie kunnen door software bepaald worden of zijn beschikbaar in tekst.",
+            "DETAILS": {}
+        },
+        "1.3.2": {
+            "TITLE": "Succescriterium 1.3.2 Betekenisvolle volgorde",
+            "DESCRIPTION": "Als de volgorde waarin content wordt gepresenteerd van invloed is op zijn betekenis, kan een correcte leesvolgorde door software bepaald worden.",
+            "DETAILS": {}
+        },
+        "1.3.3": {
+            "TITLE": "Succescriterium 1.3.3 Zintuiglijke eigenschappen",
+            "DESCRIPTION": "Instructies die geleverd worden om content te begrijpen en te bedienen zijn niet alleen afhankelijk van zintuiglijke eigenschappen van componenten zoals vorm, kleur, omvang, visuele locatie, oriëntatie of geluid.",
+            "DETAILS": {}
+        },
+        "1.3.4": {
+            "TITLE": "Succescriterium 1.3.4 Weergavestand",
+            "DESCRIPTION": "De content beperkt de weergave en bediening niet tot een enkele presentatie-oriëntatie, zoals staand of liggend, tenzij een specifieke presentatie-oriëntatie essentieel is.",
+            "DETAILS": {}
+        },
+        "1.3.5": {
+            "TITLE": "Succescriterium 1.3.5 Identificeer het doel van de input",
+            "DESCRIPTION": "Het doel van elk invoerveld waarmee informatie van de gebruiker wordt verzameld, kan door software bepaald worden wanneer:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Het invoerveld een doel dient dat is geïdentificeerd in de paragraaf Inputdoelen voor Componenten van de Gebruikersinterface; en"
+                },
+                "2": {
+                    "DESCRIPTION": "De content wordt geïmplementeerd met behulp van technologieën die ondersteuning bieden bij het identificeren van de verwachte betekenis van formulier-invoergegevens."
+                }
+            }
+        },
+        "1.3.6": {
+            "TITLE": "Succescriterium 1.3.6 Identificeer het doel",
+            "DESCRIPTION": "In content die is geïmplementeerd met opmaaktalen, kan het doel van de componenten van de gebruikersinterface, pictogrammen en regio's door software bepaald worden.",
+            "DETAILS": {}
+        },
+        "1.4.1": {
+            "TITLE": "Succescriterium 1.4.13 Content bij hover of focus",
+            "DESCRIPTION": "Wanneer aanvullende content zichtbaar wordt en daarna weer verborgen, door het gebruik van hover met de aanwijzer of focus met het toetsenbord, gelden de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee de aanvullende content kan worden gesloten zonder de aanwijzer hover of de toetsenbordfocus te verplaatsen, tenzij de aanvullende content een invoerfout communiceert of andere content niet verbergt of vervangt;",
+                    "TITLE": "Sluiten"
+                },
+                "2": {
+                    "DESCRIPTION": "Wanneer een aanwijzer hover aanvullende content kan activeren, dan kan de aanwijzer over de aanvullende content worden bewogen zonder dat deze verdwijnt;",
+                    "TITLE": "Aanwijsbaar"
+                },
+                "3": {
+                    "DESCRIPTION": "De aanvullende content blijft zichtbaar totdat de oorzaak voor de hover of focus is verwijderd, de gebruiker de content sluit of de informatie niet langer geldig is.",
+                    "TITLE": "Aanhouden"
+                }
+            }
+        },
+        "1.4.2": {
+            "TITLE": "Succescriterium 1.4.2 Geluidsbediening",
+            "DESCRIPTION": "Als een geluidsweergave op een webpagina automatisch meer dan 3 seconden speelt, is er of een mechanisme beschikbaar om de geluidsweergave te pauzeren of te stoppen, of er is een mechanisme beschikbaar om het geluidsvolume onafhankelijk van het overall systeemvolume te regelen.",
+            "DETAILS": {}
+        },
+        "1.4.3": {
+            "TITLE": "Succescriterium 1.4.3 Contrast (minimum)",
+            "DESCRIPTION": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 4,5:1, behalve in de volgende gevallen:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Grote tekst en afbeeldingen van grote tekst hebben een contrastverhouding van ten minste 3:1;",
+                    "TITLE": "Grote tekst"
+                },
+                "2": {
+                    "DESCRIPTION": "Tekst of afbeeldingen van tekst die deel zijn van een inactieve component van de gebruikersinterface, die puur decoratief zijn, die voor niemand zichtbaar zijn, of die onderdeel zijn van een afbeelding die significant andere visuele content bevat, hebben geen contrasteis.",
+                    "TITLE": "Incidenteel"
+                },
+                "3": {
+                    "DESCRIPTION": "Tekst die onderdeel is van een logo of merknaam heeft geen contrasteis.",
+                    "TITLE": "Woordmerken"
+                }
+            }
+        },
+        "1.4.4": {
+            "TITLE": "Succescriterium 1.4.4 Herschalen van tekst",
+            "DESCRIPTION": "Behalve voor ondertitels voor doven en slechthorenden en afbeeldingen van tekst, kan tekst zonder hulptechnologie tot 200% geschaald worden zonder verlies van content of functionaliteit.",
+            "DETAILS": {}
+        },
+        "1.4.5": {
+            "TITLE": "Succescriterium 1.4.5 Afbeeldingen van tekst",
+            "DESCRIPTION": "Als de gebruikte technologieën de visuele weergave tot stand kunnen brengen, wordt tekst gebruikt in plaats van afbeeldingen van tekst om informatie over te brengen, behalve in de volgende gevallen:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "De afbeelding van tekst kan visueel aangepast worden aan de eisen van de gebruiker;",
+                    "TITLE": "Aanpasbaar"
+                },
+                "2": {
+                    "DESCRIPTION": "Een specifieke weergave van tekst is essentieel voor de informatie die wordt overgebracht.",
+                    "TITLE": "Essentieel"
+                }
+            }
+        },
+        "1.4.6": {
+            "TITLE": "Succescriterium 1.4.6 Contrast (versterkt)",
+            "DESCRIPTION": "De visuele weergave van tekst en afbeeldingen van tekst heeft een contrastverhouding van ten minste 7:1, behalve in de volgende gevallen:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Grote tekst en afbeeldingen van grote tekst hebben een contrastverhouding van ten minste 4,5:1;",
+                    "TITLE": "Grote tekst"
+                },
+                "2": {
+                    "DESCRIPTION": "Tekst of afbeeldingen van tekst die onderdeel zijn van een inactieve componenten van de gebruikersinterface, die puur decoratief zijn, die voor niemand zichtbaar zijn, of die onderdeel zijn van een afbeelding die significant andere visuele content bevat, hebben geen contrasteis.",
+                    "TITLE": "Incidenteel"
+                },
+                "3": {
+                    "DESCRIPTION": "Tekst die onderdeel is van een logo of merknaam heeft geen contrasteis.",
+                    "TITLE": "Woordmerken"
+                }
+            }
+        },
+        "1.4.7": {
+            "TITLE": "Succescriterium 1.4.7 Weinig of geen achtergrondgeluid",
+            "DESCRIPTION": "Voor vooraf opgenomen louter-geluidcontent die (1) voornamelijk spraak op de voorgrond bevat, (2) geen geluids-CAPTCHA of audiologo is, en (3) geen vocalisatie is die primair bedoeld is als muzikale expressie zoals zingen of rappen, is ten minste één van de volgende zaken waar:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "De geluidsopname bevat geen achtergrondgeluiden.",
+                    "TITLE": "Geen achtergrond:"
+                },
+                "2": {
+                    "DESCRIPTION": "De achtergrondgeluiden kunnen uitgezet worden.",
+                    "TITLE": "Uitzetten"
+                },
+                "3": {
+                    "DESCRIPTION": "De achtergrondgeluiden zijn ten minste 20 decibel lager dan spraak content die op de voorgrond klinkt, met uitzondering van incidentele geluiden die slechts één of twee seconden duren. Noot Uit de definitie van \"decibel\" volgt dat achtergrondgeluid dat aan deze eis voldoet ongeveer vier keer zachter klinkt dan de spraak content op de voorgrond.",
+                    "TITLE": "20 dB"
+                }
+            }
+        },
+        "1.4.8": {
+            "TITLE": "Succescriterium 1.4.8 Visuele weergave",
+            "DESCRIPTION": "Voor de visuele weergave van tekstblokken is een mechanisme beschikbaar om het volgende te realiseren:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Voor- en achtergrondkleuren kunnen door de gebruiker worden gekozen."
+                },
+                "2": {
+                    "DESCRIPTION": "De breedte is niet meer dan 80 karakters of tekens (40 in het geval van CJK)."
+                },
+                "3": {
+                    "DESCRIPTION": "Tekst is niet uitgevuld (uitgelijnd naar linker- en rechterkantlijnen)."
+                },
+                "4": {
+                    "DESCRIPTION": "Regelafstand is ten minste 1,5 spatie binnen alinea's en alinea-afstand is ten minste 1,5 keer zo groot als de regelafstand."
+                },
+                "5": {
+                    "DESCRIPTION": "Tekst kan zonder hulptechnologie herschaald worden tot 200% op een zodanige manier dat de gebruiker niet horizontaal hoeft te scrollen om een regel tekst te lezen op een venster even groot als het volle beeld."
+                }
+            }
+        },
+        "1.4.9": {
+            "TITLE": "Succescriterium 1.4.9 Afbeeldingen van tekst (geen uitzondering)",
+            "DESCRIPTION": "Afbeeldingen van tekst worden alleen puur decoratief gebruikt, of daar waar een specifieke weergave van tekst essentieel is voor de informatie die wordt overgebracht.",
+            "DETAILS": {}
+        },
+        "2.1.1": {
+            "TITLE": "Succescriterium 2.1.1 Toetsenbord",
+            "DESCRIPTION": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder dat afzonderlijke toetsaanslagen aan tijd gebonden zijn, behalve als de onderliggende functie een invoer vereist die afhangt van het pad dat de gebruiker aflegt en niet alleen van de eindpunten.",
+            "DETAILS": {}
+        },
+        "2.1.2": {
+            "TITLE": "Succescriterium 2.1.2 Geen toetsenbordval",
+            "DESCRIPTION": "Als de toetsenbordfocus met de toetsenbordinterface verplaatst kan worden naar een component van de pagina, dan kan de focus ook met alleen de toetsenbordinterface weer van dat component weg worden bewogen. En, als er meer nodig is dan de standaard pijl- of tabtoetsen of andere standaard methoden om de focus te verplaatsen, dan wordt de gebruiker geïnformeerd over de manier waarop de focus kan worden verplaatst.",
+            "DETAILS": {}
+        },
+        "2.1.3": {
+            "TITLE": "Succescriterium 2.1.3 Toetsenbord (geen uitzondering)",
+            "DESCRIPTION": "Alle functionaliteit van de content is bedienbaar via een toetsenbordinterface zonder specifieke timing te vereisen voor de individuele toetsaanslagen",
+            "DETAILS": {}
+        },
+        "2.1.4": {
+            "TITLE": "Succescriterium 2.1.4 Enkel teken sneltoetsen",
+            "DESCRIPTION": "Wanneer een sneltoets in content wordt geïmplementeerd door alleen letters (inclusief hoofdletters en kleine letters), leestekens, cijfers of symbolen te gebruiken, geldt ten minste één van de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee de sneltoets kan worden uitgezet;",
+                    "TITLE": "Uitzetten"
+                },
+                "2": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar om de sneltoets opnieuw toe te wijzen aan één of meerdere niet-afdrukbare tekens (bijv. Ctrl, Alt, enz.);",
+                    "TITLE": "Opnieuw toewijzen"
+                },
+                "3": {
+                    "DESCRIPTION": "De sneltoets voor een component van de gebruikersinterface is alleen actief wanneer de betreffende component de focus heeft.",
+                    "TITLE": "Alleen actief bij focus"
+                }
+            }
+        },
+        "2.2.1": {
+            "TITLE": "Succescriterium 2.2.1 Timing aanpasbaar",
+            "DESCRIPTION": "Voor elke tijdslimiet die door de content wordt ingesteld, geldt ten minste één van de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "De gebruiker kan de tijdslimiet uitzetten voordat die wordt bereikt; of",
+                    "TITLE": "Uitzetten"
+                },
+                "2": {
+                    "DESCRIPTION": "De gebruiker mag de tijdslimiet aanpassen voordat deze is verstreken over een bereik van ten minste tien keer de standaardinstelling; of",
+                    "TITLE": "Aanpassen"
+                },
+                "3": {
+                    "DESCRIPTION": "De gebruiker wordt gewaarschuwd voor de tijd afloopt en krijgt ten minste 20 seconden om de tijdslimiet met een eenvoudige handeling te verlengen (bijvoorbeeld, \"druk op de spatiebalk\"), en de gebruiker mag de tijdslimiet ten minste tien keer verlengen; of",
+                    "TITLE": "Verlengen"
+                },
+                "4": {
+                    "DESCRIPTION": "De tijdslimiet is onderdeel van een realtime gebeurtenis (een veiling bijvoorbeeld) en er is geen alternatief voor de tijdslimiet mogelijk; of",
+                    "TITLE": "Real-time uitzondering:"
+                },
+                "5": {
+                    "DESCRIPTION": "De tijdslimiet is essentieel en verlenging zou de activiteit ongeldig maken; of",
+                    "TITLE": "Essentiële uitzondering:"
+                },
+                "6": {
+                    "DESCRIPTION": "De tijdslimiet is langer dan 20 uur.",
+                    "TITLE": "20 uur uitzondering:"
+                }
+            }
+        },
+        "2.2.2": {
+            "TITLE": "Succescriterium 2.2.2 Pauzeren, stoppen, verbergen",
+            "DESCRIPTION": "Voor alle bewegende, knipperende, scrollende of automatisch actualiserende informatie gelden alle volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Voor bewegende, knipperende of scrollende informatie die (1) automatisch start, (2) langer dan vijf seconden duurt, en (3) parallel met andere content wordt getoond, is er een mechanisme voor de gebruiker om dit te pauzeren, te stoppen of te verbergen, tenzij de beweging, knippering of scrolling, onderdeel is van een activiteit waar ze essentieel is en",
+                    "TITLE": "Bewegen, knipperen, scrollen:"
+                },
+                "2": {
+                    "DESCRIPTION": "Voor elke soort automatisch actualiserende informatie die (1) automatisch start en (2) parallel met andere content wordt gepresenteerd, is er een mechanisme voor de gebruiker om dit te pauzeren, te stoppen of te verbergen of de frequentie van de actualisering in te stellen, tenzij de automatische actualisering onderdeel is van een activiteit waar ze essentieel is.",
+                    "TITLE": "Automatisch actualiserend:"
+                }
+            }
+        },
+        "2.2.3": {
+            "TITLE": "Succescriterium 2.2.3 Geen timing",
+            "DESCRIPTION": "Timing is geen essentieel onderdeel van de gebeurtenis of activiteit die door de content wordt weergegeven, behalve voor niet-interactieve gesynchroniseerde media en real-time gebeurtenissen.",
+            "DETAILS": {}
+        },
+        "2.2.4": {
+            "TITLE": "Succescriterium 2.2.4 Onderbrekingen",
+            "DESCRIPTION": "Onderbrekingen kunnen uitgesteld of uitgezet worden door de gebruiker, behalve onderbrekingen die met een noodsituatie samenhangen.",
+            "DETAILS": {}
+        },
+        "2.2.5": {
+            "TITLE": "Succescriterium 2.2.5 Herauthentisering",
+            "DESCRIPTION": "Als een geauthentiseerde sessie verloopt, kan de gebruiker na herauthentisering de activiteit zonder gegevensverlies voortzetten.",
+            "DETAILS": {}
+        },
+        "2.2.6": {
+            "TITLE": "Succescriterium 2.2.6 Time-outs",
+            "DESCRIPTION": "Gebruikers worden gewaarschuwd voor een periode van gebruikersinactiviteit die kan leiden tot verlies van gegevens, tenzij de gegevens gedurende meer dan 20 uur worden bewaard wanneer de gebruiker geen actie onderneemt.",
+            "DETAILS": {}
+        },
+        "2.3.1": {
+            "TITLE": "Succescriterium 2.3.1 Drie flitsen of beneden drempelwaarde",
+            "DESCRIPTION": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde of de flits is beneden de algemene flits- en rodeflitsdrempelwaarden.",
+            "DETAILS": {}
+        },
+        "2.3.2": {
+            "TITLE": "Succescriterium 2.3.2 Drie flitsen",
+            "DESCRIPTION": "Webpagina's bevatten niets wat meer dan drie keer flitst in enige periode van één seconde.",
+            "DETAILS": {}
+        },
+        "2.3.3": {
+            "TITLE": "Succescriterium 2.3.3 Animatie uit interacties",
+            "DESCRIPTION": "Bewegingsanimatie die door interactie wordt geactiveerd, kan worden uitgeschakeld, behalve als de animatie essentieel is voor de functionaliteit of voor de informatie die wordt overgebracht.",
+            "DETAILS": {}
+        },
+        "2.4.1": {
+            "TITLE": "Succescriterium 2.4.10 Paragraafkoppen",
+            "DESCRIPTION": "Paragraaf koppen worden gebruikt om de content te structureren.",
+            "DETAILS": {}
+        },
+        "2.4.2": {
+            "TITLE": "Succescriterium 2.4.2 Paginatitel",
+            "DESCRIPTION": "Webpagina's hebben titels die het onderwerp of doel beschrijven.",
+            "DETAILS": {}
+        },
+        "2.4.3": {
+            "TITLE": "Succescriterium 2.4.3 Focus volgorde",
+            "DESCRIPTION": "Als in webpagina's sequentieel genavigeerd kan worden en de navigatiesequenties hebben invloed op de betekenis of het gebruik, dan krijgen focusbare componenten de focus in de juiste volgorde waardoor betekenis en bedienbaarheid behouden blijft.",
+            "DETAILS": {}
+        },
+        "2.4.4": {
+            "TITLE": "Succescriterium 2.4.4 Linkdoel (in context)",
+            "DESCRIPTION": "Het linkdoel kan bepaald worden uit enkel de linktekst of uit de linktekst samen met zijn door software bepaalde linkcontext, behalve daar waar het doel van de link een dubbelzinnige betekenis kan hebben voor gebruikers in het algemeen.",
+            "DETAILS": {}
+        },
+        "2.4.5": {
+            "TITLE": "Succescriterium 2.4.5 Meerdere manieren",
+            "DESCRIPTION": "Er is meer dan één manier beschikbaar om een webpagina binnen een verzameling webpagina's te vinden, behalve wanneer de webpagina het resultaat is van, of een stap in, een proces.",
+            "DETAILS": {}
+        },
+        "2.4.6": {
+            "TITLE": "Succescriterium 2.4.6 Koppen en labels",
+            "DESCRIPTION": "Koppen en labels beschrijven het onderwerp of doel.",
+            "DETAILS": {}
+        },
+        "2.4.7": {
+            "TITLE": "Succescriterium 2.4.7 Focus zichtbaar",
+            "DESCRIPTION": "Elke gebruikersinterface die met een toetsenbord te bedienen is, heeft een bedieningswijze waarbij de indicator van de toetsenbordfocus zichtbaar is.",
+            "DETAILS": {}
+        },
+        "2.4.8": {
+            "TITLE": "Succescriterium 2.4.8 Locatie",
+            "DESCRIPTION": "Informatie over de locatie van de gebruiker binnen een verzameling webpagina's is beschikbaar.",
+            "DETAILS": {}
+        },
+        "2.4.9": {
+            "TITLE": "Succescriterium 2.4.9 Linkdoel (alleen link)",
+            "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn.",
+            "DETAILS": {}
+        },
+        "2.5.1": {
+            "TITLE": "Succescriterium 2.5.1 Aanwijzergebaren",
+            "DESCRIPTION": "Alle functionaliteit waarmee bij de bediening gebruik wordt gemaakt van meerpunts- of padgebaseerde gebaren, kan worden bediend met een enkele aanwijzer zonder een padgebaseerd gebaar, tenzij een meerpunts- of padgebaseerd gebaar essentieel is.",
+            "DETAILS": {}
+        },
+        "2.5.2": {
+            "TITLE": "Succescriterium 2.5.2 Aanwijzerannulering",
+            "DESCRIPTION": "Voor functionaliteit die kan worden bediend met een enkele aanwijzer, geldt ten minste één van de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Het down-event van de aanwijzer wordt niet gebruikt om enig onderdeel van de functie uit te voeren;",
+                    "TITLE": "Geen down-event"
+                },
+                "2": {
+                    "DESCRIPTION": "De functie wordt voltooid door het up-event en er is een mechanisme beschikbaar om de functie af te breken voordat deze wordt voltooid of om de functie ongedaan te maken als deze is voltooid;",
+                    "TITLE": "Afbreken of ongedaan maken"
+                },
+                "3": {
+                    "DESCRIPTION": "Met het up-event wordt elk resultaat van het voorgaande down-event ongedaan gemaakt;",
+                    "TITLE": "Up reversal"
+                },
+                "4": {
+                    "DESCRIPTION": "Het voltooien van de functie met het down-event is essentieel.",
+                    "TITLE": "Essentieel"
+                }
+            }
+        },
+        "2.5.3": {
+            "TITLE": "Succescriterium 2.5.3 Label in naam",
+            "DESCRIPTION": "Bij componenten van de gebruikersinterface met labels die tekst of afbeeldingen van tekst bevatten, bevat de naam de tekst die visueel wordt weergegeven.",
+            "DETAILS": {}
+        },
+        "2.5.4": {
+            "TITLE": "Succescriterium 2.5.4 Bewegingsactivering",
+            "DESCRIPTION": "Functionaliteit die kan worden bediend door de beweging van een apparaat of beweging van een gebruiker, kan ook worden bediend met componenten van de gebruikersinterface. De reactie op de beweging kan worden uitgeschakeld om onbedoelde activering te voorkomen, behalve wanneer:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "De beweging wordt gebruikt om de functionaliteit te bedienen via een door toegankelijkheid ondersteunde interface;",
+                    "TITLE": "Ondersteunde interface"
+                },
+                "2": {
+                    "DESCRIPTION": "De beweging is essentieel voor de functie en wanneer de reactie op de beweging wordt uitgeschakeld, wordt de activiteit ongeldig gemaakt.",
+                    "TITLE": "Essentieel"
+                }
+            }
+        },
+        "2.5.5": {
+            "TITLE": "Succescriterium 2.5.5 Grootte van het aanwijsgebied",
+            "DESCRIPTION": "De grootte van het doelgebied voor aanwijzerinvoer is ten minste 44 bij 44 CSS-pixels, behalve in de volgende gevallen:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Het doel is beschikbaar via een gelijkwaardige link of een bedieningselement van ten minste 44 bij 44 CSS-pixels op dezelfde pagina;",
+                    "TITLE": "Gelijkwaardig"
+                },
+                "2": {
+                    "DESCRIPTION": "Het doel bevindt zich in een regel of tekstblok;",
+                    "TITLE": "Inline"
+                },
+                "3": {
+                    "DESCRIPTION": "De doelgrootte wordt bepaald door de user agent en wordt niet aangepast door de auteur.",
+                    "TITLE": "User agent control"
+                },
+                "4": {
+                    "DESCRIPTION": "Een specifieke weergave van het doel is essentieel voor de informatie die wordt overgebracht.",
+                    "TITLE": "Essentieel"
+                }
+            }
+        },
+        "2.5.6": {
+            "TITLE": "Succescriterium 2.5.6 Input gelijktijdige invoermechanismen",
+            "DESCRIPTION": "Webcontent beperkt niet het gebruik van de invoermanieren die op een platform beschikbaar zijn, behalve wanneer de beperking essentieel is, deze vereist is om de beveiliging van de content te garanderen of deze vereist is om gebruikersinstellingen te beschermen.",
+            "DETAILS": {}
+        },
+        "3.1.1": {
+            "TITLE": "Succescriterium 3.1.1 Taal van de pagina",
+            "DESCRIPTION": "De standaard menselijke taal van diverse webpagina's kan door software bepaald worden.",
+            "DETAILS": {}
+        },
+        "3.1.2": {
+            "TITLE": "Succescriterium 3.1.2 Taal van onderdelen",
+            "DESCRIPTION": "De menselijke taal van elke passage of zin in de content kan door software bepaald worden, behalve waar het gaat om eigennamen, technische termen, woorden uit een onbepaalde taal en woorden of zinsdelen die deel zijn gaan uitmaken van het jargon van de onmiddellijk omringende tekst.",
+            "DETAILS": {}
+        },
+        "3.1.3": {
+            "TITLE": "Succescriterium 3.1.3 Ongebruikelijke woorden",
+            "DESCRIPTION": "Er is een mechanisme beschikbaar voor de identificatie van specifieke definities van woorden of zinsdelen die op een ongebruikelijke of beperkte manier gebruikt worden, inclusief idiomatische uitdrukkingen en jargon.",
+            "DETAILS": {}
+        },
+        "3.1.4": {
+            "TITLE": "Succescriterium 3.1.4 Afkortingen",
+            "DESCRIPTION": "Er is een mechanisme beschikbaar voor de identificatie van de voluit geschreven vorm of betekenis van afkortingen.",
+            "DETAILS": {}
+        },
+        "3.1.5": {
+            "TITLE": "Succescriterium 3.1.5 Leesniveau",
+            "DESCRIPTION": "Als tekst, nadat eigennamen en titels verwijderd zijn, een leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau, dan is aanvullende content beschikbaar, of er is een versie beschikbaar die geen leesvaardigheid vereist die hoger is dan het lager middelbaar onderwijsniveau.",
+            "DETAILS": {}
+        },
+        "3.1.6": {
+            "TITLE": "Succescriterium 3.1.6 Uitspraak",
+            "DESCRIPTION": "Er is een mechanisme beschikbaar voor het vaststellen van de specifieke uitspraak van woorden indien de betekenis van de woorden in de context dubbelzinnig is zonder kennis van de uitspraak.",
+            "DETAILS": {}
+        },
+        "3.2.1": {
+            "TITLE": "Succescriterium 3.2.1 Bij focus",
+            "DESCRIPTION": "Als een component van de gebruikersinterface de focus krijgt, dan veroorzaakt dat geen contextwijziging.",
+            "DETAILS": {}
+        },
+        "3.2.2": {
+            "TITLE": "Succescriterium 3.2.2 Bij input",
+            "DESCRIPTION": "Verandering van de instelling van een component van de gebruikersinterface veroorzaakt niet automatisch een contextwijziging, tenzij de gebruiker geïnformeerd is over het gedrag vóór het gebruik van de component.",
+            "DETAILS": {}
+        },
+        "3.2.3": {
+            "TITLE": "Succescriterium 3.2.3 Consistente navigatie",
+            "DESCRIPTION": "Navigatiemechanismen, die op meerdere webpagina's binnen een verzameling webpagina's herhaald worden, komen elke keer dat ze worden herhaald in dezelfde relatieve volgorde voor, tenzij een verandering wordt geïnitieerd door de gebruiker.",
+            "DETAILS": {}
+        },
+        "3.2.4": {
+            "TITLE": "Succescriterium 3.2.4 Consistente identificatie",
+            "DESCRIPTION": "Componenten die dezelfde functionaliteit hebben binnen een verzameling webpagina's worden consistent geïdentificeerd.",
+            "DETAILS": {}
+        },
+        "3.2.5": {
+            "TITLE": "Succescriterium 3.2.5 Verandering op verzoek",
+            "DESCRIPTION": "Contextwijzigingen worden alleen geïnitieerd op verzoek van de gebruiker of er is een mechanisme beschikbaar om zulke veranderingen uit te zetten.",
+            "DETAILS": {}
+        },
+        "3.3.1": {
+            "TITLE": "Succescriterium 3.3.1 Foutidentificatie",
+            "DESCRIPTION": "Als een invoerfout automatisch ontdekt wordt, dan wordt het onderdeel waar de fout zit geïdentificeerd en wordt de fout tekstueel aan de gebruiker meegedeeld.",
+            "DETAILS": {}
+        },
+        "3.3.2": {
+            "TITLE": "Succescriterium 3.3.2 Labels of instructies",
+            "DESCRIPTION": "Als de content gebruikersinvoer vereist, dan worden labels of instructies geleverd.",
+            "DETAILS": {}
+        },
+        "3.3.3": {
+            "TITLE": "Succescriterium 3.3.3 Foutsuggestie",
+            "DESCRIPTION": "Als een invoerfout automatisch ontdekt wordt en suggesties voor verbetering bekend zijn, dan worden de suggesties aan de gebruiker geleverd, tenzij dit de beveiliging of het doel van de content in gevaar zou brengen.",
+            "DETAILS": {}
+        },
+        "3.3.4": {
+            "TITLE": "Succescriterium 3.3.4 Foutpreventie (wettelijk, financieel, gegevens)",
+            "DESCRIPTION": "Voor webpagina's die wettelijke verplichtingen of financiële transacties voor de gebruiker uitvoeren, die, door gebruikers bedienbaar gegevens in gegevensopslagplaatsen verwijderen of wijzigen, of die antwoorden van de gebruiker verzenden, geldt ten minste één van de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Verzendingen kunnen ongedaan gemaakt worden.",
+                    "TITLE": "Omkeerbaar"
+                },
+                "2": {
+                    "DESCRIPTION": "Door de gebruiker ingevoerde gegevens worden gecontroleerd op invoerfouten en de gebruiker wordt de mogelijkheid gegeven om ze te verbeteren.",
+                    "TITLE": "Gecontroleerd"
+                },
+                "3": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar voor het beoordelen, bevestigen en verbeteren van informatie voordat de verzending wordt voltooid.",
+                    "TITLE": "Bevestigd"
+                }
+            }
+        },
+        "3.3.5": {
+            "TITLE": "Succescriterium 3.3.5 Hulp",
+            "DESCRIPTION": "Contextgevoelige hulp is beschikbaar.",
+            "DETAILS": {}
+        },
+        "3.3.6": {
+            "TITLE": "Succescriterium 3.3.6 Foutpreventie (alle)",
+            "DESCRIPTION": "Voor webpagina's die vereisen dat de gebruiker informatie invoert en verzendt, geldt ten minste één van de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Verzendingen kunnen ongedaan gemaakt worden.",
+                    "TITLE": "Omkeerbaar"
+                },
+                "2": {
+                    "DESCRIPTION": "Door de gebruiker ingevoerde gegevens worden gecontroleerd op invoerfouten en de gebruiker wordt de mogelijkheid gegeven om ze te verbeteren.",
+                    "TITLE": "Gecontroleerd"
+                },
+                "3": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar voor het beoordelen, bevestigen en verbeteren van informatie voordat de verzending wordt voltooid.",
+                    "TITLE": "Bevestigd"
+                }
+            }
+        },
+        "4.1.1": {
+            "TITLE": "Succescriterium 4.1.1 Parsen",
+            "DESCRIPTION": "In content die geïmplementeerd is met opmaaktalen hebben elementen volledige begin- en eindtags, zijn elementen genest volgens hun specificatie, bevatten elementen geen dubbele attributen en zijn alle ID's uniek, behalve waar de specificatie deze eigenschappen toelaat.",
+            "DETAILS": {}
+        },
+        "4.1.2": {
+            "TITLE": "Succescriterium 4.1.2 Naam, rol, waarde",
+            "DESCRIPTION": "Voor alle componenten van de gebruikersinterface (inclusief, maar niet uitsluitend voor formulierelementen, links en door scripts gegenereerde componenten), kunnen de naam (name) en rol (role) door software bepaald worden; toestanden (states), eigenschappen (properties) en waarden (values) die door de gebruiker ingesteld kunnen worden, kunnen door software ingesteld worden; en kennisgeving van veranderingen in deze items is beschikbaar voor user agents, met inbegrip van hulptechnologieën.",
+            "DETAILS": {}
+        },
+        "4.1.3": {
+            "TITLE": "Succescriterium 4.1.3 Statusberichten",
+            "DESCRIPTION": "In content die is geïmplementeerd met opmaaktalen kunnen statusberichten door software bepaald worden met behulp van rol (role) of eigenschappen (properties), zodat hulptechnologieën de berichten aan de gebruiker kunnen presenteren zonder dat ze de focus krijgen.",
+            "DETAILS": {}
+        }
+    }
+}

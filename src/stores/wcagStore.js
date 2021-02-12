@@ -65,8 +65,7 @@ export const wcag = derived(
   [json, locale, scopeStore],
   ([$json, $locale, $scopeStore]) => {
     const wcagVersion = $scopeStore['WCAG_VERSION'];
-    // const wcagVersionLd = `WCAG${wcagVersion.replace('.', '')}`;
-    const translatedWcagCriteria = $json('WCAG.WCAG21.SUCCESS_CRITERION');
+    const translatedWcagCriteria = $json('WCAG.SUCCESS_CRITERION');
 
     // Add translations
     _wcagCriteria.forEach((_criterion) => {
