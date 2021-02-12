@@ -11,7 +11,7 @@
   <Details
     label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${test.title}</span>`}"
   >
-    <div>{TRANSLATED.ESCRIPTION}</div>
+    <div>{TRANSLATED.DESCRIPTION}</div>
 
     {#if TRANSLATED.DETAILS.length > 0}
       <dl>
