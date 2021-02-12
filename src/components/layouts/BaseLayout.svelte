@@ -56,7 +56,6 @@
             {TRANSLATED.BUTTON_NEW_EVALUATION}
           </Button>
           <OpenEvaluation />
-          <AuditorImport />
         </Panel>
       </GridItem>
     {/if}
