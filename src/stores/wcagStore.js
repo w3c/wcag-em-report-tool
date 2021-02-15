@@ -70,12 +70,11 @@ export const wcag = derived(
     // Add translations
     _wcagCriteria.forEach((_criterion) => {
       let translated = _criterion.locales[$locale];
-      const { ID, TITLE, DESCRIPTION, DETAILS } =
+      const { TITLE, DESCRIPTION, DETAILS } =
         translatedWcagCriteria[_criterion.num] || {};
 
       if (!translated) {
         translated = _criterion.locales[$locale] = {
-          id: ID,
           title: TITLE,
           description: DESCRIPTION,
           details:
