@@ -1,5 +1,4 @@
 import { derived } from 'svelte/store';
-import { json, locale } from 'svelte-i18n';
 
 import scopeStore from '@app/stores/scopeStore.js';
 import wcagCriteriaData from '@app/data/wcag.json';
@@ -9,116 +8,108 @@ export const CONFORMANCE_LEVELS = ['A', 'AA', 'AAA'];
 export const WCAG_VERSIONS = Object.keys(wcagCriteriaData);
 
 export const scopedWcagVersions = derived([scopeStore], ([$scopeStore]) => {
-  const {WCAG_VERSION} = $scopeStore;
+  const { WCAG_VERSION } = $scopeStore;
 
   return WCAG_VERSIONS.filter((version) => {
     return version <= WCAG_VERSION;
   });
 });
 
-
-const _wcagCriteria = WCAG_VERSIONS.reduce((result, version) => {
+// Initially create full wcag data dictionary per version
+// Starts with 2.0 ends with latest 2.X version
+const _wcagCriteria = WCAG_VERSIONS.reduce((result, version, index) => {
   const versionedCriteria = [];
+  const previousVersion = result[index - 1];
   let criterion;
 
   for (criterion in wcagCriteriaData[version]) {
     versionedCriteria.push({
       ...wcagCriteriaData[version][criterion],
-      version,
-      locales: {}
+      version
     });
   }
 
-  return [...result, ...versionedCriteria];
-}, []).sort((a, b) => {
-  const [ap, ag, ac] = a.num.split('.').map((str) => parseInt(str, 10));
-  const [bp, bg, bc] = b.num.split('.').map((str) => parseInt(str, 10));
-
-  if (ap > bp) {
-    return 1;
-  }
-
-  if (ap < bp) {
-    return -1;
-  }
-
-  if (ag > bg) {
-    return 1;
-  }
-
-  if (ag < bg) {
-    return -1;
-  }
-
-  if (ac > bc) {
-    return 1;
-  }
-
-  if (ac < bc) {
-    return -1;
-  }
-
-  return -1;
-});
-
-export const wcag = derived(
-  [json, locale, scopeStore],
-  ([$json, $locale, $scopeStore]) => {
-    const wcagVersion = $scopeStore['WCAG_VERSION'];
-    const translatedWcagCriteria = $json('WCAG.SUCCESS_CRITERION');
-
-    // Add translations
-    _wcagCriteria.forEach((_criterion) => {
-      let translated = _criterion.locales[$locale];
-      const { TITLE, DESCRIPTION, DETAILS } =
-        translatedWcagCriteria[_criterion.num] || {};
-
-      if (!translated) {
-        translated = _criterion.locales[$locale] = {
-          title: TITLE,
-          description: DESCRIPTION,
-          details:
-            DETAILS &&
-            Object.keys(DETAILS).map((key) => {
-              const detail = DETAILS[key];
-
-              return {
-                title: detail.TITLE,
-                description: detail.DESCRIPTION
-              };
-            })
-        };
-      }
-
-      // Update translation
-      for (let key in translated) {
-        if (Object.prototype.hasOwnProperty.call(translated, key)) {
-          _criterion[key] = translated[key];
-        }
-      }
-    });
-
-    const result = _wcagCriteria.reduce((_result, criterion) => {
-      // Skip pushing criterion if version does not match
-      if (criterion.version > wcagVersion) {
-        return _result;
-      }
-
-      // Filter out duplicate criterion,
-      // last version owns the criterion
-      const newResult = _result.filter((_criterion) => {
-        return _criterion.num !== criterion.num;
+  // Add previous version to the current
+  // and downgrade version if existing
+  if (previousVersion) {
+    previousVersion.criteria.forEach((previousCriterion) => {
+      const changedCriterion = versionedCriteria.find((criterion) => {
+        return criterion.num === previousCriterion.num;
       });
-
-      if (criterion.version <= wcagVersion) {
-        newResult.push(criterion);
+      if (changedCriterion) {
+        changedCriterion.version = previousCriterion.version;
       }
-
-      return newResult;
-    }, []);
-
-    return result;
+    });
   }
-);
+
+  // Sort criteria by numbering
+  // num === principle.guideline.criterion
+  versionedCriteria.sort((a, b) => {
+    const [ap, ag, ac] = a.num.split('.').map((str) => parseInt(str, 10));
+    const [bp, bg, bc] = b.num.split('.').map((str) => parseInt(str, 10));
+
+    if (ap > bp) {
+      return 1;
+    }
+
+    if (ap < bp) {
+      return -1;
+    }
+
+    if (ag > bg) {
+      return 1;
+    }
+
+    if (ag < bg) {
+      return -1;
+    }
+
+    if (ac > bc) {
+      return 1;
+    }
+
+    if (ac < bc) {
+      return -1;
+    }
+
+    return -1;
+  });
+
+  result.push({
+    version,
+    criteria: [...versionedCriteria]
+  });
+
+  // Last version added, return dictionary like:
+  // {
+  //  "2.0": [...criteria],
+  //  [version]: [...criteria]
+  //  ...
+  // }
+  if (index === WCAG_VERSIONS.length - 1) {
+    return result.reduce((wcagDictionary, wcag) => {
+      const {version, criteria} = wcag;
+
+      wcagDictionary[version] = [...criteria];
+
+      return wcagDictionary;
+    }, {});
+  }
+
+  return result;
+}, []);
+
+/**
+ * wcagCriteriaStore
+ * Store that returns all criteria data,
+ * derived from current WCAG_VERSION.
+ * @type {derived}
+ * @return {Array[Object]}  - Array of criterion objects
+ */
+export const wcag = derived([scopeStore], ([$scopeStore]) => {
+  const wcagVersion = $scopeStore['WCAG_VERSION'];
+
+  return _wcagCriteria[wcagVersion];
+});
 
 export default wcag;
