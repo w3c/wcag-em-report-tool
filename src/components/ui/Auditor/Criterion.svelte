@@ -4,22 +4,22 @@
  * -->
 <div class="Criterion">
   <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.TITLE}</h3>
+    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
   <Details
     label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${test.title}</span>`}"
   >
-    <div>{TRANSLATED.DESCRIPTION}</div>
+    <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
 
-    {#if TRANSLATED.DETAILS.length > 0}
+    {#if TRANSLATED.CRITERION.DETAILS}
       <ul>
-        {#each TRANSLATED.DETAILS as detail}
+        {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
           <li>
             <p>
-              {#if detail.title}<strong>{detail.title}</strong>:{/if}
-              {detail.description}
+              {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
+              {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
             </p>
           </li>
         {/each}
@@ -140,7 +140,7 @@
   const { conformanceLevel, id, num } = test;
 
   let notes;
-  const { translate } = getContext('app');
+  const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
     SHOW_DESCRIPTION_BUTTON: $translate('PAGES.AUDIT.BTN_SHOW_TEXT'),
@@ -149,9 +149,7 @@
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
     RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
-    DESCRIPTION: test.description,
-    DETAILS: test.details,
-    TITLE: test.title
+    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
   };
 
   let scopeSubject = $subjects.find((subject) => {
