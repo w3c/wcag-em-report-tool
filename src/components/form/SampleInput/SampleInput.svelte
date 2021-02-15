@@ -3,13 +3,19 @@
  *   SampleInput
  * -->
 <fieldset id="{id}">
-  <legend>{label}</legend>
-  {#if helptext}
-    <Details label="{TRANSLATED.SHOW_INFO_BUTTON}">
-      {@html helptext}
-    </Details>
-  {/if}
-
+  <legend>
+    {label}
+    {#if helptext}
+    <button type="button" on:click={toggle} class="button button-small showhidebutton">
+      {TRANSLATED.SHOW_HIDE_HELPTEXT}
+    </button>
+    {#if showHelptext}
+        <div class="SampleInput__helptext">
+        {@html helptext}
+        </div>
+      {/if}
+    {/if}
+  </legend>
   <slot />
 
   {#if value.length > 0}
@@ -35,13 +41,23 @@
 </fieldset>
 <!-- /component -->
 
+<style>
+  .SampleInput__helptext {
+    font-size: 1rem; /* reset legend size */
+    font-weight: normal; /* reset legend weight */
+    margin: 1em 0;
+    border: solid 1px #069;
+    padding: 1em;
+    background-color: #d0e1f1;
+  }
+</style>
+
 <script>
   import { getContext } from 'svelte';
 
   import subjects, { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
 
   import AddOther from '@app/components/form/AddOther.svelte';
-  import Details from '@app/components/ui/Details.svelte';
   import Sample from './Sample.svelte';
 
   export let id;
@@ -50,13 +66,25 @@
   export let value = [];
 
   let valueContainer;
+  let showHelptext = false;
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
     NO_SAMPLE: $translate('PAGES.SAMPLE.NO_PAGES_DEFINED'),
     ADD_PAGE_BUTTON: $translate('PAGES.SAMPLE.BTN_ADD_PAGE'),
-    SHOW_INFO_BUTTON: $translate('UI.COMMON.BUTTON.INFO')
-  };
+    SHOW_INFO_BUTTON: $translate('UI.COMMON.BUTTON.INFO'),
+    SHOW_HIDE_HELPTEXT: showHelptext
+      ? $translate('UI.COMMON.BUTTON.HIDE', {
+          values: { subject: $translate('UI.COMMON.BUTTON.INFO') }
+        })
+      : $translate('UI.COMMON.BUTTON.SHOW', {
+          values: { subject: $translate('UI.COMMON.BUTTON.INFO') }
+        })
+    };
+
+  function toggle() {
+    showHelptext = !showHelptext;
+  }
 
   function handleSampleAdd() {
     const newSample = subjects.create({

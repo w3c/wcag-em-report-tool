@@ -1,14 +1,10 @@
 <div class="AuditorView">
   {#each [...principles] as principle}
-    <Details
-      label="{`<h2>${principle} ${TRANSLATED.PRINCIPLES[principle].TITLE}</h2>`}"
-      bind:open="{$auditStore['DETAILS_OPEN'][`PRINCIPLE_${principle}`]}"
-    >
+    <details bind:open="{$auditStore['DETAILS_OPEN'][`PRINCIPLE_${principle}`]}">
+      <summary><h2>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h2></summary>
       {#each [...guidelines].filter((g) => g.indexOf(principle) === 0) as guideline}
-        <Details
-          label="{`<h3>${guideline} ${TRANSLATED.GUIDELINES[guideline].TITLE}</h3>`}"
-          bind:open="{$auditStore['DETAILS_OPEN'][`GUIDELINE_${guideline}`]}"
-        >
+        <details bind:open="{$auditStore['DETAILS_OPEN'][`GUIDELINE_${guideline}`]}">
+          <summary><h3>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h3></summary>
           <!--
            * Should filter assertions based on test prop;
            * assertion.test.num in case of wcag.
@@ -48,9 +44,9 @@
               <Criterion test="{criterion}" />
             </div>
           {/each}
-        </Details>
+          </details>
       {/each}
-    </Details>
+    </details>
   {:else}
     <p>No criteria, use the filter to show some criteria.</p>
   {/each}
@@ -60,7 +56,6 @@
   import { getContext } from 'svelte';
 
   import Criterion from './Criterion.svelte';
-  import Details from '@app/components/ui/Details.svelte';
 
   export let criteria = [];
 

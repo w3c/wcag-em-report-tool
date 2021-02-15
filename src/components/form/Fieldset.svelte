@@ -1,15 +1,17 @@
 <fieldset id="{id}" class="Fieldset field">
   <legend>
     {@html legend}
-  </legend>
-
-  {#if helptext}
-    <div class="Fieldset__helptext">
-      <Details label="{TRANSLATED.SHOW_HIDE_HELPTEXT}" bind:open="{showHelptext}">
+    <button type="button" on:click={toggle} class="button button-small showhidebutton">
+      {TRANSLATED.SHOW_HIDE_HELPTEXT}
+    </button>
+    {#if helptext}
+      {#if showHelptext}
+        <div class="Fieldset__helptext">
         {@html helptext}
-      </Details>
-    </div>
-  {/if}
+        </div>
+      {/if}
+    {/if}
+  </legend>
 
   <div class="Fieldset__elements">
     <slot />
@@ -22,7 +24,12 @@
   }
 
   .Fieldset__helptext {
+    font-size: 1rem; /* reset legend size */
+    font-weight: normal; /* reset legend weight */
     margin: 1em 0;
+    border: solid 1px #069;
+    padding: 1em;
+    background-color: #d0e1f1;
   }
 
   :global(.Fieldset__elements > *:not(:last-child)) {
@@ -32,11 +39,14 @@
 
 <script>
   import { getContext } from 'svelte';
-  import Details from '@app/components/ui/Details.svelte';
 
   export let id;
   export let legend;
   export let helptext;
+
+  function toggle() {
+    showHelptext = !showHelptext;
+  }
 
   let showHelptext = false;
 
