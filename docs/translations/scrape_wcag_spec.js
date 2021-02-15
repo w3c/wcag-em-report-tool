@@ -268,26 +268,39 @@ let WCAG2X_TRANSLATED = {
 artoo.saveJson(WCAG2X_TRANSLATED, 'WCAG2X.json');
 
 // SC DATA WCAG20
-WCAG20_DATA = artoo.scrape('.sc', {
-  num: function getSectionNumber() {
-    return $(this)
-      .find('.sc-handle')
-      .text()
-      .match(/\d(\.\d+){2}/g)[0];
-  },
-  conformanceLevel: function getConformanceLevel() {
-    return $(this)
-      .text()
-      .match(/(\(Level (A{1,3})\))/g)
-      .toString()
-      .replace(/[^A]/g, '');
-  }
-});
-artoo.saveJson(WCAG20_DATA, 'WCAG20.json');
+WCAG20_CRITERIA_DATA = artoo
+  .scrape('.sc', {
+    id: 'id',
+    num: function getSectionNumber() {
+      return $(this)
+        .find('.sc-handle')
+        .text()
+        .match(/\d(\.\d+){2}/g)[0];
+    },
+    conformanceLevel: function getConformanceLevel() {
+      return $(this)
+        .find('.sctxt')
+        .text()
+        .match(/A{1,3}(?=\))/)[0];
+    }
+  })
+  .reduce((result, sc) => {
+    const { num, id, conformanceLevel } = sc;
+    result[num] = {
+      num,
+      id,
+      conformanceLevel
+    };
 
+    return result;
+  }, {});
+artoo.saveJson(WCAG20_CRITERIA_DATA, 'WCAG20.json');
+
+// ALL SC DATA WCAG 2.1+
 // NEW SC DATA
 WCAG2X_DATA = artoo
-  .scrape('.sc.new, .sc.changed', {
+  .scrape('.sc, .sc', {
+    id: 'id',
     num: function () {
       return $(this)
         .find('.secno')
@@ -304,9 +317,41 @@ WCAG2X_DATA = artoo
     }
   })
   .reduce((result, sc) => {
-    const { num, conformanceLevel } = sc;
+    const { num, id, conformanceLevel } = sc;
     result[num] = {
       num,
+      id,
+      conformanceLevel
+    };
+
+    return result;
+  }, {});
+artoo.saveJson(WCAG2X_DATA, 'WCAG2X_DATA.json');
+
+// NEW SC DATA
+WCAG2X_DATA = artoo
+  .scrape('.sc.new, .sc.changed', {
+    id: 'id',
+    num: function () {
+      return $(this)
+        .find('.secno')
+        .text()
+        .replace(/([^0-9\.])+/g, '')
+        .trim();
+    },
+    conformanceLevel: function () {
+      return $(this)
+        .find('.conformance-level')
+        .text()
+        .replace(/[^A]/g, '')
+        .trim();
+    }
+  })
+  .reduce((result, sc) => {
+    const { num, id, conformanceLevel } = sc;
+    result[num] = {
+      num,
+      id,
       conformanceLevel
     };
 
