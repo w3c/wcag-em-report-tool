@@ -27,7 +27,7 @@
 
   export let id;
   export let label;
-  export let helptext;
+  export let helptext = "";
 
   const { translate } = getContext('app');
 

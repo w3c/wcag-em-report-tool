@@ -42,7 +42,7 @@
 
   export let id;
   export let legend;
-  export let helptext;
+  export let helptext = "";
 
   function toggle() {
     showHelptext = !showHelptext;
