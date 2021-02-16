@@ -109,6 +109,8 @@
 
   import { routes } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
+  import tests from '@app/stores/earl/testStore/index.js';
+
 
   import Grid from '@app/components/ui/Grid.svelte';
   import GridItem from '@app/components/ui/GridItem.svelte';
@@ -118,32 +120,43 @@
   import Panel from '@app/components/ui/Panel.svelte';
 
   const location = useLocation();
-  const { translate } = getContext('app');
-  let panelIsOpen = true;
-
+  const navigate = useNavigate();
+  const { translate, translateToObject, scopeStore } = getContext('app');
+  
   $: TRANSLATED = {
+    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
+    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
+      default: 'New report'
+    }),
     HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
       default: 'Your report'
     }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
     VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
       default: 'View report'
-    })
+    }),
+    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
   };
 
   $: hasPanel = 
     ($location.pathname !== $routes.OVERVIEW.path) &&
     ($location.pathname !== $routes.VIEW_REPORT.path);
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
+  $: console.log($assertions);
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
   });
 
-  const principles = ["Perceivable", "Operable", "Understandable", "Robust"];
+  $: principles = [...new Set($tests.map((a) => a.num.split('.')[0]))];
 
-  $: totalEvaluated = 5;
-  $: totalToEvaluate = 50;
-  $: conformanceTarget = "Level A, AA";
+  $: totalToEvaluate = $assertions.length;
+  $: totalEvaluated = $assertions.filter(assertion => 
+    assertion.result.description !== undefined && 
+    assertion.result.outcome.id !== "earl:untested").length;
+
+  $:  console.log('totalevaluated', totalEvaluated);
+  $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
   $: percentageEvaluated = (totalEvaluated / totalToEvaluate) * 100;
+  
 </script>
