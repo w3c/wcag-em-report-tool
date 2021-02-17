@@ -29,6 +29,9 @@
   .link-to-guidance svg {
     margin-right: 0.25em;
   }
+  :global(.link-to-guidance + form) {
+    margin-top: 2em;
+  }
 </style>
 
 <script>
