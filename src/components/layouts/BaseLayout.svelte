@@ -109,7 +109,7 @@
 
   import { routes } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
-  import tests from '@app/stores/earl/testStore/index.js';
+  import wcag from '@app/stores/wcagStore.js';
 
 
   import Grid from '@app/components/ui/Grid.svelte';
@@ -124,7 +124,7 @@
   const { translate, translateToObject, scopeStore } = getContext('app');
   
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
+    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
     BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
       default: 'New report'
     }),
@@ -148,7 +148,7 @@
     return $routes[key];
   });
 
-  $: principles = [...new Set($tests.map((a) => a.num.split('.')[0]))];
+  $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 
   $: totalToEvaluate = $assertions.length;
   $: totalEvaluated = $assertions.filter(assertion => 
