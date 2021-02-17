@@ -2,6 +2,7 @@
   <p>
     {@html TRANSLATED.INTRODUCTION}
   </p>
+  <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step5">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
 
   <form action="" novalidate>
     <Input
@@ -61,12 +62,14 @@
 
   import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
   import Input from '@app/components/form/Input.svelte';
+  import ResourceLink from '@app/components/ui/ResourceLink.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
 
   const { summaryStore, translate } = getContext('app');
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.SUMMARY.TITLE'),
     INTRODUCTION: $translate('PAGES.SUMMARY.INTRO'),
+    RESOURCE_LINK_NAME: $translate('PAGES.SUMMARY.RESOURCE_LINK_NAME'),
     REPORT_TITLE_LABEL: $translate('PAGES.SUMMARY.LABEL_TITLE'),
     REPORT_TITLE_HELPTEXT: $translate('PAGES.SUMMARY.INF_TITLE'),
     COMMISSIONER_LABEL: $translate('PAGES.SUMMARY.LABEL_COMMISSIONER'),

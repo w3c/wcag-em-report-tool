@@ -1,6 +1,7 @@
 {
     "TITLE": "Stap 3: Selecteer een representatieve sample",
-    "INTRO": "Selecteer webpagina’s voor de evaluatie. U vindt hier uw aantekeningen uit de vorige stap, om u te helpen webpagina’s voor de sample te selecteren. Zorg ervoor dat de gekozen webpagina’s representatief zijn voor de te toetsen website. Meer informatie over deze stap vindt u in [WCAG-EM Stap 3: Selecteer een representatieve sample](https://www.w3.org/TR/WCAG-EM/#step3).",
+    "INTRO": "Selecteer webpagina’s voor de evaluatie. U vindt hier uw aantekeningen uit de vorige stap, om u te helpen webpagina’s voor de sample te selecteren. Zorg ervoor dat de gekozen webpagina’s representatief zijn voor de te toetsen website.",
+    "RESOURCE_LINK_NAME": "Stap 3: Selecteer een representatieve sample",
     "HD_STRUCT_SAMPLE": "Geordende sample",
     "HD_ESSENT_FUNC": "Essentiële functionaliteiten (optionele notities uit vorige stap)",
     "HD_VARIETY_PAGE_TYPES": "Diverse paginatypes (optionele notities uit vorige stap)",
