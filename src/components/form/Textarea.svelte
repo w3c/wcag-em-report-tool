@@ -7,6 +7,6 @@
 
   export let id;
   export let label;
-  export let helptext;
-  export let value;
+  export let helptext = "";
+  export let value = "";
 </script>

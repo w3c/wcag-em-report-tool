@@ -22,7 +22,7 @@
 
 <script>
   export let area = 'content';
-  export let row;
+  export let row = false;
 
   $: classNames = [
     'Grid__Item',

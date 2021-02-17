@@ -1,7 +1,8 @@
 <Panel title="{TRANSLATED.SAMPLE_SELECT_HEADING}" open>
-  <Details label="show info">
+  <details>
+    <summary><h4>Info</h4></summary>
     <div>{TRANSLATED.SAMPLE_SELECT_INFO}</div>
-  </Details>
+  </details>
 
   <Flex align="center" justify="stretch">
     <div>
@@ -67,7 +68,6 @@
   import { auditSamples } from '@app/stores/auditStore.js';
   import { allSamples } from '@app/stores/sampleStore.js';
 
-  import Details from '@app/components/ui/Details.svelte';
   import Flex from '@app/components/ui/Flex.svelte';
   import Panel from '@app/components/ui/Panel.svelte';
 

@@ -19,25 +19,15 @@
     <title>{__TITLE__}</title>
     <meta name="theme-color" content="#333333" />
 
+    <!-- WAI Website Components: https://wai-website-theme.netlify.app/components/ -->
+    <link rel="stylesheet" href="https://w3.org/WAI/assets/css/style.css?1573220675560713000" />
+
     <!-- Generated styles -->
     <link href="css/global.css" rel="stylesheet" />
     <link href="bundles/app.css" rel="stylesheet" />
 
-    <!-- WAI Website Components: https://wai-website-theme.netlify.app/components/ -->
-    <link rel="stylesheet" href="https://w3.org/WAI/assets/css/style.css?1573220675560713000" />
     <!-- WAI style corrections -->
     <style>
-      /* Details styling */
-      /*
-       * WAI sets an "icon" on the first child
-       * of the summary (::before) to replace
-       * the disclosure triangle. Prevent that.
-       */
-      #wai-wcag-em-report-tool summary > :first-child::before {
-        display: none;
-        content: none;
-      }
-
       /*
        * This is the current styling of WAI's
        * summary disclosure triangle.

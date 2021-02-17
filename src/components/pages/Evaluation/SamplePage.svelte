@@ -2,6 +2,7 @@
   <p>
     {@html TRANSLATED.INTRODUCTION}
   </p>
+  <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step3">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
 
   <form action="" novalidate>
     <h2>{TRANSLATED.EXPLORE_OPTIONAL_HEADING}</h2>
@@ -41,6 +42,7 @@
   import Page from '@app/components/ui/Page.svelte';
   import SampleInput from '@app/components/form/SampleInput/SampleInput.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
+  import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
   const { exploreStore, sampleStore, translate } = getContext('app');
 
@@ -51,6 +53,7 @@
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.SAMPLE.TITLE'),
     INTRODUCTION: $translate('PAGES.SAMPLE.INTRO'),
+    RESOURCE_LINK_NAME: $translate('PAGES.SAMPLE.RESOURCE_LINK_NAME'),
     EXPLORE_OPTIONAL_HEADING: $translate('PAGES.SAMPLE.HD_STRUCT_SAMPLE'),
     EXPLORE_ESSENTIAL_FUNCTIONALITY_LABEL: $translate(
       'PAGES.SAMPLE.HD_ESSENT_FUNC'

@@ -4,59 +4,28 @@
  * @property label <String|@html>
  * @slot Detail contents
  * -->
-<details class="HelpText information" bind:open>
-  <summary class="HelpText__summary">
-    <Flex direction="row" align="start" justify="start">
-      <div class="HelpText__label">
-        {@html label}
-      </div>
-      <div class="HelpText__icon">
-        <span class="button button-small showhidebutton">
-          <span class="visuallyhidden">,</span> {@html iconValue}
-        </span>
-      </div>
-    </Flex>
-  </summary>
-
+<div class="HelpText information" >
+  <div class="HelpText__label">
+    {@html label}
+    <button type="button" on:click={toggle} class="button button-small showhidebutton">
+      {@html iconValue}
+    </button>
+  </div>
+   {#if open}
   <div class="HelpText__body">
     <slot />
   </div>
-</details>
-<!-- /component -->
+  {/if}
+</div>
+ <!-- /component -->
 
 <style>
   .HelpText {
     padding: 0;
   }
 
-  .HelpText__icon {
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.5em;
-    height: 1.5em;
-  }
-
-  .HelpText__summary {
+  :global(.HelpText__label label) {
     display: inline-block;
-    margin: 0;
-    list-style: none;
-  }
-
-  .HelpText__summary::-webkit-details-marker {
-    display: none;
-  }
-
-  :global(.HelpText__label > *) {
-    margin: 0;
-    padding: 0;
-  }
-
-  .HelpText__label:not(:first-child) {
-    flex-grow: 1;
-    flex-shrink: 1;
   }
 
   .HelpText__body {
@@ -76,8 +45,6 @@
 </style>
 
 <script>
-  import Flex from '@app/components/ui/Flex.svelte';
-
   export let label = 'label';
   export let open = false;
   export let icon = {
@@ -85,6 +52,10 @@
     expand: '+',
     position: 'left'
   };
+
+  function toggle() {
+    open = !open;
+  }
 
   // Enforce icon defaults
   if (!icon.collapse) {

@@ -2,6 +2,7 @@
   <p>
     {@html TRANSLATED.INTRODUCTION}
   </p>
+  <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step1">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
 
   <form method="" novalidate>
     <Input
@@ -73,11 +74,13 @@
   import Input from '@app/components/form/Input.svelte';
   import Select from '@app/components/form/Select.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
+  import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
   const { scopeStore, translate } = getContext('app');
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.SCOPE.TITLE'),
     INTRODUCTION: $translate('PAGES.SCOPE.INTRO'),
+    RESOURCE_LINK_NAME: $translate('PAGES.SCOPE.RESOURCE_LINK_NAME'),
     SITE_NAME_LABEL: $translate('PAGES.SCOPE.LABEL_SITE_NAME'),
     SITE_NAME_HELPTEXT: $translate('PAGES.SCOPE.INF_SITE_NAME'),
     SITE_SCOPE_LABEL: $translate('PAGES.SCOPE.LABEL_SITE_SCOPE'),

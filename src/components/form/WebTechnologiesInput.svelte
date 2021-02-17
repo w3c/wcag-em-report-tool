@@ -2,7 +2,6 @@
   id="technologies_relied_upon"
   label="{TECHNOLOGIES_LABEL}"
   helptext="{TECHNOLOGIES_HELPTEXT}"
-  columns
   bind:options="{$webTechnologyStore}"
   bind:value
 />

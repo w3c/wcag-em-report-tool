@@ -8,9 +8,8 @@
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
-  <Details
-    label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${TRANSLATED.CRITERION.TITLE}</span>`}"
-  >
+  <details>
+    <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {test.title}</span></summary>
     <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
 
     {#if TRANSLATED.CRITERION.DETAILS}
@@ -38,7 +37,7 @@
         {num}
       </ResourceLink>
     </div>
-  </Details>
+  </details>
 
   <!--
    * Results for scope
@@ -51,7 +50,8 @@
     subject="{scopeSubject}"
   />
 
-  <Details label="{`<h4>${TRANSLATED.SAMPLE_RESULTS_DETAILS_BUTTON}</h4>`}">
+  <details>
+    <summary><h4>{TRANSLATED.SAMPLE_RESULTS_DETAILS_BUTTON}</h4></summary>
     <!--
      * Sample results should be generated from
      * (sample) assertions.
@@ -73,7 +73,7 @@
     {:else}
       <p>No sample(s) selected.</p>
     {/each}
-  </Details>
+  </details>
 </div>
 <!-- /component -->
 
@@ -119,7 +119,6 @@
     TestSubjectTypes
   } from '@app/stores/earl/subjectStore/index.js';
 
-  import Details from '@app/components/ui/Details.svelte';
   import EarlResult from '@app/components/form/EarlResult.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
