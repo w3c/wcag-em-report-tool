@@ -22,7 +22,7 @@ export function getURL(text) {
   const matches = text.match(URL_REGEXP);
 
   if (matches) {
-    return new URL(matches[0]);
+    return new URL(matches[0]).href;
   } else {
     return null;
   }
