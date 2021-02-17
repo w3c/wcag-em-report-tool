@@ -280,6 +280,7 @@ class EvaluationModel {
               openedScope['schema:name'] ||
               // Default
               '',
+            WCAG_VERSION: wcagVersion,
             WEBSITE_SCOPE:
               openedScope.description ||
               // Deprecated
