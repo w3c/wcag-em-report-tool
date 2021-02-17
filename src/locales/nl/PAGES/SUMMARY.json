@@ -1,6 +1,7 @@
 {
     "TITLE": "Stap 5: Evaluatiebevindingen rapporteren",
-    "INTRO": "Benoem verdere bevindingen uit de evaluatie die u in het rapport wilt hebben. De toetsresultaten uit de vorige stap vindt u onder 'Uitgebreide toetsresultaten' ter review en om u te helpen bij het schrijven van de samenvatting. Meer informatie over deze stap vindt u in <a href={{link_em_5}}>WCAG-EM Stap 5: Evaluatiebevindingen rapporteren</a>.",
+    "INTRO": "Benoem verdere bevindingen uit de evaluatie die u in het rapport wilt hebben. De toetsresultaten uit de vorige stap vindt u onder 'Uitgebreide toetsresultaten' ter review en om u te helpen bij het schrijven van de samenvatting.",
+    "RESOURCE_LINK_NAME": "Stap 5: Evaluatiebevindingen rapporteren",
     "LABEL_TITLE": "Rapporttitel",
     "TITLE_PREFIX": "Rapportage van",
     "INF_TITLE": "Vul hier de titel in van het evaluatierapport van de toegankelijkheid van de website. Bijvoorbeeld: <br> 'Evaluatierapport voor Voorbeeldorganisatie' <br> 'Webshop Toegankelijkheidsanalyse en verbetersuggesties'",
