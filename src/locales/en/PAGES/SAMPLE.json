@@ -1,6 +1,7 @@
 {
     "TITLE": "Step 3: Select a Representative Sample",
-    "INTRO": "Select web pages for evaluation. The notes that you took during exploration in the previous step are provided here, to help you select the web pages. Ensure that the web pages selected are representative of the target website. More guidance on this step is provided in [WCAG-EM Step 3: Select a Representative Sample](https://www.w3.org/TR/WCAG-EM/#step3).",
+    "INTRO": "Select web pages for evaluation. The notes that you took during exploration in the previous step are provided here, to help you select the web pages. Ensure that the web pages selected are representative of the target website.",
+    "RESOURCE_LINK_NAME": "Step 3: Select a Representative Sample",
     "HD_STRUCT_SAMPLE": "Structured Sample",
     "HD_ESSENT_FUNC": "Essential functionality (optional notes from previous step)",
     "HD_VARIETY_PAGE_TYPES": "Variety of web page types (optional notes from previous step)",
