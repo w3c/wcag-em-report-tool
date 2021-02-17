@@ -2,7 +2,8 @@ import jsonld from '@app/scripts/jsonld.js';
 
 import { importContext } from '@app/data/jsonld/appContext.js';
 import collectionStore from '@app/stores/collectionStore.js';
-import { AssertionTypes, Assertion } from './assertionModel.js';
+
+import { AssertionTypes, Assertion } from './models.js';
 
 export async function importAssertions(json) {
 
