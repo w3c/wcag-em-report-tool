@@ -3,7 +3,9 @@ import jsonld from '@app/scripts/jsonld.js';
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
-import appJsonLdContext, { importContext } from '@app/data/jsonld/appContext.js';
+import appJsonLdContext, {
+  importContext
+} from '@app/data/jsonld/appContext.js';
 import webTechnologies from '@app/data/webtechnologies.json';
 import { downloadFile } from '@app/scripts/files.js';
 
