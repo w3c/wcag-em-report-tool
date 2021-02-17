@@ -98,7 +98,7 @@
     };
   });
 
-  // Create or get an Assertion
+  // Get or create an Assertion
   $: _assertion =
     $assertions.find(($assertion) => {
       return $assertion.test === test && $assertion.subject === subject;
