@@ -14,6 +14,7 @@ import scopeStore, { initialScopeStore } from '@app/stores/scopeStore.js';
 import exploreStore, { initialExploreStore } from '@app/stores/exploreStore.js';
 import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
 import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
+import { getCriterionById } from '@app/stores/wcagStore.js';
 
 import assertions from '@app/stores/earl/assertionStore/index.js';
 import subjects, {
@@ -386,12 +387,12 @@ class EvaluationModel {
               // undo this here.
               const _test = test ? test : assertion.testcase || {};
               const _testId = _test.id || _test;
+              // WCAG2X:criterion-id
               const scID = _testId.split(':')[1];
 
               return (
-                $test.id === _test.id ||
-                // fallback for bad implemented testIRI
-                ($test.id.indexOf(scID) >= 0 && _testId.indexOf(scID) >= 0)
+                // Match test.num === crit.num
+                $test.num === getCriterionById(scID).num
               );
             });
 
