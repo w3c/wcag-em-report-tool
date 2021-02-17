@@ -17,7 +17,7 @@ export const scopedWcagVersions = derived([scopeStore], ([$scopeStore]) => {
 
 // Initially create full wcag data dictionary per version
 // Starts with 2.0 ends with latest 2.X version
-const _wcagCriteria = WCAG_VERSIONS.reduce((result, version, index) => {
+export const wcagCriteriaDictionary = WCAG_VERSIONS.reduce((result, version, index) => {
   const versionedCriteria = [];
   const previousVersion = result[index - 1];
   let criterion;
@@ -109,7 +109,7 @@ const _wcagCriteria = WCAG_VERSIONS.reduce((result, version, index) => {
 export const wcag = derived([scopeStore], ([$scopeStore]) => {
   const wcagVersion = $scopeStore['WCAG_VERSION'];
 
-  return _wcagCriteria[wcagVersion];
+  return wcagCriteriaDictionary[wcagVersion];
 });
 
 export default wcag;
