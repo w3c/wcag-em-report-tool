@@ -45,7 +45,7 @@
                *
                *
                * -->
-              <Criterion test="{criterion}" />
+              <Criterion {...criterion} />
             </div>
           {/each}
         </Details>

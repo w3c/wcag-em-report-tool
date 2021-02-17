@@ -9,7 +9,7 @@
   </header>
 
   <Details
-    label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${test.title}</span>`}"
+    label="{`${TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, ${TRANSLATED.CRITERION.TITLE}</span>`}"
   >
     <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
 
@@ -24,19 +24,6 @@
           </li>
         {/each}
       </ul>
-    {/if}
-
-    {#if notes}
-      <div>
-        <span>test.description.notes</span>
-        <ol>
-          {#each notes as note}
-            <li>
-              <p class="note"><span>Note:</span> <span>{note}</span></p>
-            </li>
-          {/each}
-        </ol>
-      </div>
     {/if}
 
     <div class="">
@@ -127,6 +114,7 @@
 
   import { auditSamples } from '@app/stores/auditStore.js';
   import { allSamples } from '@app/stores/sampleStore.js';
+  import tests from '@app/stores/earl/testStore/index.js';
   import subjects, {
     TestSubjectTypes
   } from '@app/stores/earl/subjectStore/index.js';
@@ -135,11 +123,10 @@
   import EarlResult from '@app/components/form/EarlResult.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
-  export let test;
+  export let conformanceLevel;
+  export let id;
+  export let num;
 
-  const { conformanceLevel, id, num } = test;
-
-  let notes;
   const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
@@ -151,6 +138,10 @@
     RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
     CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
   };
+
+  let test = $tests.find(($test) => {
+    return $test.num === num;
+  });
 
   let scopeSubject = $subjects.find((subject) => {
     return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;

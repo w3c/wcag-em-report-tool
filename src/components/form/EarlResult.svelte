@@ -5,9 +5,11 @@
  *   <EarlResult {...assertion} />
  *
  * Where assertion should be like
- * an earl:Assertion object picked from a store.
+ * an earl:Assertion object picked from
+ * the assertionStore: $assertions.
  *
- * Important here is to pass the correct result here
+ * Important here is to pass the correct result,
+ * so test AND subject should always match.
  * -->
 <fieldset class="Criterion__Result__container">
   <legend class="Criterion__Subject">
@@ -101,9 +103,9 @@
   // Get or create an Assertion
   $: _assertion =
     $assertions.find(($assertion) => {
-      const matchedTest = $assertion.test.num === test.num;
+      const matchedTest = $assertion.test === test;
       const matchedSubject = $assertion.subject === subject;
-      
+
       return matchedTest && matchedSubject;
     }) || assertions.create({ subject, test });
 
