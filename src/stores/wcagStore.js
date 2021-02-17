@@ -99,6 +99,16 @@ export const wcagCriteriaDictionary = WCAG_VERSIONS.reduce((result, version, ind
   return result;
 }, []);
 
+const _allCriteria = WCAG_VERSIONS.reduce((allCriteria, version) => {
+  return [...allCriteria, ...wcagCriteriaDictionary[version]];
+}, []);
+
+export function getCriterionById(id) {
+  return _allCriteria.find((_criterion) => {
+    return _criterion.id === id;
+  });
+}
+
 /**
  * wcagCriteriaStore
  * Store that returns all criteria data,
