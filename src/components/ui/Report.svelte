@@ -46,7 +46,7 @@
 <p>{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
-<AuditorSummary criteria="{$tests}" />
+<AuditorSummary criteria="{$wcag}" />
 
 <h2>{TRANSLATED.HEADING_SAMPLE}</h2>
 {#if report.samples.length > 0}
