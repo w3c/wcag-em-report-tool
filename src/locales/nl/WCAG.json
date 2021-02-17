@@ -195,22 +195,9 @@
             "DETAILS": {}
         },
         "1.4.1": {
-            "TITLE": "Content",
-            "DESCRIPTION": "Wanneer aanvullende content zichtbaar wordt en daarna weer verborgen, door het gebruik van hover met de aanwijzer of focus met het toetsenbord, gelden de volgende zaken:",
-            "DETAILS": {
-                "1": {
-                    "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee de aanvullende content kan worden gesloten zonder de aanwijzer hover of de toetsenbordfocus te verplaatsen, tenzij de aanvullende content een invoerfout communiceert of andere content niet verbergt of vervangt;",
-                    "TITLE": "Sluiten"
-                },
-                "2": {
-                    "DESCRIPTION": "Wanneer een aanwijzer hover aanvullende content kan activeren, dan kan de aanwijzer over de aanvullende content worden bewogen zonder dat deze verdwijnt;",
-                    "TITLE": "Aanwijsbaar"
-                },
-                "3": {
-                    "DESCRIPTION": "De aanvullende content blijft zichtbaar totdat de oorzaak voor de hover of focus is verwijderd, de gebruiker de content sluit of de informatie niet langer geldig is.",
-                    "TITLE": "Aanhouden"
-                }
-            }
+            "TITLE": "Gebruik",
+            "DESCRIPTION": "Kleur wordt niet als het enige visuele middel gebruikt om informatie over te brengen, een actie aan te geven, tot een reactie op te roepen of een visueel element te onderscheiden.",
+            "DETAILS": {}
         },
         "1.4.2": {
             "TITLE": "Geluidsbediening",
@@ -315,6 +302,68 @@
             "TITLE": "Afbeeldingen van tekst (geen",
             "DESCRIPTION": "Afbeeldingen van tekst worden alleen puur decoratief gebruikt, of daar waar een specifieke weergave van tekst essentieel is voor de informatie die wordt overgebracht.",
             "DETAILS": {}
+        },
+        "1.4.10": {
+            "TITLE": "Reflow",
+            "DESCRIPTION": "Content kan zonder verlies van informatie of functionaliteit en zonder te moeten scrollen in twee dimensies, worden weergegeven voor:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Verticaal scrollbare content met een breedte gelijkwaardig aan 320 CSS-pixels;"
+                },
+                "2": {
+                    "DESCRIPTION": "Horizontaal scrollbare content met een hoogte gelijkwaardig aan 256 CSS-pixels;"
+                }
+            }
+        },
+        "1.4.11": {
+            "TITLE": "Contrast",
+            "DESCRIPTION": "De visuele weergave van het volgende heeft een contrastverhouding van ten minste 3:1 ten opzichte van aangrenzende kleuren:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Visuele informatie die vereist is om componenten van de gebruikersinterface en statussen te identificeren, met uitzondering van inactieve componenten of componenten waarvan de weergave van de component wordt bepaald door de user agent en niet wordt aangepast door de auteur;",
+                    "TITLE": "Componenten van de gebruikersinterface"
+                },
+                "2": {
+                    "DESCRIPTION": "Delen van afbeeldingen die vereist zijn om de content te begrijpen, behalve wanneer een specifieke weergave van afbeeldingen essentieel is voor de informatie die wordt overgebracht.",
+                    "TITLE": "Grafische objecten"
+                }
+            }
+        },
+        "1.4.12": {
+            "TITLE": "Tekstafstand",
+            "DESCRIPTION": "Bij content die wordt geïmplementeerd met opmaaktalen die de volgende stijleigenschappen voor tekst ondersteunen, is er geen sprake van verlies van content of functionaliteit door het instellen van alle volgende, en door het niet wijzigen van andere stijleigenschappen:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Regelhoogte (regelafstand) naar ten minste 1,5 keer de lettergrootte;"
+                },
+                "2": {
+                    "DESCRIPTION": "Afstand tussen alinea's naar ten minste 2 keer de lettergrootte;"
+                },
+                "3": {
+                    "DESCRIPTION": "Letterafstand (spatiëren van letters) naar ten minste 0,12 keer de lettergrootte;"
+                },
+                "4": {
+                    "DESCRIPTION": "Spatiëren van woorden naar ten minste 0,16 keer de lettergrootte."
+                }
+            }
+        },
+        "1.4.13": {
+            "TITLE": "Content",
+            "DESCRIPTION": "Wanneer aanvullende content zichtbaar wordt en daarna weer verborgen, door het gebruik van hover met de aanwijzer of focus met het toetsenbord, gelden de volgende zaken:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee de aanvullende content kan worden gesloten zonder de aanwijzer hover of de toetsenbordfocus te verplaatsen, tenzij de aanvullende content een invoerfout communiceert of andere content niet verbergt of vervangt;",
+                    "TITLE": "Sluiten"
+                },
+                "2": {
+                    "DESCRIPTION": "Wanneer een aanwijzer hover aanvullende content kan activeren, dan kan de aanwijzer over de aanvullende content worden bewogen zonder dat deze verdwijnt;",
+                    "TITLE": "Aanwijsbaar"
+                },
+                "3": {
+                    "DESCRIPTION": "De aanvullende content blijft zichtbaar totdat de oorzaak voor de hover of focus is verwijderd, de gebruiker de content sluit of de informatie niet langer geldig is.",
+                    "TITLE": "Aanhouden"
+                }
+            }
         },
         "2.1.1": {
             "TITLE": "Toetsenbord",
@@ -429,8 +478,8 @@
             "DETAILS": {}
         },
         "2.4.1": {
-            "TITLE": "Paragraafkoppen",
-            "DESCRIPTION": "Paragraaf koppen worden gebruikt om de content te structureren.",
+            "TITLE": "Blokken",
+            "DESCRIPTION": "Er is een mechanisme beschikbaar om blokken content die op meerdere webpagina's worden herhaald te omzeilen.",
             "DETAILS": {}
         },
         "2.4.2": {
@@ -471,6 +520,11 @@
         "2.4.9": {
             "TITLE": "Linkdoel",
             "DESCRIPTION": "Er is een mechanisme beschikbaar waarmee het doel van elke link bepaald kan worden op basis van alleen de linktekst, behalve waar het doel van de link dubbelzinnig voor gebruikers in het algemeen zou zijn.",
+            "DETAILS": {}
+        },
+        "2.4.10": {
+            "TITLE": "Paragraafkoppen",
+            "DESCRIPTION": "Paragraaf koppen worden gebruikt om de content te structureren.",
             "DETAILS": {}
         },
         "2.5.1": {

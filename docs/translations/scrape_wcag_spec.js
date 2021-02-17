@@ -114,8 +114,6 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
     const regexp = /(\d(\.\d*)+)(( +[a-zA-Z-–_,()]+)+)/;
     const matches = str.match(regexp);
 
-    console.log(matches);
-
     return matches[3].trim() || '';
   }
 
@@ -227,7 +225,7 @@ let WCAG2X = artoo.scrape('.principle', function getPrinciples($) {
                 num: sc
                   .find('.secno')
                   .text()
-                  .match(/\d(\.\d){2}/g)[0],
+                  .match(/\d(\.\d+){2}/g)[0],
                 title: getTitle(sc.find('> h4').text()),
                 description,
                 details: scDetails

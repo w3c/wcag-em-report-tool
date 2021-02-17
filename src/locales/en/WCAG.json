@@ -195,22 +195,9 @@
             "DETAILS": {}
         },
         "1.4.1": {
-            "TITLE": "Content on Hover or Focus",
-            "DESCRIPTION": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
-            "DETAILS": {
-                "1": {
-                    "DESCRIPTION": "A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;",
-                    "TITLE": "Dismissable"
-                },
-                "2": {
-                    "DESCRIPTION": "If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;",
-                    "TITLE": "Hoverable"
-                },
-                "3": {
-                    "DESCRIPTION": "The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.",
-                    "TITLE": "Persistent"
-                }
-            }
+            "TITLE": "Use of Color",
+            "DESCRIPTION": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+            "DETAILS": {}
         },
         "1.4.2": {
             "TITLE": "Audio Control",
@@ -315,6 +302,68 @@
             "TITLE": "Images of Text (No Exception)",
             "DESCRIPTION": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
             "DETAILS": {}
+        },
+        "1.4.10": {
+            "TITLE": "Reflow",
+            "DESCRIPTION": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Vertical scrolling content at a width equivalent to 320 CSS pixels;"
+                },
+                "2": {
+                    "DESCRIPTION": "Horizontal scrolling content at a height equivalent to 256 CSS pixels."
+                }
+            }
+        },
+        "1.4.11": {
+            "TITLE": "Non-text Contrast",
+            "DESCRIPTION": "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;",
+                    "TITLE": "User Interface Components"
+                },
+                "2": {
+                    "DESCRIPTION": "Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed.",
+                    "TITLE": "Graphical Objects"
+                }
+            }
+        },
+        "1.4.12": {
+            "TITLE": "Text Spacing",
+            "DESCRIPTION": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "Line height (line spacing) to at least 1.5 times the font size;"
+                },
+                "2": {
+                    "DESCRIPTION": "Spacing following paragraphs to at least 2 times the font size;"
+                },
+                "3": {
+                    "DESCRIPTION": "Letter spacing (tracking) to at least 0.12 times the font size;"
+                },
+                "4": {
+                    "DESCRIPTION": "Word spacing to at least 0.16 times the font size."
+                }
+            }
+        },
+        "1.4.13": {
+            "TITLE": "Content on Hover or Focus",
+            "DESCRIPTION": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
+            "DETAILS": {
+                "1": {
+                    "DESCRIPTION": "A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;",
+                    "TITLE": "Dismissable"
+                },
+                "2": {
+                    "DESCRIPTION": "If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;",
+                    "TITLE": "Hoverable"
+                },
+                "3": {
+                    "DESCRIPTION": "The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.",
+                    "TITLE": "Persistent"
+                }
+            }
         },
         "2.1.1": {
             "TITLE": "Keyboard",
@@ -429,8 +478,8 @@
             "DETAILS": {}
         },
         "2.4.1": {
-            "TITLE": "Section Headings",
-            "DESCRIPTION": "Section headings are used to organize the content.",
+            "TITLE": "Bypass Blocks",
+            "DESCRIPTION": "A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.",
             "DETAILS": {}
         },
         "2.4.2": {
@@ -471,6 +520,11 @@
         "2.4.9": {
             "TITLE": "Link Purpose (Link Only)",
             "DESCRIPTION": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
+            "DETAILS": {}
+        },
+        "2.4.10": {
+            "TITLE": "Section Headings",
+            "DESCRIPTION": "Section headings are used to organize the content.",
             "DETAILS": {}
         },
         "2.5.1": {
