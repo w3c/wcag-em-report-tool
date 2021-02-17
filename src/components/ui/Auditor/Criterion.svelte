@@ -4,36 +4,25 @@
  * -->
 <div class="Criterion">
   <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">{num}: {title}</h3>
+    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
   </header>
 
   <details>
     <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {test.title}</span></summary>
-    <div>{description}</div>
+    <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
 
-    {#if details.length > 0}
-      <dl>
-        {#each details as detail}
-          <dt>{detail.title}</dt>
-          <dd>
-            <p>{detail.description}</p>
-          </dd>
+    {#if TRANSLATED.CRITERION.DETAILS}
+      <ul>
+        {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
+          <li>
+            <p>
+              {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
+              {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
+            </p>
+          </li>
         {/each}
-      </dl>
-    {/if}
-
-    {#if notes}
-      <div>
-        <span>test.description.notes</span>
-        <ol>
-          {#each notes as note}
-            <li>
-              <p class="note"><span>Note:</span> <span>{note}</span></p>
-            </li>
-          {/each}
-        </ol>
-      </div>
+      </ul>
     {/if}
 
     <div class="">
@@ -125,6 +114,7 @@
 
   import { auditSamples } from '@app/stores/auditStore.js';
   import { allSamples } from '@app/stores/sampleStore.js';
+  import tests from '@app/stores/earl/testStore/index.js';
   import subjects, {
     TestSubjectTypes
   } from '@app/stores/earl/subjectStore/index.js';
@@ -132,12 +122,11 @@
   import EarlResult from '@app/components/form/EarlResult.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
-  export let test;
+  export let conformanceLevel;
+  export let id;
+  export let num;
 
-  const { conformanceLevel, description, details, id, num, title } = test;
-
-  let notes;
-  const { translate } = getContext('app');
+  const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
     SHOW_DESCRIPTION_BUTTON: $translate('PAGES.AUDIT.BTN_SHOW_TEXT'),
@@ -145,8 +134,13 @@
     HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
-    RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR')
+    RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
+    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
   };
+
+  let test = $tests.find(($test) => {
+    return $test.num === num;
+  });
 
   let scopeSubject = $subjects.find((subject) => {
     return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;

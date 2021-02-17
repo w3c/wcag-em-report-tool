@@ -68,7 +68,7 @@
 <script>
   import { getContext } from 'svelte';
 
-  import { CONFORMANCE_LEVELS, VERSIONS} from '@app/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, WCAG_VERSIONS} from '@app/stores/wcagStore.js';
 
   import Page from '@app/components/ui/Page.svelte';
   import Input from '@app/components/form/Input.svelte';
@@ -103,7 +103,7 @@
   };
 
 
-  let wcagVersions = VERSIONS.map((version) => {
+  let wcagVersions = [...WCAG_VERSIONS].reverse().map((version) => {
     return {
       title: `WCAG ${version}`,
       value: version

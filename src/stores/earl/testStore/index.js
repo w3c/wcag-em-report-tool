@@ -1,112 +1,33 @@
-import { derived } from 'svelte/store';
-import { json, locale } from 'svelte-i18n';
-
-import scopeStore from '@app/stores/scopeStore.js';
-import { wcag, VERSIONS } from '@app/stores/wcagStore.js';
+import collection from '@app/stores/collectionStore.js';
+import { wcagCriteriaDictionary, WCAG_VERSIONS } from '@app/stores/wcagStore.js';
 
 import { TestRequirement } from './models.js';
 
 /**
- * Initial tests created with latest wcag 2
- * @NOTE
- * If there would arrive a new wcag version
- * that is not compatible with previous versions, e.g.
- * WCAG 3.0... this should be updated!
+ * initialTestStore
+ *
+ * Set initial tests with latest wcag criteria.
+ * Add num(bering) property for internal matching.
+ * @type {Array}
  */
-let _tests = wcag[VERSIONS[0]].map((criterion) => {
-  const test = new TestRequirement();
+const initialTestStore = wcagCriteriaDictionary[WCAG_VERSIONS.slice(-1)].map((criterion) => {
+  const newTest = new TestRequirement(criterion);
 
-  // Extend with wcag specific props
-  Object.assign(test, criterion);
+  newTest.num = criterion.num;
 
-  return test;
-});
-
-// Add version data to tests
-VERSIONS.forEach((version) => {
-  wcag[version].forEach((criterion) => {
-    const matchedTest = _tests.find((_test) => _test.num === criterion.num);
-
-    if (!matchedTest) {
-      return;
-    }
-
-    if (!matchedTest.version) {
-      matchedTest.version = [version];
-    } else {
-      matchedTest.version.push(version);
-    }
-  });
+  return newTest;
 });
 
 /**
- * Set of earl.TestCriterion
- * @type {[TestCriterion]}
+ * $tests
+ *
+ * Set of earl.TestCriterion,
+ * - TestRequirement
+ * @todo
+ * - TestCase
+ *
+ * @type {Array[TestCriterion]}
  */
-const $tests = derived(
-  [json, locale, scopeStore],
-  ([$json, $locale, $scopeStore]) => {
-    const wcagVersion = $scopeStore['WCAG_VERSION'];
-    const wcagLdIRI = `WCAG${wcagVersion.replace('.', '')}`;
-    // const wcagTranslationKey = `WCAG.${wcagLdIRI}.SUCCESS_CRITERION`;
-    const wcagTranslationKey = 'WCAG.WCAG21.SUCCESS_CRITERION';
-    const criteria = $json(wcagTranslationKey);
+const $tests = collection(TestRequirement, initialTestStore);
 
-    // Set locales property
-    if (
-      _tests.length > 0 &&
-      !Object.prototype.hasOwnProperty.call(_tests[0], 'locales')
-    ) {
-      _tests.forEach((_test) => {
-        // add a locales property containing
-        // translations for translateable properties
-        _test.locales = {};
-      });
-    }
-
-    // Get or set translations like:
-    // {
-    //  [locale]: {
-    //    title: translation,
-    //    description: translation,
-    //    details: [translation],
-    //  }
-    // }
-    // Then set title to locales.locale.title
-    _tests.forEach((_test) => {
-      let translateable;
-      let translations = _test.locales[$locale];
-      const translatedCriterion = criteria[_test.num];
-
-      if (!translations) {
-        translations = _test.locales[$locale] = {
-          id: translatedCriterion.ID,
-          title: translatedCriterion.TITLE,
-          description: translatedCriterion.DESCRIPTION,
-
-          // Get details from dictionary instead,
-          // the amount of details vary per SC.
-          details: Object.keys(translatedCriterion.DETAILS).map((key) => {
-            const detail = translatedCriterion.DETAILS[key];
-
-            return {
-              title: detail.TITLE,
-              description: detail.DESCRIPTION
-            };
-          })
-        };
-      }
-
-      // Translate all
-      for (translateable in translations) {
-        if (Object.prototype.hasOwnProperty.call(translations, translateable)) {
-          _test[translateable] = translations[translateable];
-        }
-      }
-    });
-
-    return _tests;
-  },
-  _tests
-);
 export default $tests;

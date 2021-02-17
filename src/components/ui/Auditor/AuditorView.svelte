@@ -41,7 +41,7 @@
                *
                *
                * -->
-              <Criterion test="{criterion}" />
+              <Criterion {...criterion} />
             </div>
           {/each}
           </details>
@@ -62,8 +62,8 @@
   const { auditStore, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
-    GUIDELINES: $translateToObject('WCAG.WCAG21.GUIDELINE')
+    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
+    GUIDELINES: $translateToObject('WCAG.GUIDELINE')
   };
 
   // Sets are unique values

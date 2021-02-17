@@ -1,48 +1,115 @@
 import { derived } from 'svelte/store';
 
-import auditStore from './auditStore.js';
-
-// import wcag data here
-import WCAG20 from '@app/data/wcag/WCAG20.json';
-import WCAG21 from '@app/data/wcag/WCAG21.json';
-
-export const wcag = {
-  '2.1': WCAG21,
-  '2.0': WCAG20
-};
-
-export const newInWcag = {};
-
-/* For every new wcag 2.x version,
- * add an entry for “only in new version” here.
- */
-Object.keys(wcag).reverse().reduce((previous, current, index) => {
-  // Skip first
-  if (index === 0) {
-    return current;
-  }
-
-  const newInCurrent = wcag[current].filter(
-    (currentSc) => !wcag[previous].some((previousSc) => currentSc.num === previousSc.num)
-  );
-
-  newInWcag[`${current}`] = newInCurrent;
-
-  // Return the current to set a previous version!
-  return current;
-}, '');
-
+import scopeStore from '@app/stores/scopeStore.js';
+import wcagCriteriaData from '@app/data/wcag.json';
 
 export const CONFORMANCE_LEVELS = ['A', 'AA', 'AAA'];
 
-export const VERSIONS = ['2.1', '2.0'];
+export const WCAG_VERSIONS = Object.keys(wcagCriteriaData);
 
-export default derived([auditStore], () => {
-  return function lookupWCAG(version) {
-    if (!wcag[version]) {
-      return wcag['2.1'];
+export const scopedWcagVersions = derived([scopeStore], ([$scopeStore]) => {
+  const { WCAG_VERSION } = $scopeStore;
+
+  return WCAG_VERSIONS.filter((version) => {
+    return version <= WCAG_VERSION;
+  });
+});
+
+// Initially create full wcag data dictionary per version
+// Starts with 2.0 ends with latest 2.X version
+export const wcagCriteriaDictionary = WCAG_VERSIONS.reduce((result, version, index) => {
+  const versionedCriteria = [];
+  const previousVersion = result[index - 1];
+  let criterion;
+
+  for (criterion in wcagCriteriaData[version]) {
+    versionedCriteria.push({
+      ...wcagCriteriaData[version][criterion],
+      version
+    });
+  }
+
+  // Add previous version to the current
+  // and downgrade version if existing
+  if (previousVersion) {
+    previousVersion.criteria.forEach((previousCriterion) => {
+      const changedCriterion = versionedCriteria.find((criterion) => {
+        return criterion.num === previousCriterion.num;
+      });
+      if (changedCriterion) {
+        changedCriterion.version = previousCriterion.version;
+      }
+    });
+  }
+
+  // Sort criteria by numbering
+  // num === principle.guideline.criterion
+  versionedCriteria.sort((a, b) => {
+    const [ap, ag, ac] = a.num.split('.').map((str) => parseInt(str, 10));
+    const [bp, bg, bc] = b.num.split('.').map((str) => parseInt(str, 10));
+
+    if (ap > bp) {
+      return 1;
     }
 
-    return wcag[version];
-  };
+    if (ap < bp) {
+      return -1;
+    }
+
+    if (ag > bg) {
+      return 1;
+    }
+
+    if (ag < bg) {
+      return -1;
+    }
+
+    if (ac > bc) {
+      return 1;
+    }
+
+    if (ac < bc) {
+      return -1;
+    }
+
+    return -1;
+  });
+
+  result.push({
+    version,
+    criteria: [...versionedCriteria]
+  });
+
+  // Last version added, return dictionary like:
+  // {
+  //  "2.0": [...criteria],
+  //  [version]: [...criteria]
+  //  ...
+  // }
+  if (index === WCAG_VERSIONS.length - 1) {
+    return result.reduce((wcagDictionary, wcag) => {
+      const {version, criteria} = wcag;
+
+      wcagDictionary[version] = [...criteria];
+
+      return wcagDictionary;
+    }, {});
+  }
+
+  return result;
+}, []);
+
+/**
+ * wcagCriteriaStore
+ * Store that returns all criteria data,
+ * derived from current WCAG_VERSION.
+ * @type {derived}
+ * @return {Array[Object]}  - Array of criterion objects
+ */
+export const wcag = derived([scopeStore], ([$scopeStore]) => {
+  const wcagVersion = $scopeStore['WCAG_VERSION'];
+
+  return wcagCriteriaDictionary[wcagVersion];
 });
+
+export default wcag;

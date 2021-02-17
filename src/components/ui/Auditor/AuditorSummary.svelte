@@ -12,7 +12,7 @@
     {#each guidelineCriteria(guideline) as criterion (criterion.num)}
       <div class="Auditor__Assertion">
         <div class="box box-simple">
-          <h5 class="box-h box-h-simple">{criterion.num}: {criterion.title}</h5>
+          <h5 class="box-h box-h-simple">{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</h5>
           <div class="box-i">
             <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
             {#each scopeAssertion(criterion) as assertion}
@@ -62,8 +62,9 @@
   const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.WCAG21.PRINCIPLE'),
-    GUIDELINES: $translateToObject('WCAG.WCAG21.GUIDELINE'),
+    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
+    GUIDELINES: $translateToObject('WCAG.GUIDELINE'),
+    CRITERIA: $translateToObject('WCAG.SUCCESS_CRITERION'),
     LABEL_OUTCOME: $translate('PAGES.AUDIT.LABEL_OUTCOME'),
     LABEL_OBSERVATION: $translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL'),
     HEADING_SCOPE_RESULTS: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
@@ -91,7 +92,7 @@
 
   function criterionAssertions(criterion) {
     return $assertions.filter((assertion) => {
-      return assertion.test === criterion;
+      return assertion.test.num === criterion.num;
     });
   }
 

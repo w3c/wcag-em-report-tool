@@ -6,7 +6,7 @@
   <AuditorFilter />
 
   <div class="Auditor__Assertions">
-    <AuditorView criteria="{criteria.length > 0 ? criteria : versionedTests}" />
+    <AuditorView criteria="{criteriaFiltered}" />
   </div>
 </div>
 
@@ -52,37 +52,43 @@
   import { getContext } from 'svelte';
 
   import { auditFilter } from '@app/stores/auditStore.js';
-  import { CONFORMANCE_LEVELS } from '@app/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, scopedWcagVersions } from '@app/stores/wcagStore.js';
 
   import AuditorFilter from './AuditorFilter.svelte';
   import AuditorSamples from './AuditorSamples.svelte';
   import AuditorView from './AuditorView.svelte';
 
   const { scopeStore } = getContext('app');
-  const { testCriteria } = getContext('Evaluation');
+  const { wcagCriteria } = getContext('Evaluation');
 
   if ($auditFilter['VERSION'].length === 0) {
-    $auditFilter['VERSION'] = $scopeStore['WCAG_VERSION'];
+    $auditFilter['VERSION'] = [...$scopedWcagVersions].reverse().join();
     $auditFilter['LEVEL'] = CONFORMANCE_LEVELS.filter(
       (level) => $scopeStore['CONFORMANCE_TARGET'].indexOf(level) >= 0
     );
   }
 
-  $: versionedTests = $testCriteria.filter((test) => {
-    if (!test.version) {
-      return false;
-    }
-
-    return test.version.indexOf($auditFilter['VERSION']) >= 0;
-  });
-
-  $: criteria = versionedTests
-    // Filter by conformance level
+  $: criteriaFiltered = $wcagCriteria
+    // Filter by version
     .filter((criterion) => {
-      if (!criterion.conformanceLevel) {
-        return false;
+      const filterVersions = $auditFilter['VERSION'];
+
+      // Pass filtering if not enabled
+      if (filterVersions.length === 0) {
+        return true;
       }
 
-      return $auditFilter['LEVEL'].indexOf(criterion.conformanceLevel) >= 0;
+      return filterVersions.indexOf(criterion.version) >= 0;
+    })
+    // Filter by conformance level
+    .filter((criterion) => {
+      const filterLevels = $auditFilter['LEVEL'];
+
+      // Pass filtering if not enabled
+      if (filterLevels.length === 0) {
+        return true;
+      }
+
+      return filterLevels.indexOf(criterion.conformanceLevel) >= 0;
     });
 </script>
