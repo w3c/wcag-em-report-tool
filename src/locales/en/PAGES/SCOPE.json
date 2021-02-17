@@ -1,6 +1,7 @@
 {
     "TITLE": "Step 1: Define the Evaluation Scope",
-    "INTRO": "Define the overall parameters and scope of the evaluation. Ideally, this is done with the person who commissioned the evaluation (who may or may not be the website owner), to ensure common expectations about the scope of the evaluation. More guidance on this step is provided in [WCAG-EM Step 1: Define the Evaluation Scope](https://www.w3.org/TR/WCAG-EM/#step1).",
+    "INTRO": "Define the overall parameters and scope of the evaluation. Ideally, this is done with the person who commissioned the evaluation (who may or may not be the website owner), to ensure common expectations about the scope of the evaluation. ",
+    "RESOURCE_LINK_NAME": "Step 1: Define the Evaluation Scope",
     "LABEL_SITE_NAME": "Website name",
     "INF_SITE_NAME": "Provide a name for the website that you would like to evaluate. For example:<br> 'Public Website of Example Organization'<br> 'Webshop of Example Company'<br> 'Intranet of Example University'",
     "LABEL_SITE_SCOPE": "Scope of the website",
