@@ -7,9 +7,9 @@
 </div>
 
 <style>
-.AuditorImport {
-  display: inline-block;
-}
+  .AuditorImport {
+    display: inline-block;
+  }
 </style>
 
 <script>
@@ -36,8 +36,13 @@
         return;
       }
 
-      console.log('import assertions from', json);
-      importAssertions(json);
+      importAssertions(json)
+        .then(() => {
+          alert('Import succeed');
+        })
+        .catch(() => {
+          alert('Import failed');
+        });
     });
   }
 </script>
