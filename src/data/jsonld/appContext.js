@@ -73,6 +73,7 @@ export const exportContext = {
   Assertion: 'earl:Assertion',
   TestMode: 'earl:TestMode',
   TestCriterion: 'earl:TestCriterion',
+  TestCase: 'earl:TestCase',
   TestRequirement: 'earl:TestRequirement',
   TestSubject: 'earl:TestSubject',
   TestResult: 'earl:TestResult',
