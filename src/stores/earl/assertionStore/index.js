@@ -115,9 +115,16 @@ export async function importAssertions(json) {
             return _importable;
           }
 
-          const validatedAssertion = findMatch(_Assertion);
+          const matchedAssertion = findMatch(_Assertion);
 
-          _importable[_Assertion.test.id] = _Assertion;
+          if (matchedAssertion) {
+
+            if (!_importable[matchedAssertion.test.num]) {
+              _importable[matchedAssertion.test.num] = [];
+            }
+
+            _importable[matchedAssertion.test.num].push(matchedAssertion);
+          }
 
           return _importable;
         }, {});
