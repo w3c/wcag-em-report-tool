@@ -14,19 +14,21 @@ import { AssertionTypes, Assertion } from './models.js';
  * automated test tools could be in the hundreds or thousands even.
  *
  * Roughly what we will be doing to be as performant as possible is:
- * - Walk the imported assertions once!;
- *  - Check for required keys; test, subject, result.
- *  - Check if the subject matches
- *  - Check if the test matches
- *  - If all pass, add the assertion as importable and combine results for test + subject combination
+ * - [x] Walk the imported assertions once! (Preparation);
+ *  - [x] Check for required keys; test, subject, result.
+ *  - [ ] Check if the test matches
+ *  - [ ] Check if the subject matches
+ *  - [ ] If all pass, add the assertion as importable and combine results for test + subject combination
  *
- * - Walk the importableAssertions
- *  - Get or create an assertion based on the test + subject.
- *  - Agregate result.outcome;
- *    If starting result.outcome is not failed change either to failed or cantTell
- *    - Finally aggregate to scope result outcome if changed to failed / cantTell.
+ * - [ ] Walk the importableAssertions (Import)
+ *  - [ ] Get or create an assertion based on the test + subject.
+ *  - [ ] Agregate result.outcome;
+ *        If starting result.outcome is not failed
+ *        change either to failed or cantTell.
  *
- *  - Append all result.description to the result.description.
+ *    - [ ] Finally aggregate to scope result outcome if changed to failed / cantTell.
+ *
+ *  - [ ] Append all result.description to the result.description.
  *
  * - Done
  *
