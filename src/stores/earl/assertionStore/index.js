@@ -65,8 +65,8 @@ export async function importAssertions(json) {
 
     if (matchedTest) {
       return {
-        ...Assertion,
-        test: matchedTest
+        num: matchedTest.num,
+        result: Assertion.result
       };
     }
 
@@ -115,15 +115,16 @@ export async function importAssertions(json) {
             return _importable;
           }
 
-          const matchedAssertion = findMatch(_Assertion);
+          const matchedResult = findMatch(_Assertion);
 
-          if (matchedAssertion) {
 
-            if (!_importable[matchedAssertion.test.num]) {
-              _importable[matchedAssertion.test.num] = [];
+          if (matchedResult) {
+
+            if (!_importable[matchedResult.num]) {
+              _importable[matchedResult.num] = [];
             }
 
-            _importable[matchedAssertion.test.num].push(matchedAssertion);
+            _importable[matchedResult.num].push(matchedResult.result);
           }
 
           return _importable;
