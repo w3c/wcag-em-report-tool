@@ -79,7 +79,7 @@ export async function importAssertions(json) {
             return _importable;
           }
 
-          _importable[test.id] = _Assertion;
+          _importable[_Assertion.test.id] = _Assertion;
 
           return _importable;
         }, {});
