@@ -68,7 +68,19 @@ export async function importAssertions(json) {
        * @type {[type]}
        */
       const importableAssertions = jsonld
-        .getItems(framedAssertions);
+        .getItems(framedAssertions)
+
+        // Prepare imports
+        .reduce((_importable, _Assertion) => {
+          // Check required assertion keys
+          if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
+            return _importable;
+          }
+
+          _importable[test.id] = _Assertion;
+
+          return _importable;
+        }, {});
 
       console.log(importableAssertions);
     })
