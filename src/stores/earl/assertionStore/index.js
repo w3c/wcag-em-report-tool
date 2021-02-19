@@ -2,6 +2,8 @@ import jsonld from '@app/scripts/jsonld.js';
 
 import { importContext } from '@app/data/jsonld/appContext.js';
 import collectionStore from '@app/stores/collectionStore.js';
+import tests from '@app/stores/earl/testStore/index.js';
+import { getCriterionById } from '@app/stores/wcagStore.js';
 
 import { AssertionTypes, Assertion } from './models.js';
 
@@ -36,6 +38,40 @@ import { AssertionTypes, Assertion } from './models.js';
  * @return {[type]}      [description]
  */
 export async function importAssertions(json) {
+  let $tests;
+
+  tests.subscribe((value) => {
+    $tests = value;
+  })();
+
+  // Match against wcagStore > Test!
+  function matchTest(test) {
+    const { id, isPartOf } = test;
+    const [, testID] = (isPartOf && isPartOf.id || id).split(':');
+    const criterion = getCriterionById(testID);
+
+    if (criterion) {
+      return $tests.find(($test) => {
+        return $test.num === criterion.num;
+      });
+    }
+
+    return null;
+  }
+
+  function findMatch(Assertion) {
+    const { test } = Assertion;
+    const matchedTest = matchTest(test);
+
+    if (matchedTest) {
+      return {
+        ...Assertion,
+        test: matchedTest
+      };
+    }
+
+    return false;
+  }
 
   await jsonld
     .frame(json, {
@@ -78,6 +114,8 @@ export async function importAssertions(json) {
           if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
             return _importable;
           }
+
+          const validatedAssertion = findMatch(_Assertion);
 
           _importable[_Assertion.test.id] = _Assertion;
 
