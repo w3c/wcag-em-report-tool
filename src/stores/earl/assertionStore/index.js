@@ -41,7 +41,6 @@ export async function importAssertions(json) {
       '@type': AssertionTypes
     })
     .then((framedAssertions) => {
-      console.log(framedAssertions);
 
       /**
        * importableAssertions
@@ -68,6 +67,10 @@ export async function importAssertions(json) {
        *  }
        * @type {[type]}
        */
+      const importableAssertions = jsonld
+        .getItems(framedAssertions);
+
+      console.log(importableAssertions);
     })
     .catch((error) => {
       console.error(`${error.name}: ${error.message}`);
