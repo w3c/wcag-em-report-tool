@@ -1,7 +1,10 @@
 import jsonld from '@app/scripts/jsonld.js';
 
+import { getURL, isURL } from '@app/scripts/urls.js';
 import { importContext } from '@app/data/jsonld/appContext.js';
+
 import collectionStore from '@app/stores/collectionStore.js';
+import subjects from '@app/stores/earl/subjectStore/index.js';
 import tests from '@app/stores/earl/testStore/index.js';
 import { getCriterionById } from '@app/stores/wcagStore.js';
 
@@ -18,8 +21,8 @@ import { AssertionTypes, Assertion } from './models.js';
  * Roughly what we will be doing to be as performant as possible is:
  * - [x] Walk the imported assertions once! (Preparation);
  *  - [x] Check for required keys; test, subject, result.
- *  - [ ] Check if the test matches
- *  - [ ] Check if the subject matches
+ *  - [x] Check if the test matches
+ *  - [x] Check if the subject matches; check urlizable props and match against id
  *  - [ ] If all pass, add the assertion as importable and combine results for test + subject combination
  *
  * - [ ] Walk the importableAssertions (Import)
@@ -38,16 +41,50 @@ import { AssertionTypes, Assertion } from './models.js';
  * @return {[type]}      [description]
  */
 export async function importAssertions(json) {
+  let $subjects;
   let $tests;
+
+  subjects.subscribe((value) => {
+    $subjects = value;
+  })();
 
   tests.subscribe((value) => {
     $tests = value;
   })();
 
+  function matchSubject(subject) {
+    const idUrl = getURL(subject.id);
+    const subjectID = idUrl
+      ? idUrl.href
+      : ['source', 'description'].reduce((href, key) => {
+        if (isURL(href)) {
+          return href;
+        }
+
+        let url;
+
+        if (subject[key]) {
+          url = getURL(subject[key]);
+        }
+
+        return url ? url.href : null;
+      }, '');
+
+    if (isURL(subjectID)) {
+      subject.id = subjectID;
+
+      return $subjects.find(($subject) => {
+        return $subject.id === subject.id;
+      });
+    }
+
+    return null;
+  }
+
   // Match against wcagStore > Test!
   function matchTest(test) {
     const { id, isPartOf } = test;
-    const [, testID] = (isPartOf && isPartOf.id || id).split(':');
+    const [, testID] = ((isPartOf && isPartOf.id) || id).split(':');
     const criterion = getCriterionById(testID);
 
     if (criterion) {
@@ -60,11 +97,13 @@ export async function importAssertions(json) {
   }
 
   function findMatch(Assertion) {
-    const { test } = Assertion;
+    const { test, subject } = Assertion;
     const matchedTest = matchTest(test);
+    const matchedSubject = matchSubject(subject);
 
-    if (matchedTest) {
+    if (matchedTest && matchedSubject) {
       return {
+        subject: matchedSubject.id,
         num: matchedTest.num,
         result: Assertion.result
       };
@@ -79,7 +118,6 @@ export async function importAssertions(json) {
       '@type': AssertionTypes
     })
     .then((framedAssertions) => {
-
       /**
        * importableAssertions
        * Create this:
@@ -119,7 +157,6 @@ export async function importAssertions(json) {
 
 
           if (matchedResult) {
-
             if (!_importable[matchedResult.num]) {
               _importable[matchedResult.num] = [];
             }
