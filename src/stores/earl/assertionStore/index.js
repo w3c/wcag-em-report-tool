@@ -70,7 +70,8 @@ export async function importAssertions(json) {
        */
     })
     .catch((error) => {
-      console.error(error.message);
+      console.error(`${error.name}: ${error.message}`);
+      throw error;
     });
 }
 
