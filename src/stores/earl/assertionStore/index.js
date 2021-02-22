@@ -118,6 +118,13 @@ export async function importAssertions(json) {
       '@type': AssertionTypes
     })
     .then((framedAssertions) => {
+      const foundAssertions = jsonld
+        .getItems(framedAssertions);
+
+      if (foundAssertions.length === 0) {
+        throw new Error('NO_ASSERTIONS');
+      }
+
       /**
        * importableAssertions
        * Create this:
@@ -143,8 +150,7 @@ export async function importAssertions(json) {
        *  }
        * @type {[type]}
        */
-      const importableAssertions = jsonld
-        .getItems(framedAssertions)
+      const importableAssertions = foundAssertions
 
         // Prepare imports
         .reduce((_importable, _Assertion) => {
