@@ -20,6 +20,15 @@ const deprecatedContext = {
 
   testcase: 'wcagem:testcase',
 
+  // Unnecassary source for sample / subjects
+  // If an url is provided with the descriptionfield
+  // it is used as an identifier
+  // Use jsonld`(@)id` instead.
+  source: {
+    '@id': 'dcterms:source',
+    '@type': '@id'
+  },
+
   // Schema
   schema: 'http://schema.org/',
   WebSite: 'schema:WebSite',
