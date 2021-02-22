@@ -118,6 +118,12 @@ export async function importAssertions(json) {
       '@type': AssertionTypes
     })
     .then((framedAssertions) => {
+      const resultCount = {
+        total: 0,
+        successfull: 0,
+        failed: 0
+      };
+
       const foundAssertions = jsonld
         .getItems(framedAssertions);
 
@@ -154,6 +160,8 @@ export async function importAssertions(json) {
 
         // Prepare imports
         .reduce((_importable, _Assertion) => {
+          resultCount.total++;
+
           // Check required assertion keys
           if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
             return _importable;
@@ -161,8 +169,9 @@ export async function importAssertions(json) {
 
           const matchedResult = findMatch(_Assertion);
 
-
           if (matchedResult) {
+            resultCount.successfull++;
+
             if (!_importable[matchedResult.num]) {
               _importable[matchedResult.num] = [];
             }
@@ -172,6 +181,12 @@ export async function importAssertions(json) {
 
           return _importable;
         }, {});
+
+      resultCount.failed = resultCount.total - resultCount.successfull;
+
+      if (resultCount.successfull === 0) {
+        throw new Error('NO_COMPATIBLE_ASSERTIONS');
+      }
 
       console.log(importableAssertions);
     })
