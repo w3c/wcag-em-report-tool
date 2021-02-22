@@ -24,6 +24,8 @@
   };
 
   function handleChange(event) {
+
+    const { target } = event;
     const file = event.target.files[0];
 
     readFile(file, (result) => {
@@ -42,6 +44,9 @@
         })
         .catch(() => {
           alert('Import failed');
+        })
+        .finally(() => {
+          target.value = '';
         });
     });
   }
