@@ -101,6 +101,9 @@
   });
 
   // Get or create an Assertion
+  // @BUG Conflicting with opening evaluation
+  // When rendered is actively finding or creating
+  // Meaning when assertions are removed, they are instantly recreated.
   $: _assertion =
     $assertions.find(($assertion) => {
       const matchedTest = $assertion.test === test;
