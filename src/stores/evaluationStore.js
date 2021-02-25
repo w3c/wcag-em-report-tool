@@ -373,6 +373,10 @@ class EvaluationModel {
         // Recursive function to address deprecated
         // nested Assertions within an Assertion
         (function importAssertions(_assertions) {
+          if (!Array.isArray(_assertions)) {
+            _assertions = [_assertions];
+          }
+
           _assertions.forEach((assertion) => {
             const { assertedBy, mode, result, subject, test } = assertion;
             const newSubject = $subjects.find(($subject) => {
