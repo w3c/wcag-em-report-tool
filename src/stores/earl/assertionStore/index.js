@@ -10,6 +10,9 @@ import { getCriterionById } from '@app/stores/wcagStore.js';
 
 import { AssertionTypes, Assertion } from './models.js';
 
+const initialAssertions = [];
+const assertions = collectionStore(Assertion, initialAssertions);
+
 /**
  * Try to import Assertions from any JSON(-LD)
  * formatted file.
@@ -196,7 +199,4 @@ export async function importAssertions(json) {
     });
 }
 
-const initialAssertions = [];
-const $assertions = collectionStore(Assertion, initialAssertions);
-
-export default $assertions;
+export default assertions;
