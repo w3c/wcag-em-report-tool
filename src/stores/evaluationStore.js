@@ -18,7 +18,9 @@ import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
 import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
 import { getCriterionById } from '@app/stores/wcagStore.js';
 
-import assertions from '@app/stores/earl/assertionStore/index.js';
+import assertions, {
+  AssertionTypes
+} from '@app/stores/earl/assertionStore/index.js';
 import subjects, {
   initialSubjectStore,
   TestSubjectTypes
@@ -367,56 +369,59 @@ class EvaluationModel {
           });
         });
 
-        // Recursive function to address deprecated
-        // nested Assertions within an Assertion
-        (function importAssertions(_assertions) {
-          if (!Array.isArray(_assertions)) {
-            _assertions = [_assertions];
-          }
-
-          _assertions.forEach((assertion) => {
-            const { assertedBy, mode, result, subject, test } = assertion;
-            const newSubject = $subjects.find(($subject) => {
-              return $subject.id === subject.id;
-            });
-
-            let newResult = result ? new TestResult(result) : new TestResult();
-            newResult.outcome = $outcomeValues.find(($outcomeValue) => {
-              return $outcomeValue.id === newResult.outcome.id;
-            });
-
-            const newTest = $tests.find(($test) => {
-              // In previous versions a testcase was set on Assertions
-              // that was part of the main Assertion
-              // undo this here.
-              const _test = test ? test : assertion.testcase || {};
-              const _testId = _test.id || _test;
-              // WCAG2X:criterion-id
-              const scID = _testId.split(':')[1];
-
-              return (
-                // Match test.num === crit.num
-                $test.num === getCriterionById(scID).num
-              );
-            });
-
-            if (newSubject && newTest) {
-              assertions.create({
-                assertedBy,
-                mode,
-                result: newResult,
-                subject: newSubject,
-                test: newTest
+        // Frame Assertions within the Evaluation
+        await jsonld
+          .frame(framedEvaluation, {
+            '@context': importContext,
+            '@type': AssertionTypes
+          })
+          .then((framedAssertions) => {
+            jsonld.getItems(framedAssertions).forEach((assertion) => {
+              const { assertedBy, mode, result, subject, test } = assertion;
+              const newSubject = $subjects.find(($subject) => {
+                return (
+                  $subject.id === subject.id ||
+                  $subject.id ===
+                    jsonld.setIdFromProperties(subject, [
+                      'description',
+                      'source'
+                    ]).id
+                );
               });
-            }
 
-            // This is the part that Assertions
-            // contain nested Assertions
-            if (assertion.hasPart && Array.isArray(assertion.hasPart)) {
-              importAssertions(assertion.hasPart);
-            }
+              let newResult = result
+                ? new TestResult(result)
+                : new TestResult();
+              newResult.outcome = $outcomeValues.find(($outcomeValue) => {
+                return $outcomeValue.id === newResult.outcome.id;
+              });
+
+              const newTest = $tests.find(($test) => {
+                // In previous versions a testcase was set on Assertions
+                // that was part of the main Assertion
+                // undo this here.
+                const _test = test ? test : assertion.testcase || {};
+                const _testId = _test.id || _test;
+                // WCAG2X:criterion-id
+                const scID = _testId.split(':')[1];
+
+                return (
+                  // Match test.num === crit.num
+                  $test.num === getCriterionById(scID).num
+                );
+              });
+
+              if (newSubject && newTest) {
+                assertions.create({
+                  assertedBy,
+                  mode,
+                  result: newResult,
+                  subject: newSubject,
+                  test: newTest
+                });
+              }
+            });
           });
-        })(auditSample);
 
         unscribeSubjects();
         unscribeTests();
