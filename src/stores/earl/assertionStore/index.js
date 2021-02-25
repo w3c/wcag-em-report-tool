@@ -127,6 +127,8 @@ export async function importAssertions(json) {
         failed: 0
       };
 
+      let startImport = false;
+
       const foundAssertions = jsonld
         .getItems(framedAssertions);
 
@@ -190,6 +192,11 @@ export async function importAssertions(json) {
       }
 
       console.log(importableAssertions);
+      startImport = window.confirm(`Import ${resultCount.successfull} results?`);
+
+      if (!startImport) {
+        throw new Error('IMPORT_ABORTED');
+      }
     })
     .catch((error) => {
       console.error(`${error.name}: ${error.message}`);
