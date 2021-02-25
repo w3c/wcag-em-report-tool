@@ -85,7 +85,7 @@ export async function importAssertions(json) {
   }
 
   // Match against wcagStore > Test!
-  function matchTest(test) {
+  function matchCriterion(test) {
     const { id, isPartOf } = test;
     const [, testID] = ((isPartOf && isPartOf.id) || id).split(':');
     const criterion = getCriterionById(testID);
@@ -101,13 +101,13 @@ export async function importAssertions(json) {
 
   function findMatch(Assertion) {
     const { test, subject } = Assertion;
-    const matchedTest = matchTest(test);
+    const matchedCriterion = matchCriterion(test);
     const matchedSubject = matchSubject(subject);
 
-    if (matchedTest && matchedSubject) {
+    if (matchedCriterion && matchedSubject) {
       return {
-        subject: matchedSubject.id,
-        num: matchedTest.num,
+        subjectId: matchedSubject.id,
+        criterionNum: matchedCriterion.num,
         result: Assertion.result
       };
     }
@@ -138,24 +138,18 @@ export async function importAssertions(json) {
        * importableAssertions
        * Create this:
        *  {
-       *    [criterion.num]: [
-       *      {
-       *        type: ['TestSubject', 'Webpage'],
-       *        id: 'http://...',
-       *        title: '...',
-       *        description: '...http://...',
-       *        results: [
+       *    [criterion.num]: {
+       *      [subject.id]: [
        *          {
        *            type: ['TestResult'],
        *            outcome: {...OutcomeValue...},
        *            description: 'observation...'
        *          },
        *          ...results
-       *        ]
-       *      },
+       *      ],
        *      ...subjects
-       *    ],
-       *    ...tests
+       *    },
+       *    ...criteria
        *  }
        * @type {[type]}
        */
@@ -175,11 +169,15 @@ export async function importAssertions(json) {
           if (matchedResult) {
             resultCount.successfull++;
 
-            if (!_importable[matchedResult.num]) {
-              _importable[matchedResult.num] = [];
+            if (!_importable[matchedResult.criterionNum]) {
+              _importable[matchedResult.criterionNum] = {};
             }
 
-            _importable[matchedResult.num].push(matchedResult.result);
+            if (!_importable[matchedResult.criterionNum][matchedResult.subjectId]) {
+              _importable[matchedResult.criterionNum][matchedResult.subjectId] = [];
+            }
+
+            _importable[matchedResult.criterionNum][matchedResult.subjectId].push(matchedResult.result);
           }
 
           return _importable;
