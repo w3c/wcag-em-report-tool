@@ -379,6 +379,12 @@ class EvaluationModel {
             jsonld.getItems(framedAssertions).forEach((assertion) => {
               const { assertedBy, mode, result, subject, test } = assertion;
               const newSubject = $subjects.find(($subject) => {
+                if (
+                  jsonld.hasType(subject, [TestSubjectTypes.WEBSITE, 'WebSite'])
+                ) {
+                  return jsonld.hasType($subject, TestSubjectTypes.WEBSITE);
+                }
+
                 return (
                   $subject.id === subject.id ||
                   $subject.id ===
