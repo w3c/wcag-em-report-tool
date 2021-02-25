@@ -31,6 +31,7 @@ const deprecatedContext = {
 
   // Schema
   schema: 'http://schema.org/',
+  name: 'schema:name',
   WebSite: 'schema:WebSite',
   WebPage: 'schema:WebPage'
 };
