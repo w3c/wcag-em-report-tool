@@ -263,13 +263,10 @@ class EvaluationModel {
          * should be updated as well with new or deprecated values.
          */
         scopeStore.update((value) => {
-          const scopeSubject = $subjects.find(($subject) => $subject.ID === 1);
           const openedScope =
             defineScope.scope ||
             defineScope.DfnSetOfWebpagesWcag21 ||
             defineScope.DfnSetOfWebpagesWcag20;
-
-          scopeSubject.id = openedScope.id;
 
           return Object.assign(value, {
             ADDITIONAL_REQUIREMENTS:
