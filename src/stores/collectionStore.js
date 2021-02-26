@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 export default function collectionStore(Item, initialCollection = []) {
   const collection = writable([...initialCollection]);
 
-  collection.create = function (value) {
+  collection.create = function create(value) {
     if (typeof value !== 'object') {
       value = { value };
     }
