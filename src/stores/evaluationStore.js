@@ -311,11 +311,15 @@ class EvaluationModel {
         });
 
         exploreStore.update((value) => {
-          const technologies =
+          let technologies =
             exploreTarget.technologiesReliedUpon ||
             framedEvaluation.DfnReliedUponTechnologyWcag21 ||
             framedEvaluation.DfnReliedUponTechnologyWcag20 ||
             [];
+
+          if (!Array.isArray(technologies)) {
+            technologies = [technologies];
+          }
 
           return Object.assign(value, {
             TECHNOLOGIES_RELIED_UPON: technologies.map((tech) => tech.title),
