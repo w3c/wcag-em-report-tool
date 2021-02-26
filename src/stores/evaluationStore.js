@@ -442,6 +442,10 @@ class EvaluationModel {
                 // WCAG2X:criterion-id
                 const scID = _testId.split(':').slice(-1)[0];
 
+                if (!scID) {
+                  return false;
+                }
+
                 return (
                   // Match test.num === crit.num
                   $test.num === getCriterionById(scID).num
@@ -462,7 +466,6 @@ class EvaluationModel {
                   } else {
                     assertions.create(newAssertion);
                   }
-
                 })({
                   assertedBy,
                   mode,
