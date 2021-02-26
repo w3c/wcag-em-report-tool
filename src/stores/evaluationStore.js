@@ -209,20 +209,39 @@ class EvaluationModel {
         '@context': importContext,
         '@type': evaluationTypes
       })
-      .then((framedEvaluation) => {
-        let $subjects;
-        const unscribeSubjects = subjects.subscribe((value) => {
-          $subjects = value;
-        });
+      .then(async (framedEvaluation) => {
 
-        let $tests;
-        const unscribeTests = tests.subscribe((value) => {
-          $tests = value;
-        });
-
+        let $assertions;
         let $outcomeValues;
-        const unscribeOutcomeValues = outcomeValues.subscribe((value) => {
-          $outcomeValues = value;
+        let $subjects;
+        let $tests;
+
+        const unscribeStores = ((stores) => {
+          let store;
+          let unscribe;
+
+          return () => {
+            for (store in stores) {
+              unscribe = stores[store];
+
+              if (typeof unscribe === 'function') {
+                unscribe();
+              }
+            }
+          };
+        })({
+          assertions: assertions.subscribe((value) => {
+            $assertions = value;
+          }),
+          outcomeValues: outcomeValues.subscribe((value) => {
+            $outcomeValues = value;
+          }),
+          subjects: subjects.subscribe((value) => {
+            $subjects = value;
+          }),
+          tests: tests.subscribe((value) => {
+            $tests = value;
+          })
         });
 
         let {
@@ -418,7 +437,21 @@ class EvaluationModel {
               });
 
               if (newSubject && newTest) {
-                assertions.create({
+                (function addAssertion(newAssertion) {
+                  const foundAssertion = $assertions.find(($assertion) => {
+                    return (
+                      $assertion.test === newAssertion.test &&
+                      $assertion.subject === newAssertion.subject
+                    );
+                  });
+
+                  if (foundAssertion) {
+                    foundAssertion.result = newAssertion.result;
+                  } else {
+                    assertions.create(newAssertion);
+                  }
+
+                })({
                   assertedBy,
                   mode,
                   result: newResult,
@@ -429,9 +462,7 @@ class EvaluationModel {
             });
           });
 
-        unscribeSubjects();
-        unscribeTests();
-        unscribeOutcomeValues();
+        unscribeStores();
       });
 
     /**
