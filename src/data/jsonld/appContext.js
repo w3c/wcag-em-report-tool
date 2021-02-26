@@ -67,6 +67,7 @@ export const exportContext = {
   evaluationSpecifics: 'wcagem:step5b',
 
   // WCAG
+  WCAG: 'http://www.w3.org/TR/WCAG/#',
   WCAG20: 'http://www.w3.org/TR/WCAG20/#',
   WCAG21: 'http://www.w3.org/TR/WCAG21/#',
 
