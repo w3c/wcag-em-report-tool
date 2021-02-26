@@ -204,4 +204,6 @@ export async function importAssertions(json) {
     });
 }
 
+export { AssertionTypes };
+
 export default assertions;
