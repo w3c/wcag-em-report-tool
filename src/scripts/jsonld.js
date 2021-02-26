@@ -1,5 +1,7 @@
 import jsonld from 'jsonld/lib/jsonld.js';
 
+import { getURL, toHTTP } from '@app/scripts/urls.js';
+
 function getItems(ldon) {
   if (!ldon) {
     return [];
@@ -34,6 +36,13 @@ function hasType(item, types) {
   });
 }
 
+function isCompactIRI(str) {
+  const regexp = /([\w\d]+|_)/g;
+  const matched = str.match(regexp);
+
+  return matched ? true : false;
+}
+
 function setIdFromProperties(item, properties) {
   const newItem = {...item};
   const url = properties.reduce((href, property) => {
@@ -60,8 +69,9 @@ export default {
   flatten: jsonld.flatten,
   frame: jsonld.frame,
   getItems,
-  parseValue: (property) => property,
-  sanitizeContext: (data) => data
+  getType,
+  getValue: (property) => property,
   hasType,
+  isCompactIRI,
   setIdFromProperties
 };

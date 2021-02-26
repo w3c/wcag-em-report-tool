@@ -1,10 +1,10 @@
 const URL_REGEXP = /((https?):\/\/)([\da-z.-]+)\.([a-z.]{2,6})([-\w\d@:%_+.~#?,&//=]+)/g;
 
 export function isURL(url) {
+
   try {
     new URL(url);
   } catch (error) {
-    console.error(error.message);
     return false;
   }
 
@@ -14,7 +14,7 @@ export function isURL(url) {
 export function getURL(text) {
   if (typeof text !== 'string') {
     console.warn(
-      '[getURL]: Expected argument to be of type string, but got “${typeof text}”'
+      `[getURL]: Expected argument to be of type string, but got “${typeof text}”`
     );
     return null;
   }
@@ -22,7 +22,7 @@ export function getURL(text) {
   const matches = text.match(URL_REGEXP);
 
   if (matches) {
-    return new URL(matches[0]).href;
+    return new URL(matches[0]);
   } else {
     return null;
   }
@@ -51,6 +51,6 @@ export function toHTTP(url) {
 
     return url;
   } else {
-    return url.replace('https:', 'http:');
+    return url.replace(/^(https:)/g, 'http:');
   }
 }
