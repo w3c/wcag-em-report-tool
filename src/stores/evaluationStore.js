@@ -432,7 +432,7 @@ class EvaluationModel {
                 const _test = test ? test : assertion.testcase || {};
                 const _testId = _test.id || _test;
                 // WCAG2X:criterion-id
-                const scID = _testId.split(':')[1];
+                const scID = _testId.split(':').slice(-1)[0];
 
                 return (
                   // Match test.num === crit.num
