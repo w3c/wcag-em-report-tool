@@ -334,38 +334,46 @@ class EvaluationModel {
           });
         });
 
-        sampleStore.update(() => {
-          let structuredSample =
-            selectSample.structuredSample ||
-            // Deprecated / previous versions
-            framedEvaluation.structuredSample.DfnWebpageWcag21 ||
-            framedEvaluation.structuredSample.DfnWebpageWcag20 ||
-            // Default
-            [];
+        sampleStore.update((value) => {
+          const { structuredSample, randomSample } = selectSample;
+          const deprecated = {
+            structuredSample: framedEvaluation.structuredSample,
+            randomSample: framedEvaluation.randomSample
+          };
 
-          let randomSample =
-            selectSample.randomSample ||
-            // Deprecated / previous versions
-            framedEvaluation.randomSample.DfnWebpageWcag21 ||
-            framedEvaluation.randomSample.DfnWebpageWcag20 ||
-            // Default
-            [];
+          let importStructuredSample = structuredSample
+            ? structuredSample
+            : // Deprecated / previous versions
+            deprecated.structuredSample
+              ? deprecated.structuredSample.DfnWebpageWcag21 ||
+              deprecated.structuredSample.DfnWebpageWcag20
+              : // Default
+              [];
 
-          if (!Array.isArray(structuredSample)) {
-            structuredSample = [structuredSample];
+          let importRandomSample = randomSample
+            ? randomSample
+            : // Deprecated / previous versions
+            deprecated.randomSample
+              ? deprecated.randomSample.DfnWebpageWcag21 ||
+              deprecated.randomSample.DfnWebpageWcag20
+              : // Default
+              [];
+
+          if (!Array.isArray(importStructuredSample)) {
+            importStructuredSample = [importStructuredSample];
           }
 
-          if (!Array.isArray(randomSample)) {
-            randomSample = [randomSample];
+          if (!Array.isArray(importRandomSample)) {
+            importRandomSample = [importRandomSample];
           }
 
           return {
-            STRUCTURED_SAMPLE: structuredSample.map((sample) => {
+            STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
               sample.type = TestSubjectTypes.WEBPAGE;
 
               return subjects.create(sample);
             }),
-            RANDOM_SAMPLE: randomSample.map((sample) => {
+            RANDOM_SAMPLE: importRandomSample.map((sample) => {
               sample.type = TestSubjectTypes.WEBPAGE;
 
               return subjects.create(sample);
