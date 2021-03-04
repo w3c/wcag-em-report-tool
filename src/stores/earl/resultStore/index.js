@@ -40,4 +40,6 @@ export const outcomeValueStore = derived(
   _outcomeValues
 );
 
+export {OUTCOME};
+
 export default {};

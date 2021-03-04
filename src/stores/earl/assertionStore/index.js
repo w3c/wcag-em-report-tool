@@ -1,9 +1,12 @@
+import { t as translate } from 'svelte-i18n';
+
 import jsonld from '@app/scripts/jsonld.js';
 
 import { getURL, isURL } from '@app/scripts/urls.js';
 import { importContext } from '@app/data/jsonld/appContext.js';
 
 import collectionStore from '@app/stores/collectionStore.js';
+import { OUTCOME, outcomeValueStore as outcomeValues } from '@app/stores/earl/resultStore/index.js';
 import subjects from '@app/stores/earl/subjectStore/index.js';
 import tests from '@app/stores/earl/testStore/index.js';
 import { getCriterionById } from '@app/stores/wcagStore.js';
@@ -44,8 +47,18 @@ const assertions = collectionStore(Assertion, initialAssertions);
  * @return {[type]}      [description]
  */
 export async function importAssertions(json) {
+  let $assertions;
   let $subjects;
   let $tests;
+  let $outcomeValues;
+
+  outcomeValues.subscribe((value) => {
+    $outcomeValues = value;
+  });
+
+  assertions.subscribe((value) => {
+    $assertions = value;
+  })();
 
   subjects.subscribe((value) => {
     $subjects = value;
@@ -115,6 +128,35 @@ export async function importAssertions(json) {
     return false;
   }
 
+  function updateAssertion(assertion, results) {
+    const TRANSLATED = {};
+    const failedResult = results.some((result) => {
+      return result.outcome === OUTCOME.FAILED;
+    });
+
+    translate.subscribe((get) => {
+      TRANSLATED.OUTCOME = get('PAGES.AUDIT.LABEL_OUTCOME');
+    })();
+
+    assertion.result.addDescription('import by name/url:');
+
+    results.forEach((result) => {
+      const $outcome = $outcomeValues.find(($outcomeValue) => {
+        return $outcomeValue.id === result.outcome.id;
+      });
+
+      const resultString = `${TRANSLATED.OUTCOME}: ${$outcome.title}\n${result.description || ''}`;
+
+      assertion.result.addDescription(resultString);
+    });
+
+    if (failedResult) {
+      assertion.result.setOutcome(OUTCOME.FAILED.id);
+    } else {
+      assertion.result.setOutcome(OUTCOME.CANT_TELL.id);
+    }
+  }
+
   await jsonld
     .frame(json, {
       '@context': importContext,
@@ -129,8 +171,7 @@ export async function importAssertions(json) {
 
       let startImport = false;
 
-      const foundAssertions = jsonld
-        .getItems(framedAssertions);
+      const foundAssertions = jsonld.getItems(framedAssertions);
 
       if (foundAssertions.length === 0) {
         throw new Error('NO_ASSERTIONS');
@@ -191,12 +232,50 @@ export async function importAssertions(json) {
         throw new Error('NO_COMPATIBLE_ASSERTIONS');
       }
 
-      console.log(importableAssertions);
-      startImport = window.confirm(`Import ${resultCount.successfull} results?`);
+      startImport = window.confirm(
+        `Import ${resultCount.successfull} results?`
+      );
 
       if (!startImport) {
         throw new Error('IMPORT_ABORTED');
       }
+
+      // Start import
+      Object.keys(importableAssertions).forEach((criterionNum) => {
+        const test = $tests.find(($test) => {
+          return $test.num === criterionNum;
+        });
+
+        Object.keys(importableAssertions[criterionNum]).forEach((subjectId) => {
+          const subject = $subjects.find(($subject) => {
+            return $subject.id === subjectId;
+          });
+          const results = importableAssertions[criterionNum][subjectId].map(
+            (importableAssertion) => importableAssertion.result
+          );
+          const foundAssertion = $assertions.find(($assertion) => {
+            return (
+              $assertion.test.num === criterionNum &&
+              $assertion.subject.id === subjectId
+            );
+          });
+
+          let newAssertion;
+
+          if (foundAssertion) {
+            updateAssertion(foundAssertion, results);
+          } else {
+            newAssertion = assertions.create({ subject, test });
+            updateAssertion(newAssertion, results);
+            $assertions.push(newAssertion);
+          }
+        });
+      });
+
+      // Update assertionStore afterward
+      assertions.update(() => {
+        return $assertions;
+      });
     })
     .catch((error) => {
       console.error(`${error.name}: ${error.message}`);

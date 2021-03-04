@@ -43,7 +43,7 @@ export class Assertion extends BaseModel {
     this.type = AssertionTypes;
     this.assertedBy = options.assertedBy;
     this.mode = 'earl:manual';
-    this.result = options.result || new TestResult();
+    this.result = new TestResult(options.result || {});
     this.subject = options.subject;
     this.test = options.test;
   }
