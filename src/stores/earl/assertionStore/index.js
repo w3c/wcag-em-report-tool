@@ -113,7 +113,7 @@ export async function importAssertions(json) {
   }
 
   function findMatch(Assertion) {
-    const { test, subject } = Assertion;
+    const { test, subject, result } = Assertion;
     const matchedCriterion = matchCriterion(test);
     const matchedSubject = matchSubject(subject);
 
@@ -121,7 +121,7 @@ export async function importAssertions(json) {
       return {
         subjectId: matchedSubject.id,
         criterionNum: matchedCriterion.num,
-        result: Assertion.result
+        result
       };
     }
 
@@ -250,9 +250,7 @@ export async function importAssertions(json) {
           const subject = $subjects.find(($subject) => {
             return $subject.id === subjectId;
           });
-          const results = importableAssertions[criterionNum][subjectId].map(
-            (importableAssertion) => importableAssertion.result
-          );
+          const results = importableAssertions[criterionNum][subjectId];
           const foundAssertion = $assertions.find(($assertion) => {
             return (
               $assertion.test.num === criterionNum &&
