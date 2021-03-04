@@ -138,11 +138,11 @@
     CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
   };
 
-  let test = $tests.find(($test) => {
+  $: test = $tests.find(($test) => {
     return $test.num === num;
   });
 
-  let scopeSubject = $subjects.find((subject) => {
+  $: scopeSubject = $subjects.find((subject) => {
     return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
   });
 </script>
