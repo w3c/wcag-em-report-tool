@@ -51,11 +51,11 @@
 
           switch (error.message) {
             case 'JSONLD.SYNTAX_ERROR':
-              errorMessage = `UI.IMPORT.ERROR.JSONLD_SYNTAX`;
+              errorMessage = 'UI.IMPORT.ERROR.JSONLD_SYNTAX';
               break;
 
             case 'IMPORT.NO_ASSERTIONS_ERROR':
-              errorMessage = `UI.IMPORT.ERROR.NO_ASSERTIONS`;
+              errorMessage = 'UI.IMPORT.ERROR.NO_ASSERTIONS';
               break;
 
             case 'IMPORT.NO_COMPATIBLE_ASSERTIONS_ERROR':
