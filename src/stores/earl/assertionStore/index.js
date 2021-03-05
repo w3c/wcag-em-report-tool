@@ -3,10 +3,15 @@ import { t as translate } from 'svelte-i18n';
 import jsonld from '@app/scripts/jsonld.js';
 
 import { getURL, isURL } from '@app/scripts/urls.js';
+
+import { IMPORT_ERROR, JSONLD_ERROR } from '@app/data/errors.json';
 import { importContext } from '@app/data/jsonld/appContext.js';
 
 import collectionStore from '@app/stores/collectionStore.js';
-import { OUTCOME, outcomeValueStore as outcomeValues } from '@app/stores/earl/resultStore/index.js';
+import {
+  OUTCOME,
+  outcomeValueStore as outcomeValues
+} from '@app/stores/earl/resultStore/index.js';
 import subjects from '@app/stores/earl/subjectStore/index.js';
 import tests from '@app/stores/earl/testStore/index.js';
 import { getCriterionById } from '@app/stores/wcagStore.js';
@@ -29,17 +34,17 @@ const assertions = collectionStore(Assertion, initialAssertions);
  *  - [x] Check for required keys; test, subject, result.
  *  - [x] Check if the test matches
  *  - [x] Check if the subject matches; check urlizable props and match against id
- *  - [ ] If all pass, add the assertion as importable and combine results for test + subject combination
+ *  - [x] If all pass, add the assertion as importable and combine results for test + subject combination
  *
  * - [ ] Walk the importableAssertions (Import)
- *  - [ ] Get or create an assertion based on the test + subject.
+ *  - [x] Get or create an assertion based on the test + subject.
  *  - [ ] Agregate result.outcome;
  *        If starting result.outcome is not failed
  *        change either to failed or cantTell.
  *
  *    - [ ] Finally aggregate to scope result outcome if changed to failed / cantTell.
  *
- *  - [ ] Append all result.description to the result.description.
+ *  - [x] Append all result.description to the result.description.
  *
  * - Done
  *
@@ -47,7 +52,6 @@ const assertions = collectionStore(Assertion, initialAssertions);
  * @return {[type]}      [description]
  */
 export async function importAssertions(json) {
-
   const importCount = {
     total: 0,
     successfull: 0,
@@ -152,7 +156,9 @@ export async function importAssertions(json) {
         return $outcomeValue.id === result.outcome.id;
       });
 
-      const resultString = `${TRANSLATED.OUTCOME}: ${$outcome.title}\n${result.description || ''}`;
+      const resultString = `${TRANSLATED.OUTCOME}: ${$outcome.title}\n${
+        result.description || ''
+      }`;
 
       assertion.result.addDescription(resultString);
     });
@@ -173,8 +179,8 @@ export async function importAssertions(json) {
     })
 
     // Catch jsonld errors
-    .catch((error) => {
-      throw new Error('JSONLD.SYNTAX_ERROR');
+    .catch(() => {
+      throw new Error(JSONLD_ERROR.SYNTAX);
     })
 
     // Get a collection of Assertions
@@ -184,9 +190,8 @@ export async function importAssertions(json) {
 
     // Check which assertion is importable
     .then((Assertions) => {
-
       if (Assertions.length === 0) {
-        throw new Error('IMPORT.NO_ASSERTIONS_ERROR');
+        throw new Error(IMPORT_ERROR.NO_ASSERTIONS);
       }
 
       /**
@@ -208,42 +213,51 @@ export async function importAssertions(json) {
        *  }
        * @type {[type]}
        */
-      return Assertions
+      return (
+        Assertions
 
-        // Prepare imports
-        .reduce((_importable, _Assertion) => {
-          importCount.total++;
+          // Prepare imports
+          .reduce((_importable, _Assertion) => {
+            importCount.total++;
 
-          // Check required assertion keys
-          if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
+            // Check required assertion keys
+            if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
+              return _importable;
+            }
+
+            const matchedResult = findMatch(_Assertion);
+
+            if (matchedResult) {
+              importCount.successfull++;
+
+              if (!_importable[matchedResult.criterionNum]) {
+                _importable[matchedResult.criterionNum] = {};
+              }
+
+              if (
+                !_importable[matchedResult.criterionNum][
+                  matchedResult.subjectId
+                ]
+              ) {
+                _importable[matchedResult.criterionNum][
+                  matchedResult.subjectId
+                ] = [];
+              }
+
+              _importable[matchedResult.criterionNum][
+                matchedResult.subjectId
+              ].push(matchedResult.result);
+            }
+
             return _importable;
-          }
-
-          const matchedResult = findMatch(_Assertion);
-
-          if (matchedResult) {
-            importCount.successfull++;
-
-            if (!_importable[matchedResult.criterionNum]) {
-              _importable[matchedResult.criterionNum] = {};
-            }
-
-            if (!_importable[matchedResult.criterionNum][matchedResult.subjectId]) {
-              _importable[matchedResult.criterionNum][matchedResult.subjectId] = [];
-            }
-
-            _importable[matchedResult.criterionNum][matchedResult.subjectId].push(matchedResult.result);
-          }
-
-          return _importable;
-        }, {});
+          }, {})
+      );
     })
 
     // Start import
     .then((importableAssertions) => {
-
       if (importCount.successfull === 0) {
-        throw new Error('IMPORT.NO_COMPATIBLE_ASSERTIONS_ERROR');
+        throw new Error(IMPORT_ERROR.NO_COMPATIBLE_ASSERTIONS);
       }
 
       const startImport = window.confirm(
@@ -251,7 +265,7 @@ export async function importAssertions(json) {
       );
 
       if (!startImport) {
-        throw new Error('IMPORT.USER_DECLINED_ERROR');
+        throw new Error(IMPORT_ERROR.USER_DECLINED);
       }
 
       // Start import

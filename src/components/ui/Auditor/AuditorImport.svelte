@@ -14,6 +14,8 @@
 
 <script>
   import { getContext } from 'svelte';
+
+  import { IMPORT_ERROR, JSONLD_ERROR } from '@app/data/errors.json';
   import { importAssertions } from '@app/stores/earl/assertionStore/index.js';
   import File, { readFile } from '@app/components/form/File.svelte';
 
@@ -50,19 +52,19 @@
           let errorMessage;
 
           switch (error.message) {
-            case 'JSONLD.SYNTAX_ERROR':
+            case JSONLD_ERROR.SYNTAX:
               errorMessage = 'UI.IMPORT.ERROR.JSONLD_SYNTAX';
               break;
 
-            case 'IMPORT.NO_ASSERTIONS_ERROR':
+            case IMPORT_ERROR.NO_ASSERTIONS:
               errorMessage = 'UI.IMPORT.ERROR.NO_ASSERTIONS';
               break;
 
-            case 'IMPORT.NO_COMPATIBLE_ASSERTIONS_ERROR':
+            case IMPORT_ERROR.NO_COMPATIBLE_ASSERTIONS:
               errorMessage = 'UI.IMPORT.ERROR.NO_COMPATIBLE_ASSERTIONS';
               break;
 
-            case 'IMPORT.USER_DECLINED_ERROR':
+            case IMPORT_ERROR.USER_DECLINED:
               errorMessage = 'UI.IMPORT.ERROR.USER_DECLINED';
               break;
 
