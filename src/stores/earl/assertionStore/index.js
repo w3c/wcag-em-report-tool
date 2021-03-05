@@ -47,6 +47,13 @@ const assertions = collectionStore(Assertion, initialAssertions);
  * @return {[type]}      [description]
  */
 export async function importAssertions(json) {
+
+  const importCount = {
+    total: 0,
+    successfull: 0,
+    failed: 0
+  };
+
   let $assertions;
   let $subjects;
   let $tests;
@@ -155,26 +162,31 @@ export async function importAssertions(json) {
     } else {
       assertion.result.setOutcome(OUTCOME.CANT_TELL.id);
     }
+
+    return assertion;
   }
 
-  await jsonld
+  return await jsonld
     .frame(json, {
       '@context': importContext,
       '@type': AssertionTypes
     })
-    .then((framedAssertions) => {
-      const resultCount = {
-        total: 0,
-        successfull: 0,
-        failed: 0
-      };
 
-      let startImport = false;
+    // Catch jsonld errors
+    .catch((error) => {
+      throw new Error('JSONLD.SYNTAX_ERROR');
+    })
 
-      const foundAssertions = jsonld.getItems(framedAssertions);
+    // Get a collection of Assertions
+    .then((AssertionFrame) => {
+      return jsonld.getItems(AssertionFrame);
+    })
 
-      if (foundAssertions.length === 0) {
-        throw new Error('NO_ASSERTIONS');
+    // Check which assertion is importable
+    .then((Assertions) => {
+
+      if (Assertions.length === 0) {
+        throw new Error('IMPORT.NO_ASSERTIONS_ERROR');
       }
 
       /**
@@ -196,11 +208,11 @@ export async function importAssertions(json) {
        *  }
        * @type {[type]}
        */
-      const importableAssertions = foundAssertions
+      return Assertions
 
         // Prepare imports
         .reduce((_importable, _Assertion) => {
-          resultCount.total++;
+          importCount.total++;
 
           // Check required assertion keys
           if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
@@ -210,7 +222,7 @@ export async function importAssertions(json) {
           const matchedResult = findMatch(_Assertion);
 
           if (matchedResult) {
-            resultCount.successfull++;
+            importCount.successfull++;
 
             if (!_importable[matchedResult.criterionNum]) {
               _importable[matchedResult.criterionNum] = {};
@@ -225,19 +237,21 @@ export async function importAssertions(json) {
 
           return _importable;
         }, {});
+    })
 
-      resultCount.failed = resultCount.total - resultCount.successfull;
+    // Start import
+    .then((importableAssertions) => {
 
-      if (resultCount.successfull === 0) {
-        throw new Error('NO_COMPATIBLE_ASSERTIONS');
+      if (importCount.successfull === 0) {
+        throw new Error('IMPORT.NO_COMPATIBLE_ASSERTIONS_ERROR');
       }
 
-      startImport = window.confirm(
-        `Import ${resultCount.successfull} results?`
+      const startImport = window.confirm(
+        `Import ${importCount.successfull} of ${importCount.total} results?`
       );
 
       if (!startImport) {
-        throw new Error('IMPORT_ABORTED');
+        throw new Error('IMPORT.USER_DECLINED_ERROR');
       }
 
       // Start import
@@ -251,7 +265,7 @@ export async function importAssertions(json) {
             return $subject.id === subjectId;
           });
           const results = importableAssertions[criterionNum][subjectId];
-          const foundAssertion = $assertions.find(($assertion) => {
+          let foundAssertion = $assertions.find(($assertion) => {
             return (
               $assertion.test.num === criterionNum &&
               $assertion.subject.id === subjectId
@@ -261,10 +275,10 @@ export async function importAssertions(json) {
           let newAssertion;
 
           if (foundAssertion) {
-            updateAssertion(foundAssertion, results);
+            foundAssertion = updateAssertion(foundAssertion, results);
           } else {
             newAssertion = assertions.create({ subject, test });
-            updateAssertion(newAssertion, results);
+            newAssertion = updateAssertion(newAssertion, results);
             $assertions.push(newAssertion);
           }
         });
@@ -274,9 +288,11 @@ export async function importAssertions(json) {
       assertions.update(() => {
         return $assertions;
       });
+
+      return importableAssertions;
     })
+
     .catch((error) => {
-      console.error(`${error.name}: ${error.message}`);
       throw error;
     });
 }

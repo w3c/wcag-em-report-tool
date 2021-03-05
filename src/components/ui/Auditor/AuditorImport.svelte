@@ -24,7 +24,6 @@
   };
 
   function handleChange(event) {
-
     const { target } = event;
     const file = event.target.files[0];
 
@@ -39,11 +38,39 @@
       }
 
       importAssertions(json)
-        .then(() => {
-          alert('Import succeed');
+        .then((imported) => {
+          const criteria = Object.keys(imported)
+            .map((num) => `– ${num}`)
+            .join('\n');
+
+          alert(`Import succeeded for criteria:\n${criteria}.`);
         })
-        .catch(() => {
-          alert('Import failed');
+        .catch((error) => {
+          console.error(error);
+          let errorMessage;
+
+          switch (error.message) {
+            case 'JSONLD.SYNTAX_ERROR':
+              errorMessage = `UI.IMPORT.ERROR.JSONLD_SYNTAX`;
+              break;
+
+            case 'IMPORT.NO_ASSERTIONS_ERROR':
+              errorMessage = `UI.IMPORT.ERROR.NO_ASSERTIONS`;
+              break;
+
+            case 'IMPORT.NO_COMPATIBLE_ASSERTIONS_ERROR':
+              errorMessage = 'UI.IMPORT.ERROR.NO_COMPATIBLE_ASSERTIONS';
+              break;
+
+            case 'IMPORT.USER_DECLINED_ERROR':
+              errorMessage = 'UI.IMPORT.ERROR.USER_DECLINED';
+              break;
+
+            default:
+              errorMessage = 'UI.COMMON.ERROR.DEFAULT';
+          }
+
+          alert(`Import aborted:\n\t${errorMessage}`);
         })
         .finally(() => {
           target.value = '';
