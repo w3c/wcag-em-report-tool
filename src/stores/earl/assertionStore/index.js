@@ -289,10 +289,12 @@ export async function importAssertions(json) {
           let newAssertion;
 
           if (foundAssertion) {
-            foundAssertion = updateAssertion(foundAssertion, results);
+            updateAssertion(foundAssertion, results);
           } else {
-            newAssertion = assertions.create({ subject, test });
-            newAssertion = updateAssertion(newAssertion, results);
+            newAssertion = updateAssertion(
+              assertions.create({ subject, test }),
+              results
+            );
             $assertions.push(newAssertion);
           }
         });

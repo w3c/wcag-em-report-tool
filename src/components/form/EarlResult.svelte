@@ -26,6 +26,7 @@
         id="{`assertion__${_assertion.ID}--result__outcome`}"
         label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
         options="{outcomeOptions}"
+        value="{_assertion.result.outcome.id}"
         on:change="{handleOutcomeChange}"
         on:change="{handleResultChange}"
       />
