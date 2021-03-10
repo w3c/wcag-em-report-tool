@@ -141,31 +141,36 @@ export async function importAssertions(json) {
 
   function updateAssertion(assertion, results) {
     const TRANSLATED = {};
-    const failedResult = results.some((result) => {
-      return result.outcome === OUTCOME.FAILED;
+    const testedResult = !results.some((result) => {
+      return result.outcome.id === OUTCOME.UNTESTED.id;
     });
 
     translate.subscribe((get) => {
+      TRANSLATED.IMPORT_RESULT_HEADING = get('UI.IMPORT.IMPORT.HEADING', {
+        values: {
+          AUTHOR: '<AUTHOR>', // Assertion.assertedBy
+          IMPORT_DATE: new Date() // Assertion.result.date ?
+        }
+      });
+      TRANSLATED.IMPORT_RESULT_TEST = get('UI.IMPORT.IMPORT.TEST_PREFIX');
       TRANSLATED.OUTCOME = get('PAGES.AUDIT.LABEL_OUTCOME');
     })();
-
-    assertion.result.addDescription('import by name/url:');
 
     results.forEach((result) => {
       const $outcome = $outcomeValues.find(($outcomeValue) => {
         return $outcomeValue.id === result.outcome.id;
       });
 
-      const resultString = `${TRANSLATED.OUTCOME}: ${$outcome.title}\n${
-        result.description || ''
-      }`;
+      const resultString =
+        `${TRANSLATED.IMPORT_RESULT_HEADING}:` +
+        `\n${TRANSLATED.IMPORT_RESULT_TEST}: Test` +
+        `\n${TRANSLATED.OUTCOME}: ${$outcome.title}` +
+        `\n${result.description || ''}`;
 
       assertion.result.addDescription(resultString);
     });
 
-    if (failedResult) {
-      assertion.result.setOutcome(OUTCOME.FAILED.id);
-    } else {
+    if (testedResult) {
       assertion.result.setOutcome(OUTCOME.CANT_TELL.id);
     }
 
