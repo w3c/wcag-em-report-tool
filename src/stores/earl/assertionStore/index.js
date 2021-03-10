@@ -274,19 +274,19 @@ export async function importAssertions(json) {
 
       // Start import
       Object.keys(importableAssertions).forEach((criterionNum) => {
-        const test = $tests.find(($test) => {
+        const $test = $tests.find(($test) => {
           return $test.num === criterionNum;
         });
 
         Object.keys(importableAssertions[criterionNum]).forEach((subjectId) => {
-          const subject = $subjects.find(($subject) => {
+          const $subject = $subjects.find(($subject) => {
             return $subject.id === subjectId;
           });
           const results = importableAssertions[criterionNum][subjectId];
           let foundAssertion = $assertions.find(($assertion) => {
             return (
-              $assertion.test === test &&
-              $assertion.subject === subject
+              $assertion.test === $test &&
+              $assertion.subject === $subject
             );
           });
 
