@@ -296,7 +296,7 @@ export async function importAssertions(json) {
             updateAssertion(foundAssertion, results);
           } else {
             newAssertion = updateAssertion(
-              assertions.create({ subject, test }),
+              assertions.create({ $subject, $test }),
               results
             );
             $assertions.push(newAssertion);
