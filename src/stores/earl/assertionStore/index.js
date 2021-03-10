@@ -145,12 +145,16 @@ export async function importAssertions(json) {
     });
 
     translate.subscribe((get) => {
-      TRANSLATED.IMPORT_RESULT_HEADING = get('UI.IMPORT.IMPORT.HEADING', {
-        values: {
-          AUTHOR: '<AUTHOR>', // Assertion.assertedBy
-          IMPORT_DATE: new Date() // Assertion.result.date ?
-        }
-      });
+      TRANSLATED.getImportHeading = function getImportHeading(assertion) {
+        const { assertedBy } = assertion;
+
+        return get('UI.IMPORT.IMPORT.HEADING', {
+          values: {
+            AUTHOR: assertedBy.name || assertedBy.id, // Assertion.assertedBy
+            IMPORT_DATE: new Date() // Assertion.result.date ?
+          }
+        });
+      };
       TRANSLATED.IMPORT_RESULT_TEST = get('UI.IMPORT.IMPORT.TEST_PREFIX');
       TRANSLATED.OUTCOME = get('PAGES.AUDIT.LABEL_OUTCOME');
     })();
@@ -162,7 +166,7 @@ export async function importAssertions(json) {
       });
 
       const resultString =
-        `${TRANSLATED.IMPORT_RESULT_HEADING}:` +
+        `${TRANSLATED.getImportHeading(importableAssertion)}:` +
         `\n${TRANSLATED.IMPORT_RESULT_TEST}: ${test.title || ''} ${test.id}` +
         `\n${TRANSLATED.OUTCOME}: ${$outcome.title}` +
         `\n${result.description || ''}`;
