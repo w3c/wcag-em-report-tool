@@ -14,6 +14,15 @@ const _outcomeValues = Object.keys(OUTCOME).map((key) => {
   };
 });
 
+export function isUntestedOutcome(outcome = {}) {
+
+  if (!outcome) {
+    throw new Error('[isUntestedOutcome]: Expected argument, outcome, to be defined.');
+  }
+
+  return outcome.id === OUTCOME.UNTESTED.id;
+}
+
 export const outcomeValueStore = derived(
   [locale, translate],
   ([$locale, $translate]) => {

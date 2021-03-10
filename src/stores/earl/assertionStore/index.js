@@ -9,6 +9,7 @@ import { importContext } from '@app/data/jsonld/appContext.js';
 
 import collectionStore from '@app/stores/collectionStore.js';
 import {
+  isUntestedOutcome,
   OUTCOME,
   outcomeValueStore as outcomeValues
 } from '@app/stores/earl/resultStore/index.js';
@@ -128,7 +129,7 @@ export async function importAssertions(json) {
     const matchedCriterion = matchCriterion(test);
     const matchedSubject = matchSubject(subject);
 
-    if (matchedCriterion && matchedSubject) {
+    if (matchedCriterion && matchedSubject && !isUntestedOutcome(result.outcome)) {
       return {
         subjectId: matchedSubject.id,
         criterionNum: matchedCriterion.num,
