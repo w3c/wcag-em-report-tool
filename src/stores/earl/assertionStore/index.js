@@ -209,12 +209,7 @@ export async function importAssertions(json) {
        *  {
        *    [criterion.num]: {
        *      [subject.id]: [
-       *          {
-       *            type: ['TestResult'],
-       *            outcome: {...OutcomeValue...},
-       *            description: 'observation...'
-       *          },
-       *          ...results
+       *          ...importableAssertions
        *      ],
        *      ...subjects
        *    },
