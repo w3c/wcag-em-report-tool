@@ -31,21 +31,19 @@ const assertions = collectionStore(Assertion, initialAssertions);
  * automated test tools could be in the hundreds or thousands even.
  *
  * Roughly what we will be doing to be as performant as possible is:
- * - [x] Walk the imported assertions once! (Preparation);
- *  - [x] Check for required keys; test, subject, result.
- *  - [x] Check if the test matches
- *  - [x] Check if the subject matches; check urlizable props and match against id
- *  - [x] If all pass, add the assertion as importable and combine results for test + subject combination
+ *  - [x] Walk the imported assertions once! (Preparation);
+ *    - [x] Check for required keys; test, subject, result.
+ *    - [x] Check if the test matches
+ *    - [x] Check if the subject matches; check urlizable props and match against id
+ *    - [x] If all pass, add the assertion as importable and combine results for test + subject combination
  *
- * - [ ] Walk the importableAssertions (Import)
- *  - [x] Get or create an assertion based on the test + subject.
- *  - [ ] Agregate result.outcome;
- *        If starting result.outcome is not failed
- *        change either to failed or cantTell.
+ *  - [x] Walk the importableAssertions (Import)
+ *    - [x] Get or create an assertion based on the test + subject.
+ *    - [x] Agregate result.outcome;
+ *          If starting result.outcome is not untested
+ *          change to cantTell.
  *
- *    - [ ] Finally aggregate to scope result outcome if changed to failed / cantTell.
- *
- *  - [x] Append all result.description to the result.description.
+ *    - [x] Append all result.description to the result.description.
  *
  * - Done
  *
@@ -66,7 +64,7 @@ export async function importAssertions(json) {
 
   outcomeValues.subscribe((value) => {
     $outcomeValues = value;
-  });
+  })();
 
   assertions.subscribe((value) => {
     $assertions = value;
