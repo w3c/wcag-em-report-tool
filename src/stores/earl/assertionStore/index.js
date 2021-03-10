@@ -140,8 +140,8 @@ export async function importAssertions(json) {
 
   function updateAssertion(assertion, results) {
     const TRANSLATED = {};
-    const testedResult = !results.some((result) => {
-      return result.outcome.id === OUTCOME.UNTESTED.id;
+    const testedResult = !results.some((importableAssertion) => {
+      return importableAssertion.result.outcome.id === OUTCOME.UNTESTED.id;
     });
 
     translate.subscribe((get) => {
@@ -155,14 +155,15 @@ export async function importAssertions(json) {
       TRANSLATED.OUTCOME = get('PAGES.AUDIT.LABEL_OUTCOME');
     })();
 
-    results.forEach((result) => {
+    results.forEach((importableAssertion) => {
+      const { result, test } = importableAssertion;
       const $outcome = $outcomeValues.find(($outcomeValue) => {
         return $outcomeValue.id === result.outcome.id;
       });
 
       const resultString =
         `${TRANSLATED.IMPORT_RESULT_HEADING}:` +
-        `\n${TRANSLATED.IMPORT_RESULT_TEST}: Test` +
+        `\n${TRANSLATED.IMPORT_RESULT_TEST}: ${test.title || ''} ${test.id}` +
         `\n${TRANSLATED.OUTCOME}: ${$outcome.title}` +
         `\n${result.description || ''}`;
 
@@ -224,7 +225,7 @@ export async function importAssertions(json) {
           .reduce((_importable, _Assertion) => {
             importCount.total++;
 
-            // Check required assertion keys
+            // Check required assertion keys, skip further checks if not met
             if (!_Assertion.test || !_Assertion.subject || !_Assertion.result) {
               return _importable;
             }
@@ -250,7 +251,7 @@ export async function importAssertions(json) {
 
               _importable[matchedResult.criterionNum][
                 matchedResult.subjectId
-              ].push(matchedResult.result);
+              ].push(_Assertion);
             }
 
             return _importable;
@@ -285,8 +286,8 @@ export async function importAssertions(json) {
           const results = importableAssertions[criterionNum][subjectId];
           let foundAssertion = $assertions.find(($assertion) => {
             return (
-              $assertion.test.num === criterionNum &&
-              $assertion.subject.id === subjectId
+              $assertion.test === test &&
+              $assertion.subject === subject
             );
           });
 
