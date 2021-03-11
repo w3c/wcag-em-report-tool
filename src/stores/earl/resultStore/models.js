@@ -73,6 +73,8 @@ export const OUTCOME = {
 };
 Object.freeze(OUTCOME);
 
+const outcomeValues = [PASSED, FAILED, CANT_TELL, INAPPLICABLE, UNTESTED];
+
 export class TestResult extends BaseModel {
   constructor(options = {}) {
     super(options);
@@ -87,6 +89,49 @@ export class TestResult extends BaseModel {
     });
 
     this.type = ['TestResult'];
-    this.outcome = options.outcome || { ...UNTESTED };
+    this.outcome = this.setOutcome(
+      (options.outcome && options.outcome.id) || OUTCOME.UNTESTED.id
+    );
+  }
+
+  /**
+   * Set the outcome by OutcomeValue id
+   * @param {String} id ld string, compacted IRI e.g. earl:passed
+   */
+  setOutcome(id) {
+    if (typeof id !== 'string') {
+      console.warn('[setOutcome]: Expected id to be defined as type string.');
+    }
+
+    const newOutcome = [...outcomeValues].find((outcome) => {
+      return outcome.id === id;
+    });
+
+    if (newOutcome) {
+      this.outcome = newOutcome;
+    }
+
+    return newOutcome;
+  }
+
+  /**
+   * Add contents to description
+   * seperated by a newline.
+   * @param {String} contents
+   * @return {String} New description value.
+   */
+  addDescription(contents = '') {
+    if (typeof contents !== 'string') {
+      console.warn('[addDescription]: Expected contents to be of type string. Treating as empty string.');
+      contents = '';
+    }
+
+    const newDescription = [this.description, contents].join('\n\n').trim();
+
+    if (contents.length > 0) {
+      this.description = newDescription;
+    }
+
+    return newDescription;
   }
 }

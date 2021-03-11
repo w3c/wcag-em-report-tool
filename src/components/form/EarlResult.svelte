@@ -26,7 +26,8 @@
         id="{`assertion__${_assertion.ID}--result__outcome`}"
         label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
         options="{outcomeOptions}"
-        bind:value="{_assertion.result.outcome}"
+        value="{_assertion.result.outcome.id}"
+        on:change="{handleOutcomeChange}"
         on:change="{handleResultChange}"
       />
     </div>
@@ -91,7 +92,7 @@
 
   $: outcomeOptions = $outcomeValues.map((outcomeValue, index) => {
     const title = outcomeValue.title;
-    const value = outcomeValue;
+    const value = outcomeValue.id;
 
     return {
       title,
@@ -108,6 +109,14 @@
 
       return matchedTest && matchedSubject;
     }) || assertions.create({ subject, test });
+
+  function handleOutcomeChange(event) {
+    const value = event.target.value;
+
+    _assertion.result.outcome = $outcomeValues.find(($outcomeValue) => {
+      return $outcomeValue.id === value;
+    });
+  }
 
   function handleResultChange() {
     _assertion.result.setDate();

@@ -1,5 +1,8 @@
 import collection from '@app/stores/collectionStore.js';
-import { wcagCriteriaDictionary, WCAG_VERSIONS } from '@app/stores/wcagStore.js';
+import {
+  wcagCriteriaDictionary,
+  WCAG_VERSIONS
+} from '@app/stores/wcagStore.js';
 
 import { TestRequirement } from './models.js';
 
@@ -10,13 +13,17 @@ import { TestRequirement } from './models.js';
  * Add num(bering) property for internal matching.
  * @type {Array}
  */
-const initialTestStore = wcagCriteriaDictionary[WCAG_VERSIONS.slice(-1)].map((criterion) => {
-  const newTest = new TestRequirement(criterion);
+const LATEST_WCAG_VERSION = WCAG_VERSIONS.slice(-1)[0];
+const initialTestStore = wcagCriteriaDictionary[LATEST_WCAG_VERSION].map(
+  (criterion) => {
+    const newTest = new TestRequirement(criterion);
+    const wcagVersionLd = `WCAG${LATEST_WCAG_VERSION.replace('.', '')}`;
+    newTest.id = `${wcagVersionLd}:${criterion.id}`;
+    newTest.num = criterion.num;
 
-  newTest.num = criterion.num;
-
-  return newTest;
-});
+    return newTest;
+  }
+);
 
 /**
  * $tests

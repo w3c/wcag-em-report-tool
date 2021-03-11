@@ -35,6 +35,7 @@
           navigate('/evaluation/scope');
         })
         .finally(() => {
+          target.value = '';
           loading = false;
         });
     });

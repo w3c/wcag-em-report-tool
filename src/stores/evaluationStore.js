@@ -1,9 +1,11 @@
-import jsonld from 'jsonld/lib/jsonld.js';
+import jsonld from '@app/scripts/jsonld.js';
 
 import { derived } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
-import appJsonLdContext, { importContext } from '@app/data/jsonld/appContext.js';
+import appJsonLdContext, {
+  importContext
+} from '@app/data/jsonld/appContext.js';
 import webTechnologies from '@app/data/webtechnologies.json';
 import { downloadFile } from '@app/scripts/files.js';
 
@@ -14,8 +16,11 @@ import scopeStore, { initialScopeStore } from '@app/stores/scopeStore.js';
 import exploreStore, { initialExploreStore } from '@app/stores/exploreStore.js';
 import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
 import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
+import { getCriterionById } from '@app/stores/wcagStore.js';
 
-import assertions from '@app/stores/earl/assertionStore/index.js';
+import assertions, {
+  AssertionTypes
+} from '@app/stores/earl/assertionStore/index.js';
 import subjects, {
   initialSubjectStore,
   TestSubjectTypes
@@ -204,20 +209,39 @@ class EvaluationModel {
         '@context': importContext,
         '@type': evaluationTypes
       })
-      .then((framedEvaluation) => {
-        let $subjects;
-        const unscribeSubjects = subjects.subscribe((value) => {
-          $subjects = value;
-        });
+      .then(async (framedEvaluation) => {
 
-        let $tests;
-        const unscribeTests = tests.subscribe((value) => {
-          $tests = value;
-        });
-
+        let $assertions;
         let $outcomeValues;
-        const unscribeOutcomeValues = outcomeValues.subscribe((value) => {
-          $outcomeValues = value;
+        let $subjects;
+        let $tests;
+
+        const unscribeStores = ((stores) => {
+          let store;
+          let unscribe;
+
+          return () => {
+            for (store in stores) {
+              unscribe = stores[store];
+
+              if (typeof unscribe === 'function') {
+                unscribe();
+              }
+            }
+          };
+        })({
+          assertions: assertions.subscribe((value) => {
+            $assertions = value;
+          }),
+          outcomeValues: outcomeValues.subscribe((value) => {
+            $outcomeValues = value;
+          }),
+          subjects: subjects.subscribe((value) => {
+            $subjects = value;
+          }),
+          tests: tests.subscribe((value) => {
+            $tests = value;
+          })
         });
 
         let {
@@ -260,13 +284,10 @@ class EvaluationModel {
          * should be updated as well with new or deprecated values.
          */
         scopeStore.update((value) => {
-          const scopeSubject = $subjects.find(($subject) => $subject.ID === 1);
           const openedScope =
             defineScope.scope ||
             defineScope.DfnSetOfWebpagesWcag21 ||
             defineScope.DfnSetOfWebpagesWcag20;
-
-          scopeSubject.id = openedScope.id;
 
           return Object.assign(value, {
             ADDITIONAL_REQUIREMENTS:
@@ -276,9 +297,10 @@ class EvaluationModel {
             SITE_NAME:
               openedScope.title ||
               // Deprecated
-              openedScope['schema:name'] ||
+              openedScope.name ||
               // Default
               '',
+            WCAG_VERSION: wcagVersion,
             WEBSITE_SCOPE:
               openedScope.description ||
               // Deprecated
@@ -289,11 +311,15 @@ class EvaluationModel {
         });
 
         exploreStore.update((value) => {
-          const technologies =
+          let technologies =
             exploreTarget.technologiesReliedUpon ||
             framedEvaluation.DfnReliedUponTechnologyWcag21 ||
             framedEvaluation.DfnReliedUponTechnologyWcag20 ||
             [];
+
+          if (!Array.isArray(technologies)) {
+            technologies = [technologies];
+          }
 
           return Object.assign(value, {
             TECHNOLOGIES_RELIED_UPON: technologies.map((tech) => tech.title),
@@ -308,39 +334,47 @@ class EvaluationModel {
           });
         });
 
-        sampleStore.update(() => {
-          let structuredSample =
-            selectSample.structuredSample ||
-            // Deprecated / previous versions
-            framedEvaluation.structuredSample.DfnWebpageWcag21 ||
-            framedEvaluation.structuredSample.DfnWebpageWcag20 ||
-            // Default
-            [];
+        sampleStore.update((value) => {
+          const { structuredSample, randomSample } = selectSample;
+          const deprecated = {
+            structuredSample: framedEvaluation.structuredSample,
+            randomSample: framedEvaluation.randomSample
+          };
 
-          let randomSample =
-            selectSample.randomSample ||
-            // Deprecated / previous versions
-            framedEvaluation.randomSample.DfnWebpageWcag21 ||
-            framedEvaluation.randomSample.DfnWebpageWcag20 ||
-            // Default
-            [];
+          let importStructuredSample = structuredSample
+            ? structuredSample
+            : // Deprecated / previous versions
+            deprecated.structuredSample
+              ? deprecated.structuredSample.DfnWebpageWcag21 ||
+              deprecated.structuredSample.DfnWebpageWcag20
+              : // Default
+              [];
 
-          if (!Array.isArray(structuredSample)) {
-            structuredSample = [structuredSample];
+          let importRandomSample = randomSample
+            ? randomSample
+            : // Deprecated / previous versions
+            deprecated.randomSample
+              ? deprecated.randomSample.DfnWebpageWcag21 ||
+              deprecated.randomSample.DfnWebpageWcag20
+              : // Default
+              [];
+
+          if (!Array.isArray(importStructuredSample)) {
+            importStructuredSample = [importStructuredSample];
           }
 
-          if (!Array.isArray(randomSample)) {
-            randomSample = [randomSample];
+          if (!Array.isArray(importRandomSample)) {
+            importRandomSample = [importRandomSample];
           }
 
           return {
-            STRUCTURED_SAMPLE: structuredSample.map((sample) => {
-              sample.type = 'Webpage';
+            STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
+              sample.type = TestSubjectTypes.WEBPAGE;
 
               return subjects.create(sample);
             }),
-            RANDOM_SAMPLE: randomSample.map((sample) => {
-              sample.type = 'Webpage';
+            RANDOM_SAMPLE: importRandomSample.map((sample) => {
+              sample.type = TestSubjectTypes.WEBPAGE;
 
               return subjects.create(sample);
             })
@@ -366,56 +400,84 @@ class EvaluationModel {
           });
         });
 
-        // Recursive function to address deprecated
-        // nested Assertions within an Assertion
-        (function importAssertions(_assertions) {
-          _assertions.forEach((assertion) => {
-            const { assertedBy, mode, result, subject, test } = assertion;
-            const newSubject = $subjects.find(($subject) => {
-              return $subject.id === subject.id;
-            });
+        // Frame Assertions within the Evaluation
+        await jsonld
+          .frame(framedEvaluation, {
+            '@context': importContext,
+            '@type': AssertionTypes
+          })
+          .then((framedAssertions) => {
+            jsonld.getItems(framedAssertions).forEach((assertion) => {
+              const { assertedBy, mode, result, subject, test } = assertion;
+              const newSubject = $subjects.find(($subject) => {
+                if (
+                  jsonld.hasType(subject, [TestSubjectTypes.WEBSITE, 'WebSite'])
+                ) {
+                  return jsonld.hasType($subject, TestSubjectTypes.WEBSITE);
+                }
 
-            let newResult = result ? new TestResult(result) : new TestResult();
-            newResult.outcome = $outcomeValues.find(($outcomeValue) => {
-              return $outcomeValue.id === newResult.outcome.id;
-            });
-
-            const newTest = $tests.find(($test) => {
-              // In previous versions a testcase was set on Assertions
-              // that was part of the main Assertion
-              // undo this here.
-              const _test = test ? test : assertion.testcase || {};
-              const _testId = _test.id || _test;
-              const scID = _testId.split(':')[1];
-
-              return (
-                $test.id === _test.id ||
-                // fallback for bad implemented testIRI
-                ($test.id.indexOf(scID) >= 0 && _testId.indexOf(scID) >= 0)
-              );
-            });
-
-            if (newSubject && newTest) {
-              assertions.create({
-                assertedBy,
-                mode,
-                result: newResult,
-                subject: newSubject,
-                test: newTest
+                return (
+                  $subject.id === subject.id ||
+                  $subject.id ===
+                    jsonld.setIdFromProperties(subject, [
+                      'description',
+                      'source'
+                    ]).id
+                );
               });
-            }
 
-            // This is the part that Assertions
-            // contain nested Assertions
-            if (assertion.hasPart && Array.isArray(assertion.hasPart)) {
-              importAssertions(assertion.hasPart);
-            }
+              let newResult = result
+                ? new TestResult(result)
+                : new TestResult();
+              newResult.outcome = $outcomeValues.find(($outcomeValue) => {
+                return $outcomeValue.id === newResult.outcome.id;
+              });
+
+              const newTest = $tests.find(($test) => {
+                // In previous versions a testcase was set on Assertions
+                // that was part of the main Assertion
+                // undo this here.
+                const _test = test ? test : assertion.testcase || {};
+                const _testId = _test.id || _test;
+                // WCAG2X:criterion-id
+                const scID = _testId.split(':').slice(-1)[0];
+
+                if (!scID) {
+                  return false;
+                }
+
+                return (
+                  // Match test.num === crit.num
+                  $test.num === getCriterionById(scID).num
+                );
+              });
+
+              if (newSubject && newTest) {
+                (function addAssertion(newAssertion) {
+                  const foundAssertion = $assertions.find(($assertion) => {
+                    return (
+                      $assertion.test === newAssertion.test &&
+                      $assertion.subject === newAssertion.subject
+                    );
+                  });
+
+                  if (foundAssertion) {
+                    foundAssertion.result = newAssertion.result;
+                  } else {
+                    assertions.create(newAssertion);
+                  }
+                })({
+                  assertedBy,
+                  mode,
+                  result: newResult,
+                  subject: newSubject,
+                  test: newTest
+                });
+              }
+            });
           });
-        })(auditSample);
 
-        unscribeSubjects();
-        unscribeTests();
-        unscribeOutcomeValues();
+        unscribeStores();
       });
 
     /**

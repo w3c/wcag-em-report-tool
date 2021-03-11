@@ -20,8 +20,18 @@ const deprecatedContext = {
 
   testcase: 'wcagem:testcase',
 
+  // Unnecassary source for sample / subjects
+  // If an url is provided with the descriptionfield
+  // it is used as an identifier
+  // Use jsonld`(@)id` instead.
+  source: {
+    '@id': 'dcterms:source',
+    '@type': '@id'
+  },
+
   // Schema
   schema: 'http://schema.org/',
+  name: 'schema:name',
   WebSite: 'schema:WebSite',
   WebPage: 'schema:WebPage'
 };
@@ -57,6 +67,7 @@ export const exportContext = {
   evaluationSpecifics: 'wcagem:step5b',
 
   // WCAG
+  WCAG: 'http://www.w3.org/TR/WCAG/#',
   WCAG20: 'http://www.w3.org/TR/WCAG20/#',
   WCAG21: 'http://www.w3.org/TR/WCAG21/#',
 
@@ -73,6 +84,7 @@ export const exportContext = {
   Assertion: 'earl:Assertion',
   TestMode: 'earl:TestMode',
   TestCriterion: 'earl:TestCriterion',
+  TestCase: 'earl:TestCase',
   TestRequirement: 'earl:TestRequirement',
   TestSubject: 'earl:TestSubject',
   TestResult: 'earl:TestResult',

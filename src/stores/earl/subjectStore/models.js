@@ -1,3 +1,4 @@
+import { getURL } from '@app/scripts/urls.js';
 import { Base, partsMixin } from '../models.js';
 
 export const TestSubjectTypes = {
@@ -28,9 +29,8 @@ export class TestSubject extends partsMixin(Base) {
       ...TestSubjectContext
     };
 
-    if (!this.id) {
-      this.id = `_:subject_${this.ID}`;
-    }
+    this.id = this.setId();
+
     this.type = [TestSubjectTypes.TESTSUBJECT];
 
     if (!Array.isArray(type)) {
@@ -50,5 +50,21 @@ export class TestSubject extends partsMixin(Base) {
         this.type.push(t);
       }
     });
+  }
+
+  setId() {
+    const { ID, id, title, description } = this;
+    const idUrl = getURL(id);
+    const url = idUrl ? idUrl.href : [title, description].reduce((href, value) => {
+      if (href) {
+        return href;
+      }
+
+      const newURL = getURL(value);
+
+      return newURL ? newURL.href : '';
+    }, '');
+
+    return url ? url : `_:subject_${ID}`;
   }
 }
