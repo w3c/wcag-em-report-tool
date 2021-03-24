@@ -30,9 +30,9 @@
 
 <style>
   .Auditor__Filter {
-    grid-area: content;
+    grid-column: 1 / content-end;
     grid-row: 1;
-    margin: 0 0 3rem;
+    margin: 2em 0 0;
   }
 
   .Auditor__Filters {

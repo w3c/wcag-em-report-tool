@@ -20,11 +20,10 @@
   @media (min-width: 47.5em) {
     .AuditorImport {
       float: right;
-      margin: 0 0 1em 1em;
-      padding: 0 0 0 2em;
+      margin: 0 0 1em 2em;
+      padding: 1em;
+      text-align: center;
       max-width: 10em;
-      border: 0;
-      border-left: 1px solid var(--line-grey);
     }
   }
 </style>

@@ -16,7 +16,7 @@
 
   .Auditor__samples {
     grid-area: left;
-    grid-row: 1 / span 2;
+    grid-row: 2 / span 2;
   }
 
   :global(.Auditor .Auditor__Filters > *) {
@@ -32,8 +32,20 @@
     list-style-type: none;
   }
 
+  :global(.Auditor__Assertions details:first-of-type h2:first-of-type) {
+    margin-top: 0;
+  }
+
   :global(.Auditor__Assertions > *:not(:last-child)) {
     margin-bottom: 1rem;
+  }
+
+  :global(.Auditor__Assertions details details) {
+    padding-left: 0;
+  }
+
+  :global(.Auditor__Assertions details details details) {
+    padding-left: 32px;
   }
 
   @media (min-width: 60rem) {
