@@ -8,7 +8,10 @@
     bind:value
     on:change
   />
-  <label for="{id}" class="File__label button button-secondary">{label}</label>
+  <label for="{id}" class="File__label button button-secondary">
+    {label}
+    {#if labelsub}<span class="File__label-hint">{labelsub}</span>{/if}
+  </label>
   {#if showFiles}
     <output for="{id}" title="Selected file(s)">
       {#each files as file}{file.name}<br />{:else}No file selected{/each}
@@ -17,6 +20,7 @@
 </div>
 
 <style>
+  div { display: inline-block; }
   :focus + .File__label {
     color: #fff;
     background-color: #036;
@@ -26,6 +30,10 @@
   .File__label {
     display: block;
     text-align: center;
+  }
+  .File__label-hint {
+    display: block;
+    font-weight: 400;
   }
 </style>
 
@@ -52,6 +60,7 @@
 <script>
   export let id;
   export let label = 'File';
+  export let labelsub = '';
   export let value = '';
   export let accept = ['.json', '.jsonld'].join(',');
   export let showFiles = false;

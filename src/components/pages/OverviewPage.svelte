@@ -10,6 +10,12 @@
     {@html TRANSLATED.INTRODUCTION_P2}
   </p>
 
+  <p>
+    <OpenEvaluation />
+    <Button type="secondary" on:click="{handleNewEvaluationClick}">
+      {TRANSLATED.BUTTON_NEW_EVALUATION}
+    </Button>
+  </p>
   <details>
     <summary><h2>{TRANSLATED.USAGE_HEADING}</h2></summary>
     <ul>
@@ -33,12 +39,23 @@
 
 <script>
   import { getContext } from 'svelte';
+  import { useNavigate } from 'svelte-navigator';
+
+  import Button from '@app/components/ui/Button.svelte';
+  import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
 
   import Page from '@app/components/ui/Page.svelte';
 
+  import { routes } from '@app/stores/appStore.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
+
   const { translate } = getContext('app');
+  const navigate = useNavigate();
 
   $: TRANSLATED = {
+    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
+      default: 'New report'
+    }),
     PAGE_TITLE: $translate('PAGES.START.SUBTITLE'),
     INTRODUCTION_P1: $translate('PAGES.START.INTRO_1'),
     INTRODUCTION_P2: $translate('PAGES.START.INTRO_2'),
@@ -52,4 +69,9 @@
     TIPS_LI3: $translate('PAGES.START.TIPS_LI3'),
     TIPS_LI4: $translate('PAGES.START.TIPS_LI4')
   };
+
+  function handleNewEvaluationClick() {
+    $evaluationStore.reset();
+    navigate($routes.SCOPE.path, { replace: true });
+  }
 </script>

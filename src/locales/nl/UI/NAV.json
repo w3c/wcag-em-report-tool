@@ -1,6 +1,7 @@
 {
     "MENU": "Menu",
     "MENU_IMPORT": "Importeer gegevens",
+    "MENU_IMPORT_HINT": "EARL als JSON-LD",
     "MENU_RESOURCES": "Relevante links",
     "MENU_NEW": "Nieuw rapport",
     "MENU_OPEN": "Open rapport",
