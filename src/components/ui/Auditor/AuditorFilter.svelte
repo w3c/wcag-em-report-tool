@@ -8,10 +8,6 @@
  *   also dispatching a FILTER event back up with details
  * -->
 <div class="Auditor__Filter box">
-  <header class="Auditor__Filter__header box-h">
-    {$translate('UI.AUDITOR.FILTER_TITLE', { default: 'Show' })}
-  </header>
-
   <div class="Auditor__Filters box-i">
     <MultipleChoice
       id="filter_wcag_version"
@@ -25,6 +21,7 @@
       id="filter_conformance_level"
       label="Criterion conformance level"
       options="{conformanceLevels}"
+      helptext={false}
       bind:value="{$auditFilter['LEVEL']}"
     />
   </div>

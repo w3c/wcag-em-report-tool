@@ -1,10 +1,10 @@
 <fieldset id="{id}" class="Fieldset field">
   <legend>
     {@html legend}
-    <button type="button" on:click={toggle} class="button button-small showhidebutton">
-      {TRANSLATED.SHOW_HIDE_HELPTEXT}
-    </button>
     {#if helptext}
+      <button type="button" on:click={toggle} class="button button-small showhidebutton">
+        {TRANSLATED.SHOW_HIDE_HELPTEXT}
+      </button>
       {#if showHelptext}
         <div class="Fieldset__helptext">
         {@html helptext}
@@ -22,7 +22,9 @@
   .Fieldset {
     padding: 0;
   }
-
+  .Fieldset legend /* override from original WAI style to make it work better in this application  */ {
+    font-size: 1rem;
+  }
   .Fieldset__helptext {
     font-size: 1rem; /* reset legend size */
     font-weight: normal; /* reset legend weight */
