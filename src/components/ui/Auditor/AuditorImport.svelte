@@ -1,14 +1,31 @@
 <div class="AuditorImport">
+  <p>{@html TRANSLATED.IMPORT_DATA_INTRO}</p>
   <File
     id="import__assertions"
     label="{TRANSLATED.BUTTON}"
+    labelsub="({TRANSLATED.BUTTON_HINT})"
     on:change="{handleChange}"
   />
 </div>
 
 <style>
   .AuditorImport {
-    display: inline-block;
+    margin: 1em 0 1em;
+    border: 1px solid var(--line-grey);
+    padding: 1em;
+  }
+    .AuditorImport p:first-child {
+      margin-top: 0;
+    }
+  @media (min-width: 47.5em) {
+    .AuditorImport {
+      float: right;
+      margin: 0 0 1em 1em;
+      padding: 0 0 0 2em;
+      max-width: 10em;
+      border: 0;
+      border-left: 1px solid var(--line-grey);
+    }
   }
 </style>
 
@@ -22,7 +39,9 @@
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
-    BUTTON: $translate('UI.NAV.MENU_IMPORT', { default: 'Import data' })
+    BUTTON: $translate('UI.NAV.MENU_IMPORT', { default: 'Import data' }),
+    BUTTON_HINT: $translate('UI.NAV.MENU_IMPORT_HINT'),
+    IMPORT_DATA_INTRO: $translate('PAGES.AUDIT.IMPORT_DATA_INTRO'),
   };
 
   function handleChange(event) {
