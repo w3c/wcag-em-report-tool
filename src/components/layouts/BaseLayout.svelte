@@ -32,34 +32,22 @@
 
 <div class="BaseLayout">
   <Grid>
-    <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
+    <GridItem area="{!isViewReport || panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
 
       <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
     </GridItem>
 
-    {#if hasPanel}
-      <GridItem area="right" row="1">
-        <Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
-          <!--
-           * @note
-           * Panel slotted stuff is layout/page dependend
-           * We should try to think of a way to achieve this.
-           * e.g. in Context / store state
-           * -->
-
-          <!-- State based; is there an open Evaluation? -->
-          <Link class="button" to="/evaluation/view-report">
-            {TRANSLATED.VIEW_REPORT}
-          </Link>
-          <Button type="secondary" on:click="{handleNewEvaluationClick}">
-            {TRANSLATED.BUTTON_NEW_EVALUATION}
-          </Button>
-          <OpenEvaluation />
-        </Panel>
-      </GridItem>
-    {/if}
-  </Grid>
+    <GridItem area="right" row="1">
+      {#if hasPanel}
+      <Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
+        <Link class="button" to="/evaluation/view-report">
+          {TRANSLATED.VIEW_REPORT}
+        </Link>
+      </Panel>
+      {/if}
+  </GridItem>
+</Grid>
 </div>
 <!-- /@Layout -->
 
@@ -81,15 +69,11 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useNavigate, useLocation, Link } from 'svelte-navigator';
+  import { useLocation, Link } from 'svelte-navigator';
 
   import { routes } from '@app/stores/appStore.js';
-  import evaluationStore from '@app/stores/evaluationStore.js';
   import locales from '@app/locales/index.json';
 
-  import Button from '@app/components/ui/Button.svelte';
-  import AuditorImport from '@app/components/ui/Auditor/AuditorImport.svelte';
-  import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
   import Grid from '@app/components/ui/Grid.svelte';
   import GridItem from '@app/components/ui/GridItem.svelte';
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
@@ -98,13 +82,10 @@
   import Panel from '@app/components/ui/Panel.svelte';
 
   const location = useLocation();
-  const navigate = useNavigate();
   const { translate } = getContext('app');
+  let panelIsOpen = true;
 
   $: TRANSLATED = {
-    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
-      default: 'New report'
-    }),
     HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
       default: 'Your report'
     }),
@@ -114,15 +95,13 @@
     })
   };
 
-  $: hasPanel = $location.pathname !== $routes.VIEW_REPORT.path;
-  $: panelIsOpen = hasPanel;
+  $: hasPanel = 
+    ($location.pathname !== $routes.OVERVIEW.path) &&
+    ($location.pathname !== $routes.VIEW_REPORT.path);
+  $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
   });
 
-  function handleNewEvaluationClick() {
-    $evaluationStore.reset();
-    navigate($routes.SCOPE.path, { replace: true });
-  }
 </script>

@@ -20,6 +20,7 @@
 </div>
 
 <style>
+  div { display: inline-block; }
   :focus + .File__label {
     color: #fff;
     background-color: #036;
