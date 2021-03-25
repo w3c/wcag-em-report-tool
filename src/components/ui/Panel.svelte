@@ -1,101 +1,43 @@
-<aside class="Panel your-report" class:hidden="{!open}">
-  <header class="Panel__Header">
-    {#if title}
-      <h2 class="Panel__Header__heading">{title}</h2>
-    {/if}
+<aside class="Panel your-report" class:your-report--expanded="{open}">
+  {#if open}
+  <h2 class="Panel__Header__heading your-report__heading">
+    {title}
+
     <button
       type="button"
-      class="Panel__Toggle button-small showhidebutton"
-      on:click="{handleToggleClick}"
+      class="button-secondary button-small your-report__showhide"
+      on:click={toggle}
       aria-expanded="{open}"
-    >{@html TRANSLATED.SHOW_HIDE}</button>
-  </header>
+    >
+      {@html TRANSLATED.SHOW_HIDE}
+      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+    </button>
+  </h2>
 
-  <div class="Panel__Body" hidden="{!open}">
-    <slot />
-  </div>
+  <slot />
+
+  {:else}
+    <button
+      type="button"
+      class="button-secondary button-small your-report__showhide"
+      on:click={toggle}
+      aria-expanded="{open}"
+    >
+      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      {@html TRANSLATED.SHOW_HIDE}
+    </button>
+  {/if}
 </aside>
 
 <style>
-  .Panel {
-    box-sizing: border-box;
-    border: 1px solid var(--line-grey);
-    padding: 1em;
-    width: 100%;
-    background-color: var(--footer-grey);
-    box-shadow: 0px 2px 8px -7px #000;
-  }
-
-  .Panel.hidden {
-    width: auto;
-    padding: 1em;
-    border-color: transparent;
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  @media (min-width: 60em) {
-    .Panel {
-      position: sticky;
-      top: 1em;
-    }
-  }
-  .Panel__Header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    border-bottom: 1px solid var(--line-grey);
-    margin-bottom: 1em;
-  }
-
-  .Panel.hidden > .Panel__Header {
-    border-bottom-color: transparent;
-  }
-
-  .Panel__Header__heading {
-    margin: 0;
-    margin-right: 1em;
-    border-bottom: none;
-    font-size: 1em;
-    line-height: 1.5;
-    font-weight: bold;
-  }
-
-  .Panel.hidden .Panel__Header__heading {
-    display: none;
-  }
-
-  .Panel:not(.hidden) > .Panel__Body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-
-  :global(.Panel__Body > *:not(:last-child)) {
-    margin: 0 0 1em;
-  }
-
-  :global(.Panel__Body > :last-child) {
-    margin-bottom: 0;
-  }
-
-  .Panel__Toggle {
-    flex-shrink: 0;
-    margin-left: auto;
-    padding: 0.25em;
-    cursor: pointer;
-    word-wrap: break-word;
-  }
-
-  .Panel.hidden .Panel__Toggle {
-    flex-shrink: 1;
-  }
-
-  .showhidebutton::after {
-    /* Corrections */
-    margin-left: 0.5em;
-  }
+.your-report__showhide[aria-expanded="false"] svg {
+  margin-right: .25em;
+  margin-left: 0;
+}
 </style>
 
 <script>
@@ -118,9 +60,7 @@
         })
   };
 
-  function handleToggleClick() {
-    let toggleTo = !open;
-
-    open = toggleTo;
+  function toggle() {
+    open = !open;
   }
 </script>
