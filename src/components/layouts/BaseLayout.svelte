@@ -32,54 +32,16 @@
 
 <div class="BaseLayout">
   <Grid>
-    <GridItem area="{!isViewReport || panelIsOpen ? 'content' : 'full'}" row="1">
+    <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
-
-      {#if onOverviewPage}
-      <Button type="secondary" on:click="{handleNewEvaluationClick}">
-        {TRANSLATED.BUTTON_NEW_EVALUATION}
-      </Button>
-      <OpenEvaluation />
-      {/if}
-
       <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
     </GridItem>
 
     <GridItem area="right" row="1">
       {#if hasPanel}
-      <Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
-
-        <p class="your-report__description">Reported on {$totalEvaluated} of {$totalToEvaluate} {conformanceTarget} Success Criteria.</p>
-
-        <div class="progress-bar ">
-          <span class="progress-bar__progress" style="width: {percentageEvaluated}%">
-            <span class="visuallyhidden">
-              {percentageEvaluated}%
-            </span>
-          </div>
-        
-          <ul class="your-report__progress-by-principle">
-            {#each principles as principle}
-            <li class="progress">
-              <div class="progress__principle">
-                <a href="#@@@" class="principle__name">
-                  <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
-                </a> 
-                <span class="progress__part">3 of 6</span>
-              </div>
-              <div class="progress-bar">
-                <span class="progress-bar__progress" style="width: 50%">
-                <span class="visuallyhidden">50 %</span></span>
-              </div>
-            </li>
-            {/each}
-          </ul>
-        
-          <Link class="button" to="/evaluation/view-report">
-            {TRANSLATED.VIEW_REPORT}
-          </Link>
-        </Panel>
-    {/if}
+      <ProgressPanel {panelIsOpen}></ProgressPanel>
+      {/if}
+      </GridItem>
   </Grid>
 </div>
 <!-- /@Layout -->
@@ -98,66 +60,36 @@
       padding: 2em 0;
     }
   }
-
-  .your-report__progress-by-principle {
-    columns: 1;
-  }
 </style>
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation, Link } from 'svelte-navigator';
+  import { useLocation } from 'svelte-navigator';
 
   import { routes } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
-  import wcag from '@app/stores/wcagStore.js';
-
 
   import Grid from '@app/components/ui/Grid.svelte';
   import GridItem from '@app/components/ui/GridItem.svelte';
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import Panel from '@app/components/ui/Panel.svelte';
+  import ProgressPanel from '@app/components/ui/ProgressPanel.svelte';
 
   const location = useLocation();
-  const navigate = useNavigate();
-  const { translate, translateToObject, scopeStore } = getContext('app');
-  
+  const { translate, translateToObject } = getContext('app');
+
+  let panelIsOpen = true;
+
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
-    BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
-      default: 'New report'
-    }),
-    HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
-      default: 'Your report'
-    }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
-      default: 'View report'
-    }),
-    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
   };
 
-  $: hasPanel = 
-    ($location.pathname !== $routes.OVERVIEW.path) &&
-    ($location.pathname !== $routes.VIEW_REPORT.path);
+  $: hasPanel = !isViewReport && !isOverview;
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
-  $: console.log($assertions);
+  $: isOverview = $location.pathname === $routes.OVERVIEW.path;
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
-  });
-
-  $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
-
-  $: totalToEvaluate = $assertions.length;
-  $: totalEvaluated = $assertions.filter(assertion => 
-    assertion.result.description !== undefined && 
-    assertion.result.outcome.id !== "earl:untested").length;
-
-  $:  console.log('totalevaluated', totalEvaluated);
-  $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
-  $: percentageEvaluated = (totalEvaluated / totalToEvaluate) * 100;
-  
+  });  
 </script>
