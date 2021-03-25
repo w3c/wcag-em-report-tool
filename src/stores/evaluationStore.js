@@ -16,7 +16,11 @@ import scopeStore, { initialScopeStore } from '@app/stores/scopeStore.js';
 import exploreStore, { initialExploreStore } from '@app/stores/exploreStore.js';
 import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
 import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
-import { getCriterionById } from '@app/stores/wcagStore.js';
+import {
+  DEFAULT_WCAG_VERSION,
+  DEFAULT_CONFORMANCE_LEVEL,
+  getCriterionById
+} from '@app/stores/wcagStore.js';
 
 import assertions, {
   AssertionTypes
@@ -93,8 +97,8 @@ class EvaluationModel {
         // WEBSITE_SCOPE
         description: ''
       },
-      wcagVersion: '2.1',
-      conformanceTarget: 'AA',
+      wcagVersion: DEFAULT_WCAG_VERSION,
+      conformanceTarget: DEFAULT_CONFORMANCE_LEVEL,
       accessibilitySupportBaseline: '',
       additionalEvaluationRequirements: ''
     };
@@ -275,7 +279,7 @@ class EvaluationModel {
         language = framedEvaluation.language || 'en';
         locale.set(language);
 
-        wcagVersion = defineScope.wcagVersion || '2.1';
+        wcagVersion = defineScope.wcagVersion || DEFAULT_WCAG_VERSION;
 
         /**
          * Start setting values from the imported json-ld.
