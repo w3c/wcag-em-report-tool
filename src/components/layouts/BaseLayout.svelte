@@ -32,22 +32,17 @@
 
 <div class="BaseLayout">
   <Grid>
-    <GridItem area="{!isViewReport || panelIsOpen ? 'content' : 'full'}" row="1">
+    <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
       <slot />
-
       <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
     </GridItem>
 
     <GridItem area="right" row="1">
       {#if hasPanel}
-      <Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
-        <Link class="button" to="/evaluation/view-report">
-          {TRANSLATED.VIEW_REPORT}
-        </Link>
-      </Panel>
+      <ProgressPanel {panelIsOpen}></ProgressPanel>
       {/if}
-  </GridItem>
-</Grid>
+      </GridItem>
+  </Grid>
 </div>
 <!-- /@Layout -->
 
@@ -69,7 +64,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation, Link } from 'svelte-navigator';
+  import { useLocation } from 'svelte-navigator';
 
   import { routes } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
@@ -79,29 +74,22 @@
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import Panel from '@app/components/ui/Panel.svelte';
+  import ProgressPanel from '@app/components/ui/ProgressPanel.svelte';
 
   const location = useLocation();
-  const { translate } = getContext('app');
+  const { translate, translateToObject } = getContext('app');
+
   let panelIsOpen = true;
 
   $: TRANSLATED = {
-    HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
-      default: 'Your report'
-    }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
-      default: 'View report'
-    })
   };
 
-  $: hasPanel = 
-    ($location.pathname !== $routes.OVERVIEW.path) &&
-    ($location.pathname !== $routes.VIEW_REPORT.path);
+  $: hasPanel = !isViewReport && !isOverview;
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
+  $: isOverview = $location.pathname === $routes.OVERVIEW.path;
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
-  });
-
+  });  
 </script>
