@@ -56,6 +56,10 @@
   background-color: white;
 }
 
+textarea {
+  font-family: 'Noto Sans Mono', monospace;
+}
+
 /*
  * Remove default focus styles from elements that
  * otherwise should not receive focus.
