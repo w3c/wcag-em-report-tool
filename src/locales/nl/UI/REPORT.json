@@ -1,5 +1,5 @@
 {
-    "BY" : "Rapport auteur",
+    "BY": "Rapport auteur",
     "COMMISION_BY": "Evaluatie opdrachtgever",
     "HD_ABOUT": "Over deze evaluatie",
     "HD_SUMMARY": "Managementsamenvatting",
@@ -19,5 +19,6 @@
     "LABEL_DESCR": "Bevindingen",
     "HD_SAMPLE": "Sample met getoetste webpagina's",
     "HD_SPECIFICS": "Onderbouwing van de evaluatie",
-    "HD_DOCS": "Informatie over WCAG 2.0"
+    "HD_DOCS": "Informatie over WCAG 2.0",
+    "REPORT_FOR": "Rapport over"
 }

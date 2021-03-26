@@ -1,5 +1,5 @@
 {
-    "BY" : "Report Creator",
+    "BY": "Report Creator",
     "COMMISION_BY": "Evaluation Commissioner",
     "HD_ABOUT": "About the Evaluation",
     "HD_SUMMARY": "Executive Summary",
@@ -19,5 +19,6 @@
     "LABEL_DESCR": "Findings",
     "HD_SAMPLE": "Sample of audited web pages",
     "HD_SPECIFICS": "Recording of evaluation specifics",
-    "HD_DOCS": "Related WCAG 2 resources"
+    "HD_DOCS": "Related WCAG 2 resources",
+    "REPORT_FOR": "Report for"
 }

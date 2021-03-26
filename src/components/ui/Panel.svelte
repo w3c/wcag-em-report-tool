@@ -1,7 +1,14 @@
 <aside class="Panel your-report" class:your-report--expanded="{open}">
   {#if open}
   <h2 class="Panel__Header__heading your-report__heading">
-    {title}
+    {#if subtitle}
+    <div>
+      <span class="your-report__heading-pre">{subtitle}</span>
+      {title}
+    </div>
+    {:else}
+      {title}
+    {/if}
 
     <button
       type="button"
@@ -34,6 +41,10 @@
 </aside>
 
 <style>
+.your-report__heading-pre {
+  font-size: smaller;
+  display: block;
+}
 .your-report__showhide[aria-expanded="false"] svg {
   margin-right: .25em;
   margin-left: 0;
@@ -44,6 +55,7 @@
   import { getContext } from 'svelte';
 
   export let title = null;
+  export let subtitle = null;
   export let open = false;
 
   const { translate } = getContext('app');

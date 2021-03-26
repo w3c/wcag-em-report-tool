@@ -1,4 +1,4 @@
-<Panel title="{TRANSLATED.HEADING_PANEL}" bind:open="{panelIsOpen}">
+<Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" bind:open="{panelIsOpen}">
 
   <p class="your-report__description">Reported on {totalEvaluated} of {totalToEvaluate} WCAG {wgacVersion} {conformanceTarget} Success Criteria.</p>
 
@@ -53,7 +53,8 @@
     VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
       default: 'View report'
     }),
-    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
+    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
+    REPORT_FOR: $translate('UI.REPORT.REPORT_FOR')
   };
 
   $:  console.log('totalevaluated', totalEvaluated);
@@ -69,6 +70,7 @@
 
   export let panelIsOpen = true;
 
+  $: siteName = $scopeStore['SITE_NAME'];
   $: totalToEvaluate = $assertions.length;
   $: totalEvaluated = $assertions.filter(assertion => 
     assertion.result.description !== undefined && 
