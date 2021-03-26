@@ -147,11 +147,9 @@ class EvaluationModel {
       return { ...initialExploreStore };
     });
 
-    assertions.update(() => []);
+    assertions.reset();
 
-    subjects.update(() => {
-      return [...initialSubjectStore];
-    });
+    subjects.reset();
 
     summaryStore.update(() => {
       return { ...initialSummaryStore };

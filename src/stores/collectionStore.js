@@ -25,5 +25,13 @@ export default function collectionStore(Item, initialCollection = []) {
     });
   };
 
+  // Re-initialize
+  collection.reset = function reset() {
+    console.log('Collection reset', initialCollection);
+    collection.update(() => {
+      return [...initialCollection];
+    });
+  };
+
   return collection;
 }
