@@ -60,15 +60,17 @@
 
   const { translate } = getContext('app');
 
+  $: fullTitle = subtitle ? `${subtitle} ${title}` : title;
+
   $: TRANSLATED = {
     SHOW_HIDE: open
       ? $translate('UI.COMMON.BUTTON.HIDE', {
           default: 'Hide {subject}',
-          values: { subject: `<span class="visuallyhidden">${title || ''}</span>` }
+          values: { subject: `<span class="visuallyhidden">${fullTitle || ''}</span>` }
         })
       : $translate('UI.COMMON.BUTTON.SHOW', {
           default: 'Show {subject}',
-          values: { subject: title || '' }
+          values: { subject: fullTitle || '' }
         })
   };
 
