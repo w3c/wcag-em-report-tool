@@ -2,7 +2,7 @@
 
   <p class="your-report__description">Reported on {totalEvaluated} of {totalToEvaluate} WCAG {wcagVersion} {conformanceTarget} Success Criteria.</p>
 
-  <ProgressBar percentage={percentageEvaluated}></ProgressBar>
+  <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
   
   <ul class="your-report__progress-by-principle">
     {#each principles as principle}
@@ -11,9 +11,9 @@
         <a href="#@@@" class="principle__name">
           <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
         </a> 
-        <span class="progress__part">{filteredAssertions[principle].length} of {filteredCriteria[principle].length}</span>
+        <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
       </div>
-      <ProgressBar percentage="{filteredAssertions[principle].length / filteredCriteria[principle].length * 100}"></ProgressBar>
+      <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
     </li>
     {/each}
   </ul>
@@ -59,7 +59,7 @@
 
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
   $: wcagVersion = $scopeStore['WCAG_VERSION'];
-  $: percentageEvaluated = (totalEvaluated / totalToEvaluate) * 100;
+  $: percentageTotalEvaluated = (totalEvaluated / totalToEvaluate) * 100;
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 
@@ -83,6 +83,29 @@
    4: $assertions.filter(item => item.test.num.startsWith("4.")).filter(isEvaluated)
   }
 
+  $: totalsPerPrinciple = {
+    1: {
+      "done": filteredAssertions[1].length,
+      "total": filteredCriteria[1].length,
+      "percentage": (filteredAssertions[1].length / filteredCriteria[1].length) * 100
+    },
+    2: {
+      "done": filteredAssertions[2].length,
+      "total": filteredCriteria[2].length,
+      "percentage": (filteredAssertions[2].length / filteredCriteria[2].length) * 100
+    },
+    3: {
+      "done": filteredAssertions[3].length,
+      "total": filteredCriteria[3].length,
+      "percentage": (filteredAssertions[3].length / filteredCriteria[3].length) * 100
+    },
+    4: {
+      "done": filteredAssertions[4].length,
+      "total": filteredCriteria[4].length,
+      "percentage": (filteredAssertions[4].length / filteredCriteria[4].length) * 100
+    },    
+  }
+
   function isInScope(wcagSC) {
     return  wcagSC.conformanceLevel.length <= conformanceTarget.length && conformanceTarget.length &&  upToWcagVersion.includes(wcagSC.version)
   };
@@ -91,8 +114,6 @@
     return assertion.result.description !== undefined && 
     assertion.result.outcome.id !== "earl:untested"
   }
-
-  let totalEvaluated = 3;
 
   export let panelIsOpen = true;
 
