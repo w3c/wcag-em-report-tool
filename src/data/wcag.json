@@ -673,5 +673,53 @@
             "id": "status-messages",
             "conformanceLevel": "AA"
         }
+    },
+    "2.2": {
+        "2.4.7": {
+            "num": "2.4.7",
+            "id": "focus-visible",
+            "conformanceLevel": "A"
+        },
+        "2.4.11": {
+            "num": "2.4.11",
+            "id": "focus-appearance-minimum",
+            "conformanceLevel": "AA"
+        },
+        "2.4.12": {
+            "num": "2.4.12",
+            "id": "focus-appearance-enhanced",
+            "conformanceLevel": "AAA"
+        },
+        "2.4.13": {
+            "num": "2.4.13",
+            "id": "fixed-reference-points",
+            "conformanceLevel": "A"
+        },
+        "2.5.7": { "num": "2.5.7", "id": "dragging", "conformanceLevel": "AA" },
+        "2.5.8": {
+            "num": "2.5.8",
+            "id": "pointer-target-spacing",
+            "conformanceLevel": "AA"
+        },
+        "3.2.6": {
+            "num": "3.2.6",
+            "id": "findable-help",
+            "conformanceLevel": "A"
+        },
+        "3.2.7": {
+            "num": "3.2.7",
+            "id": "hidden-controls",
+            "conformanceLevel": "AA"
+        },
+        "3.3.7": {
+            "num": "3.3.7",
+            "id": "accessible-authentication",
+            "conformanceLevel": "A"
+        },
+        "3.3.8": {
+            "num": "3.3.8",
+            "id": "redundant-entry",
+            "conformanceLevel": "A"
+        }
     }
 }
