@@ -22,6 +22,8 @@ export const wcagCriteriaDictionary = WCAG_VERSIONS.reduce((result, version, ind
   const previousVersion = result[index - 1];
   let criterion;
 
+  // Initially add all criteria from current version
+  // and add version property to the criterion
   for (criterion in wcagCriteriaData[version]) {
     versionedCriteria.push({
       ...wcagCriteriaData[version][criterion],
@@ -36,8 +38,17 @@ export const wcagCriteriaDictionary = WCAG_VERSIONS.reduce((result, version, ind
       const changedCriterion = versionedCriteria.find((criterion) => {
         return criterion.num === previousCriterion.num;
       });
+
+      // Downgrade version to version of first occurence
+      // e.g. 2.1 changes to 2.0
       if (changedCriterion) {
         changedCriterion.version = previousCriterion.version;
+      }
+
+      // If not changed it is missing,
+      // add previous criterion to list of current version
+      if (!changedCriterion) {
+        versionedCriteria.push({...previousCriterion});
       }
     });
   }
