@@ -1,6 +1,6 @@
 <Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" bind:open="{panelIsOpen}">
 
-  <p class="your-report__description">Reported on {totalEvaluated} of {totalToEvaluate} WCAG {wcagVersion} {conformanceTarget} Success Criteria.</p>
+  <p class="your-report__description">{TRANSLATED.REPORTED_ON} {totalEvaluated} {TRANSLATED.REPORTED_ON_OF} {totalToEvaluate} WCAG {wcagVersion} {conformanceTarget} Success Criteria.</p>
 
   <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
   
@@ -54,7 +54,9 @@
       default: 'View report'
     }),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
-    REPORT_FOR: $translate('UI.REPORT.REPORT_FOR')
+    REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
+    REPORTED_ON: $translate('UI.REPORT.REPORTED_ON'),
+    REPORTED_ON_OF: $translate('UI.REPORT.REPORTED_ON_OF')
   };
 
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];

@@ -20,5 +20,7 @@
     "HD_SAMPLE": "Sample met getoetste webpagina's",
     "HD_SPECIFICS": "Onderbouwing van de evaluatie",
     "HD_DOCS": "Informatie over WCAG 2.0",
-    "REPORT_FOR": "Rapport over"
+    "REPORT_FOR": "Rapport over",
+    "REPORTED_ON": "Gerapporteerd over",
+    "REPORTED_ON_OF": "van"
 }

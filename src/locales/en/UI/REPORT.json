@@ -20,5 +20,7 @@
     "HD_SAMPLE": "Sample of audited web pages",
     "HD_SPECIFICS": "Recording of evaluation specifics",
     "HD_DOCS": "Related WCAG 2 resources",
-    "REPORT_FOR": "Report for"
+    "REPORT_FOR": "Report for",
+    "REPORTED_ON": "Reported on",
+    "REPORTED_ON_OF": "of"
 }
