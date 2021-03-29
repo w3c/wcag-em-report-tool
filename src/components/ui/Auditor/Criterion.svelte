@@ -9,7 +9,7 @@
   </header>
 
   <details>
-    <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {test.title}</span></summary>
+    <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {TRANSLATED.CRITERION.TITLE}</span></summary>
     <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
 
     {#if TRANSLATED.CRITERION.DETAILS}
