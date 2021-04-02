@@ -28,7 +28,6 @@
         options="{outcomeOptions}"
         value="{_assertion.result.outcome.id}"
         on:change="{handleOutcomeChange}"
-        on:change="{handleResultChange}"
       />
     </div>
 
@@ -116,9 +115,11 @@
     _assertion.result.outcome = $outcomeValues.find(($outcomeValue) => {
       return $outcomeValue.id === value;
     });
+    assertions.update(() => $assertions); 
   }
 
   function handleResultChange() {
     _assertion.result.setDate();
+    assertions.update(() => $assertions);
   }
 </script>
