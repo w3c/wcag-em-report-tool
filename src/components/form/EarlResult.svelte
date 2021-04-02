@@ -112,10 +112,13 @@
   function handleOutcomeChange(event) {
     const value = event.target.value;
 
+    _assertion.result.setDate();
+
     _assertion.result.outcome = $outcomeValues.find(($outcomeValue) => {
       return $outcomeValue.id === value;
     });
-    assertions.update(() => $assertions); 
+
+    assertions.update(() => $assertions);
   }
 
   function handleResultChange() {
