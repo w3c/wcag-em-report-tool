@@ -1,8 +1,8 @@
 <Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" bind:open="{panelIsOpen}">
 
-  <p class="your-report__description">Reported on {totalEvaluated} of {totalToEvaluate} WCAG {wgacVersion} {conformanceTarget} Success Criteria.</p>
+  <p class="your-report__description">{TRANSLATED.REPORTED_ON} {totalEvaluated} {TRANSLATED.REPORTED_ON_OF} {totalToEvaluate} WCAG {wcagVersion} {conformanceTarget} Success Criteria.</p>
 
-  <ProgressBar percentage={percentageEvaluated}></ProgressBar>
+  <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
   
   <ul class="your-report__progress-by-principle">
     {#each principles as principle}
@@ -11,9 +11,9 @@
         <a href="#@@@" class="principle__name">
           <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
         </a> 
-        <span class="progress__part">3 of 6</span>
+        <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
       </div>
-      <ProgressBar percentage="50"></ProgressBar>
+      <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
     </li>
     {/each}
   </ul>
@@ -31,12 +31,12 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation, Link } from 'svelte-navigator';
+  import { Link } from 'svelte-navigator';
 
   import Panel from '@app/components/ui/Panel.svelte';
   import ProgressBar from '@app/components/ui/ProgressBar.svelte';
 
-  import wcag from '@app/stores/wcagStore.js';
+  import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
   const { translate, translateToObject, scopeStore } = getContext('app');
@@ -54,19 +54,62 @@
       default: 'View report'
     }),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
-    REPORT_FOR: $translate('UI.REPORT.REPORT_FOR')
+    REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
+    REPORTED_ON: $translate('UI.REPORT.REPORTED_ON'),
+    REPORTED_ON_OF: $translate('UI.REPORT.REPORTED_ON_OF')
   };
 
-  $:  console.log('totalevaluated', totalEvaluated);
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
-  $: wgacVersion = $scopeStore['WCAG_VERSION'];
-  $: percentageEvaluated = (totalEvaluated / totalToEvaluate) * 100;
+  $: wcagVersion = $scopeStore['WCAG_VERSION'];
+  $: percentageTotalEvaluated = (totalEvaluated / totalToEvaluate) * 100;
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 
-  $: console.log($assertions);
+  $: filteredCriteria = {
+   1: $wcag.filter(item => item.num.startsWith("1.")).filter(isInScope) || {},
+   2: $wcag.filter(item => item.num.startsWith("2.")).filter(isInScope) || {},
+   3: $wcag.filter(item => item.num.startsWith("3.")).filter(isInScope) || {},
+   4: $wcag.filter(item => item.num.startsWith("4.")).filter(isInScope) || {}
+  };
 
-  let totalEvaluated = 3;
+  $: filteredAssertions = {
+   1: $assertions.filter(item => item.test.num.startsWith("1.")).filter(isEvaluated),
+   2: $assertions.filter(item => item.test.num.startsWith("2.")).filter(isEvaluated),
+   3: $assertions.filter(item => item.test.num.startsWith("3.")).filter(isEvaluated),
+   4: $assertions.filter(item => item.test.num.startsWith("4.")).filter(isEvaluated)
+  }
+
+  $: totalsPerPrinciple = {
+    1: {
+      "done": filteredAssertions[1].length,
+      "total": filteredCriteria[1].length,
+      "percentage": (filteredAssertions[1].length / filteredCriteria[1].length) * 100
+    },
+    2: {
+      "done": filteredAssertions[2].length,
+      "total": filteredCriteria[2].length,
+      "percentage": (filteredAssertions[2].length / filteredCriteria[2].length) * 100
+    },
+    3: {
+      "done": filteredAssertions[3].length,
+      "total": filteredCriteria[3].length,
+      "percentage": (filteredAssertions[3].length / filteredCriteria[3].length) * 100
+    },
+    4: {
+      "done": filteredAssertions[4].length,
+      "total": filteredCriteria[4].length,
+      "percentage": (filteredAssertions[4].length / filteredCriteria[4].length) * 100
+    },    
+  }
+
+  function isInScope(wcagSC) {
+    return  wcagSC.conformanceLevel.length <= conformanceTarget.length && conformanceTarget.length &&  $scopedWcagVersions.includes(wcagSC.version)
+  };
+
+  function isEvaluated(assertion) {
+    return assertion.result.description !== undefined && 
+    assertion.result.outcome.id !== "earl:untested"
+  }
 
   export let panelIsOpen = true;
 
