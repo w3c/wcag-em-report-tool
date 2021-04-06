@@ -6,11 +6,20 @@
   <header class="criterion-header">
     <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <em class="criterion-header__level">Level {conformanceLevel}</em>
+
+    <ResourceLink
+      href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
+    >
+      {TRANSLATED.UNDERSTAND_BUTTON}
+      {num}
+    </ResourceLink>
+    <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
+      {TRANSLATED.HOW_TO_BUTTON}
+      {num}
+    </ResourceLink>
   </header>
 
-  <details>
-    <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {TRANSLATED.CRITERION.TITLE}</span></summary>
-    <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
+    {TRANSLATED.CRITERION.DESCRIPTION}
 
     {#if TRANSLATED.CRITERION.DETAILS}
       <ul>
@@ -24,20 +33,6 @@
         {/each}
       </ul>
     {/if}
-
-    <div class="">
-      <ResourceLink
-        href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
-      >
-        {TRANSLATED.UNDERSTAND_BUTTON}
-        {num}
-      </ResourceLink>
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
-        {TRANSLATED.HOW_TO_BUTTON}
-        {num}
-      </ResourceLink>
-    </div>
-  </details>
 
   <!--
    * Results for scope
@@ -97,7 +92,6 @@
   const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
-    SHOW_DESCRIPTION_BUTTON: $translate('PAGES.AUDIT.BTN_SHOW_TEXT'),
     UNDERSTAND_BUTTON: $translate('PAGES.AUDIT.UNDERSTAND'),
     HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
