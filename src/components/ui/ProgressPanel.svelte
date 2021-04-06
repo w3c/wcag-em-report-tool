@@ -36,7 +36,7 @@
   import Panel from '@app/components/ui/Panel.svelte';
   import ProgressBar from '@app/components/ui/ProgressBar.svelte';
 
-  import wcag from '@app/stores/wcagStore.js';
+  import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
   const { translate, translateToObject, scopeStore } = getContext('app');
@@ -65,17 +65,11 @@
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 
-  $: upToWcagVersion = wcagVersion === "2.0" ?
-    ["2.0"] : ["2.0", "2.1"];
-
   $: filteredCriteria = {
    1: $wcag.filter(item => item.num.startsWith("1.")).filter(isInScope) || {},
-   2: $wcag.filter(item => item.num.startsWith("2."))
-    .filter(isInScope) || {},
-   3: $wcag.filter(item => item.num.startsWith("3."))
-    .filter(isInScope) || {},
-   4: $wcag.filter(item => item.num.startsWith("4."))
-    .filter(isInScope) || {}
+   2: $wcag.filter(item => item.num.startsWith("2.")).filter(isInScope) || {},
+   3: $wcag.filter(item => item.num.startsWith("3.")).filter(isInScope) || {},
+   4: $wcag.filter(item => item.num.startsWith("4.")).filter(isInScope) || {}
   };
 
   $: filteredAssertions = {
@@ -109,7 +103,7 @@
   }
 
   function isInScope(wcagSC) {
-    return  wcagSC.conformanceLevel.length <= conformanceTarget.length && conformanceTarget.length &&  upToWcagVersion.includes(wcagSC.version)
+    return  wcagSC.conformanceLevel.length <= conformanceTarget.length && conformanceTarget.length &&  $scopedWcagVersions.includes(wcagSC.version)
   };
 
   function isEvaluated(assertion) {
