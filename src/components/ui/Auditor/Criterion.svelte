@@ -2,15 +2,24 @@
  * @component
  * Criterion
  * -->
-<div class="Criterion">
-  <header class="Criterion__Header">
-    <h3 class="Criterion__Header__heading">{num}: {TRANSLATED.CRITERION.TITLE}</h3>
-    <span class="Criterion__Header__level">(Level {conformanceLevel})</span>
+<div class="criterion">
+  <header class="criterion-header">
+    <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
+    <em class="criterion-header__level">Level {conformanceLevel}</em>
+
+    <ResourceLink
+      href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
+    >
+      {TRANSLATED.UNDERSTAND_BUTTON}
+      {num}
+    </ResourceLink>
+    <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
+      {TRANSLATED.HOW_TO_BUTTON}
+      {num}
+    </ResourceLink>
   </header>
 
-  <details>
-    <summary>{TRANSLATED.SHOW_DESCRIPTION_BUTTON} <span class="visuallyhidden">, {TRANSLATED.CRITERION.TITLE}</span></summary>
-    <div>{TRANSLATED.CRITERION.DESCRIPTION}</div>
+    {TRANSLATED.CRITERION.DESCRIPTION}
 
     {#if TRANSLATED.CRITERION.DETAILS}
       <ul>
@@ -24,20 +33,6 @@
         {/each}
       </ul>
     {/if}
-
-    <div class="">
-      <ResourceLink
-        href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
-      >
-        {TRANSLATED.UNDERSTAND_BUTTON}
-        {num}
-      </ResourceLink>
-      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
-        {TRANSLATED.HOW_TO_BUTTON}
-        {num}
-      </ResourceLink>
-    </div>
-  </details>
 
   <!--
    * Results for scope
@@ -77,38 +72,6 @@
 </div>
 <!-- /component -->
 
-<style>
-  .Criterion {
-    background-color: var(--pure-white);
-    border: 1px solid var(--line-grey);
-    box-shadow: 1px 1px 4px -4px #000;
-    padding: 1em;
-  }
-
-  .Criterion__Header {
-    margin-bottom: 1em;
-    font-size: 1em;
-    line-height: 1.5em;
-  }
-
-  .Criterion__Header > * {
-    margin: 0;
-    padding: 0;
-    font-size: inherit;
-    line-height: inherit;
-  }
-
-  .Criterion__Header__heading {
-    font-size: 1.25em;
-    font-weight: normal;
-  }
-  .Criterion__Header__level {
-    font-style: normal;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-</style>
-
 <script>
   import { getContext } from 'svelte';
 
@@ -129,7 +92,6 @@
   const { translate, translateToObject } = getContext('app');
 
   $: TRANSLATED = {
-    SHOW_DESCRIPTION_BUTTON: $translate('PAGES.AUDIT.BTN_SHOW_TEXT'),
     UNDERSTAND_BUTTON: $translate('PAGES.AUDIT.UNDERSTAND'),
     HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),

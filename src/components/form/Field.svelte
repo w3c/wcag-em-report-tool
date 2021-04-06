@@ -6,7 +6,7 @@
     >
       {@html helptext}
     </HelpText>
-  {:else if label}<label for="{id}">{label}</label>{/if}
+  {:else if label}<label for="{id}">{label}:</label>{/if}
 
   <slot />
 </div>
