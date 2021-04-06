@@ -31,7 +31,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation, Link } from 'svelte-navigator';
+  import { Link } from 'svelte-navigator';
 
   import Panel from '@app/components/ui/Panel.svelte';
   import ProgressBar from '@app/components/ui/ProgressBar.svelte';
