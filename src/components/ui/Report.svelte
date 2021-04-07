@@ -152,6 +152,11 @@
 <p>{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
+
+<h3>Summary</h3>
+<ReportResultsOverview />
+
+<h3>All results</h3>
 <AuditorSummary criteria="{$wcag}" />
 
 <h2>{TRANSLATED.HEADING_SAMPLE}</h2>
@@ -231,6 +236,7 @@
   import ReportHeaderKey from '@app/components/ui/Report/ReportHeaderKey.svelte';
   import ReportHeaderValue from '@app/components/ui/Report/ReportHeaderValue.svelte';
   import ReportHeaderMultiValue from '@app/components/ui/Report/ReportHeaderMultiValue.svelte';
+  import ReportResultsOverview from './Report/ReportResultsOverview.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
