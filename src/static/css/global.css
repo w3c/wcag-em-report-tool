@@ -67,3 +67,7 @@ textarea {
 [tabindex]:focus {
   outline: none;
 }
+
+:target {
+  scroll-margin-top: 5rem;
+}
