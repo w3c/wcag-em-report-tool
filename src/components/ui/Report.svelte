@@ -2,45 +2,151 @@
  * @component
  *   Report
  * -->
-<h2>{TRANSLATED.HEADING_ABOUT}</h2>
-<dl>
-  <dt>{TRANSLATED.LABEL_EVALUATOR}</dt>
-  <dd>{report.creator || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+<div tabindex="-1" bind:this={sectionAbout}>
+  <h2>{TRANSLATED.HEADING_ABOUT}</h2>
+  <dl>
 
-  <dt>{TRANSLATED.LABEL_COMMISSIONER}</dt>
-  <dd>{report.commissioner || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+    <dt>
+      <ReportHeaderKey editing={editAbout} field="EVALUATION_CREATOR">
+        {TRANSLATED.LABEL_EVALUATOR}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editAbout} field="EVALUATION_CREATOR" store="summaryStore"></ReportHeaderValue>
+    </dd>
 
-  <dt>{TRANSLATED.LABEL_DATE}</dt>
-  <dd>{report.date || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
-</dl>
+    <dt>
+      <ReportHeaderKey editing={editAbout} field="EVALUATION_COMMISSIONER">
+        {TRANSLATED.LABEL_COMMISSIONER}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editAbout} field="EVALUATION_COMMISSIONER" store="summaryStore" />
+    </dd>
 
-<h2>{TRANSLATED.HEADING_SUMMARY}</h2>
-{#if report.summary}
-{@html marked(report.summary)}
-{:else}
-<p>{TRANSLATED.LABEL_NOT_PROVIDED}</p>
-{/if}
+    <dt>
+      <ReportHeaderKey editing={editAbout} field="EVALUATION_DATE">
+        {TRANSLATED.LABEL_DATE}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editAbout} field="EVALUATION_DATE" store="summaryStore" />
+    </dd>
+  </dl>
 
-<h2>{TRANSLATED.HEADING_SCOPE}</h2>
-<dl>
-  <dt>{TRANSLATED.LABEL_WEBSITE_NAME}</dt>
-  <dd>{scope.siteName || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+  {#if editAbout}
+  <button class="button button-secondary" on:click={toggleEditAbout}>
+    {TRANSLATED.BUTTON_SAVE}  
+    <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
+  </button>
+  {:else}
+  <button class="button button-secondary" on:click={toggleEditAbout}>
+    {TRANSLATED.BUTTON_EDIT} 
+    <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
+  </button>
+  {/if}
+</div>
 
-  <dt>{TRANSLATED.LABEL_WEBSITE_SCOPE}</dt>
-  <dd>{scope.siteScope || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+<div tabindex="-1" bind:this={sectionExecutiveSummary}>
+  <h2>{TRANSLATED.HEADING_SUMMARY}</h2>
+  {#if editExecutiveSummary}
+    <div>
+      <ReportHeaderValue 
+        editing={editExecutiveSummary} 
+        multiline={true} 
+        field="EVALUATION_SUMMARY" 
+        store="summaryStore">
+      </ReportHeaderValue>
+    </div>
+    <button class="button button-secondary" on:click={toggleEditExecutiveSummary}>
+      {TRANSLATED.BUTTON_SAVE} 
+      <span class="visually-hidden">{TRANSLATED.HEADING_SUMMARY}</span>
+    </button>  
+  {:else}
+    <div>
+    {#if $summaryStore['EVALUATION_SUMMARY']}
+     {@html marked($summaryStore['EVALUATION_SUMMARY'])}
+    {:else}
+      <span class="no-result">(Not provided)</span>
+    {/if}
+    </div>
+    <button class="button button-secondary" on:click={toggleEditExecutiveSummary}>
+      {TRANSLATED.BUTTON_EDIT} 
+      <span class="visually-hidden">{TRANSLATED.HEADING_SUMMARY}</span>
+    </button>
+  {/if}
+</div>
 
-  <dt>{TRANSLATED.LABEL_WCAG_VERSION}</dt>
-  <dd>{scope.wcagVersion || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+<div tabindex="-1" bind:this={sectionEvaluationScope}>
+  <h2>{TRANSLATED.HEADING_SCOPE}</h2>
+  <dl>
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="SITE_NAME">
+        {TRANSLATED.LABEL_WEBSITE_NAME}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editEvaluationScope} field="SITE_NAME" store="scopeStore" />
+    </dd>
 
-  <dt>{TRANSLATED.LABEL_CONFORMANCE_TARGET}</dt>
-  <dd>{scope.conformanceTarget || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="WEBSITE_SCOPE">
+        {TRANSLATED.LABEL_WEBSITE_SCOPE}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editEvaluationScope} field="WEBSITE_SCOPE" store="scopeStore" multiline={true} />
+    </dd>
 
-  <dt>{TRANSLATED.LABEL_EXTRA_REQUIREMENTS}</dt>
-  <dd>{scope.extra || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="WCAG_VERSION">
+        {TRANSLATED.LABEL_WCAG_VERSION}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderMultiValue editing={editEvaluationScope} field="WCAG_VERSION" store="scopeStore" options={wcagVersions}></ReportHeaderMultiValue>
+    </dd>
 
-  <dt>{TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}</dt>
-  <dd>{scope.baseline || TRANSLATED.LABEL_NOT_PROVIDED}</dd>
-</dl>
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="CONFORMANCE_TARGET">
+        {TRANSLATED.LABEL_CONFORMANCE_TARGET}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderMultiValue editing={editEvaluationScope} field="CONFORMANCE_TARGET" store="scopeStore" options={conformanceLevels}></ReportHeaderMultiValue>
+    </dd>
+
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="AS_BASELINE">
+        {TRANSLATED.LABEL_EXTRA_REQUIREMENTS}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editEvaluationScope} field="AS_BASELINE" store="scopeStore" multiline={true} />
+    </dd>
+
+    <dt>
+      <ReportHeaderKey editing={editEvaluationScope} field="ADDITIONAL_REQUIREMENTS">
+        {TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}
+      </ReportHeaderKey>
+    </dt>
+    <dd>
+      <ReportHeaderValue editing={editEvaluationScope} field="ADDITIONAL_REQUIREMENTS" store="scopeStore" multiline={true} />
+    </dd>
+  </dl>
+
+  {#if editEvaluationScope}
+  <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
+    {TRANSLATED.BUTTON_SAVE}  
+    <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
+  </button>
+  {:else}
+  <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
+    {TRANSLATED.BUTTON_EDIT}  
+    <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
+  </button>
+  {/if}
+</div>
 
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_OVERVIEW}</h2>
 <p>{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
@@ -107,25 +213,41 @@
       margin-bottom: 0;
     }
   }
+  .no-result {
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 1em;
+    display: block;
+  }
   </style>
 
 <script>
   import { getContext } from 'svelte';
   import marked from "marked";
 
-  import wcag from '@app/stores/wcagStore.js';
+  import { wcag, CONFORMANCE_LEVELS, WCAG_VERSIONS } from '@app/stores/wcagStore.js';
 
   import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
+  import ReportHeaderKey from '@app/components/ui/Report/ReportHeaderKey.svelte';
+  import ReportHeaderValue from '@app/components/ui/Report/ReportHeaderValue.svelte';
+  import ReportHeaderMultiValue from '@app/components/ui/Report/ReportHeaderMultiValue.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
   );
+
+  let editAbout = false;
+  let editExecutiveSummary = false;
+  let editEvaluationScope = false;
+  let sectionAbout, sectionEvaluationScope, sectionExecutiveSummary;
 
   $: TRANSLATED = {
     LABEL_EVALUATOR: $translate('UI.REPORT.BY'),
     LABEL_COMMISSIONER: $translate('UI.REPORT.COMMISION_BY'),
     LABEL_NOT_PROVIDED: $translate('UI.REPORT.LABEL_NOT_PROVIDED'),
     LABEL_DATE: $translate('PAGES.SUMMARY.LABEL_DATE'),
+    BUTTON_SAVE: $translate('UI.REPORT.SAVE'),
+    BUTTON_EDIT: $translate('UI.REPORT.EDIT'),
     HEADING_ABOUT: $translate('UI.REPORT.HD_ABOUT'),
     HEADING_SUMMARY: $translate('UI.REPORT.HD_SUMMARY'),
     HEADING_SCOPE: $translate('UI.REPORT.HD_SCOPE'),
@@ -140,6 +262,7 @@
     HEADING_SAMPLE: $translate('UI.REPORT.HD_SAMPLE'),
     HEADING_SPECIFICS: $translate('UI.REPORT.HD_SPECIFICS'),
     HEADING_RESOURCES: $translate('UI.REPORT.HD_DOCS'),
+    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
   };
 
   $: scope = {
@@ -163,4 +286,33 @@
     summary: $summaryStore['EVALUATION_SUMMARY'],
     title: $summaryStore['EVALUATION_TITLE'] || $translate('PAGES.REPORT.TITLE')
   };
+
+  let wcagVersions = [...WCAG_VERSIONS].reverse().map((version) => {
+    return {
+      title: `WCAG ${version}`,
+      value: version
+    };
+  });
+
+  $: conformanceLevels = CONFORMANCE_LEVELS.map((level) => {
+    return {
+      title: `${TRANSLATED.CONFORMANCE_LEVEL} ${level}`,
+      value: level
+    };
+  });
+
+  function toggleEditAbout() {
+    editAbout = !editAbout;
+    sectionAbout.focus();
+  }
+
+  function toggleEditExecutiveSummary() {
+    editExecutiveSummary = !editExecutiveSummary;
+    sectionExecutiveSummary.focus();
+  }
+
+  function toggleEditEvaluationScope() {
+    editEvaluationScope = !editEvaluationScope;
+    sectionEvaluationScope.focus();
+  }
 </script>
