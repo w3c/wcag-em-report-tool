@@ -2,7 +2,7 @@
  * @component
  * Criterion
  * -->
-<div class="criterion">
+<div class="criterion" id={`criterion-${normaliseId(test)}`}>
   <header class="criterion-header">
     <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <em class="criterion-header__level">Level {conformanceLevel}</em>
@@ -72,6 +72,12 @@
 </div>
 <!-- /component -->
 
+<style>  
+:global(.criterion:target) {
+  outline: 2px solid var(--gold);
+}
+</style>
+
 <script>
   import { getContext } from 'svelte';
 
@@ -107,4 +113,8 @@
   $: scopeSubject = $subjects.find((subject) => {
     return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
   });
+
+  function normaliseId(test) {
+    return test.num.replaceAll('.','');
+  }
 </script>

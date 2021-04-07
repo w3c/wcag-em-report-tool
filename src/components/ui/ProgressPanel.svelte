@@ -1,6 +1,6 @@
 <Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" bind:open="{panelIsOpen}">
 
-  <p class="your-report__description">{TRANSLATED.REPORTED_ON} {totalEvaluated} {TRANSLATED.REPORTED_ON_OF} {totalToEvaluate} WCAG {wcagVersion} {conformanceTarget} Success Criteria.</p>
+  <ReportNumbers/>
 
   <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
   
@@ -35,6 +35,7 @@
 
   import Panel from '@app/components/ui/Panel.svelte';
   import ProgressBar from '@app/components/ui/ProgressBar.svelte';
+  import ReportNumbers from '@app/components/ui/Report/ReportNumbers.svelte';
 
   import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
@@ -55,12 +56,9 @@
     }),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
     REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
-    REPORTED_ON: $translate('UI.REPORT.REPORTED_ON'),
-    REPORTED_ON_OF: $translate('UI.REPORT.REPORTED_ON_OF')
   };
 
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
-  $: wcagVersion = $scopeStore['WCAG_VERSION'];
   $: percentageTotalEvaluated = (totalEvaluated / totalToEvaluate) * 100;
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];

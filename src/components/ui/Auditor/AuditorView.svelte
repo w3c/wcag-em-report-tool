@@ -1,9 +1,9 @@
 <div class="AuditorView">
   {#each [...principles] as principle}
-    <details bind:open="{$auditStore['DETAILS_OPEN'][`PRINCIPLE_${principle}`]}">
+    <details open>
       <summary><h2>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h2></summary>
       {#each [...guidelines].filter((g) => g.indexOf(principle) === 0) as guideline}
-        <details bind:open="{$auditStore['DETAILS_OPEN'][`GUIDELINE_${guideline}`]}">
+        <details open>
           <summary><h3>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h3></summary>
           <!--
            * Should filter assertions based on test prop;

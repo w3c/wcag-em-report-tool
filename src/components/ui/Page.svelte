@@ -14,5 +14,15 @@
 </style>
 
 <script>
+  import { onMount } from "svelte";
+  import { useLocation } from 'svelte-navigator';
+  import { honourFragmentIdLinks } from '@app/scripts/honourFragmentIdLinks.js';
+
+  const location = useLocation();
+
+  onMount(() => {
+    honourFragmentIdLinks($location);
+  });
+
   export let title;
 </script>
