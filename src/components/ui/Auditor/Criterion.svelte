@@ -6,32 +6,36 @@
   <header class="criterion-header">
     <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <em class="criterion-header__level">Level {conformanceLevel}</em>
-
-    <ResourceLink
-      href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
-    >
-      {TRANSLATED.UNDERSTAND_BUTTON}
-      {num}
-    </ResourceLink>
-    <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
-      {TRANSLATED.HOW_TO_BUTTON}
-      {num}
-    </ResourceLink>
+    <div>
+      <ResourceLink
+        href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
+      >
+        {TRANSLATED.UNDERSTAND_BUTTON}
+        {num}
+      </ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
+        {TRANSLATED.HOW_TO_BUTTON}
+        {num}
+      </ResourceLink>
+    </div>
   </header>
 
     {TRANSLATED.CRITERION.DESCRIPTION}
 
     {#if TRANSLATED.CRITERION.DETAILS}
-      <ul>
-        {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
-          <li>
-            <p>
-              {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
-              {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
-            </p>
-          </li>
-        {/each}
-      </ul>
+      <details class="criterion-details">
+        <summary class="button button-secondary button-small criterion-details-button">{TRANSLATED.SHOW_FULL_DESCRIPTION}</summary>
+        <ul>
+          {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
+            <li>
+              <p>
+                {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
+                {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
+              </p>
+            </li>
+          {/each}
+        </ul>
+      </details>
     {/if}
 
   <!--
@@ -76,6 +80,12 @@
 :global(.criterion:target) {
   outline: 2px solid var(--gold);
 }
+.criterion-details {
+  padding-left: 0;
+}
+.criterion-details-button {
+  margin: .5em 0 1.5em;
+}
 </style>
 
 <script>
@@ -103,7 +113,8 @@
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
     RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
-    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
+    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num],
+    SHOW_FULL_DESCRIPTION: $translate('UI.COMMON.SHOW_FULL_DESCRIPTION')
   };
 
   $: test = $tests.find(($test) => {
