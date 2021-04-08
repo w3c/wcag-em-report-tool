@@ -16,7 +16,6 @@
 
   .Auditor__samples {
     grid-area: left;
-    grid-row: 2 / span 2;
   }
 
   :global(.Auditor .Auditor__Filters > *) {
@@ -25,8 +24,7 @@
   }
 
   .Auditor__Assertions {
-    grid-area: content;
-    grid-row: 2;
+    grid-column: 1 / 8;
     margin: 0;
     padding: 0;
     list-style-type: none;
