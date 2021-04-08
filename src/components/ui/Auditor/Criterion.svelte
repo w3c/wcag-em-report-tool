@@ -6,32 +6,43 @@
   <header class="criterion-header">
     <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <em class="criterion-header__level">Level {conformanceLevel}</em>
-
-    <ResourceLink
-      href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
-    >
-      {TRANSLATED.UNDERSTAND_BUTTON}
-      {num}
-    </ResourceLink>
-    <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
-      {TRANSLATED.HOW_TO_BUTTON}
-      {num}
-    </ResourceLink>
+    <div>
+      <ResourceLink
+        href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
+      >
+        {TRANSLATED.UNDERSTAND_BUTTON}
+        {num}
+      </ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/#{id}">
+        {TRANSLATED.HOW_TO_BUTTON}
+        {num}
+      </ResourceLink>
+    </div>
   </header>
 
     {TRANSLATED.CRITERION.DESCRIPTION}
 
     {#if TRANSLATED.CRITERION.DETAILS}
-      <ul>
-        {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
-          <li>
-            <p>
-              {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
-              {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
-            </p>
-          </li>
-        {/each}
-      </ul>
+      <button 
+        type="button" 
+        class="showhidebutton button button-small"
+        aria-expanded={criterionDetailsOpen}
+        on:click={toggleCriterionDetails}
+      >
+        {TRANSLATED.SHOW_FULL_DESCRIPTION}
+      </button>
+      {#if criterionDetailsOpen}
+        <ul tabindex="-1" bind:this={criterionDetails}>
+          {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
+            <li>
+              <p>
+                {#if TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}<strong>{TRANSLATED.CRITERION.DETAILS[DETAIL].TITLE}</strong>:{/if}
+                {TRANSLATED.CRITERION.DETAILS[DETAIL].DESCRIPTION}
+              </p>
+            </li>
+          {/each}
+        </ul>
+      {/if}
     {/if}
 
   <!--
@@ -76,6 +87,12 @@
 :global(.criterion:target) {
   outline: 2px solid var(--gold);
 }
+.criterion-details {
+  padding-left: 0;
+}
+.criterion-details-button {
+  margin: .5em 0 1.5em;
+}
 </style>
 
 <script>
@@ -94,6 +111,9 @@
   export let conformanceLevel;
   export let id;
   export let num;
+  export let criterionDetailsOpen = false;
+
+  let criterionDetails;
 
   const { translate, translateToObject } = getContext('app');
 
@@ -103,7 +123,8 @@
     SCOPE_RESULT_LEGEND: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     SAMPLE_RESULTS_DETAILS_BUTTON: $translate('PAGES.AUDIT.BTN_EXPAND_PAGES'),
     RESULT_FOR_LABEL: $translate('PAGES.AUDIT.RESULTS_FOR'),
-    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num]
+    CRITERION: $translateToObject('WCAG.SUCCESS_CRITERION')[num],
+    SHOW_FULL_DESCRIPTION: $translate('UI.COMMON.SHOW_FULL_DESCRIPTION')
   };
 
   $: test = $tests.find(($test) => {
@@ -116,5 +137,14 @@
 
   function normaliseId(test) {
     return test.num.replaceAll('.','');
+  }
+
+  function toggleCriterionDetails() {
+    criterionDetailsOpen = !criterionDetailsOpen;
+    setTimeout(function() {
+      if (criterionDetailsOpen) {
+        criterionDetails.focus();
+      }
+    }, 100);
   }
 </script>

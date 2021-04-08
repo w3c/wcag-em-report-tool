@@ -12,7 +12,7 @@
     {#each guidelineCriteria(guideline) as criterion (criterion.num)}
       <div class="Auditor__Assertion">
         <div class="box box-simple">
-          <h5 class="box-h box-h-simple">{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</h5>
+          <h5 class="box-h box-h-simple" id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</h5>
           <div class="box-i">
             <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
             {#each scopeAssertion(criterion) as assertion}

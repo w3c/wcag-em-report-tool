@@ -33,5 +33,6 @@
     "TESTED": "Tested",
     "TITLE": "Step 4: Audit the Selected Sample",
     "UNDERSTAND": "Understanding",
-    "UNTESTED": "{{critCount}} untested"
+    "UNTESTED": "{{critCount}} untested",
+    "VIEW_IN_REPORT": "View in report"
 }
