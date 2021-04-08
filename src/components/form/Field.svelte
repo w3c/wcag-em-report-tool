@@ -1,4 +1,4 @@
-<div class="Field field">
+<div class="Field">
   {#if helptext}
     <HelpText
       label="{label && `<label for="${id}">${label}</label>`}"
@@ -14,6 +14,7 @@
 <style>
   .Field {
     padding: 0;
+    margin-bottom: 2rem;
   }
   .Field label {
     display: block;
