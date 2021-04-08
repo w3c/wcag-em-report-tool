@@ -23,9 +23,16 @@
     {TRANSLATED.CRITERION.DESCRIPTION}
 
     {#if TRANSLATED.CRITERION.DETAILS}
-      <details class="criterion-details">
-        <summary class="button button-secondary button-small criterion-details-button">{TRANSLATED.SHOW_FULL_DESCRIPTION}</summary>
-        <ul>
+      <button 
+        type="button" 
+        class="showhidebutton button button-small"
+        aria-expanded={criterionDetailsOpen}
+        on:click={toggleCriterionDetails}
+      >
+        {TRANSLATED.SHOW_FULL_DESCRIPTION}
+      </button>
+      {#if criterionDetailsOpen}
+        <ul tabindex="-1" bind:this={criterionDetails}>
           {#each Object.keys(TRANSLATED.CRITERION.DETAILS) as DETAIL}
             <li>
               <p>
@@ -35,7 +42,7 @@
             </li>
           {/each}
         </ul>
-      </details>
+      {/if}
     {/if}
 
   <!--
@@ -104,6 +111,9 @@
   export let conformanceLevel;
   export let id;
   export let num;
+  export let criterionDetailsOpen = false;
+
+  let criterionDetails;
 
   const { translate, translateToObject } = getContext('app');
 
@@ -127,5 +137,14 @@
 
   function normaliseId(test) {
     return test.num.replaceAll('.','');
+  }
+
+  function toggleCriterionDetails() {
+    criterionDetailsOpen = !criterionDetailsOpen;
+    setTimeout(function() {
+      if (criterionDetailsOpen) {
+        criterionDetails.focus();
+      }
+    }, 100);
   }
 </script>
