@@ -1,6 +1,14 @@
-<Field id="{id}" label="{label}" helptext="{helptext}">
+<Field {id} {label} {helptext}>
+  <slot name="before-textarea"></slot>
   <textarea id="{id}" rows="5" bind:value on:change></textarea>
 </Field>
+
+<style>
+  textarea {
+    display: block;
+    width: 100%;
+  }
+</style>
 
 <script>
   import Field from './Field.svelte';

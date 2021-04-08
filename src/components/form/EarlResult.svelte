@@ -11,7 +11,7 @@
  * Important here is to pass the correct result,
  * so test AND subject should always match.
  * -->
-<fieldset class="Criterion__Result__container">
+<fieldset class="Criterion__Result">
   <legend class="Criterion__Subject">
     {#if label}
       {label}
@@ -20,30 +20,30 @@
     {/if}
   </legend>
 
-  <Flex direction="row" align="start" justify="between" wrap>
-    <div class="Criterion__Result--outcome">
-      <Select
-        id="{`assertion__${_assertion.ID}--result__outcome`}"
-        label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
-        options="{outcomeOptions}"
-        bind:value="{_assertion.result.outcome.id}"
-        on:change="{handleOutcomeChange}"
-      />
-    </div>
+  <div class="Criterion__Fields">
+    <Select
+      id="{`assertion__${_assertion.ID}--result__outcome`}"
+      label="{$translate('PAGES.AUDIT.LABEL_OUTCOME')}"
+      options="{outcomeOptions}"
+      bind:value="{_assertion.result.outcome.id}"
+      on:change="{handleOutcomeChange}"
+    />
 
-    <div class="Criterion__Result--description">
-      <Textarea
-        id="{`assertion__${_assertion.ID}--result__description`}"
-        label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
-        bind:value="{_assertion.result.description}"
-        on:change="{handleResultChange}"
-      />
-    </div>
-  </Flex>
+    <Textarea
+      id="{`assertion__${_assertion.ID}--result__description`}"
+      label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
+      bind:value="{_assertion.result.description}"
+      on:change="{handleResultChange}"
+    >
+      <span slot="before-textarea" class="view-in-report">
+      <Link to={`/evaluation/view-report#criterion-${_assertion.test.num.replaceAll('.', '')}`}>{TRANSLATED.VIEW_IN_REPORT}</Link>
+      </span>
+    </Textarea>
+  </div>
 </fieldset>
 
 <style>
-  .Criterion__Result__container {
+  .Criterion__Result {
     display: block;
     border: none;
   }
@@ -52,15 +52,18 @@
     padding: 0;
     font-size: 1em;
   }
-
-  .Criterion__Result--outcome {
-    margin-right: 2rem;
+  .Criterion__Fields {
+    display: flex;
+    gap: 2rem;
   }
-
-  .Criterion__Result--description {
-    flex-basis: 15rem;
-    flex-grow: 1;
-    flex-shrink: 1;
+  :global(.Criterion__Fields :last-child) {
+    flex: 2;
+  }
+  :global(.Criterion__Fields :last-child label) {
+    float: left;
+  }
+  .view-in-report {
+    float: right;
   }
 </style>
 
@@ -73,9 +76,10 @@
    */
 
   import { getContext } from 'svelte';
+  import { Link } from 'svelte-navigator';
+
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
-  import Flex from '@app/components/ui/Flex.svelte';
   import Select from '@app/components/form/Select.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
 
@@ -88,6 +92,10 @@
 
   const { translate } = getContext('app');
   const { outcomeValues } = getContext('Evaluation');
+
+  $: TRANSLATED = {
+    VIEW_IN_REPORT: $translate('PAGES.AUDIT.VIEW_IN_REPORT')
+  };
 
   $: outcomeOptions = $outcomeValues.map((outcomeValue, index) => {
     const title = outcomeValue.title;

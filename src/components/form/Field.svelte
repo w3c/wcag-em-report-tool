@@ -15,7 +15,9 @@
   .Field {
     padding: 0;
   }
-
+  .Field label {
+    display: block;
+  }
   :global(.Field > *:not(:last-child)) {
     margin-bottom: 0.5em;
   }
