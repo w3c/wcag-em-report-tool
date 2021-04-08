@@ -52,6 +52,12 @@
   {/each}
 </div>
 
+<style>
+  .Auditor__Assertion {
+    margin-left: -2rem;
+  }
+</style>
+
 <script>
   import { getContext } from 'svelte';
 
