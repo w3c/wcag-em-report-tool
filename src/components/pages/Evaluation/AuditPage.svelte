@@ -2,7 +2,6 @@
   <AuditorImport />
   <p>{@html TRANSLATED.INTRODUCTION}</p>
   <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step4">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
-  <p>{@html TRANSLATED.INTRODUCTION_NOTE}</p>
   <Auditor />
 </Page>
 
