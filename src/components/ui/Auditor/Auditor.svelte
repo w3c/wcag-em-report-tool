@@ -1,8 +1,4 @@
 <div class="Auditor">
-  <div class="Auditor__samples">
-    <AuditorSamples />
-  </div>
-
   <AuditorFilter />
 
   <div class="Auditor__Assertions">
@@ -12,19 +8,11 @@
 
 <style>
   .Auditor {
-  }
-
-  .Auditor__samples {
-    grid-area: left;
-  }
-
-  :global(.Auditor .Auditor__Filters > *) {
-    margin-bottom: 0;
-    break-inside: avoid-column;
+    clear: both;
   }
 
   .Auditor__Assertions {
-    grid-column: 1 / 8;
+    grid-column: 2 / 8;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -65,7 +53,6 @@
   import { CONFORMANCE_LEVELS, scopedWcagVersions } from '@app/stores/wcagStore.js';
 
   import AuditorFilter from './AuditorFilter.svelte';
-  import AuditorSamples from './AuditorSamples.svelte';
   import AuditorView from './AuditorView.svelte';
 
   const { scopeStore } = getContext('app');

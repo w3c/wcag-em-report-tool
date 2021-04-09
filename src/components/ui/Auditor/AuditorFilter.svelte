@@ -7,36 +7,30 @@
  *   e.g. pass filters and cycle with each
  *   also dispatching a FILTER event back up with details
  * -->
-<div class="Auditor__Filter box">
-  <div class="Auditor__Filters box-i">
-    <MultipleChoice
-      id="filter_wcag_version"
-      label="Criterion WCAG Version"
-      type="radio"
-      options="{versionFilterOptions}"
-      bind:value="{$auditFilter['VERSION']}"
-    />
+<div class="Auditor__Filter">
+  <MultipleChoice
+    id="filter_wcag_version"
+    label="Criterion WCAG Version"
+    type="radio"
+    options="{versionFilterOptions}"
+    bind:value="{$auditFilter['VERSION']}"
+  />
 
-    <MultipleChoice
-      id="filter_conformance_level"
-      label="Criterion conformance level"
-      options="{conformanceLevels}"
-      helptext={false}
-      bind:value="{$auditFilter['LEVEL']}"
-    />
-  </div>
+  <MultipleChoice
+    id="filter_conformance_level"
+    label="Criterion conformance level"
+    options="{conformanceLevels}"
+    helptext={false}
+    bind:value="{$auditFilter['LEVEL']}"
+  />
+
+  <AuditorSamples />
 </div>
 <!-- /component -->
 
 <style>
   .Auditor__Filter {
-    grid-column: 1 / 8;
-    margin: 2em 0 0;
-  }
-
-  .Auditor__Filters {
-    columns: 2 20rem;
-    column-gap: 2rem;
+    grid-column: 1 / 2;
   }
 </style>
 
@@ -46,6 +40,7 @@
   import { auditFilter } from '@app/stores/auditStore.js';
   import { CONFORMANCE_LEVELS, scopedWcagVersions } from '@app/stores/wcagStore.js';
 
+  import AuditorSamples from './AuditorSamples.svelte';
   import MultipleChoice from '@app/components/form/MultipleChoice.svelte';
 
   const { translate } = getContext('app');
