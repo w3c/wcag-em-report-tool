@@ -6,7 +6,7 @@
   <header class="criterion-header">
     <h3>{num}: {TRANSLATED.CRITERION.TITLE}</h3>
     <em class="criterion-header__level">Level {conformanceLevel}</em>
-    <div>
+    <div class="criterion__resource-links">
       <ResourceLink
         href="https://www.w3.org/WAI/WCAG21/Understanding/{id}.html"
       >
@@ -92,6 +92,9 @@
 }
 .criterion-details-button {
   margin: .5em 0 1.5em;
+}
+.criterion__resource-links {
+  margin: .5em 0;
 }
 </style>
 
