@@ -39,9 +39,9 @@
       display: grid;
       grid-template-columns:
         [left-start] 1fr
-        [left-end content-start] 2fr
+        [left-end content-start] 1.25fr
         [content-end];
-      grid-gap: 32px;
+      grid-gap: 64px;
     }
   }
 </style>
