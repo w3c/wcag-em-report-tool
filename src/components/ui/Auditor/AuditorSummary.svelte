@@ -1,58 +1,107 @@
 {#each principles as principle}
-  <h3>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h3>
+  <h4>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h4>
 
   {#each guidelines.filter((g) => g.indexOf(principle) === 0) as guideline}
-    <h4>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h4>
-    <!--
-     * Should filter assertions based on test prop;
-     * assertion.test.num in case of wcag.
-     * Specificly test.num.indexOf guideline === 0
-     * because we are grouping per principle > guideline.
-     * -->
-    {#each guidelineCriteria(guideline) as criterion (criterion.num)}
-      <div class="Auditor__Assertion">
-        <div class="box box-simple">
-          <h5 class="box-h box-h-simple" id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</h5>
-          <div class="box-i">
-            <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
-            {#each scopeAssertion(criterion) as assertion}
-              <dl>
-                <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
-                <dd>{assertion.result.outcome.title}</dd>
-                {#if assertion.result.description}
-                <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
-                <dd>{@html marked(assertion.result.description)}</dd>
+    <h5>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5>
+    <table class="Auditor__ResultsTable">
+      <tbody>
+          <tr class="Auditor__ResultsTableHeader">
+            <th>Success Criterion</th>
+            <th>Result</th>
+            <th>Observations</th>
+            <th></th><!-- cell for edit button -->
+          </tr>
+        <!--
+        * Should filter assertions based on test prop;
+        * assertion.test.num in case of wcag.
+        * Specificly test.num.indexOf guideline === 0
+        * because we are grouping per principle > guideline.
+        * -->
+        {#each guidelineCriteria(guideline) as criterion (criterion.num)}
+          <tr class="Auditor__Assertion">
+            <td id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</td>
+            <td>
+                {#each scopeAssertion(criterion) as assertion}
+                  <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
+                {:else}
+                  <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
+                {/each}
+                {#if sampleAssertions(criterion).length}
+                  {#each sampleAssertions(criterion) as assertion}
+                    <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
+                    <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
+                  {:else}
+                    <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
+                  {/each}
                 {/if}
-              </dl>
-            {:else}
-              <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
-            {/each}
-            <h6>{TRANSLATED.HEADING_RESULTS_FOR}</h6>
-            {#each sampleAssertions(criterion) as assertion}
-              <div class="box box-simple">
-                <span class="box-h box-h-simple">Results for {assertion.subject.title || `Sample ${assertion.subject.ID}`}</span>
-                <dl class="box-i">
-                  <dt>{TRANSLATED.LABEL_OUTCOME}</dt>
-                  <dd>{assertion.result.outcome}</dd>
-                  {#if assertion.result.description}
-                  <dt>{TRANSLATED.LABEL_OBSERVATION}</dt>
-                  <dd>{@html marked(assertion.result.description)}</dd>
-                  {/if}
-                </dl>
-              </div>
-            {:else}
-              <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
-            {/each}
-          </div>
-        </div>
-      </div>
-    {/each}
+            </td>
+            <td>
+              {#each scopeAssertion(criterion) as assertion}
+                {#if assertion.result.description}
+                  <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  {@html marked(assertion.result.description)}
+                {/if}
+              {/each}
+              {#if sampleAssertions(criterion).length}
+              {#each sampleAssertions(criterion) as assertion}
+                <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
+                {#if assertion.result.description}
+                  {@html marked(assertion.result.description)}
+                {/if}
+              {/each}
+            {/if}
+            </td>
+            <td>
+              <Link to={`/evaluation/audit#criterion-${criterion.num.replaceAll('.','')}`}>
+                <span class="visuallyhidden">Edit {criterion.num}</span>
+                <svg
+                  aria-hidden="true"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-edit">
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                </svg>
+              </Link>        
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
   {/each}
 {/each}
 
+<style>
+  .Auditor__ResultsTable {
+    width: 100%;
+  }
+  .Auditor__ResultsTable th {
+    width: 30%;
+  }
+  .Auditor__ResultsTable th:nth-child(2) {
+    width: 25%;
+  }
+  .Auditor__ResultsTable th:nth-child(3) {
+    width: 60%;
+  }
+  .Auditor__ResultsTableHeader {
+    position: sticky;
+    top: 0;
+  }
+</style>
+
 <script>
   import { getContext } from 'svelte';
-  import marked from "marked";
+  import { Link } from 'svelte-navigator';
+  import marked from 'marked';
 
   import assertions from '@app/stores/earl/assertionStore/index.js';
   import { TestSubjectTypes } from '@app/stores/earl/subjectStore/index.js';
