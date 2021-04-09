@@ -1,34 +1,12 @@
-<Panel title="{TRANSLATED.SAMPLE_SELECT_HEADING}" open>
-  <details>
-    <summary><h4>Info</h4></summary>
-    <div>{TRANSLATED.SAMPLE_SELECT_INFO}</div>
-  </details>
+<fieldset class="AuditorSamples">
+  <legend>
+    {TRANSLATED.SAMPLE_SELECT_HEADING}
+  </legend>
 
-  <Flex align="center" justify="stretch">
-    <div>
-      <input
-        id="AuditorSamples__multiselect"
-        type="checkbox"
-        indeterminate="{someChecked}"
-        checked="{allChecked}"
-        on:change="{handleMultiselectClick}"
-      /><label
-        for="AuditorSamples__multiselect"
-        class="visuallyhidden"
-      >{TRANSLATED.SAMPLE_SELECT_LABEL_SELECT_ALL}</label>
-    </div>
-    <div style="margin-left: auto;">
-      <button class="button button-small button-secondary">V<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_COMPLETE_SELECTED}</span></button>
-      <button class="button button-small button-secondary">X<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_UNCOMPLETE_SELECTED}</span></button>
-      <button class="button button-small button-secondary">^<span class="visuallyhidden">{TRANSLATED.SAMPLE_SELECT_BUTTON_OPEN_SELECTED}</span></button>
-    </div>
-  </Flex>
-
-  <hr />
-
-  {#each $allSamples as sample, index (sampleID(index))}
-    <Flex align="center" justify="start" wrap>
-      <Flex align="start" justify="start">
+  <ol class="AuditorSamples__list">
+  {#if $allSamples.length > 0 }
+    {#each $allSamples as sample, index (sampleID(index))}
+      <li class="AuditorSamples__item">
         <input
           id="sample__{sampleID(index)}"
           type="checkbox"
@@ -44,21 +22,49 @@
             >{TRANSLATED.SAMPLE_SELECT_TESTED}</span>
           {/if}
         </label>
-      </Flex>
-      <div class="AuditorSample__controls">
         {#if isURL(sample.description)}
-          <a class="button button-small" href="{sample.description}">Open</a>
+          <a class="AuditorSamples__link" href="{sample.description}">{sample.description}</a>
         {/if}
-      </div>
-    </Flex>
+    </li>
+    {/each}
+    <div class="AuditorSamples__select-all">
+      <input
+        id="AuditorSamples__multiselect"
+        type="checkbox"
+        indeterminate="{someChecked}"
+        checked="{allChecked}"
+        on:change="{handleMultiselectClick}"
+      />
+      <label
+        for="AuditorSamples__multiselect"
+      >{TRANSLATED.SAMPLE_SELECT_LABEL_SELECT_ALL}</label>
+    </div>
   {:else}
-    <div>{TRANSLATED.SAMPLE_SELECT_NO_SAMPLE}</div>
-  {/each}
-</Panel>
+    <div class="AuditorSamples__empty">{TRANSLATED.SAMPLE_SELECT_NO_SAMPLE}</div>
+  {/if}
+</fieldset>
 
 <style media="screen">
-  .AuditorSample__controls {
-    margin-left: auto;
+  .AuditorSamples__list {
+    padding: 0;
+    margin: 0;
+  }
+  .AuditorSamples__item {
+    list-style: none;
+  }
+  .AuditorSamples__select-all {
+    margin-top: 1em;
+  }
+  .AuditorSamples__link {
+    display: block;
+    font-size: 90%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 12em;
+  }
+  legend {
+    font-size: 1rem;
   }
 </style>
 
@@ -67,9 +73,6 @@
 
   import { auditSamples } from '@app/stores/auditStore.js';
   import { allSamples } from '@app/stores/sampleStore.js';
-
-  import Flex from '@app/components/ui/Flex.svelte';
-  import Panel from '@app/components/ui/Panel.svelte';
 
   const { translate } = getContext('app');
 

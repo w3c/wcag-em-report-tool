@@ -46,6 +46,7 @@
   .Criterion__Result {
     display: block;
     border: none;
+    margin: 1em 0 0;
   }
 
   .Criterion__Subject {

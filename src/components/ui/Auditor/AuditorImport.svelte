@@ -13,6 +13,7 @@
     margin: 1em 0 1em;
     border: 1px solid var(--line-grey);
     padding: 1em;
+    font-size: 90%;
   }
     .AuditorImport p:first-child {
       margin-top: 0;
