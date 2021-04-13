@@ -1,4 +1,4 @@
-[2021 Redesign preview on Netlify](https://wcag-em-report-tool-2021-redesign.netlify.app/)
+_Note: this tool is being redesigned_ [Draft 2021 Redesign preview on Netlify](https://wcag-em-report-tool-2021-redesign.netlify.app/) (the code lives in [feature/rebuild-svelte](https://github.com/w3c/wcag-em-report-tool/tree/feature/rebuild-svelte)) 
 
 WCAG-EM Report tool is an assistant that takes the user
 through the process of evaluating the accessibility of a
