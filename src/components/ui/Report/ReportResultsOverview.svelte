@@ -15,7 +15,7 @@
     <ul class="result-missing">
       {#each resultsByCategory[4].items as item}
         <li>
-          <Link to={`/evaluation/audit#criterion-${normaliseId(item)}`}>{item.test.num}</Link>
+          <Link to={`/evaluation/audit#criterion-${normaliseId(item)}`}>{item.test.num}: {TRANSLATED.CRITERIA[item.test.num].TITLE}</Link>
         </li>
       {/each}
     </ul>
@@ -49,7 +49,12 @@
 
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
+  const { translateToObject } = getContext('app');
   const { outcomeValues } = getContext('Evaluation');
+
+  $: TRANSLATED = {
+    CRITERIA: $translateToObject('WCAG.SUCCESS_CRITERION')
+  };
 
   $: resultsByCategory = $outcomeValues.map((outcomeValue) => {
     return {
