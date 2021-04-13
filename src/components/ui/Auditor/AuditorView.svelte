@@ -53,7 +53,7 @@
 </div>
 
 <style>
-  .Auditor__Assertion {
+  .Auditor__Assertions {
     margin-left: -2rem;
   }
 </style>
@@ -65,7 +65,7 @@
 
   export let criteria = [];
 
-  const { auditStore, translateToObject } = getContext('app');
+  const { translateToObject } = getContext('app');
 
   $: TRANSLATED = {
     PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),

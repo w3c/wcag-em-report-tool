@@ -10,7 +10,7 @@
 <div class="Auditor__Filter">
   <MultipleChoice
     id="filter_wcag_version"
-    label="Criterion WCAG Version"
+    label={TRANSLATED['LABEL_VERSION']}
     type="radio"
     options="{versionFilterOptions}"
     bind:value="{$auditFilter['VERSION']}"
@@ -18,7 +18,7 @@
 
   <MultipleChoice
     id="filter_conformance_level"
-    label="Criterion conformance level"
+    label={TRANSLATED['LABEL_LEVEL']}
     options="{conformanceLevels}"
     helptext={false}
     bind:value="{$auditFilter['LEVEL']}"
@@ -69,6 +69,11 @@
 
     return result;
   }, []);
+
+  $: TRANSLATED = {
+    LABEL_VERSION: $translate('PAGES.AUDIT.LABEL_VERSION'),
+    LABEL_LEVEL: $translate('PAGES.AUDIT.LABEL_LEVEL')
+  }
 
   $: conformanceLevels = CONFORMANCE_LEVELS.map((level) => {
     return {
