@@ -1,5 +1,7 @@
 # WCAG-EM Report Tool
 
+<img width="1178" alt="" src="https://user-images.githubusercontent.com/178782/114709430-d86bd700-9d2c-11eb-8508-c628ef6614d4.png">
+
 [link to preview of the 2021 rebuild](https://wcag-em-report-tool-2021-redesign.netlify.app/) 
 
 The WCAG-EM Report tool is an assistant that takes the user through the process of evaluating the accessibility of a website, using the WCAG-EM Evaluation Methodology.
