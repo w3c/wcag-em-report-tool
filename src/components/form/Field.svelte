@@ -19,6 +19,9 @@
   .Field label {
     display: block;
   }
+  :global(.Field input) {
+    width: 100%;
+  }
   :global(.Field > *:not(:last-child)) {
     margin-bottom: 0.5em;
   }

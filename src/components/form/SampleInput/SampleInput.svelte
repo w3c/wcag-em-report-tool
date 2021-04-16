@@ -42,6 +42,12 @@
 <!-- /component -->
 
 <style>
+  ol {
+    padding: 0;
+  }
+    ol li {
+      list-style: none;
+    }
   .SampleInput__helptext {
     font-size: 1rem; /* reset legend size */
     font-weight: normal; /* reset legend weight */

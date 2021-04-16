@@ -7,7 +7,7 @@
 >
   <fieldset>
     <legend>{$translate('PAGES.SAMPLE.SAMPLE_PAGE')} {data.title || id}</legend>
-    <div>
+    <div class="sample-input">
       <Input
         id="{id}--title"
         label="{$translate('PAGES.SAMPLE.LABEL_HANDLE')}"
@@ -22,6 +22,14 @@
     </div>
   </fieldset>
 </Editable>
+
+<style>
+.sample-input {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+</style>
 
 <script>
   import { getContext } from 'svelte';
