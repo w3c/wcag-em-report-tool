@@ -23,7 +23,7 @@
     width: 100%;
   }
   :global(.Field > *:not(:last-child)) {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
   }
 </style>
 

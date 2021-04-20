@@ -24,10 +24,13 @@
 </Editable>
 
 <style>
-.sample-input {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
+
+@media (min-width: 40em) {
+  .sample-input {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+  }
 }
 </style>
 

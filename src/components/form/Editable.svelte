@@ -57,18 +57,14 @@
     padding: 1em;   
   }
   :global(.Editable .Editable__Contents .sample-input .Field) {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
   }
   :global(.Editable legend) {
     font-size: 1em;
     padding: 0; 
+    margin-bottom: .25em;
   }
-
-  :global(.Editable__Contents > *:not(:last-child)) {
-    margin-bottom: 1em;
-  }
-
-  :global(.Editable__Contents > *:last-child) {
+  :global(.Editable fieldset) {
     margin-bottom: 0;
   }
 </style>
