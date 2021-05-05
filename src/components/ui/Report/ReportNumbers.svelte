@@ -22,7 +22,19 @@
     REPORTED_ON_OF: $translate('UI.REPORT.REPORTED_ON_OF')
   };
 
-  $: totalToEvaluate = $assertions.length;
+
+  $: results = Object.values($assertions.reduce((result, entry) => {
+    if (result[entry.test.num]) {
+      return result;
+    }
+    return {
+      ...result,
+      [entry.test.num]: entry,
+    }
+  }, {}));
+  
+  $: totalToEvaluate = results.length;
+
   $: totalEvaluated = $assertions.filter(assertion => 
     assertion.result.description !== undefined && 
     assertion.result.outcome.id !== "earl:untested").length;
