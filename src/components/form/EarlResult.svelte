@@ -34,6 +34,7 @@
       label="{$translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL')}"
       bind:value="{_assertion.result.description}"
       on:change="{handleResultChange}"
+      markdown={true}
     >
       <span slot="before-textarea" class="view-in-report">
       <Link to={`/evaluation/view-report#criterion-${_assertion.test.num.replaceAll('.', '')}`}>{TRANSLATED.VIEW_IN_REPORT}</Link>
