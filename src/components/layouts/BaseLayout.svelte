@@ -39,7 +39,7 @@
 
     <GridItem area="right" row="1">
       {#if hasPanel}
-      <ProgressPanel {$yourReportPanelOpen}></ProgressPanel>
+      <YourReport {$yourReportPanelOpen}></YourReport>
       {/if}
       </GridItem>
   </Grid>
@@ -74,7 +74,7 @@
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import ProgressPanel from '@app/components/ui/ProgressPanel.svelte';
+  import YourReport from '@app/components/ui/YourReport.svelte';
 
   const location = useLocation();
   const { translate, translateToObject } = getContext('app');
