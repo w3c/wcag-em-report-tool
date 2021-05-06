@@ -23,7 +23,24 @@
           {/if}
         </label>
         {#if isURL(sample.description)}
-          <a class="AuditorSamples__link" href="{sample.description}">{sample.description}</a>
+          <a class="AuditorSamples__link" href="{sample.description}" aria-label={sample.title}>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="1em" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2" 
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              stroke-linecap="round" 
+              stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+          </a>
         {/if}
     </li>
     {/each}
@@ -51,17 +68,23 @@
   }
   .AuditorSamples__item {
     list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: start;
+  }
+  .AuditorSamples__item label {
+    margin-left: .5em;
+  }
+  .AuditorSamples__item input {
+    width: 1em;
+    height: 1em;
   }
   .AuditorSamples__select-all {
     margin-top: 1em;
   }
   .AuditorSamples__link {
-    display: block;
-    font-size: 90%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 12em;
+    vertical-align: middle;
+    margin-left: .25em;
   }
   legend {
     font-size: 1rem;

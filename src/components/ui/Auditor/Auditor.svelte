@@ -38,10 +38,10 @@
     .Auditor {
       display: grid;
       grid-template-columns:
-        [left-start] 1fr
+        [left-start] minmax(auto, 12.5em)
         [left-end content-start] 1.25fr
         [content-end];
-      grid-gap: 64px;
+      grid-gap: 32px;
     }
   }
 </style>
