@@ -56,6 +56,7 @@
     subject="{scopeSubject}"
   />
 
+  {#if $allSamples.length > 0 && $auditSamples.length > 0}
   <details>
     <summary><h4>{TRANSLATED.SAMPLE_RESULTS_DETAILS_BUTTON}</h4></summary>
     <!--
@@ -80,6 +81,7 @@
       <p>No sample(s) selected.</p>
     {/each}
   </details>
+  {/if}
 </div>
 <!-- /component -->
 
