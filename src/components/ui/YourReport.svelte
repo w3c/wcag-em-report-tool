@@ -1,4 +1,4 @@
-<Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" open="{$yourReportPanelOpen}">
+<Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}">
 
   <ReportNumbers/>
 
@@ -38,9 +38,8 @@
   import ReportNumbers from '@app/components/ui/Report/ReportNumbers.svelte';
 
   import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
-  import { yourReportPanelOpen } from '@app/stores/appStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
-
+  
   const { translate, translateToObject, scopeStore } = getContext('app');
 
   $: TRANSLATED = {

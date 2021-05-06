@@ -65,7 +65,7 @@
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
 
-  const { summaryStore, translate } = getContext('app');
+  const { summaryStore, translate, scopeStore } = getContext('app');
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.SUMMARY.TITLE'),
     INTRODUCTION: $translate('PAGES.SUMMARY.INTRO'),
@@ -84,10 +84,4 @@
     EVALUATION_SPECIFICS_HELPTEXT: $translate('PAGES.SUMMARY.INF_SPECIFICS'),
     AUDIT_RESULTS_HEADING: $translate('PAGES.SUMMARY.HD_CRITERIA_REPORT')
   };
-
-  if ($summaryStore['EVALUATION_TITLE'] === '') {
-    $summaryStore['EVALUATION_TITLE'] = $translate(
-      'PAGES.SUMMARY.TITLE_PREFIX'
-    );
-  }
 </script>

@@ -39,7 +39,7 @@
 
     <GridItem area="right" row="1">
       {#if hasPanel}
-      <YourReport {$yourReportPanelOpen}></YourReport>
+      <YourReport />
       {/if}
       </GridItem>
   </Grid>
@@ -77,7 +77,7 @@
   import YourReport from '@app/components/ui/YourReport.svelte';
 
   const location = useLocation();
-  const { translate, translateToObject } = getContext('app');
+  const { translate } = getContext('app');
 
   $: TRANSLATED = {
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
