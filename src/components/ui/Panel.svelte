@@ -41,6 +41,10 @@
 </aside>
 
 <style>
+.your-report {
+  position: sticky; 
+  top: 1em;
+}
 .your-report__heading-pre {
   font-size: smaller;
   display: block;
