@@ -7,8 +7,13 @@
 <div class="HelpText information" >
   <div class="HelpText__label">
     {@html label}
-    <button type="button" on:click={toggle} class="button button-small showhidebutton">
-      {@html iconValue}
+    <button 
+      type="button" 
+      on:click={toggle} 
+      class="button button-small showhidebutton"
+      aria-expanded="{open}"
+    >
+     {@html buttonText}
     </button>
   </div>
    {#if open}
@@ -45,30 +50,31 @@
 </style>
 
 <script>
+  import { getContext } from 'svelte';
+
   export let label = 'label';
   export let open = false;
-  export let icon = {
-    collapse: '–',
-    expand: '+',
-    position: 'left'
-  };
 
   function toggle() {
     open = !open;
   }
 
-  // Enforce icon defaults
-  if (!icon.collapse) {
-    icon.collapse = '–';
-  }
+  $: buttonText = open ? TRANSLATED.HIDE_INFO : TRANSLATED.SHOW_INFO;
 
-  if (!icon.expand) {
-    icon.expand = '+';
-  }
+  const { translate } = getContext('app');
 
-  if (!icon.position) {
-    icon.position = 'left';
-  }
-
-  $: iconValue = open ? icon.collapse : icon.expand;
+  $: TRANSLATED = {
+    HIDE_INFO: $translate('UI.COMMON.BUTTON.HIDE', {
+      default: 'Hide {subject}',
+      values: {
+        subject: $translate('UI.COMMON.BUTTON.INFO', { default: 'info' })
+      }
+    }),
+    SHOW_INFO: $translate('UI.COMMON.BUTTON.SHOW', {
+      default: 'Show {subject}',
+      values: {
+        subject: $translate('UI.COMMON.BUTTON.INFO')
+      }
+    })
+  };
 </script>
