@@ -1,17 +1,17 @@
 <script context="module">
-  import AuditPage from './AuditPage.svelte';
-  import ExplorePage from './ExplorePage.svelte';
-  import ReportPage from './ReportPage.svelte';
-  import SamplePage from './SamplePage.svelte';
-  import ScopePage from './ScopePage.svelte';
-  import SummaryPage from './SummaryPage.svelte';
+  import AuditSamplePage from './AuditSamplePage.svelte';
+  import ExploreWebsitePage from './ExploreWebsitePage.svelte';
+  import ViewReportPage from './ViewReportPage.svelte';
+  import SelectSamplePage from './SelectSamplePage.svelte';
+  import DefineScopePage from './DefineScopePage.svelte';
+  import ReportFindingsPage from './ReportFindingsPage.svelte';
 
   export {
-    AuditPage,
-    ExplorePage,
-    ReportPage,
-    SamplePage,
-    ScopePage,
-    SummaryPage
+    AuditSamplePage,
+    ExploreWebsitePage,
+    ViewReportPage,
+    SelectSamplePage,
+    DefineScopePage,
+    ReportFindingsPage
   };
 </script>
