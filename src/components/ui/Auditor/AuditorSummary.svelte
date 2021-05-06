@@ -53,7 +53,7 @@
             {/if}
             </td>
             <td>
-              <Link to={`/evaluation/audit#criterion-${criterion.num.replaceAll('.','')}`}>
+              <Link to={`/evaluation/audit-sample#criterion-${criterion.num.replaceAll('.','')}`}>
                 <span class="visuallyhidden">Edit {criterion.num}</span>
                 <svg
                   aria-hidden="true"

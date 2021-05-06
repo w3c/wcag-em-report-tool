@@ -1,11 +1,11 @@
 <!-- @Route:/evaluation -->
 <Router>
   <EvaluationLayout>
-    <Route path="/scope" component="{DefineScopePage}" />
-    <Route path="/explore" component="{ExploreWebsitePage}" />
-    <Route path="/sample" component="{SelectSamplePage}" />
-    <Route path="/audit" component="{AuditSamplePage}" />
-    <Route path="/summary" component="{ReportFindingsPage}" />
+    <Route path="/define-scope" component="{DefineScopePage}" />
+    <Route path="/explore-website" component="{ExploreWebsitePage}" />
+    <Route path="/select-sample" component="{SelectSamplePage}" />
+    <Route path="/audit-sample" component="{AuditSamplePage}" />
+    <Route path="/report-findings" component="{ReportFindingsPage}" />
     <Route path="/view-report" component="{ViewReportPage}" />
   </EvaluationLayout>
 </Router>
@@ -18,10 +18,10 @@
 
   import {
     AuditSamplePage,
-    ExploreWebsitePage,
-    ViewReportPage,
-    SelectSamplePage,
     DefineScopePage,
-    ReportFindingsPage
+    ExploreWebsitePage,
+    ReportFindingsPage,
+    SelectSamplePage,
+    ViewReportPage
   } from '@app/components/pages/Evaluation/Index.svelte';
 </script>

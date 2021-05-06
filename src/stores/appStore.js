@@ -9,23 +9,23 @@ export const routes = derived([translate], ([$translate]) => {
     },
     SCOPE: {
       title: $translate('UI.NAV.STEP_SCOPE'),
-      path: '/evaluation/scope'
+      path: '/evaluation/define-scope'
     },
     EXPLORE: {
       title: $translate('UI.NAV.STEP_EXPLORE'),
-      path: '/evaluation/explore'
+      path: '/evaluation/explore-website'
     },
     SAMPLE: {
       title: $translate('UI.NAV.STEP_SAMPLE'),
-      path: '/evaluation/sample'
+      path: '/evaluation/select-sample'
     },
     AUDIT: {
       title: $translate('UI.NAV.STEP_AUDIT'),
-      path: '/evaluation/audit'
+      path: '/evaluation/audit-sample'
     },
     SUMMARY: {
       title: $translate('UI.NAV.STEP_REPORT'),
-      path: '/evaluation/summary'
+      path: '/evaluation/report-findings'
     },
     VIEW_REPORT: {
       title: $translate('UI.NAV.STEP_VIEWREPORT'),

@@ -32,7 +32,7 @@
       $evaluationStore
         .open(json)
         .then(() => {
-          navigate('/evaluation/scope');
+          navigate('/evaluation/define-scope');
         })
         .finally(() => {
           target.value = '';

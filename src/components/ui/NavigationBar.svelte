@@ -62,23 +62,23 @@
       title: $translate('UI.NAV.WZRD_START')
     },
     {
-      path: '/evaluation/scope',
+      path: '/evaluation/define-scope',
       title: $translate('UI.NAV.WZRD_SCOPE')
     },
     {
-      path: '/evaluation/explore',
+      path: '/evaluation/explore-website',
       title: $translate('UI.NAV.WZRD_EXPLORE')
     },
     {
-      path: '/evaluation/sample',
+      path: '/evaluation/select-sample',
       title: $translate('UI.NAV.WZRD_SAMPLE')
     },
     {
-      path: '/evaluation/audit',
+      path: '/evaluation/audit-sample',
       title: $translate('UI.NAV.WZRD_AUDIT')
     },
     {
-      path: '/evaluation/summary',
+      path: '/evaluation/report-findings',
       title: $translate('UI.NAV.WZRD_REPORT')
     },
     {

@@ -15,7 +15,7 @@
     <ul class="result-missing">
       {#each resultsByCategory[4].items as item}
         <li>
-          <Link to={`/evaluation/audit#criterion-${normaliseId(item)}`}>{item.test.num}: {TRANSLATED.CRITERIA[item.test.num].TITLE}</Link>
+          <Link to={`/evaluation/audit-sample#criterion-${normaliseId(item)}`}>{item.test.num}: {TRANSLATED.CRITERIA[item.test.num].TITLE}</Link>
         </li>
       {/each}
     </ul>
