@@ -1,4 +1,4 @@
-import { derived } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 import { t as translate } from 'svelte-i18n';
 
 export const routes = derived([translate], ([$translate]) => {
@@ -33,3 +33,5 @@ export const routes = derived([translate], ([$translate]) => {
     }
   };
 });
+
+export const yourReportPanelOpen = writable(true);

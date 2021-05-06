@@ -1,4 +1,4 @@
-<Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" bind:open="{panelIsOpen}">
+<Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}" open="{$yourReportPanelOpen}">
 
   <ReportNumbers/>
 
@@ -38,6 +38,7 @@
   import ReportNumbers from '@app/components/ui/Report/ReportNumbers.svelte';
 
   import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
+  import { yourReportPanelOpen } from '@app/stores/appStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
 
   const { translate, translateToObject, scopeStore } = getContext('app');
@@ -108,8 +109,6 @@
     return assertion.result.description !== undefined && 
     assertion.result.outcome.id !== "earl:untested"
   }
-
-  export let panelIsOpen = true;
 
   $: siteName = $scopeStore['SITE_NAME'];
   $: totalToEvaluate = $assertions.length;

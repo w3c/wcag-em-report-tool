@@ -1,5 +1,5 @@
-<aside class="Panel your-report" class:your-report--expanded="{open}">
-  {#if open}
+<aside class="Panel your-report" class:your-report--expanded="{$yourReportPanelOpen}">
+  {#if $yourReportPanelOpen}
   <h2 class="Panel__Header__heading your-report__heading">
     {#if subtitle}
     <div>
@@ -53,10 +53,10 @@
 
 <script>
   import { getContext } from 'svelte';
+  import { yourReportPanelOpen } from '@app/stores/appStore.js';
 
   export let title = null;
   export let subtitle = null;
-  export let open = false;
 
   const { translate } = getContext('app');
 
@@ -75,6 +75,9 @@
   };
 
   function toggle() {
-    open = !open;
+    console.log('hai');
+    console.log($yourReportPanelOpen);
+    yourReportPanelOpen.set(!$yourReportPanelOpen);
+    console.log($yourReportPanelOpen);
   }
 </script>
