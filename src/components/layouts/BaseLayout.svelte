@@ -32,14 +32,14 @@
 
 <div class="BaseLayout">
   <Grid>
-    <GridItem area="{panelIsOpen ? 'content' : 'full'}" row="1">
+    <GridItem area="{$yourReportPanelOpen ? 'content' : 'full'}" row="1">
       <slot />
       <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
     </GridItem>
 
     <GridItem area="right" row="1">
       {#if hasPanel}
-      <ProgressPanel {panelIsOpen}></ProgressPanel>
+      <YourReport {$yourReportPanelOpen}></YourReport>
       {/if}
       </GridItem>
   </Grid>
@@ -66,7 +66,7 @@
   import { getContext } from 'svelte';
   import { useLocation } from 'svelte-navigator';
 
-  import { routes } from '@app/stores/appStore.js';
+  import { routes, yourReportPanelOpen } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
 
   import Grid from '@app/components/ui/Grid.svelte';
@@ -74,12 +74,10 @@
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import ProgressPanel from '@app/components/ui/ProgressPanel.svelte';
+  import YourReport from '@app/components/ui/YourReport.svelte';
 
   const location = useLocation();
   const { translate, translateToObject } = getContext('app');
-
-  let panelIsOpen = true;
 
   $: TRANSLATED = {
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
