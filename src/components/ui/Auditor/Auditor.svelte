@@ -58,11 +58,17 @@
   const { scopeStore } = getContext('app');
   const { wcagCriteria } = getContext('Evaluation');
 
+  import { criteria } from '@app/stores/criteriaFilteredStore.js';
+
   if ($auditFilter['VERSION'].length === 0) {
     $auditFilter['VERSION'] = [...$scopedWcagVersions].reverse().join();
     $auditFilter['LEVEL'] = CONFORMANCE_LEVELS.filter(
       (level) => $scopeStore['CONFORMANCE_TARGET'].indexOf(level) >= 0
     );
+  }
+
+  $: if (criteriaFiltered) {
+      criteria.set(criteriaFiltered);
   }
 
   $: criteriaFiltered = $wcagCriteria

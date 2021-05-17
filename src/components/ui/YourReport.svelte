@@ -1,6 +1,6 @@
 <Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}">
 
-  <ReportNumbers/>
+  <ReportNumbers criteria={criteriaCount}></ReportNumbers>
 
   <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
   
@@ -39,6 +39,9 @@
 
   import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
+
+  import { criteria } from '@app/stores/criteriaFilteredStore.js';
+  let criteriaCount = 0;
   
   const { translate, translateToObject, scopeStore } = getContext('app');
 
@@ -58,16 +61,18 @@
     REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
   };
 
+  $: criteriaCount = $criteria.length;
+
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
   $: percentageTotalEvaluated = (totalEvaluated / totalToEvaluate) * 100;
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 
   $: filteredCriteria = {
-   1: $wcag.filter(item => item.num.startsWith("1.")).filter(isInScope) || {},
-   2: $wcag.filter(item => item.num.startsWith("2.")).filter(isInScope) || {},
-   3: $wcag.filter(item => item.num.startsWith("3.")).filter(isInScope) || {},
-   4: $wcag.filter(item => item.num.startsWith("4.")).filter(isInScope) || {}
+   1: $criteria.filter(item => item.num.startsWith("1.")).filter(isInScope) || {},
+   2: $criteria.filter(item => item.num.startsWith("2.")).filter(isInScope) || {},
+   3: $criteria.filter(item => item.num.startsWith("3.")).filter(isInScope) || {},
+   4: $criteria.filter(item => item.num.startsWith("4.")).filter(isInScope) || {}
   };
 
   $: filteredAssertions = {

@@ -2,7 +2,7 @@
   {TRANSLATED.REPORTED_ON} 
   {totalEvaluated} 
   {TRANSLATED.REPORTED_ON_OF} 
-  {totalToEvaluate} WCAG {wcagVersion}
+  {criteria} WCAG {wcagVersion}
   {conformanceTarget} 
   Success Criteria.
 </p>
@@ -14,6 +14,8 @@
 
   const { translate, scopeStore } = getContext('app');
 
+  export let criteria = 0;
+
   $: wcagVersion = $scopeStore['WCAG_VERSION'];
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
 
@@ -22,8 +24,8 @@
     REPORTED_ON_OF: $translate('UI.REPORT.REPORTED_ON_OF')
   };
 
-  $: totalToEvaluate = $assertions.length;
   $: totalEvaluated = $assertions.filter(assertion => 
     assertion.result.description !== undefined && 
     assertion.result.outcome.id !== "earl:untested").length;
+
 </script>
