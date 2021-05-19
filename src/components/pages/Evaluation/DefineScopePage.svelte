@@ -4,7 +4,7 @@
   </p>
   <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step1">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
 
-  <form method="" novalidate>
+  <form id="defineScopeForm" method="" novalidate>
     <Input
       id="site_name"
       label="{TRANSLATED.SITE_NAME_LABEL}"

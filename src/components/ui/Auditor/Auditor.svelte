@@ -65,11 +65,6 @@
     );
   }
 
-  $: if (filteredCriteria) {
-    console.log($scopeStore['CONFORMANCE_TARGET']);
-    console.log($auditFilter['LEVEL']);
-  }
-
   $: filteredCriteria = $CriteriaFiltered
     // Filter by version
     .filter((criterion) => {

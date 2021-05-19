@@ -6,7 +6,6 @@ export const initialScopeStore = {
   CONFORMANCE_TARGET: 'AA',
   SITE_NAME: '',
   WCAG_VERSION: '2.1',
-  VERSION: '2.1,2.0',
   WEBSITE_SCOPE: ''
 };
 

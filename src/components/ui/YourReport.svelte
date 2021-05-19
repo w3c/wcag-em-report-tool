@@ -43,10 +43,6 @@
   import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
   let criteriaCount = 0;
   $: criteriaCount = $CriteriaSelected.length;
-
-  $: if (true) {
-    console.log(CriteriaSelected);
-  }
   
   const { translate, translateToObject, scopeStore } = getContext('app');
 

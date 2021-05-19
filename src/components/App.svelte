@@ -40,7 +40,7 @@
 <!-- /Component -->
 
 <script>
-  import { setContext, getContext } from 'svelte';
+  import { setContext, getContext, onMount } from 'svelte';
   import { isLoading } from 'svelte-i18n';
 
   import { translate, translateToObject } from '@app/stores/i18nStore.js';
@@ -51,6 +51,7 @@
   import summaryStore from '@app/stores/summaryStore.js';
   import wcagStore from '@app/stores/wcagStore.js';
   import { outcomeValueStore } from '@app/stores/earl/resultStore/index.js';
+  import { interacted } from '@app/stores/interactedStore.js';
 
   import BaseRoute from '@app/components/routes/BaseRoute.svelte';
 
@@ -75,15 +76,15 @@
   const { wcagCriteria } = getContext('Evaluation');
   import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
   import { CriteriaFiltered } from '@app/stores/filteredCriteriaStore.js';
+  import { WCAG_VERSIONS } from '@app/stores/wcagStore.js';
   $: if (selectedCriteria) {
     CriteriaSelected.set(selectedCriteria);
     CriteriaFiltered.set(selectedCriteria);
-    console.log(selectedCriteria);
   }
   $: selectedCriteria = $wcagCriteria
     // Filter by version
     .filter((criterion) => {
-      const filterVersions = $scopeStore['VERSION'];
+      const filterVersions = WCAG_VERSIONS;
 
       // Pass filtering if not enabled
       if (filterVersions.length === 0) {
