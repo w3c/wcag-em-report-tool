@@ -38,7 +38,7 @@
 <!-- /component -->
 
 <script>
-  import { getContext } from 'svelte';
+  import { getContext, onMount } from 'svelte';
   import { useNavigate } from 'svelte-navigator';
 
   import Button from '@app/components/ui/Button.svelte';
@@ -74,4 +74,5 @@
     $evaluationStore.reset();
     navigate($routes.SCOPE.path, { replace: true });
   }
+
 </script>

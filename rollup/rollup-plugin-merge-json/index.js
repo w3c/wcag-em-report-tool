@@ -11,6 +11,10 @@ let watchedFiles = [];
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+// under git for windows bash node thinks it is Windows
+const isGit4WindowsBash = process.env.TERM == "xterm"; 
+const pathSep = isGit4WindowsBash ? "/" : path.sep;
+
 function isWatched(file) {
   return watchedFiles.indexOf(file) !== -1;
 }
@@ -81,9 +85,9 @@ export default function mergeJson(options = {}) {
             );
           }
 
-          const matchedPaths = await globby(src);
+          const matchedPaths = await globby(src); // always returns POSIX paths
           const basePath = matchedPaths.reduce((result, iPath) => {
-            const dirs = path.dirname(iPath).split(path.sep);
+            const dirs = path.dirname(iPath).split("/");
 
             if (result.length === 0) {
               return dirs;
@@ -100,7 +104,7 @@ export default function mergeJson(options = {}) {
 
             return result;
           }, []);
-
+ 
           // remove destiny from matchedPaths to prevent infinite loopings
           if (matchedPaths.indexOf(dest) !== -1) {
             matchedPaths.splice(matchedPaths.indexOf(dest), 1);
@@ -122,7 +126,7 @@ export default function mergeJson(options = {}) {
               // 0. create const wrapPath to use to wrap json
               const wrapKeys = path
                 .dirname(matchedPath)
-                .split(path.sep)
+                .split("/")
                 .slice(basePath.length)
                 .concat(path.basename(matchedPath, path.extname(matchedPath)));
 

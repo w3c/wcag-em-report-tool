@@ -14,4 +14,5 @@
     DefineScopePage,
     ReportFindingsPage
   };
+
 </script>

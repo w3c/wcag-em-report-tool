@@ -4,7 +4,7 @@
   </p>
   <ResourceLink href="https://www.w3.org/TR/WCAG-EM/#step1">{TRANSLATED.RESOURCE_LINK_NAME}</ResourceLink>
 
-  <form method="" novalidate>
+  <form id="defineScopeForm" method="" novalidate>
     <Input
       id="site_name"
       label="{TRANSLATED.SITE_NAME_LABEL}"
@@ -66,9 +66,9 @@
 </Page>
 
 <script>
-  import { getContext } from 'svelte';
+  import { getContext, onMount } from 'svelte';
 
-  import { CONFORMANCE_LEVELS, WCAG_VERSIONS} from '@app/stores/wcagStore.js';
+  import { CONFORMANCE_LEVELS, WCAG_VERSIONS, scopedWcagVersions } from '@app/stores/wcagStore.js';
 
   import Page from '@app/components/ui/Page.svelte';
   import Input from '@app/components/form/Input.svelte';
@@ -76,7 +76,7 @@
   import Textarea from '@app/components/form/Textarea.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
-  const { scopeStore, translate } = getContext('app');
+  const { translate } = getContext('app');
   $: TRANSLATED = {
     PAGE_TITLE: $translate('PAGES.SCOPE.TITLE'),
     INTRODUCTION: $translate('PAGES.SCOPE.INTRO'),
@@ -102,7 +102,6 @@
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
   };
 
-
   let wcagVersions = [...WCAG_VERSIONS].reverse().map((version) => {
     return {
       title: `WCAG ${version}`,
@@ -116,4 +115,7 @@
       value: level
     };
   });
+
+  const { scopeStore } = getContext('app');
+
 </script>
