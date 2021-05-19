@@ -2,7 +2,7 @@
   <AuditorFilter />
 
   <div class="Auditor__Assertions">
-    <AuditorView criteria="{criteriaFiltered}" />
+    <AuditorView criteria="{filteredCriteria}" />
   </div>
 </div>
 
@@ -46,7 +46,7 @@
   }
 </style>
 
-<script>
+<script> 
   import { getContext } from 'svelte';
 
   import { auditFilter } from '@app/stores/auditStore.js';
@@ -56,22 +56,21 @@
   import AuditorView from './AuditorView.svelte';
 
   const { scopeStore } = getContext('app');
-  const { wcagCriteria } = getContext('Evaluation');
+  import { CriteriaFiltered } from '@app/stores/filteredCriteriaStore.js';
 
-  import { criteria } from '@app/stores/criteriaFilteredStore.js';
-
-  if ($auditFilter['VERSION'].length === 0) {
+  if ($auditFilter['VERSION']) {
     $auditFilter['VERSION'] = [...$scopedWcagVersions].reverse().join();
     $auditFilter['LEVEL'] = CONFORMANCE_LEVELS.filter(
       (level) => $scopeStore['CONFORMANCE_TARGET'].indexOf(level) >= 0
     );
   }
 
-  $: if (criteriaFiltered) {
-      criteria.set(criteriaFiltered);
+  $: if (filteredCriteria) {
+    console.log($scopeStore['CONFORMANCE_TARGET']);
+    console.log($auditFilter['LEVEL']);
   }
 
-  $: criteriaFiltered = $wcagCriteria
+  $: filteredCriteria = $CriteriaFiltered
     // Filter by version
     .filter((criterion) => {
       const filterVersions = $auditFilter['VERSION'];
@@ -94,4 +93,5 @@
 
       return filterLevels.indexOf(criterion.conformanceLevel) >= 0;
     });
+
 </script>
