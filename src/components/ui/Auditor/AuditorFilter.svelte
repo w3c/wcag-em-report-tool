@@ -44,6 +44,7 @@
   import MultipleChoice from '@app/components/form/MultipleChoice.svelte';
 
   const { translate } = getContext('app');
+  const { scopeStore } = getContext('app');
 
   const wcagVersions = [...$scopedWcagVersions].reverse();
 
@@ -75,10 +76,16 @@
     LABEL_LEVEL: $translate('PAGES.AUDIT.LABEL_LEVEL')
   }
 
-  $: conformanceLevels = CONFORMANCE_LEVELS.map((level) => {
-    return {
-      title: `${$translate('WCAG.COMMON.CONFORMANCE_LEVEL')} ${level}`,
-      value: level
+  let conformanceLevels = CONFORMANCE_LEVELS.reduce((result, level, index) => {
+    if($scopeStore['CONFORMANCE_TARGET'].startsWith(level)){
+      const newFilter = {
+        title: `${$translate('WCAG.COMMON.CONFORMANCE_LEVEL')} ${level}`,
+        value: level
     };
-  });
+    result.push(newFilter);
+    }
+    
+    return result;
+  }, []);
+
 </script>
