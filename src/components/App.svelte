@@ -51,7 +51,6 @@
   import summaryStore from '@app/stores/summaryStore.js';
   import wcagStore from '@app/stores/wcagStore.js';
   import { outcomeValueStore } from '@app/stores/earl/resultStore/index.js';
-  import { interacted } from '@app/stores/interactedStore.js';
 
   import BaseRoute from '@app/components/routes/BaseRoute.svelte';
 
