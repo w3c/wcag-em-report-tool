@@ -3,9 +3,9 @@
     "MENU_IMPORT": "Import data",
     "MENU_IMPORT_HINT": "EARL as JSON-LD",
     "MENU_IMPORT_TITLE": "Start EARL report import wizzard",
-    "MENU_NEW": "New report",
-    "MENU_OPEN": "Open report",
-    "MENU_SAVE": "Save report",
+    "MENU_NEW": "Start New Report",
+    "MENU_OPEN": "Open Report",
+    "MENU_SAVE": "Save Report",
     "MENU_SAVE_TITLE": "Ctrl + S or ⌘ S",
     "MENU_RESOURCES": "Key Resources",
     "MENU_LANGUAGE": "Language",
@@ -26,5 +26,9 @@
     "STEP_AUDIT": "Audit Sample",
     "STEP_REPORT": "Report Findings",
     "STEP_VIEWREPORT": "View Report",
+    "VIEWREPORT": "View Report",
+    "CLEARREPORT": "Clear Report",
+    "NOT_STARTED": "No report started.",
+    "CLEARWARNING": "This will clear the current evaluation and start a new one. Are you sure that is what you would like to do?",
     "BTN_BACK_TO_EVAL": "Back"
 }

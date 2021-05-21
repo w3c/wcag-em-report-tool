@@ -25,5 +25,9 @@
     "STEP_AUDIT": "Toets Sample",
     "STEP_REPORT": "Rapporteer Resultaat",
     "STEP_VIEWREPORT": "Bekijk Rapport",
+    "VIEWREPORT": "Bekijk rapport",
+    "NOT_STARTED": "Nog niet aan een rapport begonnen.",
+    "CLEARREPORT": "Opnieuw",
+    "CLEARWARNING": "Dit zal alles wat nu is ingevoerd verwijderen en een nieuw rapport starten. Weet u het zeker?",
     "BTN_BACK_TO_EVAL": "Terug"
 }
