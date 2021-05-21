@@ -63,6 +63,10 @@ textarea {
   font-family: 'Noto Sans Mono', monospace;
 }
 
+.your-report {
+  padding: 0.9em; /* to fit WCAG EM Report Tool View + Clear buttons */
+}
+
 /*
  * Remove default focus styles from elements that
  * otherwise should not receive focus.

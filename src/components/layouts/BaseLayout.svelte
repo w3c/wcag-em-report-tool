@@ -83,9 +83,8 @@
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
   };
 
-  $: hasPanel = !isViewReport && !isOverview;
+  $: hasPanel = !isViewReport;
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
-  $: isOverview = $location.pathname === $routes.OVERVIEW.path;
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
