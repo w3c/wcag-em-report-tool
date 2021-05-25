@@ -104,4 +104,16 @@
       return filterLevels.indexOf(criterion.conformanceLevel) >= 0;
     });
 
+  onMount(() => {
+    window.addEventListener("input", setInteracted);
+  });
+  function setInteracted(){
+      window.removeEventListener("input", setInteracted);
+      //set some var to notify us of user changes
+      window.onbeforeunload = closeEditorWarning;
+  }
+  function closeEditorWarning(){
+    return 'Are you sure?'
+  }
+
 </script>

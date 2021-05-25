@@ -1,63 +1,90 @@
 <Panel title="{siteName || TRANSLATED.HEADING_PANEL}" subtitle="{siteName ? TRANSLATED.REPORT_FOR : ''}">
+  {#if totalEvaluated > 0 || !isOverview}
+    <ReportNumbers criteria={criteriaCount}></ReportNumbers>
 
-  <ReportNumbers criteria={criteriaCount}></ReportNumbers>
-
-  <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
-  
-  <ul class="your-report__progress-by-principle">
-    {#each principles as principle}
-    <li class="progress">
-      <div class="progress__principle">
-        <a href="#@@@" class="principle__name">
-          <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
-        </a> 
-        <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
-      </div>
-      <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
-    </li>
-    {/each}
-  </ul>
-  
-  <Link class="button" to="/evaluation/view-report">
-    {TRANSLATED.VIEW_REPORT}
-  </Link>
+    <ProgressBar percentage={percentageTotalEvaluated}></ProgressBar>
+    
+    <ul class="your-report__progress-by-principle">
+      {#each principles as principle}
+      <li class="progress">
+        <div class="progress__principle">
+          <a href="#@@@" class="principle__name">
+            <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
+          </a> 
+          <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
+        </div>
+        <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
+      </li>
+      {/each}
+    </ul>
+    
+    <Link class="button" to="/evaluation/view-report">
+      {TRANSLATED.VIEW_REPORT}
+    </Link>
+    {#if totalEvaluated > 0}
+    <Button type="secondary" on:click={handleClearEvaluationClick}>
+      {TRANSLATED.CLEAR_REPORT}
+    </Button>
+    {/if}
+  {:else}
+    <p>{TRANSLATED.NOT_STARTED}</p>
+    <Button on:click="{handleNewEvaluationClick}">
+      {TRANSLATED.BUTTON_NEW_EVALUATION}
+    </Button>
+    <OpenEvaluation />
+  {/if}
 </Panel>
 
 <style>  
 .your-report__progress-by-principle {
   columns: 1;
 }
+:global(.your-report .button + .File),
+:global(.your-report .button + .button) { 
+  margin-top: 4px; 
+}
 </style>
 
 <script>
   import { getContext } from 'svelte';
-  import { Link } from 'svelte-navigator';
+  import { Link, useNavigate, useLocation } from 'svelte-navigator';
 
   import Panel from '@app/components/ui/Panel.svelte';
   import ProgressBar from '@app/components/ui/ProgressBar.svelte';
   import ReportNumbers from '@app/components/ui/Report/ReportNumbers.svelte';
+  import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
+  import Button from '@app/components/ui/Button.svelte';
 
   import { wcag, scopedWcagVersions } from '@app/stores/wcagStore.js';
+  import { routes } from '@app/stores/appStore.js';
   import assertions from '@app/stores/earl/assertionStore/index.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
 
   import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
   let criteriaCount = 0;
   $: criteriaCount = $CriteriaSelected.length;
   
+  const navigate = useNavigate();
+  const location = useLocation();
   const { translate, translateToObject, scopeStore } = getContext('app');
 
   $: TRANSLATED = {
-    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
     BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
-      default: 'New report'
+      default: 'Start new report'
     }),
+    PRINCIPLES: $translateToObject('WCAG.PRINCIPLE'),
     HEADING_PANEL: $translate('UI.COMMON.YOUR_REPORT', {
       default: 'Your report'
     }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.NAV.STEP_VIEWREPORT', {
+    VIEW_REPORT: $translate('UI.NAV.VIEWREPORT', {
       default: 'View report'
     }),
+    CLEAR_REPORT: $translate('UI.NAV.CLEARREPORT', {
+      default: 'Clear report'
+    }),
+    CLEAR_WARNING: $translate('UI.NAV.CLEARWARNING'),
+    NOT_STARTED: $translate('UI.NAV.NOT_STARTED'),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
     REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
   };
@@ -113,6 +140,19 @@
     return assertion.result.outcome.id !== "earl:untested"
   }
 
+  function handleNewEvaluationClick() {
+    $evaluationStore.reset();
+    navigate($routes.SCOPE.path, { replace: true });
+  }
+
+  function handleClearEvaluationClick() {
+    window.confirm(TRANSLATED.CLEAR_WARNING, function() {
+      $evaluationStore.reset();
+      navigate($routes.SCOPE.path, { replace: true });
+    });
+  }
+
+  $: isOverview = $location.pathname === $routes.OVERVIEW.path; 
   $: siteName = $scopeStore['SITE_NAME'];
   $: totalToEvaluate = $assertions.length;
   $: totalEvaluated = $assertions.filter(assertion => 
