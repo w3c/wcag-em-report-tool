@@ -79,10 +79,6 @@
     return final;
 }, []);
 
-  $: if (true) {
-    console.log(resultsByCategory);
-  }
-
   function normaliseId(item) {
     return item.test.num.replaceAll('.','')
   }
