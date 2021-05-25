@@ -26,7 +26,10 @@
   };
 
   $: totalEvaluated = $assertions.filter(assertion => 
-    assertion.result.description !== undefined && 
-    assertion.result.outcome.id !== "earl:untested").length;
+      assertion.result.outcome.id != "earl:untested").length;
+
+    $: if (true) {
+    console.log(totalEvaluated);
+  }
 
 </script>
