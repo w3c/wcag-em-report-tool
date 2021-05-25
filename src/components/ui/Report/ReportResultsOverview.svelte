@@ -1,4 +1,4 @@
-<ReportNumbers />
+<ReportNumbers criteria={criteriaCount} />
 
 <ul class="result-cards">
   {#each resultsByCategory as category}
@@ -7,7 +7,7 @@
       items={category.items} />
   {/each}
 </ul>
-{#if resultsByCategory[4].items.length > 0}
+{#if resultsByCategory[4].items.length > 0 && assertions.length > 0}
   <details>
     <summary>
       <h3>{resultsByCategory[4].name} ({resultsByCategory[4].items.length})</h3>
@@ -48,6 +48,9 @@
   import ResultCard from './ResultCard.svelte';
 
   import assertions from '@app/stores/earl/assertionStore/index.js';
+  import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
+  let criteriaCount = 0;
+  $: criteriaCount = $CriteriaSelected.length;
 
   const { translateToObject } = getContext('app');
   const { outcomeValues } = getContext('Evaluation');
@@ -56,14 +59,25 @@
     CRITERIA: $translateToObject('WCAG.SUCCESS_CRITERION')
   };
 
-  $: resultsByCategory = $outcomeValues.map((outcomeValue) => {
-    return {
-      name: outcomeValue.title,
-      id: outcomeValue.id,
-      items: $assertions.filter(assertion => 
-        assertion.result.outcome.id === outcomeValue.id)
+  $: resultsByCategory = $outcomeValues.reduce(function(final, outcomeValue){
+    if($assertions.length == 0 && outcomeValue.id == "earl:untested"){
+        const value = {
+          name: outcomeValue.title,
+          id: outcomeValue.id,
+          items: $CriteriaSelected
+        };
+        final.push(value);
+    }else{
+        const value = {
+          name: outcomeValue.title,
+          id: outcomeValue.id,
+          items: $assertions.filter(assertion => 
+            assertion.result.outcome.id === outcomeValue.id)
+        };
+        final.push(value);
     }
-  }); 
+    return final;
+}, []);
 
   function normaliseId(item) {
     return item.test.num.replaceAll('.','')

@@ -34,7 +34,6 @@ export const outcomeValueStore = derived(
     // }
     // Then set title to locales.locale.title
     _outcomeValues.forEach((_outcomeValue) => {
-
       if (!_outcomeValue.locales[$locale]) {
         _outcomeValue.locales[$locale] = {
           title: $translate(`UI.EARL.${_outcomeValue.key}`)
