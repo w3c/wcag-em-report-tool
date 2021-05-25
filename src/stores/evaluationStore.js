@@ -234,7 +234,7 @@ class EvaluationModel {
             $assertions = value;
           }),
           outcomeValues: outcomeValues.subscribe((value) => {
-            $outcomeValues = value;
+            // $outcomeValues = value;
           }),
           subjects: subjects.subscribe((value) => {
             $subjects = value;

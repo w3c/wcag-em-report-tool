@@ -89,6 +89,7 @@ export class TestResult extends BaseModel {
     });
 
     this.type = ['TestResult'];
+    
     this.outcome = this.setOutcome(
       (options.outcome && options.outcome.id) || OUTCOME.UNTESTED.id
     );

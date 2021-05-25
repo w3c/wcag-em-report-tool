@@ -110,8 +110,7 @@
   };
 
   function isEvaluated(assertion) {
-    return assertion.result.description !== undefined && 
-    assertion.result.outcome.id !== "earl:untested"
+    return assertion.result.outcome.id !== "earl:untested"
   }
 
   $: siteName = $scopeStore['SITE_NAME'];

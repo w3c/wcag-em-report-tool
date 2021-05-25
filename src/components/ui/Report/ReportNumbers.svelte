@@ -11,6 +11,7 @@
   import { getContext } from 'svelte';
 
   import assertions from '@app/stores/earl/assertionStore/index.js';
+  import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
 
   const { translate, scopeStore } = getContext('app');
 
