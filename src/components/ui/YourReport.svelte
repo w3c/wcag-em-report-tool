@@ -137,7 +137,7 @@
   };
 
   function isEvaluated(assertion) {
-    return assertion.result.outcome.id !== "earl:untested"
+    return assertion.result.outcome.id !== "earl:untested" && assertion.subject.title == ""
   }
 
   function handleNewEvaluationClick() {
@@ -154,7 +154,9 @@
 
   $: isOverview = $location.pathname === $routes.OVERVIEW.path; 
   $: siteName = $scopeStore['SITE_NAME'];
-  $: totalToEvaluate = $assertions.length;
+  $: totalToEvaluate = $assertions.filter(assertion => 
+    assertion.subject.title == "").length;
   $: totalEvaluated = $assertions.filter(assertion => 
+    assertion.subject.title == "" &&
    assertion.result.outcome.id !== "earl:untested").length;
 </script>
