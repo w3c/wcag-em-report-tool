@@ -1,52 +1,44 @@
 <!-- @Layout:Base -->
-<div class="Controls">
-  <Grid>
-    <GridItem area="full">
-      <LanguageSelect locales="{locales}" />
-    </GridItem>
-  </Grid>
+<div class="Controls default-grid">
+  <LanguageSelect locales="{locales}" />
 </div>
 
-<div id="site-header" style="padding: 0;">
-  <Grid>
-    <GridItem area="full">
-      <div class="tool-header">
-        <div class="tool-header-name">
-          WCAG-EM R<span class="display-phablet">eport </span>T<span class="display-phablet">ool</span>
-        </div>
-        <div class="tool-header-logo">
-          <a href="http://w3.org/"><img
-              alt="W3C"
-              src="images/w3c.svg"
-            /></a>
-          <a href="http://w3.org/WAI/"><img
-              alt="Web Accessibility Initiative"
-              src="images/wai.svg"
-            /></a>
-        </div>
+<div id="site-header" class="site-header">
+  <div class="default-grid">
+    <div class="tool-header">
+      <div class="tool-header-name">
+        WCAG-EM R<span class="display-phablet">eport </span>T<span class="display-phablet">ool</span>
       </div>
-    </GridItem>
-  </Grid>
+      <div class="tool-header-logo">
+        <a href="http://w3.org/"><img
+            alt="W3C"
+            src="images/w3c.svg"
+          /></a>
+        <a href="http://w3.org/WAI/"><img
+            alt="Web Accessibility Initiative"
+            src="images/wai.svg"
+          /></a>
+      </div>
+    </div>
+  </div>
 </div>
+
 <NavigationBar />
 
-<div class="BaseLayout">
-  <Grid>
-    <GridItem area="{$yourReportPanelOpen ? 'content' : 'full'}" row="1">
-      <slot />
-      <Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
-    </GridItem>
+<slot />
 
-    <GridItem area="right" row="1">
-      {#if hasPanel}
-      <YourReport />
-      {/if}
-      </GridItem>
-  </Grid>
-</div>
+<Pager label="{TRANSLATED.STEP}" context="{pagerContext}" />
+
+
 <!-- /@Layout -->
 
 <style>
+  .site-header .tool-header {
+    grid-column: 2 / 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
   .BaseLayout {
     padding: 2em 1em;
   }
@@ -64,27 +56,20 @@
 
 <script>
   import { getContext } from 'svelte';
-  import { useLocation } from 'svelte-navigator';
 
-  import { routes, yourReportPanelOpen } from '@app/stores/appStore.js';
+  import { routes } from '@app/stores/appStore.js';
   import locales from '@app/locales/index.json';
 
-  import Grid from '@app/components/ui/Grid.svelte';
-  import GridItem from '@app/components/ui/GridItem.svelte';
   import LanguageSelect from '@app/components/ui/LanguageSelect.svelte';
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
-  import YourReport from '@app/components/ui/YourReport.svelte';
 
-  const location = useLocation();
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
   };
 
-  $: hasPanel = !isViewReport;
-  $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
 
   $: pagerContext = Object.keys($routes).map((key) => {
     return $routes[key];
