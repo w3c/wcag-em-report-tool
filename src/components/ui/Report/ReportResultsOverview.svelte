@@ -72,7 +72,8 @@
           name: outcomeValue.title,
           id: outcomeValue.id,
           items: $assertions.filter(assertion => 
-            assertion.result.outcome.id === outcomeValue.id)
+            assertion.result.outcome.id === outcomeValue.id && 
+            assertion.subject.title == "")
         };
         final.push(value);
     }
