@@ -1,4 +1,4 @@
-<aside class="Panel your-report" class:your-report--expanded="{$yourReportPanelOpen}">
+<aside class="Panel your-report" class:your-report--expanded="{$yourReportPanelOpen}" class:your-report--collapsed="{!$yourReportPanelOpen}">
   {#if $yourReportPanelOpen}
   <h2 class="Panel__Header__heading your-report__heading">
     {#if subtitle}
@@ -44,6 +44,7 @@
 .your-report {
   position: sticky; 
   top: 1em;
+  grid-row-start: 1;
 }
 .your-report__heading-pre {
   font-size: smaller;
@@ -52,6 +53,9 @@
 .your-report__showhide[aria-expanded="false"] svg {
   margin-right: .25em;
   margin-left: 0;
+}
+.your-report--collapsed {
+  float: right;
 }
 </style>
 
@@ -79,9 +83,6 @@
   };
 
   function toggle() {
-    console.log('hai');
-    console.log($yourReportPanelOpen);
     yourReportPanelOpen.set(!$yourReportPanelOpen);
-    console.log($yourReportPanelOpen);
   }
 </script>

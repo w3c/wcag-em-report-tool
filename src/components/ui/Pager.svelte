@@ -5,46 +5,46 @@
  * @todo
  *   - Icons/svgs should get componentized for better readability
  * -->
-<aside class="Pager pager">
-  <ul>
-    {#if previousPage}
-      <li class="Pager__Item pager--item previous">
-        <Link to="{previousPage.path}">
-          <svg aria-hidden="true" class="pager--item-icon icon-arrow-left"><use
-              xlink:href="images/icons.svg#icon-arrow-left"
-            ></use></svg>
-          <span class="pager--item-text">
-            <span
-              class="pager--item-text-direction"
-            >{TRANSLATED.PREVIOUS}</span>
-            <span class="pager--item-text-target">{previousPage.title}</span>
-          </span>
-        </Link>
-      </li>
-    {/if}
+<div class="default-grid">
+  <aside class="Pager pager">
+    <ul>
+      {#if previousPage}
+        <li class="Pager__Item pager--item previous">
+          <Link to="{previousPage.path}">
+            <svg aria-hidden="true" class="pager--item-icon icon-arrow-left"><use
+                xlink:href="images/icons.svg#icon-arrow-left"
+              ></use></svg>
+            <span class="pager--item-text">
+              <span
+                class="pager--item-text-direction"
+              >{TRANSLATED.PREVIOUS}</span>
+              <span class="pager--item-text-target">{previousPage.title}</span>
+            </span>
+          </Link>
+        </li>
+      {/if}
 
-    {#if nextPage}
-      <li class="Pager__Item pager--item next">
-        <Link to="{nextPage.path}">
-          <svg aria-hidden="true" class="pager--item-icon icon-arrow-right"><use
-              xlink:href="images/icons.svg#icon-arrow-right"
-            ></use></svg>
-          <span class="pager--item-text">
-            <span class="pager--item-text-direction">{TRANSLATED.NEXT}</span>
-            <span class="pager--item-text-target">{nextPage.title}</span>
-          </span>
-        </Link>
-      </li>
-    {/if}
-  </ul>
-</aside>
+      {#if nextPage}
+        <li class="Pager__Item pager--item next">
+          <Link to="{nextPage.path}">
+            <svg aria-hidden="true" class="pager--item-icon icon-arrow-right"><use
+                xlink:href="images/icons.svg#icon-arrow-right"
+              ></use></svg>
+            <span class="pager--item-text">
+              <span class="pager--item-text-direction">{TRANSLATED.NEXT}</span>
+              <span class="pager--item-text-target">{nextPage.title}</span>
+            </span>
+          </Link>
+        </li>
+      {/if}
+    </ul>
+  </aside>
+</div>
 <!-- /component -->
 
 <style>
   .Pager {
-  }
-
-  .Pager__Item {
+    grid-column: 2 / 10;
   }
 </style>
 

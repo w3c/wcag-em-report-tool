@@ -2,12 +2,38 @@
   <title>{title} | WCAG-EM Report Tool</title>
 </svelte:head>
 
-<main>
-  <h1>{title}</h1>
-  <slot />
-</main>
+<div class="page-content">
+{#if hasPanel}
+  <div class="default-grid">
+    <main class="main-with-panel">
+      <h1>{title}</h1>
+      <slot />
+    </main>
+    <YourReport />
+  </div>
+{:else}
+  <div class="default-grid">
+    <main class="main-without-panel">
+      {#if !isViewReport}
+      <YourReport />
+      {/if}
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </div>
+{/if}
+</div>
 
 <style>
+  .page-content {
+    padding: 2em 0;
+  }
+  .main-with-panel {
+    grid-column: 2 / 8;
+  }
+  .main-without-panel {
+    grid-column: 2 / 10;
+  }
   :global(main > *:not(:last-child)) {
     margin-bottom: 1em;
   }
@@ -18,7 +44,16 @@
   import { useLocation } from 'svelte-navigator';
   import { honourFragmentIdLinks } from '@app/scripts/honourFragmentIdLinks.js';
 
+  import { routes, yourReportPanelOpen } from '@app/stores/appStore.js';
+
+  import YourReport from '@app/components/ui/YourReport.svelte';
+
   const location = useLocation();
+
+  $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
+  $: hasPanel = !isViewReport && $yourReportPanelOpen;
+
+  $: console.log($yourReportPanelOpen);
 
   onMount(() => {
     honourFragmentIdLinks($location);

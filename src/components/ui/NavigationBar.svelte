@@ -2,21 +2,17 @@
  * @component
  *   NavigationBar
  *  -->
-<nav class="Nav">
-  <Grid>
-    <GridItem area="full">
-      <ol class="Nav__Itemcontainer">
-        {#each navigationItems as navigationItem}
-          <li
-            class="nav__item"
-            class:current="{navigationItem.path === currentPath}"
-          >
-            <Link to="{navigationItem.path}">{navigationItem.title}</Link>
-          </li>
-        {/each}
-      </ol>
-    </GridItem>
-  </Grid>
+<nav class="Nav default-grid">
+  <ol class="Nav__Itemcontainer">
+    {#each navigationItems as navigationItem}
+      <li
+        class="nav__item"
+        class:current="{navigationItem.path === currentPath}"
+      >
+        <Link to="{navigationItem.path}">{navigationItem.title}</Link>
+      </li>
+    {/each}
+  </ol>
 </nav>
 <!-- /component -->
 
@@ -50,9 +46,6 @@
 <script>
   import { getContext } from 'svelte';
   import { Link, useLocation } from 'svelte-navigator';
-
-  import Grid from '@app/components/ui/Grid.svelte';
-  import GridItem from '@app/components/ui/GridItem.svelte';
 
   const { translate } = getContext('app');
 

@@ -50,6 +50,7 @@
 
 <style>
   .LanguageSelect {
+    grid-column: 2 / 10;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
