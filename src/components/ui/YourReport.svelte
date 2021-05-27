@@ -8,9 +8,15 @@
       {#each principles as principle}
       <li class="progress">
         <div class="progress__principle">
-          <a href="#@@@" class="principle__name">
+          {#if isAuditSample}
+          <a href={`/evaluation/audit-sample#principle-${TRANSLATED.PRINCIPLES[principle].TITLE.toLowerCase()}`} class="principle__name">
             <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
-          </a> 
+          </a>
+          {:else}
+          <Link to={`/evaluation/audit-sample#principle-${TRANSLATED.PRINCIPLES[principle].TITLE.toLowerCase()}`} class="principle__name">
+            <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
+          </Link>
+          {/if} 
           <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
         </div>
         <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
@@ -153,6 +159,7 @@
   }
 
   $: isOverview = $location.pathname === $routes.OVERVIEW.path; 
+  $: isAuditSample = $location.pathname === $routes.AUDIT.path; 
   $: siteName = $scopeStore['SITE_NAME'];
   $: totalToEvaluate = $assertions.filter(assertion => 
     assertion.subject.title == "").length;
