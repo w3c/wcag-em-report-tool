@@ -54,8 +54,7 @@ export class TestSubject extends partsMixin(Base) {
 
   setId() {
     const { ID, id, title, description } = this;
-    const idUrl = '';
-    const url = idUrl ? idUrl.href : [title, description].reduce((href, value) => {
+    const url = [title, description].reduce((href, value) => {
       if (href) {
         return href;
       }
