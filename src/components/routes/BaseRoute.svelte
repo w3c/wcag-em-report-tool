@@ -2,11 +2,11 @@
 <Router basepath="{basepath}">
   <BaseLayout>
     <!-- Components are Pages or nested Routes -->
-    <Route path="/" component="{OverviewPage}" />
-    <Route path="/evaluation/*" component="{EvaluationRoute}" />
+    <Route path="/"><OverviewPage /></Route>
+    <Route path="/evaluation/*"><EvaluationRoute /></Route>
 
     <!-- If anything else, it should hit an error? -->
-    <Route path="/*" component="{OverviewPage}" />
+    <Route path="/*"><OverviewPage /></Route>
   </BaseLayout>
 </Router>
 <!-- /@Route -->

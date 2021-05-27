@@ -50,7 +50,7 @@ function setIdFromProperties(item, properties) {
     if (href) {
       return href;
     }
-
+    
     const newURL = getURL(value);
 
     return newURL ? newURL.href : null;
