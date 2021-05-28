@@ -2,13 +2,13 @@
   <h4>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h4>
 
   {#each guidelines.filter((g) => g.indexOf(principle) === 0) as guideline}
-    <h5>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5>
     <table class="Auditor__ResultsTable">
+      <caption><h5>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5></caption>
       <tbody>
           <tr class="Auditor__ResultsTableHeader">
-            <th>Success Criterion</th>
-            <th>Result</th>
-            <th>Observations</th>
+            <th>{TRANSLATED.HEADER_SUCCESS_CRITERION}</th>
+            <th>{TRANSLATED.HEADER_RESULT}</th>
+            <th>{TRANSLATED.HEADER_OBSERVATIONS}</th>
             <th></th><!-- cell for edit button -->
           </tr>
         <!--
@@ -54,7 +54,7 @@
                   {#if assertion.result.description}
                     {@html marked(assertion.result.description)}
                   {:else}
-                    <p>No observations added.</p>
+                    <p>{TRANSLATED.NO_OBSERVATIONS_FOUND}</p>
                   {/if}
                 {/if}
               {/each}
@@ -126,7 +126,11 @@
     LABEL_OBSERVATION: $translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL'),
     HEADING_SCOPE_RESULTS: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     HEADING_RESULTS_FOR: $translate('PAGES.AUDIT.RESULTS_FOR'),
-    TEXT_NOT_CHECKED: $translate('UI.EARL.UNTESTED')
+    TEXT_NOT_CHECKED: $translate('UI.EARL.UNTESTED'),
+    HEADER_SUCCESS_CRITERION: $translate('PAGES.REPORT.HEADER_SUCCESS_CRITERION'),
+    HEADER_RESULT: $translate('PAGES.REPORT.HEADER_RESULT'),
+    HEADER_OBSERVATIONS: $translate('PAGES.REPORT.HEADER_OBSERVATIONS'),
+    NO_OBSERVATIONS_FOUND: $translate('PAGES.REPORT.NO_OBSERVATIONS_FOUND')
   };
 
   // Sets are unique values

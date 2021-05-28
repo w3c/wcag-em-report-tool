@@ -17,7 +17,7 @@
             <span>{TRANSLATED.PRINCIPLES[principle].TITLE}</span>
           </Link>
           {/if} 
-          <span class="progress__part">{totalsPerPrinciple[principle]["done"]} of {totalsPerPrinciple[principle]["total"]}</span>
+          <span class="progress__part">{totalsPerPrinciple[principle]["done"]} {TRANSLATED.OF} {totalsPerPrinciple[principle]["total"]}</span>
         </div>
         <ProgressBar percentage="{totalsPerPrinciple[principle]["percentage"]}"></ProgressBar>
       </li>
@@ -93,6 +93,7 @@
     NOT_STARTED: $translate('UI.NAV.NOT_STARTED'),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
     REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),
+    OF: $translate('UI.REPORT.REPORTED_ON_OF'),
   };
 
 
