@@ -154,7 +154,7 @@
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
 
 <h3>Summary</h3>
-<ReportResultsOverview />
+<ReportSummary />
 
 <h3>All results</h3>
 <ReportAllResults criteria="{$wcag}" />
@@ -236,7 +236,7 @@
   import ReportHeaderKey from '@app/components/ui/Report/ReportHeaderKey.svelte';
   import ReportHeaderValue from '@app/components/ui/Report/ReportHeaderValue.svelte';
   import ReportHeaderMultiValue from '@app/components/ui/Report/ReportHeaderMultiValue.svelte';
-  import ReportResultsOverview from './Report/ReportResultsOverview.svelte';
+  import ReportSummary from './Report/ReportSummary.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
