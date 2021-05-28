@@ -50,7 +50,7 @@
 
   <details>
     <summary><h2>{TRANSLATED.AUDIT_RESULTS_HEADING}</h2></summary>
-    <AuditorSummary criteria="{$tests}" />
+    <ReportAllResults criteria="{$tests}" />
   </details>
 </Page>
 
@@ -60,7 +60,7 @@
 
   import Page from '@app/components/ui/Page.svelte';
 
-  import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
+  import ReportAllResults from '@app/components/ui/Report/ReportAllResults.svelte';
   import Input from '@app/components/form/Input.svelte';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
