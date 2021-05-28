@@ -2,13 +2,13 @@
   <h4>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h4>
 
   {#each guidelines.filter((g) => g.indexOf(principle) === 0) as guideline}
-    <h5>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5>
     <table class="Auditor__ResultsTable">
+      <caption><h5>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5></caption>
       <tbody>
           <tr class="Auditor__ResultsTableHeader">
-            <th>Success Criterion</th>
-            <th>Result</th>
-            <th>Observations</th>
+            <th>{TRANSLATED.HEADER_SUCCESS_CRITERION}</th>
+            <th>{TRANSLATED.HEADER_RESULT}</th>
+            <th>{TRANSLATED.HEADER_OBSERVATIONS}</th>
             <th></th><!-- cell for edit button -->
           </tr>
         <!--
@@ -22,32 +22,40 @@
             <td id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</td>
             <td>
                 {#each scopeAssertion(criterion) as assertion}
+                  {#if sampleAssertions(criterion).length}
                   <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  {/if}
                   <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
                 {:else}
                   <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
                 {/each}
                 {#if sampleAssertions(criterion).length}
                   {#each sampleAssertions(criterion) as assertion}
+                    {#if assertionHasContents(assertion)}
                     <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
                     <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
-                  {:else}
-                    <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
+                    {/if}
                   {/each}
                 {/if}
             </td>
             <td>
               {#each scopeAssertion(criterion) as assertion}
                 {#if assertion.result.description}
+                  {#if sampleAssertions(criterion).length}
                   <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  {/if}
                   {@html marked(assertion.result.description)}
                 {/if}
               {/each}
               {#if sampleAssertions(criterion).length}
               {#each sampleAssertions(criterion) as assertion}
-                <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
-                {#if assertion.result.description}
-                  {@html marked(assertion.result.description)}
+                {#if assertionHasContents(assertion)}
+                  <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
+                  {#if assertion.result.description}
+                    {@html marked(assertion.result.description)}
+                  {:else}
+                    <p>{TRANSLATED.NO_OBSERVATIONS_FOUND}</p>
+                  {/if}
                 {/if}
               {/each}
             {/if}
@@ -118,7 +126,11 @@
     LABEL_OBSERVATION: $translate('PAGES.AUDIT.ASSERTION_RESULT_DESCRIPTION_LABEL'),
     HEADING_SCOPE_RESULTS: $translate('PAGES.AUDIT.SAMPLE_FINDINGS'),
     HEADING_RESULTS_FOR: $translate('PAGES.AUDIT.RESULTS_FOR'),
-    TEXT_NOT_CHECKED: $translate('UI.EARL.UNTESTED')
+    TEXT_NOT_CHECKED: $translate('UI.EARL.UNTESTED'),
+    HEADER_SUCCESS_CRITERION: $translate('PAGES.REPORT.HEADER_SUCCESS_CRITERION'),
+    HEADER_RESULT: $translate('PAGES.REPORT.HEADER_RESULT'),
+    HEADER_OBSERVATIONS: $translate('PAGES.REPORT.HEADER_OBSERVATIONS'),
+    NO_OBSERVATIONS_FOUND: $translate('PAGES.REPORT.NO_OBSERVATIONS_FOUND')
   };
 
   // Sets are unique values
@@ -155,5 +167,9 @@
     return criterionAssertions(criterion).filter((assertion) => {
       return assertion.subject.type.indexOf(TestSubjectTypes.WEBPAGE) >= 0;
     });
+  }
+
+  function assertionHasContents(assertion) {
+    return (assertion.result.outcome.title && assertion.result.outcome.title !== TRANSLATED.TEXT_NOT_CHECKED) || assertion.result.description
   }
 </script>

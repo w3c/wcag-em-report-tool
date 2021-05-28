@@ -154,10 +154,10 @@
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
 
 <h3>Summary</h3>
-<ReportResultsOverview />
+<ReportSummary />
 
 <h3>All results</h3>
-<AuditorSummary criteria="{$wcag}" />
+<ReportAllResults criteria="{$wcag}" />
 
 <h2>{TRANSLATED.HEADING_SAMPLE}</h2>
 {#if report.samples.length > 0}
@@ -232,11 +232,11 @@
 
   import { wcag, CONFORMANCE_LEVELS, WCAG_VERSIONS } from '@app/stores/wcagStore.js';
 
-  import AuditorSummary from '@app/components/ui/Auditor/AuditorSummary.svelte';
+  import ReportAllResults from '@app/components/ui/Report/ReportAllResults.svelte';
   import ReportHeaderKey from '@app/components/ui/Report/ReportHeaderKey.svelte';
   import ReportHeaderValue from '@app/components/ui/Report/ReportHeaderValue.svelte';
   import ReportHeaderMultiValue from '@app/components/ui/Report/ReportHeaderMultiValue.svelte';
-  import ReportResultsOverview from './Report/ReportResultsOverview.svelte';
+  import ReportSummary from './Report/ReportSummary.svelte';
 
   const { sampleStore, scopeStore, summaryStore, translate } = getContext(
     'app'
@@ -270,15 +270,6 @@
     HEADING_RESOURCES: $translate('UI.REPORT.HD_DOCS'),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
     TEXT_NO_SAMPLE: $translate('PAGES.AUDIT.NO_SAMPLE')
-  };
-
-  $: scope = {
-    siteName: $scopeStore['SITE_NAME'],
-    siteScope: $scopeStore['WEBSITE_SCOPE'],
-    wcagVersion: $scopeStore['WCAG_VERSION'],
-    conformanceTarget: $scopeStore['CONFORMANCE_TARGET'],
-    extra: $scopeStore['ADDITIONAL_REQUIREMENTS'],
-    baseline: $scopeStore['AS_BASELINE']
   };
 
   $: report = {
