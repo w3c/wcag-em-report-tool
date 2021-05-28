@@ -22,32 +22,40 @@
             <td id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</td>
             <td>
                 {#each scopeAssertion(criterion) as assertion}
+                  {#if sampleAssertions(criterion).length}
                   <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  {/if}
                   <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
                 {:else}
                   <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
                 {/each}
                 {#if sampleAssertions(criterion).length}
                   {#each sampleAssertions(criterion) as assertion}
+                    {#if assertionHasContents(assertion)}
                     <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
                     <p>{assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}</p>
-                  {:else}
-                    <p>{TRANSLATED.TEXT_NOT_CHECKED}</p>
+                    {/if}
                   {/each}
                 {/if}
             </td>
             <td>
               {#each scopeAssertion(criterion) as assertion}
                 {#if assertion.result.description}
+                  {#if sampleAssertions(criterion).length}
                   <h6>{TRANSLATED.HEADING_SCOPE_RESULTS}</h6>
+                  {/if}
                   {@html marked(assertion.result.description)}
                 {/if}
               {/each}
               {#if sampleAssertions(criterion).length}
               {#each sampleAssertions(criterion) as assertion}
-                <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
-                {#if assertion.result.description}
-                  {@html marked(assertion.result.description)}
+                {#if assertionHasContents(assertion)}
+                  <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
+                  {#if assertion.result.description}
+                    {@html marked(assertion.result.description)}
+                  {:else}
+                    <p>No observations added.</p>
+                  {/if}
                 {/if}
               {/each}
             {/if}
@@ -155,5 +163,9 @@
     return criterionAssertions(criterion).filter((assertion) => {
       return assertion.subject.type.indexOf(TestSubjectTypes.WEBPAGE) >= 0;
     });
+  }
+
+  function assertionHasContents(assertion) {
+    return (assertion.result.outcome.title && assertion.result.outcome.title !== TRANSLATED.TEXT_NOT_CHECKED) || assertion.result.description
   }
 </script>
