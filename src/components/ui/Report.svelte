@@ -272,15 +272,6 @@
     TEXT_NO_SAMPLE: $translate('PAGES.AUDIT.NO_SAMPLE')
   };
 
-  $: scope = {
-    siteName: $scopeStore['SITE_NAME'],
-    siteScope: $scopeStore['WEBSITE_SCOPE'],
-    wcagVersion: $scopeStore['WCAG_VERSION'],
-    conformanceTarget: $scopeStore['CONFORMANCE_TARGET'],
-    extra: $scopeStore['ADDITIONAL_REQUIREMENTS'],
-    baseline: $scopeStore['AS_BASELINE']
-  };
-
   $: report = {
     commissioner: $summaryStore['EVALUATION_COMMISSIONER'],
     creator: $summaryStore['EVALUATION_CREATOR'],
