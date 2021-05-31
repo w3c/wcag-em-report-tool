@@ -182,11 +182,11 @@
 <script context="module">
   import { downloadFile } from '@app/scripts/files.js';
 
-  let Report;
+  let Report = document.documentElement;
 
   export function downloadReport() {
     downloadFile({
-      contents: Report.outerHTML,
+      contents: Report,
       name: 'report.html',
       type: 'text/html'
     });
