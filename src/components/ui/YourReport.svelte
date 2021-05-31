@@ -160,8 +160,6 @@
     }
   }
 
-
-
   $: isOverview = $location.pathname === $routes.OVERVIEW.path; 
   $: isAuditSample = $location.pathname === $routes.AUDIT.path; 
   $: siteName = $scopeStore['SITE_NAME'];
