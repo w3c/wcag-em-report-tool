@@ -5,7 +5,7 @@
     label="{TRANSLATED.BUTTON}"
     labelsub="({TRANSLATED.BUTTON_HINT})"
     on:change="{handleChange}"
-    on:click={onInputClick}
+    on:click={handleClick}
   />
 </div>
 
@@ -51,7 +51,7 @@
     FILE_ERROR: $translate('UI.IMPORT.ERROR.FILE_ERROR')
   };
 
-  function onInputClick (event) {
+  function handleClick (event) {
     event.target.value = ''
   }
 
