@@ -3,6 +3,9 @@
     "WARNING_BEFORE_UNLOAD": "The data you entered is not automatically saved. It will be lost if you close this web browser window. Use the 'Save' link (Ctrl + S or ⌘ S) that is at the top of all pages to save your data in a file locally on your computer, and reload it later to continue working on it.",
     "MORE_INFO": "For more information, see <a href={{url}}>{{name}}</a>.",
     "HIDE_MESSAGE": "Hide message",
+    "ERROR": {
+        "DEFAULT": "Something went wrong."
+    },
     "YES": "Yes",
     "NO": "No",
     "NEXT": "Next {label}",

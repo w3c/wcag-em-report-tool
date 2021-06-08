@@ -5,6 +5,7 @@
     label="{TRANSLATED.BUTTON}"
     labelsub="({TRANSLATED.BUTTON_HINT})"
     on:change="{handleChange}"
+    on:click={handleClick}
   />
 </div>
 
@@ -42,7 +43,17 @@
     BUTTON: $translate('UI.NAV.MENU_IMPORT', { default: 'Import data' }),
     BUTTON_HINT: $translate('UI.NAV.MENU_IMPORT_HINT'),
     IMPORT_DATA_INTRO: $translate('PAGES.AUDIT.IMPORT_DATA_INTRO'),
+    JSONLD_SYNTAX: $translate('UI.IMPORT.ERROR.JSONLD_SYNTAX'),
+    NO_ASSERTIONS: $translate('UI.IMPORT.ERROR.NO_ASSERTIONS'),
+    NO_COMPATIBLE_ASSERTIONS: $translate('UI.IMPORT.ERROR.NO_COMPATIBLE_ASSERTIONS'),
+    ERROR_DEFAULT: $translate('UI.COMMON.ERROR.DEFAULT'),
+    IMPORT_SUCCESSFUL: $translate('UI.IMPORT.SUCCESSFUL'),
+    FILE_ERROR: $translate('UI.IMPORT.ERROR.FILE_ERROR')
   };
+
+  function handleClick (event) {
+    event.target.value = ''
+  }
 
   function handleChange(event) {
     const { target } = event;
@@ -52,9 +63,12 @@
       let json;
 
       try {
+        console.log(TRANSLATED.FILE_ERROR);
         json = JSON.parse(result);
       } catch (error) {
         console.error(error.message);
+        let errorMessage = TRANSLATED.FILE_ERROR;
+        alert(`Import failed:\n${errorMessage}`);
         return;
       }
 
@@ -64,7 +78,7 @@
             .map((num) => `– ${num}`)
             .join('\n');
 
-          alert(`Import succeeded for criteria:\n${criteria}.`);
+          alert(`Import successful:\n${TRANSLATED.IMPORT_SUCCESSFUL}.`);
         })
         .catch((error) => {
           console.error(error);
@@ -72,26 +86,22 @@
 
           switch (error.message) {
             case JSONLD_ERROR.SYNTAX:
-              errorMessage = 'UI.IMPORT.ERROR.JSONLD_SYNTAX';
+              errorMessage = 'TRANSLATED.JSONLD_SYNTAX';
               break;
 
             case IMPORT_ERROR.NO_ASSERTIONS:
-              errorMessage = 'UI.IMPORT.ERROR.NO_ASSERTIONS';
+              errorMessage = 'TRANSLATED.NO_ASSERTIONS';
               break;
 
             case IMPORT_ERROR.NO_COMPATIBLE_ASSERTIONS:
-              errorMessage = 'UI.IMPORT.ERROR.NO_COMPATIBLE_ASSERTIONS';
-              break;
-
-            case IMPORT_ERROR.USER_DECLINED:
-              errorMessage = 'UI.IMPORT.ERROR.USER_DECLINED';
+              errorMessage = TRANSLATED.NO_COMPATIBLE_ASSERTIONS;
               break;
 
             default:
-              errorMessage = 'UI.COMMON.ERROR.DEFAULT';
+              errorMessage = TRANSLATED.ERROR_DEFAULT;
           }
 
-          alert(`Import aborted:\n\t${errorMessage}`);
+          alert(`Import failed:\n${errorMessage}`);
         })
         .finally(() => {
           target.value = '';
