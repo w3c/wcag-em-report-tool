@@ -153,10 +153,11 @@
   }
 
   function handleClearEvaluationClick() {
-    window.confirm(TRANSLATED.CLEAR_WARNING, function() {
+    var clearResult = window.confirm(TRANSLATED.CLEAR_WARNING);
+    if(clearResult){
       $evaluationStore.reset();
       navigate($routes.SCOPE.path, { replace: true });
-    });
+    }
   }
 
   $: isOverview = $location.pathname === $routes.OVERVIEW.path; 
