@@ -7,7 +7,7 @@ import appJsonLdContext, {
   importContext
 } from '@app/data/jsonld/appContext.js';
 import webTechnologies from '@app/data/webtechnologies.json';
-import { downloadFile } from '@app/scripts/files.js';
+import { downloadFileJSON } from '@app/scripts/files.js';
 
 // Import related stores and combine
 import { TestResult } from '@app/stores/earl/resultStore/models.js';
@@ -522,7 +522,7 @@ class EvaluationModel {
     jsonld
       .compact(this, appJsonLdContext)
       .then((compacted) => {
-        downloadFile({
+        downloadFileJSON({
           name: 'evaluation.json',
           type: 'application/json',
           contents: JSON.stringify(compacted)
