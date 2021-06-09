@@ -180,12 +180,12 @@
 <!-- /component -->
 
 <script context="module">
-  import { downloadFile } from '@app/scripts/files.js';
+  import { downloadFileHTML } from '@app/scripts/files.js';
 
   let Report = document.documentElement;
 
   export function downloadReport() {
-    downloadFile({
+    downloadFileHTML({
       contents: Report,
       name: 'report.html',
       type: 'text/html'
