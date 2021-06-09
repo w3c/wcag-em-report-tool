@@ -78,6 +78,7 @@
   .AuditorSamples__item input {
     width: 1em;
     height: 1em;
+    flex: none;
   }
   .AuditorSamples__select-all {
     margin-top: 1em;
