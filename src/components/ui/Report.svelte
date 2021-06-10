@@ -118,7 +118,7 @@
 
     <dt>
       <ReportHeaderKey editing={editEvaluationScope} field="AS_BASELINE">
-        {TRANSLATED.LABEL_EXTRA_REQUIREMENTS}
+        {TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}
       </ReportHeaderKey>
     </dt>
     <dd>
@@ -127,7 +127,7 @@
 
     <dt>
       <ReportHeaderKey editing={editEvaluationScope} field="ADDITIONAL_REQUIREMENTS">
-        {TRANSLATED.LABEL_ACCESSIBILITY_SUPPORT_BASELINE}
+        {TRANSLATED.LABEL_EXTRA_REQUIREMENTS}
       </ReportHeaderKey>
     </dt>
     <dd>
