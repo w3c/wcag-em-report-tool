@@ -78,6 +78,7 @@
   $: TRANSLATED = {
     NO_SAMPLE: $translate('PAGES.SAMPLE.NO_PAGES_DEFINED'),
     ADD_PAGE_BUTTON: $translate('PAGES.SAMPLE.BTN_ADD_PAGE'),
+    DELETE_CONFIRM: $translate('PAGES.SAMPLE.DELETE_CONFIRM'),
     SHOW_INFO_BUTTON: $translate('UI.COMMON.BUTTON.INFO'),
     SHOW_HIDE_HELPTEXT: showHelptext
       ? $translate('UI.COMMON.BUTTON.HIDE', {
@@ -101,15 +102,16 @@
   }
 
   function handleSampleDelete(event) {
+    if (window.confirm(TRANSLATED.DELETE_CONFIRM)) {
+      const removeSample = value.find(sample => sample.ID === event.detail);
+      const indexSample = value.indexOf(removeSample);
 
-    const removeSample = value.find(sample => sample.ID === event.detail);
-    const indexSample = value.indexOf(removeSample);
-
-    // value need to be set explicitly
-    const newValue = value;
-    newValue.splice(indexSample, 1);
-    value = newValue;
-    // @TODO: removeSample.delete(); !required for cleanup
-    subjects.remove(removeSample);
+      // value need to be set explicitly
+      const newValue = value;
+      newValue.splice(indexSample, 1);
+      value = newValue;
+      // @TODO: removeSample.delete(); !required for cleanup
+      subjects.remove(removeSample);
   }
+}
 </script>

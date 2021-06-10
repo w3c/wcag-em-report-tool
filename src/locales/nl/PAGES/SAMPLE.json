@@ -20,5 +20,6 @@
     "BTN_REMOVE_PAGE": "Pagina verwijderen",
     "STRUCTURED_PAGE": "Geordende pagina",
     "RANDOM_PAGE": "Willekeurige pagina",
-    "SAMPLE_PAGE": "Samplepagina"
+    "SAMPLE_PAGE": "Samplepagina",
+    "DELETE_CONFIRM": "Weet je zeker dat je deze samplepagina wilt verwijderen?"
 }

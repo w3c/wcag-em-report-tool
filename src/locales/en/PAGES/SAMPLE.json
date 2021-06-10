@@ -20,5 +20,6 @@
     "BTN_REMOVE_PAGE": "Remove page",
     "STRUCTURED_PAGE": "Structured page",
     "RANDOM_PAGE": "Random page",
-    "SAMPLE_PAGE": "Sample page"
+    "SAMPLE_PAGE": "Sample page",
+    "DELETE_CONFIRM": "Are you sure you would like to delete this sample page?"
 }
