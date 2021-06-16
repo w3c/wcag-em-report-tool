@@ -64,6 +64,7 @@ export const exportContext = {
   reportFindings: 'wcagem:step5',
   documentSteps: 'wcagem:step5a',
   commissioner: 'wcagem:commissioner',
+  evaluator: 'wcagem:evaluator',
   evaluationSpecifics: 'wcagem:step5b',
 
   // WCAG

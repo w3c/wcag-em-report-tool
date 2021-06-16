@@ -3,11 +3,11 @@ import jsonld from 'jsonld/lib/jsonld.js';
 import { getURL, toHTTP } from '@app/scripts/urls.js';
 
 function getItems(ldon) {
-  if (!ldon) {
+  if (!ldon || !ldon['@graph']) {
     return [];
   }
 
-  return ldon['@graph'] || [ldon];
+  return ldon['@graph'];
 }
 
 function getType(item) {

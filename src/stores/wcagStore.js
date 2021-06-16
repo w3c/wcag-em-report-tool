@@ -4,8 +4,10 @@ import scopeStore from '@app/stores/scopeStore.js';
 import wcagCriteriaData from '@app/data/wcag.json';
 
 export const CONFORMANCE_LEVELS = ['A', 'AA', 'AAA'];
+export const DEFAULT_CONFORMANCE_LEVEL = 'AA';
 
 export const WCAG_VERSIONS = Object.keys(wcagCriteriaData);
+export const DEFAULT_WCAG_VERSION = WCAG_VERSIONS.slice(-1)[0];
 
 export const scopedWcagVersions = derived([scopeStore], ([$scopeStore]) => {
   const { WCAG_VERSION } = $scopeStore;
