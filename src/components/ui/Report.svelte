@@ -176,7 +176,13 @@
 <p>{report.specifics || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
 <h2>{TRANSLATED.HEADING_RESOURCES}</h2>
-<p class="info">List resources</p>
+<ul>
+  <li><a href="https://www.w3.org/WAI/intro/wcag">Web Content Accessibility Guidelines (WCAG)
+    Overview</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG21/quickref/">How to Meet WCAG 2.1 Quick Reference</a></li>
+  <li><a href="https://www.w3.org/WAI/eval/conformance">WCAG Evaluation Methodology (WCAG-EM)
+    Overview</a></li>
+</ul>
 <!-- /component -->
 
 <script context="module">
