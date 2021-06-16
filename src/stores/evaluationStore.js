@@ -1,6 +1,6 @@
 import jsonld from '@app/scripts/jsonld.js';
 
-import { derived, writable, get } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
 import appJsonLdContext, {
