@@ -23,23 +23,6 @@
       <li>{@html TRANSLATED.USAGE_LI4}</li>
     </ul>
   </details>
-
-  <details>
-    <summary><h2>{TRANSLATED.CHOICES_HEADING}</h2></summary>
-    <p>{TRANSLATED.CHOICES_INTRO}</p>
-    <dl>
-      <dt>{TRANSLATED.CHOICES_DT1}</dt>
-      <dd>{TRANSLATED.CHOICES_DD1}</dd>
-      <dt>{TRANSLATED.CHOICES_DT2}</dt>
-      <dd>{TRANSLATED.CHOICES_DD2}</dd>
-      <dt>{TRANSLATED.CHOICES_DT3}</dt>
-      <dd>{TRANSLATED.CHOICES_DD3}</dd>
-      <dt>{TRANSLATED.CHOICES_DT4}</dt>
-      <dd>{TRANSLATED.CHOICES_DD4}</dd>
-      <dt>{TRANSLATED.CHOICES_DT5}</dt>
-      <dd>{TRANSLATED.CHOICES_DD5}</dd>
-    </dl>
-  </details>
 </Page>
 <!-- /component -->
 
