@@ -10,7 +10,8 @@
 
   <details>
     <summary><h2>{TRANSLATED.ABOUT_HEADING}</h2></summary>
-    <p>@@@</p>
+    {@html TRANSLATED.ABOUT_1}
+    {@html TRANSLATED.ABOUT_2}
   </details>
 
   <details>
@@ -62,6 +63,8 @@
     USAGE_LI3: $translate('PAGES.START.USAGE_LI3'),
     USAGE_LI4: $translate('PAGES.START.USAGE_LI4'),
     ABOUT_HEADING: $translate('PAGES.START.ABOUT_HEADING'),
+    ABOUT_1: $translate('PAGES.START.ABOUT_1'),
+    ABOUT_2: $translate('PAGES.START.ABOUT_2'),
     CHOICES_HEADING: $translate('PAGES.START.CHOICES_HEADING'),
     CHOICES_INTRO: $translate('PAGES.START.CHOICES_INTRO'),
     CHOICES_DT1: $translate('PAGES.START.CHOICES_DT1'),
