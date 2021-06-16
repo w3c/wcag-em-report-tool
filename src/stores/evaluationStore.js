@@ -1,6 +1,6 @@
 import jsonld from '@app/scripts/jsonld.js';
 
-import { derived } from 'svelte/store';
+import { derived, writable, get } from 'svelte/store';
 import { locale } from 'svelte-i18n';
 
 import appJsonLdContext, {
@@ -16,7 +16,11 @@ import scopeStore, { initialScopeStore } from '@app/stores/scopeStore.js';
 import exploreStore, { initialExploreStore } from '@app/stores/exploreStore.js';
 import sampleStore, { initialSampleStore } from '@app/stores/sampleStore.js';
 import summaryStore, { initialSummaryStore } from '@app/stores/summaryStore.js';
-import { getCriterionById } from '@app/stores/wcagStore.js';
+import {
+  DEFAULT_WCAG_VERSION,
+  DEFAULT_CONFORMANCE_LEVEL,
+  getCriterionById
+} from '@app/stores/wcagStore.js';
 
 import assertions, {
   AssertionTypes
@@ -67,6 +71,7 @@ const evaluationContext = {
   reportFindings: 'wcagem:step5',
   documentSteps: 'wcagem:step5a',
   commissioner: 'wcagem:commissioner',
+  evaluator: 'wcagem:evaluator',
   evaluationSpecifics: 'wcagem:step5b'
 };
 
@@ -93,8 +98,8 @@ class EvaluationModel {
         // WEBSITE_SCOPE
         description: ''
       },
-      wcagVersion: '2.1',
-      conformanceTarget: 'AA',
+      wcagVersion: DEFAULT_WCAG_VERSION,
+      conformanceTarget: DEFAULT_CONFORMANCE_LEVEL,
       accessibilitySupportBaseline: '',
       additionalEvaluationRequirements: ''
     };
@@ -143,11 +148,9 @@ class EvaluationModel {
       return { ...initialExploreStore };
     });
 
-    assertions.update(() => []);
+    assertions.reset();
 
-    subjects.update(() => {
-      return [...initialSubjectStore];
-    });
+    subjects.reset();
 
     summaryStore.update(() => {
       return { ...initialSummaryStore };
@@ -275,7 +278,7 @@ class EvaluationModel {
         language = framedEvaluation.language || 'en';
         locale.set(language);
 
-        wcagVersion = defineScope.wcagVersion || '2.1';
+        wcagVersion = defineScope.wcagVersion || DEFAULT_WCAG_VERSION;
 
         /**
          * Start setting values from the imported json-ld.
@@ -390,7 +393,7 @@ class EvaluationModel {
               framedEvaluation.commissioner ||
               '',
             EVALUATION_CREATOR: reportFindings.evaluator || '',
-            EVALUATION_DATE: reportFindings.date || '',
+            EVALUATION_DATE: reportFindings.date["@value"] || '',
             EVALUATION_SUMMARY:
               reportFindings.summary || framedEvaluation.summary || '',
             EVALUATION_SPECIFICS:
@@ -407,6 +410,7 @@ class EvaluationModel {
             '@type': AssertionTypes
           })
           .then((framedAssertions) => {
+            console.log(framedAssertions);
             jsonld.getItems(framedAssertions).forEach((assertion) => {
               const { assertedBy, mode, result, subject, test } = assertion;
               const newSubject = $subjects.find(($subject) => {
@@ -532,11 +536,12 @@ class EvaluationModel {
         console.error(`An error occured: “${error.name}”\n${error.message}`);
       });
   }
+
 }
 
-const _evaluation = new EvaluationModel();
+const _evaluation = writable(new EvaluationModel());
 
-export default derived(
+export default (
   [
     assertions,
     locale,
