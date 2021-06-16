@@ -10,7 +10,7 @@
     "LABEL_CREATOR": "Evaluator",
     "INF_CREATOR": "The person, team of people, organization, in-house department, or other entity responsible for carrying out the evaluation.",
     "LABEL_DATE": "Evaluation date",
-    "INF_DATE": "Provide the completion date or duration dates of this evaluation. You can use any date format.",
+    "INF_DATE": "Provide the completion date or duration dates of this evaluation. You can use any date format. Write out the month to make it clear internationally. (The date format 01-02-2022 is ambiguous — it is 2 January in some places and 1 February in some places.)",
     "LABEL_SUMMARY": "Executive summary",
     "INF_SUMMARY": "Provide a brief summary of the evaluation findings to give an overview on the results. For example, describe the overall accessibility of the website and key observations you made during the evaluation, such as frequently occurring issues and patterns.",
     "LABEL_SPECIFICS": "Record of evaluation specifics (optional)",

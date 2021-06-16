@@ -10,7 +10,7 @@
     "LABEL_CREATOR": "Evaluator",
     "INF_CREATOR": "De persoon, het team, de organisatie, het departement of andere entiteit verantwoordelijk voor het uitvoeren van de evaluatie.",
     "LABEL_DATE": "Evaluatiedatum",
-    "INF_DATE": "Vul hier de datum in waarop de evaluatie werd afgerond, of de datums waarop de evaluatie plaats vond. U kunt elk datumformaat gebruiken.",
+    "INF_DATE": "Vul hier de datum in waarop de evaluatie werd afgerond, of de datums waarop de evaluatie plaats vond. U kunt elk datumformaat gebruiken. Schrijf de maand volledig uit, zodat het internationaal beter werkt (iets als ‘01-02-2022’ is bijvoorbeeld ambigu—dat kan 2 januari en 2 februari betekenen)",
     "LABEL_SUMMARY": "Managementsamenvatting",
     "INF_SUMMARY": "Geef een korte samenvatting van de bevindingen uit de evaluatie om zo een overzicht van de resultaten te krijgen. Benoem bijvoorbeeld de algehele toegankelijkheid van de website, met enkele concrete voorbeelden uit het onderzoek, zoals de frequentie van bepaalde verbeterpunten.",
     "LABEL_SPECIFICS": "Benoem de onderbouwing van de evaluatie (optioneel)",
