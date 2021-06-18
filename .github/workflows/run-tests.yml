@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request: {}
+  push:
+    branches: [master]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.3.0]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: sudo chmod -R a+w /var/lib/gems   # makes writable by all
+      - run: sudo chmod -R a+w /usr/local/bin  # makes writable by all
+      - run: npm ci
+      - run: npm install -g bower grunt-cli
+      - run: bower install
+      - run: npm test
