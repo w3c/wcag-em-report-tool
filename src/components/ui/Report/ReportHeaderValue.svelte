@@ -14,7 +14,7 @@
   {#if storeToUse[field]}
     {storeToUse[field]}
   {:else}
-    <span class="no-result">(Not provided)</span>
+    <span class="no-result">{TRANSLATED.LABEL_NOT_PROVIDED}</span>
   {/if}
 {/if}
 
@@ -31,7 +31,7 @@
 
 <script>
   import { getContext } from 'svelte';
-  const { scopeStore, summaryStore } = getContext('app');  
+  const { scopeStore, summaryStore, translate } = getContext('app');  
   
   export let field;
   export let multiline = false;
@@ -48,4 +48,8 @@
       return $summaryStore
     }
   }
+
+  $: TRANSLATED = {
+    LABEL_NOT_PROVIDED: $translate('UI.REPORT.LABEL_NOT_PROVIDED'),
+  };
 </script>
