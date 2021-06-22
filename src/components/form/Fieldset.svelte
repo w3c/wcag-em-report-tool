@@ -2,11 +2,11 @@
   <legend>
     {@html legend}
     {#if helptext}
-      <button type="button" on:click={toggle} class="button button-small showhidebutton">
+      <button type="button" on:click={toggle} class="button button-small showhidebutton" aria-expanded={showHelptext} aria-controls={`field-helptext-${id}`}>
         {TRANSLATED.SHOW_HIDE_HELPTEXT}
       </button>
       {#if showHelptext}
-        <div class="Fieldset__helptext">
+        <div class="Fieldset__helptext" id={`field-helptext-${id}`}>
         {@html helptext}
         </div>
       {/if}

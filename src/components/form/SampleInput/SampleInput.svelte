@@ -6,11 +6,11 @@
   <legend>
     {label}
     {#if helptext}
-    <button type="button" on:click={toggle} class="button button-small showhidebutton">
+    <button type="button" on:click={toggle} class="button button-small showhidebutton" aria-expanded={showHelptext} aria-controls={`field-helptext-${id}`}>
       {TRANSLATED.SHOW_HIDE_HELPTEXT}
     </button>
     {#if showHelptext}
-        <div class="SampleInput__helptext">
+        <div class="SampleInput__helptext" id={`field-helptext-${id}`}> 
         {@html helptext}
         </div>
       {/if}
