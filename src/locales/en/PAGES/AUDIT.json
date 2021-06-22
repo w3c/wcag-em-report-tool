@@ -19,7 +19,7 @@
     "INF_AUDIT_SAMPLE": "This section lists the web pages you selected in the previous step. The web pages that are checked in this section are listed when 'Show web pages to enter individual results' is activated in the 'Success Criteria to Evaluate' section. You can show an individual web page that you are evaluating, or show several web pages at the same time. <br> The chainlink icon opens the web page in a separate browser window.",
     "INTRO": "Record the outcome from evaluating the web pages selected in the previous step. Compare the results between the structured page and randomly selected pages, and if needed, adjust the selected sample in the previous step.",
     "INTRO_NOTE": "<strong>Note:</strong> For each WCAG 2 success criteria, you can enter 'Results for the entire sample' and you can enter results for individual web pages. You can choose to enter either or both. To enter individual results, select the web page(s) under 'Sample to Evaluate' (in the left column); then under the specific success criteria, select 'Show web pages to enter individual results '",
-    "IMPORT_DATA_INTRO": "Supplement this report with data from other (automated) tests",
+    "IMPORT_DATA_INTRO": "Add data from other (automated) tests",
     "RESOURCE_LINK_NAME": "Step 4: Audit the Selected Sample",
     "LABEL_OUTCOME": "Outcome",
     "LABEL_PAGE_HANDLE": "Short page name",

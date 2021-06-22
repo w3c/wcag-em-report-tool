@@ -1,4 +1,5 @@
 <div class="AuditorImport">
+  <span class="AuditorImport__beta">Beta</span>
   <p>{@html TRANSLATED.IMPORT_DATA_INTRO}</p>
   <File
     id="import__assertions"
@@ -15,9 +16,22 @@
     border: 1px solid var(--line-grey);
     padding: 1em;
     font-size: 90%;
+    position: relative;
   }
     .AuditorImport p:first-child {
       margin-top: 0;
+    }
+    .AuditorImport__beta {
+      background-color: var(--cloudy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: .25em .5em;
+      position: absolute;
+      top: -1em;
+      left: 1em;
+      transform: rotate(-1deg);
+      font-size: 90%;
+      display: inline-block;
     }
   @media (min-width: 47.5em) {
     .AuditorImport {
