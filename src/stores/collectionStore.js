@@ -17,6 +17,14 @@ export default function collectionStore(Item, initialCollection = []) {
     return newItem;
   };
 
+  // Re-initialize
+  collection.reset = function reset() {
+    console.log('Collection reset', initialCollection);
+    collection.update(() => {
+      return [...initialCollection];
+    });
+  };
+
   collection.remove = function remove(removeItem) {
     collection.update((items) => {
       return items.filter((item) => {

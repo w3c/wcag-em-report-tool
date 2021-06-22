@@ -27,7 +27,7 @@
     <Link class="button" to="/evaluation/view-report">
       {TRANSLATED.VIEW_REPORT}
     </Link>
-    {#if totalEvaluated > 0}
+    {#if $interacted == true}
     <Button type="secondary" on:click={handleClearEvaluationClick}>
       {TRANSLATED.CLEAR_REPORT}
     </Button>
@@ -52,7 +52,7 @@
 </style>
 
 <script>
-  import { getContext } from 'svelte';
+  import { getContext, onMount } from 'svelte';
   import { Link, useNavigate, useLocation } from 'svelte-navigator';
 
   import Panel from '@app/components/ui/Panel.svelte';
@@ -69,6 +69,8 @@
   import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
   let criteriaCount = 0;
   $: criteriaCount = $CriteriaSelected.length;
+
+  import { interacted } from '@app/stores/interactedStore.js';
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -156,8 +158,17 @@
     var clearResult = window.confirm(TRANSLATED.CLEAR_WARNING);
     if(clearResult){
       $evaluationStore.reset();
+      $interacted = false;
       navigate($routes.SCOPE.path, { replace: true });
     }
+  }
+
+  onMount(() => {
+    window.addEventListener("input", setInteracted);
+  });
+  function setInteracted(){
+      window.removeEventListener("input", setInteracted);
+      $interacted = true;
   }
 
   $: isOverview = $location.pathname === $routes.OVERVIEW.path; 

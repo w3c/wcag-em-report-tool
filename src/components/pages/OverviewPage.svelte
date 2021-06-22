@@ -10,7 +10,8 @@
 
   <details>
     <summary><h2>{TRANSLATED.ABOUT_HEADING}</h2></summary>
-    <p>@@@</p>
+    {@html TRANSLATED.ABOUT_1}
+    {@html TRANSLATED.ABOUT_2}
   </details>
 
   <details>
@@ -21,23 +22,6 @@
       <li>{TRANSLATED.USAGE_LI3}</li>
       <li>{@html TRANSLATED.USAGE_LI4}</li>
     </ul>
-  </details>
-
-  <details>
-    <summary><h2>{TRANSLATED.CHOICES_HEADING}</h2></summary>
-    <p>{TRANSLATED.CHOICES_INTRO}</p>
-    <dl>
-      <dt>{TRANSLATED.CHOICES_DT1}</dt>
-      <dd>{TRANSLATED.CHOICES_DD1}</dd>
-      <dt>{TRANSLATED.CHOICES_DT2}</dt>
-      <dd>{TRANSLATED.CHOICES_DD2}</dd>
-      <dt>{TRANSLATED.CHOICES_DT3}</dt>
-      <dd>{TRANSLATED.CHOICES_DD3}</dd>
-      <dt>{TRANSLATED.CHOICES_DT4}</dt>
-      <dd>{TRANSLATED.CHOICES_DD4}</dd>
-      <dt>{TRANSLATED.CHOICES_DT5}</dt>
-      <dd>{TRANSLATED.CHOICES_DD5}</dd>
-    </dl>
   </details>
 </Page>
 <!-- /component -->
@@ -62,6 +46,8 @@
     USAGE_LI3: $translate('PAGES.START.USAGE_LI3'),
     USAGE_LI4: $translate('PAGES.START.USAGE_LI4'),
     ABOUT_HEADING: $translate('PAGES.START.ABOUT_HEADING'),
+    ABOUT_1: $translate('PAGES.START.ABOUT_1'),
+    ABOUT_2: $translate('PAGES.START.ABOUT_2'),
     CHOICES_HEADING: $translate('PAGES.START.CHOICES_HEADING'),
     CHOICES_INTRO: $translate('PAGES.START.CHOICES_INTRO'),
     CHOICES_DT1: $translate('PAGES.START.CHOICES_DT1'),

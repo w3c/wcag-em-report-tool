@@ -67,7 +67,7 @@
     {#if $summaryStore['EVALUATION_SUMMARY']}
      {@html marked($summaryStore['EVALUATION_SUMMARY'])}
     {:else}
-      <span class="no-result">(Not provided)</span>
+      <span class="no-result">{TRANSLATED.LABEL_NOT_PROVIDED}</span>
     {/if}
     </div>
     <button class="button button-secondary" on:click={toggleEditExecutiveSummary}>
@@ -149,7 +149,7 @@
 </div>
 
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_OVERVIEW}</h2>
-<p>{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
+<p class="no-result">{report.result || TRANSLATED.LABEL_NOT_PROVIDED}</p>
 
 <h2>{TRANSLATED.HEADING_AUDIT_RESULTS_DETAIL}</h2>
 
