@@ -67,13 +67,20 @@
           items: $CriteriaSelected
         };
         final.push(value);
+    }else if(outcomeValue.id == "earl:untested"){
+      const value = {
+          name: outcomeValue.title,
+          id: outcomeValue.id,
+          items: $assertions.filter(assertion => 
+            assertion.result.outcome.id === outcomeValue.id)
+        };
+        final.push(value);
     }else{
         const value = {
           name: outcomeValue.title,
           id: outcomeValue.id,
           items: $assertions.filter(assertion => 
-            assertion.result.outcome.id === outcomeValue.id && 
-            assertion.subject.title == "")
+            assertion.result.outcome.id === outcomeValue.id)
         };
         final.push(value);
     }

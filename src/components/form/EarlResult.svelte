@@ -84,6 +84,8 @@
   import Select from '@app/components/form/Select.svelte';
   import Textarea from '@app/components/form/Textarea.svelte';
 
+  import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
+
   export let label = undefined;
   // Used to display subject.title
   export let subject = {};
