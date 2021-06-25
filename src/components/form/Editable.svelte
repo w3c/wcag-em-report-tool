@@ -22,7 +22,7 @@
           <line x1="10" y1="11" x2="10" y2="17" stroke="#ffffff"/>
           <line x1="14" y1="11" x2="14" y2="17" stroke="#ffffff" />
       </svg>
-      <span class="visually-hidden">{label}</span>
+      <span class="visually-hidden">{TRANSLATED.DELETE} {label}</span>
     </button>
     {/if}    
     <slot />
@@ -76,12 +76,14 @@
 </script>
 
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { getContext, createEventDispatcher } from 'svelte';
 
   export let id = '';
   export let label = '';
   export let persistent = false;
   export let removable = false;
+  
+  const { translate } = getContext('app');
 
   const dispatch = createEventDispatcher();
   const EVENT = {
@@ -92,6 +94,10 @@
   let EditToggle;
 
   $: editing = $editMode[id] = persistent;
+
+  $: TRANSLATED = {
+    DELETE: $translate('UI.COMMON.DELETE')
+  };
 
   function handleEditClick() {
     if (!editing) {
