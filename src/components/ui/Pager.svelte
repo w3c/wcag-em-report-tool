@@ -6,7 +6,7 @@
  *   - Icons/svgs should get componentized for better readability
  * -->
 <div class="default-grid">
-  <aside class="Pager pager">
+  <aside class="Pager pager" aria-label={TRANSLATED.PREVIOUSNEXT}>
     <ul>
       {#if previousPage}
         <li class="Pager__Item pager--item previous">
@@ -58,6 +58,7 @@
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
+    PREVIOUSNEXT: $translate('UI.COMMON.PREVIOUSNEXT'),
     NEXT: $translate('UI.COMMON.NEXT', {
       default: 'Next {label}',
       values: { label }
