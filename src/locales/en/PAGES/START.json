@@ -3,7 +3,7 @@
     "SUBTITLE": "Overview",
     "INTRO_HD": "What this tool does",
     "INTRO_1": "WCAG-EM Report Tool turns your accessibility evaluation findings into a report. It is based on the Web Content Accessibility Guidelines Evaluation Methodology ([WCAG-EM](https://www.w3.org/TR/WCAG-EM/)).",
-    "INTRO_2": "<p>Tips for using this tool:</p><ul><li>Under “View Report”, you can export your report as HTML (web page) or as JSON (structured data).</li><li>You can format your findings with <a href='https://en.wikipedia.org/wiki/Markdown'>Markdown</a>, to add lists, links and code examples and more.</li></ul>",
+    "INTRO_2": "<p>Tips for using this tool:</p><ul><li>Under “View Report”, you can download your report as HTML (web page) or as JSON (structured data).</li><li>You can format your findings with <a href='https://en.wikipedia.org/wiki/Markdown'>Markdown</a>, to add lists, links and code examples and more.</li></ul>",
     "ABOUT_HEADING": "About this tool",
     "ABOUT_1": "<p>The WCAG-EM Report Tool can be used to create a <a href='https://www.w3.org/WAI/eval/report-tool/#!/view_report'>structured report</a> of accessibility evaluation findings. It does not perform (automated) checks.</p>",
     "ABOUT_2": "<p>This tool is for experienced accessibility evaluators. You will need knowledge of WCAG, accessible web design, assistive technologies, and how people with different disabilities use the Web (as described in the WCAG-EM <a href='http://www.w3.org/TR/WCAG-EM/#expertise'>Required Expertise</a> section).</p>",
