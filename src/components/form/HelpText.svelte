@@ -6,14 +6,15 @@
  * -->
 <div class="HelpText information" >
   <div class="HelpText__label">
-    {@html label}
+    {@html labelHTML}
     <button 
       type="button" 
       on:click={toggle} 
       class="button button-small showhidebutton"
       aria-expanded="{open}"
+      aria-label={`${buttonText} ${TRANSLATED.FOR} ${label}`}
     >
-     {@html buttonText}
+     {@html buttonText} 
     </button>
   </div>
    {#if open}
@@ -52,7 +53,8 @@
 <script>
   import { getContext } from 'svelte';
 
-  export let label = 'label';
+  export let label;
+  export let labelHTML;
   export let open = false;
 
   function toggle() {
@@ -75,6 +77,7 @@
       values: {
         subject: $translate('UI.COMMON.BUTTON.INFO')
       }
-    })
+    }),
+    FOR: $translate('UI.COMMON.FOR')
   };
 </script>

@@ -1,7 +1,8 @@
 <div class="Field">
   {#if helptext}
     <HelpText
-      label="{label && `<label for="${id}">${label}</label>`}"
+      labelHTML="{label && `<label for="${id}">${label}</label>`}"
+      {label}
     >
       {@html helptext}
     </HelpText>

@@ -6,8 +6,14 @@
   <legend>
     {label}
     {#if helptext}
-    <button type="button" on:click={toggle} class="button button-small showhidebutton" aria-expanded={showHelptext} aria-controls={`field-helptext-${id}`}>
-      {TRANSLATED.SHOW_HIDE_HELPTEXT}
+    <button 
+      type="button" 
+      on:click={toggle} 
+      class="button button-small showhidebutton" 
+      aria-expanded={showHelptext} 
+      aria-controls={`field-helptext-${id}`}        
+      aria-label={`${TRANSLATED.SHOW_HIDE_HELPTEXT} ${TRANSLATED.FOR} ${label}`}>
+        {TRANSLATED.SHOW_HIDE_HELPTEXT}
     </button>
     {#if showHelptext}
         <div class="SampleInput__helptext" id={`field-helptext-${id}`}> 
@@ -86,8 +92,9 @@
         })
       : $translate('UI.COMMON.BUTTON.SHOW', {
           values: { subject: $translate('UI.COMMON.BUTTON.INFO') }
-        })
-    };
+        }),
+    FOR: $translate('UI.COMMON.FOR')
+  };
 
   function toggle() {
     showHelptext = !showHelptext;
