@@ -3,7 +3,7 @@
     "INTRO": "Bepaal de basiseisen en scope van de evaluatie. Dit wordt bij voorkeur gedaan door de opdrachtgever van de evaluatie (dit kan, maar hoeft niet de eigenaar van de website te zijn), om ervoor te zorgen dat de verwachtingen op de opdracht aansluiten.",
     "RESOURCE_LINK_NAME": "Stap 1: Bepaal de scope van de evaluatie",
     "LABEL_SITE_NAME": "Website naam",
-    "INF_SITE_NAME": "Vul een naam in van de te evalueren website. Bijvoorbeeld:<br> 'Publieke website van Voorbeeld Organisatie' <br> 'Webshop van Voorbeeld Bedrijf' <br> 'Intranet van Voorbeeld Universiteit'",
+    "INF_SITE_NAME": "Vul een naam in van de te evalueren website. Bijvoorbeeld:<ul><li>'Publieke website van Voorbeeld Organisatie'</li><li>'Webshop van Voorbeeld Bedrijf'</li><li>'Intranet van Voorbeeld Universiteit'</li></ul>",
     "LABEL_SITE_SCOPE": "Scope van de website",
     "INF_SITE_SCOPE_0": "Leg de scope van de website vast, zodat duidelijk is welke webpagina's binnen de evaluatie vallen. Voor meer informatie, zie [WCAG-EM Stap 1.a: Definieer de scope van de website](https://www.w3.org/TR/WCAG-EM/#step1a). Bijvoorbeeld:",
     "INF_SITE_SCOPE_LI0": "'Alle webcontent van de publieke website van Voorbeeld Org. op `http://www.example.org`'",
