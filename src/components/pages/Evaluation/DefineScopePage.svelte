@@ -105,7 +105,8 @@
     ADDITIONAL_REQUIREMENTS_HELPTEXT_LI1: $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI0'),
     ADDITIONAL_REQUIREMENTS_HELPTEXT_LI2: $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI1'),
     ADDITIONAL_REQUIREMENTS_HELPTEXT_LI3: $translate('PAGES.SCOPE.INF_EXTRA_REQUIREMENTS_LI2'),
-    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL')
+    CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
+    DATA_LOSS_WARNING: $translate('PAGES.SCOPE.DATA_LOSS_WARNING')
   };
 
   let wcagVersions = [...WCAG_VERSIONS].reverse().map((version) => {
@@ -130,9 +131,11 @@
   // Used for id creation (test.id)
   export let test = {};
 
+let assertionsToRemove = [];
   $: if(true){
     // Get or create an Assertion
     const available = [];
+    
     $CriteriaSelected.forEach((criteria) => {
       const check = criteria.num;
       available.push(check);
@@ -156,9 +159,50 @@
       return available.indexOf(assertion.test.num) == -1;
     });
 
-    assertionsToRemove.forEach((assertion) => {
-      assertions.remove(assertion);
-    });
+    console.log(assertionsToRemove);
+
+    if(assertionsToRemove.length > 0){
+      let answeredCount = 0;
+      assertionsToRemove.forEach((assertion) => {
+        if(assertion.result.outcome.id != "earl:untested"){
+          answeredCount++;
+        }
+      });
+
+      if(answeredCount > 0){
+        if (confirm(TRANSLATED.DATA_LOSS_WARNING)) {
+          assertionsToRemove.forEach((assertion) => {
+            assertions.remove(assertion);
+          });
+          console.log("assertions removed");
+        } else {
+          console.log("assertions still intact, value restored");
+          $scopeStore['WCAG_VERSION'] = oldwcag;
+          $scopeStore['CONFORMANCE_TARGET'] = oldtarget;
+        }
+      }else{
+        assertionsToRemove.forEach((assertion) => {
+          assertions.remove(assertion);
+        });
+      }
+    }
+    
   }  
+
+  let oldwcag = "";
+  let oldtarget = "";
+  onMount(() => {
+    oldwcag = document.getElementById("wcag_version").value;
+    oldtarget = document.getElementById("conformance_target").value;
+
+    document.getElementById("wcag_version").onfocus=function() {
+       oldwcag = this.value;
+       console.log(oldwcag);
+    };
+    document.getElementById("conformance_target").onfocus=function() {
+       oldtarget = this.value;
+       console.log(oldtarget);
+    };
+  });
 
 </script>
