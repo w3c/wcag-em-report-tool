@@ -350,33 +350,33 @@ class EvaluationModel {
             randomSample: framedEvaluation.randomSample
           };
 
-          if (structuredSample != undefined){
-            let importStructuredSample = structuredSample
-              ? structuredSample
-              : // Deprecated / previous versions
-              deprecated.structuredSample
-                ? deprecated.structuredSample.DfnWebpageWcag21 ||
-                deprecated.structuredSample.DfnWebpageWcag20
-                : // Default
-                [];
+          let importStructuredSample = structuredSample
+            ? structuredSample
+            : // Deprecated / previous versions
+            deprecated.structuredSample
+              ? deprecated.structuredSample.DfnWebpageWcag21 ||
+              deprecated.structuredSample.DfnWebpageWcag20
+              : // Default
+              [];
 
-            let importRandomSample = randomSample
-              ? randomSample
-              : // Deprecated / previous versions
-              deprecated.randomSample
-                ? deprecated.randomSample.DfnWebpageWcag21 ||
-                deprecated.randomSample.DfnWebpageWcag20
-                : // Default
-                [];
+          let importRandomSample = randomSample
+            ? randomSample
+            : // Deprecated / previous versions
+            deprecated.randomSample
+              ? deprecated.randomSample.DfnWebpageWcag21 ||
+              deprecated.randomSample.DfnWebpageWcag20
+              : // Default
+              [];
 
-            if (!Array.isArray(importStructuredSample)) {
-              importStructuredSample = [importStructuredSample];
-            }
+          if (!Array.isArray(importStructuredSample)) {
+            importStructuredSample = [importStructuredSample];
+          }
 
-            if (!Array.isArray(importRandomSample)) {
-              importRandomSample = [importRandomSample];
-            }
+          if (!Array.isArray(importRandomSample)) {
+            importRandomSample = [importRandomSample];
+          }
 
+          if(structuredSample != undefined){
             return {
               STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
                 sample.type = TestSubjectTypes.WEBPAGE;
@@ -389,7 +389,13 @@ class EvaluationModel {
                 return subjects.create(sample);
               })
             };
+          }else{
+            return {
+              STRUCTURED_SAMPLE: [],
+              RANDOM_SAMPLE: []
+            };
           }
+          
           
         });
 
