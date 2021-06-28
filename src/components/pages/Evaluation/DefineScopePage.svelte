@@ -159,8 +159,6 @@ let assertionsToRemove = [];
       return available.indexOf(assertion.test.num) == -1;
     });
 
-    console.log(assertionsToRemove);
-
     if(assertionsToRemove.length > 0){
       let answeredCount = 0;
       assertionsToRemove.forEach((assertion) => {
@@ -174,9 +172,7 @@ let assertionsToRemove = [];
           assertionsToRemove.forEach((assertion) => {
             assertions.remove(assertion);
           });
-          console.log("assertions removed");
         } else {
-          console.log("assertions still intact, value restored");
           $scopeStore['WCAG_VERSION'] = oldwcag;
           $scopeStore['CONFORMANCE_TARGET'] = oldtarget;
         }
@@ -197,11 +193,9 @@ let assertionsToRemove = [];
 
     document.getElementById("wcag_version").onfocus=function() {
        oldwcag = this.value;
-       console.log(oldwcag);
     };
     document.getElementById("conformance_target").onfocus=function() {
        oldtarget = this.value;
-       console.log(oldtarget);
     };
   });
 
