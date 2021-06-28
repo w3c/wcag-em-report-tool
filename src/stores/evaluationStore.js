@@ -275,10 +275,16 @@ class EvaluationModel {
           selectSample = {};
         }
 
+        let altVersion = "";
+        if(framedEvaluation["dcterms:publisher"]){
+          altVersion = framedEvaluation["dcterms:publisher"].id;
+          altVersion = altVersion.substr(altVersion.lastIndexOf("/")+1, 3);
+        }
+  
+        console.log(altVersion);
         language = framedEvaluation.language || 'en';
         locale.set(language);
-
-        wcagVersion = defineScope.wcagVersion || DEFAULT_WCAG_VERSION;
+        wcagVersion = defineScope.wcagVersion || altVersion || DEFAULT_WCAG_VERSION;
 
         /**
          * Start setting values from the imported json-ld.
@@ -296,7 +302,7 @@ class EvaluationModel {
             ADDITIONAL_REQUIREMENTS:
               defineScope.additionalEvaluationRequirements || '',
             AS_BASELINE: defineScope.accessibilitySupportBaseline || '',
-            CONFORMANCE_TARGET: defineScope.conformanceTarget || 'AA',
+            CONFORMANCE_TARGET: defineScope.conformanceTarget || defineScope.step1b || DEFAULT_CONFORMANCE_LEVEL,
             SITE_NAME:
               openedScope.title ||
               // Deprecated
@@ -344,44 +350,47 @@ class EvaluationModel {
             randomSample: framedEvaluation.randomSample
           };
 
-          let importStructuredSample = structuredSample
-            ? structuredSample
-            : // Deprecated / previous versions
-            deprecated.structuredSample
-              ? deprecated.structuredSample.DfnWebpageWcag21 ||
-              deprecated.structuredSample.DfnWebpageWcag20
-              : // Default
-              [];
+          if (structuredSample != undefined){
+            let importStructuredSample = structuredSample
+              ? structuredSample
+              : // Deprecated / previous versions
+              deprecated.structuredSample
+                ? deprecated.structuredSample.DfnWebpageWcag21 ||
+                deprecated.structuredSample.DfnWebpageWcag20
+                : // Default
+                [];
 
-          let importRandomSample = randomSample
-            ? randomSample
-            : // Deprecated / previous versions
-            deprecated.randomSample
-              ? deprecated.randomSample.DfnWebpageWcag21 ||
-              deprecated.randomSample.DfnWebpageWcag20
-              : // Default
-              [];
+            let importRandomSample = randomSample
+              ? randomSample
+              : // Deprecated / previous versions
+              deprecated.randomSample
+                ? deprecated.randomSample.DfnWebpageWcag21 ||
+                deprecated.randomSample.DfnWebpageWcag20
+                : // Default
+                [];
 
-          if (!Array.isArray(importStructuredSample)) {
-            importStructuredSample = [importStructuredSample];
+            if (!Array.isArray(importStructuredSample)) {
+              importStructuredSample = [importStructuredSample];
+            }
+
+            if (!Array.isArray(importRandomSample)) {
+              importRandomSample = [importRandomSample];
+            }
+
+            return {
+              STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
+                sample.type = TestSubjectTypes.WEBPAGE;
+
+                return subjects.create(sample);
+              }),
+              RANDOM_SAMPLE: importRandomSample.map((sample) => {
+                sample.type = TestSubjectTypes.WEBPAGE;
+
+                return subjects.create(sample);
+              })
+            };
           }
-
-          if (!Array.isArray(importRandomSample)) {
-            importRandomSample = [importRandomSample];
-          }
-
-          return {
-            STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
-              sample.type = TestSubjectTypes.WEBPAGE;
-
-              return subjects.create(sample);
-            }),
-            RANDOM_SAMPLE: importRandomSample.map((sample) => {
-              sample.type = TestSubjectTypes.WEBPAGE;
-
-              return subjects.create(sample);
-            })
-          };
+          
         });
 
         summaryStore.update((value) => {
@@ -393,7 +402,7 @@ class EvaluationModel {
               framedEvaluation.commissioner ||
               '',
             EVALUATION_CREATOR: reportFindings.evaluator || '',
-            EVALUATION_DATE: reportFindings.date["@value"] || '',
+            EVALUATION_DATE: reportFindings.date || '',
             EVALUATION_SUMMARY:
               reportFindings.summary || framedEvaluation.summary || '',
             EVALUATION_SPECIFICS:
