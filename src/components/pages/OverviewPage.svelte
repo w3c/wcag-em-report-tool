@@ -8,6 +8,8 @@
   </p>
   {@html TRANSLATED.INTRODUCTION_P2}
 
+  <ExpandCollapseAll />
+
   <details>
     <summary><h2>{TRANSLATED.ABOUT_HEADING}</h2></summary>
     {@html TRANSLATED.ABOUT_1}
@@ -30,6 +32,7 @@
   import { getContext } from 'svelte';
 
   import Page from '@app/components/ui/Page.svelte';
+  import ExpandCollapseAll from '@app/components/ui/ExpandCollapseAll.svelte';
 
   const { translate } = getContext('app');
 

@@ -28,5 +28,7 @@
     "SHOW_FULL_DESCRIPTION": "Show full description",
     "PREVIOUSNEXT": "Previous/Next Step",
     "DELETE": "Delete",
-    "FOR": "for"
+    "FOR": "for",
+    "EXPAND_ALL": "Expand All Sections",
+    "COLLAPSE_ALL": "Collapse All Sections"
 }

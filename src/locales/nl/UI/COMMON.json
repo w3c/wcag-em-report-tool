@@ -27,5 +27,7 @@
     "SHOW_FULL_DESCRIPTION": "Toon volledige omschrijving",
     "PREVIOUSNEXT": "Vorige/Volgende Stap",
     "DELETE": "Verwijder",
-    "FOR": "voor"
+    "FOR": "voor",
+    "EXPAND_ALL": "Klap alle secties uit",
+    "COLLAPSE_ALL": "Sluit alle secties"
 }
