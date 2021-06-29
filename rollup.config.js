@@ -40,7 +40,7 @@ export default {
           dest: `src/locales/translations_${locale.lang}.json`
         };
       }),
-      verbose: true,
+      verbose: false,
       watch: true,
       wrapWithPath: true
     }),
@@ -97,7 +97,7 @@ export default {
           }
         }
       ],
-      verbose: true
+      verbose: false
     }),
 
     svelte({
