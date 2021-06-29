@@ -71,7 +71,7 @@
   $: fullTitle = subtitle ? `${subtitle} ${title}` : title;
 
   $: TRANSLATED = {
-    SHOW_HIDE: open
+    SHOW_HIDE: $yourReportPanelOpen
       ? $translate('UI.COMMON.BUTTON.HIDE', {
           default: 'Hide {subject}',
           values: { subject: `<span class="visuallyhidden">${fullTitle || ''}</span>` }
