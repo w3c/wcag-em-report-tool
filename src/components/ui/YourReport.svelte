@@ -98,9 +98,8 @@
     OF: $translate('UI.REPORT.REPORTED_ON_OF'),
   };
 
-
   $: conformanceTarget = $scopeStore['CONFORMANCE_TARGET'];
-  $: percentageTotalEvaluated = (totalEvaluated / totalToEvaluate) * 100;
+  $: percentageTotalEvaluated = 100 / $assertions.length * totalEvaluated;
 
   $: principles = [...new Set($wcag.map((a) => a.num.split('.')[0]))];
 

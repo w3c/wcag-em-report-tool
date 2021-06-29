@@ -275,10 +275,15 @@ class EvaluationModel {
           selectSample = {};
         }
 
+        let altVersion = "";
+        if(framedEvaluation["dcterms:publisher"]){
+          altVersion = framedEvaluation["dcterms:publisher"].id;
+          altVersion = altVersion.substr(altVersion.lastIndexOf("/")+1, 3);
+        }
+  
         language = framedEvaluation.language || 'en';
         locale.set(language);
-
-        wcagVersion = defineScope.wcagVersion || DEFAULT_WCAG_VERSION;
+        wcagVersion = defineScope.wcagVersion || altVersion || DEFAULT_WCAG_VERSION;
 
         /**
          * Start setting values from the imported json-ld.
@@ -296,7 +301,7 @@ class EvaluationModel {
             ADDITIONAL_REQUIREMENTS:
               defineScope.additionalEvaluationRequirements || '',
             AS_BASELINE: defineScope.accessibilitySupportBaseline || '',
-            CONFORMANCE_TARGET: defineScope.conformanceTarget || 'AA',
+            CONFORMANCE_TARGET: defineScope.conformanceTarget || defineScope.step1b || DEFAULT_CONFORMANCE_LEVEL,
             SITE_NAME:
               openedScope.title ||
               // Deprecated
@@ -370,18 +375,27 @@ class EvaluationModel {
             importRandomSample = [importRandomSample];
           }
 
-          return {
-            STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
-              sample.type = TestSubjectTypes.WEBPAGE;
+          if(structuredSample != undefined){
+            return {
+              STRUCTURED_SAMPLE: importStructuredSample.map((sample) => {
+                sample.type = TestSubjectTypes.WEBPAGE;
 
-              return subjects.create(sample);
-            }),
-            RANDOM_SAMPLE: importRandomSample.map((sample) => {
-              sample.type = TestSubjectTypes.WEBPAGE;
+                return subjects.create(sample);
+              }),
+              RANDOM_SAMPLE: importRandomSample.map((sample) => {
+                sample.type = TestSubjectTypes.WEBPAGE;
 
-              return subjects.create(sample);
-            })
-          };
+                return subjects.create(sample);
+              })
+            };
+          }else{
+            return {
+              STRUCTURED_SAMPLE: [],
+              RANDOM_SAMPLE: []
+            };
+          }
+          
+          
         });
 
         summaryStore.update((value) => {
@@ -393,7 +407,7 @@ class EvaluationModel {
               framedEvaluation.commissioner ||
               '',
             EVALUATION_CREATOR: reportFindings.evaluator || '',
-            EVALUATION_DATE: reportFindings.date["@value"] || '',
+            EVALUATION_DATE: reportFindings.date || '',
             EVALUATION_SUMMARY:
               reportFindings.summary || framedEvaluation.summary || '',
             EVALUATION_SPECIFICS:
