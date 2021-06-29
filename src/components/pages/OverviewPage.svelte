@@ -6,9 +6,22 @@
   <p>
     {@html TRANSLATED.INTRODUCTION_P1}
   </p>
-  {@html TRANSLATED.INTRODUCTION_P2}
+
+  <Button on:click="{handleNewEvaluationClick}">
+    {TRANSLATED.BUTTON_NEW_EVALUATION}
+  </Button>
+  <OpenEvaluation />
 
   <ExpandCollapseAll />
+
+  <details>
+    <summary><h2>{TRANSLATED.TIPS_HEADING}</h2></summary>
+    <ul>
+      <li>{@html TRANSLATED.TIPS_1}</li>
+      <li>{@html TRANSLATED.TIPS_2}</li>
+      <li>{@html TRANSLATED.TIPS_3}</li>
+    </ul>
+  </details>
 
   <details>
     <summary><h2>{TRANSLATED.ABOUT_HEADING}</h2></summary>
@@ -22,19 +35,26 @@
       <li>{TRANSLATED.USAGE_LI1}</li>
       <li>{TRANSLATED.USAGE_LI2}</li>
       <li>{TRANSLATED.USAGE_LI3}</li>
-      <li>{@html TRANSLATED.USAGE_LI4}</li>
     </ul>
   </details>
+
 </Page>
 <!-- /component -->
 
 <script>
   import { getContext } from 'svelte';
+  import { useNavigate } from 'svelte-navigator';
 
   import Page from '@app/components/ui/Page.svelte';
   import ExpandCollapseAll from '@app/components/ui/ExpandCollapseAll.svelte';
+  import OpenEvaluation from '@app/components/form/OpenEvaluation.svelte';
+  import Button from '@app/components/ui/Button.svelte';
+
+  import { routes } from '@app/stores/appStore.js';
+  import evaluationStore from '@app/stores/evaluationStore.js';
 
   const { translate } = getContext('app');
+  const navigate = useNavigate();
 
   $: TRANSLATED = {
     BUTTON_NEW_EVALUATION: $translate('UI.NAV.MENU_NEW', {
@@ -48,6 +68,10 @@
     USAGE_LI2: $translate('PAGES.START.USAGE_LI2'),
     USAGE_LI3: $translate('PAGES.START.USAGE_LI3'),
     USAGE_LI4: $translate('PAGES.START.USAGE_LI4'),
+    TIPS_HEADING: $translate('PAGES.START.TIPS_HD'),
+    TIPS_1: $translate('PAGES.START.TIPS_1'),
+    TIPS_2: $translate('PAGES.START.TIPS_2'),
+    TIPS_3: $translate('PAGES.START.TIPS_3'),
     ABOUT_HEADING: $translate('PAGES.START.ABOUT_HEADING'),
     ABOUT_1: $translate('PAGES.START.ABOUT_1'),
     ABOUT_2: $translate('PAGES.START.ABOUT_2'),
@@ -64,4 +88,9 @@
     CHOICES_DT5: $translate('PAGES.START.CHOICES_DT5'),
     CHOICES_DD5: $translate('PAGES.START.CHOICES_DD5')
   };
+
+  function handleNewEvaluationClick() {
+    $evaluationStore.reset();
+    navigate($routes.SCOPE.path, { replace: true });
+  }
 </script>
