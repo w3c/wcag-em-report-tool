@@ -1,4 +1,4 @@
-<div class={`excol-all ${classNames}`}>
+<div class="excol-all">
   <button
     class="expand button button-secondary button-small"
     disabled={!someCollapsed}
@@ -58,6 +58,4 @@
     initButtonStatus();
     setButtonStatus();
   });
-
-  export let classNames = "";
 </script>

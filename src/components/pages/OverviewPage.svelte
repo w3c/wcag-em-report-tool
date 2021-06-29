@@ -3,16 +3,20 @@
  *   OverviewPage
  * -->
 <Page title="{TRANSLATED.PAGE_TITLE}">
-  <p class="intro">
-    {@html TRANSLATED.INTRODUCTION_P1}
-  </p>
+  <div class="getting-started">
+    <p class="getting-started__intro">
+      {@html TRANSLATED.INTRODUCTION_P1}
+    </p>
 
-  <Button on:click="{handleNewEvaluationClick}">
-    {TRANSLATED.BUTTON_NEW_EVALUATION}
-  </Button>
-  <OpenEvaluation />
+    <div class="getting-started__buttons">
+      <Button on:click="{handleNewEvaluationClick}">
+        {TRANSLATED.BUTTON_NEW_EVALUATION}
+      </Button>
+      <OpenEvaluation />
+    </div>
+  </div> 
 
-  <ExpandCollapseAll classNames="excol-all--homepage" />
+  <ExpandCollapseAll />
 
   <details>
     <summary><h2>{TRANSLATED.TIPS_HEADING}</h2></summary>
@@ -96,10 +100,31 @@
 </script>
 
 <style>
-  .intro {
+  .getting-started__intro {
     font-size: 130%;
+    max-width: 30em;
+    margin: 0;
   }
-  :global(.excol-all--homepage) {
-    margin: 3em 0 -2em 0;
+  .getting-started__buttons {
+    text-align: center;
+    padding: 1em;
+  }
+  :global(.getting-started__buttons .Button),
+  :global(.getting-started__buttons .File) {
+    margin: .25em;
+  }
+  :global(.getting-started + .excol-all) {
+    margin: 3em 0 -1em 0;
+  }
+  @media (min-width: 45em) {
+    .getting-started {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2em;
+    }
+    .getting-started__buttons {
+      padding: 0;
+      align-self: center;
+    }
   }
 </style>
