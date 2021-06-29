@@ -146,7 +146,7 @@
   };
 
   function isEvaluated(assertion) {
-    return assertion.result.outcome.id !== "earl:untested" && assertion.subject.title == ""
+    return assertion.result.outcome.id !== "earl:untested"
   }
 
   function handleNewEvaluationClick() {
@@ -175,8 +175,7 @@
   $: isAuditSample = $location.pathname === $routes.AUDIT.path; 
   $: siteName = $scopeStore['SITE_NAME'];
   $: totalToEvaluate = $assertions.filter(assertion => 
-    assertion.subject.title == "").length;
+    assertion.result.outcome.id == "earl:untested").length;
   $: totalEvaluated = $assertions.filter(assertion => 
-    assertion.subject.title == "" &&
    assertion.result.outcome.id !== "earl:untested").length;
 </script>

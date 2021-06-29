@@ -3,11 +3,18 @@ import { writable } from 'svelte/store';
 export default function collectionStore(Item, initialCollection = []) {
   const collection = writable([...initialCollection]);
 
+  // Re-initialize
+  collection.reset = function reset() {
+    collection.update(() => {
+      return [...initialCollection];
+    });
+  };
+
   collection.create = function create(value) {
+
     if (typeof value !== 'object') {
       value = { value };
     }
-
     const newItem = Item ? new Item(value) : { ...value };
 
     collection.update((value) => {
@@ -15,14 +22,6 @@ export default function collectionStore(Item, initialCollection = []) {
     });
 
     return newItem;
-  };
-
-  // Re-initialize
-  collection.reset = function reset() {
-    console.log('Collection reset', initialCollection);
-    collection.update(() => {
-      return [...initialCollection];
-    });
   };
 
   collection.remove = function remove(removeItem) {

@@ -69,6 +69,12 @@
   import { getContext, onMount } from 'svelte';
 
   import { CONFORMANCE_LEVELS, WCAG_VERSIONS, scopedWcagVersions } from '@app/stores/wcagStore.js';
+  import assertions from '@app/stores/earl/assertionStore/index.js';
+  import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
+  import tests from '@app/stores/earl/testStore/index.js';
+  import subjects, {
+    TestSubjectTypes
+  } from '@app/stores/earl/subjectStore/index.js';
 
   import Page from '@app/components/ui/Page.svelte';
   import Input from '@app/components/form/Input.svelte';
@@ -117,5 +123,42 @@
   });
 
   const { scopeStore } = getContext('app');
+
+  // Used to display subject.title
+  export let subject = {};
+
+  // Used for id creation (test.id)
+  export let test = {};
+
+  $: if(true){
+    // Get or create an Assertion
+    const available = [];
+    $CriteriaSelected.forEach((criteria) => {
+      const check = criteria.num;
+      available.push(check);
+      subject = $subjects.find((subject) => {
+        return subject.type.indexOf(TestSubjectTypes.WEBSITE) >= 0;
+    });
+
+    test = $tests.find(($test) => {
+      return $test.num === check;
+    });
+      
+    $assertions.find(($assertion) => {
+      const matchedTest = $assertion.test === test;
+      const matchedSubject = $assertion.subject === subject;
+
+      return matchedTest && matchedSubject;
+      }) || assertions.create({ subject, test });
+    });
+
+    assertionsToRemove = $assertions.filter((assertion) => {
+      return available.indexOf(assertion.test.num) == -1;
+    });
+
+    assertionsToRemove.forEach((assertion) => {
+      assertions.remove(assertion);
+    });
+  }  
 
 </script>

@@ -26,7 +26,6 @@
   };
 
   $: totalEvaluated = $assertions.filter(assertion => 
-    assertion.subject.title == "" &&
    assertion.result.outcome.id !== "earl:untested").length;
 
 </script>
