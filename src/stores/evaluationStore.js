@@ -281,7 +281,6 @@ class EvaluationModel {
           altVersion = altVersion.substr(altVersion.lastIndexOf("/")+1, 3);
         }
   
-        console.log(altVersion);
         language = framedEvaluation.language || 'en';
         locale.set(language);
         wcagVersion = defineScope.wcagVersion || altVersion || DEFAULT_WCAG_VERSION;

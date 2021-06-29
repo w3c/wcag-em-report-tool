@@ -31,7 +31,8 @@
       label="{TRANSLATED.WCAG_VERSION_LABEL}"
       helptext="{TRANSLATED.WCAG_VERSION_HELPTEXT}"
       options="{wcagVersions}"
-      bind:value="{$scopeStore['WCAG_VERSION']}"
+      value="{$scopeStore['WCAG_VERSION']}"
+      on:change={updateWCAGversion}
     />
 
     <Select
@@ -39,7 +40,8 @@
       label="{TRANSLATED.CONFORMANCE_TARGET_LABEL}"
       helptext="{TRANSLATED.CONFORMANCE_TARGET_HELPTEXT}"
       options="{conformanceLevels}"
-      bind:value="{$scopeStore['CONFORMANCE_TARGET']}"
+      value="{$scopeStore['CONFORMANCE_TARGET']}"
+      on:change={updateConformanceTarget}
     />
 
     <Textarea
@@ -125,17 +127,29 @@
 
   const { scopeStore } = getContext('app');
 
+  let oldwcag = $scopeStore['WCAG_VERSION'];
+  let oldtarget = $scopeStore['CONFORMANCE_TARGET'];
+
+  function updateWCAGversion(event){
+    oldwcag = $scopeStore['WCAG_VERSION'];
+    $scopeStore['WCAG_VERSION'] = event.target.value;
+  }
+
+  function updateConformanceTarget(event){
+    oldtarget = $scopeStore['CONFORMANCE_TARGET'];
+    $scopeStore['CONFORMANCE_TARGET'] = event.target.value;
+  }
+
   // Used to display subject.title
   export let subject = {};
 
   // Used for id creation (test.id)
   export let test = {};
 
-let assertionsToRemove = [];
-  $: if(true){
+  let assertionsToRemove = [];
+  $: {
     // Get or create an Assertion
     const available = [];
-    
     $CriteriaSelected.forEach((criteria) => {
       const check = criteria.num;
       available.push(check);
@@ -182,21 +196,6 @@ let assertionsToRemove = [];
         });
       }
     }
-    
   }  
-
-  let oldwcag = "";
-  let oldtarget = "";
-  onMount(() => {
-    oldwcag = document.getElementById("wcag_version").value;
-    oldtarget = document.getElementById("conformance_target").value;
-
-    document.getElementById("wcag_version").onfocus=function() {
-       oldwcag = this.value;
-    };
-    document.getElementById("conformance_target").onfocus=function() {
-       oldtarget = this.value;
-    };
-  });
 
 </script>
