@@ -3,7 +3,7 @@
 </svelte:head>
 
 <div class="page-content">
-{#if hasPanel}
+{#if needsPanelSpace}
   <div class="default-grid">
     <main class="main-with-panel">
       <h1>{title}</h1>
@@ -14,7 +14,7 @@
 {:else}
   <div class="default-grid">
     <main class="main-without-panel">
-      {#if !isViewReport}
+      {#if !isViewReport && !isOverview}
       <YourReport />
       {/if}
       <h1>{title}</h1>
@@ -51,9 +51,8 @@
   const location = useLocation();
 
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
-  $: hasPanel = !isViewReport && $yourReportPanelOpen;
-
-  $: console.log($yourReportPanelOpen);
+  $: isOverview = $location.pathname === $routes.OVERVIEW.path;
+  $: needsPanelSpace = !isViewReport && !isOverview && $yourReportPanelOpen;
 
   onMount(() => {
     honourFragmentIdLinks($location);
