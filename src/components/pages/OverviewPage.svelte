@@ -3,7 +3,7 @@
  *   OverviewPage
  * -->
 <Page title="{TRANSLATED.PAGE_TITLE}">
-  <p>
+  <p class="intro">
     {@html TRANSLATED.INTRODUCTION_P1}
   </p>
 
@@ -12,7 +12,7 @@
   </Button>
   <OpenEvaluation />
 
-  <ExpandCollapseAll />
+  <ExpandCollapseAll classNames="excol-all--homepage" />
 
   <details>
     <summary><h2>{TRANSLATED.TIPS_HEADING}</h2></summary>
@@ -94,3 +94,12 @@
     navigate($routes.SCOPE.path, { replace: true });
   }
 </script>
+
+<style>
+  .intro {
+    font-size: 130%;
+  }
+  :global(.excol-all--homepage) {
+    margin: 3em 0 -2em 0;
+  }
+</style>
