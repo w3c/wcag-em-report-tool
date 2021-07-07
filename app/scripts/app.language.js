@@ -9,6 +9,10 @@ angular.module('wcagReporter')
     {
     	code: 'nl',
       localName: 'Nederlands'
+    },
+    {
+    	code: 'pl',
+      localName: 'Polski'
     }
   ])
   .config(function ($translateProvider, wcag2specProvider) {

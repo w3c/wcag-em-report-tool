@@ -1,0 +1,1828 @@
+{
+    "principles": [
+        {
+            "id": "WCAG2:perceivable",
+            "num": "1",
+            "versions": [
+                "2.0",
+                "2.1"
+            ],
+            "handle": "Postrzegalność",
+            "text": "Przedstawiaj użytkownikom informacje i komponenty interfejsu w sposób dostrzegalny dla ich zmysłów.",
+            "guidelines": [
+                {
+                    "id": "WCAG2:text-alternatives",
+                    "alt_id": [
+                        "text-equiv"
+                    ],
+                    "num": "1.1",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Alternatywa tekstowa",
+                    "text": "Zapewnij tekstowe zamienniki wszystkich treści nietekstowych, aby można je było zamienić na inne formy (np. powiększony druk, brajl, mowa syntetyczna, symbole lub prostszy język)",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:non-text-content",
+                            "alt_id": [
+                                "text-equiv-all"
+                            ],
+                            "num": "1.1.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Treść nietekstowa",
+                            "text": "Wszelkie treści nietekstowe przedstawione użytkownikowi posiadają swoją tekstową alternatywę, która pełni tę samą funkcję, z wyjątkiem sytuacji opisanych poniżej.",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Kontrolki użytkownika i wprowadzanie danych przez użytkownika",
+                                            "text": "Jeśli treść nietekstowa jest kontrolką użytkownika lub polem wprowadzania danych, wtedy posiada nazwę opisującą jej przeznaczenie. (Kryterium sukcesu 4.1.2 podaje dodatkowe wymagania dotyczące kontrolek oraz wprowadzania danych przez użytkownika.)"
+                                        },
+                                        {
+                                            "handle": "Multimedia",
+                                            "text": "Jeśli treścią nietekstową są media oparte na czasie, wtedy alternatywa tekstowa zawiera przynajmniej opisowe określenie treści nietekstowej. (Wytyczna 1.2 podaje dodatkowe wymagania, jeśli chodzi o media.)"
+                                        },
+                                        {
+                                            "handle": "Test",
+                                            "text": "Jeśli treść nietekstowa jest testem lub ćwiczeniem, które utraciłoby swój sens ze względu na przedstawienie tej samej treści w postaci tekstu, wtedy alternatywa w postaci tekstu podawać powinna przynajmniej opis pozwalający zrozumieć przeznaczenie treści nietekstowej."
+                                        },
+                                        {
+                                            "handle": "Odczucie zmysłowe",
+                                            "text": "Jeśli treść nietekstowa ma za zadanie przede wszystkim tworzyć konkretne odczucie zmysłowe, wtedy alternatywa w postaci tekstu jest opisem pozwalającym zrozumieć przeznaczenie treści nietekstowej."
+                                        },
+                                        {
+                                            "handle": "CAPTCHA",
+                                            "text": "Jeśli celem treści nietekstowej jest potwierdzenie, że do treści ma dostęp człowiek, a nie komputer, wtedy dostarcza się alternatywę w postaci tekstu, która identyfikuje oraz opisuje cel treści nietekstowej. Dostarcza się również alternatywnych zabezpieczeń typu CAPTCHA, dostosowanych do różnych możliwości percepcji użytkowników, uwzględniając różne rodzaje niepełnosprawności."
+                                        },
+                                        {
+                                            "handle": "Cele dekoracyjne, formatowanie, treść niewidoczna",
+                                            "text": "Jeśli treść nietekstowa pełni funkcję czysto dekoracyjną, używana jest do formatowania wizualnego lub też nie jest przedstawiana użytkownikowi, powinna być wdrożona w sposób umożliwiający technologiom wspomagającym jej zignorowanie."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:time-based-media",
+                    "alt_id": [
+                        "media-equiv"
+                    ],
+                    "num": "1.2",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Multimedia",
+                    "text": "Zapewnij rozwiązania alternatywne dla mediów opartych na czasie.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:audio-only-and-video-only-prerecorded",
+                            "alt_id": [
+                                "media-equiv-av-only-alt"
+                            ],
+                            "num": "1.2.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Tylko audio lub tylko wideo (nagranie)",
+                            "text": "Dla mediów nagranych w systemie tylko audio lub tylko wideo stosuje się następujące zasady, z wyjątkiem sytuacji, kiedy nagranie audio lub wideo jest alternatywą dla tekstu i w taki sposób jest oznaczone",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Alternatywa dla audio",
+                                            "text": "Zapewniona jest alternatywa tekstowa dla nagrań dźwiękowych przedstawiająca tę samą treść, co nagranie audio."
+                                        },
+                                        {
+                                            "handle": "Alternatywa dla wideo",
+                                            "text": "Zapewniona jest alternatywa tekstowa albo audiodeskrypcja dla nagrań zawierających tylko wideo przedstawiająca tę samą treść, co nagranie wideo."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:captions-prerecorded",
+                            "alt_id": [
+                                "media-equiv-captions"
+                            ],
+                            "num": "1.2.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Napisy rozszerzone (nagranie)",
+                            "text": "Do wszystkich nagrań audio w multimediach zsynchronizowanych (dźwięk i obraz), z wyjątkiem sytuacji, kiedy są one alternatywami dla tekstu i w taki sposób są oznaczone, zapewnione są napisy rozszerzone."
+                        },
+                        {
+                            "id": "WCAG2:audio-description-or-media-alternative-prerecorded",
+                            "alt_id": [
+                                "media-equiv-audio-desc"
+                            ],
+                            "num": "1.2.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Audiodeskrypcja lub alternatywa tekstowa dla mediów (nagranie)",
+                            "text": "Zapewniona jest alternatywa dla multimediów lub audiodeskrypcja dla nagrań wideo w multimediach zsynchronizowanych (dźwięk i obraz), z wyjątkiem sytuacji, kiedy są one alternatywami dla tekstu i w taki sposób są oznaczone."
+                        },
+                        {
+                            "id": "WCAG2:captions-live",
+                            "alt_id": [
+                                "media-equiv-real-time-captions"
+                            ],
+                            "num": "1.2.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Napisy rozszerzone (na żywo)",
+                            "text": "Do wszystkich treści audio w multimediach zsynchronizowanych (dźwięk i obraz) przekazywanych na żywo zapewnione są napisy rozszerzone."
+                        },
+                        {
+                            "id": "WCAG2:audio-description-prerecorded",
+                            "alt_id": [
+                                "media-equiv-audio-desc-only"
+                            ],
+                            "num": "1.2.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Audiodeskrypcja (nagranie)",
+                            "text": "Zapewniona jest audiodeskrypcja dla wszystkich nagrań wideo w multimediach zsynchronizowanych."
+                        },
+                        {
+                            "id": "WCAG2:sign-language-prerecorded",
+                            "alt_id": [
+                                "media-equiv-sign"
+                            ],
+                            "num": "1.2.6",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Język migowy (nagranie)",
+                            "text": "Zapewnione jest tłumaczenie w języku migowym wszystkich nagrań audio w multimediach zsynchronizowanych (dźwięk i obraz)."
+                        },
+                        {
+                            "id": "WCAG2:extended-audio-description-prerecorded",
+                            "alt_id": [
+                                "media-equiv-extended-ad"
+                            ],
+                            "num": "1.2.7",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Rozszerzona audiodeskrypcja (nagranie)",
+                            "text": "Jeśli przerwy w ścieżce dźwiękowej nagrania nie pozwalają na zamieszczenie audiodeskrypcji przekazującej sens treści w wystarczającym stopniu, dla wszystkich nagrań wideo w multimediach zsynchronizowanych (dźwięk i obraz) zapewniona jest rozszerzona audiodeskrypcja."
+                        },
+                        {
+                            "id": "WCAG2:media-alternative-prerecorded",
+                            "alt_id": [
+                                "media-equiv-text-doc"
+                            ],
+                            "num": "1.2.8",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Alternatywa dla mediów (nagranie)",
+                            "text": "Zapewniona jest alternatywa dla wszystkich nagrań w multimediach zsynchronizowanych (dźwięk i obraz) oraz dla wszystkich nagrań tylko wideo (sam obraz)."
+                        },
+                        {
+                            "id": "WCAG2:audio-only-live",
+                            "alt_id": [
+                                "media-equiv-live-audio-only"
+                            ],
+                            "num": "1.2.9",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Tylko audio (na żywo)",
+                            "text": "Zapewniona jest alternatywa dla multimediów przedstawiająca informacje takie same, jak w przekazie tylko audio na żywo."
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:adaptable",
+                    "alt_id": [
+                        "content-structure-separation"
+                    ],
+                    "num": "1.3",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Możliwość adaptacji",
+                    "text": "Twórz treści, które mogą być prezentowane na różne sposoby bez utraty informacji czy struktury.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:info-and-relationships",
+                            "alt_id": [
+                                "content-structure-separation-programmatic"
+                            ],
+                            "num": "1.3.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Informacje i relacje",
+                            "text": "Informacje, struktura oraz relacje między treściami przekazywane poprzez prezentację mogą być odczytane przez program komputerowy lub istnieją w postaci tekstu."
+                        },
+                        {
+                            "id": "WCAG2:meaningful-sequence",
+                            "alt_id": [
+                                "content-structure-separation-sequence"
+                            ],
+                            "num": "1.3.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Zrozumiała kolejność",
+                            "text": "Jeśli kolejność, w jakiej przedstawiona jest treść, ma znaczenie dla zrozumienia treści — prawidłowa kolejność odczytu musi być określona programowo."
+                        },
+                        {
+                            "id": "WCAG2:sensory-characteristics",
+                            "alt_id": [
+                                "content-structure-separation-understanding"
+                            ],
+                            "num": "1.3.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Właściwości zmysłowe",
+                            "text": "Instrukcje co do zrozumienia i operowania treścią nie opierają się wyłącznie na właściwościach zmysłowych, takich jak: kształt, rozmiar, wzrokowa lokalizacja, orientacja w przestrzeni lub dźwięk.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Wymogi dotyczące koloru opisane są w Wytycznej 1.4."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:orientation",
+                            "alt_id": [],
+                            "num": "1.3.4",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Orientacja",
+                            "text": "Treść nie ogranicza swojego widoku i działania do jednej orientacji wyświetlania, takiej jak pionowa lub pozioma, chyba że określona orientacja wyświetlania jest istotna."
+                        },
+                        {
+                            "id": "WCAG2:identify-input-purpose",
+                            "alt_id": [],
+                            "num": "1.3.5",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Określenie pożądanej wartości",
+                            "text": "Cel każdego pola zbierającego informacje o użytkowniku może być programowo określony, gdy:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "text": "Pole zbierające dane służy celowi określonemu w sekcji Przeznaczenie pól danych w komponentach interfejsu użytkownika; oraz"
+                                        },
+                                        {
+                                            "text": "Treść jest implementowana za pomocą technologii obsługującej określanie w polach formularza typu oczekiwanych danych."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:identify-purpose",
+                            "alt_id": [],
+                            "num": "1.3.6",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Określenie przeznaczenia",
+                            "text": "W treściach zaimplementowanych przy użyciu języków znaczników przeznaczenie komponentów interfejsu użytkownika, ikon i obszarów kluczowych może zostać określone programowo."
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:distinguishable",
+                    "alt_id": [
+                        "visual-audio-contrast"
+                    ],
+                    "num": "1.4",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Rozróżnialność",
+                    "text": "Ułatwiaj oglądanie i słuchanie treści oraz oddzielanie informacji od tła.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:use-of-color",
+                            "alt_id": [
+                                "visual-audio-contrast-without-color"
+                            ],
+                            "num": "1.4.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Użycie koloru",
+                            "text": "Kolor nie jest wykorzystywany jako jedyny wizualny sposób przekazywania informacji, wskazywania czynności do wykonania lub oczekiwania na odpowiedź, czy też wyróżniania elementów wizualnych.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "To kryterium sukcesu dotyczy szczególnie percepcji koloru. Inne formy percepcji zostały omówione w Wytycznej 1.3, w tym programistyczny dostęp do koloru oraz inne rodzaje zaprogramowania prezentacji wizualnej."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:audio-control",
+                            "alt_id": [
+                                "visual-audio-contrast-dis-audio"
+                            ],
+                            "num": "1.4.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Kontrola odtwarzania dźwięku",
+                            "text": "Jeśli jakieś nagranie audio włącza się automatycznie na danej stronie i jest odtwarzane przez okres dłuższy niż 3 sekundy, istnieje mechanizm umożliwiający przerwanie lub wyłączenie nagrania albo mechanizm kontrolujący poziom głośności niezależnie od poziomu głośności całego systemu.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Ponieważ każda treść, która nie spełnia tego kryterium sukcesu, może utrudnić użytkownikowi odczytanie całej strony, wszelkie treści na stronie (bez względu na to, czy spełniają inne kryteria sukcesu, czy nie) muszą spełnić niniejsze kryterium. Więcej informacji: 5 Spełnienie wymagań: Bez zakłóceń."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:contrast-minimum",
+                            "alt_id": [
+                                "visual-audio-contrast-contrast"
+                            ],
+                            "num": "1.4.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Kontrast (minimalny)",
+                            "text": "Wizualna prezentacja tekstu lub obrazu tekstu posiada współczynnik kontrastu wynoszący przynajmniej 4.5:1, poza następującymi wyjątkami:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Duży tekst",
+                                            "text": "Duży tekst oraz grafiki takiego tekstu posiadają kontrast przynajmniej 3:1;"
+                                        },
+                                        {
+                                            "handle": "Incydentalne",
+                                            "text": "Tekst lub obrazy tekstu, które są częścią nieaktywnego komponentu interfejsu użytkownika, które są czystą dekoracją, które nie są widoczne lub które są częścią obrazu zawierającego inne istotne treści wizualne, nie wymagają minimalnego kontrastu;"
+                                        },
+                                        {
+                                            "handle": "Logotyp",
+                                            "text": "Tekst, który jest częścią logo lub nazwy własnej produktu (marki), nie wymaga minimalnego kontrastu."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:resize-text",
+                            "alt_id": [
+                                "visual-audio-contrast-scale"
+                            ],
+                            "num": "1.4.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Zmiana rozmiaru tekstu",
+                            "text": "Oprócz napisów rozszerzonych oraz obrazów tekstu, rozmiar tekstu może zostać powiększony do 200% bez użycia technologii wspomagających oraz bez utraty treści lub funkcjonalności."
+                        },
+                        {
+                            "id": "WCAG2:images-of-text",
+                            "alt_id": [
+                                "visual-audio-contrast-text-presentation"
+                            ],
+                            "num": "1.4.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Obrazy tekstu",
+                            "text": "Jeśli wykorzystywane technologie mogą przedstawiać treść wizualnie, do przekazywania informacji wykorzystuje się tekst, a nie obraz tekstu, z wyjątkiem następujących sytuacji:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Możliwy do dostosowania",
+                                            "text": "Obraz tekstu może być dostosowany wizualnie do wymagań użytkownika;"
+                                        },
+                                        {
+                                            "handle": "Istotny",
+                                            "text": "Prezentacja tekstu w postaci graficznej jest istotna dla zrozumienia przekazywanej informacji."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Logotyp (tekst będący częścią logo lub nazwy własnej produktu) jest uznawany za istotny."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:contrast-enhanced",
+                            "alt_id": [
+                                "visual-audio-contrast7"
+                            ],
+                            "num": "1.4.6",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Kontrast (wzmocniony)",
+                            "text": "Wizualna prezentacja tekstu lub obrazu tekstu posiada współczynnik kontrastu wynoszący przynajmniej 7:1, poza następującymi wyjątkami:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Duży tekst",
+                                            "text": "Duży tekst oraz grafiki takiego tekstu posiadają kontrast przynajmniej 4,5:1;"
+                                        },
+                                        {
+                                            "handle": "Incydentalne",
+                                            "text": "Tekst lub obrazy tekstu, które są częścią nieaktywnego komponentu interfejsu użytkownika, które są czystą dekoracją, które nie są widoczne lub które są częścią obrazu zawierającego inne istotne treści wizualne, nie wymagają wzmocnionego kontrastu;"
+                                        },
+                                        {
+                                            "handle": "Logotyp",
+                                            "text": "Tekst, który jest częścią logo lub nazwy własnej produktu (marki), nie wymaga wzmocnionego kontrastu."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:low-or-no-background-audio",
+                            "alt_id": [
+                                "visual-audio-contrast-noaudio"
+                            ],
+                            "num": "1.4.7",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Niska głośność lub bez dźwięków w tle",
+                            "text": "Dla nagranej treści tylko audio, która (1) na pierwszym planie zawiera głównie mowę, (2) nie jest dźwiękową CAPTCHA lub logo w postaci dźwiękowej, oraz (3) nie jest wokalizacją mającą na celu głównie ekspresję muzyczną, np. w przypadku śpiewu lub rapu, przynajmniej jedno z poniższych założeń jest spełnione:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Bez treści w tle",
+                                            "text": "Nagranie audio nie zawiera dźwięków tła."
+                                        },
+                                        {
+                                            "handle": "Możliwość wyłączenia",
+                                            "text": "Dźwięki tła mogą zostać wyłączone."
+                                        },
+                                        {
+                                            "handle": "20 dB",
+                                            "text": "Głośność dźwięków tła jest przynajmniej o 20 decybeli mniejsza, niż głośność mowy, która stanowi główną treść nagrania, z wyjątkiem okazyjnych, jedno– lub dwusekundowych dźwięków tła."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Z definicji terminu „decybel” wynika, iż dźwięki tła spełniające powyższy wymóg będą 4 razy cichsze od głównej treści nagrania."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:visual-presentation",
+                            "alt_id": [
+                                "visual-audio-contrast-visual-presentation"
+                            ],
+                            "num": "1.4.8",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Prezentacja wizualna",
+                            "text": "Dla wizualnego przedstawienia bloków tekstu, istnieje mechanizm, za pomocą którego można osiągnąć, co następuje:",
+                            "details": [
+                                {
+                                    "type": "olist",
+                                    "items": [
+                                        {
+                                            "handle": "",
+                                            "text": "Kolory na pierwszym planie oraz kolory tła mogą być zmienione przez użytkownika."
+                                        },
+                                        {
+                                            "handle": "",
+                                            "text": "Szerokość nie przekracza 80 znaków (40 w przypadku alfabetów: chińskiego, japońskiego i koreańskiego)."
+                                        },
+                                        {
+                                            "handle": "",
+                                            "text": "Tekst nie jest wyjustowany (tzn. wyrównany do prawego i lewego marginesu)."
+                                        },
+                                        {
+                                            "handle": "",
+                                            "text": "Odstępy między wierszami w akapitach wynoszą przynajmniej 1,5 wysokości linii, a odległość między akapitami jest przynajmniej 1,5 razy większa niż ta pomiędzy wierszami."
+                                        },
+                                        {
+                                            "handle": "",
+                                            "text": "Rozmiar tekstu może zostać powiększony do 200% bez użycia technologii wspomagających, nie wymagając od użytkownika, chcącego odczytać cały wiersz, przesuwania tekstu w poziomie przy zmaksymalizowanym oknie ekranu."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:images-of-text-no-exception",
+                            "alt_id": [
+                                "visual-audio-contrast-text-images"
+                            ],
+                            "num": "1.4.9",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Obrazy tekstu (bez wyjątków)",
+                            "text": "Obrazy tekstu są wykorzystywane jedynie w celach czysto dekoracyjnych lub też w przypadkach, gdy taka prezentacja tekstu jest istotna dla przekazywanej informacji.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Logotyp (tekst będący częścią logo lub nazwy własnej produktu) jest uznawany za istotny."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:reflow",
+                            "alt_id": [],
+                            "num": "1.4.10",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Dopasowanie do ekranu",
+                            "text": "Treść może być prezentowana bez utraty informacji lub funkcjonalności, bez konieczności przewijania w dwóch wymiarach dla:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "text": "Pionowego przewijania treści o szerokości odpowiadającej 320 pikselom CSS;"
+                                        },
+                                        {
+                                            "text": "Poziomego przewijania treści na wysokości odpowiadającej 256 pikselom CSS."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "p",
+                                    "text": "Wyjątkiem są te części treści, które wymagają dwuwymiarowego układu ze względu na sposób używania lub znaczenie."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:non-text-contrast",
+                            "alt_id": [],
+                            "num": "1.4.11",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Kontrast elementów nietekstowych",
+                            "text": "Wizualna prezentacja następujących elementów ma współczynnik kontrastu co najmniej 3:1 względem sąsiednich kolorów:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Komponenty interfejsu użytkownika",
+                                            "text": "Informacje wizualne wymagane do identyfikacji komponentów interfejsu użytkownika i ich stanów, z wyjątkiem nieaktywnych składników lub gdy wygląd komponentu jest określony przez agenta użytkownika i nie jest modyfikowany przez autora;"
+                                        },
+                                        {
+                                            "handle": "Obiekty graficzne",
+                                            "text": "Części grafiki wymagane do zrozumienia treści, z wyjątkiem sytuacji, gdy konkretna prezentacja grafiki ma istotne znaczenie dla przekazywanych informacji."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:text-spacing",
+                            "alt_id": [],
+                            "num": "1.4.12",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Odstępy w tekście",
+                            "text": "W treściach tworzonych za pomocą języków znaczników, umożliwiających ustawienie poniższych właściwości stylu, nie następuje utrata żadnych treści lub funkcjonalności, gdy tekst ustawiony zostanie tak, aby uwzględniał wszystkie poniższe parametry oraz gdy wprowadzone zostaną zmiany w jakiejkolwiek innej właściwości stylu:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "text": "Wysokość linii (odstęp między wierszami) do co najmniej 1,5-krotności rozmiaru czcionki;"
+                                        },
+                                        {
+                                            "text": "Odstęp między akapitami co najmniej 2 razy większy od rozmiaru czcionki;"
+                                        },
+                                        {
+                                            "text": "Odstępy między literami (tracking) do co najmniej 0,12-krotności rozmiaru czcionki;"
+                                        },
+                                        {
+                                            "text": "Odstępy między wyrazami do co najmniej 0,16 wielkości czcionki."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:content-on-hover-or-focus",
+                            "alt_id": [],
+                            "num": "1.4.13",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Treść spod kursora lub fokusu",
+                            "text": "Gdy jakaś treść staje się widoczna po otrzymaniu kursora lub fokusu klawiatury, a po ich usunięciu znika, spełnione są poniższe warunki:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Odrzucone",
+                                            "text": "Istnieje mechanizm umożliwiający odrzucenie dodatkowej treści bez przesuwania wskaźnika myszy lub fokusu klawiatury, chyba że dodatkowa treść przekazuje błąd wprowadzanych danych lub nie przesłania ani nie zastępuje innej treści;"
+                                        },
+                                        {
+                                            "handle": "Wskazywane",
+                                            "text": "Jeśli wskaźnik myszy (hover) może wyzwolić dodatkową treść, wówczas wskaźnik może zostać przeniesiony na dodatkową treść bez znikania dodatkowej treści;"
+                                        },
+                                        {
+                                            "handle": "Trwałe",
+                                            "text": "Dodatkowa treść pozostaje widoczna do momentu usunięcia wyzwalacza aktywacji lub fokusu, użytkownik odrzuca go lub jego informacje nie są już ważne."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "WCAG2:operable",
+            "num": "2",
+            "versions": [
+                "2.0",
+                "2.1"
+            ],
+            "handle": "Funkcjonalność",
+            "text": "Zapewnij, aby komponenty interfejsu użytkownika i nawigacja były możliwe do użycia.",
+            "guidelines": [
+                {
+
+                    "id": "WCAG2:keyboard-accessible",
+                    "alt_id": [
+                        "keyboard-operation"
+                    ],
+                    "num": "2.1",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Dostępność z klawiatury",
+                    "text": "Zapewnij dostępność wszystkich funkcjonalności za pomocą klawiatury.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:keyboard",
+                            "alt_id": [
+                                "keyboard-operation-keyboard-operable"
+                            ],
+                            "num": "2.1.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Klawiatura",
+                            "text": "Wszystkie funkcjonalności w treści są obsługiwane za pomocą interfejsu klawiatury, bez wymogu określonego czasu użycia poszczególnych klawiszy, z wyjątkiem sytuacji, kiedy dana funkcja wymaga wprowadzenia informacji przez użytkownika w oparciu o ścieżkę ruchów, a nie w oparciu o punkty końcowe wejścia.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 1",
+                                    "text": "Ten wyjątek dotyczy danej funkcji, a nie techniki wprowadzania danych. Na przykład, jeśli do wprowadzania tekstu używa się pisma odręcznego, technika wprowadzania (pismo odręczne) wymaga wprowadzenia informacji w oparciu o ścieżkę, jednak powiązana z tym funkcja (wprowadzenie tekstu) już tego nie wymaga."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 2",
+                                    "text": "To nie powinno blokować ani ograniczać użycia interfejsu innymi metodami niż klawiatura, np. za pomocą myszki."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:no-keyboard-trap",
+                            "alt_id": [
+                                "keyboard-operation-trapping"
+                            ],
+                            "num": "2.1.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Bez pułapki na klawiaturę",
+                            "text": "Jeśli fokus klawiatury można przemieścić do danego komponentu treści za pomocą interfejsu klawiatury, to może on być z niego usunięty również za pomocą interfejsu klawiatury, a jeśli wymagane jest użycie czegoś więcej niż tylko strzałek, tabulatora lub innych standardowych metod wyjścia, użytkownik musi otrzymać odpowiednią podpowiedź, w jaki sposób usunąć fokus z danego komponentu.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Ponieważ każda treść, która nie spełnia tego kryterium sukcesu może utrudnić użytkownikowi skorzystanie z całej strony, cała treść danej strony (bez względu na to, czy spełnia inne kryteria, czy nie) musi spełnić powyższe kryterium. Więcej informacji: Spełnienie wymagań 5: Bez zakłóceń."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:keyboard-no-exception",
+                            "alt_id": [
+                                "keyboard-operation-all-funcs"
+                            ],
+                            "num": "2.1.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Klawiatura (bez wyjątków)",
+                            "text": "Wszystkie funkcjonalności w treści są obsługiwane za pomocą interfejsu klawiatury, bez wymogu określonego czasu użycia poszczególnych klawiszy."
+                        },
+                        {
+                            "id": "WCAG2:character-key-shortcuts",
+                            "alt_id": [],
+                            "num": "2.1.4",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Jednoznakowe skróty klawiaturowe",
+                            "text": "Jeśli skrót klawiaturowy jest zaimplementowany w treści tylko przy użyciu jednego znaku (litery, w tym wielkiej i małej, cyfry lub symbolu), to przynajmniej jedno z poniższych jest prawdziwe:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Wyłączanie",
+                                            "text": "Istnieje mechanizm wyłączania skrótu;"
+                                        },
+                                        {
+                                            "handle": "Mapowanie",
+                                            "text": "Istnieje mechanizm zmiany mapowania skrótu w celu użycia jednego lub więcej niedrukowalnych znaków klawiatury (np. Ctrl, Alt, itp.);"
+                                        },
+                                        {
+                                            "handle": "Aktywny tylko po otrzymaniu fokusu",
+                                            "text": "Skrót klawiaturowy dla komponentu interfejsu użytkownika jest aktywny tylko wtedy, gdy ten komponent ma fokus."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:enough-time",
+                    "alt_id": [
+                        "time-limits"
+                    ],
+                    "num": "2.2",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Wystarczający czas",
+                    "text": "Zapewnij użytkownikom wystarczająco dużo czasu na przeczytanie i skorzystanie z treści.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:timing-adjustable",
+                            "alt_id": [
+                                "time-limits-required-behaviors"
+                            ],
+                            "num": "2.2.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Dostosowanie czasu",
+                            "text": "Gdy czas korzystania z treści jest ograniczany, spełniony jest przynajmniej jeden z poniższych warunków:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Wyłączenie",
+                                            "text": "Użytkownik może wyłączyć limit czasowy, zanim czas upłynie; lub"
+                                        },
+                                        {
+                                            "handle": "Dostosowanie",
+                                            "text": "Użytkownik może swobodnie dostosować limit czasowy (przynajmniej o wartość 10 razy większą od wartości domyślnej), zanim czas upłynie; lub"
+                                        },
+                                        {
+                                            "handle": "Wydłużenie",
+                                            "text": "Użytkownik jest ostrzegany przed upłynięciem limitu czasowego i ma przynajmniej 20 sekund na wydłużenie limitu za pomocą prostej czynności (np. „wciśnij klawisz spacji”) oraz może wydłużyć limit przynajmniej dziesięciokrotnie; lub"
+                                        },
+                                        {
+                                            "handle": "Wyjątek dotyczący czasu rzeczywistego",
+                                            "text": "Limit czasowy jest wymaganym komponentem jakiejś czynności w czasie rzeczywistym (np. aukcji) i nie ma możliwości zmiany limitu; lub"
+                                        },
+                                        {
+                                            "handle": "Wyjątek dotyczący istoty czynności",
+                                            "text": "Limit czasowy jest istotny i wydłużenie go anulowałoby lub zaburzałoby daną czynność; lub"
+                                        },
+                                        {
+                                            "handle": "Wyjątek 20 godzin",
+                                            "text": "Limit czasowy przekracza 20 godzin."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "To kryterium sukcesu ma na celu zapewnienie użytkownikowi wystarczającego czasu na wykonanie czynności, bez niespodziewanych zmian treści lub kontekstu, które mogą być wynikiem limitu czasowego. Powinien on być rozpatrywany w połączeniu z kryterium sukcesu 3.2.1, które nakłada ograniczenia na zmiany treści lub kontekstu w wyniku działania użytkownika."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:pause-stop-hide",
+                            "alt_id": [
+                                "time-limits-pause"
+                            ],
+                            "num": "2.2.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Pauza, zatrzymanie, ukrycie",
+                            "text": "Gdy treść się porusza, migocze, przesuwa lub jest automatycznie aktualizowana, spełnione są wszystkie poniższe warunki:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Poruszanie się, przesuwanie, migotanie",
+                                            "text": "Każdą informację, która porusza się, przesuwa lub miga, a takie działanie (1) włącza się automatycznie, (2) jest widoczne dłużej niż 5 sekund, (3) jest przedstawiane równolegle z inną treścią — użytkownik może wstrzymać, zatrzymać lub ukryć za pomocą dostępnego mechanizmu, chyba że poruszanie się, przesuwanie lub migotanie jest częścią czynności, w której takie działanie jest istotne, oraz:"
+                                        },
+                                        {
+                                            "handle": "Automatyczna aktualizacja",
+                                            "text": "Każdą automatycznie aktualizującą się informację, która (1) włącza się automatycznie oraz (2) jest przedstawiana równolegle z inną treścią — użytkownik może wstrzymać, zatrzymać lub kontrolować częstotliwość aktualizacji za pomocą dostępnego mechanizmu, chyba, że automatyczna aktualizacja jest częścią takiej czynności, w której takie działanie jest niezbędne."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 1",
+                                    "text": "Wytyczna 2.3 zawiera więcej informacji na temat treści migoczącej lub zawierającej błyski."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 2",
+                                    "text": "Ponieważ każda treść, która nie spełnia tego kryterium sukcesu może utrudnić użytkownikowi skorzystanie z całej strony, cała zawartość danej strony (bez względu na to, czy spełnia inne kryteria, czy nie) musi spełnić powyższe kryterium. Więcej informacji: Spełnienie wymagań: Bez zakłóceń."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 3",
+                                    "text": "Treść, która jest aktualizowana okresowo przez aplikację lub przesyłana w sposób ciągły do programu użytkownika, nie musi być przechowywana lub przedstawiana w czasie pomiędzy wstrzymaniem a wznowieniem prezentacji, ponieważ może to być technicznie niemożliwe, a w wielu przypadkach mogłoby wprowadzać użytkownika w błąd."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 4",
+                                    "text": "Animacja, która pojawia się w czasie poprzedzającym załadowanie treści, może być uznana za istotną, jeśli wszyscy użytkownicy nie mogą dokonać interakcji w tym czasie oraz jeśli brak wskazania etapu załadowania mógłby wprowadzić użytkownika w błąd lub mogłoby mu się wydawać, że załadowanie treści zostało zawieszone albo przerwane."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:no-timing",
+                            "alt_id": [
+                                "time-limits-no-exceptions"
+                            ],
+                            "num": "2.2.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Bez ograniczeń czasowych",
+                            "text": "Ograniczenie czasowe nie jest istotną częścią czynności prezentowanej na stronie, chyba, że są to nieinteraktywne multimedia zsynchronizowane lub wydarzenia w czasie rzeczywistym."
+                        },
+                        {
+                            "id": "WCAG2:interruptions",
+                            "alt_id": [
+                                "time-limits-postponed"
+                            ],
+                            "num": "2.2.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Przerywanie",
+                            "text": "Przerywanie pracy może być odłożone w czasie lub odrzucone przez użytkownika, chyba że jest to sytuacja wyjątkowa."
+                        },
+                        {
+                            "id": "WCAG2:re-authenticating",
+                            "alt_id": [
+                                "time-limits-server-timeout"
+                            ],
+                            "num": "2.2.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Ponowne potwierdzenie autentyczności",
+                            "text": "Kiedy kończy się czas sesji autoryzowanej przez użytkownika, może on kontynuować czynność bez utraty danych po ponownej autoryzacji."
+                        },
+                        {
+                            "id": "WCAG2:timeouts",
+                            "alt_id": [],
+                            "num": "2.2.6",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Ostrzeżenie o limicie czasu",
+                            "text": "Użytkownicy muszą być ostrzeżeni o limicie czasu bezczynności użytkownika, którego przekroczenie mogłoby spowodować utratę danych, chyba że dane te są przechowywane przez ponad 20 godzin, gdy uczestnik nie podejmie żadnych działań.",
+
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 1",
+                                    "text": "Przepisy dotyczące prywatności mogą wymagać wyraźnej zgody użytkownika przed uwierzytelnieniem tożsamości użytkownika i zachowaniem danych użytkownika. W przypadkach, gdy użytkownik jest nieletni, wyraźna zgoda może nie być wymagana w większości jurysdykcji, krajów lub regionów. Przy rozważaniu ochrony danych jako podejścia do spełnienia tego kryterium sukcesu zaleca się konsultacje ze specjalistami ds. prywatności i radcą prawnym."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:seizures-and-physical-reactions",
+                    "alt_id": [
+                        "seizure"
+                    ],
+                    "num": "2.3",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Ataki padaczki",
+                    "text": "Prezentuj treść tak, aby nie wywoływała napadów padaczkowych.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:three-flashes-or-below-threshold",
+                            "alt_id": [
+                                "seizure-does-not-violate"
+                            ],
+                            "num": "2.3.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Trzy błyski lub wartości poniżej progu",
+                            "text": "Strony internetowe nie zawierają w swojej treści niczego, co błyska częściej niż trzy razy w ciągu jednej sekundy, lub też błysk nie przekracza wartości granicznych dla błysków ogólnych i czerwonych.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Ponieważ każda treść, która nie spełnia tego kryterium sukcesu może utrudnić użytkownikowi skorzystanie z całej strony, cała treść danej strony (bez względu na to, czy spełnia inne kryteria, czy nie) musi spełnić powyższe kryterium. Więcej informacji: Spełnienie wymagań: Bez zakłóceń."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:three-flashes",
+                            "alt_id": [
+                                "seizure-three-times"
+                            ],
+                            "num": "2.3.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Trzy błyski",
+                            "text": "Strony internetowe nie zawierają w swojej treści niczego, co błyska częściej niż trzy razy w ciągu jednej sekundy."
+                        },
+                        {
+                            "id": "WCAG2:animation-from-interactions",
+                            "alt_id": [],
+                            "num": "2.3.3",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Animacja po interakcji",
+                            "text": "Animacja ruchowa wyzwalana przez interakcję może być wyłączona, chyba że animacja jest istotna dla funkcjonalności lub przekazywanych informacji."
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:navigable",
+                    "alt_id": [
+                        "navigation-mechanisms"
+                    ],
+                    "num": "2.4",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Możliwość nawigacji",
+                    "text": "Zapewnij użytkownikowi narzędzia pomagające w nawigacji, znalezieniu treści i określeniu, gdzie się aktualnie znajduje.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:bypass-blocks",
+                            "alt_id": [
+                                "navigation-mechanisms-skip"
+                            ],
+                            "num": "2.4.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Możliwość pominięcia bloków",
+                            "text": "Istnieje mechanizm, który umożliwia pominięcie bloków treści powtarzanych na wielu stronach internetowych."
+                        },
+                        {
+                            "id": "WCAG2:page-titled",
+                            "alt_id": [
+                                "navigation-mechanisms-title"
+                            ],
+                            "num": "2.4.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Tytuły stron",
+                            "text": "Strony internetowe mają tytuły, które opisują ich cel lub przedstawiają ich temat."
+                        },
+                        {
+                            "id": "WCAG2:focus-order",
+                            "alt_id": [
+                                "navigation-mechanisms-focus-order"
+                            ],
+                            "num": "2.4.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Kolejność fokusu",
+                            "text": "Jeśli strona internetowa może być nawigowana sekwencyjnie, a kolejność nawigacji wpływa na zrozumienie lub funkcjonalność strony, komponenty przyjmują fokus w kolejności, dzięki której zachowany jest sens i funkcjonalność treści."
+                        },
+                        {
+                            "id": "WCAG2:link-purpose-in-context",
+                            "alt_id": [
+                                "navigation-mechanisms-refs"
+                            ],
+                            "num": "2.4.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Cel łącza (w kontekście)",
+                            "text": "Cel każdego łącza może wynikać z samej treści łącza lub z treści tekstu powiązanego z kontekstem łącza określonym programowo, poza tymi przypadkami, kiedy cel łącza i tak byłby niejasny dla użytkowników."
+                        },
+                        {
+                            "id": "WCAG2:multiple-ways",
+                            "alt_id": [
+                                "navigation-mechanisms-mult-loc"
+                            ],
+                            "num": "2.4.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Wiele dróg",
+                            "text": "Istnieje więcej niż jeden sposób umożliwiający zlokalizowanie strony internetowej w zestawie stron internetowych, z wyjątkiem sytuacji, kiedy dana strona jest wynikiem jakiejś procedury lub jednym z jej etapów."
+                        },
+                        {
+                            "id": "WCAG2:headings-and-labels",
+                            "alt_id": [
+                                "navigation-mechanisms-descriptive"
+                            ],
+                            "num": "2.4.6",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Nagłówki i etykiety",
+                            "text": "Nagłówki i etykiety opisują temat lub cel treści."
+                        },
+                        {
+                            "id": "WCAG2:focus-visible",
+                            "alt_id": [
+                                "navigation-mechanisms-focus-visible"
+                            ],
+                            "num": "2.4.7",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Widoczny fokus",
+                            "text": "Każdy interfejs posiadający możliwość obsługi przy pomocy klawiatury ma tryb obsługi, w którym fokus klawiatury jest stale widoczny."
+                        },
+                        {
+                            "id": "WCAG2:location",
+                            "alt_id": [
+                                "navigation-mechanisms-location"
+                            ],
+                            "num": "2.4.8",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Lokalizacja",
+                            "text": "Zapewniona jest informacja, w którym miejscu w zestawie stron internetowych znajduje się użytkownik."
+                        },
+                        {
+                            "id": "WCAG2:link-purpose-link-only",
+                            "alt_id": [
+                                "navigation-mechanisms-link"
+                            ],
+                            "num": "2.4.9",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Cel łącza (z samego łącza)",
+                            "text": "Istnieje mechanizm umożliwiający zidentyfikowanie celu każdego łącza z samej jego treści, poza tymi przypadkami, kiedy cel łącza i tak byłby niejasny dla użytkowników."
+                        },
+                        {
+                            "id": "WCAG2:section-headings",
+                            "alt_id": [
+                                "navigation-mechanisms-headings"
+                            ],
+                            "num": "2.4.10",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Nagłówki sekcji",
+                            "text": "Nagłówki sekcji są używane do porządkowania treści.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 1",
+                                    "text": "Termin „nagłówek” został tu użyty w swoim ogólnym znaczeniu, obejmując tytuły i inne sposoby przypisywania nagłówków do różnego rodzaju treści."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 2",
+                                    "text": "Powyższe kryterium sukcesu dotyczy sekcji samych tekstów, a nie komponentów interfejsu użytkownika, które omawiane są osobno w ramach kryterium sukcesu 4.1.2."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:input-modalities",
+                    "alt_id": [],
+                    "num": "2.5",
+                    "versions": [
+                        "2.1"
+                    ],
+                    "handle": "Metody obsługi",
+                    "text": "Ułatwiaj użytkownikom obsługę funkcji za pomocą różnych sposobów poza klawiaturą",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:pointer-gestures",
+                            "alt_id": [],
+                            "num": "2.5.1",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Gesty dotykowe",
+                            "text": "Wszystkie funkcjonalności wykorzystujące do obsługi gesty wielopunktowe lub oparte na ścieżkach mogą być obsługiwane za pomocą dotyku jednopunktowego bez gestu opartego na ścieżce, chyba że istotny jest gest wielopunktowy lub oparty na ścieżce.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Ten wymóg dotyczy treści internetowych, które interpretują działania dotykowe (tj. nie dotyczy to działań wymaganych do obsługi programu użytkownika (przeglądarki internetowej) lub technologii wspomagającej)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:pointer-cancellation",
+                            "alt_id": [],
+                            "num": "2.5.2",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Rezygnacja ze wskazania",
+                            "text": "W przypadku funkcjonalności, które są wywoływane za pomocą dotyku jednopunktowego, co najmniej jedno z poniższych twierdzeń jest prawdziwe:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Brak zdarzenia",
+                                            "text": "Naciskanie nie wywołuje jakiejkolwiek części zdarzenia;"
+                                        },
+                                        {
+                                            "handle": "Przerwanie lub cofnięcie",
+                                            "text": "Zdarzenie jest zależne od zwolnienia nacisku i istnieje mechanizm, którym można je przerwać lub cofnąć po zwolnieniu nacisku;"
+                                        },
+                                        {
+                                            "handle": "Odwrócenie zdarzenia",
+                                            "text": "Zwolnienie nacisku cofa wywołane zdarzenie i przywraca stan sprzed zdarzenia;"
+                                        },
+                                        {
+                                            "handle": "Istotne",
+                                            "text": "Wciśnięcie jest niezbędne do wywołania zdarzenia."
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 1",
+                                    "text": "Funkcje emulujące naciśnięcie klawiszy klawiatury lub klawiatury numerycznej są uważane za niezbędne."
+                                },
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga 2",
+                                    "text": "Ten wymóg dotyczy treści internetowych, które interpretują działania dotykowe (tj. nie dotyczy to działań wymaganych do obsługi programu użytkownika lub technologii wspomagającej)."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:label-in-name",
+                            "alt_id": [],
+                            "num": "2.5.3",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Etykieta w nazwie",
+                            "text": "W przypadku komponentów interfejsu użytkownika z etykietami zawierającymi tekst lub obrazy tekstu, nazwa zawiera tekst, który jest prezentowany wizualnie."
+                        },
+                        {
+                            "id": "WCAG2:motion-actuation",
+                            "alt_id": [],
+                            "num": "2.5.4",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Aktywowanie ruchem",
+                            "text": "Funkcjonalność, którą można obsługiwać za pomocą ruchu urządzenia lub ruchu użytkownika, można również obsługiwać za pomocą komponentów interfejsu użytkownika, a reagowanie na ruch można wyłączyć, aby zapobiec przypadkowemu uruchomieniu, z wyjątkiem sytuacji, gdy:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Obsługiwany interfejs",
+                                            "text": "Ruch służy do obsługi funkcjonalności poprzez interfejs obsługiwany przez dostępność;"
+                                        },
+                                        {
+                                            "handle": "Istotny",
+                                            "text": "Ruch jest niezbędny dla funkcji, a to spowodowałoby unieważnienie działania."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:target-size",
+                            "alt_id": [],
+                            "num": "2.5.5",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Rozmiar celu dotykowego",
+                            "text": "Rozmiar celu punktu dotykowego wynosi co najmniej 44 na 44 piksele CSS, chyba że:",
+                            "details": [
+                                {
+                                    "type": "ulist",
+                                    "items": [
+                                        {
+                                            "handle": "Odpowiednik",
+                                            "text": "Cel jest dostępny za pośrednictwem równoważnego łącza lub kontrolki na tej samej stronie, która ma co najmniej 44 na 44 piksele CSS;"
+                                        },
+                                        {
+                                            "handle": "Śródliniowe",
+                                            "text": "Cel znajduje się w zdaniu lub w bloku tekstu;"
+                                        },
+                                        {
+                                            "handle": "Kontrola programu użytkownika",
+                                            "text": "Rozmiar obiektu docelowego jest określony przez program użytkownika (przeglądarkę) i nie jest modyfikowany przez autora;"
+                                        },
+                                        {
+                                            "handle": "Istotny",
+                                            "text": "Szczególna prezentacja celu ma istotne znaczenie dla przekazywanych informacji."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:concurrent-input-mechanisms",
+                            "alt_id": [],
+                            "num": "2.5.6",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Równoległy mechanizm wprowadzania danych",
+                            "text": "Treści internetowe nie ograniczają możliwości korzystania z trybów wprowadzania danych dostępnych na platformie, z wyjątkiem sytuacji, w których ograniczenie jest istotne, wymagane do zapewnienia bezpieczeństwa treści lub wymagane do przestrzegania ustawień użytkownika."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "WCAG2:understandable",
+            "num": "3",
+            "handle": "Zrozumiałość",
+            "text": "Zadbaj o to, aby informacje i obsługa interfejsu były zrozumiałe.",
+            "guidelines": [
+                {
+                    "id": "WCAG2:readable",
+                    "alt_id": [
+                        "meaning"
+                    ],
+                    "num": "3.1",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Możliwość odczytania",
+                    "text": "Twórz treści możliwe do odczytania i zrozumienia.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:language-of-page",
+                            "alt_id": [
+                                "meaning-doc-lang-id"
+                            ],
+                            "num": "3.1.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Język strony",
+                            "text": "Domyślny język naturalny każdej strony internetowej może zostać odczytany przez program komputerowy."
+                        },
+                        {
+                            "id": "WCAG2:language-of-parts",
+                            "alt_id": [
+                                "meaning-other-lang-id"
+                            ],
+                            "num": "3.1.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Język części",
+                            "text": "Język naturalny każdej części lub frazy zawartej w treści może zostać odczytany przez program komputerowy, z wyjątkiem nazw własnych, wyrażeń technicznych, słów w nieokreślonym języku oraz słów i fraz, które stanowią część żargonu w bezpośrednio otaczającym je tekście."
+                        },
+                        {
+                            "id": "WCAG2:unusual-words",
+                            "alt_id": [
+                                "meaning-idioms"
+                            ],
+                            "num": "3.1.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Nietypowe słowa",
+                            "text": "Istnieje mechanizm, za pomocą którego można sprawdzić definicje słów użytych w nietypowy lub ograniczony sposób, w tym idiomów i żargonu."
+                        },
+                        {
+                            "id": "WCAG2:abbreviations",
+                            "alt_id": [
+                                "meaning-located"
+                            ],
+                            "num": "3.1.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Skróty",
+                            "text": "Istnieje mechanizm, za pomocą którego można sprawdzić znaczenie skrótów."
+                        },
+                        {
+                            "id": "WCAG2:reading-level",
+                            "alt_id": [
+                                "meaning-supplements"
+                            ],
+                            "num": "3.1.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Poziom umiejętności czytania",
+                            "text": "Jeśli dany tekst, po usunięciu nazw własnych i tytułów, wymaga umiejętności czytania na poziomie wyższym niż poziom gimnazjalny, istnieje dodatkowa treść wyjaśniająca lub oddzielna wersja, która nie wymaga większych umiejętności czytania."
+                        },
+                        {
+                            "id": "WCAG2:pronunciation",
+                            "alt_id": [
+                                "meaning-pronunciation"
+                            ],
+                            "num": "3.1.6",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Wymowa",
+                            "text": "Istnieje mechanizm, za pomocą którego można sprawdzić wymowę słów, których znaczenie jest niejasne w danym kontekście bez znajomości ich wymowy."
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:predictable",
+                    "alt_id": [
+                        "consistent-behavior"
+                    ],
+                    "num": "3.2",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Przewidywalność",
+                    "text": "Twórz strony internetowe tak, aby otwierały się, wyglądały i działały w sposób przewidywalny.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:on-focus",
+                            "alt_id": [
+                                "consistent-behavior-receive-focus"
+                            ],
+                            "num": "3.2.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Po otrzymaniu fokusu",
+                            "text": "Przyjęcie fokusu przez dowolny komponent interfejsu użytkownika nie powoduje nieoczekiwanej zmiany kontekstu.",
+                            "sufficientNotes": [
+                                "Uwaga: Zmiana treści nie zawsze jest zmianą kontekstu. To kryterium powodzenia jest automatycznie spełniane, jeśli zmiany treści nie są równocześnie zmianami kontekstu."
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:on-input",
+                            "alt_id": [
+                                "consistent-behavior-unpredictable-change"
+                            ],
+                            "num": "3.2.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Podczas wprowadzania danych",
+                            "text": "Zmiana ustawień jakiegokolwiek komponentu interfejsu użytkownika nie powoduje automatycznej zmiany kontekstu, chyba, że użytkownik został poinformowany o takim działaniu, zanim zaczął korzystać z komponentu.",
+                            "sufficientNotes": [
+                                "Uwaga: Zmiana treści nie zawsze jest zmianą kontekstu. To kryterium powodzenia jest automatycznie spełniane, jeśli zmiany treści nie są równocześnie zmianami kontekstu."
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:consistent-navigation",
+                            "alt_id": [
+                                "consistent-behavior-consistent-locations"
+                            ],
+                            "num": "3.2.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Spójna nawigacja",
+                            "text": "Mechanizmy nawigacji, które powtarzają się na wielu stronach internetowych w ramach jednego zestawu stron internetowych, występują w tej samej względnej kolejności za każdym razem, gdy są powtarzane, chyba że zmiana jest inicjowana przez użytkownika."
+                        },
+                        {
+                            "id": "WCAG2:consistent-identification",
+                            "alt_id": [
+                                "consistent-behavior-consistent-functionality"
+                            ],
+                            "num": "3.2.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Spójna identyfikacja",
+                            "text": "Komponenty, które mają tę samą funkcjonalność w ramach jednego zestawu stron internetowych, są w taki sam sposób zidentyfikowane.",
+                            "sufficientNotes": [
+                                "Alternatywne teksty, które są „spójne”, nie zawsze są „identyczne”. Na przykład na dole strony internetowej może znajdować się strzałka graficzna, która prowadzi do następnej strony internetowej. Alternatywa tekstowa może brzmieć „Przejdź do strony 4.” Oczywiście, niewłaściwe byłoby powtarzanie tej alternatywy tekstowej na następnej stronie internetowej. Bardziej właściwe byłoby powiedzenie „Przejdź do strony 5”. Chociaż te alternatywy tekstowe nie byłyby identyczne, byłyby spójne i dlatego spełniałyby to kryterium sukcesu.",
+                                "Pojedynczy element nietekstowy może służyć do różnych funkcji. W takich przypadkach konieczne są różne alternatywy tekstowe i należy je stosować. Przykłady można często znaleźć w przypadkach stosowania ikon, takich jak fiszki (zwykle zielone haczyki), krzyżyki i znaki drogowe. Ich funkcje mogą się różnić w zależności od kontekstu strony internetowej. Ikona fiszki może działać jako „zatwierdzona”, „zakończona” lub „dołączona”, aby wymienić kilka, w zależności od sytuacji. Użycie fiszki jako alternatywy tekstowej na wszystkich stronach internetowych nie pomaga użytkownikom zrozumieć funkcji ikony. Można stosować różne alternatywy tekstowe, gdy ta sama treść nietekstowa pełni wiele funkcji."
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:change-on-request",
+                            "alt_id": [
+                                "consistent-behavior-no-extreme-changes-context"
+                            ],
+                            "num": "3.2.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Zmiana na żądanie",
+                            "text": "Zmiany kontekstu inicjowane są tylko na żądanie użytkownika lub istnieje mechanizm pozwalający na wyłączenie takich zmian."
+                        }
+                    ]
+                },
+                {
+                    "id": "WCAG2:input-assistance",
+                    "alt_id": [
+                        "minimize-error"
+                    ],
+                    "num": "3.3",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Pomoc przy wprowadzaniu informacji",
+                    "text": "Pomagaj użytkownikom unikać błędów i je korygować.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:error-identification",
+                            "alt_id": [
+                                "minimize-error-identified"
+                            ],
+                            "num": "3.3.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Identyfikacja błędu",
+                            "text": "Jeśli automatycznie zostanie wykryty błąd wprowadzania danych, system wskazuje błędny element, a użytkownik otrzymuje opis błędu w postaci tekstu."
+                        },
+                        {
+                            "id": "WCAG2:labels-or-instructions",
+                            "alt_id": [
+                                "minimize-error-cues"
+                            ],
+                            "num": "3.3.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Etykiety lub instrukcje",
+                            "text": "Gdy w treści wymagane jest wprowadzenie danych przez użytkownika, zapewnione są etykiety lub instrukcje.",
+                            "sufficientNotes": [
+                                "Techniki znajdujące się na końcu powyższej listy powinny być uważane za ostateczność i stosowane tylko wtedy, gdy inne techniki nie mogą być zastosowane na stronie. Wcześniejsze techniki są preferowane, ponieważ zwiększają one dostępność dla szerszej grupy użytkowników."
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:error-suggestion",
+                            "alt_id": [
+                                "minimize-error-suggestions"
+                            ],
+                            "num": "3.3.3",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Sugestie korekty błędów",
+                            "text": "Jeśli automatycznie zostanie wykryty błąd wprowadzania danych i znane są sugestie korekty, wtedy użytkownik otrzymuje takie sugestie, chyba, że zagrażałoby to bezpieczeństwu treści lub zmieniło jej cel."
+                        },
+                        {
+                            "id": "WCAG2:error-prevention-legal-financial-data",
+                            "alt_id": [
+                                "minimize-error-reversible"
+                            ],
+                            "num": "3.3.4",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Zapobieganie błędom (prawnym, finansowym, w danych)",
+                            "text": "W przypadku stron internetowych, które powodują zobowiązania prawne, albo na których użytkownik przeprowadza transakcje finansowe, modyfikuje lub usuwa dane w systemach przechowywania danych, nad którymi ma kontrolę, albo udziela odpowiedzi na testy, co najmniej jedna z poniższych informacji jest prawdziwa:",
+                            "details": [
+                                {
+                                    "type": "olist",
+                                    "items": [
+                                        {
+                                            "handle": "Odwracalność",
+                                            "text": "Wprowadzenie danych jest odwracalne."
+                                        },
+                                        {
+                                            "handle": "Sprawdzanie",
+                                            "text": "Dane wprowadzone przez użytkownika są sprawdzane pod kątem błędów, a użytkownik ma możliwość wprowadzenia poprawek."
+                                        },
+                                        {
+                                            "handle": "Potwierdzenie",
+                                            "text": "Istnieje mechanizm sprawdzania, potwierdzania oraz korekty informacji przed jej ostatecznym wysłaniem."
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:help",
+                            "alt_id": [
+                                "minimize-error-context-help"
+                            ],
+                            "num": "3.3.5",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Pomoc",
+                            "text": "Istnieje pomoc kontekstowa.."
+                        },
+                        {
+                            "id": "WCAG2:error-prevention-all",
+                            "alt_id": [
+                                "minimize-error-reversible-all"
+                            ],
+                            "num": "3.3.6",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "AAA",
+                            "handle": "Zapobieganie błędom (wszystkim)",
+                            "text": "Dla stron internetowych , które wymagają od użytkownika wprowadzania informacji, przynajmniej jedno z poniższych założeń jest prawdziwe:",
+                            "details": [
+                                {
+                                    "type": "olist",
+                                    "items": [
+                                        {
+                                            "handle": "Odwracalność",
+                                            "text": "Wprowadzenie danych jest odwracalne."
+                                        },
+                                        {
+                                            "handle": "Sprawdzanie",
+                                            "text": "Dane wprowadzone przez użytkownika są sprawdzane pod kątem błędów, a użytkownik ma możliwość wprowadzenia poprawek."
+                                        },
+                                        {
+                                            "handle": "Potwierdzenie",
+                                            "text": "Istnieje mechanizm sprawdzania, potwierdzania oraz korekty informacji przed jej ostatecznym wysłaniem."
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "WCAG2:robust",
+            "num": "4",
+            "versions": [
+                "2.0",
+                "2.1"
+            ],
+            "handle": "Solidność",
+            "text": "Twórz treści solidnie, aby mogły być skutecznie interpretowane przez różne programy użytkownika, w tym technologie wspomagające.",
+            "guidelines": [
+                {
+                    "id": "WCAG2:compatible",
+                    "alt_id": [
+                        "ensure-compat"
+                    ],
+                    "num": "4.1",
+                    "versions": [
+                        "2.0",
+                        "2.1"
+                    ],
+                    "handle": "Kompatybilność",
+                    "text": "Zapewnij jak największą zgodność z aktualnymi i przyszłymi programami użytkownika, w tym z technologiami asystującymi.",
+                    "successcriteria": [
+                        {
+                            "id": "WCAG2:parsing",
+                            "alt_id": [
+                                "ensure-compat-parses"
+                            ],
+                            "num": "4.1.1",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Poprawność kodu",
+                            "text": "W treści wprowadzonej przy użyciu języka znaczników, elementy posiadają kompletne znaczniki początkowe i końcowe, elementy są zagnieżdżane według swoich specyfikacji, nie posiadają zduplikowanych atrybutów, a wszystkie ID są unikalne, z wyjątkiem przypadków, kiedy specyfikacja zezwala na wyżej wymienione cechy.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "Początkowe i końcowe znaczniki, w których brak kluczowych znaków, takich, jak zamykający nawias ostry lub pytajnik błędnie dopasowany do atrybutu wartości, nie są uznawane za kompletne znaczniki."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:name-role-value",
+                            "alt_id": [
+                                "ensure-compat-rsv"
+                            ],
+                            "num": "4.1.2",
+                            "versions": [
+                                "2.0",
+                                "2.1"
+                            ],
+                            "level": "A",
+                            "handle": "Nazwa, rola, wartość",
+                            "text": "Dla wszystkich komponentów interfejsu użytkownika (w tym, ale nie tylko, elementów formularzy, łączy oraz komponentów wygenerowanych przez skrypty) nazwa oraz rola mogą być określone programowo; stan, właściwości oraz wartości, które mogą być ustawione przez użytkownika, mogą również być ustawione programowo; powiadomienie o zmianach w tych elementach dostępne jest dla programów użytkownika, w tym technologii wspomagających.",
+                            "details": [
+                                {
+                                    "type": "note",
+                                    "handle": "Uwaga",
+                                    "text": "To kryterium sukcesu jest przede wszystkim dla autorów stron internetowych, którzy opracowują lub skryptują własne komponenty interfejsu użytkownika. Na przykład, standardowe kontrolki HTML już spełniają to kryterium, gdy są używane zgodnie ze specyfikacją."
+                                }
+                            ]
+                        },
+                        {
+                            "id": "WCAG2:status-messages",
+                            "alt_id": [],
+                            "num": "4.1.3",
+                            "versions": [
+                                "2.1"
+                            ],
+                            "level": "AA",
+                            "handle": "Komunikaty o stanie",
+                            "text": "W treści wprowadzonej przy użyciu języka znaczników komunikaty o stanie mogą być programowo określane poprzez role lub właściwości, dzięki czemu mogą być prezentowane użytkownikowi za pomocą technologii wspomagających bez uzyskiwania fokusu."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

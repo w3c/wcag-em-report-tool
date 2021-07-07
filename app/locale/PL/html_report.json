@@ -1,0 +1,21 @@
+{
+    "BY" : "Autor raportu:",
+    "COMMISION_BY": "Ocena zlecona przez:",
+    "HD_SUMMARY": "Podsumowanie ustaleń z oceny",
+    "HD_SCOPE": "Zakres oceny",
+    "LABEL_SITE_NAME": "Nazwa witryny",
+    "LABEL_SITE_SCOPE": "Zakres witryny",
+    "LABEL_CONFORMANCE_TGT": "Poziom zgodności",
+    "LABEL_EXTRA_REQUIREMENTS": "Dodatkowe wymagania dotyczące oceny",
+    "LABEL_SUPPORT_BASE": "Podstawowe wsparcie dostępności",
+    "LABEL_RELIEDUP_TECH": "Oparte na technologiach",
+    "HD_SCORE": "Przegląd wyników audytu",
+    "RESULTS_OF": "Wyniki",
+    "PRINCIPLE": "Zasada",
+    "TOTAL_SCORE": "Ogółem",
+    "HD_CRITERIA_REPORT": "Szczegółowe wyniki audytu",
+    "LABEL_DESCR": "Ustalenia",
+    "HD_SAMPLE": "Próbka ocenianych stron internetowych",
+    "HD_SPECIFICS": "Specyfikacja metod oceny",
+    "HD_DOCS": "Powiązane zasoby WCAG 2"
+}

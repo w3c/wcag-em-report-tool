@@ -1,0 +1,23 @@
+{
+    "TITLE": "Krok 3: Wybierz reprezentatywną próbkę stron",
+    "INTRO": "Wybierz konkretne strony internetowe do oceny.  Uwagi, które zrobiłeś w poprzednim kroku podczas przeglądu witryny, znajdują się poniżej, aby pomóc Ci w&nbsp;wyborze stron. Upewnij się, że wybrane strony są reprezentatywne dla badanej witryny. Więcej wskazówek na temat tego kroku znajduje się w&nbsp;<a href={{link_em_3}}>WCAG-EM Krok 3: Select a Representative Sample</a> (Wybierz reprezentatywną próbkę).",
+    "HD_STRUCT_SAMPLE": "Próbka strukturalna",
+    "HD_ESSENT_FUNC": "Podstawowe funkcjonalności (opcjonalne uwagi z poprzedniego kroku)",
+    "HD_VARIETY_PAGE_TYPES": "Różne typy stron internetowych (opcjonalne uwagi z poprzedniego kroku)",
+    "HD_STRUCT_SAMPLE_SUB": "Strukturalna próbka stron internetowych",
+    "INF_STRUCT_SAMPLE": "Wybierz strony, które reprezentują wszystkie zidentyfikowane (1) kluczowe strony internetowe, (2) podstawowe funkcje, (3) typy stron internetowych, (4) technologie internetowe, na których oparto witrynę, oraz (5) inne  strony chrakterystyczne dla witryny. Aby uzyskać więcej informacji, zobacz <a href={{link_em_3a}}>WCAG-EM Krok 3.a: Include a Structured Sample</a> (Dołącz próbkę strukturalną).<br> Uwaga: 'Strony internetowe' obejmują różne „stany stron internetowych”; patrz definicja <a href={{link_em_state}}>web page states</a> (stanów stron internetowych).",
+    "HD_RANDOM_SAMPLE": "Losowa próbka",
+    "INF_RAND_SAMPLE": "Wybierz losowo próbkę stron w liczbie 10% próbki strukturalnej. Aby uzyskać więcej informacji, zobacz <a href={{link_em_3b}}>WCAG-EM Krok 3.b: Include a Randomly Selected Sample</a> (Uwzględnij próbkę wybraną losowo).<br>Uwaga: „Strony internetowe” obejmują różne „stany stron internetowych”; patrz definicja <a href={{link_em_state}}>web page states</a> (stanów stron internetowych).",
+    "RAND_SAMPLE_LENGTH": "Na podstawie ustrukturyzowanej próbki {{total}} stron internetowych wybierz co najmniej {{count}} losowo wybranych stron (aby spełnić wymaganie 10% określone w WCAG-EM).",
+    "LABEL_HANDLE": "Krótka nazwa",
+    "LABEL_PAGE": "Adres (URL) lub opis",
+    "NO_PAGES_DEFINED": "Nie zdefiniowano stron dla tego wykazu",
+    "ITEM": "Witryna",
+    "PLH_TITLE": "Identyfikator strony internetowej",
+    "PLH_PAGE_URL": "Adres (URL) lub opis sposobu dotarcia do strony",
+    "BTN_ADD_PAGE": "Dodaj witrynę",
+    "BTN_REMOVE_PAGE": "Usuń stronę",
+    "STRUCTURED_PAGE": "Strona strukturalna",
+    "RANDOM_PAGE": "Strona losowa",
+    "SAMPLE_PAGE": "Próbka stron"
+}
