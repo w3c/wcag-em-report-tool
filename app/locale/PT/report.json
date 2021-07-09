@@ -1,0 +1,18 @@
+{
+    "TITLE": "Etapa 5: Relatar os resultados da avaliação",
+    "INTRO": "Forneça informações adicionais sobre a avaliação que você deseja incluir no relatório. As descobertas da avaliação que você inseriu na etapa anterior estão incluídas abaixo em 'Resultados detalhados de avaliaçÃo' para revisão e para ajudá-lo a escrever um resumo. Mais orientações sobre esta etapa são fornecidas na <a href={{link_em_5}}> Etapa 5 da WCAG-EM: relate as conclusões da avaliação </a>.",
+    "LABEL_TITLE": "Título do Relatório",
+    "TITLE_PREFIX": "Relatório para",
+    "INF_TITLE": "Forneça um título para o relatório de avaliação de acessibilidade do site. Por exemplo: <br> 'Relatório de avaliação para organização de exemplo' <br> 'Análise de acessibilidade de loja virtual e sugestões de correções'",
+    "LABEL_COMMISSIONER": "Avaliação encomenda por",
+    "INF_COMMISSIONER": "A pessoa, equipe de pessoas, organização, departamento interno ou outra entidade que encomendou a avaliação.",
+    "LABEL_CREATOR": "Avaliador",
+    "INF_CREATOR": "A pessoa, equipe de pessoas, organização, departamento interno ou outra entidade responsável pela realização da avaliação.",
+    "LABEL_DATE": "Data da Avaliação",
+    "INF_DATE": "Forneça a data de conclusão ou as datas de duração desta avaliação. Você pode usar qualquer formato de data.",
+    "LABEL_SUMMARY": "Sumário",
+    "INF_SUMMARY": "Forneça um breve resumo das conclusões da avaliação para fornecer uma visão geral dos resultados. Por exemplo, descreva a acessibilidade geral do site e as principais observações que você fez durante a avaliação, como problemas e padrões que ocorrem com frequência.",
+    "LABEL_SPECIFICS": "Registro de detalhes da avaliação (opcional)",
+    "INF_SPECIFICS": "A WCAG-EM sugere que você arquive as páginas da web avaliadas. Para obter mais informações, consulte <a href={{link_em_5b}}> WCAG-EM Etapa 5.b: registre os detalhes da avaliação </a>. Você pode usar este campo de texto para registrar as ferramentas de avaliação, navegadores, tecnologias assistivas, outro software e métodos usados para a avaliação. O que você inserir aqui será incluído no relatório gerado. Depois de baixar o relatório, você pode excluir ou editar essas informações no arquivo HTML antes de enviar o relatório.",
+    "HD_CRITERIA_REPORT": "Resultados detalhados da avaliação"
+}

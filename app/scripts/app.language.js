@@ -3,22 +3,26 @@
 angular.module('wcagReporter')
   .value('supportedLanguages', [
     {
-    	code: 'en',
-    	localName: 'English'
+      'code': 'en',
+      'localName': 'English'
     },
     {
-    	code: 'nl',
-      localName: 'Nederlands'
-    }
+      'code': 'nl',
+      'localName': 'Nederlands'
+    },
+    {
+      'code': 'pt',
+      'localName': 'Português'
+    },
   ])
   .config(function ($translateProvider, wcag2specProvider) {
     var lang;
-    function createCookie (name, value) {
-      document.cookie = name + '=' + value + '; path=/';
+    function createCookie(name, value) {
+      document.cookie = name + "=" + value + "; path=/";
     }
 
-    function readCookie (name) {
-      var nameEQ = name + '=';
+    function readCookie(name) {
+      var nameEQ = name + "=";
       var ca = document.cookie.split(';');
       for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
@@ -31,8 +35,7 @@ angular.module('wcagReporter')
     try {
       lang = readCookie('wcagReporter-lang');
       if (!lang) {
-        lang = jQuery('*[ng-app="wcagReporter"]')
-          .attr('lang') || 'en';
+        lang = jQuery('*[ng-app="wcagReporter"]').attr('lang') || 'en';
         lang = lang.substr(0, 2);
         createCookie('wcagReporter-lang', lang);
       }
@@ -48,7 +51,9 @@ angular.module('wcagReporter')
 
     wcag2specProvider.setSpecPath('wcag2spec/wcag2-${lang}.json');
     wcag2specProvider.loadLanguage(lang);
-    $translateProvider.preferredLanguage(lang);
+    $translateProvider
+      .fallbackLanguage('en')
+      .preferredLanguage(lang);
   })
   .run(function ($rootScope, $rootElement, translateFilter) {
     $rootScope.translate = translateFilter;
