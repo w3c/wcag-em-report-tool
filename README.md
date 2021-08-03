@@ -16,7 +16,7 @@ Important references:
 - <http://www.w3.org/WAI/WCAG20/quickref/>
 - <http://www.w3.org/TR/WCAG-EM/>
 
-The official released version of the Report Tool can be found at <http://www.w3.org/WAI/eval/report-tool/>. An example of the latest (unapproved by EO) version is available at <http://w3c.github.io/wcag-em-report-tool/dist/>.
+The official released version of the Report Tool can be found at <http://www.w3.org/WAI/eval/report-tool/>. An example of the latest (unapproved by EO) version is available at <http://w3c.github.io/wcag-em-report-tool/>.
 
 See [Change log](changelog.md) for details about the latest version of the WCAG-EM Report Tool.
 
