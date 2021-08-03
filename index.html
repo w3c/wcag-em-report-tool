@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="full-page">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="styles/261ace11.main.css">
+  <link rel="stylesheet" href="styles/report.css">
+</head>
+<body ng-app="wcagReporter">
+
+  <div class="page-view">
+    <div ng-include src="'views/navigation.html'"></div>
+    <div ng-view autoscroll="true" class="container reporter-view"></div>
+    <div class="push-footer"></div>
+  </div>
+  <div ng-include src="'views/footer.html'"></div>
+
+  <script src="scripts/26ab0107.vendor.js"></script>
+
+  <script src="scripts/3ca62f3d.scripts.js"></script>
+  <script src="scripts/fcb6f07e.templates.js"></script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.www.w3.org/WAI"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+  var u="//www.w3.org/analytics/piwik/";
+  _paq.push(['setTrackerUrl', u+'piwik.php']);
+  _paq.push(['setSiteId', 328]);
+  var d=document, g=d.createElement('script'),
+  s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+  s.parentNode.insertBefore(g,s);
+  })();
+  </script>
+  <noscript><p><img src="//www.w3.org/analytics/piwik/piwik.php?idsite=328"
+  style="border:0;" alt="" /></p></noscript>
+  <!-- End Piwik Code -->
+</body>
+</html>
