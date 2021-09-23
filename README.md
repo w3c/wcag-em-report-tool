@@ -1,4 +1,4 @@
-_Note: this tool is being redesigned_ [Draft 2021 Redesign preview on Netlify](https://wcag-em-report-tool-2021-redesign.netlify.app/) (the code lives in the [wai-wcag-em-report-tool](https://github.com/w3c/wai-wcag-em-report-tool/) repository)
+_Note: this tool is replaced by_ [WCAG-EM Report Tool, version 3.0.0](https://w3.org/WAI/eval/report-tool) (the code lives in the [wai-wcag-em-report-tool](https://github.com/w3c/wai-wcag-em-report-tool/) repository)
 
 WCAG-EM Report tool is an assistant that takes the user
 through the process of evaluating the accessibility of a
