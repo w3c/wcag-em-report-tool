@@ -1026,7 +1026,7 @@ $templateCache.put('views/navigation.html',
 '<div class="wert-head" ng-controller="NavigationCtrl">\n' +
 '  <div style="background-color: #eed009; color: black;padding: 1em; text-align: center;">\n' +
 '    <p style="margin: 0">\n' +
-'    A redesign of this WCAG-EM Report Tool will be published here in August or September 2021. You can see the <a href="https://wcag-em-report-tool-2021-redesign.netlify.app/" style="color: #003366"> Redesign Preview</a> and <a href="https://github.com/w3c/wai-wcag-em-report-tool/wiki/Changelog:-What\'s-new-in-the-2021-redesign-of-the-WCAG-EM-Report-Tool" style="color: #003366">changelog of revisions</a>.\n' +
+'    A redesign of this WCAG-EM Report Tool was published in September 2021. You can find it on <a href="https://w3.org/WAI/eval/report-tool" style="color: #003366">https://w3.org/WAI/eval/report-tool</a> (<a href="https://github.com/w3c/wai-wcag-em-report-tool/wiki/Changelog:-What\'s-new-in-the-2021-redesign-of-the-WCAG-EM-Report-Tool" style="color: #003366">changelog of revisions</a>).\n' +
 '    </p>\n' +
 '  </div>\n' +
 '  <div class="navbar navbar-default">\n' +
