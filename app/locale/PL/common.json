@@ -1,0 +1,14 @@
+{
+    "BROWSER_NOT_SUPPORTED": "Używana przeglądarka internetowa nie obsługuje niektórych funkcji, takich jak zapisywanie i ładowanie raportów. Możesz nadal korzystać z Generatora raportu z ograniczoną funkcjonalnością. Aby korzystać z wszystkich funkcji Generatora, zaktualizuj przeglądarkę internetową lub użyj innej.",
+    "WARNING_BEFORE_UNLOAD": "Wprowadzone dane nie są automatycznie zapisywane. Zostaną one utracone, jeśli zamkniesz okno przeglądarki internetowej. Użyj łącza „Zapisz” (Ctrl + S lub ⌘ S) , który znajduje się na górze wszystkich stron, aby zapisać dane w pliku lokalnie na Twoim komputerze, a następnie załadować go ponownie, aby kontynuować nad nim pracę.",
+    "MORE_INFO": "Aby uzyskać więcej informacji, zobacz <a href={{url}}>{{name}}</a>.",
+    "HIDE_MESSAGE": "Ukryj wiadomość",
+    "BTN_INFO": "Rozwiń info",
+    "BTN_CLOSE_INFO": "Zamknij info",
+    "YES": "Tak",
+    "NO": "Nie",
+    "CLICK_EXPAND": "Kliknij, aby rozwinąć sekcję",
+    "CLICK_COLLAPSE": "Kliknij, aby ukryć sekcję",
+    "TO_TOP": "Wróć na górę",
+    "ACTIVE": "Aktywne"	
+}
