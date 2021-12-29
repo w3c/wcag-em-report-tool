@@ -1,0 +1,17 @@
+{
+    "TITLE": "Ferramenta de Relatório WCAG-EM",
+    "SUBTITLE": "Gerador de relatório de avaliação de acessibilidade",
+    "INTRO_HD": "O que esta ferramenta faz",
+    "INTRO_1": "Essa ferramenta ajuda a gerar um relatório de acordo com a <a href={{link_wcagem}}> Metodologia de avaliação de conformidade com acessibilidade (WCAG-EM) </a>. Não realiza nenhuma verificação de acessibilidade. Ele ajuda você a seguir as etapas da WCAG-EM, para gerar um <a href={{link_report}}> relatório estruturado </a> a partir das informações fornecidas. Ele foi desenvolvido para avaliadores experientes que conhecem as <a href={{link_wcag}}> Diretrizes de Acessibilidade para Conteúdo da Web (WCAG) 2.0 </a> e estão familiarizados com o WCAG-EM. Para obter uma introdução ao WCAG-EM, consulte a <a href={{link_conformance}}> Visão geral do WCAG-EM </a>.",
+    "INTRO_2": "<strong> Nota: </strong> Esta ferramenta não salva automaticamente as informações inseridas. Para salvar seus dados em um arquivo localmente no seu computador, use as teclas de atalho do Windows Ctrl + S ou as teclas de atalho do Mac {{mac}} para abrir a caixa de diálogo Salvar. (Ou o link 'Salvar' na parte superior da página abrirá a página Salvar relatório de avaliação e, a partir daí, o link 'Salvar arquivo de dados em seu computador' abrirá a caixa de diálogo Salvar.)",
+    "USAGE_HD": "Como essa ferramenta funciona",
+    "USAGE_LI1": "Todas as funcionalidades fornecidas por esta ferramenta agora estão carregadas e em execução localmente no seu navegador. Você não precisa de uma conexão com a Internet. Quando você fecha a janela do navegado, todos os dados não salvos são perdidos.",
+    "USAGE_LI2": "Todas as entradas que você fornece por meio dessa ferramenta são registradas no formato JSON em segundo plano (no seu navegador, não em nenhum servidor). Você pode salvar periodicamente enquanto trabalha para evitar a perda de dados se o navegador fechar.",
+    "USAGE_LI3": "Você pode salvar relatórios parcialmente completos e trabalhar neles posteriormente. Para recarregar um arquivo salvo, use o link 'Abrir' na parte superior e localize o arquivo que você salvou anteriormente.",
+    "USAGE_LI4": "Os links que não fazem parte da navegação ou da funcionalidade (links para recursos externos) são abertos em uma nova janela do navegador.",
+    "TIPS_HD": "Dicas para utilizar essa ferramenta",
+    "TIPS_LI1": "Você pode ir e voltar entre as etapas em qualquer ordem. Nenhum dos campos é obrigatório.",
+    "TIPS_LI2": "Para obter mais informações sobre um campo, selecione o ícone {{info}} ao lado do label do campo.",
+    "TIPS_LI3": "A ferramenta fornece seu relatório em arquivos HTML e CSS. Você pode fazer o download desses arquivos na página 'Exibir relatório'. Você pode alterar o conteúdo do relatório e o design visual.",
+    "TIPS_LI4": "Você pode incluir no seu relatório os critérios de sucesso das WCAG 2.0 além da meta de conformidade. Por exemplo, o site é necessário apenas para atender ao Nível AA, mas você também deseja incluir os critérios de sucesso do Nível AAA no relatório. Na etapa 4, use o filtro de nível para mostrar critérios de nível superior. Quaisquer critérios com resultado serão sempre incluídos no relatório."
+}

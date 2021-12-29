@@ -1,0 +1,21 @@
+{
+    "BY": "Relator:",
+    "COMMISION_BY": "Avaliação encomenda por:",
+    "HD_SUMMARY": "Resumo das conclusões da avaliação",
+    "HD_SCOPE": "Escopo da avaliação",
+    "LABEL_SITE_NAME": "Nome do site",
+    "LABEL_SITE_SCOPE": "Escopo do site",
+    "LABEL_CONFORMANCE_TGT": "Meta de conformidade",
+    "LABEL_EXTRA_REQUIREMENTS": "Requisitos adicionais da avaliação",
+    "LABEL_SUPPORT_BASE": "Suporte a acessibilidade",
+    "LABEL_RELIEDUP_TECH": "Relied upon technologies",
+    "HD_SCORE": "Visão geral dos resultados",
+    "RESULTS_OF": "Resultados de",
+    "PRINCIPLE": "Princípio",
+    "TOTAL_SCORE": "Total",
+    "HD_CRITERIA_REPORT": "Resultados detalhados",
+    "LABEL_DESCR": "Conclusões",
+    "HD_SAMPLE": "Amostra de páginas da web avaliadas",
+    "HD_SPECIFICS": "Registro de especificações de avaliação",
+    "HD_DOCS": "Recursos relacionados a WCAG 2.0"
+}

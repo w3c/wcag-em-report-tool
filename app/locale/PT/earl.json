@@ -1,0 +1,10 @@
+{
+    "PASSED": "Aprovado",
+    "FAILED": "Falhou",
+    "CANT_TELL": "Não sei",
+    "NOT_PRESENT": "Não presente",
+    "NOT_CHECKED": "Não marcado",
+    "LEVEL_A": "Nível A",
+    "LEVEL_AA": "Nível AA",
+    "LEVEL_AAA": "Nível AAA"
+}
