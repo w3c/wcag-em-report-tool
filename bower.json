@@ -14,7 +14,7 @@
     "angular-sanitize": "1.7.x",
     "angular-translate": "2.x",
     "angular-translate-loader-static-files": "2.x",
-    "bootstrap-sass-official": "~3.x",
+    "bootstrap-sass-official": "~3.3.x",
     "angular-mocks": "~1.4.7",
     "angular-scenario": "~1.4.7"
   },
